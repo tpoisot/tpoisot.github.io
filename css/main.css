@@ -158,3 +158,8 @@ table.projects td.desc {
   margin-top: 45px; }
   #disqus_thread h3 {
     font-size: 19px; }
+    
+.about_head h2{
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
