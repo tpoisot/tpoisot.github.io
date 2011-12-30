@@ -1,5 +1,5 @@
 html {
-  padding: 35px 0 35px 0; }
+  padding: 0px 0 0px 0; }
 
 body {
   text-align: center;
@@ -10,7 +10,7 @@ body {
 #header {
   font-family: 'Lato';
   padding: 25px;
-  background: #e4d4a3;
+  background: #97c5e4;
   margin-bottom: 45px;
   color: #333; }
   #header .inner {
@@ -75,7 +75,7 @@ body {
 
 #footer {
   font-family: 'Lato';
-  background: #e4d4a3;
+  background: #97c5e4;
   padding: 25px;
   color: #333; }
   #footer .inner {
