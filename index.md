@@ -16,7 +16,8 @@ I'm Timoth&eacute; Poisot, a [community ecologist](http://www.timotheepoisot.fr/
 [ESM](https://r-forge.r-project.org/projects/esm/) is a R package to measure ecological specialization at the species level. Most of its functions are included in `bipy`.
 
 <div id='social'>
-## I'm also on ...
-* [Twitter](http://twitter.com/#!/tpoi)
-* [Quora](http://www.quora.com/Timothée-Poisot)
+<h2>I'm also on ...</h2>
+<ul>
+	<li><a href="http://twitter.com/#!/tpoi">Twitter</a></li>
+	<li><a href="http://www.quora.com/Timothée-Poisot">Quora</a></li>
 </div>
