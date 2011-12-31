@@ -19,5 +19,5 @@ I'm Timoth&eacute; Poisot, a [community ecologist](http://www.timotheepoisot.fr/
 <h2>I'm also on ...</h2>
 <ul>
 	<li><a href="http://twitter.com/#!/tpoi">Twitter</a></li>
-	<li><a href="http://www.quora.com/Timothée-Poisot">Quora</a></li>
+	<li><a href="http://b.qr.ae/uYE6QE">Quora</a></li>
 </div>
