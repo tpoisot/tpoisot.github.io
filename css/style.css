@@ -2,6 +2,9 @@
 
 body{
 	font-family: 'Open Sans';
+	width: 800 px;
+	font-size: 62.5 %;
+	margin: 30 px auto;
 }
 
 #hi{
@@ -12,4 +15,8 @@ body{
 #name{
 	color: #4499ff;
 	font-weight: normal;
+}
+
+#chapo{
+	color: #beb9bf;
 }
