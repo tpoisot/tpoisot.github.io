@@ -13,7 +13,7 @@ a{
 }
 
 a:hover{
-	background-color: #4499ff;
+	text-decoration: underline;
 }
 
 #hi{
@@ -38,7 +38,7 @@ a:hover{
 }
 
 #main{
-	width: 600px;
+	width: 590px;
 	float: left;
 	padding-right: 10px;
 	margin: 0px;
