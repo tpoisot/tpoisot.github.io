@@ -7,6 +7,15 @@ body{
 	margin: 30 px auto;
 }
 
+a{
+	color: #ff8ef3;
+	text-decoration: none;
+}
+
+a:hover{
+	background-color: #4499ff;
+}
+
 #hi{
 	font-weight: bold;
 	color: #ff8ef3;
@@ -32,9 +41,11 @@ body{
 	width: 600px;
 	float: left;
 	padding-right: 10px;
+	margin: 0px;
 }
 
 #aside{
+	margin: 0px;
 	width: 200px;
 	float: right;
 }
@@ -48,4 +59,9 @@ body{
 }
 #page-content{
 	clear: both;
+}
+
+
+.project h2, .social h2{
+	color: #4499ff;
 }
