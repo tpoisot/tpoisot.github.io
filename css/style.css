@@ -19,4 +19,11 @@ body{
 
 #chapo{
 	color: #beb9bf;
+	font-size: 2em;
+	padding: 40px 0px;
+}
+
+#head{
+	font-size: 3em;
+	padding: 30px 0px;
 }
