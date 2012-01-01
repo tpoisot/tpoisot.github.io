@@ -1,10 +1,10 @@
 ---
 layout: page
-title: About
+title: Code
 ---
 
 <div id='chapo'>
-	<p class='text'>I'm a <a href='http://www.timotheepoisot.fr/'>community ecologist</a> interested in making science Open Source. This page is a portfolio for some of my code.</p>
+	I think that science will gain to be more and more open source. This is some of my code (the small fraction of it which is usable, anyway).
 </div>
 
 <div id='main'>
