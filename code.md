@@ -4,7 +4,7 @@ title: Code
 ---
 
 <div id='chapo'>
-	{% include chapo-{{page.title}}.html %}
+	{% include chapo-{{ page.title }}.html %}
 </div>
 
 <div id='main'>
