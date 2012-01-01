@@ -44,4 +44,8 @@ body{
 	color: #beb9bf;
 	margin-top: 1.5em;
 	padding-top: 1.5em;
+	display: block;
+}
+#page-content{
+	clear: both;
 }
