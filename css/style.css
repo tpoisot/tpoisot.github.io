@@ -61,7 +61,12 @@ a:hover{
 	clear: both;
 }
 
+.project, #social{
+	border: 1px solid color: #4499ff;
+	padding: 5px 5px;
+}
 
-.project h2, .social h2{
-	color: #4499ff;
+.project h2, #social h2{
+	color: black;
+	font-weight: bold;
 }
