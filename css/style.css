@@ -57,13 +57,15 @@ a:hover{
 	padding-top: 1.5em;
 	display: block;
 }
+
 #page-content{
 	clear: both;
 }
 
 .project, #social{
-	border: 1px solid color: #4499ff;
+	border: 1px solid #4499ff;
 	padding: 5px 5px;
+	margin-bottom: 2em;
 }
 
 .project h2, #social h2{
