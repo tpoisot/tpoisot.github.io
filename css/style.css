@@ -63,10 +63,11 @@ a:hover{
 }
 
 .project, #social{
-	margin-bottom: 2em;
+	margin-bottom: 2.5em;
 }
 
 .project h2, #social h2{
 	color: black;
 	font-weight: bold;
+	padding-bottom: 1em;
 }
