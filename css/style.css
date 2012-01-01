@@ -28,8 +28,20 @@ body{
 	padding: 30px 0px;
 }
 
-.project{
+#main{
 	width: 600px;
 	float: left;
 	padding-right: 10px;
+}
+
+#aside{
+	width: 200px;
+	float: right;
+}
+
+#footer{
+	clear: both;
+	color: #beb9bf;
+	margin-top: 1.5em;
+	padding-top: 1.5em;
 }
