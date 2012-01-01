@@ -4,7 +4,7 @@ title: Code
 ---
 
 <div id='chapo'>
-	I think that science will gain to be more and more open source. This is some of my code (the small fraction of it which is usable, anyway).
+	{% include chapo-{{page.title}}.html %}
 </div>
 
 <div id='main'>
@@ -23,13 +23,6 @@ title: Code
 
 <div id='aside'>
 
-	<div id='social'>
-	<h2>I'm also on ...</h2>
-	<ul>
-		<li><a href="http://twitter.com/#!/tpoi">Twitter</a></li>
-		<li><a href="http://www.mendeley.com/profiles/tim-poisot/">Mendeley</a></li>
-		<li><a href="http://b.qr.ae/uYE6QE">Quora</a></li>
-	</ul>
-	</div>
+	{% include sidebar-social.html %}
 
 </div>
