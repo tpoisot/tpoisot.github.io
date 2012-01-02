@@ -31,4 +31,3 @@ It's really simple, and it is probably the most complicated piece of code.
 ![](http://www.timotheepoisot.fr/wp-content/uploads/2011/11/tritrophic.png)
 
 Once this is done, it was just a matter of (i) sorting species by their number of interactions, (ii) plotting them on their respective trophic levels, centered around 0, and (iii) adding the links. This was all very straightforward, [and the code is available here if you want to download it](https://gist.github.com/1389916). As the code use PyX, you will need a LaTeX install on your system. The code comes with an example, and the function `null_bernoulli`, whose job is to generate adjacency networks of a give size and connectance, with all species having at least one interaction.
-
