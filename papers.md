@@ -5,11 +5,11 @@ title: Papers
 
 # Papers in press
 
-**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. _Methods in Ecology & Evolution_, accepted. [[R package](https://r-forge.r-project.org/R/?group_id=593)] 
+**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. __Methods in Ecology & Evolution__, accepted. [[R package](https://r-forge.r-project.org/R/?group_id=593)] 
 
 # 2012
 
-**Timothée Poisot**, Peter H Thrall, Michael E Hochberg (2012) Trophic network structure emerges through antagonistic coevolution in temporally varying environments. _Proceedings of the Royal Society B: Biological Sciences_, 279 (1712) 299–308. [[pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-Thrall-Hochberg-2011-Trophic-network-structure-emerges-through-antagonistic-coevolution-in-temporally-varying-environments2.pdf)][[suppl. mat.](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/supplementary-material.pdf)] 
+**Timothée Poisot**, Peter H Thrall, Michael E Hochberg (2012) Trophic network structure emerges through antagonistic coevolution in temporally varying environments. __Proceedings of the Royal Society B: Biological Sciences__, 279 (1712) 299–308. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-Thrall-Hochberg-2011-Trophic-network-structure-emerges-through-antagonistic-coevolution-in-temporally-varying-environments2.pdf), [suppl. mat.](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/supplementary-material.pdf) 
 
 # 2011
 
