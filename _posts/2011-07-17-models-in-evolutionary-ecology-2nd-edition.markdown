@@ -1,7 +1,6 @@
 ---
 author: Tim
 layout: post
-status: publish
 title: Models in Evolutionary Ecology, 2nd edition
 summary: Videos from the Models in Evolutionary Ecology meeting, in Montpellier.
 tags:

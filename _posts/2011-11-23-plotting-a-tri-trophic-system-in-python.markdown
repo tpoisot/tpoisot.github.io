@@ -2,7 +2,7 @@
 author: Tim
 layout: post
 title: Plotting a tri-trophic system in Python
-summary: Using Python and Pyx to plot a tri-trophic network.
+summary: Using Python and Pyx to plot a tri-trophic network
 tags:
 - network ecology
 - python
