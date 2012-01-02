@@ -4,12 +4,9 @@ title: Code
 ---
 
 {% assign chapo-page = {{ {{ {{page.title}} | prepend:'chapo-' }} | append:'.html' }} %}
-{{chapo-page}}
 
 <div id='chapo'>
-	prepend - prepend a string e.g. {{ 'bar' | prepend:'foo' }} #=> 'foobar'
-	append - append a string e.g. {{ 'foo' | append:'bar' }} #=> 'foobar'
-	{% include chapo-{% page.title %}.html %}
+	{% include {{chapo-page}} %}
 </div>
 
 <div id='main'>
