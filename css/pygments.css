@@ -1,9 +1,11 @@
 .highlight{
+	border: 1px solid #fef9da;
+	background-color: #fff8dd;
 	margin-bottom: 1.5em;
 	padding-bottom: 1em;
 	padding-top: 1em;
-	border-top: 1px solid #ff8ef3;
-	border-bottom: 1px solid #ff8ef3;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
 }
 
 .highlight .kn, .highlight .k{
