@@ -22,32 +22,28 @@ import scipy as sp
 import scipy.integrate as sp_int
 {% endhighlight %}
 
-  
 Next, we write the function modeling the population growth, as a function of
 two parameters, *r* and *K*.
 
-    
 {% highlight python %}    
 def logistic(y,t0,r,K):
 	dY = y[0] * (r - y[0] / float(K))
     return [dY]
 {% endhighlight %}
-
   
 The syntax is relatively easy. Note that `t0` is not used by the function at any time, but is required by `odeint` to do its internal calculations. Note also that y is an array. These two parameters are required, and the other are optional. Next, we fix the values of _r_ and _K_. The required format is a tuple, so you need to be very careful when passing the parameters: they must be in the same order than in the function declaration. Additionally, we'll declare a starting population size.
 
-    
 {% highlight python %}
 params = (0.3,10)
 y = [0.01]
 {% endhighlight %}
-    
+ 
 Now we will do the actual numerical integration. This is fairly simple.
 
 {% highlight python %}    
 log_growth = sp_int.odeint(func=logistic,y0=y,t=range(0,600),args=params)
 {% endhighlight %}
-  
+
 Note that we define an array called `t`, in which the times at which integration needs to be performed are stored. The object `log_growth` will have all the information required to analyze the simulation results, with the time in the first column, and the population sizes after. This kind of object is fairly easy to plot using, e.g. [PyX](http://pyx.sourceforge.net/).
 
 Although this was a simple example, it illustrates how easy it can be to program a simple simulation using python. I must admit that I was nicely surprised to see the rapidity of the process, and the gain in execution time when compared to R is definitely not something to neglect.
