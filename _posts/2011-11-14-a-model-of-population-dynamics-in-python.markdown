@@ -17,7 +17,7 @@ In simecol, modeling a population dynamics requires to write a function taking a
 
 To write a simulation of population dynamics (I'll use logistic growth as an example), we first import the relevant parts of the scipy library.
 
-{% highlight python %}    
+{% highlight python %}
 import scipy as sp
 import scipy.integrate as sp_int
 {% endhighlight %}
@@ -25,7 +25,7 @@ import scipy.integrate as sp_int
 Next, we write the function modeling the population growth, as a function of
 two parameters, *r* and *K*.
 
-{% highlight python %}    
+{% highlight python %}
 def logistic(y,t0,r,K):
 	dY = y[0] * (r - y[0] / float(K))
     return [dY]
@@ -40,8 +40,11 @@ y = [0.01]
  
 Now we will do the actual numerical integration. This is fairly simple.
 
-{% highlight python %}    
-log_growth = sp_int.odeint(func=logistic,y0=y,t=range(0,600),args=params)
+{% highlight python %}
+log_growth = sp_int.odeint(
+	func=logistic,y0=y,
+	t=range(0,600),args=params
+	)
 {% endhighlight %}
 
 Note that we define an array called `t`, in which the times at which integration needs to be performed are stored. The object `log_growth` will have all the information required to analyze the simulation results, with the time in the first column, and the population sizes after. This kind of object is fairly easy to plot using, e.g. [PyX](http://pyx.sourceforge.net/).
