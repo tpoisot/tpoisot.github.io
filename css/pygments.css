@@ -6,6 +6,22 @@
 	border-bottom: 1px solid #ff8ef3;
 }
 
-.highlight .kn{
+.highlight .kn, .highlight .k{
 	font-weight: bold;
+}
+
+.highlight .mi{
+	color: #ff0900;
+}
+
+.highlight .nf{
+	text-decoration: underline;
+	color: #4499ff;
+}
+
+.highlight .s{
+	color: #1e7819;
+	background-color: #d2ffd9;
+	font-style: italic;
+	
 }
