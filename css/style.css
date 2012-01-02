@@ -69,7 +69,11 @@ a:hover{
 .project h2, #aside h2{
 	color: black;
 	font-weight: bold;
-	padding-bottom: 1em;
+	padding-bottom: 0.9em;
+}
+
+#aside h2{
+	padding-top: 1.2em;
 }
 
 #page p{
