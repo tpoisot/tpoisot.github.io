@@ -1,13 +1,9 @@
 ---
-author: tpoisot
-date: '2011-07-17 19:50:24'
+author: Tim
 layout: post
-slug: models-in-evolutionary-ecology-2nd-edition
 status: publish
 title: Models in Evolutionary Ecology, 2nd edition
-wordpress_id: '3'
-categories:
-- Conferences
+summary: Videos from the Models in Evolutionary Ecology meeting, in Montpellier.
 tags:
 - conferences
 - videos

@@ -1,13 +1,8 @@
 ---
-author: tpoisot
-date: '2011-07-18 17:19:49'
+author: Tim
 layout: post
-slug: innge-network-this-is-on
-status: publish
 title: 'INNGE network : this is on!'
-wordpress_id: '25'
-categories:
-- General
+summary: Next-generation ecology has a new network. Spread the word!
 tags:
 - INNGE
 ---

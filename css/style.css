@@ -7,6 +7,18 @@ body{
 	margin: 30 px auto;
 }
 
+it, em{
+	font-style: italic;
+}
+
+b, strong{
+	font-weight: 700;
+}
+
+code, pre{
+	font-family: monospace;
+}
+
 a{
 	color: #ff8ef3;
 	text-decoration: none;
