@@ -3,7 +3,6 @@ layout: default
 ---
 
 <div id='chapo'>
-	{% include chapo-page.title.html %}
 	{% case page.title %}
 	{% when 'Code' %}
 		{% include chapo-Code.html %}
@@ -14,6 +13,14 @@ layout: default
 	{% endcase %}	
 </div>
 
-{{ content }}
+<div id='mainframe'>
 
-***{{ page.title }}***
+<div id='page'>
+{{ content }}
+</div>
+
+<div id='aside'>
+	{% include sidebar-social.html %}
+</div>
+
+</div>
