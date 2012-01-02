@@ -1,9 +1,8 @@
 .highlight{
-	border: 1px solid #fef9da;
+	border: 1px solid #e2d7b1;
 	background-color: #fff8dd;
 	margin-bottom: 1.5em;
-	padding-bottom: 1em;
-	padding-top: 1em;
+	padding: 0.9em;
 	-moz-border-radius: 1em;
 	border-radius: 1em;
 }
