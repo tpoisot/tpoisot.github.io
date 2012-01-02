@@ -91,12 +91,12 @@ a:hover{
 }
 
 #aside li{
-	margin-bottom: 0.9em;
+	margin-bottom: 0.7em;
 }
 
 #page p{
 	padding-bottom: 1.1em;
-	line-height: 1.4em;
+	line-height: 1.7em;
 }
 
 #page p a{
@@ -112,4 +112,10 @@ a:hover{
 	font-weight: bold;
 	padding-bottom: 1.3em;
 	font-size: 110%;
+}
+
+blockquote
+{
+	padding-left: 2em;
+	font-style: italic;
 }
