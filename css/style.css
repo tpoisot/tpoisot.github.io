@@ -71,3 +71,8 @@ a:hover{
 	font-weight: bold;
 	padding-bottom: 1em;
 }
+
+#page p{
+	padding-bottom: 1em;
+	line-height: 1.2em;
+}
