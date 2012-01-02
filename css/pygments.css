@@ -5,3 +5,7 @@
 	border-top: 1px solid #ff8ef3;
 	border-bottom: 1px solid #ff8ef3;
 }
+
+.highlight .kn{
+	font-weight: bold;
+}
