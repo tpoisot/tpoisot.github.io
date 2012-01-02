@@ -1,32 +1,19 @@
 ---
-author: tpoisot
-date: '2011-11-19 18:28:42'
+author: Tim
 layout: post
-slug: get-your-lab-on-twitter
-status: publish
 title: Get your lab on twitter!
-wordpress_id: '168'
-categories:
-- Opinion
+summary: Scientists and institutions should care (a lot) about social networks.
 tags:
 - scientific communication
 - social networks
 ---
 
-More and more scientists are taking advantage of social networking tools to
-talk about their research. This trend was even deemed worthy of [a paper in
-_Nature_ this
-week](http://www.nature.com/naturejobs/science/articles/10.1038/nj7371-141a).
-I've read this paper, and I had mixed feelings about it. On one hand, it was
-good to see the use of social medias showcased in such a prestigious journal.
-On the other hand, I felt it came out of nowhere, and was too descriptive. I
-was left wondering, if I were not already using twitter and other similar
-things (partly) for scientific purposes, would this article have changed my
-habits? Maybe not.
+More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of [a paper in
+*Nature* this week](http://www.nature.com/naturejobs/science/articles/10.1038/nj7371-141a). I've read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I was left wondering, if I were not already using twitter and other similar things (partly) for scientific purposes, would this article have changed my habits? Maybe not.
 
 However, there are a number of different reasons for which getting involved in
 social networks is a wise decision for a researcher or a lab, and I will
-highligt those who seem the most relevant. Obviously, social media presence
+highlight those who seem the most relevant. Obviously, social media presence
 goes beyond having a twitter account. This is why, at
 [INNGE](http://twitter.com/#!/INNGEcologist) and the [French Ecological
 Society](http://www.sfecologie.org/), we have a facebook page. This is why my
@@ -35,7 +22,7 @@ have a blog. Taken all together, these tools offer an incredible potential for
 scientists to engage in the discussion, and we should all work actively to use
 them.
 
-## Cut the middle man
+# Cut the middle man
 
 It's often tempting to complain about the fact that Science (not the journal,
 the discipline) is hard to spread from within the community to a broader
@@ -57,9 +44,9 @@ or a facebook page up and running, and _you_, the researcher, will be able to
 talk directly about your work. This will require a short time of adaptation,
 as the general tone of a blog post is not one of a paper (unless I'm wrong
 either in the way I write papers or blog posts!), and the degree of precision
-differs. But once this is done, you may even find the exercice enjoyable!
+differs. But once this is done, you may even find the exercise enjoyable!
 
-## Help your ideas invade
+# Help your ideas invade
 
 Probably the best advice I received about what science is about comes from one
 of my collaborators, who interrupted our burger-seeking walk to tell me that
@@ -76,19 +63,19 @@ Evolution](http://twitter.com/#!/methodsecolevol)_ a big thank you, because
 they mention every new paper on twitter (well, that, and they've also accepted
 papers of mine, so you know...). Some papers get retweeted, and benefit from a
 terrific, instantaneous exposure. I've seen a few instances of one of the
-authors gettinf involved in the discussion, and it was all very stimulating.
+authors getting involved in the discussion, and it was all very stimulating.
 
 I'm not aware of any studies establishing a correlation (or the lack thereof)
-between the number of times a paper is mentionned on social networks and its
+between the number of times a paper is mentioned on social networks and its
 number of citations (my guess is that it will help citations happen sooner,
 not necessarily increase them – although good papers may be retweeted more
 frequently, so there are confounding effects here). But it definitely will not
 harm you to see a lot of people talking about your work.
 
-## The permanent conference
+# The permanent conference
 
-A while ago during a discussion about social media, someone mentionned to me
-that the kind of interactions esablished on twitter ressemble the ones
+A while ago during a discussion about social media, someone mentioned to me
+that the kind of interactions established on twitter resemble the ones
 established during a conference, albeit soberer. I have to agree with this.
 Just look at the incoming tweets, or facebook updates, and you'll see what
 everybody is up to. What they write about on their blogs. What kind of
@@ -100,11 +87,11 @@ strongest points to me, the ability to be permanently in touch with your
 community. Even though it's not always productive, it's always good fun. But
 it can become very interesting. You can ask for advice. You can get feedback,
 ideas, suggestions. And a lot of things which would have gone completely under
-your radar suddenly become accesible to you. Just for this, it is definitely
+your radar suddenly become accessible to you. Just for this, it is definitely
 worth the few minutes a day that you'll soon find yourself putting into the
 exercise.
 
-## All the cool kids do it!
+# All the cool kids do it!
 
 I've tried to make the point that being active on social networks can help you
 take control of what is said about your science, will let other spread your
