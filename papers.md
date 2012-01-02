@@ -5,19 +5,19 @@ title: Papers
 
 # Papers in press
 
-**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. __Methods in Ecology & Evolution__, accepted. [[R package](https://r-forge.r-project.org/R/?group_id=593)] 
+**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*, accepted. [[R package](https://r-forge.r-project.org/R/?group_id=593)] 
 
 # 2012
 
-**Timothée Poisot**, Peter H Thrall, Michael E Hochberg (2012) Trophic network structure emerges through antagonistic coevolution in temporally varying environments. __Proceedings of the Royal Society B: Biological Sciences__, 279 (1712) 299–308. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-Thrall-Hochberg-2011-Trophic-network-structure-emerges-through-antagonistic-coevolution-in-temporally-varying-environments2.pdf), [suppl. mat.](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/supplementary-material.pdf) 
+**Timothée Poisot**, Peter H Thrall, Michael E Hochberg (2012) Trophic network structure emerges through antagonistic coevolution in temporally varying environments. *Proceedings of the Royal Society B: Biological Sciences*, 279 (1712) 299–308. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-Thrall-Hochberg-2011-Trophic-network-structure-emerges-through-antagonistic-coevolution-in-temporally-varying-environments2.pdf), [suppl. mat.](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/supplementary-material.pdf) 
 
 # 2011
 
-**Timothée Poisot**, Olivier Verneau & Yves Desdevises (2011) Morphological and molecular evolution are not linked in _Lamellodiscus_(Plathyhelminthes, Monogenea). _PLoS One _6 (10) e26252. [[pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-Verneau-Desdevises-2011-Morphological-and-molecular-evolution-are-not-linked-in-Lamellodiscus-Plathyhelminthes-Monogenea.pdf)]  
+**Timothée Poisot**, Olivier Verneau & Yves Desdevises (2011) Morphological and molecular evolution are not linked in *Lamellodiscus*(Plathyhelminthes, Monogenea). *PLoS One* 6 (10) e26252. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-Verneau-Desdevises-2011-Morphological-and-molecular-evolution-are-not-linked-in-Lamellodiscus-Plathyhelminthes-Monogenea.pdf)   
 
-**Timothée Poisot**, James D Bever, Adnane Nemri, Peter H Thrall & Michael E Hochberg (2011) A Conceptual Framework for the Evolution of Ecological Specialization. _Ecology Letters_ 14 (9) 841–851. [[pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2011-A-conceptual-framework-for-the-evolution-of-ecological-specialisation.pdf)]  
+**Timothée Poisot**, James D Bever, Adnane Nemri, Peter H Thrall & Michael E Hochberg (2011) A Conceptual Framework for the Evolution of Ecological Specialization. *Ecology Letters* 14 (9) 841–851. [[pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2011-A-conceptual-framework-for-the-evolution-of-ecological-specialisation.pdf)]  
 
-**Timothée Poisot**, Gildas Lepennetier, Esteban Martinez, Johan Ramsayer & Michael E Hochberg (2011) Resource availability affects the structure of a natural bacteria-bacteriophage community. _Biology Letters_ 7 (2) 201-204. [[pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2010-Resource-availability-affects-the-structure-of-a-natural-bacteria-bacteriophage-community.pdf)]  
+**Timothée Poisot**, Gildas Lepennetier, Esteban Martinez, Johan Ramsayer & Michael E Hochberg (2011) Resource availability affects the structure of a natural bacteria-bacteriophage community. *Biology Letters* 7 (2) 201-204. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2010-Resource-availability-affects-the-structure-of-a-natural-bacteria-bacteriophage-community.pdf)   
 
 Peter Søgaard Jørgensen, Vincent Bonhomme, Thomas H G Ezard, R Andrew Hayes,
 **Timothée Poisot**, Roberto Salguero-gomez, Salvatrice Vizzini, Naupaka
