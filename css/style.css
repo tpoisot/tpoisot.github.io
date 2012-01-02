@@ -76,3 +76,7 @@ a:hover{
 	padding-bottom: 1em;
 	line-height: 1.2em;
 }
+
+#head a{
+	text-decoration: none;
+}
