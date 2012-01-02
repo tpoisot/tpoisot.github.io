@@ -4,5 +4,5 @@ title: Blog
 ---
 
 {% for post in site.posts %}
-		<code>{{ post.date | date_to_string }}</code> :: <span class='post-title'><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></span><p />
+`{{ post.date | date_to_string }}` :: [{{ post.title }}]({{ site.url }}{{ post.url }})
 {% endfor %}
