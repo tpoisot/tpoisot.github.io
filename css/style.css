@@ -80,7 +80,7 @@ a:hover{
 	margin-bottom: 2.5em;
 }
 
-.project h2, #aside h2{
+.project h2, #aside h2, #comments h2{
 	color: black;
 	font-weight: bold;
 	padding-bottom: 0.9em;
