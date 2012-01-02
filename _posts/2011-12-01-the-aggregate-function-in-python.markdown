@@ -2,7 +2,7 @@
 author: Tim
 layout: post
 title: The aggregate function in Python
-summary: Using Python to aggregate data along a given factor
+summary: Using Python to aggregate data along a given factor.
 tags:
 - python
 - R
