@@ -3,11 +3,12 @@ layout: default
 ---
 
 <div id='chapo'>
+	{% include chapo-page.title.html %}
 	{% case page.title %}
 	{% when 'Code' %}
 		{% include chapo-Code.html %}
 	{% when 'About' %}
-		{% include chapo-Code.html %}
+		{% include chapo-About.html %}
 	{% else %}
 		Hi !
 	{% endcase %}	
