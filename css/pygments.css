@@ -1,6 +1,7 @@
 .highlight{
+	text-shadow: 0px 0px white;
 	border: 1px solid #e2d7b1;
-	background-color: #fff8dd;
+	background-color: #fffde8;
 	margin-bottom: 1.5em;
 	padding: 0.9em;
 	-moz-border-radius: 1em;
@@ -15,6 +16,11 @@
 	color: #ff0900;
 }
 
+.highlight .o{
+	color: #707070;
+	font-weight: bold;
+}
+
 .highlight .nf{
 	text-decoration: underline;
 	color: #4499ff;
@@ -23,6 +29,4 @@
 .highlight .s{
 	color: #1e7819;
 	background-color: #d2ffd9;
-	font-style: italic;
-	
 }
