@@ -9,7 +9,7 @@ tags:
 - visualization
 ---
 
-I have been playing with simple communities made of three trophic levels in the last weeks, and I really wanted to have a way to plot them as [Chesson and Kuang did in their 2008 *Nature* paper](http://eebweb.arizona.edu/faculty/chesson/Multitrophic%20diversity%20maintenance.htm). Using Python and the _[PyX](http://pyx.sourceforge.net/)_ package, it was relatively easy to develop something. Most of the subtlety is to have the arrows representing trophic interactions going just near the circles representing species, but not to the point where they touch them. That's when I remembered that some greek guy going by the name [Thales](http://en.wikipedia.org/wiki/Thales'_theorem) may have the answer.
+I have been playing with simple communities made of three trophic levels in the last weeks, and I really wanted to have a way to plot them. Using Python and the _[PyX](http://pyx.sourceforge.net/)_ package, it was relatively easy to develop something. Most of the subtlety is to have the arrows representing trophic interactions going just near the circles representing species, but not to the point where they touch them. That's when I remembered that some greek guy going by the name [Thales](http://en.wikipedia.org/wiki/Thales'_theorem) may have the answer.
 
 The function I wrote to shorten a line by a distance _d_ is the following:
 
