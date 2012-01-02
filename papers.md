@@ -15,7 +15,7 @@ title: Papers
 
 **Timothée Poisot**, Olivier Verneau & Yves Desdevises (2011) Morphological and molecular evolution are not linked in *Lamellodiscus*(Plathyhelminthes, Monogenea). *PLoS One* 6 (10) e26252. [pdf]({{ site.url }}/reprints/poisot_plosone_phylogeny.pdf)   
 
-**Timothée Poisot**, James D Bever, Adnane Nemri, Peter H Thrall & Michael E Hochberg (2011) A Conceptual Framework for the Evolution of Ecological Specialization. *Ecology Letters* 14 (9) 841–851. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2011-A-conceptual-framework-for-the-evolution-of-ecological-specialisation.pdf)  
+**Timothée Poisot**, James D Bever, Adnane Nemri, Peter H Thrall & Michael E Hochberg (2011) A Conceptual Framework for the Evolution of Ecological Specialization. *Ecology Letters* 14 (9) 841–851. [pdf]({{ site.url }}/reprints/poisot_ele_spereview.pdf)  
 
 **Timothée Poisot**, Gildas Lepennetier, Esteban Martinez, Johan Ramsayer & Michael E Hochberg (2011) Resource availability affects the structure of a natural bacteria-bacteriophage community. *Biology Letters* 7 (2) 201-204. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2010-Resource-availability-affects-the-structure-of-a-natural-bacteria-bacteriophage-community.pdf)   
 
@@ -31,5 +31,5 @@ Anne Tessier, **Timothée Poisot**, Yves Desdevises & Pascal Romans (2010) Effe
 
 # 2009
 
-**Timothée Poisot**, Andrea Simková, Pavel Hyrsl & Serge Morand (2009) Interactions between immunocompetence, somatic condition and parasitism in the chub *Leuciscus cephalus* in early spring. *Journal of Fish Biology* 75 (7) 1667-1682. [pdf](http://www.timotheepoisot.fr/wp-content/uploads/2011/07/Poisot-et-al.-2009-Interactions-between-immunocompetence-somatic-condition-and-parasitism-in-the-chub-Leuciscus-cephalus-in-early-spring.pdf)
+**Timothée Poisot**, Andrea Simková, Pavel Hyrsl & Serge Morand (2009) Interactions between immunocompetence, somatic condition and parasitism in the chub *Leuciscus cephalus* in early spring. *Journal of Fish Biology* 75 (7) 1667-1682. [pdf]({{ site.url }}/reprints/poisot_jfishb_chub.pdf)
 
