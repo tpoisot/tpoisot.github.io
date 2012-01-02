@@ -3,12 +3,6 @@ layout: page
 title: Code
 ---
 
-{% assign chapo-page = {{ {{ {{page.title}} | prepend:'chapo-' }} | append:'.html' }} %}
-
-<div id='chapo'>
-	{% include {{chapo-page}} %}
-</div>
-
 <div id='main'>
 
 	<div class='project'>
