@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div id='chapo'>
-	{% case {{ page.title }} %}
+	{% case page.title %}
 	{% when 'Code' %}
 		{% include chapo-Code.html %}
 	{% when 'About' %}
