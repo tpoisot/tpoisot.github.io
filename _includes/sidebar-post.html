@@ -1,0 +1,10 @@
+<h2>About this post</h2>
+<b>Written by</b> {{ page.author }}<br /><b>Posted on</b> {{ page.date | date_to_string }}{% if page.last_updated %}, last updated on {{ page.last_updated | date_to_string }}{% endif %}<br />{% if page.tags && page.tags != empty %}<br /><b>Tags:</b> {% for tag in page.tags %}<span class='tag'>{{ tag | array_to_sentence_string }}</span>{% endfor %}{% endif %}
+	
+<h2>Related Posts</h2>
+	<ul class="posts">
+		{% for post in site.related_posts limit:5 %}
+			<li><code>{{ post.date | date_to_string }}</code> :: <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>

@@ -90,3 +90,9 @@ a:hover{
 #head a{
 	text-decoration: none;
 }
+
+#page h1{
+	font-weight: bold;
+	padding-bottom: 1.3em;
+	font-size: 110%;
+}
