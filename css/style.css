@@ -81,6 +81,11 @@ a:hover{
 	line-height: 1.3em;
 }
 
+#page p a{
+	color: #4499ff;
+}
+
+
 #head a{
 	text-decoration: none;
 }
