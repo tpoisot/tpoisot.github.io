@@ -5,6 +5,7 @@ layout: default
 {% assign chapo-page = {{ {{ {{page.title}} | prepend:'chapo-' }} | append:'.html' }} %}
 
 <div id='chapo'>
+	{{ chapo-page }}
 	{% include {{chapo-page}} %}
 </div>
 
