@@ -15,8 +15,7 @@ I've been using [Python](http://python.org/) more and more to do various things.
 
 In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I've become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that [scipy.integrate.odeint](http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html) in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.
 
-To write a simulation of population dynamics (I'll use logistic growth as an
-example), we first import the relevant parts of the scipy library.
+To write a simulation of population dynamics (I'll use logistic growth as an example), we first import the relevant parts of the scipy library.
 
 {% highlight python %}    
 import scipy as sp
