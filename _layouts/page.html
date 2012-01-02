@@ -2,12 +2,15 @@
 layout: default
 ---
 
-{% assign chapo-page = {{ {{ {{page.title}} | prepend:'chapo-' }} | append:'.html' }} %}
-
 <div id='chapo'>
-	{{ chapo-page }}
-	{% include {{chapo-page}} %}
+	{% case {{ page.title }} %}
+	{% when 'Code' %}
+		{% include chapo-Code.html %}
+	{% when 'About' %}
+		{% include chapo-Code.html %}
+	{% else %}
+		Hi !
+	{% endcase %}	
 </div>
-
 
 {{ content }}
