@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Measuring ecological specificity
-summary: A new paper about different measures of ecological specificity
+summary: A new paper about different measures of ecological specificity, with a companion R package.
 author: Tim
 tags:
 - specificity
