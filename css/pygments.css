@@ -4,8 +4,8 @@
 	background-color: #fffde8;
 	margin-bottom: 1.5em;
 	padding: 0.9em;
-	-moz-border-radius: 1em;
-	border-radius: 1em;
+	-moz-border-radius: 0.8em;
+	border-radius: 0.8em;
 }
 
 .highlight .kn, .highlight .k{
@@ -29,4 +29,12 @@
 .highlight .s{
 	color: #1e7819;
 	background-color: #d2ffd9;
+}
+
+.highlight .nt{
+	
+	font-weight: bold;
+	
+	color: #a42eb2;
+	
 }
