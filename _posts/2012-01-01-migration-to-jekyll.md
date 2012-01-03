@@ -9,7 +9,7 @@ A few weeks ago, I discovered [Jekyll](https://github.com/mojombo/jekyll). In a 
 
 Jekyll is a lot of fun to use, especially because all of the content reside in *static text files* instead of a database. It's also fully compatible with the [markdown](http://daringfireball.net/projects/markdown/) format, which is a lot easier to write than html. For example, writing a simple text in bold in markdown is done through
 
-{% highlight markdown %}
+{% highlight bash %}
 **text in bold**
 {% endhighlight %}
 
