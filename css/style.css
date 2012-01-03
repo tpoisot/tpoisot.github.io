@@ -119,3 +119,7 @@ blockquote
 	padding-left: 2em;
 	font-style: italic;
 }
+
+.post_info{
+	font-size: 90%;
+}
