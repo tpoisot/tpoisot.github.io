@@ -1,2 +1,2 @@
 <h2>About this post</h2>
-<p class='post info'>Written by {{ page.author }} and posted on {{ page.date | date_to_string }}. It has {{ page.content | number_of_words }} words. {% if page.last_updated %} Last updated on {{ page.last_updated | date_to_string }}.{% endif %}</p>
+<p class='post_info'>{ page.author }} wrote this post, and published on {{ page.date | date_to_string }}. It's {{ page.content | number_of_words }} words long. {% if page.last_updated %} Also, it was updated on {{ page.last_updated | date_to_string }}.{% endif %}</p>
