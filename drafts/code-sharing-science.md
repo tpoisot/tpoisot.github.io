@@ -10,7 +10,7 @@ tags:
 
 I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I'm wondering what I would do without it.
 
-The idea of GitHub is simple: *social coding*. As in, everyone can work on your code, and contribute some new things to it. This blog is powered by Jekyll, many features of which originate from the community. In a way, *social coding* is open source logic pushed to its maximum: everyone can copy (fork) your code, work on it, and give you back the features they added, or the bugs they fixed, or whatever you can think of. Scientists would gain a lot by learning to know these tools.
+The idea of GitHub is simple: [*social coding*](http://radar.oreilly.com/2009/01/github-making-code-more-social.html). As in, everyone can work on your code, and contribute some new things to it. This blog is powered by Jekyll, many features of which originate from the community. In a way, *social coding* is open source logic pushed to its maximum: everyone can copy (fork) your code, work on it, and give you back the features they added, or the bugs they fixed, or whatever you can think of. Scientists would gain a lot by learning to know these tools.
 
 # It will make us better coders
 
@@ -28,9 +28,9 @@ First, it's time consuming to re-write an algorithm from the ground up, simply b
 
 Second, by not having access to some pieces of code, we are often unable to do some analyses.
 
-Third, we are subjected to the limitations of existing software. I've been discussing this matter with non computer-minded people working on pyrosequencing. The discussion went something like "Hey, it would be cool if you were able to do [so and so] !". To which they replied "Yeah, but we can't, because it's not in [whatever program we are using]". Should the code be public, it would be a simple matter of forking(LINK) it, and adding this new functionnality. Given the way GitHub works, this modification could one day make it into the main release, which will bring you some kudos among your peers for making everyone's life a little easier.
+Third, we are subjected to the limitations of existing software. I've been discussing this matter with non computer-minded people working on pyrosequencing. The discussion went something like "Hey, it would be cool if you were able to do \[so and so\] !". To which they replied "Yeah, but we can't, because it's not in \[whatever program we are using\]". Should the code be public, it would be a simple matter of forking(LINK) it, and adding this new functionality. Given the way GitHub works, this modification could one day make it into the main release, which will bring you some kudos among your peers for making everyone's life a little easier.
 
-And finally, there is one additional impact of an increased availability of the code: people will develop more integrated tools. Part of my motivation for writing [bipy](http://tpoisot.github.co/bipy/) was to have an integrated way to work with bipartite ecological networks, to do a bunch of different analysis in a common environment. The folks at ROpenSci (LINK) are doing an impressive job of stitching together a lot of different databases, and their project is a prime example of what we can do with open source. (CONT)
+And finally, there is one additional impact of an increased availability of the code: people will develop more integrated tools. Part of my motivation for writing [bipy](http://tpoisot.github.co/bipy/) was to have an integrated way to work with bipartite ecological networks, to do a bunch of different analysis in a common environment. The folks at [ROpenSci](http://ropensci.org/) are doing an impressive job of stitching together a lot of different databases, and their project is a prime example of what we can do with open source. (CONT)
 
 # Where to start ?
 
