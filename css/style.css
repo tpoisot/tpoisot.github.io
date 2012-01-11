@@ -94,6 +94,10 @@ a:hover{
 	margin-bottom: 0.7em;
 }
 
+#aside{
+	font-size: .95em;
+}
+
 #page p{
 	padding-bottom: 1.1em;
 	line-height: 1.4em;
