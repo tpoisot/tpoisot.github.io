@@ -3,6 +3,12 @@ layout: page
 title: Papers
 ---
 
+# Papers submitted
+
+**Timothée Poisot**, Sonia Kéfi, Serge Morand, Michal Stanko, Pablo A Marquet & Michael E Hochberg. Patterns of co-occurrence between specialists and generalists in natural communities. Submitted to *The American Naturalist*
+
+**The [INNGE](http://www.innge.net/) Working Group**. A global community to facilitate next-generation ecology and evolution. Submitted to *Trends in Ecology & Evolution*
+
 # Papers accepted or in press
 
 **Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*. [R package](https://r-forge.r-project.org/R/?group_id=593) 
@@ -21,7 +27,7 @@ title: Papers
 
 Peter Søgaard Jørgensen, Vincent Bonhomme, Thomas H G Ezard, R Andrew Hayes, **Timothée Poisot**, Roberto Salguero-gomez, Salvatrice Vizzini, Naupaka Zimmerman. (2011) A global network of next generation ecologists. *INTECOL Bulletin* 5 (2) 4-6. [pdf]({{ site.url }}/reprints/jorgensen_intecol_innge.pdf)
 
-**Timothée Poisot** (2011) The digitize Package: Extracting Numerical Data from Scatterplots. *The R Journal* 3 (1) 25–26. [pdf]({{ site.url }}/reprints/poisot_rjournal_digitize.pdf), [R package](http://cran.r-project.org/web/packages/digitize/index.html)
+**Timothée Poisot** (2011) The digitize Package: Extracting Numerical Data from Scatterplots. *The R Journal* 3 (1) 25–26. [pdf]({{ site.url }}/reprints/poisot_rjournal_digitize.pdf), [R package](https://github.com/tpoisot/digitize)
 
 # 2010
 
@@ -32,4 +38,3 @@ Anne Tessier, **Timothée Poisot**, Yves Desdevises & Pascal Romans (2010) Effe
 # 2009
 
 **Timothée Poisot**, Andrea Simková, Pavel Hyrsl & Serge Morand (2009) Interactions between immunocompetence, somatic condition and parasitism in the chub *Leuciscus cephalus* in early spring. *Journal of Fish Biology* 75 (7) 1667-1682. [pdf]({{ site.url }}/reprints/poisot_jfishb_chub.pdf)
-
