@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New paper: measuring ecological specificity
+title: 'New paper: measuring ecological specificity'
 summary: A new paper about different measures of ecological specificity, with a R package to perform them.
 author: Tim
 tags:
