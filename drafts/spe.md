@@ -26,7 +26,7 @@ We conclude by providing the following recommandations:
 
 The measures described in this paper can be done using the `ESM` package mentionned above. Given an object `web` with focal species as rows, you can calculate the specificity using *PDI* and *RR* with the following commands:
 
-{% highlight R %}
+{% highlight splus %}
 library(ESM)
 
 spe_pdi = getspe(web,pdi)
