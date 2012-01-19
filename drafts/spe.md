@@ -9,7 +9,9 @@ tags:
 - open source
 ---
 
-Our paper about measurements of ecological specialization is now available online at Methods in Ecology & Evolution website. You can also download the associated R package from R-Forge. This paper is mostly methodological, so I'll go into some technical stuff below. Early during my thesis, we wondered how we can best measure ecological specialization of parasites, knowing that we would work with very different data sources (field and lab systems, and models). After a quick survey of the literature, it was clear that (i) many people developed their own measure of specificity, and (ii) it was not clear what the assumptions of some of these measures were. This appeared to us as the potential for a methodological paper.
+Our paper about measurements of ecological specialization is now available online at the [Methods in Ecology & Evolution]() website. You can also download the associated R package from R-Forge. This paper is mostly methodological, so I'll go into some technical stuff below. But before, some background.
+
+Early during my thesis, we wondered how we can best measure ecological specialization of parasites, knowing that we would work with very different data sources (field and lab systems, and models). After a quick survey of the literature, (i) it was clear that many people developed their own measure of specificity, and (ii) it was not clear what the assumptions of some of these measures were. This appeared to us as the potential for a methodological paper.
 
 What we've done, is that we examined how different measures of specificity behave with regard to two important informations: (i) the thoroughness of sampling, and (ii) the distribution of links between species that exploit, and resources that are exploited (which is related to the structure of the interaction network). As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, so I have my co-authors to thank for that.
 

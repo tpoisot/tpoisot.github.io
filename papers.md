@@ -11,7 +11,7 @@ title: Papers
 
 # Papers accepted or in press
 
-**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*. [R package](https://r-forge.r-project.org/R/?group_id=593) 
+**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*. [pdf]({{ site.url }}/reprints/poisot_methodecolevol_pdi.pdf), [R package](https://r-forge.r-project.org/R/?group_id=593) 
 
 # 2012
 
