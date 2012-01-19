@@ -37,4 +37,4 @@ plot(spe_pdi,spe_rr)
 
 The code is also being ported to Python and MatLab, but more on that later...
 
-For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it's basically a mess of nested for statements). The network generation routine is based on the same logic that something published by [Scott Chamberlain](http://r-ecology.blogspot.com/2011/01/ecological-networks-from-abundance.html), if you have any interest in doing such things.
+For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it's basically a mess of nested for statements). The network generation routine is based on the same logic that something published by [Scott Chamberlain](http://schamberlain.github.com/2011/01/ecological-networks-from-abundance/), if you have any interest in doing such things.
