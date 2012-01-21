@@ -36,41 +36,17 @@ arrange your sayings](http://cscs.umich.edu/~crshalizi/weblog/838.html), due
 to a mis-understanding of the subject, or the necessity to fit some editorial
 format.
 
-Using social media will effectively result in the elimination of the middle
-man. Scientists can be in charge of their communication, and reach out to the
-greatest audience available. The part about being in charge is especially
-important: in a few clicks, you can have a [wordpress](http://wordpress.com/)
-or a facebook page up and running, and _you_, the researcher, will be able to
-talk directly about your work. This will require a short time of adaptation,
-as the general tone of a blog post is not one of a paper (unless I'm wrong
-either in the way I write papers or blog posts!), and the degree of precision
-differs. But once this is done, you may even find the exercise enjoyable!
+Using social media will effectively result in the elimination of the middle man. Scientists can be in charge of their communication, and reach out to the greatest audience available. The part about being in charge is especially important: in a few clicks, you can have a [wordpress](http://wordpress.com/) or a facebook page up and running, and _you_, the researcher, will be able to talk directly about your work. This will require a short time of adaptation, as the general tone of a blog post is not one of a paper (unless I'm wrong either in the way I write papers or blog posts!), and the degree of precision differs. But once this is done, you may even find the exercise enjoyable!
 
 # Help your ideas invade
 
-Probably the best advice I received about what science is about comes from one
-of my collaborators, who interrupted our burger-seeking walk to tell me that
-ideas are like populations, and if I want to be a good researcher, I have to
-make my ideas invade the resident community. Shortly thereafter, we found a
-burger place, which only makes the memory more enjoyable. Invasion is about
-two things. Either you have a high fitness, or you [benefit of an Allee
-effect](http://en.wikipedia.org/wiki/Allee_effect). Being present on social
-networks will help you achieve the later.
+Probably the best advice I received about what science is about comes from one of my collaborators, who interrupted our burger-seeking walk to tell me that ideas are like populations, and if I want to be a good researcher, I have to make my ideas invade the resident community. Shortly thereafter, we found a burger place, which only makes the memory more enjoyable. Invasion is about two things. Either you have a high fitness, or you [benefit of an Allee effect](http://en.wikipedia.org/wiki/Allee_effect). Being present on social networks will help you achieve the later.
 
-For this reason, we owe journals like _[Ecology
-Letters](http://api.twitter.com/#!/ecologyletters)_ or _[Methods in Ecology &
-Evolution](http://twitter.com/#!/methodsecolevol)_ a big thank you, because
-they mention every new paper on twitter (well, that, and they've also accepted
-papers of mine, so you know...). Some papers get retweeted, and benefit from a
-terrific, instantaneous exposure. I've seen a few instances of one of the
-authors getting involved in the discussion, and it was all very stimulating.
+For this reason, we owe journals like _[Ecology Letters](http://api.twitter.com/#!/ecologyletters)_ or _[Methods in Ecology & Evolution](http://twitter.com/#!/methodsecolevol)_ a big thank you, because they mention every new paper on twitter (well, that, and they've also accepted papers of mine, so you know...). Some papers get retweeted, and benefit from a terrific, instantaneous exposure. I've seen a few instances of one of the authors getting involved in the discussion, and it was all very stimulating.
 
-I'm not aware of any studies establishing a correlation (or the lack thereof)
-between the number of times a paper is mentioned on social networks and its
-number of citations (my guess is that it will help citations happen sooner,
-not necessarily increase them – although good papers may be retweeted more
-frequently, so there are confounding effects here). But it definitely will not
-harm you to see a lot of people talking about your work.
+I'm not aware of any studies establishing a correlation (or the lack thereof) between the number of times a paper is mentioned on social networks and its number of citations (my guess is that it will help citations happen sooner, not necessarily increase them – although good papers may be retweeted more frequently, so there are confounding effects here). But it definitely will not harm you to see a lot of people talking about your work.
+
+> **Update on Jan. 21, 2012** — I became aware of this [blog piece at BMJ Web Development](http://blogs.bmj.com/bmj-journals-development-blog/2012/01/06/twimpact-factors-can-tweets-really-predict-citations/), with a link to a paper showing that the number of tweet is a fairly good predictor of the number of citations. [Here you, go, now](http://twitter.com/signup).
 
 # The permanent conference
 
