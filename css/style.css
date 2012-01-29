@@ -1,15 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
-body{
-	font-family: 'Open Sans';
-	font-size: 62.5 %;
-	margin: 30px auto;
-}
-
 #main{
 	width: 800 px;
 	max-width: 800 px;
+	font-family: 'Open Sans';
+	font-size: 62.5 %;
+	margin: 30px auto;
 }
 
 it, em{
