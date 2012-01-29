@@ -3,10 +3,13 @@
 
 body{
 	font-family: 'Open Sans';
-	width: 800 px;
-	max-width: 800 px;
 	font-size: 62.5 %;
 	margin: 30px auto;
+}
+
+#main{
+	width: 800 px;
+	max-width: 800 px;
 }
 
 it, em{
