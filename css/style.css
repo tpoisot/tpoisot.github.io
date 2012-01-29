@@ -4,6 +4,7 @@
 body{
 	font-family: 'Open Sans';
 	width: 800 px;
+	max-width: 800 px;
 	font-size: 62.5 %;
 	margin: 30 px auto;
 }
@@ -52,6 +53,7 @@ a:hover{
 
 #page{
 	width: 585px;
+	max-width: 585px;
 	float: left;
 	padding-right: 15px;
 	margin: 0px;
@@ -60,6 +62,7 @@ a:hover{
 #aside{
 	margin: 0px;
 	width: 200px;
+	max-width: 200px;
 	float: right;
 	text-align: right;
 }
