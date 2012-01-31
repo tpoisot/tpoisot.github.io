@@ -23,7 +23,7 @@ title: Papers
 
 **Timothée Poisot**, James D Bever, Adnane Nemri, Peter H Thrall & Michael E Hochberg (2011) A Conceptual Framework for the Evolution of Ecological Specialization. *Ecology Letters* 14 (9) 841–851. [pdf]({{ site.url }}/reprints/poisot_ele_spereview.pdf)  
 
-**Timothée Poisot**, Gildas Lepennetier, Esteban Martinez, Johan Ramsayer & Michael E Hochberg (2011) Resource availability affects the structure of a natural bacteria-bacteriophage community. *Biology Letters* 7 (2) 201-204. [pdf]({{ site.url }}/reprints/poisot_biollett_phages.pdf)   
+**Timothée Poisot**, Gildas Lepennetier, Esteban Martinez, Johan Ramsayer & Michael E Hochberg (2011) Resource availability affects the structure of a natural bacteria-bacteriophage community. *Biology Letters* 7 (2) 201-204. [pdf]({{ site.url }}/reprints/poisot_bl_phages.pdf)   
 
 Peter Søgaard Jørgensen, Vincent Bonhomme, Thomas H G Ezard, R Andrew Hayes, **Timothée Poisot**, Roberto Salguero-gomez, Salvatrice Vizzini, Naupaka Zimmerman. (2011) A global network of next generation ecologists. *INTECOL Bulletin* 5 (2) 4-6. [pdf]({{ site.url }}/reprints/jorgensen_intecol_innge.pdf)
 
@@ -33,7 +33,7 @@ Peter Søgaard Jørgensen, Vincent Bonhomme, Thomas H G Ezard, R Andrew Hayes, *
 
 **Timothée Poisot**, Yves Desdevises (2010) Putative speciation events in *Lamellodiscus* (Monogenea: Diplectanidae) assessed by a morphometric approach. *Biological Journal of the Linnean Society* 99 (3) 559-569. [pdf]({{ site.url }}/reprints/poisot_bjls_morphometry.pdf)   
 
-Anne Tessier, **Timothée Poisot**, Yves Desdevises & Pascal Romans (2010) Effects of recreational fishing of *Paracentrotus lividus* on populations of sea urchins in Mediterranean shallow water. *Life & Environment* 60 (4) 1-7. [pdf]({{ site.url }}/reprints/tessier_viemilieu_urchins.pdf)
+Anne Tessier, **Timothée Poisot**, Yves Desdevises & Pascal Romans (2010) Effects of recreational fishing of *Paracentrotus lividus* on populations of sea urchins in Mediterranean shallow water. *Life & Environment* 60 (4) 1-7. [pdf]({{ site.url }}/reprints/tessier_vm_urchins.pdf)
 
 # 2009
 
