@@ -33,7 +33,7 @@ Peter Søgaard Jørgensen, Vincent Bonhomme, Thomas H G Ezard, R Andrew Hayes, *
 
 **Timothée Poisot**, Yves Desdevises (2010) Putative speciation events in *Lamellodiscus* (Monogenea: Diplectanidae) assessed by a morphometric approach. *Biological Journal of the Linnean Society* 99 (3) 559-569. [pdf]({{ site.url }}/reprints/poisot_bjls_morphometry.pdf)   
 
-Anne Tessier, **Timothée Poisot**, Yves Desdevises & Pascal Romans (2010) Effects of recreational fishing of *Paracentrotus lividus* on populations of sea urchins in Mediterranean shallow water. *Life & Environment* 60 (4) 1-7. [pdf]({{ site.url }}/reprints/tessier_vm_urchins.pdf)
+Anne Tessier, **Timothée Poisot**, Yves Desdevises & Pascal Romans (2010) Effects of recreational fishing of *Paracentrotus lividus* on populations of sea urchins in Mediterranean shallow water. *Life & Environment* 60 (4) 299-305. [pdf]({{ site.url }}/reprints/tessier_vm_urchins.pdf)
 
 # 2009
 
