@@ -18,7 +18,7 @@ code, pre{
 }
 
 a{
-	color: #ff8ef3;
+	color: #008f10;
 	text-decoration: none;
 }
 
@@ -42,13 +42,13 @@ a:hover{
 
 #chapo{
 	color: #beb9bf;
-	font-size: .9em;
+	font-size: .6em;
 }
 
 #head{
 	margin-top: 60px;
 	margin-bottom: 60px;
-	padding: 40px 0px;
+	padding: 20px 0px;
 	color: #008f10;
 	font-size: 3em;
 	background-color: #d2ffdd;
