@@ -102,7 +102,8 @@ a:hover{
 
 #page p{
 	padding-bottom: 1.1em;
-	line-height: 1.5em;
+	line-height: 1.3em;
+	font-size: .92em;
 }
 
 #page p a{
