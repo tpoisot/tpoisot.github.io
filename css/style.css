@@ -28,11 +28,9 @@ a:hover{
 
 #hi{
 	font-weight: bold;
-	color: #ff8ef3;
 }
 
 #name{
-	color: #4499ff;
 	font-weight: normal;
 }
 
@@ -44,13 +42,15 @@ a:hover{
 
 #chapo{
 	color: #beb9bf;
-	padding: 40px 0px;
+	padding: 20px 0px;
+	font-size: .9em;
 }
 
 #head{
+	margin-top: 30px;
+	margin-bottom: 30px;
 	color: #008f10;
 	font-size: 3em;
-	padding: 30px 0px;
 	background-color: #d2ffdd;
 }
 
