@@ -3,7 +3,6 @@
 
 #main{
 	font-family: 'Open Sans';
-	margin: 30px auto;
 }
 
 it, em{
@@ -37,9 +36,10 @@ a:hover{
 	font-weight: normal;
 }
 
-#container{
+#container, #headTXT{
 	width: 860px;
 	max-width: 860px;
+	margin: 30px auto;
 }
 
 #chapo{
