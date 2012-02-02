@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Blog
+summary: Some thoughts, discussion of new papers, and probably other things as well.
 ---
 
 {% for post in site.posts %}

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Papers
+summary: Here are links to the PDFs of my papers.
 ---
 
 # Papers submitted
