@@ -34,7 +34,7 @@ a:hover{
 	font-weight: normal;
 }
 
-#container, #headTXT{
+#footer, #container, #headTXT{
 	width: 860px;
 	max-width: 860px;
 	margin: 30px auto;
