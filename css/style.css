@@ -42,16 +42,20 @@ a:hover{
 
 #chapo{
 	color: #beb9bf;
-	padding: 20px 0px;
 	font-size: .9em;
 }
 
 #head{
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	padding: 40px 0px;
 	color: #008f10;
 	font-size: 3em;
 	background-color: #d2ffdd;
+}
+
+#head a{
+	color: #008f10;
 }
 
 #page{
