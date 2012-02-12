@@ -6,9 +6,11 @@ summary: Here are links to the PDFs of my papers.
 
 # Papers submitted
 
-**Timothée Poisot**, Sonia Kéfi, Serge Morand, Michal Stanko, Pablo A Marquet & Michael E Hochberg. Patterns of co-occurrence between specialists and generalists in natural communities. Submitted to *The American Naturalist*
+**Timothée Poisot**, James D Bever, Peter H Thrall & Michael E Hochberg. When protection is not enough - emergence and persistence of protective mutualists in pathogenic communities. Submitted to *The American Naturalist*
 
-**The [INNGE](http://www.innge.net/) Working Group**. A global community to facilitate next-generation ecology and evolution. Submitted to *Trends in Ecology & Evolution*
+**Timothée Poisot**, Sonia Kéfi, Serge Morand, Michal Stanko, Pablo A Marquet & Michael E Hochberg. Patterns of co-occurrence between specialists and generalists in natural communities. Under review at *The American Naturalist*
+
+**The [INNGE](http://www.innge.net/) Working Group**. A global community to facilitate next-generation ecology and evolution. Under review at *Trends in Ecology & Evolution*
 
 # Papers accepted or in press
 
