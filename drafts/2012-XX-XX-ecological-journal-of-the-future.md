@@ -21,11 +21,12 @@ No reason for page limits or number of accepted papers. Am Nat got it wrong, quo
 
 # Quality, and surrogates of quality
 
-Impact factors are a measure of the absolute success of a journal in its field. Yet we all know examples of papers published in really good journals that met a terrible fate (think Arsenic DNA, the memory of water), or just get plain ignored by the community. Conversely, papers published in obscure journals can really be hidden gems, that will either get highly cited, or be really influential for your research. Think of it this way: insert clever metaphors here.
+Impact factors are a measure of the absolute success of a journal in its field. Yet we all know examples of papers published in really good journals that met a terrible fate (think arsenic in the DNA, the memory of water), or excellent papers that were consistently rejected by major journals (e.g. Leigh van Valen's [Red Queen's hypothesis](http://en.wikipedia.org/wiki/Red_Queen%27s_Hypothesis)). Some papers were also just plain ignored by the community. Conversely, papers published in obscure journals can really be [hidden gems](http://f1000.com/rankings/hiddenjewels), that will either get highly cited, or be really influential for your research.
 
-For this reason, a next-generation journal should rely heavily on article metrics. [*PLoS One*](http://www.plosone.org/home.action) does that, and to some extent so does [Mendeley](http://www.mendeley.com/). What would these article-level metrics consist of? The number of downloads or inclusions in Mendeley, and the number of citations. And much more importantly, the ratio between these two. If two people download your paper, and they both cite it 3 times, then it can safely be assumed that it had a different kind of impact than a paper downloaded by 150 people, and cited only twice. Not only would it tell you the total impact of this paper, article level metrics would inform you about the kind of impact it achieved:
+For this reason, a next-generation journal should rely heavily on article metrics. [*PLoS One*](http://www.plosone.org/home.action) does that, and to some extent so does [Mendeley](http://www.mendeley.com/) through [ReaderMeter](http://nitens.org/taraborelli/ReaderMeter). What would these article-level metrics consist of? The number of downloads, or inclusions in Mendeley or similar services, and the number of citations. And much more importantly, the ratio between these two. If two people download your paper, and they both cite it 3 times, then it can safely be assumed that it had a different kind of impact than a paper downloaded by 150 people, and cited only twice. Not only would it tell you the total impact of this paper, article level metrics would inform you about the kind of impact it achieved:
 
--- image goes here
+![Figure1][figCD]
+[figCD]: {{ site.url }}/images/cit-dl.png  "Citations and downloads map"
 
 # Openness is everyhting
 
