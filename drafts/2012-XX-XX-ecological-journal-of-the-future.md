@@ -32,9 +32,9 @@ For this reason, a next-generation journal should rely heavily on article metric
 
 # Avoid the tragedy of the commons
 
-A lot of people talked about the tragedy of the reviewer commons, including ..., ... and ..., and I really cannot stress enough how reading these papers is important.
+A lot of people talked about the [tragedy of the reviewer commons](http://blogs.helsinki.fi/egru-blog/2008/12/20/the-tragedy-of-the-reviewer-commons/), including [Mike Hochberg and colleagues](http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2008.01276.x/abstract), [Jeremy Fox & Owen Petchey](http://www.esajournals.org/doi/pdf/10.1890/0012-9623-91.3.325) and [Michael Donaldson](http://library.queensu.ca/ojs/index.php/IEE/article/view/4219/4240), and I really cannot stress enough how reading these papers is important. Avoiding this "tragedy" can be quite easily done, if a new journal is ready to tap into an existing community of people *willing* to conduct peer-reviews.
 
-This journal should engage with [Peerage of Science](http://www.peerageofscience.org/). As we discussed on [the INNGE blog](http://innge.net/?q=node/121), they provide an easy way to obtain triple-blind peer-review in a way that is independant from the journal. not a fan of triple-blind for reasons already discussed, but quite interested to see pr done without a journal, i.e. no prejudice to getting rejected.
+For this reason, a next-generation journal should engage with [Peerage of Science](http://www.peerageofscience.org/). As we discussed on [the INNGE blog](http://innge.net/?q=node/121), they provide an easy way to obtain triple-blind peer-review in a way that is independant from the journal. I'm not a quite fan of triple-blind (or any other n-blind, for that matters) review process, because I strongly believe that [non-anonymous reviews can turn out to be beneficial](http://timotheepoisot.fr/2012/01/29/sign-your-reviews/), if properly done. not a fan of triple-blind for reasons already discussed, but quite interested to see pr done without a journal, i.e. no prejudice to getting rejected.
 
 Can go even further by having a very flexible strategy with associate editors: a lot by invitation, and a small number of people taking the final decision.
 
