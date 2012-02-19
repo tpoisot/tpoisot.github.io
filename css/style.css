@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:700italic,400,400italic,700);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 #main{
-	font-family: 'Open Sans';
+	font-family: 'Lato';
 }
 
 it, em{
@@ -41,7 +41,7 @@ a:hover{
 }
 
 #chapo{
-	color: #beb9bf;
+	color: #a7a2a7;
 	font-size: .55em;
 	margin-top: 1em;
 }
@@ -52,7 +52,7 @@ a:hover{
 	padding: 20px 0px;
 	color: #4499ff;
 	font-size: 3em;
-	background-color: #d5fff8;
+	background-color: #e5fffb;
 }
 
 #head a{
