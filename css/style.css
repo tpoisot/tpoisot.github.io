@@ -127,7 +127,8 @@ a:hover{
 #page h1{
 	font-weight: bold;
 	font-size: 115%;
-	padding-top: 1.5em;
+	padding-top: 0.2em;
+	margin-top: 0em;
 	padding-bottom: 0.5em;
 }
 
