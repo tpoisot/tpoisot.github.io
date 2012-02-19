@@ -127,9 +127,14 @@ a:hover{
 #page h1{
 	font-weight: bold;
 	font-size: 115%;
-	padding-top: 0.2em;
+	padding-top: 1.2em;
 	margin-top: 0em;
 	padding-bottom: 0.5em;
+}
+
+#page h1:nth-child(1) {
+	padding-top: 0em;
+	margin-top: 0em;
 }
 
 blockquote
