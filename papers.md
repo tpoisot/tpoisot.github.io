@@ -6,7 +6,9 @@ summary: Here are links to the PDFs of my papers.
 
 # Papers submitted
 
-**Timothée Poisot**, Manon Lounnas & Michael E Hochberg. The structure of natural bacteria-phage bipartite networks favours the maintenance of diversity. Submitted to *The ISME Journal*
+**Timothée Poisot**, Michal Stanko, Dana Miklisova & Serge Mored. Life-history traits and the structure of host-parasite networks. Submitted to *Journal of Animal Ecology*
+
+**Timothée Poisot**, Manon Lounnas & Michael E Hochberg. The structure of natural bacteria-phage bipartite networks favours the maintenance of diversity. Under review at *The ISME Journal*
 
 **Timothée Poisot**, James D Bever, Peter H Thrall & Michael E Hochberg. When protection is not enough - emergence and persistence of protective mutualists in pathogenic communities. Submitted to *The American Naturalist*
 
