@@ -14,8 +14,6 @@ summary: Here are links to the PDFs of my papers.
 
 **Timothée Poisot**, Sonia Kéfi, Serge Morand, Michal Stanko, Pablo A Marquet & Michael E Hochberg. Patterns of co-occurrence between specialists and generalists in natural communities. Under review at *The American Naturalist*
 
-**The [INNGE](http://www.innge.net/) Working Group**. A global community to facilitate next-generation ecology and evolution. Under review at *Trends in Ecology & Evolution*
-
 # Papers accepted or in press
 
 **Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*. [pdf]({{ site.url }}/reprints/poisot_methodsecolevol_pdi.pdf), [R package](https://r-forge.r-project.org/R/?group_id=593) 
