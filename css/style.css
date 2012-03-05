@@ -18,7 +18,7 @@ code, pre{
 }
 
 a{
-	color: #4499ff;
+	color: rgb(254,224,139);
 	text-decoration: none;
 }
 
@@ -41,7 +41,7 @@ a:hover{
 }
 
 #chapo{
-	color: #a7a2a7;
+	color: rgb(255,255,191);
 	font-size: .55em;
 	margin-top: 1em;
 }
@@ -50,12 +50,12 @@ a:hover{
 	margin-top: 60px;
 	margin-bottom: 60px;
 	padding: 20px 0px;
-	color: rgb(255,255,255);
+	color: rgb(213,62,79);
 	font-size: 3em;
 }
 
 #head a{
-	color: #4499ff;
+	color: rgb(213,62,79);
 }
 
 #page{
@@ -94,10 +94,12 @@ a:hover{
 	color: black;
 	font-weight: bold;
 	padding-bottom: 0.9em;
+	color: rgb(171,221,164);
 }
 
 #aside h2{
 	padding-top: 1.2em;
+	color: rgb(171,221,164);
 }
 
 #aside li{
@@ -115,7 +117,7 @@ a:hover{
 }
 
 #page p a{
-	color: #4499ff;
+	color: rgb(254,224,139);
 }
 
 
