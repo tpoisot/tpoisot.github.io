@@ -3,6 +3,9 @@
 
 #main{
 	font-family: 'Lato';
+	background-image: url('images/fw.png');
+	background-position: top right;
+	background-repeat: no-repeat;
 }
 
 it, em{
