@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Code
-summary: This is some of my code. It's not always good, but it's always free!
+summary: code
 ---
 
 ##Analyzing bipartite networks in Python

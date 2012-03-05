@@ -50,9 +50,8 @@ a:hover{
 	margin-top: 60px;
 	margin-bottom: 60px;
 	padding: 20px 0px;
-	color: #4499ff;
+	color: rgb(255,255,255);
 	font-size: 3em;
-	background-color: #e5fffb;
 }
 
 #head a{
