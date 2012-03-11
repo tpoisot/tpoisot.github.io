@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-summary: Wecolme!
+summary: Welcome!
 ---
 
 I'm a community ecologist interested in the evolution of species interactions.
