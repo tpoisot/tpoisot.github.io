@@ -2,7 +2,8 @@
 author: tpoisot
 layout: post
 title: A model of population dynamics in Python
-summary: Using python (and scipy) for ecological simulations. It's easy!
+summary: blog
+chapo: Using python (and scipy) for ecological simulations. It's easy!
 tags:
 - python
 - R

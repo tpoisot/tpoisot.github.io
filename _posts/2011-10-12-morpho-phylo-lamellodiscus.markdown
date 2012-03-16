@@ -2,7 +2,8 @@
 author: Tim
 layout: post
 title: 'New paper: morphology and phylogeny in Lamellodiscus'
-summary: A new paper about morphological and molecular similarities in fish parasites.
+summary: blog
+chapo: A new paper about morphological and molecular similarities in fish parasites.
 tags:
 - evolution
 - parasites

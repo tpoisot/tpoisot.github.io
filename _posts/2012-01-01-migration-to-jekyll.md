@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Goodbye Wordpress, hello Jekyll!
-summary: A new platform for this website.
+summary: blog
+chapo: A new platform for this website.
 author: Tim
 ---
 
