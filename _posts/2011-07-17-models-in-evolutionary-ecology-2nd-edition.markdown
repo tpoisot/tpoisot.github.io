@@ -2,7 +2,8 @@
 author: Tim
 layout: post
 title: Models in Evolutionary Ecology, 2nd edition
-summary: Videos from the Models in Evolutionary Ecology meeting, in Montpellier.
+summary: blog
+chapo: Videos from the Models in Evolutionary Ecology meeting, in Montpellier.
 tags:
 - conferences
 - videos

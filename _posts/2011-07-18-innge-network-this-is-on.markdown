@@ -2,7 +2,8 @@
 author: Tim
 layout: post
 title: 'INNGE network : this is on!'
-summary: Next-generation ecology has a new network. Spread the word!
+summary: blog
+chapo: Next-generation ecology has a new network. Spread the word!
 tags:
 - INNGE
 ---

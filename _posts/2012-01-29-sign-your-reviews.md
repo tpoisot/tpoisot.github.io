@@ -1,7 +1,8 @@
 ---
 layout: post
 title: How to make the most out of peer-review?
-summary: Signing your reviews can grant you some long-term benefits.
+summary: blog
+chapo: Signing your reviews can grant you some long-term benefits.
 author: Tim
 tags:
 - peer review
