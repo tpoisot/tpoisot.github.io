@@ -10,7 +10,7 @@ summary: papers
 
 **Timothée Poisot**, Manon Lounnas & Michael E Hochberg. The structure of natural bacteria-phage bipartite networks favours the maintenance of diversity. Under review at *The ISME Journal*.
 
-**Timothée Poisot**, James D Bever, Peter H Thrall & Michael E Hochberg. When protection is not enough - emergence and persistence of protective mutualists in pathogenic communities. In revision.
+**Timothée Poisot**, James D Bever, Peter H Thrall & Michael E Hochberg. When protection is not enough - emergence and persistence of protective mutualists in pathogenic communities. Under review at *PLoS One*.
 
 **Timothée Poisot**, Sonia Kéfi, Serge Morand, Michal Stanko, Pablo A Marquet & Michael E Hochberg. Patterns of co-occurrence between specialists and generalists in natural communities. Under review at *The American Naturalist*.
 
