@@ -11,9 +11,13 @@ tags:
 
 I've been reading [Tim Gowers's fascinating blog](http://gowers.wordpress.com/2012/01/29/whats-wrong-with-electronic-journals/) following the call to boycott Elsevier, and stumbled upon a fascinating *gedankenexperiment*. What would the electronic journal of the future look like in the field of Mathematics? I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis?
 
-**Disclaimer:** This post was written over the course of a few months. Some links may not be as up to date at the text will lead you to think. I may have changed my mind mid-paragraph. You may still read it and comment profusely!
-
 # The name of the game
+
+If you want your jornal to reflect a new paradigm, it should start with the way it's named.
+
+Phytologists have the *New Phytologist*. A lot of disciplines have *Advances in ...*. *Trends Ecol Evol* and *Frontiers Ecol Env* apart, the ecological journals are rather conservative in their naming. We have *Ecology* declined in as many languages as possible, followed by, or following some variation of *Letters*, *Journal of [prefix]*, *Research*, and so on. No *New*, no *Advances*. I'm not saying ecological research is opposed to progress, it's clearly a field being moived forward by people with ten new ideas a day. But the names of the journals do not reflect that. The two publication who do (*TREE* and *FEE*) have such a specific editorial line that they can't possibly contain all of the new, exciting stuff.
+
+Just for the sake of clarity, I am not saying that this new hypotehtical journal *should* exist. I'm trying to imagine how I would do it in a perfect world, or what would be its «ideal free distribution».
 
 # Everything moves
 
@@ -26,7 +30,7 @@ Note that switching to e-articles will not necessarily mean that constraints wil
 
 > The choice of appearing as an open access e-article is available to all authors, **though the number that can appear with each issue are limited**.  
 
-Sounds an awful lot as [artificial scarcity](http://en.wikipedia.org/wiki/Artificial_scarcity) to me, and the reason for which to do it is immediately clear: if the number of papers is limited, you will reject average-to-good papers and publish only the *crème de la crème* (super best). Ergo, your impact factor, citation half-life, immediacy index, and all the others will all go up (or down - in any case, they'll go where you want them to). This is all fair and well (although I'll get back to why we should pay less and less attention to these metrics in the next section), but be upfront about it!
+Sounds an awful lot as [artificial scarcity](http://en.wikipedia.org/wiki/Artificial_scarcity) to me, and the reason for which to do it is immediately clear: if the number of papers is limited, you will reject average-to-good papers and publish only the *crème de la crème* (french expression for super best - we rightfully consider cream to be one of the best things ever). Ergo, your impact factor, citation half-life, immediacy index, and all the others will all go up (or down - in any case, they'll go where you want them to). This is all fair and well (although I'll get back to why we should pay less and less attention to these metrics in the next section), but be upfront about it!
 
 # Quality, and surrogates of quality
 
@@ -36,6 +40,8 @@ For this reason, a next-generation journal should rely heavily on article metric
 
 ![Figure1][figCD]
 [figCD]: {{ site.url }}/images/cit-dl.png  "Citations and downloads map"
+
+Heather Piwowar and colleagues have been doing this analysis on *PLoS One* articles over the last five years, and not surprizingly, they found that [number of citation is a poor measure of the impact of a paper](http://blogs.lse.ac.uk/impactofsocialsciences/2012/04/04/31-flavours-research-impact/). Having the best possible metrics for impact and quality is a service to your readers, as it will help you crwod-source the evaluation paper; the referees (but more on that in a moment) will tell if the paper is sound, but the readers and other scientists will tell if it's *good*. Or relevant. Oh, and by the way, you can stop putting your 10-years half-life forward. It means your journal was good, 10 years ago. In a world when 10 new papers relevant to your research are published each day, and the people evaluating you care about your current impact factor, not your potential one in a few years, I'm wondering what the relevance of this metric is...
 
 # Openness is everyhting
 
