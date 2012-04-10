@@ -1,7 +1,8 @@
 ---
 layout: post
 title: The ecological journal of the future
-summary: What would the next generation of ecological journals look like?
+summary: blog
+chapo: What would the next generation of ecological journals look like?
 author: Tim
 tags:
 - scientific publishing
