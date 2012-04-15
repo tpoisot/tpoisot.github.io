@@ -4,6 +4,9 @@ title: Code
 summary: code
 ---
 
+##Fast generation of null models for bipartite webs
+[CNullModels](https://github.com/tpoisot/CNullModels) is a C program using the GSL, who can do Type I and Type II null models in less time it takes to say "Whoah, dude, this program is like, super fast".
+
 ##Analyzing bipartite networks in Python
 [bipy](http://tpoisot.github.com/bipy/) is a Python module to analyse bipartite ecological networks, integrated with [NetworkX](http://networkx.lanl.gov/)
 	
