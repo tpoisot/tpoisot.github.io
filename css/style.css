@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:700italic,400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 #main{
@@ -122,6 +123,7 @@ h2{
 }
 
 #page p{
+	font-family: 'Droid Serif', Georgia, serif;
 	padding-bottom: 1.1em;
 	line-height: 1.4em;
 	font-size: .96em;
