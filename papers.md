@@ -6,7 +6,7 @@ summary: papers
 
 # Papers submitted and in revision
 
-**Timothée Poisot**, Michal Stanko, Dana Miklisova & Serge Mored. Life-history traits and the structure of host-parasite networks. In revision.
+**Timothée Poisot**, Michal Stanko, Dana Miklisova & Serge Morand. Life-history traits and the structure of host-parasite networks. In revision.
 
 **Timothée Poisot**, Manon Lounnas & Michael E Hochberg. The structure of natural bacteria-phage bipartite networks favours the maintenance of diversity. Under review at *The ISME Journal*.
 
