@@ -4,8 +4,8 @@ title: Code
 summary: code
 ---
 
-## Styles files to use biblatex in ecological journals
-[ecobiblatex](https://github.com/tpoisot/ecobiblatex) is an ongoing project top create styles files to use biblatex for ecological journals. It's entirely written in LaTeX.
+## Style files to use biblatex in ecological journals
+[ecobiblatex](https://github.com/tpoisot/ecobiblatex) is an ongoing project to create styles files (```cbx``` and ```bbx```) to use biblatex for ecological journals. It's entirely written in LaTeX.
 
 ## Fast generation of null models for bipartite webs
 [CNullModels](https://github.com/tpoisot/CNullModels) is a C program using the GSL, who can do Type I and Type II null models in less time it takes to say "Whoah, dude, this program is like, super fast".
