@@ -19,7 +19,7 @@ The really good thing, now, is that ```biblatex``` relies only on LaTeX macros, 
 \DeclareFieldFormat[article]{volume}{\textbf{#1}}
 {% endhighlight %}
 
-To CSS you can actually import most of the base functions and styles. E.g., the following lines will import the base functionalities needed to work with a numeric style compressing multiple citations, like (1-4):
+To further the CSS parallel, you can actually import most of the base functions and styles. E.g., the following lines will import the base functionalities needed to work with a numeric style compressing multiple citations, like (1-4):
 
 {% highlight latex %}
 \RequireBibliographyStyle{standard}
