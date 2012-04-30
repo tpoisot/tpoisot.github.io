@@ -1,40 +1,5 @@
 .highlight{
-	text-shadow: 0px 0px white;
-	border: 1px solid #e2d7b1;
-	background-color: #fffde8;
+	border: 2px solid black;
 	margin-bottom: 1.5em;
 	padding: 0.9em;
-	-moz-border-radius: 0.8em;
-	border-radius: 0.8em;
-}
-
-.highlight .kn, .highlight .k{
-	font-weight: bold;
-}
-
-.highlight .mi, .highlight .mf{
-	color: #ff0900;
-}
-
-.highlight .o{
-	color: #707070;
-	font-weight: bold;
-}
-
-.highlight .nf{
-	text-decoration: underline;
-	color: #4499ff;
-}
-
-.highlight .s{
-	color: #1e7819;
-	background-color: #d2ffd9;
-}
-
-.highlight .nt{
-	
-	font-weight: bold;
-	
-	color: #a42eb2;
-	
 }
