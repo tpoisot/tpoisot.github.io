@@ -26,6 +26,11 @@ code{
 	font-size: 110%;
 }
 
+pre{
+	font-size: 90%;
+}
+
+
 a{
 	color: black;
 	text-decoration: none;
