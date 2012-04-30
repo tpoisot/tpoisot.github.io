@@ -184,4 +184,5 @@ blockquote
 	border: 5px solid #afafaf;
     padding: 5px;
     background-color: white;
+    max-width: 625 px;
 }
