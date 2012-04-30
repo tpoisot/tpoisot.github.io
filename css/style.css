@@ -20,6 +20,9 @@ b, strong{
 
 code, pre{
 	font-family: 'Inconsolata', monospace;
+}
+
+code{
 	font-size: 110%;
 }
 
