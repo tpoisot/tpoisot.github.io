@@ -180,6 +180,9 @@ blockquote
 	font-size: 85%;
 	font-family: 'Droid Serif', Georgia, serif;
 	font-style: italic;
+	text-align: center;
+	font-weight: bold;
+	color: #eee;
 }
 
 .dsq-comment-text{

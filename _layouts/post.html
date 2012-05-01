@@ -6,9 +6,10 @@ layout: default
 
 <div id='page'>
 <div id='blogtitle'>{{ page.chapo }}</div>
-{{ content }}
 
 {% include sidebar-post.html %}
+
+{{ content }}
 
 {% if site.disqus %}
 <div id="comments">
