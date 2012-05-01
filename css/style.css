@@ -185,8 +185,6 @@ blockquote
     padding: 5px;
     background-color: white;
     max-width: 625 px;
-    column-span: all;
-	-webkit-column-span: all;
 }
 
 #pages{
@@ -215,20 +213,6 @@ blockquote
 }
 
 .blogentry{
-	column-count: 2;
-	column-gap: 60px;
-	column-rule: 1px dotted #C6C6C6;
-	-webkit-column-count: 2;
-	-webkit-column-gap: 60px;
-	-webkit-column-rule: 1px dotted #C6C6C6;
-}
-
-#page .blogentry p{
-	font-size: .82em;
-}
-
-.blogentry p img{
-	text-align: center;
-	column-span: all;
-	-webkit-column-span: all;
+	max-width: 625 px;
+	padding: 0px auto;
 }
