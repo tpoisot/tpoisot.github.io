@@ -69,7 +69,7 @@ h2{
 
 #blogtitle{
 	margin-bottom: 30px;
-	font-size: 2.1em;
+	font-size: 1.5em;
 	color: rgb(100,100,100);
 	padding-bottom: 30px;
 }
@@ -87,6 +87,7 @@ h2{
 
 #page{
 	margin: 0px;
+	font-size: .85em;
 }
 
 #footer{
