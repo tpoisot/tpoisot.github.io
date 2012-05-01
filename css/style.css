@@ -187,3 +187,15 @@ blockquote
     max-width: 625 px;
 }
 
+#pages{
+	float: right;
+}
+
+#pages li, #pages ul{
+	display: inline;
+}
+
+#pages a{
+	width: 80px;
+	background-color: #eee;
+}
