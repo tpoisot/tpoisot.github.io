@@ -228,6 +228,6 @@ blockquote
 	-webkit-column-rule: 1px dotted #C6C6C6;
 }
 
-.blogentry p{
-	font-size: 90%;
+#page .blogentry p{
+	font-size: .85em;
 }
