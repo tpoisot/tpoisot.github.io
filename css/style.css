@@ -181,7 +181,7 @@ blockquote
 }
 
 #page p img{
-	border: 5px solid #afafaf;
+	border: 5px solid white;
     padding: 5px;
     background-color: white;
     max-width: 625 px;
