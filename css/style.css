@@ -214,13 +214,13 @@ blockquote
 
 .essay{
 	column-count: 2;
-	column-gap: 20px;
+	column-gap: 30px;
 	-moz-column-count: 2;
-	-moz-column-gap: 20px;
+	-moz-column-gap: 30px;
 	-o-column-count: 2;
-	-o-column-gap: 20px;
+	-o-column-gap: 30px;
 	-webkit-column-count: 2;
-	-webkit-column-gap: 20px;
+	-webkit-column-gap: 30px;
 	column-rule-color: #C6C6C6;
 	column-rule-style: dotted;
 	column-rule-width: 1px;
@@ -233,11 +233,5 @@ blockquote
 	-o-column-rule-color: #C6C6C6;
 	-o-column-rule-style: dotted;
 	-o-column-rule-width: 1px;
-}
-
-.essay h2, .essay h1{
-	column-span: all;
-	-moz-column-span: all;
-	-o-column-span: all;
-	-webkit-column-span: all;
+	font-size: .82em;
 }
