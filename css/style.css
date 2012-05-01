@@ -211,3 +211,12 @@ blockquote
 	text-decoration: none;
 	color: white;
 }
+
+.blogentry{
+	column-count: 2;
+	column-gap: 60px;
+	column-rule: 1px dotted #C6C6C6;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 60px;
+	-webkit-column-rule: 1px dotted #C6C6C6;
+}
