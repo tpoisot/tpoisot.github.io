@@ -7,12 +7,11 @@ html{
 }
 
 #main{
-	text-shadow: 2px 2px 2px #dcdcdc;
+	border: 1px solid #C6C6C6;
 	font-family: 'Lato';
 	width: 860px;
 	max-width: 860px;
-	background-color: white;
-	border: 1px solid #C6C6C6;
+	margin: 30px auto;
 }
 
 it, em{
@@ -56,10 +55,6 @@ h2{
 
 #name{
 	font-weight: normal;
-}
-
-#footer, #container, #headTXT{
-	margin: 30px auto;
 }
 
 #headTXT a{
