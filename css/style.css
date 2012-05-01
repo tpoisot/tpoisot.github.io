@@ -188,6 +188,7 @@ blockquote
 }
 
 #pages{
+	margin-top: 25px;
 	float: right;
 }
 
@@ -198,4 +199,7 @@ blockquote
 #pages a{
 	width: 80px;
 	background-color: #eee;
+	padding: 8px;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
 }
