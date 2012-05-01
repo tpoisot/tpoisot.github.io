@@ -86,19 +86,7 @@ h2{
 }
 
 #page{
-	width: 645px;
-	max-width: 645px;
-	float: left;
-	padding-right: 15px;
 	margin: 0px;
-}
-
-#aside{
-	margin: 0px;
-	width: 200px;
-	max-width: 200px;
-	float: right;
-	text-align: right;
 }
 
 #footer{
@@ -198,3 +186,4 @@ blockquote
     background-color: white;
     max-width: 625 px;
 }
+
