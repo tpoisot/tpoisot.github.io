@@ -8,6 +8,8 @@ layout: default
 <div id='blogtitle'>{{ page.chapo }}</div>
 {{ content }}
 
+{% include sidebar-post.html %}
+
 {% if site.disqus %}
 <div id="comments">
   <h2>Comments</h2>
@@ -29,7 +31,6 @@ layout: default
 
 <div id='aside'>
 	{% include sidebar-menu.html %}
-	{% include sidebar-post.html %}
 </div>
 
 </div>
