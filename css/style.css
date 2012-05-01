@@ -203,3 +203,9 @@ blockquote
 	border-radius: 7px;
 	-moz-border-radius: 7px;
 }
+
+#pages a:hover{
+	background-color: #d53e4f;
+	text-decoration: none;
+	color: white;
+}
