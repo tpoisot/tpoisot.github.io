@@ -212,7 +212,7 @@ blockquote
 	color: white;
 }
 
-.blogentry h1{
+.blogentry h1, .blogentry img{
 	column-span: all;
 	-webkit-column-span: all;
 }
@@ -224,4 +224,8 @@ blockquote
 	-webkit-column-count: 2;
 	-webkit-column-gap: 60px;
 	-webkit-column-rule: 1px dotted #C6C6C6;
+}
+
+.blogentry p{
+	font-size: .9em;
 }
