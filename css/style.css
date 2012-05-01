@@ -9,8 +9,8 @@ html{
 #main{
 	border: 1px solid #C6C6C6;
 	font-family: 'Lato';
-	width: 860px;
-	max-width: 860px;
+	width: 760px;
+	max-width: 760px;
 	margin: 30px auto;
 	background-color: white;
 	padding: 0px 30px;
@@ -210,9 +210,4 @@ blockquote
 	background-color: #d53e4f;
 	text-decoration: none;
 	color: white;
-}
-
-.blogentry{
-	max-width: 625px;
-	margin: 0px auto;
 }
