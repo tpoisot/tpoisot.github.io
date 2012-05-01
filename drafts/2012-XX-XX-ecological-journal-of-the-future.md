@@ -4,6 +4,7 @@ title: The ecological journal of the future
 summary: blog
 chapo: What would the next generation of ecological journals look like?
 author: Tim
+type: essay
 tags:
 - scientific publishing
 - open access
