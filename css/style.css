@@ -12,6 +12,8 @@ html{
 	width: 860px;
 	max-width: 860px;
 	margin: 30px auto;
+	background-color: white;
+	padding: 0px 30px;
 }
 
 it, em{
@@ -73,8 +75,8 @@ h2{
 }
 
 #head{
-	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	padding: 20px 0px;
 	font-size: 2.4em;
 }
@@ -105,6 +107,7 @@ h2{
 	margin-top: 1.5em;
 	padding-top: 1.5em;
 	display: block;
+	margin-bottom: 1.2em;
 }
 
 #page-content{
