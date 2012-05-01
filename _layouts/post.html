@@ -9,7 +9,14 @@ layout: default
 
 {% include sidebar-post.html %}
 
-<div class='blogentry'>{{ content }}</div>
+{% if post.type == 'essay' %}
+<div class='blogentry essay'>
+{% else %}
+<div class='blogentry'>
+{% endif %}
+
+{{ content }}
+</div>
 
 {% if site.disqus %}
 <div id="comments">
