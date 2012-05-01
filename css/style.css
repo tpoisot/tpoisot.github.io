@@ -211,3 +211,33 @@ blockquote
 	text-decoration: none;
 	color: white;
 }
+
+.essay{
+	column-count: 2;
+	column-gap: 20px;
+	-moz-column-count: 2;
+	-moz-column-gap: 20px;
+	-o-column-count: 2;
+	-o-column-gap: 20px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+	column-rule-color: #C6C6C6;
+	column-rule-style: dotted;
+	column-rule-width: 1px;
+	-moz-column-rule-color: #C6C6C6;
+	-moz-column-rule-style: dotted;
+	-moz-column-rule-width: 1px;
+	-webkit-column-rule-color: #C6C6C6;
+	-webkit-column-rule-style: dotted;
+	-webkit-column-rule-width: 1px;
+	-o-column-rule-color: #C6C6C6;
+	-o-column-rule-style: dotted;
+	-o-column-rule-width: 1px;
+}
+
+.essay h2, .essay h1{
+	column-span: all;
+	-moz-column-span: all;
+	-o-column-span: all;
+	-webkit-column-span: all;
+}
