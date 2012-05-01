@@ -103,14 +103,19 @@ h2{
 
 #footer{
 	font-family: 'Droid Serif', Georgia, serif;
-	font-size: 95%;
+	font-size: 90%;
 	clear: both;
-	color: #888888;
+	color: #333;
+	text-align: center;
 	margin-top: 1.5em;
 	border-top: 1px dotted #C6C6C6;
 	padding-top: 1.5em;
 	display: block;
 	margin-bottom: 1.2em;
+}
+
+#footer a{
+	border-bottom: 1px dotted #C6C6C6;
 }
 
 #page-content{
