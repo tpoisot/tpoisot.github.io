@@ -3,6 +3,7 @@ author: Tim
 layout: post
 title: The aggregate function in Python
 summary: blog
+type: note
 chapo: Using Python to aggregate data along a given factor.
 tags:
 - python

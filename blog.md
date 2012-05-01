@@ -5,5 +5,7 @@ summary: blog
 ---
 
 {% for post in site.posts %}
+{% if post.type == 'note' %}
 `{{ post.date | date_to_string }}` **::** [{{ post.title }}]({{ site.url }}{{ post.url }})
+{% endif %}
 {% endfor %}

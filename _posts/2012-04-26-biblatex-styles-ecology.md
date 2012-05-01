@@ -2,6 +2,7 @@
 layout: post
 title: Biblatex styles for ecology
 summary: blog
+type: note
 chapo: A project to write biblatex styles for ecological journals
 author: Tim
 tags:

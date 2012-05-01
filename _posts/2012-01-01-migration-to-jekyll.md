@@ -2,6 +2,7 @@
 layout: post
 title: Goodbye Wordpress, hello Jekyll!
 summary: blog
+type: note
 chapo: A new platform for this website.
 author: Tim
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: Ecology is not too collaborative
 summary: blog
+type: note
 chapo: Is ecology too collaborative? I think not.
 author: Tim
 tags:

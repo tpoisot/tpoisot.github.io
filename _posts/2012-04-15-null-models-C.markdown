@@ -2,6 +2,7 @@
 layout: post
 title: Null models of bipartite networks in C
 summary: blog
+type: note
 chapo: A fast way to generate random networks in C
 author: Tim
 tags:

@@ -2,6 +2,7 @@
 layout: post
 title: Science in the age of social coding
 summary: blog
+type: essay
 chapo: Code sharing has the potential of making our lives a little bit easier.
 author: Tim
 tags:

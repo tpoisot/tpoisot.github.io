@@ -2,6 +2,7 @@
 layout: post
 title: Simulated phylogenetic trees and community assembly
 summary: blog
+type: note
 chapo: A python class to track the phylogenetic relationships in an emerging community.
 author: Tim
 tags:
