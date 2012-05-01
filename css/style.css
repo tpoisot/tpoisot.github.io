@@ -212,6 +212,10 @@ blockquote
 	color: white;
 }
 
+.blogentry h1{
+	column-span: all;
+}
+
 .blogentry{
 	column-count: 2;
 	column-gap: 60px;
