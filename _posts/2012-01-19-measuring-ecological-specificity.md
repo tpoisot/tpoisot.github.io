@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'New paper: measuring ecological specificity'
+title: 'Measuring ecological specificity'
 summary: blog
 type: paper
 chapo: A new paper about different measures of ecological specificity, with a R package to perform them.

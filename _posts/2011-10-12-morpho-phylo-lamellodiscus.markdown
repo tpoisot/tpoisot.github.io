@@ -1,7 +1,7 @@
 ---
 author: Tim
 layout: post
-title: 'New paper: morphology and phylogeny in Lamellodiscus'
+title: 'Morphology and phylogeny in Lamellodiscus'
 summary: blog
 type: paper
 chapo: A new paper about morphological and molecular similarities in fish parasites.
