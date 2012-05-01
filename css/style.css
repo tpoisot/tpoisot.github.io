@@ -214,6 +214,7 @@ blockquote
 
 .blogentry h1{
 	column-span: all;
+	-webkit-column-span: all;
 }
 
 .blogentry{
