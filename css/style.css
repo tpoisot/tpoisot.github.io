@@ -256,3 +256,15 @@ blockquote
 .post_info, .tag{
 	font-family: 'PT Sans Caption';
 }
+
+#page ol{
+	font-family: 'PT Serif';
+}
+
+#page ol li{
+padding-left: 30px;
+}
+
+#page ol li:first-line{
+	padding-left: 0px;
+}
