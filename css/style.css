@@ -29,7 +29,10 @@ code, pre{
 }
 
 code{
-	font-size: 110%;
+	font-size: 100%;
+}
+
+#page p code{
 	color: #52595D;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
