@@ -4,16 +4,6 @@ title: Papers
 summary: papers
 ---
 
-# Papers submitted and in revision
-
-**Timothée Poisot**, Michal Stanko, Dana Miklisova & Serge Morand. Life-history traits and the structure of host-parasite networks. In revision.
-
-**Timothée Poisot**, Manon Lounnas & Michael E Hochberg. The structure of natural bacteria-phage bipartite networks favours the maintenance of diversity. Under review at *The ISME Journal*.
-
-**Timothée Poisot**, James D Bever, Peter H Thrall & Michael E Hochberg. When protection is not enough - emergence and persistence of protective mutualists in pathogenic communities. Under review at *PLoS One*.
-
-**Timothée Poisot**, Sonia Kéfi, Serge Morand, Michal Stanko, Pablo A Marquet & Michael E Hochberg. Patterns of co-occurrence between specialists and generalists in natural communities. In revision.
-
 # Papers accepted or in press
 
 **Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*. [pdf]({{ site.url }}/reprints/poisot_methodsecolevol_pdi.pdf), [R package](https://r-forge.r-project.org/R/?group_id=593) 
