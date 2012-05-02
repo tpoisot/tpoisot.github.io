@@ -12,4 +12,9 @@ summary: blog
 {% if post.type == 'paper' %}
 `{{ post.date | date_to_string }}` **::** [{{ post.title }}]({{ site.url }}{{ post.url }}) (new paper)
 {% endif %}
+
+{% if post.type == 'essay' %}
+`{{ post.date | date_to_string }}` **::** [{{ post.title }}]({{ site.url }}{{ post.url }})
+{% endif %}
+
 {% endfor %}
