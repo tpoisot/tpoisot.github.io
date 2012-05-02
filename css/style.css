@@ -59,6 +59,10 @@ h2{
 	font-weight: normal;
 }
 
+#headTXT{
+	text-shadow: 1px 1px 2px #d2d2d2;
+}
+
 #headTXT a{
 	color: #d53e4f;
 }
