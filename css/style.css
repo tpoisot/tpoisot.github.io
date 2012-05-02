@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:700italic,400,400italic,700);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 html{
@@ -8,7 +8,7 @@ html{
 
 #main{
 	border: 1px solid #C6C6C6;
-	font-family: 'Lato';
+	font-family: 'PT Sans';
 	width: 760px;
 	max-width: 760px;
 	margin: 30px auto;
@@ -91,7 +91,7 @@ h2{
 }
 
 #footer{
-	font-family: 'Droid Serif', Georgia, serif;
+	font-family: 'PT Serif', Georgia, serif;
 	font-size: 85%;
 	clear: both;
 	color: #333;
@@ -130,7 +130,7 @@ h2{
 }
 
 #page p{
-	font-family: 'Droid Serif', Georgia, serif;
+	font-family: 'PT Serif', Georgia, serif;
 	padding-bottom: 1.1em;
 	line-height: 1.4em;
 	font-size: .96em;
@@ -165,8 +165,9 @@ blockquote
 }
 
 .post_info{
+	font-family: 'PT Sans';
 	font-size: 85%;
-	font-weight: bold;
+	font-weight: 700;
 	color: #333;
 }
 
@@ -234,4 +235,16 @@ blockquote
 	-o-column-rule-style: dotted;
 	-o-column-rule-width: 1px;
 	margin-bottom: 1.7em;
+}
+
+.tag{
+	font-family: 'PT Sans';
+	font-size: 70%;
+	width: 150px;
+	min-width: 150px;
+	background-color: #eee;
+	padding: 6px;
+	margin-left: 6px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
 }
