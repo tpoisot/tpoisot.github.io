@@ -259,6 +259,7 @@ blockquote
 
 #page ol{
 	font-family: 'PT Serif';
+	margin-bottom: 5px;
 }
 
 #page ol li{
@@ -266,5 +267,5 @@ padding-left: 30px;
 }
 
 #page ol li:first-line{
-	padding-left: 0px;
+	padding-left: -30px;
 }
