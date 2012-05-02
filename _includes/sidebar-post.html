@@ -1,1 +1,4 @@
-<p class='post_info'>Published on {{ page.date | date_to_string }} — {{ page.content | number_of_words }} words</p>
+<p class='post_info'>Published on {{ page.date | date_to_string }} — {{ page.content | number_of_words }} words<br />
+{% for tag in post.tags %}
+tag 
+{% endfor %}</p>
