@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
@@ -8,7 +8,7 @@ html{
 
 #main{
 	border: 1px solid #C6C6C6;
-	font-family: 'PT Sans';
+	font-family: 'PT Sans Caption';
 	width: 760px;
 	max-width: 760px;
 	margin: 30px auto;
@@ -252,5 +252,5 @@ blockquote
 }
 
 .post_info, .tag{
-	font-family: 'PT Sans';
+	font-family: 'PT Sans Caption';
 }
