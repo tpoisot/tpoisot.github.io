@@ -116,7 +116,6 @@ h2{
 }
 
 #page h2, #page h1, .blogentry h1, .project h2, #aside h2, #comments h2{
-	font-weight: bold;
 	padding-bottom: 0.9em;
 	color: rgb(102,194,165);
 }
@@ -146,7 +145,6 @@ h2{
 }
 
 #page h1{
-	font-weight: bold;
 	font-size: 115%;
 	padding-top: 1.2em;
 	margin-top: 0em;
