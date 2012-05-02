@@ -132,7 +132,7 @@ h2{
 	font-size: .95em;
 }
 
-#page p{
+#page p, #page ol{
 	font-family: 'PT Serif', Georgia, serif;
 	padding-bottom: 1.1em;
 	line-height: 1.4em;
@@ -255,17 +255,4 @@ blockquote
 
 .post_info, .tag{
 	font-family: 'PT Sans Caption';
-}
-
-#page ol{
-	font-family: 'PT Serif';
-	margin-bottom: 5px;
-}
-
-#page ol li{
-padding-left: 30px;
-}
-
-#page ol li:first-line{
-	padding-left: -30px;
 }
