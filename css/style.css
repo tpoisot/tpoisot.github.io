@@ -89,7 +89,7 @@ a:hover{
 	-moz-border-radius: 7px;
 }
 
-.active{
+#pages .active a, #pages .active a{
 	background-color: rgb(50,136,189);
 }
 
