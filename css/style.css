@@ -10,7 +10,7 @@ html{
 FONTS
 */
 
-#main, .post_info, .tag{
+#main, .post_info, .tag, .entrytitle{
 	font-family: 'Lato';
 }
 
@@ -26,6 +26,12 @@ pre{
 	font-size: 90%;
 }
 
+.entrytitle{
+	font-size: 115%;
+	padding-top: 1.2em;
+	margin-top: 0em;
+	padding-bottom: 0.5em;
+}
 
 #footer, #page p, #page ol{
 	font-family: 'PT Serif', Georgia, serif;
@@ -64,11 +70,11 @@ a:hover{
 	color: rgb(213,62,79);
 }
 
-#footer a, #page p a{
+#footer a, #page p a, .entrytitle a{
 	color: rgb(50,136,189);
 }
 
-#page p a:hover, #footer a:hover{
+#page p a:hover, #footer a:hover, .entrytitle a:hover{
 	text-decoration: none;
 	background-color: rgb(50,136,189);
 	color: white;
