@@ -1,8 +1,9 @@
-{% if post.type == 'paper' %}New paper — {% endif %}{% if post.type == 'essay' %}Essay — {% endif %}<a class='entrytitle' href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+<div class='entrytitle'>{% if post.type == 'paper' %}New paper — {% endif %}{% if post.type == 'essay' %}Essay — {% endif %}<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
 <br />
 <div class='entrydate'>{{ post.date | date_to_string }}</div>
+<br />
 <div class='entryexcerpt'>
-{{post.content | truncatewords: 80 | strip_html}}
+{{post.content | truncatewords: 50 | strip_html}}
 </div>
 
 
