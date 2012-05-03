@@ -28,7 +28,7 @@ pre{
 
 .entrytitle{
 	font-size: 125%;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .entrydate{
@@ -38,7 +38,7 @@ pre{
 }
 
 .entryexcerpt{
-	margin-top: 20px;
+	margin-top: 10px;
 	padding-bottom: 2.5em;
 	padding-left: 1.5em;
 }
