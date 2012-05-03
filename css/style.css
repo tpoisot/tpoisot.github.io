@@ -31,7 +31,8 @@ pre{
 }
 
 .entrydate{
-	font-size: 85%;
+	font-size: 90%;
+	font-weight: bold;
 	margin-bottom: 0.7em;
 }
 
@@ -40,7 +41,7 @@ pre{
 	padding-left: 1.5em;
 }
 
-#footer, #page p, #page ol, .entryexcerpt{
+#footer, #page p, #page ol, .entryexcerpt, .entrydate{
 	font-family: 'PT Serif', Georgia, serif;
 }
 
