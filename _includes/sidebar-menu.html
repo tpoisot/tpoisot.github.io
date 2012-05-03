@@ -1,9 +1,8 @@
 <div id='pages'>
-{{page.url}}
 	<ul>
 		<li><a href="{{ site.url }}/">Home</a></li>
 		<li><a href="{{ site.url }}/papers/">Papers</a></li>
 		<li><a href="{{ site.url }}/code/">Code</a></li>
-		<li><a href="{{ site.url }}/blog/" {% if page.url == {{ site.url }}/blog/ or page.layout == 'blog' %}class='active'{% endif %}>Blog</a></li>
+		<li><a href="{{ site.url }}/blog/" {% if page.url == /blog/ or page.layout == 'post' %}class='active'{% endif %}>Blog</a></li>
 	</ul>
 </div>
