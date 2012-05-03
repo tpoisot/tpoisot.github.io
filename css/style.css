@@ -276,6 +276,6 @@ blockquote
 }
 
 .active, a .active, .active a{
-	background-color: rgb(50,136,189);
+	background: rgb(50,136,189) !important;
 	color: white;
 }
