@@ -275,7 +275,7 @@ blockquote
 	margin-bottom: 0.4em;
 }
 
-#pages ul li a .active{
+.active, a .active, .active a{
 	background-color: rgb(50,136,189);
 	color: white;
 }
