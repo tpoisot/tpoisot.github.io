@@ -89,8 +89,13 @@ a:hover{
 	-moz-border-radius: 7px;
 }
 
+.active, a .active, .active a{
+	background: rgb(50,136,189) !important;
+	color: white;
+}
+
 #pages a:hover{
-	background-color: #d53e4f;
+	background: #d53e4f !important;
 	text-decoration: none;
 	color: white;
 }
@@ -273,9 +278,4 @@ blockquote
 
 .tags{
 	margin-bottom: 0.4em;
-}
-
-.active, a .active, .active a{
-	background: rgb(50,136,189) !important;
-	color: white;
 }
