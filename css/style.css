@@ -28,11 +28,14 @@ pre{
 
 .entrytitle{
 	font-size: 115%;
-	margin-top: 1.2em;
-	padding-bottom: 0.5em;
+	display: block;
 }
 
-#footer, #page p, #page ol{
+.entryexcerpt{
+	padding-bottom: 1em;
+}
+
+#footer, #page p, #page ol, .entryexcerpt{
 	font-family: 'PT Serif', Georgia, serif;
 }
 
