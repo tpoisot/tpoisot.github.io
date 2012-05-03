@@ -65,12 +65,13 @@ a:hover{
 }
 
 #footer a, #page p a{
-	border-bottom: 1px solid rgb(50,136,189);
+	color: rgb(50,136,189);
 }
 
 #page p a:hover, #footer a:hover{
 	text-decoration: none;
-	color: rgb(50,136,189);
+	background-color: rgb(50,136,189);
+	color: white;
 }
 
 #head a{
