@@ -53,12 +53,14 @@ LINKS
 */
 
 a{
-	color: black;
+	color: rgb(50,136,189);
 	text-decoration: none;
 }
 
 a:hover{
 	text-decoration: none;
+	background-color: rgb(50,136,189);
+	color: white;
 }
 
 #headTXT a{
@@ -68,16 +70,6 @@ a:hover{
 
 #head a{
 	color: rgb(213,62,79);
-}
-
-#footer a, #page p a, a .entrytitle{
-	color: rgb(50,136,189);
-}
-
-#page p a:hover, #footer a:hover, a:hover .entrytitle{
-	text-decoration: none;
-	background-color: rgb(50,136,189);
-	color: white;
 }
 
 #head a{
