@@ -66,7 +66,7 @@ a:hover{
 }
 
 #footer a, #page p a{
-	border-bottom: 1px dotted rgb(50,136,189);
+	border-bottom: 1px solid rgb(50,136,189);
 }
 
 #page p a:hover, #footer a:hover{
