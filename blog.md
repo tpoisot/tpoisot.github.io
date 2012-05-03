@@ -7,7 +7,7 @@ summary: blog
 {% for post in site.posts %}
 {% if post.type == 'note' %}
 `{{ post.date | date_to_string }}` **::** [{{ post.title }}]({{ site.url }}{{ post.url }})
-{{post.content | escape_once | truncatewords: 50}}
+{{post.content | truncatewords: 50 | strip_html}}
 {% endif %}
 
 {% if post.type == 'paper' %}
