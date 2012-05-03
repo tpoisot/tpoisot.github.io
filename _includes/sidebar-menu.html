@@ -1,8 +1,8 @@
 <div id='pages'>
 	<ul>
-		<li><a href="{{ site.url }}/">Home</a></li>
-		<li><a href="{{ site.url }}/papers/">Papers</a></li>
-		<li><a href="{{ site.url }}/code/">Code</a></li>
-		<li><a href="{{ site.url }}/blog/"{% if page.url == '/blog/' or page.layout == 'post' %} class='active'{% endif %}>Blog</a></li>
+		<li><a href="{{ site.url }}/"{% if page.url == '/index.html' %} class='active'{% endif %}>Home</a></li>
+		<li><a href="{{ site.url }}/papers/"{% if page.url == '/papers/' %} class='active'{% endif %}>Papers</a></li>
+		<li><a href="{{ site.url }}/code/"{% if page.url == '/code/' %} class='active'{% endif %}>Code</a></li>
+		<li><a href="{{ site.url }}/blog/"{% if page.url == '/blog/' or page.summary == 'blog' %} class='active'{% endif %}>Blog</a></li>
 	</ul>
 </div>

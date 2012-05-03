@@ -42,7 +42,6 @@ pre{
 	font-size: .96em;
 }
 
-
 /*
 LINKS
 */
@@ -88,6 +87,10 @@ a:hover{
 	margin-left: 8px;
 	border-radius: 7px;
 	-moz-border-radius: 7px;
+}
+
+#pages a .active{
+	background-color: rgb(50,136,189);
 }
 
 #pages a:hover{
