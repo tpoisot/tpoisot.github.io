@@ -1,4 +1,4 @@
-<a class='entrytitle' href="{{ site.url }}{{ post.url }}">{% if post.type == 'paper' %}New paper — {% endif %}{% if post.type == 'essay' %}Essay — {% endif %}{{ post.title }}</a>
+{% if post.type == 'paper' %}New paper — {% endif %}{% if post.type == 'essay' %}Essay — {% endif %}<a class='entrytitle' href="{{ site.url }}{{ post.url }}">{{ post.title }}</a><br />
 <span class='entrydate'>{{ post.date | date_to_string }}</span>
 <div class='entryexcerpt'>
 {{post.content | truncatewords: 50 | strip_html}}

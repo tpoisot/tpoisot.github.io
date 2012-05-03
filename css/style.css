@@ -28,11 +28,15 @@ pre{
 
 .entrytitle{
 	font-size: 115%;
-	display: block;
+}
+
+.entrydate{
+	font-size: 90%;
 }
 
 .entryexcerpt{
-	padding-bottom: 1em;
+	padding-bottom: 1.5em;
+	padding-left: 1.5em;
 }
 
 #footer, #page p, #page ol, .entryexcerpt{
