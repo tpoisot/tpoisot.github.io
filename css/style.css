@@ -28,8 +28,7 @@ pre{
 
 .entrytitle{
 	font-size: 115%;
-	padding-top: 1.2em;
-	margin-top: 0em;
+	margin-top: 1.2em;
 	padding-bottom: 0.5em;
 }
 
@@ -67,6 +66,10 @@ a:hover{
 	color: #d53e4f;
 }
 
+#headTXT a:hover{
+	color: #d53e4f;
+	background-color: transparent !important;
+}
 
 #head a{
 	color: rgb(213,62,79);
