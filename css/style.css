@@ -6,9 +6,102 @@ html{
 	background-image: url('../groovepaper.png');
 }
 
+/*
+FONTS
+*/
+
+#main, .post_info, .tag{
+	font-family: 'Lato';
+}
+
+code, pre{
+	font-family: 'Inconsolata', monospace;
+}
+
+code{
+	font-size: 100%;
+}
+
+pre{
+	font-size: 90%;
+}
+
+
+#footer, #page p, #page ol{
+	font-family: 'PT Serif', Georgia, serif;
+}
+
+#footer{
+	line-height: 1.2em;
+	font-size: 85%;
+}
+
+#page p, #page ol{
+	padding-bottom: 1.1em;
+	line-height: 1.4em;
+	font-size: .96em;
+}
+
+
+/*
+LINKS
+*/
+
+a{
+	color: black;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+#headTXT a{
+	color: #d53e4f;
+}
+
+
+#head a{
+	color: rgb(213,62,79);
+}
+
+#footer a, #page p a{
+	border-bottom: 1px dotted rgb(50,136,189);
+}
+
+#page p a:hover, #footer a:hover{
+	text-decoration: none;
+	color: rgb(50,136,189);
+}
+
+#head a{
+	text-decoration: none;
+}
+
+#pages a{
+	font-weight: bold;
+	font-size: 75%;
+	width: 150px;
+	min-width: 150px;
+	background-color: #eee;
+	padding: 8px;
+	margin-left: 8px;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+}
+
+#pages a:hover{
+	background-color: #d53e4f;
+	text-decoration: none;
+	color: white;
+}
+
+/*
+TO BE CLEANED LATER
+*/
+
 #main{
 	border: 1px solid #C6C6C6;
-	font-family: 'Lato';
 	width: 760px;
 	max-width: 760px;
 	margin: 30px auto;
@@ -22,42 +115,6 @@ it, em{
 
 b, strong{
 	font-weight: 700;
-}
-
-code, pre{
-	font-family: 'Inconsolata', monospace;
-}
-
-code{
-	font-size: 100%;
-}
-
-#page p code{
-	color: #52595D;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	border: 1px solid #C6C6C6;
-	background-color: #F9F9F9;
-	padding: 0px 3px;
-	display: inline-block;
-}
-
-pre{
-	font-size: 90%;
-}
-
-
-a{
-	color: black;
-	text-decoration: none;
-}
-
-a:hover{
-	text-decoration: underline;
 }
 
 #hi{
@@ -75,10 +132,6 @@ h2{
 
 #headTXT{
 	text-shadow: 1px 1px 2px #d2d2d2;
-}
-
-#headTXT a{
-	color: #d53e4f;
 }
 
 #chapo{
@@ -99,18 +152,12 @@ h2{
 	font-size: 2.4em;
 }
 
-#head a{
-	color: rgb(213,62,79);
-}
-
 #page{
 	margin: 0px;
 	font-size: .95em;
 }
 
 #footer{
-	font-family: 'PT Serif', Georgia, serif;
-	font-size: 85%;
 	clear: both;
 	color: #333;
 	text-align: center;
@@ -119,10 +166,6 @@ h2{
 	padding-top: 1.5em;
 	display: block;
 	margin-bottom: 1.2em;
-}
-
-#footer a{
-	border-bottom: 1px dotted #C6C6C6;
 }
 
 #page-content{
@@ -144,22 +187,6 @@ h2{
 
 #aside{
 	font-size: .95em;
-}
-
-#page p, #page ol{
-	font-family: 'PT Serif', Georgia, serif;
-	padding-bottom: 1.1em;
-	line-height: 1.4em;
-	font-size: .96em;
-}
-
-#page p a{
-	color: rgb(50,136,189);
-}
-
-
-#head a{
-	text-decoration: none;
 }
 
 #page h1{
@@ -210,24 +237,6 @@ blockquote
 	display: inline;
 }
 
-#pages a{
-	font-weight: bold;
-	font-size: 75%;
-	width: 150px;
-	min-width: 150px;
-	background-color: #eee;
-	padding: 8px;
-	margin-left: 8px;
-	border-radius: 7px;
-	-moz-border-radius: 7px;
-}
-
-#pages a:hover{
-	background-color: #d53e4f;
-	text-decoration: none;
-	color: white;
-}
-
 .essay{
 	column-count: 2;
 	column-gap: 30px;
@@ -265,8 +274,4 @@ blockquote
 
 .tags{
 	margin-bottom: 0.4em;
-}
-
-.post_info, .tag{
-	font-family: 'Lato';
 }
