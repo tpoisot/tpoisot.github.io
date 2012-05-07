@@ -292,3 +292,8 @@ blockquote
 .tags{
 	margin-bottom: 0.4em;
 }
+
+.postmeta{
+	text-transform: uppercase;
+	color:  #C6C6C6;
+}
