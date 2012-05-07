@@ -38,9 +38,8 @@ pre{
 }
 
 .entryexcerpt{
-	margin-top: 10px;
+	margin-top: 1em;
 	padding-bottom: 3.5em;
-	padding-left: 1.5em;
 }
 
 #footer, #page p, #page ol, .entryexcerpt, .entrydate{
@@ -296,4 +295,5 @@ blockquote
 .postmeta{
 	text-transform: uppercase;
 	color:  #C6C6C6;
+	font-size: 70%;
 }
