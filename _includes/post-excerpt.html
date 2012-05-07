@@ -1,8 +1,5 @@
-<div class='entrydate'>{{ post.date | date_to_string }}</div>
 <div class='entrytitle'>{% if post.type == 'paper' %}New paper — {% endif %}{% if post.type == 'essay' %}Essay — {% endif %}<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div><br />
-<div class='tags'>{% for tag in post.tags %}
-<span class='tag'>{{ tag }}</span>
-{% endfor %}</div><br />
+<div class='postmeta'>{{ post.date | date_to_string }} • <div class='tags'>{% for tag in post.tags %}<span class='metatag'>{{ tag }}</span>{% endfor %}</div><br />
 <div class='entryexcerpt'>
 {{post.content | truncatewords: 50 | strip_html}}
 </div>
