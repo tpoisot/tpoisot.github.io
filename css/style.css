@@ -123,6 +123,10 @@ TO BE CLEANED LATER
 	margin: 30px auto;
 	background-color: white;
 	padding: 0px 30px;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-o-border-radius: 7px;
 }
 
 it, em{
