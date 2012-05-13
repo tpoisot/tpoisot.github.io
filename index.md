@@ -4,7 +4,7 @@ title: About
 summary: Welcome!
 ---
 
-I'm a community ecologist interested in the evolution of species interactions.
+I'm a community ecologist interested in the evolution of species interactions. The easiest to get in touch is by [email](mailto:timothee.poisot@uqar.ca).
 
 I’m currently a post-doctoral researcher in [the lab of Dominique Gravel](http://chaire-eec.uqar.qc.ca/dom-fr.php) at the Université du Québec à Rimouski. I work on the biogeography of complex food webs using a natural system of pitcher plants, theoretical models, and computer simulations. I’m interested in how the complexity of food webs emerges from simple ecological and evolutionary mechanisms, and how our view of species interaction changes in a spatial context. My current research project is focused on the relationships between the structure of trophic interactions and ecosystem functioning.
 
