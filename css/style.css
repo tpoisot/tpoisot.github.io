@@ -51,7 +51,7 @@ pre{
 	font-size: 85%;
 }
 
-#page p, #page ol{
+#page p, #page ol, .entryexcerpt{
 	padding-bottom: 1.1em;
 	line-height: 1.35em;
 	font-size: 1.05em;
