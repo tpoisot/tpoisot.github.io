@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
-@import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:400italic,700italic,400,700);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 html{
@@ -43,7 +43,7 @@ pre{
 }
 
 #footer, #page p, #page ol, .entryexcerpt, .entrydate{
-	font-family: 'Noticia Text', Georgia, serif;
+	font-family: 'Vollkorn', Georgia, serif;
 }
 
 #footer{
