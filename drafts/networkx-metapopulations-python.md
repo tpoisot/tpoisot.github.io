@@ -65,12 +65,24 @@ We will now generate as many (`Patches`) patches as needed, and put them on the 
 
 {% highlight python %}
 for i in xrange(NPatch):
-    Stat = 1 if np.random.uniform() < PSp else 0
+    Stat = 1 if np.random.uniform() < P_init else 0
     Pos  = (np.random.uniform()*10-5,np.random.uniform()*10-5)
     G.add_node(patch(Stat,Pos))
 {% endhighlight %}
 
-This require at least Python 2.6, but you can easily rewrite the problematic first line as an `if/else` block.
+This require at least Python 2.6, but you can easily rewrite the problematic first line as an `if/else` block. Basically, this will generate random positions in space, and randomly decide if the patch is occupied or not. This is where `networkx` is extremely powerful: nodes can be any Python objects. In the simplest cases, you may want to use only numbers or strings, but if you have to keep track of the nodes in more advanced ways, then this become extremely fun and convenient to work with.
+
+At this point, nodes are not connected by dispersal yet. To decide which patches are connected, we will loop through them all, and access their `pos` attributes:
+
+{% highlight python %}
+for p1 in G.nodes():
+    for p2 in G.nodes():
+        Dist = np.sqrt((p1.pos[1]-p2.pos[1])**2+(p1.pos[0]-np.pos[0])**2)
+        if Dist <= Distance:
+            G.add_edge(p1,p2)
+{% endhighlight %}
+
+For all pairs of nodes, we check that their distance falls below the treshold for migration, and if so, we create an edge in the network.
 
 # Simulation
 
