@@ -11,9 +11,7 @@ tags:
 - metapopulation
 ---
 
-Python progressively replaced R for most of my simulations. There are a lot of great packages for scientists, and since I started working on 
-
-We had a lab meeting last week, during which we discuss
+Python progressively replaced R for most of my simulations. There are a lot of great packages for scientists, and since I started working on food webs seriously, I've been using `networkx` more and more. We've been having discussions in the lab about spatial graphs, surrounding a recent paper by [Gilarranz and Bascompte](http://www.ncbi.nlm.nih.gov/pubmed/22155351) and some of our own projects, and I thought that it will be fun to use `networkx` to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a [gist](https://gist.github.com/2725839).
 
 # Setting things up
 
@@ -50,7 +48,7 @@ class patch:
         return(str(self.status))
 {% endhighlight %}
 
-I won't go into the detail of this notation, but you can read more **HERE** or **HERE** if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.
+I won't go into the detail of this notation, but you can read more [here](http://www.penzilla.net/tutorials/python/classes/) or [here](http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/) if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.
 
 # Create a spatially explicit graph
 
@@ -156,3 +154,33 @@ plt.show()
 
 ![Figure2][fig2]
 [fig2]: {{ site.url }}/images/metapop_final.png  "Final step"
+
+But of course you would like to follow the dynamics, which is extremely easy. We will just add, just before the beginning of the simulation loop, the lines
+
+{% highlight python %}
+Time = [0]
+Occupancy = [np.sum([n.status for n in G])/float(Patches)]
+{% endhighlight %}
+
+And we will add infos at the end of each loop, i.e. immediately after the `break` instruction (but in the main loop, not the colonization one):
+
+{% highlight python %}
+Time.append(timestep+1)
+Occupancy.append(np.sum([n.status for n in G])/float(Patches))
+{% endhighlight %}
+
+And at the really end of the simulation, just add
+
+{% highlight python %}
+plt.plot(Time,Occupancy,'g-')
+plt.show()
+{% endhighlight %}
+
+Which will give you the following result:
+
+![Figure3][fig3]
+[fig3]: {{ site.url }}/images/metapop_dynamics.png  "Occupancy dynamics"
+
+# Conclusions
+
+And that's it! Using the ability of `networkx` to make any arbitrary object into a node, it's possible to implement a metapopulation simulation in roughly 50 lines. The package is reasonably fast, so it's possible to run more complex simulations (I've been playing with metacommunities with no problem, for example).
