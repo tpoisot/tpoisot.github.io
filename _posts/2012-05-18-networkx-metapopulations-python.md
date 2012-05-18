@@ -11,7 +11,7 @@ tags:
 - metapopulation
 ---
 
-Python progressively replaced R for most of my simulations. There are a lot of great packages for scientists, and since I started working on food webs seriously, I've been using `networkx` more and more. We've been having discussions in the lab about spatial graphs, surrounding a recent paper by [Gilarranz and Bascompte](http://www.ncbi.nlm.nih.gov/pubmed/22155351) and some of our own projects, and I thought that it will be fun to use `networkx` to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a [gist](https://gist.github.com/2725839).
+Python progressively replaced R for most of my daily simulations needs, because it's relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I've been using `networkx` more and more. We've been having discussions in the lab about spatial graphs, surrounding a recent paper by [Gilarranz and Bascompte](http://www.ncbi.nlm.nih.gov/pubmed/22155351) and some of our own projects, and I thought that it will be fun to use `networkx` to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a [gist](https://gist.github.com/2725839).
 
 # Setting things up
 
