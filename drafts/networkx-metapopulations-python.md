@@ -24,6 +24,16 @@ import networkx as nx
 import numpy as np
 {% endhighlight %}
 
+Then we'll set a few parameters
+
+{% highlight python %}
+Patches = 100   # Number of patches
+P_ext = 0.01    # Probability of extinction (e)
+P_col = 0.014   # Probability of colonization (c)
+P_init = 0.02   # Probability that a patch will be occupied at the beginning
+Distance = 1.4  # An arbitrary parameter to determine which patches are connected
+{% endhighlight %}
+
 # Create a node class
 
 The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph.
