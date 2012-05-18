@@ -78,7 +78,7 @@ At this point, nodes are not connected by dispersal yet. To decide which patches
 {% highlight python %}
 for p1 in G.nodes():
     for p2 in G.nodes():
-        Dist = np.sqrt((p1.pos[1]-p2.pos[1])**2+(p1.pos[0]-np.pos[0])**2)
+        Dist = np.sqrt((p1.pos[1]-p2.pos[1])**2+(p1.pos[0]-p2.pos[0])**2)
         if Dist <= Distance:
             G.add_edge(p1,p2)
 {% endhighlight %}
@@ -96,6 +96,63 @@ nx.draw(G,node_color=occup,with_labels=False,cmap=plt.cm.Greys,pos=pos,vmin=0,vm
 plt.show()
 {% endhighlight %}
 
-# Simulation
+This will open a Python plotting view looking like:
 
-step 4 
+![Figure1][fig1]
+[fig1]: {{ site.url }}/images/metapop_step1.png  "Step 1"
+
+The black nodes are occupied patches, and the white ones are empty patches. If the landscape it too connected (or not connected enough), act on the `Distance` parameter to fix it.
+
+# Start the simulation
+
+So now, we have everything to start the simulation. We'll first do a loop to update the status of the nodes, starting with extinctions, and then colonization. Let's start with the extinction routine:
+
+{% highlight python %}
+for n in G.nodes():
+    if (n.status == 1 and np.random.uniform() < P_ext):
+        n.status = 0
+{% endhighlight %}
+
+Simply put, for each node, if it is occupied and a random extinction event occurs, then its status is reverted to 0. Super easy. We can do something similar for the colonization routine. We assume that each occupied node will be able to colonize a single of its neighbouring nodes. This rquires to get a list of nodes adjacent to the node currently being evaluated.
+
+{% highlight python %}
+for n in G.nodes():
+    if n.status == 1:
+        neighb = G[n] # That's it, a list of the neighbors
+        for nei in neighb:
+            if nei.status == 0:
+                if np.random.uniform() < P_col:
+                    nei.status = 1
+                    break
+{% endhighlight %}
+
+That's a lot of loops within loops, but it goes rougly as follows: for each of the nodes, if their is a population, we check the neighbors. For the non-occupied neighbors, we check if the colonization occurs, and if so, we break the loop.
+
+With these two blocks, it's easy to do the actual simulation:
+
+{% highlight python %}
+for timestep in xrange(2000):
+    ## Check for extinctions
+    for n in G.nodes():
+        if (n.status == 1 and np.random.uniform() < P_ext):
+            n.status = 0
+    ## Check for invasions
+    for n in G.nodes():
+        if n.status == 1:
+            neighb = G[n] # That's it, a list of the neighbors
+            for nei in neighb:
+                if nei.status == 0:
+                    if np.random.uniform() < P_col:
+                        nei.status = 1
+                        break
+{% endhighlight %}
+
+We then plot the lanscape using the same command as before (I've actually added the list of occupancies directly within the plot instruction, because one-liners looks cool):
+
+{% highlight python %}
+nx.draw(G,node_color=[n.status for n in G],with_labels=False,cmap=plt.cm.Greys,pos=pos,vmin=0,vmax=1)
+plt.show()
+{% endhighlight %}
+
+![Figure2][fig2]
+[fig2]: {{ site.url }}/images/metapop_final.png  "Final step"
