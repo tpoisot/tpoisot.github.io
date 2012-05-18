@@ -17,14 +17,15 @@ We had a lab meeting last week, during which we discuss
 
 # Setting things up
 
-Before we start, we'll need a few things. Some modules are required: obviously `networkx` to deal with the graph objects, `numpy` to generate random numbers.
+Before we start, we'll need a few things. Some modules are required: obviously `networkx` to deal with the graph objects, `numpy` to generate random numbers, and the `pyplot` module to deal with the output. I'd much rather do the output work using `pyx`, but it would add a good 50 lines of code to get a good-looking output, so let's go the easy way.
 
 {% highlight python %}
 import networkx as nx
 import numpy as np
+import matplotlib.pyplot as plt
 {% endhighlight %}
 
-Then we'll set a few parameters
+Then we'll set a few parameters:
 
 {% highlight python %}
 Patches = 100   # Number of patches
@@ -64,7 +65,7 @@ G = nx.Graph()
 We will now generate as many (`Patches`) patches as needed, and put them on the landscape at random.
 
 {% highlight python %}
-for i in xrange(NPatch):
+for i in xrange(Patches):
     Stat = 1 if np.random.uniform() < P_init else 0
     Pos  = (np.random.uniform()*10-5,np.random.uniform()*10-5)
     G.add_node(patch(Stat,Pos))
@@ -83,6 +84,17 @@ for p1 in G.nodes():
 {% endhighlight %}
 
 For all pairs of nodes, we check that their distance falls below the treshold for migration, and if so, we create an edge in the network.
+
+At this point, it's easy to visualize the network:
+
+{% highlight python %}
+occup = [n.status for n in G]
+pos = {}
+for n in G.nodes():
+    pos[n] = n.pos
+nx.draw(G,node_color=occup,with_labels=False,cmap=plt.cm.Greys,pos=pos,vmin=0,vmax=1)
+plt.show()
+{% endhighlight %}
 
 # Simulation
 
