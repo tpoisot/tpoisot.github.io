@@ -13,7 +13,7 @@ tags:
 
 Python progressively replaced R for most of my simulations. There are a lot of great packages for scientists, and since I started working on 
 
-We had a lab meeting this afternoon about ...
+We had a lab meeting last week, during which we discuss
 
 # Setting things up
 
@@ -36,7 +36,7 @@ Distance = 1.4  # An arbitrary parameter to determine which patches are connecte
 
 # Create a node class
 
-The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph.
+The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class `patch`. Before writing up, let's think about what to put in. We need a simple parameter which we call `status`, whose value can be either `0` (the pacth is empty) or `1` (the patch is occupied).
 
 # Create a spatially explicit graph
 
