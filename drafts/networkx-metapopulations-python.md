@@ -36,7 +36,18 @@ Distance = 1.4  # An arbitrary parameter to determine which patches are connecte
 
 # Create a node class
 
-The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class `patch`. Before writing up, let's think about what to put in. We need a simple parameter which we call `status`, whose value can be either `0` (the pacth is empty) or `1` (the patch is occupied).
+The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class `patch`. Before writing up, let's think about what to put in. We need a simple parameter which we call `status`, whose value can be either `0` (the patch is empty) or `1` (the patch is occupied).
+
+We'll also create a tuple called `pos`, to store the position of the node in a two-dimensional space. The resulting class is
+
+{% highlight python %}
+class patch:
+    def __init__(self,status=0,pos=(0,0)):
+        self.status = status
+        self.pos = pos
+    def __str__(self):
+        return(str(self.status))
+{% endhighlight %}
 
 # Create a spatially explicit graph
 
