@@ -13,7 +13,11 @@ tags:
 
 Python progressively replaced R for most of my simulations. There are a lot of great packages for scientists, and since I started working on 
 
+We had a lab meeting this afternoon about ...
+
 # Create a node class
+
+The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph.
 
 # Create a spatially explicit graph
 
