@@ -4,11 +4,13 @@ title: Papers
 summary: papers
 ---
 
-# Papers accepted or in press
-
-**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*. [pdf]({{ site.url }}/reprints/poisot_methodsecolevol_pdi.pdf), [R package](https://r-forge.r-project.org/R/?group_id=593) 
-
 # 2012
+
+<<<<<<< HEAD
+**Timothée Poisot** (2012) L'ABC de la spécialisation: apparition, biodiversité, conservation. *Le Prisme à Idées* 4, 49-52. Vulgarization paper in French for the special issue *From uncertainty to risk*. [pdf]( {{ site.url }}/reprints/poisot_prisme_abc.pdf)
+=======
+**Timothée Poisot**, Elsa Canard, Nicolas Mouquet & Michael E Hochberg (in press) A comparative study of ecological specialization estimators. *Methods in Ecology & Evolution*, 3 (3) 537-544. [pdf]({{ site.url }}/reprints/poisot_methodsecolevol_pdi.pdf), [R package](https://r-forge.r-project.org/R/?group_id=593) 
+>>>>>>> d12cbab626ee6ccf6537571f3cc0486b1c066363
 
 Philippe Desjardins-Proulx, **Timothée Poisot**, & Dominique Gravel (2012). A simple algorithm to study phylogeographies & speciation patterns in space. *ArXiV*. [pdf]({{ site.url }}/reprints/phdp_arxiv_wagner.pdf)
 
