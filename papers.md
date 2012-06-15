@@ -10,6 +10,8 @@ summary: papers
 
 # 2012
 
+**Timothée Poisot** (2012) L'ABC de la spécialisation: apparition, biodiversité, conservation. *Le Prisme à Idées* 4, 49-52. Vulgarization paper in French for the special issue *From uncertainty to risk*. [pdf]( {{ site.url }}/reprints/poisot_prisme_abc.pdf)
+
 Philippe Desjardins-Proulx, **Timothée Poisot**, & Dominique Gravel (2012). A simple algorithm to study phylogeographies & speciation patterns in space. *ArXiV*. [pdf]({{ site.url }}/reprints/phdp_arxiv_wagner.pdf)
 
 **Timothée Poisot**, Peter H Thrall, Michael E Hochberg (2012) Trophic network structure emerges through antagonistic coevolution in temporally varying environments. *Proceedings of the Royal Society B: Biological Sciences*, 279 (1712) 299–308. [pdf]({{ site.url }}/reprints/poisot_prslb_coevolution.pdf), [suppl. mat.]({{ site.url }}/reprints/PRSLB_2011_supplementary-material.pdf) 
