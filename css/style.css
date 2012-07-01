@@ -4,6 +4,9 @@
 html{
 	font-family: 'Open Sans', Helvetica;
 	font-weight: 300;
+	background-image:url('../web-bg.png');
+	background-repeat:no-repeat;
+	background-position:center top;
 }
 
 a{
