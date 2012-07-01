@@ -207,7 +207,7 @@ blockquote
 }
 
 #page p img{
-	border: 5px solid white;
+    border: 5px solid white;
     padding: 5px;
     background-color: white;
     max-width: 625 px;
@@ -216,6 +216,7 @@ blockquote
 #pages{
 	margin-top: 20px;
 	float: right;
+	text-align: right;
 }
 
 #pages li, #pages ul{
