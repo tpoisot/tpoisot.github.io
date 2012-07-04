@@ -15,7 +15,7 @@ tags:
 
 Last week, I started using [```pgfplots```](http://pgfplots.sourceforge.net/), a [```tikz```](http://www.texample.net/) extension for data visualization, to prepare slides for the upcoming [Evolution20120](http://www.confersense.ca/Evolution2012/) meeting in Ottawa. I thought it would be pretty cool to be able to use the *Color Brewer* scales in my talk.
 
-Using ```pgfplots``` , it's really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the *[Color Brewer](http://colorbrewer2.org/)* website tells you the RGB values of each color when you select a scheme, it's really easy to re-implement the color schemes.
+Using ```pgfplots``` , it's really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the [*Color Brewer*](http://colorbrewer2.org/) website tells you the RGB values of each color when you select a scheme, it's really easy to re-implement the color schemes.
 
 For example, you can do a nice color map with the *spectral* scheme:
 
@@ -44,12 +44,12 @@ Or you can do a color cycle with the *Set1* scheme:
 \definecolor{s3}{RGB}{77, 175, 74}
 \definecolor{s4}{RGB}{152, 78, 163}
 \definecolor{s5}{RGB}{255, 127, 0}
-\pgfplotscreateplotcyclelist{set1}{%
-  s1,every mark/.append style={fill=s1},mark=*\\%
-	s2,every mark/.append style={fill=s2},mark=*\\%
-	s3,every mark/.append style={fill=s3},mark=*\\%
-	s4,every mark/.append style={fill=s4},mark=*\\%
-	s5,every mark/.append style={fill=s5},mark=*\\%
+\pgfplotscreateplotcyclelist{set1}{
+  s1,every mark/.append style={fill=s1},mark=*\\
+	s2,every mark/.append style={fill=s2},mark=*\\
+	s3,every mark/.append style={fill=s3},mark=*\\
+	s4,every mark/.append style={fill=s4},mark=*\\
+	s5,every mark/.append style={fill=s5},mark=*\\
 }
 {% endhighlight %}
 
