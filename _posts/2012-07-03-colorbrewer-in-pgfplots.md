@@ -11,11 +11,11 @@ tags:
 - data visualization
 ---
 
-[*Color Brewer*](http://colorbrewer2.org/) is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the `RColorBrewer` package.
+[*Color Brewer*](http://colorbrewer2.org/) is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the ```RColorBrewer``` package.
 
-Last week, I started using [`pgfplots`](http://pgfplots.sourceforge.net/), a [`tikz`](http://www.texample.net/) extension for data visualization, to prepare slides for the upcoming [Evolution20120](http://www.confersense.ca/Evolution2012/) meeting in Ottawa. I thought it would be pretty cool to be able to use the *Color Brewer* scales in my talk.
+Last week, I started using [```pgfplots```](http://pgfplots.sourceforge.net/), a [```tikz```](http://www.texample.net/) extension for data visualization, to prepare slides for the upcoming [Evolution20120](http://www.confersense.ca/Evolution2012/) meeting in Ottawa. I thought it would be pretty cool to be able to use the *Color Brewer* scales in my talk.
 
-Using `pgfplots`, it's really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the [*Color Brewer*](http://colorbrewer2.org/) website tells you the RGB values of each color when you select a scheme, it's really easy to re-implement the color schemes.
+Using ```pgfplots``` , it's really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the [*Color Brewer*](http://colorbrewer2.org/) website tells you the RGB values of each color when you select a scheme, it's really easy to re-implement the color schemes.
 
 For example, you can do a nice color map with the *spectral* scheme:
 
