@@ -1,0 +1,248 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,300,400,700,800);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+html{
+	font-family: 'Open Sans', Helvetica;
+	font-weight: 300;
+	background-image:url('../web-bg.png');
+	background-repeat:no-repeat;
+	background-position:center top;
+}
+
+a{
+	text-decoration: none;
+	color: #39C;
+}
+
+a:hover{
+	border-bottom: 1px dotted #39C;
+}
+
+b, strong{
+	font-weight: 400;
+}
+
+/*
+FONTS
+*/
+
+code, pre{
+	font-family: 'Inconsolata', monospace;
+}
+
+code{
+	font-size: 100%;
+}
+
+pre{
+	font-size: 90%;
+}
+
+.entrytitle{
+	font-size: 125%;
+	margin-bottom: 10px;
+}
+
+.entrydate{
+	font-size: 90%;
+	font-weight: bold;
+	margin-bottom: 0.7em;
+}
+
+.entryexcerpt{
+	margin-top: 1em;
+	padding-bottom: 3.5em  !important;
+}
+
+#footer{
+	line-height: 1.2em;
+	font-size: 85%;
+}
+
+#page p, #page ol, .entryexcerpt{
+	padding-bottom: 1.1em;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+/*
+LINKS
+*/
+
+.active, a .active, .active a{
+	font-weight: 800;
+}
+
+#pages a:hover{
+	color: #222;
+	border-bottom: none;
+}
+
+/*
+TO BE CLEANED LATER
+*/
+
+#main{
+	width: 760px;
+	max-width: 760px;
+	margin: 30px auto;
+	padding: 0px 30px;
+}
+
+it, em{
+	font-style: italic;
+}
+
+b, strong{
+	font-weight: 700;
+}
+
+#hi{
+	font-weight: bold;
+}
+
+h2{
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+#name{
+	font-weight: normal;
+}
+
+#headTXT, #headTXT a{
+	color: #222;
+	font-weight: 800;
+}
+
+#headTXT a:hover{
+	color: #39C;
+	border-bottom: none;
+}
+
+#chapo{
+	color: rgb(100,100,100);
+	font-weight: 300;
+}
+
+#blogtitle{
+	margin-bottom: 30px;
+	font-size: 1.5em;
+	color: rgb(100,100,100);
+	padding-bottom: 30px;
+}
+
+#head{
+	margin-top: 80px;
+	margin-bottom: 80px;
+	padding: 20px 0px;
+	font-size: 2.4em;
+	border-top: 1px solid black;
+}
+
+#page{
+	margin: 0px;
+	font-size: 1em;
+}
+
+#footer{
+	clear: both;
+	color: #333;
+	text-align: center;
+	margin-top: 1.5em;
+	border-top: 1px dotted #C6C6C6;
+	padding-top: 1.5em;
+	display: block;
+	margin-bottom: 1.2em;
+}
+
+#page-content{
+	clear: both;
+}
+
+.project, #social{
+	margin-bottom: 2.5em;
+}
+
+#page h2, #page h1, .blogentry h1, .project h2, #aside h2, #comments h2{
+	padding-bottom: 0.9em;
+	font-weight: 700;
+}
+
+#social b{
+	color: rgb(102,194,165);
+}
+
+#aside{
+	font-size: .95em;
+}
+
+#page h1{
+	font-size: 115%;
+	padding-top: 1.2em;
+	margin-top: 0em;
+	padding-bottom: 0.5em;
+}
+
+#page h1:nth-child(1) {
+	padding-top: 0em;
+	margin-top: 0em;
+}
+
+blockquote
+{
+	padding-left: 2em;
+	font-style: italic;
+}
+
+.post_info{
+	font-size: 85%;
+	font-weight: 700;
+	color: #333;
+}
+
+.dsq-comment-text{
+	font-size: .9em;
+}
+
+#comments{
+	margin-bottom: 1.5em;
+}
+
+#page p img{
+    border: 5px solid white;
+    padding: 5px;
+    background-color: white;
+    max-width: 625 px;
+}
+
+#pages{
+	margin-top: 20px;
+	float: right;
+	text-align: right;
+}
+
+#pages li, #pages ul{
+	display: block;
+}
+
+.tag{
+	font-size: 70%;
+	width: 150px;
+	min-width: 150px;
+	background-color: #eee;
+	padding: 4px;
+	margin-right: 6px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+.tags{
+	margin-bottom: 0.4em;
+}
+
+.postmeta{
+	text-transform: uppercase;
+	color:  #C6C6C6;
+	font-size: 70%;
+}
