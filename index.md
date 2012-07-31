@@ -1,13 +1,46 @@
 ---
 layout: page
-title: About
-summary: Welcome!
+title: Hello World!
+tagline: Supporting tagline
 ---
+{% include JB/setup %}
 
-I'm a community ecologist interested in the evolution of species interactions. The easiest way to get in touch is by [email](mailto:timothee.poisot@uqar.ca).
+Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
 
-I’m currently a post-doctoral researcher in [the lab of Dominique Gravel](http://chaire-eec.uqar.qc.ca/dom-fr.php) at the Université du Québec à Rimouski. I work on the biogeography of complex food webs using a natural system of pitcher plants, theoretical models, and computer simulations. I’m interested in how the complexity of food webs emerges from simple ecological and evolutionary mechanisms, and how our view of species interaction changes in a spatial context. My current research project is focused on the relationships between the structure of trophic interactions and ecosystem functioning.
+Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
-Before that, I obtained my Ph.D. at the Université Montpellier 2, in the group of [Evolutionary Community Ecology](http://www.eec.univ-montp2.fr/). I focused on the evolution of ecological specialization in coevolving systems, especially in the context of antagonistic coevolution (hosts and parasites, predators and preys, …). I looked at the consequences of specialization on the structure of interacting communities, and how environmental factors can regulate the mechanisms (and patterns) of specialization. My approach used equal parts of experimental work using natural isolates of bacteria (*Pseudomonas fluorescens*) and lytic bacteriophages, and theoretical work using computer simulations and model analysis.
+## Update Author Attributes
 
-When I’m not doing science, I’m talking about science (and encouraging other to do so) with [Plume!](http://www.plume.info/), a scientific vulgarization network like you’ve never seen before. I’m also involved in the [International Network of Next-Generation Ecologists](http://www.innge.net/), and the [French Ecological Society](http://www.sfecologie.org/), to help ecologists reach out to the public, and get involved in discussions about global changes and other relevant issues.
+In `_config.yml` remember to specify your own data:
+    
+    title : My Blog =)
+    
+    author :
+      name : Name Lastname
+      email : blah@email.test
+      github : username
+      twitter : username
+
+The theme should reference these variables whenever needed.
+    
+## Sample Posts
+
+This blog contains sample posts which help stage pages and blog data.
+When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+
+    $ rm -rf _posts/core-samples
+
+Here's a sample "posts list".
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
+## To-Do
+
+This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
+We need to clean up the themes, make theme usage guides with theme-specific markup examples.
+
+
