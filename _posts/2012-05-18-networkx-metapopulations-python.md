@@ -13,7 +13,7 @@ tags:
 
 Python progressively replaced R for most of my daily simulations needs, because it's relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I've been using `networkx` more and more. We've been having discussions in the lab about spatial graphs, surrounding a recent paper by [Gilarranz and Bascompte](http://www.ncbi.nlm.nih.gov/pubmed/22155351) and some of our own projects, and I thought that it will be fun to use `networkx` to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a [gist](https://gist.github.com/2725839).
 
-# Setting things up
+## Setting things up
 
 Before we start, we'll need a few things. Some modules are required: obviously `networkx` to deal with the graph objects, `numpy` to generate random numbers, and the `pyplot` module to deal with the output. I'd much rather do the output work using `pyx`, but it would add a good 50 lines of code to get a good-looking output, so let's go the easy way.
 
@@ -33,7 +33,7 @@ P_init = 0.02   # Probability that a patch will be occupied at the beginning
 Distance = 1.4  # An arbitrary parameter to determine which patches are connected
 {% endhighlight %}
 
-# Create a node class
+## Create a node class
 
 The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class `patch`. Before writing up, let's think about what to put in. We need a simple parameter which we call `status`, whose value can be either `0` (the patch is empty) or `1` (the patch is occupied).
 
@@ -50,7 +50,7 @@ class patch:
 
 I won't go into the detail of this notation, but you can read more [here](http://www.penzilla.net/tutorials/python/classes/) or [here](http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/) if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.
 
-# Create a spatially explicit graph
+## Create a spatially explicit graph
 
 There are a lot of ways to create spatial graphs, but for the sake of simplicity, let us assume that we will use simples rules. Nodes (patches) have a position (*x,y*), and two nodes are connected by an edge if the euclidean distance between them is inferior or equal to a fixed value. In other words, we can decide how close two patches should be to allow migration to occur.
 
@@ -101,7 +101,7 @@ This will open a Python plotting view looking like:
 
 The black nodes are occupied patches, and the white ones are empty patches. If the landscape it too connected (or not connected enough), act on the `Distance` parameter to fix it.
 
-# Start the simulation
+## Start the simulation
 
 So now, we have everything to start the simulation. We'll first do a loop to update the status of the nodes, starting with extinctions, and then colonization. Let's start with the extinction routine:
 
@@ -181,6 +181,6 @@ Which will give you the following result:
 ![Figure3][fig3]
 [fig3]: {{ site.url }}/images/metapop_dynamics.png  "Occupancy dynamics"
 
-# Conclusions
+## Conclusions
 
 And that's it! Using the ability of `networkx` to make any arbitrary object into a node, it's possible to implement a metapopulation simulation in roughly 50 lines. The package is reasonably fast, so it's possible to run more complex simulations (I've been playing with metacommunities with no problem, for example).
