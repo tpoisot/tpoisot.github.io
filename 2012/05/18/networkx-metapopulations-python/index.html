@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Tim Poisot" />
+    <title>Using networkx to simulate metapopulations in Python</title>
+
+    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
+    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Tim Poisot</h1>
+        <p class="header">Community ecologist</p>
+        <ul>
+          <li><a class="extra" href="/">About me</a></li>
+          <li><a class="extra" href="/papers/">Papers</a></li>
+          <li><a class="extra" href="/code/">Code</a></li>     
+          <li><a class="extra" href="/blog/">Blog</a></li>
+        </ul>
+        
+        
+        <div class="misc vcard">
+          <h4>Contact</h4>
+          <ul>
+            
+            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+            
+            
+            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+            
+            
+            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+            
+            
+            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+            
+            
+            
+            
+            
+          </ul>
+        </div><!-- misc -->
+        
+      </header>
+
+      <section>
+      
+<section>
+  <h1>Using networkx to simulate metapopulations in Python</h1>
+
+  <p>Python progressively replaced R for most of my daily simulations needs, because it&#8217;s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I&#8217;ve been using <code>networkx</code> more and more. We&#8217;ve been having discussions in the lab about spatial graphs, surrounding a recent paper by <a href='http://www.ncbi.nlm.nih.gov/pubmed/22155351'>Gilarranz and Bascompte</a> and some of our own projects, and I thought that it will be fun to use <code>networkx</code> to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a <a href='https://gist.github.com/2725839'>gist</a>.</p>
+
+<h1 id='setting_things_up'>Setting things up</h1>
+
+<p>Before we start, we&#8217;ll need a few things. Some modules are required: obviously <code>networkx</code> to deal with the graph objects, <code>numpy</code> to generate random numbers, and the <code>pyplot</code> module to deal with the output. I&#8217;d much rather do the output work using <code>pyx</code>, but it would add a good 50 lines of code to get a good-looking output, so let&#8217;s go the easy way.</p>
+<div class='highlight'><pre><code class='python'><span class='kn'>import</span> <span class='nn'>networkx</span> <span class='kn'>as</span> <span class='nn'>nx</span>
+<span class='kn'>import</span> <span class='nn'>numpy</span> <span class='kn'>as</span> <span class='nn'>np</span>
+<span class='kn'>import</span> <span class='nn'>matplotlib.pyplot</span> <span class='kn'>as</span> <span class='nn'>plt</span>
+</code></pre>
+</div>
+<p>Then we&#8217;ll set a few parameters:</p>
+<div class='highlight'><pre><code class='python'><span class='n'>Patches</span> <span class='o'>=</span> <span class='mi'>100</span>   <span class='c'># Number of patches</span>
+<span class='n'>P_ext</span> <span class='o'>=</span> <span class='mf'>0.01</span>    <span class='c'># Probability of extinction (e)</span>
+<span class='n'>P_col</span> <span class='o'>=</span> <span class='mf'>0.014</span>   <span class='c'># Probability of colonization (c)</span>
+<span class='n'>P_init</span> <span class='o'>=</span> <span class='mf'>0.02</span>   <span class='c'># Probability that a patch will be occupied at the beginning</span>
+<span class='n'>Distance</span> <span class='o'>=</span> <span class='mf'>1.4</span>  <span class='c'># An arbitrary parameter to determine which patches are connected</span>
+</code></pre>
+</div>
+<h1 id='create_a_node_class'>Create a node class</h1>
+
+<p>The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class <code>patch</code>. Before writing up, let&#8217;s think about what to put in. We need a simple parameter which we call <code>status</code>, whose value can be either <code>0</code> (the patch is empty) or <code>1</code> (the patch is occupied).</p>
+
+<p>We&#8217;ll also create a tuple called <code>pos</code>, to store the position of the node in a two-dimensional space. The resulting class is:</p>
+<div class='highlight'><pre><code class='python'><span class='k'>class</span> <span class='nc'>patch</span><span class='p'>:</span>
+    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span><span class='n'>status</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>pos</span><span class='o'>=</span><span class='p'>(</span><span class='mi'>0</span><span class='p'>,</span><span class='mi'>0</span><span class='p'>)):</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>=</span> <span class='n'>status</span>
+        <span class='bp'>self</span><span class='o'>.</span><span class='n'>pos</span> <span class='o'>=</span> <span class='n'>pos</span>
+    <span class='k'>def</span> <span class='nf'>__str__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>return</span><span class='p'>(</span><span class='nb'>str</span><span class='p'>(</span><span class='bp'>self</span><span class='o'>.</span><span class='n'>status</span><span class='p'>))</span>
+</code></pre>
+</div>
+<p>I won&#8217;t go into the detail of this notation, but you can read more <a href='http://www.penzilla.net/tutorials/python/classes/'>here</a> or <a href='http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/'>here</a> if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.</p>
+
+<h1 id='create_a_spatially_explicit_graph'>Create a spatially explicit graph</h1>
+
+<p>There are a lot of ways to create spatial graphs, but for the sake of simplicity, let us assume that we will use simples rules. Nodes (patches) have a position (<em>x,y</em>), and two nodes are connected by an edge if the euclidean distance between them is inferior or equal to a fixed value. In other words, we can decide how close two patches should be to allow migration to occur.</p>
+
+<p>In <code>networkx</code>, creating a graph is easy, and is done by</p>
+<div class='highlight'><pre><code class='python'><span class='n'>G</span> <span class='o'>=</span> <span class='n'>nx</span><span class='o'>.</span><span class='n'>Graph</span><span class='p'>()</span>
+</code></pre>
+</div>
+<p>We will now generate as many (<code>Patches</code>) patches as needed, and put them on the landscape at random.</p>
+<div class='highlight'><pre><code class='python'><span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>xrange</span><span class='p'>(</span><span class='n'>Patches</span><span class='p'>):</span>
+    <span class='n'>Stat</span> <span class='o'>=</span> <span class='mi'>1</span> <span class='k'>if</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span> <span class='o'>&lt;</span> <span class='n'>P_init</span> <span class='k'>else</span> <span class='mi'>0</span>
+    <span class='n'>Pos</span>  <span class='o'>=</span> <span class='p'>(</span><span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span><span class='o'>*</span><span class='mi'>10</span><span class='o'>-</span><span class='mi'>5</span><span class='p'>,</span><span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span><span class='o'>*</span><span class='mi'>10</span><span class='o'>-</span><span class='mi'>5</span><span class='p'>)</span>
+    <span class='n'>G</span><span class='o'>.</span><span class='n'>add_node</span><span class='p'>(</span><span class='n'>patch</span><span class='p'>(</span><span class='n'>Stat</span><span class='p'>,</span><span class='n'>Pos</span><span class='p'>))</span>
+</code></pre>
+</div>
+<p>This require at least Python 2.6, but you can easily rewrite the problematic first line as an <code>if/else</code> block. Basically, this will generate random positions in space, and randomly decide if the patch is occupied or not. This is where <code>networkx</code> is extremely powerful: nodes can be any Python objects. In the simplest cases, you may want to use only numbers or strings, but if you have to keep track of the nodes in more advanced ways, then this become extremely fun and convenient to work with.</p>
+
+<p>At this point, nodes are not connected by dispersal yet. To decide which patches are connected, we will loop through them all, and access their <code>pos</code> attributes:</p>
+<div class='highlight'><pre><code class='python'><span class='k'>for</span> <span class='n'>p1</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+    <span class='k'>for</span> <span class='n'>p2</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+        <span class='n'>Dist</span> <span class='o'>=</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>sqrt</span><span class='p'>((</span><span class='n'>p1</span><span class='o'>.</span><span class='n'>pos</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>]</span><span class='o'>-</span><span class='n'>p2</span><span class='o'>.</span><span class='n'>pos</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>])</span><span class='o'>**</span><span class='mi'>2</span><span class='o'>+</span><span class='p'>(</span><span class='n'>p1</span><span class='o'>.</span><span class='n'>pos</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>]</span><span class='o'>-</span><span class='n'>p2</span><span class='o'>.</span><span class='n'>pos</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span><span class='o'>**</span><span class='mi'>2</span><span class='p'>)</span>
+        <span class='k'>if</span> <span class='n'>Dist</span> <span class='o'>&lt;=</span> <span class='n'>Distance</span><span class='p'>:</span>
+            <span class='n'>G</span><span class='o'>.</span><span class='n'>add_edge</span><span class='p'>(</span><span class='n'>p1</span><span class='p'>,</span><span class='n'>p2</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p>For all pairs of nodes, we check that their distance falls below the treshold for migration, and if so, we create an edge in the network.</p>
+
+<p>At this point, it&#8217;s easy to visualize the network:</p>
+<div class='highlight'><pre><code class='python'><span class='n'>occup</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='p'>]</span>
+<span class='n'>pos</span> <span class='o'>=</span> <span class='p'>{}</span>
+<span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+    <span class='n'>pos</span><span class='p'>[</span><span class='n'>n</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>n</span><span class='o'>.</span><span class='n'>pos</span>
+<span class='n'>nx</span><span class='o'>.</span><span class='n'>draw</span><span class='p'>(</span><span class='n'>G</span><span class='p'>,</span><span class='n'>node_color</span><span class='o'>=</span><span class='n'>occup</span><span class='p'>,</span><span class='n'>with_labels</span><span class='o'>=</span><span class='bp'>False</span><span class='p'>,</span><span class='n'>cmap</span><span class='o'>=</span><span class='n'>plt</span><span class='o'>.</span><span class='n'>cm</span><span class='o'>.</span><span class='n'>Greys</span><span class='p'>,</span><span class='n'>pos</span><span class='o'>=</span><span class='n'>pos</span><span class='p'>,</span><span class='n'>vmin</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>vmax</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>)</span>
+<span class='n'>plt</span><span class='o'>.</span><span class='n'>show</span><span class='p'>()</span>
+</code></pre>
+</div>
+<p>This will open a Python plotting view looking like:</p>
+
+<p><img src='/images/metapop_step1.png' alt='Figure1' /></p>
+
+<p>The black nodes are occupied patches, and the white ones are empty patches. If the landscape it too connected (or not connected enough), act on the <code>Distance</code> parameter to fix it.</p>
+
+<h1 id='start_the_simulation'>Start the simulation</h1>
+
+<p>So now, we have everything to start the simulation. We&#8217;ll first do a loop to update the status of the nodes, starting with extinctions, and then colonization. Let&#8217;s start with the extinction routine:</p>
+<div class='highlight'><pre><code class='python'><span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+    <span class='k'>if</span> <span class='p'>(</span><span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>==</span> <span class='mi'>1</span> <span class='ow'>and</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span> <span class='o'>&lt;</span> <span class='n'>P_ext</span><span class='p'>):</span>
+        <span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>=</span> <span class='mi'>0</span>
+</code></pre>
+</div>
+<p>Simply put, for each node, if it is occupied and a random extinction event occurs, then its status is reverted to 0. Super easy. We can do something similar for the colonization routine. We assume that each occupied node will be able to colonize a single of its neighbouring nodes. This rquires to get a list of nodes adjacent to the node currently being evaluated.</p>
+<div class='highlight'><pre><code class='python'><span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+    <span class='k'>if</span> <span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>==</span> <span class='mi'>1</span><span class='p'>:</span>
+        <span class='n'>neighb</span> <span class='o'>=</span> <span class='n'>G</span><span class='p'>[</span><span class='n'>n</span><span class='p'>]</span> <span class='c'># That&#39;s it, a list of the neighbors</span>
+        <span class='k'>for</span> <span class='n'>nei</span> <span class='ow'>in</span> <span class='n'>neighb</span><span class='p'>:</span>
+            <span class='k'>if</span> <span class='n'>nei</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>==</span> <span class='mi'>0</span><span class='p'>:</span>
+                <span class='k'>if</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span> <span class='o'>&lt;</span> <span class='n'>P_col</span><span class='p'>:</span>
+                    <span class='n'>nei</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>=</span> <span class='mi'>1</span>
+                    <span class='k'>break</span>
+</code></pre>
+</div>
+<p>That&#8217;s a lot of loops within loops, but it goes rougly as follows: for each of the nodes, if their is a population, we check the neighbors. For the non-occupied neighbors, we check if the colonization occurs, and if so, we break the loop.</p>
+
+<p>With these two blocks, it&#8217;s easy to do the actual simulation:</p>
+<div class='highlight'><pre><code class='python'><span class='k'>for</span> <span class='n'>timestep</span> <span class='ow'>in</span> <span class='nb'>xrange</span><span class='p'>(</span><span class='mi'>2000</span><span class='p'>):</span>
+    <span class='c'>## Check for extinctions</span>
+    <span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+        <span class='k'>if</span> <span class='p'>(</span><span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>==</span> <span class='mi'>1</span> <span class='ow'>and</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span> <span class='o'>&lt;</span> <span class='n'>P_ext</span><span class='p'>):</span>
+            <span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>=</span> <span class='mi'>0</span>
+    <span class='c'>## Check for invasions</span>
+    <span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='o'>.</span><span class='n'>nodes</span><span class='p'>():</span>
+        <span class='k'>if</span> <span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>==</span> <span class='mi'>1</span><span class='p'>:</span>
+            <span class='n'>neighb</span> <span class='o'>=</span> <span class='n'>G</span><span class='p'>[</span><span class='n'>n</span><span class='p'>]</span> <span class='c'># That&#39;s it, a list of the neighbors</span>
+            <span class='k'>for</span> <span class='n'>nei</span> <span class='ow'>in</span> <span class='n'>neighb</span><span class='p'>:</span>
+                <span class='k'>if</span> <span class='n'>nei</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>==</span> <span class='mi'>0</span><span class='p'>:</span>
+                    <span class='k'>if</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>random</span><span class='o'>.</span><span class='n'>uniform</span><span class='p'>()</span> <span class='o'>&lt;</span> <span class='n'>P_col</span><span class='p'>:</span>
+                        <span class='n'>nei</span><span class='o'>.</span><span class='n'>status</span> <span class='o'>=</span> <span class='mi'>1</span>
+                        <span class='k'>break</span>
+</code></pre>
+</div>
+<p>We then plot the lanscape using the same command as before (I&#8217;ve actually added the list of occupancies directly within the plot instruction, because one-liners looks cool):</p>
+<div class='highlight'><pre><code class='python'><span class='n'>nx</span><span class='o'>.</span><span class='n'>draw</span><span class='p'>(</span><span class='n'>G</span><span class='p'>,</span><span class='n'>node_color</span><span class='o'>=</span><span class='p'>[</span><span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='p'>],</span><span class='n'>with_labels</span><span class='o'>=</span><span class='bp'>False</span><span class='p'>,</span><span class='n'>cmap</span><span class='o'>=</span><span class='n'>plt</span><span class='o'>.</span><span class='n'>cm</span><span class='o'>.</span><span class='n'>Greys</span><span class='p'>,</span><span class='n'>pos</span><span class='o'>=</span><span class='n'>pos</span><span class='p'>,</span><span class='n'>vmin</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>vmax</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>)</span>
+<span class='n'>plt</span><span class='o'>.</span><span class='n'>show</span><span class='p'>()</span>
+</code></pre>
+</div>
+<p><img src='/images/metapop_final.png' alt='Figure2' /></p>
+
+<p>But of course you would like to follow the dynamics, which is extremely easy. We will just add, just before the beginning of the simulation loop, the lines</p>
+<div class='highlight'><pre><code class='python'><span class='n'>Time</span> <span class='o'>=</span> <span class='p'>[</span><span class='mi'>0</span><span class='p'>]</span>
+<span class='n'>Occupancy</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>np</span><span class='o'>.</span><span class='n'>sum</span><span class='p'>([</span><span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='p'>])</span><span class='o'>/</span><span class='nb'>float</span><span class='p'>(</span><span class='n'>Patches</span><span class='p'>)]</span>
+</code></pre>
+</div>
+<p>And we will add infos at the end of each loop, i.e. immediately after the <code>break</code> instruction (but in the main loop, not the colonization one):</p>
+<div class='highlight'><pre><code class='python'><span class='n'>Time</span><span class='o'>.</span><span class='n'>append</span><span class='p'>(</span><span class='n'>timestep</span><span class='o'>+</span><span class='mi'>1</span><span class='p'>)</span>
+<span class='n'>Occupancy</span><span class='o'>.</span><span class='n'>append</span><span class='p'>(</span><span class='n'>np</span><span class='o'>.</span><span class='n'>sum</span><span class='p'>([</span><span class='n'>n</span><span class='o'>.</span><span class='n'>status</span> <span class='k'>for</span> <span class='n'>n</span> <span class='ow'>in</span> <span class='n'>G</span><span class='p'>])</span><span class='o'>/</span><span class='nb'>float</span><span class='p'>(</span><span class='n'>Patches</span><span class='p'>))</span>
+</code></pre>
+</div>
+<p>And at the really end of the simulation, just add</p>
+<div class='highlight'><pre><code class='python'><span class='n'>plt</span><span class='o'>.</span><span class='n'>plot</span><span class='p'>(</span><span class='n'>Time</span><span class='p'>,</span><span class='n'>Occupancy</span><span class='p'>,</span><span class='s'>&#39;g-&#39;</span><span class='p'>)</span>
+<span class='n'>plt</span><span class='o'>.</span><span class='n'>show</span><span class='p'>()</span>
+</code></pre>
+</div>
+<p>Which will give you the following result:</p>
+
+<p><img src='/images/metapop_dynamics.png' alt='Figure3' /></p>
+
+<h1 id='conclusions'>Conclusions</h1>
+
+<p>And that&#8217;s it! Using the ability of <code>networkx</code> to make any arbitrary object into a node, it&#8217;s possible to implement a metapopulation simulation in roughly 50 lines. The package is reasonably fast, so it&#8217;s possible to run more complex simulations (I&#8217;ve been playing with metacommunities with no problem, for example).</p>
+
+  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</section>
+
+
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
