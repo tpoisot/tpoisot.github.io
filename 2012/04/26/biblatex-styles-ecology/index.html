@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Tim Poisot" />
+    <title>Tim Poisot :: Biblatex styles for ecology</title>
+
+    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
+    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Tim Poisot</h1>
+        <p class="header">Community ecologist</p>
+        <ul>
+          <li><a class="extra" href="/">About me</a></li>
+          <li><a class="extra" href="/papers/">Papers</a></li>
+          <li><a class="extra" href="/code/">Code</a></li>     
+          <li><a class="extra" href="/blog/">Blog</a></li>
+        </ul>
+        
+        
+        <div class="misc vcard">
+          <h4>Contact</h4>
+          <ul>
+            
+            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+            
+            
+            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+            
+            
+            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+            
+            
+            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+            
+            
+            
+            
+            
+          </ul>
+        </div><!-- misc -->
+        
+      </header>
+
+      <section>
+      
+<section>
+  <h1>Biblatex styles for ecology</h1>
+
+  <p>A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of <code>natbib</code> —, I started looking into <a href="https://github.com/plk/biblatex"><code>biblatex</code></a>. <code>biblatex</code> is essentially a re-implementation of LaTeX packages like <code>cite</code>, <code>natbib</code>, and others. And the more I used it, the more I realized two things. First, <code>biblatex</code> is awesome; it's to <code>natbib</code> what <a href="http://yihui.name/knitr/"><code>knitr</code></a> is to <code>Sweave</code>. Including the fact that switching from one system to the other is virtually transparent, but you would miss a lot by not using the <code>biblatex</code> specific commands. Second, it's a pain to find citation styles for it, because it's recent, and good old <code>tex makebst</code> is not working. It would not be a problem if the default choices made any sense, but I feel like writing <em>In :</em> before the journal name, or adding the month to the year in the bibliography is not really common practice - at least in «hard» sciences. </p>
+
+<p>The really good thing, now, is that <code>biblatex</code> relies only on LaTeX macros, and not on the really weird <code>bibtex</code> language (the macro- and filed-based logic makes it closer, IMHO, to the <a href="http://citationstyles.org/"><em>Citation Style Language</em></a> used by Mendeley and Zotero). Which means that it is possible, with relatively little effort, to put together different citation styles. It's actually relatively close to what you would do in a CSS. The following commands will put the volume number in bold, and leave the page numbers alone (<code>biblatex</code> annoyingly puts "pp." in front of everything) for the entries with a type <code>article</code>:</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\DeclareFieldFormat</span><span class="na">[article]</span><span class="nb">{</span>pages<span class="nb">}{</span>#1<span class="nb">}</span>
+<span class="k">\DeclareFieldFormat</span><span class="na">[article]</span><span class="nb">{</span>volume<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>#1<span class="nb">}}</span>
+</code></pre>
+</div>
+
+
+<p>To further the CSS parallel, you can actually import most of the base functions and styles. E.g., the following lines will import the base functionalities needed to work with a numeric style compressing multiple citations, like (1-4):</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\RequireBibliographyStyle</span><span class="nb">{</span>standard<span class="nb">}</span>
+<span class="k">\RequireBibliographyStyle</span><span class="nb">{</span>numeric-comp<span class="nb">}</span>
+</code></pre>
+</div>
+
+
+<p>What remains to do is to use a mixture of <code>\renewbibmacro*</code>, <code>\usebibmacro</code> and <code>\printfield</code> to get the formatting you want.</p>
+
+<p>In a few hours, and after looking at the base styles, browsing some forums, and looking at some more code, I was able to put together the files to obtain the <em>Ecology Letters</em> format (huge success, as I was never able to pull it of in LaTeX only). I thought it would be great to have a central repository for ecological journals, so I created a <em>GitHub</em> repository for this. You can <a href="https://github.com/tpoisot/ecobiblatex">fork the project here</a>, or download the styles files. My learning of <code>biblatex</code> was mostly inductive, so the code is likely messy — but it works!</p>
+
+<p>As of today, the styles for <em>Ecology Letters</em> and <em>Global Ecology and Biogeography</em> should be close enough, the style for <em>Trends in Ecology and Evolution</em> is in progress, with <em>The American Naturalist</em> and probably some of the BES journals scheduled to follow shortly after. Most journals in ecology have fairly close citation formats, so it will be easy to make the collection grow by duplicating some folders and copying-pasting a few macros across files (which will be made even easier by me taking some time to comment the damn code, but let's be realisitc, that's not going to happen any time soon...). Anybody interested in helping is, of course, welcome (as I feel like I'll only work on journals to which I plan to submit papers in the near future).</p>
+
+
+  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</section>
+
+
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+

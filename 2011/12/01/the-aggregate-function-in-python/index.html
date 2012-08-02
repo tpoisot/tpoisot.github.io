@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Tim Poisot" />
+    <title>Tim Poisot :: The aggregate function in Python</title>
+
+    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
+    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Tim Poisot</h1>
+        <p class="header">Community ecologist</p>
+        <ul>
+          <li><a class="extra" href="/">About me</a></li>
+          <li><a class="extra" href="/papers/">Papers</a></li>
+          <li><a class="extra" href="/code/">Code</a></li>     
+          <li><a class="extra" href="/blog/">Blog</a></li>
+        </ul>
+        
+        
+        <div class="misc vcard">
+          <h4>Contact</h4>
+          <ul>
+            
+            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+            
+            
+            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+            
+            
+            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+            
+            
+            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+            
+            
+            
+            
+            
+          </ul>
+        </div><!-- misc -->
+        
+      </header>
+
+      <section>
+      
+<section>
+  <h1>The aggregate function in Python</h1>
+
+  <p>One thing I love the most about R is the <a href="http://stat.ethz.ch/R-manual/R-devel/library/stats/html/aggregate.html">aggregate</a> function, which (in a nutshell) summarizes a data frame according to one or more columns, and perform some operations on the aggregated values. If, for example, you have a data frame with a treatment and a response, and want to calculate the mean and standard deviation of the response by level of treatment, then aggregate is usually the way to go.</p>
+
+<p>I wanted to do a quick <a href="http://pyx.sourceforge.net/examples/graphstyles/errorbar.html">plot with errorbars using PyX</a>, and I though that having a python version of aggregate would be really nice. Here is the complete code to do so</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>  
+
+<span class="k">def</span> <span class="nf">MSD</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vec</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">vec</span><span class="p">)]</span>  
+<span class="k">def</span> <span class="nf">aggregate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">to</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">):</span>
+    <span class="n">Dat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ColBy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">by</span><span class="p">]</span>
+    <span class="n">ColTo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">to</span><span class="p">]</span>
+    <span class="n">UniqueBy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">ColBy</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">ub</span> <span class="ow">in</span> <span class="n">UniqueBy</span><span class="p">:</span>
+        <span class="n">uTo</span> <span class="o">=</span> <span class="n">ColTo</span><span class="p">[</span><span class="n">ColBy</span><span class="o">==</span><span class="n">ub</span><span class="p">]</span>
+        <span class="n">Out</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">uTo</span><span class="p">)</span>
+        <span class="n">Dat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">ub</span><span class="p">],</span><span class="n">Out</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">Dat</span>  
+    
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&#39;tes1-output.dat&#39;</span><span class="p">)</span>  
+<span class="n">Agr</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">test_df</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="n">MSD</span><span class="p">)</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">&quot;aggr.dat&quot;</span><span class="p">,</span> <span class="n">Agr</span><span class="p">)</span>  
+<span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>  
+<span class="n">g</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">graphxy</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s">&quot;aggr.dat&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">symbol</span><span class="p">(),</span> <span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">errorbar</span><span class="p">()])</span>
+<span class="n">g</span><span class="o">.</span><span class="n">writePDFfile</span><span class="p">(</span><span class="s">&quot;errorbar&quot;</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>As you can see, it is really straightforward. The aggregate function needs four arguments: the data frame (in this case, a numpy array with two dimensions), the column for the group to aggregate, and the column for the response. The last argument is obviously the function which will be applied, in this case a simple mean ± standard deviation. In 30 lines of code, you can easily aggregate your data using python. Of course there is room for improvement, but this is already working quite well.</p>
+
+
+  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</section>
+
+
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
