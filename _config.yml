@@ -1,4 +1,3 @@
-safe: true
 server: true
 markdown: rdiscount
 
@@ -33,7 +32,7 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://timotheepoisot.fr/
+production_url : http://timotheepoisot.fr
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
