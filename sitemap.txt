@@ -10,6 +10,7 @@ http://timotheepoisot.fr/archive/
 http://timotheepoisot.fr/papers/
 http://timotheepoisot.fr/categories/
 
+http://timotheepoisot.fr/2012/08/03/new-linux-setup/
 http://timotheepoisot.fr/2012/07/15/what-is-trophic-complexity/
 http://timotheepoisot.fr/2012/07/03/colorbrewer-in-pgfplots/
 http://timotheepoisot.fr/2012/05/18/networkx-metapopulations-python/

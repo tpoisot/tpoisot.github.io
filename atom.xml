@@ -4,13 +4,36 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-08-02T00:11:12-04:00</updated>
+ <updated>2012-08-03T15:57:33-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>My new linux setup</title>
+   <link href="http://timotheepoisot.fr/2012/08/03/new-linux-setup/"/>
+   <updated>2012-08-03T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2012/08/03/new-linux-setup</id>
+   <content type="html">&lt;p&gt;I have a terrible confession to make. Two weeks ago, I installed &lt;a href=&quot;http://xkcd.com/528/&quot;&gt;Windows 7&lt;/a&gt;. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask?&lt;/p&gt;
+
+&lt;p&gt;I made the switch from Mac to Linux, that's why. I needed to install Windows on my new machine before wiping it up and replacing it by Ubuntu (needless to say, I derived a great amount of pleasure in the process). I'm really happy with it. The reason of the switch is quite simple. Over the last months, I've been trying to use software that is as simple as possible, but not simpler. No more saying «Cool, I've been working with Word for two hours, and it only crashed once!». I've progressively moved all my text-editing duties to &lt;a href=&quot;http://www.latex-project.org/&quot;&gt;LaTeX&lt;/a&gt;, including using &lt;a href=&quot;https://bitbucket.org/rivanvx/beamer/wiki/Home&quot;&gt;beamer&lt;/a&gt; for slides and &lt;a href=&quot;http://ctan.org/pkg/biblatex&quot;&gt;biblatex&lt;/a&gt;/&lt;a href=&quot;http://www.mendeley.com/&quot;&gt;Mendeley&lt;/a&gt; for bibliography.&lt;/p&gt;
+
+&lt;p&gt;I've also discovered &lt;a href=&quot;http://sourceforge.net/projects/pgfplots/&quot;&gt;pgfplots&lt;/a&gt;, which is &lt;em&gt;incredibly&lt;/em&gt; powerful, and is perfectly integrated to LaTeX. Throw in some &lt;a href=&quot;http://www.texample.net/tikz/examples/&quot;&gt;PGF and Tikz&lt;/a&gt; for other graphics, and you have yourself a full-featured monster to produce any kind of science you want. While I still use R a lot, I'm progressively moving to &lt;a href=&quot;http://www.python.org/&quot;&gt;Python&lt;/a&gt;, because of the amazing &lt;a href=&quot;http://networkx.lanl.gov/&quot;&gt;networkx&lt;/a&gt; package, which I've already mentionned &lt;a href=&quot;http://timotheepoisot.fr/2012/05/18/networkx-metapopulations-python/&quot;&gt;a few times&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And of course, all of this is kept &lt;a href=&quot;http://timotheepoisot.fr/2012/01/06/science-age-social-coding/&quot;&gt;updated using git&lt;/a&gt;, which I'm lucky to be able to use, thanks to my colleagues being huge nerds. By the way, the people at &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; are really nice, and if you send them an email saying you work in the academia, they'll give you free private repositories. You can set up a lab account, and be the happiest scientist ever.&lt;/p&gt;
+
+&lt;p&gt;The common thread to all of these software is that they're free. So, I decided that overall, I was better of with a free operating syste, and thus without Mac OS X, which I felt was becoming more of a glorified iPad than a real computing device. In parallel, I used my laptop less and less for simulations, because we have a warbeast of a cluster in the lab, chokefull of CPUs and GPUs, and it was just getting ridiculous waiting two days for simulations that I could run in 5 minutes. So really, I realized that I needed a good machine to write text and produce papers on, with a processor decent enough to do some testing and data-crunching.&lt;/p&gt;
+
+&lt;p&gt;And guess what? For half the price of a MacBook air (partly due to my impressive bargaining skills, but still), I found a laptop with everything I needed, &lt;em&gt;including&lt;/em&gt; a nvidia GPU which can run &lt;a href=&quot;http://en.wikipedia.org/wiki/Compute_Unified_Device_Architecture&quot;&gt;CUDA&lt;/a&gt;. It does everything I want, and working with &lt;a href=&quot;http://meldmerge.org/&quot;&gt;Meld&lt;/a&gt; and &lt;a href=&quot;http://projects.gnome.org/gedit/&quot;&gt;gedit&lt;/a&gt; is just great.&lt;/p&gt;
+
+&lt;p&gt;But here is an appeal to my fellow geeks. I still miss two things. The first is a PDf annotator. I tried working with &lt;a href=&quot;http://xournal.sourceforge.net/&quot;&gt;Xournal&lt;/a&gt;, which is fun to use, and will probably be even funnier as soon as I will use it with my Wacom tablet, but other people have had issues with reading the annotations. The second thing I miss is Mathematica. I'll be looking into &lt;a href=&quot;http://simpy.sourceforge.net/&quot;&gt;simpy&lt;/a&gt; in the near future, but it seems to be kind of a hassle. So if you know a good PDF annotator, and a decent platform for symbolic computing (and sadly in my case, a pen and paper is not an option here...), I'd be glad to hear about it.&lt;/p&gt;
+
+&lt;p&gt;I've been thinking about making the switch for the last few months (which was somehow facilitated by the fact that I've been using Linux sporadically since I discovered &lt;a href=&quot;http://knoppix.net/&quot;&gt;Knoppix&lt;/a&gt; in 2006). Now that it's done, I couldn't be happier. Ubuntu is lean, responsive, and uncluttered - in the risk of offedning a lot of people at once, I'd say that the interface is so OS X-like that I immediately felt at home. If you are tempted, you sould&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>A walk on the intertidal zone</title>
