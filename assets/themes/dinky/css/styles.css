@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Arvo:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
 
 /* MeyerWeb Reset */
 
@@ -27,10 +28,10 @@ time, mark, audio, video {
 
 body {
   padding:10px 50px 0 0;
-  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	font-size: 14px;
-	color: #232323;
-	background-color: #FBFAF7;
+	color: #111;
+	background-color: #FDFDFD;
 	margin: 0;
 	line-height: 1.8em;
 	-webkit-font-smoothing: antialiased;
@@ -204,12 +205,12 @@ td {
 /* Header */
 
 header {
-	background-color: #171717;
-	color: #FDFDFB;
-  width:170px;
-  float:left;
-  position:fixed;
-	border: 1px solid #000;
+	/* background-color: #171717; */
+	color: #000;
+    width:170px;
+    float:left;
+    position:fixed;
+	/* border: 1px solid #000; */
 	-webkit-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -236,7 +237,7 @@ h1.header {
 
 
 h1.header, a.header, a.name, header a, header h4{
-	color: #fff;
+	color: #333;
 }
 
 a.header {
@@ -254,36 +255,16 @@ header ul {
 
 header li {
 	list-style-type: none;
-  width:132px;
-  height:15px;
+    width:132px;
+    height:15px;
 	margin-bottom: 12px;
 	line-height: 1em;
 	padding: 6px 6px 6px 7px;
-
-	background: #AF0011;
-	background: -moz-linear-gradient(top, #AF0011 0%, #820011 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
-  background: -webkit-linear-gradient(top, #AF0011 0%,#820011 100%);
-  background: -o-linear-gradient(top, #AF0011 0%,#820011 100%);
-  background: -ms-linear-gradient(top, #AF0011 0%,#820011 100%);
-  background: linear-gradient(top, #AF0011 0%,#820011 100%);
-  
-	border-radius:4px;
-  border:1px solid #0D0D0D;
-
-	-webkit-box-shadow: inset 0px 1px 1px 0 rgba(233,2,38, 1);
-	box-shadow: inset 0px 1px 1px 0 rgba(233,2,38, 1);
-	
+	background: #ddd;
 }
 
 header li:hover {
-	background: #C3001D;
-	background: -moz-linear-gradient(top, #C3001D 0%, #950119 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
-  background: -webkit-linear-gradient(top, #C3001D 0%,#950119 100%);
-  background: -o-linear-gradient(top, #C3001D 0%,#950119 100%);
-  background: -ms-linear-gradient(top, #C3001D 0%,#950119 100%);
-  background: linear-gradient(top, #C3001D 0%,#950119 100%);
+    background: #bbb;
 }
 
 a.buttons {
