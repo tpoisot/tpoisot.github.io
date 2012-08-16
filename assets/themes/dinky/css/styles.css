@@ -391,3 +391,15 @@ footer {
     color:#444;
   }
 }
+
+/* These are custom stylings for the bibliography or other things */
+
+.Papers p{
+    padding-left: 32px;
+}
+
+.Papers p strong:first-child{
+    position: absolute;
+    left: -32 px;
+    margin-left: -32px;
+}
