@@ -7,9 +7,9 @@
     <meta name="author" content="Tim Poisot" />
     <title>Tim Poisot :: Using Color Brewer schemes in LaTeX pgfplots</title>
 
-    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
-    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
-    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css">
+    <script src="/assets/themes/thescientist/js/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!--[if lt IE 9]>
@@ -36,47 +36,50 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1 class="header">Tim Poisot</h1>
-        <p class="header">Community ecologist</p>
-        <ul>
-          <li><a class="extra" href="/">About me</a></li>
-          <li><a class="extra" href="/papers/">Papers</a></li>
-          <li><a class="extra" href="/code/">Code</a></li>     
-          <li><a class="extra" href="/blog/">Blog</a></li>
-        </ul>
-        
-        
-        <div class="misc vcard">
-          <h4>Contact</h4>
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <img src="/assets/themes/thescientist/images/logo.png" alt="logo" class="logo" />
+          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
+          <p>Community ecologist</p>
+        </div>
+        <div class='nav'>
           <ul>
-            
-            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
-            
-            
-            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
-            
-            
-            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
-            
-            
-            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
-            
-            
-            
-            
-            
+            <li><a class="extra navlink" href="/">About me</a></li>
+            <li><a class="extra navlink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink" href="/blog/">Blog</a></li>
           </ul>
-        </div><!-- misc -->
-        
-      </header>
+          
+          <div class="misc vcard">
+            <h4>Contact</h4>
+            <ul>
+              
+              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              
+              
+              <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+              
+              
+              <li class="twitter navlink"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+              
+              
+              <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+              
+              
+            </ul>
+          </div><!-- misc -->
+          
+        </div>
+      </div>
 
-      <section>
+      <section class='content'>
       
 <section>
-  <h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
-
-  <p><em>Color Brewer</em> is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the <code>RColorBrewer</code> package.</p>
+	<div class='ptitle'>
+		<h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
+	</div>
+	<div class='pbody'>
+		<p><em>Color Brewer</em> is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the <code>RColorBrewer</code> package.</p>
 
 <p>Last week, I started using <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a>, a <a href="http://www.texample.net/"><code>tikz</code></a> extension for data visualization, to prepare slides for the upcoming <a href="http://www.confersense.ca/Evolution2012/">Evolution2012</a> meeting in Ottawa. I thought it would be pretty cool to be able to use the <em>Color Brewer</em> scales in my talk.</p>
 
@@ -123,7 +126,23 @@
 <p>Now that I think of it, it would be really easy to provide all of the brewer schemes into color map and color cycle form as an additional package. This is a project best left to someone with time on their hands.</p>
 
 
-  
+		<div id="page-navigation">
+        	<div class="clear">&nbsp;</div>
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2012/05/18/networkx-metapopulations-python/" title="Previous Post: Using networkx to simulate metapopulations in Python">Using networkx to simulate metapopulations in Python</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+			                Next post: <a href="/2012/07/15/what-is-trophic-complexity/" title="Next Post: A walk on the intertidal zone">A walk on the intertidal zone</a>
+			        
+		        </div>
+        	<div class="clear">&nbsp;</div>
+		</div> 
+
+		
 
 
   <div id="disqus_thread"></div>
@@ -144,8 +163,8 @@
 
 
 
+	</div>
 </section>
-
 
       </section>
 

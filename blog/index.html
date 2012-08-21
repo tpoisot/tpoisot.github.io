@@ -7,9 +7,9 @@
     <meta name="author" content="Tim Poisot" />
     <title>Tim Poisot :: Blog</title>
 
-    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
-    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
-    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css">
+    <script src="/assets/themes/thescientist/js/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!--[if lt IE 9]>
@@ -36,97 +36,337 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1 class="header">Tim Poisot</h1>
-        <p class="header">Community ecologist</p>
-        <ul>
-          <li><a class="extra" href="/">About me</a></li>
-          <li><a class="extra" href="/papers/">Papers</a></li>
-          <li><a class="extra" href="/code/">Code</a></li>     
-          <li><a class="extra" href="/blog/">Blog</a></li>
-        </ul>
-        
-        
-        <div class="misc vcard">
-          <h4>Contact</h4>
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <img src="/assets/themes/thescientist/images/logo.png" alt="logo" class="logo" />
+          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
+          <p>Community ecologist</p>
+        </div>
+        <div class='nav'>
           <ul>
-            
-            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
-            
-            
-            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
-            
-            
-            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
-            
-            
-            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
-            
-            
-            
-            
-            
+            <li><a class="extra navlink" href="/">About me</a></li>
+            <li><a class="extra navlink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink" href="/blog/">Blog</a></li>
           </ul>
-        </div><!-- misc -->
-        
-      </header>
+          
+          <div class="misc vcard">
+            <h4>Contact</h4>
+            <ul>
+              
+              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              
+              
+              <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+              
+              
+              <li class="twitter navlink"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+              
+              
+              <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+              
+              
+            </ul>
+          </div><!-- misc -->
+          
+        </div>
+      </div>
 
-      <section>
+      <section class='content'>
       
 <section class='Blog'>
-  <h1>Blog</h1>
+	<div class='ptitle'>
+		<h1>Blog</h1>
+	</div>
+	<div class='pbody'>
+		<div class='latest_post'>
+    
+        <h2>Notes on learning how to use sympy</h2>
+        <p>I'm trying to move to sympy for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I'm playing with a simple host-parasite model. I was reading the First steps with sympy section of the website when I was running my little tests, and it's relatively helpul. So let's assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instataneous dynamics can be written as...</p>
+        <div class='read_more'>
+            Posted on 15 Aug 2012 &mdash; 
+            <a href="/2012/08/15/notes-on-using-sympy/">
+                Read the whole post (507 words)
+            </a><br />
+            Filed under sympy and python
+        </div>
+    
+</div>
 
-  <ul class="posts">
-  
-    <span><code>15 Aug 2012</code></span> :: <a href="/2012/08/15/notes-on-using-sympy/">Notes on learning how to use sympy</a><br/>
-  
-    <span><code>13 Aug 2012</code></span> :: <a href="/2012/08/13/models-are-useless/">Models are useless. Real ecologists should move on.</a><br/>
-  
-    <span><code>05 Aug 2012</code></span> :: <a href="/2012/08/05/student-friendly-meetings/">Are student-friendly conferences worth it?</a><br/>
-  
-    <span><code>03 Aug 2012</code></span> :: <a href="/2012/08/03/new-linux-setup/">My new linux setup</a><br/>
-  
-    <span><code>15 Jul 2012</code></span> :: <a href="/2012/07/15/what-is-trophic-complexity/">A walk on the intertidal zone</a><br/>
-  
-    <span><code>03 Jul 2012</code></span> :: <a href="/2012/07/03/colorbrewer-in-pgfplots/">Using Color Brewer schemes in LaTeX pgfplots</a><br/>
-  
-    <span><code>18 May 2012</code></span> :: <a href="/2012/05/18/networkx-metapopulations-python/">Using networkx to simulate metapopulations in Python</a><br/>
-  
-    <span><code>11 May 2012</code></span> :: <a href="/2012/05/11/ecological-journal-of-the-future/">The ecological journal of the future</a> - essay<br/>
-  
-    <span><code>03 May 2012</code></span> :: <a href="/2012/05/03/phylogeny-without-sequencer/">Phylogeny without a sequencer</a><br/>
-  
-    <span><code>30 Apr 2012</code></span> :: <a href="/2012/04/30/ecology-not-too-collaborative/">Ecology is not too collaborative</a><br/>
-  
-    <span><code>26 Apr 2012</code></span> :: <a href="/2012/04/26/biblatex-styles-ecology/">Biblatex styles for ecology</a><br/>
-  
-    <span><code>15 Apr 2012</code></span> :: <a href="/2012/04/15/null-models-C/">Null models of bipartite networks in C</a><br/>
-  
-    <span><code>29 Jan 2012</code></span> :: <a href="/2012/01/29/sign-your-reviews/">How to make the most out of peer-review?</a><br/>
-  
-    <span><code>19 Jan 2012</code></span> :: <a href="/2012/01/19/measuring-ecological-specificity/">Measuring ecological specificity</a> - new paper<br/>
-  
-    <span><code>06 Jan 2012</code></span> :: <a href="/2012/01/06/science-age-social-coding/">Science in the age of social coding</a> - essay<br/>
-  
-    <span><code>05 Jan 2012</code></span> :: <a href="/2012/01/05/a-python-class-for-phylogenies/">Simulated phylogenetic trees and community assembly</a><br/>
-  
-    <span><code>01 Jan 2012</code></span> :: <a href="/2012/01/01/migration-to-jekyll/">Goodbye Wordpress, hello Jekyll!</a><br/>
-  
-    <span><code>01 Dec 2011</code></span> :: <a href="/2011/12/01/the-aggregate-function-in-python/">The aggregate function in Python</a><br/>
-  
-    <span><code>19 Nov 2011</code></span> :: <a href="/2011/11/19/get-your-lab-on-twitter/">Get your lab on twitter!</a> - essay<br/>
-  
-    <span><code>14 Nov 2011</code></span> :: <a href="/2011/11/14/a-model-of-population-dynamics-in-python/">A model of population dynamics in Python</a><br/>
-  
-    <span><code>12 Oct 2011</code></span> :: <a href="/2011/10/12/morpho-phylo-lamellodiscus/">Morphology and phylogeny in Lamellodiscus</a> - new paper<br/>
-  
-    <span><code>18 Jul 2011</code></span> :: <a href="/2011/07/18/innge-network-this-is-on/">INNGE network : this is on!</a><br/>
-  
-    <span><code>17 Jul 2011</code></span> :: <a href="/2011/07/17/models-in-evolutionary-ecology-2nd-edition/">Models in Evolutionary Ecology, 2nd edition</a><br/>
-  
+
+
+
+<div class="posts_list">
+    <h2>Previous posts</h2>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/08/13/models-are-useless/">Models are useless. Real ecologists should move on.</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 13 Aug 2012 | 
+                Filed under ecological theory, models, and equations | 
+                1381 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/08/05/student-friendly-meetings/">Are student-friendly conferences worth it?</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 05 Aug 2012 | 
+                Filed under conferences | 
+                921 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/08/03/new-linux-setup/">My new linux setup</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 03 Aug 2012 | 
+                Filed under linux and free software | 
+                686 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/07/15/what-is-trophic-complexity/">A walk on the intertidal zone</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 15 Jul 2012 | 
+                Filed under intertidal and trophic complexity | 
+                293 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/07/03/colorbrewer-in-pgfplots/">Using Color Brewer schemes in LaTeX pgfplots</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 03 Jul 2012 | 
+                Filed under LaTeX, pgfplots, and data visualization | 
+                301 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/05/18/networkx-metapopulations-python/">Using networkx to simulate metapopulations in Python</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 18 May 2012 | 
+                Filed under python, networkx, and metapopulation | 
+                1832 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                Essay: 
+                <a href="/2012/05/11/ecological-journal-of-the-future/">The ecological journal of the future</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 11 May 2012 | 
+                Filed under scientific publishing, open access, and next-gen science | 
+                2644 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/05/03/phylogeny-without-sequencer/">Phylogeny without a sequencer</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 03 May 2012 | 
+                Filed under phylogeny | 
+                820 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/04/30/ecology-not-too-collaborative/">Ecology is not too collaborative</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 30 Apr 2012 | 
+                Filed under ecology and research | 
+                356 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/04/26/biblatex-styles-ecology/">Biblatex styles for ecology</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 26 Apr 2012 | 
+                Filed under latex, biblatex, and open source | 
+                575 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/04/15/null-models-C/">Null models of bipartite networks in C</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 15 Apr 2012 | 
+                Filed under food web, bipartite networks, and open source | 
+                355 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/01/29/sign-your-reviews/">How to make the most out of peer-review?</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 29 Jan 2012 | 
+                Filed under peer review | 
+                568 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                New paper: 
+                <a href="/2012/01/19/measuring-ecological-specificity/">Measuring ecological specificity</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 19 Jan 2012 | 
+                Filed under specificity, new paper, and open source | 
+                648 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                Essay: 
+                <a href="/2012/01/06/science-age-social-coding/">Science in the age of social coding</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 06 Jan 2012 | 
+                Filed under github and open source | 
+                1233 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/01/05/a-python-class-for-phylogenies/">Simulated phylogenetic trees and community assembly</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 05 Jan 2012 | 
+                Filed under python, interaction networks, and phylogenetics | 
+                440 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2012/01/01/migration-to-jekyll/">Goodbye Wordpress, hello Jekyll!</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 01 Jan 2012 | 
+                Filed under  | 
+                179 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2011/12/01/the-aggregate-function-in-python/">The aggregate function in Python</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 01 Dec 2011 | 
+                Filed under python, R, and scipy | 
+                453 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                Essay: 
+                <a href="/2011/11/19/get-your-lab-on-twitter/">Get your lab on twitter!</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 19 Nov 2011 | 
+                Filed under scientific communication and social networks | 
+                1121 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2011/11/14/a-model-of-population-dynamics-in-python/">A model of population dynamics in Python</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 14 Nov 2011 | 
+                Filed under python, R, scipy, simecol, and simulations | 
+                576 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                New paper: 
+                <a href="/2011/10/12/morpho-phylo-lamellodiscus/">Morphology and phylogeny in Lamellodiscus</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 12 Oct 2011 | 
+                Filed under evolution, parasites, and phylogeny | 
+                220 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2011/07/18/innge-network-this-is-on/">INNGE network : this is on!</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 18 Jul 2011 | 
+                Filed under INNGE | 
+                132 words
+            </div>
+        </div>
+    
+        <div class='unique_post'>
+            <h2>
+                
+                <a href="/2011/07/17/models-in-evolutionary-ecology-2nd-edition/">Models in Evolutionary Ecology, 2nd edition</a>
+            </h2>
+            <div class='postinfo'>
+                Posted on 17 Jul 2011 | 
+                Filed under conferences and videos | 
+                113 words
+            </div>
+        </div>
+    
 </ul>
 
 
+	</div>
 
 </section>
 

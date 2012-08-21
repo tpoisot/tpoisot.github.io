@@ -7,9 +7,9 @@
     <meta name="author" content="Tim Poisot" />
     <title>Tim Poisot :: Measuring ecological specificity</title>
 
-    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
-    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
-    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css">
+    <script src="/assets/themes/thescientist/js/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!--[if lt IE 9]>
@@ -36,47 +36,50 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1 class="header">Tim Poisot</h1>
-        <p class="header">Community ecologist</p>
-        <ul>
-          <li><a class="extra" href="/">About me</a></li>
-          <li><a class="extra" href="/papers/">Papers</a></li>
-          <li><a class="extra" href="/code/">Code</a></li>     
-          <li><a class="extra" href="/blog/">Blog</a></li>
-        </ul>
-        
-        
-        <div class="misc vcard">
-          <h4>Contact</h4>
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <img src="/assets/themes/thescientist/images/logo.png" alt="logo" class="logo" />
+          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
+          <p>Community ecologist</p>
+        </div>
+        <div class='nav'>
           <ul>
-            
-            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
-            
-            
-            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
-            
-            
-            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
-            
-            
-            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
-            
-            
-            
-            
-            
+            <li><a class="extra navlink" href="/">About me</a></li>
+            <li><a class="extra navlink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink" href="/blog/">Blog</a></li>
           </ul>
-        </div><!-- misc -->
-        
-      </header>
+          
+          <div class="misc vcard">
+            <h4>Contact</h4>
+            <ul>
+              
+              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              
+              
+              <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+              
+              
+              <li class="twitter navlink"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+              
+              
+              <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+              
+              
+            </ul>
+          </div><!-- misc -->
+          
+        </div>
+      </div>
 
-      <section>
+      <section class='content'>
       
 <section>
-  <h1>Measuring ecological specificity</h1>
-
-  <p>Our paper about measurements of ecological specialization is now available online at the <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Methods in Ecology &amp; Evolution</a> website. You can also download the associated R package from <a href="https://r-forge.r-project.org/projects/esm/">R-Forge</a>. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that.</p>
+	<div class='ptitle'>
+		<h1>Measuring ecological specificity</h1>
+	</div>
+	<div class='pbody'>
+		<p>Our paper about measurements of ecological specialization is now available online at the <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Methods in Ecology &amp; Evolution</a> website. You can also download the associated R package from <a href="https://r-forge.r-project.org/projects/esm/">R-Forge</a>. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that.</p>
 
 <p>Early during my thesis, in between watching episodes of <em>The Big Bang Theory</em>, I was wondering how we can best measure ecological specialization of parasites, knowing that we would work with very different data sources (field samples, lab systems, and models). After a quick survey of the literature, (i) it was clear that many people developed their own measure of specificity, and (ii) it was not clear what the assumptions of some of these measures were. This appeared to us as the potential for a methodological paper.</p>
 
@@ -106,7 +109,23 @@ plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p"
 <p>For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it's basically a mess of nested for statements). The network generation routine is based on the same logic that something published by <a href="http://schamberlain.github.com/2011/01/ecological-networks-from-abundance/">Scott Chamberlain</a>, if you have any interest in doing such things.</p>
 
 
-  
+		<div id="page-navigation">
+        	<div class="clear">&nbsp;</div>
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2012/01/06/science-age-social-coding/" title="Previous Post: Science in the age of social coding">Science in the age of social coding</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+			                Next post: <a href="/2012/01/29/sign-your-reviews/" title="Next Post: How to make the most out of peer-review?">How to make the most out of peer-review?</a>
+			        
+		        </div>
+        	<div class="clear">&nbsp;</div>
+		</div> 
+
+		
 
 
   <div id="disqus_thread"></div>
@@ -127,8 +146,8 @@ plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p"
 
 
 
+	</div>
 </section>
-
 
       </section>
 

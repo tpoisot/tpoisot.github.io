@@ -7,9 +7,9 @@
     <meta name="author" content="Tim Poisot" />
     <title>Tim Poisot :: A walk on the intertidal zone</title>
 
-    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
-    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
-    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css">
+    <script src="/assets/themes/thescientist/js/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!--[if lt IE 9]>
@@ -36,47 +36,50 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1 class="header">Tim Poisot</h1>
-        <p class="header">Community ecologist</p>
-        <ul>
-          <li><a class="extra" href="/">About me</a></li>
-          <li><a class="extra" href="/papers/">Papers</a></li>
-          <li><a class="extra" href="/code/">Code</a></li>     
-          <li><a class="extra" href="/blog/">Blog</a></li>
-        </ul>
-        
-        
-        <div class="misc vcard">
-          <h4>Contact</h4>
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <img src="/assets/themes/thescientist/images/logo.png" alt="logo" class="logo" />
+          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
+          <p>Community ecologist</p>
+        </div>
+        <div class='nav'>
           <ul>
-            
-            <li class="contact"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
-            
-            
-            <li class="github"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
-            
-            
-            <li class="twitter"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
-            
-            
-            <li class="twitter"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
-            
-            
-            
-            
-            
+            <li><a class="extra navlink" href="/">About me</a></li>
+            <li><a class="extra navlink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink" href="/blog/">Blog</a></li>
           </ul>
-        </div><!-- misc -->
-        
-      </header>
+          
+          <div class="misc vcard">
+            <h4>Contact</h4>
+            <ul>
+              
+              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              
+              
+              <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+              
+              
+              <li class="twitter navlink"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+              
+              
+              <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+              
+              
+            </ul>
+          </div><!-- misc -->
+          
+        </div>
+      </div>
 
-      <section>
+      <section class='content'>
       
 <section>
-  <h1>A walk on the intertidal zone</h1>
-
-  <p>I'm in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:</p>
+	<div class='ptitle'>
+		<h1>A walk on the intertidal zone</h1>
+	</div>
+	<div class='pbody'>
+		<p>I'm in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:</p>
 
 <p><img src="/images/estran.png" title="estran" alt="Figure1" />
 What immediately came to my mind is: we don't know anything. It's one thing to look at species interaction networks, and have a feeling that we can, somehow, predict, forecast, and analyse the behavior of complex systems. It's another entirely different thing to actually see millions of individuals living on top of one another, being flushed every 6 hours, and starting all over again. I was amazed by the breadth of phylogenetic diversity concentrated in such a small space: bacterial mats on the bottom of the ponds, probably some plankton grazing them, a few larvae, crustaceans, algae, and quite a lot of birds.</p>
@@ -84,7 +87,23 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
 <p>And looking at the food web, or just the parasitic relationships, will make us miss the big picture. There is some hope in the fact that some recent proposal provide us with a <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2011.01732.x/abstract">more integrated view of the complexity of interactions</a>, but far too often we're happy claiming that we adress «trophic complexity» every time we add a trop predator over a Lotka-Voltera model. Perhaps is <a href="http://www.jstor.org/discover/10.2307/3546712?uid=3739464&amp;uid=2129&amp;uid=2&amp;uid=70&amp;uid=3737720&amp;uid=4&amp;sid=56308801943">community ecology a mess</a> because ecological communities <em>are</em> messy. Perhaps we've focused so much on trophic species, functional groups, and whatnot, that we forgot about the Harvard law of animal behavior: «<em>an animal will behave as it damned well pleases</em>». See, this is why theoreticians are better inside. Every time we take a look at the real world, it's a guaranteed existential crisis.</p>
 
 
-  
+		<div id="page-navigation">
+        	<div class="clear">&nbsp;</div>
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2012/07/03/colorbrewer-in-pgfplots/" title="Previous Post: Using Color Brewer schemes in LaTeX pgfplots">Using Color Brewer schemes in LaTeX pgfplots</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+			                Next post: <a href="/2012/08/03/new-linux-setup/" title="Next Post: My new linux setup">My new linux setup</a>
+			        
+		        </div>
+        	<div class="clear">&nbsp;</div>
+		</div> 
+
+		
 
 
   <div id="disqus_thread"></div>
@@ -105,8 +124,8 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
 
 
 
+	</div>
 </section>
-
 
       </section>
 
