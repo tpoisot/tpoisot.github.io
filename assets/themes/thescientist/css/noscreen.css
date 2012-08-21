@@ -31,12 +31,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .unique_post, .unique_post h2, .latest_post h2, .latest_post p, .latest_post .read_more, .latest_post, .highlight, #page-navigation, .nav ul li, .pbody blockquote::before, .pbody blockquote, .siteinfos, .nav, .pbody, .ptitle, .content, .postcontent, .precontent, .pbody p, .nav ul li a, .nav ul li a:hover, .siteinfos p, .siteinfos h1, .misc.vcard h4{
-	margin: auto auto;
-	padding: auto auto;
+	margin: 0;
+	padding: 0;
 	border: 0px solid white;
 	width: auto;
 	height: auto;
-	position: relative;
+	position: static;
 	top: auto;
 	left: auto;
 }
