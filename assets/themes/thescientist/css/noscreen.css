@@ -36,6 +36,9 @@ h1, h2, h3, h4, h5, h6{
 	border: 0px solid white;
 	width: auto;
 	height: auto;
+	position: relative;
+	top: auto;
+	left: auto;
 }
 
 #disqus_thread{
