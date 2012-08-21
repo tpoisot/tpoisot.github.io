@@ -1,6 +1,4 @@
-@media handheld {
-
-  body {
+body {
     font-size: 150%;
   }
   
@@ -8,5 +6,3 @@
     overflow: auto;
     font-size: 150%;
   }
-  
-}
