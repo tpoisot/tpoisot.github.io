@@ -1,4 +1,4 @@
-@media only screen and (max-device-width: 480px) {
+@media handheld {
 
   body {
     font-size: 150%;
