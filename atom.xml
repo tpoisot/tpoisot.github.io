@@ -4,7 +4,7 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-09-20T22:29:30-04:00</updated>
+ <updated>2012-09-20T22:34:45-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
@@ -34,49 +34,6 @@ Quoting from the last paragraph:&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;[F]urther understanding of the processes acting on network structure through space is contingent upon our ability to gather sufficient high-quality data. While it is now easy, and tempting, to build on recent theoretical studies to speculate about what a biogeographical theory of species interaction would look like, it is our opinion that this reasoning would be better grounded in data. [G]athering enough networks to adequately describe the metaweb is a difficult task, and assuming that species co-occurence is enough for an interaction to happen is not a sufficient sampling strategy. For this reason, we think it is time for the community of ecologists interested in interaction networks to engage in a discussion about the best way to gather data from the field, as this will pave the way to a biogeographical theory of species interactions.&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;In short, and this was (kind of) the conclusion of my Ottawa talk, we need more data. At this point, it's easy to do models, and to further speculate on which mechanisms will act. But there are only few datasets on which we can &lt;em&gt;test&lt;/em&gt; this speculation, making it a little bit vain. More importantly, we need &lt;em&gt;better&lt;/em&gt; (more suited) data. Replication of the same metaweb in space, or time; rich information about the environmental conditions; actual measurement of wether populations locally interact or not; just to name a few. The excellent theoretical work that was done in the last few years is far from useless, but until we go back to the field (or design clever experiments in microcosms...), my impression is that it will not be as beneficial as it should be.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ten things about Mendeley</title>
-   <link href="http://timotheepoisot.fr/2012/08/25/10-things-about-mendeley/"/>
-   <updated>2012-08-25T00:00:00-04:00</updated>
-   <id>http://timotheepoisot.fr/2012/08/25/10-things-about-mendeley</id>
-   <content type="html">&lt;p&gt;You may not know it, but I am a &lt;a href=&quot;http://www.mendeley.com/profiles/tim-poisot/&quot;&gt;&lt;em&gt;Mendeley&lt;/em&gt; advisor&lt;/a&gt;. I organize training sessions, and I answer questions by people wanting to use their software. It's quite fun, and I've learnt a few things in the process. I'd like to share 10 things about &lt;em&gt;Mendeley&lt;/em&gt;; five I love, and five which fill me with unspeakable frustration. This is not an impartial review. By all means, if I'm biased, its towards &lt;em&gt;Mendeley&lt;/em&gt;, and not the opposite.&lt;/p&gt;
-
-&lt;h1&gt;The things I love&lt;/h1&gt;
-
-&lt;h2&gt;1. It integrates with LaTeX!&lt;/h2&gt;
-
-&lt;h2&gt;2. Sharing and collaborating is great&lt;/h2&gt;
-
-&lt;h2&gt;3. I can manage my own references&lt;/h2&gt;
-
-&lt;h2&gt;4. It sorts my PDF on its own&lt;/h2&gt;
-
-&lt;h2&gt;5. It works from within my browser&lt;/h2&gt;
-
-&lt;h1&gt;The things I hate&lt;/h1&gt;
-
-&lt;h2&gt;1. Cross-platform is a lie!&lt;/h2&gt;
-
-&lt;p&gt;This is probably the one which annoyed me the most. I recently switched from Mac OS to Ubuntu. I still have a few manuscripts in &lt;code&gt;.doc&lt;/code&gt; format, so I figured I will convert them for LibreOffice, and resume working. I dropped a note to the &lt;em&gt;Mendeley&lt;/em&gt; support, and asked how to do it. The response was really clear: you can't. You can export from a format to the other only in some platforms. Fuck that. What is the point of using a markup format if you cannot write your plugin correctly? Where is the difficulty of parsing something which, in word, might read like `` into the equivalent format for OpenOffice? Bad design. The cross-platform ability works in the sense that you can use the same program on different platforms. You cannot actually collaborate with users using different platforms.&lt;/p&gt;
-
-&lt;p&gt;Let me put it another way. It's exactly like if you were unable to compile the bibliography of a &lt;code&gt;LaTeX&lt;/code&gt; document using TeXWorks, because it was first written using Kile. This will never happen, because when you write a citation as &lt;code&gt;\cite{citation_key}&lt;/code&gt;, then you can parse this with any software you want. That &lt;em&gt;Mendeley&lt;/em&gt; is unable to convert it show that they do not care a lot about inter-operability of the documents. It's just bad news for the users. It can be solved by having something like &lt;em&gt;EndNote&lt;/em&gt;'s Scan RTF function. If &lt;em&gt;EndNote&lt;/em&gt; can do something your bibliography app can't... you have some coding to do.&lt;/p&gt;
-
-&lt;h2&gt;2. The mobile application is a (bad) joke&lt;/h2&gt;
-
-&lt;p&gt;I'm not always near my laptop, and sometimes I just want to check something without booting it up. &lt;em&gt;Mendeley&lt;/em&gt; has a free iOS/Android application available for just this situation. It's called &lt;em&gt;Mendeley Lite&lt;/em&gt;, but sadly &lt;em&gt;Lite&lt;/em&gt; does not even begins to describe it.&lt;/p&gt;
-
-&lt;h2&gt;3. Some choices are arbitrary (and stupid)&lt;/h2&gt;
-
-&lt;h2&gt;4. The search function is awful&lt;/h2&gt;
-
-&lt;h2&gt;5.&lt;/h2&gt;
-
-&lt;h1&gt;A few final words&lt;/h1&gt;
-
-&lt;p&gt;Obviously, the good things, by far, outnumber the bad. Mendeley is worth trying, and worth using, because it will save you a lot of time in the long run. Having the ability to work with LaTeX and Word-like software is good.&lt;/p&gt;
 </content>
  </entry>
  
