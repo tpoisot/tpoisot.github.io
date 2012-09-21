@@ -9,9 +9,13 @@
 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css">
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css" />
+    
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,6 +71,9 @@
               <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
               
               
+              
+              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
+              
             </ul>
           </div><!-- misc -->
           
@@ -82,7 +89,7 @@
 	<div class='pbody'>
 		<p>Python progressively replaced R for most of my daily simulations needs, because it's relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I've been using <code>networkx</code> more and more. We've been having discussions in the lab about spatial graphs, surrounding a recent paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/22155351">Gilarranz and Bascompte</a> and some of our own projects, and I thought that it will be fun to use <code>networkx</code> to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a <a href="https://gist.github.com/2725839">gist</a>.</p>
 
-<h2>Setting things up</h2>
+<h1>Setting things up</h1>
 
 <p>Before we start, we'll need a few things. Some modules are required: obviously <code>networkx</code> to deal with the graph objects, <code>numpy</code> to generate random numbers, and the <code>pyplot</code> module to deal with the output. I'd much rather do the output work using <code>pyx</code>, but it would add a good 50 lines of code to get a good-looking output, so let's go the easy way.</p>
 
@@ -104,7 +111,7 @@
 </div>
 
 
-<h2>Create a node class</h2>
+<h1>Create a node class</h1>
 
 <p>The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class <code>patch</code>. Before writing up, let's think about what to put in. We need a simple parameter which we call <code>status</code>, whose value can be either <code>0</code> (the patch is empty) or <code>1</code> (the patch is occupied).</p>
 
@@ -122,7 +129,7 @@
 
 <p>I won't go into the detail of this notation, but you can read more <a href="http://www.penzilla.net/tutorials/python/classes/">here</a> or <a href="http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/">here</a> if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.</p>
 
-<h2>Create a spatially explicit graph</h2>
+<h1>Create a spatially explicit graph</h1>
 
 <p>There are a lot of ways to create spatial graphs, but for the sake of simplicity, let us assume that we will use simples rules. Nodes (patches) have a position (<em>x,y</em>), and two nodes are connected by an edge if the euclidean distance between them is inferior or equal to a fixed value. In other words, we can decide how close two patches should be to allow migration to occur.</p>
 
@@ -175,7 +182,7 @@
 <p><img src="/images/metapop_step1.png" title="Step 1" alt="Figure1" />
 The black nodes are occupied patches, and the white ones are empty patches. If the landscape it too connected (or not connected enough), act on the <code>Distance</code> parameter to fix it.</p>
 
-<h2>Start the simulation</h2>
+<h1>Start the simulation</h1>
 
 <p>So now, we have everything to start the simulation. We'll first do a loop to update the status of the nodes, starting with extinctions, and then colonization. Let's start with the extinction routine:</p>
 
@@ -205,11 +212,11 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
 <p>With these two blocks, it's easy to do the actual simulation:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">for</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
-    <span class="c">## Check for extinctions</span>
+    <span class="c"># Check for extinctions</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_ext</span><span class="p">):</span>
             <span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="c">## Check for invasions</span>
+    <span class="c"># Check for invasions</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">neighb</span> <span class="o">=</span> <span class="n">G</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="c"># That&#39;s it, a list of the neighbors</span>
@@ -259,7 +266,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
 
 <p><img src="/images/metapop_dynamics.png" title="Occupancy dynamics" alt="Figure3" /></p>
 
-<h2>Conclusions</h2>
+<h1>Conclusions</h1>
 
 <p>And that's it! Using the ability of <code>networkx</code> to make any arbitrary object into a node, it's possible to implement a metapopulation simulation in roughly 50 lines. The package is reasonably fast, so it's possible to run more complex simulations (I've been playing with metacommunities with no problem, for example).</p>
 
@@ -303,6 +310,13 @@ But of course you would like to follow the dynamics, which is extremely easy. We
 
 	</div>
 </section>
+
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
+          </p>
+      </div>
 
       </section>
 

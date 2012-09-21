@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="author" content="Tim Poisot" />
-    <title>Tim Poisot :: Null models of bipartite networks in C</title>
+    <title>Tim Poisot :: Ten things about Mendeley</title>
 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
@@ -84,41 +84,57 @@
       
 <section>
 	<div class='ptitle'>
-		<h1>Null models of bipartite networks in C</h1>
+		<h1>Ten things about Mendeley</h1>
 	</div>
 	<div class='pbody'>
-		<p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
+		<p>You may not know it, but I am a <a href="http://www.mendeley.com/profiles/tim-poisot/"><em>Mendeley</em> advisor</a>. I organize training sessions, and I answer questions by people wanting to use their software. It's quite fun, and I've learnt a few things in the process. I'd like to share 10 things about <em>Mendeley</em>; five I love, and five which fill me with unspeakable frustration. This is not an impartial review. By all means, if I'm biased, its towards <em>Mendeley</em>, and not the opposite.</p>
 
-<p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It's super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
+<h1>The things I love</h1>
 
-<div class="highlight"><pre><code class="bash">chmod +x configure
-./configure
-make
-sudo make install
-</code></pre>
-</div>
+<h2>1. It integrates with LaTeX!</h2>
 
+<h2>2. Sharing and collaborating is great</h2>
 
-<p>Once this is done, compile the null model generator using <code>gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE</code>, and run in using <code>./nm test.txt 3 7 1000 2000</code>. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.</p>
+<h2>3. I can manage my own references</h2>
 
-<p>This last argument is especially important because I put restictions on what is a suitable network: it needs ot have at least one link by species present. In some cases, this will mean that the number of possible random networks given connectance and size is extremely small, and even a large number of trials can give no successful results.</p>
+<h2>4. It sorts my PDF on its own</h2>
 
-<p>The programm will generate one output file for each usable network, with the suffix <code>_n1</code> for Type I (connectance based) network, and the suffix <code>_n2</code> for Type II (degree based) networks.</p>
+<h2>5. It works from within my browser</h2>
 
-<p>My Python code took two days to run through the 175 webs, giving up after 1000 iterations at most. The C code was able to do the same, with 50000 iterations at most, in less than 30 minutes. C is awesome, and I feel dumb for not learing it sooner.</p>
+<h1>The things I hate</h1>
+
+<h2>1. Cross-platform is a lie!</h2>
+
+<p>This is probably the one which annoyed me the most. I recently switched from Mac OS to Ubuntu. I still have a few manuscripts in <code>.doc</code> format, so I figured I will convert them for LibreOffice, and resume working. I dropped a note to the <em>Mendeley</em> support, and asked how to do it. The response was really clear: you can't. You can export from a format to the other only in some platforms. Fuck that. What is the point of using a markup format if you cannot write your plugin correctly? Where is the difficulty of parsing something which, in word, might read like `` into the equivalent format for OpenOffice? Bad design. The cross-platform ability works in the sense that you can use the same program on different platforms. You cannot actually collaborate with users using different platforms.</p>
+
+<p>Let me put it another way. It's exactly like if you were unable to compile the bibliography of a <code>LaTeX</code> document using TeXWorks, because it was first written using Kile. This will never happen, because when you write a citation as <code>\cite{citation_key}</code>, then you can parse this with any software you want. That <em>Mendeley</em> is unable to convert it show that they do not care a lot about inter-operability of the documents. It's just bad news for the users. It can be solved by having something like <em>EndNote</em>'s Scan RTF function. If <em>EndNote</em> can do something your bibliography app can't... you have some coding to do.</p>
+
+<h2>2. The mobile application is a (bad) joke</h2>
+
+<p>I'm not always near my laptop, and sometimes I just want to check something without booting it up. <em>Mendeley</em> has a free iOS/Android application available for just this situation. It's called <em>Mendeley Lite</em>, but sadly <em>Lite</em> does not even begins to describe it.</p>
+
+<h2>3. Some choices are arbitrary (and stupid)</h2>
+
+<h2>4. The search function is awful</h2>
+
+<h2>5.</h2>
+
+<h1>A few final words</h1>
+
+<p>Obviously, the good things, by far, outnumber the bad. Mendeley is worth trying, and worth using, because it will save you a lot of time in the long run. Having the ability to work with LaTeX and Word-like software is good.</p>
 
 
 		<div id="page-navigation">
         	<div class="clear">&nbsp;</div>
         		<div class="left">
 	        		
-	                	Previous post: <a href="/2012/01/29/sign-your-reviews/" title="Previous Post: How to make the most out of peer-review?">How to make the most out of peer-review?</a>
+	                	Previous post: <a href="/2012/08/15/notes-on-using-sympy/" title="Previous Post: Notes on learning how to use sympy">Notes on learning how to use sympy</a>
 	        		
         		</div>
 
 		        <div class="right">
 			        
-			                Next post: <a href="/2012/04/26/biblatex-styles-ecology/" title="Next Post: Biblatex styles for ecology">Biblatex styles for ecology</a>
+			                Next post: <a href="/2012/09/20/beta-diversity-networks/" title="Next Post: The beta-diversity of species interaction networks">The beta-diversity of species interaction networks</a>
 			        
 		        </div>
         	<div class="clear">&nbsp;</div>

@@ -1,7 +1,7 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,900,900italic);
-@import url(http://fonts.googleapis.com/css?family=Salsa);
+@import url(http://fonts.googleapis.com/css?family=Rancho);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
 
 html {
@@ -36,8 +36,8 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .siteinfos h1{
-	font-family: 'Salsa' !important;
-	font-size: 2.5em;
+	font-family: 'Rancho' !important;
+	font-size: 3.3em;
 }
 
 .siteinfos p{
@@ -61,12 +61,16 @@ h1, h2, h3, h4, h5, h6{
 
 /* Text and background colors */
 
+.footer{
+	font-weight: 300;
+}
+
 a{
 	text-decoration: none;
 	color: #338800;
 }
 
-.pbody a:hover{
+.pbody a:hover, .footer a:hover{
 	background-color: #338800;
 	color: white;
 }
@@ -97,6 +101,10 @@ li.github.navlink a:hover {
 
 li.twitter.navlink a:hover {
 	border-left: 10px solid #8EC1DA;
+}
+
+li.coderwall.navlink a:hover {
+	border-left: 10px solid #3C7BAD;
 }
 
 .ptitle{
@@ -134,7 +142,11 @@ li.twitter.navlink a:hover {
 	left: 27%;
 }
 
-.siteinfos, .nav, .pbody, .ptitle{
+.footer{
+	border-top: 1px solid #aaa;
+}
+
+.siteinfos, .nav, .pbody, .ptitle, .footer p{
 	padding-top: 3%;
 	padding-bottom: 3%;
 	padding-left:  50px;
@@ -151,19 +163,29 @@ li.twitter.navlink a:hover {
 
 .pbody blockquote::before{
 	content:'«';
-	font-family: 'Salsa';
+	font-family: 'Rancho';
 	color: #338800;
 	position: absolute;
-    margin-left: -1.1em;
-    font-size: 1.8em;
+    margin-left: -0.5em;
+    font-size: 2.8em;
+    margin-top: -0.45em;
 }
 
 .siteinfos{
-	margin-top: 30%;
+	margin-top: 0%;
+}
+
+img.logo{
+	margin-top: 15%;
+	margin-bottom: 7%;
 }
 
 .ptitle{
 	border-bottom: 1px solid #aaa;
+}
+
+.nav{
+	margin-top: 10%;
 }
 
 .nav ul li{
@@ -226,4 +248,68 @@ li.twitter.navlink a:hover {
 
 .unique_post .postinfo{
 	font-weight: 300;
+}
+
+.pbody h1{
+	font-weight: 900;
+	font-size: 1.5em;
+	color: #111;
+	margin-top: 1em;
+	margin-left: -50px;
+	border-left: 25px solid #aaa;
+	padding-left: 25px;
+}
+
+.pbody h2{
+	padding-bottom: 0.5em;
+	padding-top: 1em;
+}
+
+.subscribe{
+	border-bottom: 1px solid #aaa;
+	padding-bottom: 1.1em;
+	margin-left: -50px;
+	padding-left: 50px;
+	text-transform: uppercase;
+	padding-top: 0.4em;
+}
+
+.subscribe h2{
+	margin: 0px;
+	padding: 0px;
+	width: auto;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.subscribe h2:before{
+	content: url('../images/rss.png');
+	width: 16px;
+	height: 16px;
+	padding-right: 0.8em;
+	vertical-align: middle;
+}
+
+/*TABLES*/
+
+#content .text table{
+	width: 100%;
+	margin: 3% 0px;
+}
+
+#content .text td, #content .text th{
+	padding: 4px;
+}
+
+#content .text table, #content .text td, #content .text tr, #content .text th{
+	border: 1px solid #c7c7c7;
+}
+
+#content .text th{
+	background-color: #c7c7c7;
+	font-weight: 900;
+}
+
+#content .text tr:nth-child(odd){
+	background-color:#eee;
 }
