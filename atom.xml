@@ -4,13 +4,91 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-09-20T22:34:45-04:00</updated>
+ <updated>2012-09-24T21:03:48-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Measuring the beta-diversity of species interaction networks</title>
+   <link href="http://timotheepoisot.fr/2012/09/24/measuring-beta-diversity-networks/"/>
+   <updated>2012-09-24T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2012/09/24/measuring-beta-diversity-networks</id>
+   <content type="html">&lt;p&gt;To reproduce the analyses presented in &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;our last paper&lt;/a&gt;, we wrote the &lt;a href=&quot;https://github.com/tpoisot/betalink&quot;&gt;&lt;code&gt;betalink&lt;/code&gt;&lt;/a&gt; R package. This post is a walkthrough for most of the analyses. The help is not fully completed yet, and in any case, seeing examples is more informative than reading the manual. First thing first, go to the previous link, and download the package. Unzip it, open a terminal, and type&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;R CMD INSTALL betalink
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;If you open &lt;code&gt;R&lt;/code&gt;, you can now load the package with&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;betalink&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Past this point, I'm assuming you are familiar with our terminology, but if not, you can go &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;&lt;strong&gt;read the previous post&lt;/strong&gt;&lt;/a&gt; (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a &lt;code&gt;list&lt;/code&gt; of &lt;code&gt;matrix&lt;/code&gt; objects. It's obviously important that species are named, &lt;em&gt;i.e.&lt;/em&gt; set the &lt;code&gt;colnames&lt;/code&gt; and &lt;code&gt;rownames&lt;/code&gt; properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).&lt;/p&gt;
+
+&lt;p&gt;Let's start with a simple example: two hosts, two parasites, two realizations:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;w1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; matrix&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; ncol&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+w2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; matrix&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; ncol&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;p1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;p2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;h1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;h2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The first step is to put these networks into a list:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;realizations &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; w2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Now, we cant ask about the metaweb. The package proposes the &lt;code&gt;aggregate.metaweb&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;metaweb &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; aggregate.metaweb&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;realizations&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The object returned is a list with three elements, &lt;code&gt;meta&lt;/code&gt;, &lt;code&gt;template&lt;/code&gt;, and &lt;code&gt;cooc&lt;/code&gt;. All three objects are matrices, which correspond to different informations about the metaweb. &lt;code&gt;meta&lt;/code&gt; is the one you are most likely to use, as it is the adjacency matrix of the metaweb. &lt;code&gt;template&lt;/code&gt; is a matrix giving the frequency at which two species interacted (&lt;em&gt;i.e.&lt;/em&gt; the total number of realizations in which they interacted, over the total number of realizations in which they co-occured). Finally, &lt;code&gt;cooc&lt;/code&gt; gives the number of times two species co-occured, across all realizations. Note that most of the time, the &lt;code&gt;aggregate.metaweb&lt;/code&gt; function will be called internally, so except when you want to have a look at the metaweb itself, there are few reasons to call it.&lt;/p&gt;
+
+&lt;p&gt;The next step is to measure the dissimilarity between your two networks. Once again, the process is mostly automated. Your need to pick a &amp;beta;-diversity measure, to start. We implemented the 23 listed by Koleff and colleagues in their 2003 paper. They are coded &lt;code&gt;B01&lt;/code&gt; to &lt;code&gt;B23&lt;/code&gt;. In all functions, the default is to use &lt;code&gt;B01&lt;/code&gt;. Note that if you want to use quantitative measures, the &lt;em&gt;framework&lt;/em&gt; allows it, but this is not currently implemented in the &lt;em&gt;package&lt;/em&gt; &amp;mdash; but this is really simple to do if you need.&lt;/p&gt;
+
+&lt;p&gt;For any set of two networks, you can just call&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;betalink&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; w2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; bf&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;B01&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;However, if you have a lot more networks, then the process can be automated, and you will get a pairwise distance matrix, through&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;betalink.dist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;realizations&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; bf&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;B01&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;If you look at the code for the &lt;code&gt;betalink.dist&lt;/code&gt; function, you will see that the last argument is actually the catch-all, &lt;code&gt;...&lt;/code&gt;. This means that if you want to modify the &lt;code&gt;betalink&lt;/code&gt; function, which &lt;code&gt;betalink.dist&lt;/code&gt; calls, you will be able to keep using &lt;code&gt;betalink.dist&lt;/code&gt;. The only difference between &lt;code&gt;betalink.dist&lt;/code&gt; and &lt;code&gt;betalink&lt;/code&gt; is that the later returns the species &amp;beta;-diversity for each side of the matrix separately (&lt;em&gt;i.e.&lt;/em&gt; for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network &amp;beta;-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.&lt;/p&gt;
+
+&lt;p&gt;At this point, you might want to &lt;em&gt;see&lt;/em&gt; how things look, rather than just look at numbers. This option is nowhere in the paper, but I actually developed a way to plot network dissimilarity. You can use it through the &lt;code&gt;betalink.plot&lt;/code&gt; function, which takes two realizations as arguments. It will plot a matrix, when interactions are color-coded: interactions which are found in both networks and do not experience turnover are in grey; interactions between species unique to realization one or two are, respectively, in green and blue; finally, interactions which are established betwen shared species, but experience turnover, are in orange. The good thing with this visualisation, an example of which is given below, is that, by looking at the relative area of each color, you can guesstimate the values of the different components of &amp;beta;-diversity. A large grey/orange area means that most species are shared. More orange than grey means the turnover of interactions between shared species is high. And so on. The example below uses random networks, but you see the general idea.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/betaplot.png&quot; title=&quot;betaplot&quot; alt=&quot;Figure1 - the betaplot&quot; /&gt;
+   &amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;The last thing you may want to do is to measure the distance of each realization to the relevant portion of the metaweb (see Appendix 1 for the many reasons to do it). To do so, just use the &lt;code&gt;beta.os_prime&lt;/code&gt; function, whose argument are a list of webs, and a &amp;beta;-diversity measure.&lt;/p&gt;
+
+&lt;p&gt;You're now good to go, feel free to fork the package if you have any improvements to do, and email me in case of problems, I'll be glad to help you!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The beta-diversity of species interaction networks</title>

@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Tim Poisot" />
+    <title>Tim Poisot :: Measuring the beta-diversity of species interaction networks</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css" />
+    
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <img src="/assets/themes/thescientist/images/logo.png" alt="logo" class="logo" />
+          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
+          <p>Community ecologist</p>
+        </div>
+        <div class='nav'>
+          <ul>
+            <li><a class="extra navlink" href="/">About me</a></li>
+            <li><a class="extra navlink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+          </ul>
+          
+          <div class="misc vcard">
+            <h4>Contact</h4>
+            <ul>
+              
+              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              
+              
+              <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+              
+              
+              <li class="twitter navlink"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+              
+              
+              <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+              
+              
+              
+              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
+              
+            </ul>
+          </div><!-- misc -->
+          
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='ptitle'>
+		<h1>Measuring the beta-diversity of species interaction networks</h1>
+	</div>
+	<div class='pbody'>
+		<p>To reproduce the analyses presented in <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/">our last paper</a>, we wrote the <a href="https://github.com/tpoisot/betalink"><code>betalink</code></a> R package. This post is a walkthrough for most of the analyses. The help is not fully completed yet, and in any case, seeing examples is more informative than reading the manual. First thing first, go to the previous link, and download the package. Unzip it, open a terminal, and type</p>
+
+<div class="highlight"><pre><code class="bash">R CMD INSTALL betalink
+</code></pre>
+</div>
+
+
+<p>If you open <code>R</code>, you can now load the package with</p>
+
+<div class="highlight"><pre><code class="splus">library<span class="p">(</span>betalink<span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>Past this point, I'm assuming you are familiar with our terminology, but if not, you can go <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"><strong>read the previous post</strong></a> (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a <code>list</code> of <code>matrix</code> objects. It's obviously important that species are named, <em>i.e.</em> set the <code>colnames</code> and <code>rownames</code> properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).</p>
+
+<p>Let's start with a simple example: two hosts, two parasites, two realizations:</p>
+
+<div class="highlight"><pre><code class="splus">w1 <span class="o">=</span> matrix<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+w2 <span class="o">=</span> matrix<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+colnames<span class="p">(</span>w1<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="s">&#39;p1&#39;</span><span class="p">,</span> <span class="s">&#39;p2&#39;</span><span class="p">)</span>
+rownames<span class="p">(</span>w1<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="s">&#39;h1&#39;</span><span class="p">,</span> <span class="s">&#39;h2&#39;</span><span class="p">)</span>
+colnames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</span> colnames<span class="p">(</span>w1<span class="p">)</span>
+rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</span> rownames<span class="p">(</span>w1<span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>The first step is to put these networks into a list:</p>
+
+<div class="highlight"><pre><code class="splus">realizations <span class="o">=</span> list<span class="p">(</span>w1<span class="p">,</span> w2<span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>Now, we cant ask about the metaweb. The package proposes the <code>aggregate.metaweb</code> function:</p>
+
+<div class="highlight"><pre><code class="splus">metaweb <span class="o">=</span> aggregate.metaweb<span class="p">(</span>realizations<span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>The object returned is a list with three elements, <code>meta</code>, <code>template</code>, and <code>cooc</code>. All three objects are matrices, which correspond to different informations about the metaweb. <code>meta</code> is the one you are most likely to use, as it is the adjacency matrix of the metaweb. <code>template</code> is a matrix giving the frequency at which two species interacted (<em>i.e.</em> the total number of realizations in which they interacted, over the total number of realizations in which they co-occured). Finally, <code>cooc</code> gives the number of times two species co-occured, across all realizations. Note that most of the time, the <code>aggregate.metaweb</code> function will be called internally, so except when you want to have a look at the metaweb itself, there are few reasons to call it.</p>
+
+<p>The next step is to measure the dissimilarity between your two networks. Once again, the process is mostly automated. Your need to pick a &beta;-diversity measure, to start. We implemented the 23 listed by Koleff and colleagues in their 2003 paper. They are coded <code>B01</code> to <code>B23</code>. In all functions, the default is to use <code>B01</code>. Note that if you want to use quantitative measures, the <em>framework</em> allows it, but this is not currently implemented in the <em>package</em> &mdash; but this is really simple to do if you need.</p>
+
+<p>For any set of two networks, you can just call</p>
+
+<div class="highlight"><pre><code class="splus">betalink<span class="p">(</span>w1<span class="p">,</span> w2<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>However, if you have a lot more networks, then the process can be automated, and you will get a pairwise distance matrix, through</p>
+
+<div class="highlight"><pre><code class="splus">betalink.dist<span class="p">(</span>realizations<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>If you look at the code for the <code>betalink.dist</code> function, you will see that the last argument is actually the catch-all, <code>...</code>. This means that if you want to modify the <code>betalink</code> function, which <code>betalink.dist</code> calls, you will be able to keep using <code>betalink.dist</code>. The only difference between <code>betalink.dist</code> and <code>betalink</code> is that the later returns the species &beta;-diversity for each side of the matrix separately (<em>i.e.</em> for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network &beta;-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.</p>
+
+<p>At this point, you might want to <em>see</em> how things look, rather than just look at numbers. This option is nowhere in the paper, but I actually developed a way to plot network dissimilarity. You can use it through the <code>betalink.plot</code> function, which takes two realizations as arguments. It will plot a matrix, when interactions are color-coded: interactions which are found in both networks and do not experience turnover are in grey; interactions between species unique to realization one or two are, respectively, in green and blue; finally, interactions which are established betwen shared species, but experience turnover, are in orange. The good thing with this visualisation, an example of which is given below, is that, by looking at the relative area of each color, you can guesstimate the values of the different components of &beta;-diversity. A large grey/orange area means that most species are shared. More orange than grey means the turnover of interactions between shared species is high. And so on. The example below uses random networks, but you see the general idea.</p>
+
+<p><img src="/images/betaplot.png" title="betaplot" alt="Figure1 - the betaplot" />
+   &nbsp;</p>
+
+<p>The last thing you may want to do is to measure the distance of each realization to the relevant portion of the metaweb (see Appendix 1 for the many reasons to do it). To do so, just use the <code>beta.os_prime</code> function, whose argument are a list of webs, and a &beta;-diversity measure.</p>
+
+<p>You're now good to go, feel free to fork the package if you have any improvements to do, and email me in case of problems, I'll be glad to help you!</p>
+
+
+		<div id="page-navigation">
+        	<div class="clear">&nbsp;</div>
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2012/09/20/beta-diversity-networks/" title="Previous Post: The beta-diversity of species interaction networks">The beta-diversity of species interaction networks</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+        	<div class="clear">&nbsp;</div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
+          </p>
+      </div>
+
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
