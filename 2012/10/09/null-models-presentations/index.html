@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Tim Poisot" />
+    <title>Tim Poisot :: Presenting the results of networks null models</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment_trac.css" />
+    
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <img src="/assets/themes/thescientist/images/logo.png" alt="logo" class="logo" />
+          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
+          <p>Community ecologist</p>
+        </div>
+        <div class='nav'>
+          <ul>
+            <li><a class="extra navlink" href="/">About me</a></li>
+            <li><a class="extra navlink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+          </ul>
+          
+          <div class="misc vcard">
+            <h4>Contact</h4>
+            <ul>
+              
+              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              
+              
+              <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
+              
+              
+              <li class="twitter navlink"><a href="http://twitter.com/tpoi/" rel="me">Twitter</a></li>
+              
+              
+              <li class="mendeley navlink"><a href="http://www.mendeley.com/profiles/tim-poisot/" rel="me">Mendeley</a></li>
+              
+              
+              
+              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
+              
+            </ul>
+          </div><!-- misc -->
+          
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='ptitle'>
+		<h1>Presenting the results of networks null models</h1>
+	</div>
+	<div class='pbody'>
+		<p>I'm in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
+
+<p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It's a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>
+
+<p><img src="/images/nullmodels.png" title="nullmodels" alt="Figure1 - heatmap" />
+The number within each quadrant represent how many networks have this property (<em>e.g.</em> for the leftmost dataset, 72 networks are both more nested and more modular than expected), and the shading is a measure of the proportion of networks falling within each quadrant. I quite like this method, because as illustrated above, you can easily compare different datasets at a glance, even when the number of networks differ. And you also get a sense of some interesting phenomenon: in the middle dataset, networks are clearly more nested, but equally less or more modular than expected.</p>
+
+<p>The figures were made in <code>tikz</code>, and the code is really nothing complicated. If some of you are interested, it looks like this:</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\tikzstyle</span><span class="nb">{</span>val<span class="nb">}</span> = [minimum size=1cm, inner sep = 0pt, draw=black, thick]
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+    <span class="k">\node</span><span class="na">[val, fill=black!9]</span> (mpnn) at (0, 0) <span class="nb">{</span>12<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[val, fill=black!2, right of=mpnn]</span> (mpne) <span class="nb">{</span>8<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[val, fill=black!57, right of=mpne]</span> (mpnp) <span class="nb">{</span>72<span class="nb">}</span>;
+    
+    <span class="k">\node</span><span class="na">[val, fill=black!2, below of=mpnn]</span> (menn) <span class="nb">{</span>3<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[val, fill=black!4, below of=mpne]</span> (mene) <span class="nb">{</span>6<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[val, fill=black!9, below of=mpnp]</span> (menp) <span class="nb">{</span>12<span class="nb">}</span>;
+
+    <span class="k">\node</span><span class="na">[val, fill=black!1, below of=menn]</span> (mnnn) <span class="nb">{</span>2<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[val, fill=black!0, below of=mene]</span> (mnne) <span class="nb">{</span>1<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[val, fill=black!7, below of=menp]</span> (mnnp) <span class="nb">{</span>9<span class="nb">}</span>;
+
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, left of=menn]</span> (mQ) <span class="nb">{</span><span class="s">$</span><span class="nb">Q_{bip}</span><span class="s">$</span><span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, left of=mpnn]</span> (mQp) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>+<span class="nb">}}</span>;
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, left of=mnnn]</span> (mQn) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>-<span class="nb">}}</span>;
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnne]</span> (nodf) <span class="nb">{</span><span class="s">$</span><span class="nb">N</span><span class="s">$</span><span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnnp]</span> (nodfp) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>+<span class="nb">}}</span>;
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnnn]</span> (nodfn) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>-<span class="nb">}}</span>;
+    <span class="k">\node</span><span class="na">[draw=none, fill=none, above of=mpne]</span> (lab) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>Panel title<span class="nb">}}</span>;
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</code></pre>
+</div>
+
+
+
+
+
+		<div id="page-navigation">
+        	<div class="clear">&nbsp;</div>
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2012/10/02/bacterial-terminal-investment/" title="Previous Post: Can phage increase bacterial growth?">Can phage increase bacterial growth?</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+        	<div class="clear">&nbsp;</div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
+          </p>
+      </div>
+
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+

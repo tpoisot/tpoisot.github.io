@@ -4,13 +4,57 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-10-02T11:32:39-04:00</updated>
+ <updated>2012-10-09T13:04:10-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Presenting the results of networks null models</title>
+   <link href="http://timotheepoisot.fr/2012/10/09/null-models-presentations/"/>
+   <updated>2012-10-09T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2012/10/09/null-models-presentations</id>
+   <content type="html">&lt;p&gt;I'm in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/21709225&quot;&gt;Cesar Flores and colleagues&lt;/a&gt; show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).&lt;/p&gt;
+
+&lt;p&gt;All in all, there are only nine possible states for a network, if you test nestedness and modularity. It's a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/nullmodels.png&quot; title=&quot;nullmodels&quot; alt=&quot;Figure1 - heatmap&quot; /&gt;
+The number within each quadrant represent how many networks have this property (&lt;em&gt;e.g.&lt;/em&gt; for the leftmost dataset, 72 networks are both more nested and more modular than expected), and the shading is a measure of the proportion of networks falling within each quadrant. I quite like this method, because as illustrated above, you can easily compare different datasets at a glance, even when the number of networks differ. And you also get a sense of some interesting phenomenon: in the middle dataset, networks are clearly more nested, but equally less or more modular than expected.&lt;/p&gt;
+
+&lt;p&gt;The figures were made in &lt;code&gt;tikz&lt;/code&gt;, and the code is really nothing complicated. If some of you are interested, it looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\tikzstyle&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;val&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt; = [minimum size=1cm, inner sep = 0pt, draw=black, thick]
+&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!9]&lt;/span&gt; (mpnn) at (0, 0) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;12&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!2, right of=mpnn]&lt;/span&gt; (mpne) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;8&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!57, right of=mpne]&lt;/span&gt; (mpnp) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;72&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!2, below of=mpnn]&lt;/span&gt; (menn) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;3&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!4, below of=mpne]&lt;/span&gt; (mene) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;6&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!9, below of=mpnp]&lt;/span&gt; (menp) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;12&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!1, below of=menn]&lt;/span&gt; (mnnn) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!0, below of=mene]&lt;/span&gt; (mnne) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[val, fill=black!7, below of=menp]&lt;/span&gt; (mnnp) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;9&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, left of=menn]&lt;/span&gt; (mQ) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Q_{bip}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, left of=mpnn]&lt;/span&gt; (mQp) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;+&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, left of=mnnn]&lt;/span&gt; (mQn) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;-&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, below of=mnne]&lt;/span&gt; (nodf) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, below of=mnnp]&lt;/span&gt; (nodfp) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;+&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, below of=mnnn]&lt;/span&gt; (nodfn) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;-&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, above of=mpne]&lt;/span&gt; (lab) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;Panel title&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+</content>
+ </entry>
  
  <entry>
    <title>Can phage increase bacterial growth?</title>
