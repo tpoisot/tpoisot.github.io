@@ -4,13 +4,42 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-10-09T13:04:10-04:00</updated>
+ <updated>2012-10-29T19:17:22-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Should we care about species interaction networks?</title>
+   <link href="http://timotheepoisot.fr/2012/10/29/species-interaction-networks/"/>
+   <updated>2012-10-29T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2012/10/29/species-interaction-networks</id>
+   <content type="html">&lt;p&gt;In June, I was invited to give a talk at the &lt;a href=&quot;http://www.weblife.univ-montp2.fr/&quot;&gt;&lt;em&gt;Web of Life&lt;/em&gt; meeting in Montpellier&lt;/a&gt;. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was working on &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;our recent paper about the &amp;beta;-diversity of interaction networks&lt;/a&gt;, where we show that species and their interactions are locally sorted through different mechanisms.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; &lt;em&gt;This post is inspired by the introduction of an opinion/forum paper I'm currently writing. Your impressions and comments are thus very welcome. The post is also quite probably boring if you're not into ecological networks.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I've been discussing these results with a few people, and one of the questions that kept coming back is «but did you expect species and interactions to be sorted by the same mechanisms?». I did not. But perhaps we often imply this when working with species interaction networks, and perhaps this assumption leads us to study some processes at the wrong scale. A network (&lt;em&gt;e.g.&lt;/em&gt; food web) gives you, for a list of species, their interactions. To put this another way, it tells you that species &lt;em&gt;B&lt;/em&gt;, but not species &lt;em&gt;C&lt;/em&gt; is within the potential niche of species &lt;em&gt;A&lt;/em&gt;. In short, and especially if you infer the structure of this network from traits, or expert knowledge, you will describe interactions among species, which are &lt;em&gt;potential&lt;/em&gt; interactions. When you go in the field, and record interactions between populations of these species, you will sample the &lt;em&gt;realized&lt;/em&gt; interactions.&lt;/p&gt;
+
+&lt;p&gt;Not making a difference between &lt;em&gt;species&lt;/em&gt;-level and &lt;em&gt;populations&lt;/em&gt;-level is what you can call an &lt;a href=&quot;http://en.wikipedia.org/wiki/Gaston_Bachelard&quot;&gt;epistemological obstacle&lt;/a&gt;. My opinion is that it's important to separate the two levels of organization, as they give us different informations. Let's start with the obvious: I'll quote straight from the introduction of &lt;a href=&quot;http://www.oup.com/us/catalog/general/subject/LifeSciences/EvolutionaryBiology/?view=usa&amp;amp;sf=toc&amp;amp;ci=9780195188165&quot;&gt;&lt;em&gt;Ecological networks: linking structure to dynamics in food webs&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The interactions between species on different trophic (feeding) levels underlie the flow of energy and biomass in ecosystems [...] (p. 3)&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;It's hard to argue with this, and it should be noted that it's the basic idea behind papers linking food web structure to ecosystem functioning. And with a few minor alterations, this assertion also holds for other types of interactions. Let's put it another way: interactions between species affect their growth and persistance. I could have found something more precise, but you get the idea. And so, what is the problem? If you know that species &lt;em&gt;A&lt;/em&gt; consumes species &lt;em&gt;B&lt;/em&gt;, and you go in the field at site &lt;em&gt;1&lt;/em&gt;, observe populations &lt;em&gt;A1&lt;/em&gt; and &lt;em&gt;B1&lt;/em&gt;, what can you tell? Well, not much. What affects the &lt;em&gt;local&lt;/em&gt; flow of biomass, or growth, or whatever, is the &lt;em&gt;realized&lt;/em&gt; interaction between two &lt;em&gt;populations&lt;/em&gt;. The &lt;em&gt;potential&lt;/em&gt; interaction between two &lt;em&gt;species&lt;/em&gt; only tells you that this interaction can happen. See the epistemological obstacle right here? Because we know two species &lt;em&gt;can&lt;/em&gt; interact, do not mean they &lt;em&gt;will&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The point is, if we use networks to assess the robustness, stability, etc, of ecosystems, which information is required? Is it the potential network, or is the realized one? In the terms of our previous paper, do we care about the &lt;em&gt;metaweb&lt;/em&gt; or its &lt;em&gt;realizations&lt;/em&gt;? I have no answer to this question, but let's move on. In a perfect world, we would not care, because everything which is potential will become realized. In short, there will be no need to make a difference between species and population level networks, because interactions would be highly consistent. How perfect is the world? If you look at the data we presented in our &amp;beta;-link paper, not a lot. It was really rare to find a realization in which all potential interactions were found (the one for which it occured were of really small size). This really strongly implies that species and their interactions respond to different environmental filters.&lt;/p&gt;
+
+&lt;p&gt;But is that a problem? Yes &amp;ndash; or rather, the fact that we don't know if it is a problem, is a problem in itself. Most of the data available (in terms of spatially replicated interaction networks) do not allow us to answer this question. Look at the Adirondack metaweb compiled by &lt;a href=&quot;http://www.sciencemag.org/content/257/5073/1107&quot;&gt;Karl Havens&lt;/a&gt;, for example. In this dataset, you have the potential interactions across all species, and a list of species for 50 lakes. In short, it describes a regional web, and we can extract the potential local webs. Not the realized ones, which would require much more sampling and direct observations, rather than litterature surveys. Can this affect the conclusions? Let's look at the final sentence of the abstract:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt; In contrast, the number of links per species increased fourfold over the range of species number, suggesting that the link-species scaling law, defined on the basis of aggregated webs, does not reflect a real ecological trend.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Well... What if not all potential links are realized? What if there is a cap on the number of partners, &lt;em&gt;i.e.&lt;/em&gt; a maximum number of species you can interact with &lt;em&gt;locally&lt;/em&gt;? What if the number of effective prey items is inferior to the number of potential preys found localy? If each predator has a maximal number of prey items, at each site, then the result that the link-species scaling law is not a real trend may not hold. And for this reason, studies of networks looking only at the presence/absence of species, and infering links from previous knowledge, rather than sampling at each studied site, risk to be severaly misleading.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read&quot;&gt;TL;DR&lt;/a&gt;: I'm starting to develop the opinion that looking at &lt;em&gt;species&lt;/em&gt; interaction networks is risky when your interest is to explain local properties of the community. Switching from species to population level will require much more sampling effort, and will probably slow down the accumulation of data a bit, but on the other hand, it comes with several advantages. First, it will improve our ability to better understand network variation from place to place (or from time to time). Second, it will help making &lt;em&gt;explicit&lt;/em&gt; links between (local) interaction structure and (local) ecosystem properties. And last but not least, it's probably the only path to a biogeography of species interactions anyway...&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Presenting the results of networks null models</title>
