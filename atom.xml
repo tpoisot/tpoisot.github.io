@@ -4,13 +4,36 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-10-29T19:17:22-04:00</updated>
+ <updated>2012-11-09T10:55:51-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Data sharing and the bagel effect</title>
+   <link href="http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect/"/>
+   <updated>2012-11-09T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect</id>
+   <content type="html">&lt;p&gt;I'm starting to organize a collection of notes and ideas I've had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I'll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would be appealing to people.&lt;/p&gt;
+
+&lt;p&gt;Let's imagine that you go to your local coffee shop, and order a bagel. A tasty, garnished, bagel, with bacon, eggs, and all. You order it, you pay for it. The barista makes it, and it looks delicious. As you are already imagining yourself biting into the thing, the guy behind the counter calls you, and say &quot;Hey, look, I made you a bagel!&quot;. He then takes your money, put the bagel behind the counter, and walk away. Were this situation to happen, it's likely that you'll ask for you bagel, or your money back.&lt;/p&gt;
+
+&lt;p&gt;But as far as papers go, we are living this situation (the &lt;em&gt;bagel effect&lt;/em&gt;) every day. When you see a paper, when you read it, you have to take the author's word for it. You can &lt;em&gt;see&lt;/em&gt; the data, presented as figures, tables, and text, but you can't &lt;em&gt;taste&lt;/em&gt; them. You can't reproduce the results, and you can't certainly use these data to do &lt;em&gt;some more, new, exciting science&lt;/em&gt;, because the data are not yours.&lt;/p&gt;
+
+&lt;p&gt;This is the core of the problem: some people still feel like &lt;em&gt;their&lt;/em&gt; data belong to &lt;em&gt;them&lt;/em&gt;. Not so long ago I asked a bunch of people (whose identity do not matter at all) to give me their data, which were published 15 years ago. Their reply was that they would be really happy to do so, &lt;em&gt;if I list them as co-authors in the paper whether they contributed or not&lt;/em&gt;. This was such an unrealistic expectation that I thought it was a clever joke. It was not. I didn't used the data.&lt;/p&gt;
+
+&lt;p&gt;I'm sure most people will have personal anecdotes like this to tell. I've also had really positive ones. Someone saved me a lot of energy early in my PhD by giving away a few thousand lines of computer codes. I've received an impressive dataset which resulted in a paper and a new collaboration (sadly I'm still to convince my co-authors to fully release the data). One of my papers was made possible only &lt;em&gt;because&lt;/em&gt; the &lt;a href=&quot;http://www.nceas.ucsb.edu/interactionweb/resources.html&quot;&gt;IWDB&lt;/a&gt; exists. This reminded me of a sentence Claude Bernard quoted in its Introduction to the Study of Experimental Medicine &lt;em&gt;way&lt;/em&gt; back in the 1860s:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Art, is me; science, is us.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Anything less than a collaborative effort is an ego-trip, and if you refuse this collective effort to happen, then you are slowing down the scientific process. Because instead of looking at existing data, we are forced to invest time, money, and expertise into the collection of new ones. This is really wasteful process, and they are probably really good ideas that are left unexplored because some people hold on to their data so much.&lt;/p&gt;
+
+&lt;p&gt;Now, the paper I'm drafting will have a far better arguments / anecdotes ratio (hopefully). Meanwhile I'd be happy to hear about how you would try to convince people to release their data, and if you had great success in doing so.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Should we care about species interaction networks?</title>
