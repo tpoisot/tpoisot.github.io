@@ -3,6 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,900,900italic);
 @import url(http://fonts.googleapis.com/css?family=Rancho);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700,700italic);
 
 html {
 	font-size: 62.5%;
@@ -16,6 +17,15 @@ body{
 	font-size: 1.4em;
 	text-align: left !important;
 	color: #1f1f1f;
+}
+
+.pbody p{
+	font-family: 'Gentium Basic';
+	font-size: 1.25em;
+}
+
+.Papers p strong:first-child, .postinfo, .read_more{
+	font-family: 'Open Sans' !important;
 }
 
 pre, code{
@@ -159,6 +169,7 @@ li.coderwall.navlink a:hover {
 	background-color: #e9e9e9;
 	color: #000;
 	margin-bottom: 1em;
+	border-radius:5px;
 }
 
 .pbody blockquote::before{
@@ -204,13 +215,13 @@ img.logo{
 /* Custom stylings */
 
 .Papers p{
-    padding-left: 32px;
+    padding-left: 35px;
 }
 
 .Papers p strong:first-child{
     position: absolute;
-    left: -32 px;
-    margin-left: -32px;
+    left: -35 px;
+    margin-left: -35px;
     text-align: right;
 }
 
