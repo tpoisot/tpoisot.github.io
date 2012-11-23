@@ -10,6 +10,7 @@ http://timotheepoisot.fr/archive/
 http://timotheepoisot.fr/papers/
 http://timotheepoisot.fr/categories/
 
+http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/
 http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect/
 http://timotheepoisot.fr/2012/10/29/species-interaction-networks/
 http://timotheepoisot.fr/2012/10/09/null-models-presentations/
