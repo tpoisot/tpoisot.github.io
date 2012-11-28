@@ -1,10 +1,9 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Rancho);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-
-@import url(http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic);
 
 html {
 	font-size: 62.5%;
@@ -13,15 +12,20 @@ html {
 /* Fonts and typograhpy */
 
 body{
-	font-family: 'Noticia Text' !important;
+	font-family: 'Open Sans' !important;
 	font-weight: 400;
-	font-size: 1.5em;
+	font-size: 1.4em;
 	text-align: left !important;
 	color: #1f1f1f;
 }
 
-h1, h2, h3, h4, h5, .Papers p strong:first-child, .postinfo, .read_more, .footer, .nav, #page-navigation{
-	font-family: 'Lato' !important;
+.pbody p{
+	font-family: 'Droid Serif';
+	font-size: 1.03em;
+}
+
+.Papers p strong:first-child, .postinfo, .read_more{
+	font-family: 'Open Sans' !important;
 }
 
 pre, code{
@@ -37,12 +41,13 @@ strong, b{
 }
 
 h1, h2, h3, h4, h5, h6{
+	font-family: 'Open Sans';
 	font-weight: 700;
 }
 
 .siteinfos h1{
-	font-family: 'Cabin Sketch' !important;
-	font-size: 3em;
+	font-family: 'Rancho' !important;
+	font-size: 3.3em;
 }
 
 .siteinfos p{
@@ -86,15 +91,10 @@ a{
 }
 
 .nav ul li a{
-	width: 110px !important;
-	margin-left: 120px;
-	display: block;
-	background-color: #e9e9e9;
+	color: #222 !important;
+	border-left: 10px solid #666;
+	padding-left: 10px;
 	text-transform: uppercase;
-	text-align: right;
-	padding: 5px;
-	color: #1f1f1f;
-	border-radius:2px;
 }
 
 .nav ul li a:hover{
@@ -130,6 +130,7 @@ li.figshare.navlink a:hover {
 .pbody p{
 	padding-bottom: 1em;
 	line-height: 1.4em;
+	width: 530px;
 }
 
 #disqus_thread{
@@ -138,27 +139,31 @@ li.figshare.navlink a:hover {
 
 /* Page layout */
 
-.wrapper{
-	width: 600px;
-	margin: 10px auto;
-}
-
 .precontent{
-	width: 240px;
-	float: left;
-	margin-left: -280px;
-	text-align: right;
+	position: absolute;
+	min-width: 27%;
+	min-height: 110%;
+	height: 100%;
+	border-right: 1px solid #aaa;
 	display: block;
 }
 
 .content, .postcontent{
-	width: 590px;
-	margin: 0px auto;
+	border-left: 1px solid #aaa;
+	position: relative;
+	display: block;
+	width: 73%;
+	left: 27%;
+}
+
+.footer{
+	border-top: 1px solid #aaa;
 }
 
 .siteinfos, .nav, .pbody, .ptitle, .footer p{
 	padding-top: 3%;
 	padding-bottom: 3%;
+	padding-left:  50px;
 }
 
 .pbody blockquote{
@@ -185,6 +190,11 @@ li.figshare.navlink a:hover {
 	margin-top: 0%;
 }
 
+img.logo{
+	margin-top: 15%;
+	margin-bottom: 7%;
+}
+
 .ptitle{
 	border-bottom: 1px solid #aaa;
 }
@@ -198,11 +208,12 @@ li.figshare.navlink a:hover {
 }
 
 #page-navigation{
-	padding: 10px;
-	background-color: #e9e9e9 !important;
-	border-radius: 3px;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
 	margin-top: 3em;
 	margin-bottom: 3em;
+	margin-left: -50px;
+	padding-left: 50px;
 }
 
 /* Custom stylings */
@@ -219,15 +230,17 @@ li.figshare.navlink a:hover {
 }
 
 .highlight{
-	padding: 10px;
+	margin-left: -50px;
+	padding: 10px 50px;
 	background-color: #e9e9e9 !important;
-	border: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
 	margin-bottom: 1em;
-	border-radius: 3px;
 }
 
 .latest_post{
 	margin-left: -50px;
+	border-bottom: 1px solid #aaa;
 	margin-bottom: 1em;
 
 }
@@ -266,6 +279,7 @@ li.figshare.navlink a:hover {
 }
 
 .subscribe{
+	border-bottom: 1px solid #aaa;
 	padding-bottom: 1.1em;
 	margin-left: -50px;
 	padding-left: 50px;

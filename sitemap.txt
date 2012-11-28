@@ -1,14 +1,14 @@
 
-http://timotheepoisot.fr/pages/
-http://timotheepoisot.fr/tags/
-http://timotheepoisot.fr/atom.xml
-http://timotheepoisot.fr/index.html
-http://timotheepoisot.fr/sitemap.txt
+http://timotheepoisot.fr/archive/
 http://timotheepoisot.fr/code/
 http://timotheepoisot.fr/blog/
-http://timotheepoisot.fr/archive/
 http://timotheepoisot.fr/papers/
+http://timotheepoisot.fr/sitemap.txt
 http://timotheepoisot.fr/categories/
+http://timotheepoisot.fr/atom.xml
+http://timotheepoisot.fr/tags/
+http://timotheepoisot.fr/index.html
+http://timotheepoisot.fr/pages/
 
 http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/
 http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect/
