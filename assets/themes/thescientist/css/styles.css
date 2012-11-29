@@ -1,7 +1,6 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-
 @import url(http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700);
@@ -89,7 +88,7 @@ a{
 	width: 110px !important;
 	margin-left: 120px;
 	display: block;
-	background-color: #e9e9e9;
+	background-color: #f0f0f0;
 	text-transform: uppercase;
 	text-align: right;
 	padding: 5px;
@@ -98,27 +97,29 @@ a{
 }
 
 .nav ul li a:hover{
-	border-left: 10px solid #338800;
+	background-color: #338800;
+	color: white;
 }
 
 li.mendeley.navlink a:hover {
-	border-left: 10px solid #A91B26;
+	background-color: #A91B26;
 }
 
 li.github.navlink a:hover {
-	border-left: 10px solid #DCF7DD;
+	background-color: #DCF7DD;
+	color: #000 !important;
 }
 
 li.twitter.navlink a:hover {
-	border-left: 10px solid #8EC1DA;
+	background-color: #8EC1DA;
 }
 
 li.coderwall.navlink a:hover {
-	border-left: 10px solid #3C7BAD;
+	background-color: #3C7BAD;
 }
 
 li.figshare.navlink a:hover {
-	border-left: 10px solid #C9505D;
+	background-color: #C9505D;
 }
 
 .ptitle{
@@ -130,10 +131,11 @@ li.figshare.navlink a:hover {
 .pbody p{
 	padding-bottom: 1em;
 	line-height: 1.4em;
+	text-align: justify;
 }
 
 #disqus_thread{
-	width: 530px;
+	width: 590px;
 }
 
 /* Page layout */
@@ -162,10 +164,10 @@ li.figshare.navlink a:hover {
 }
 
 .pbody blockquote{
-	width: 530px;
 	padding-top: 1em;
 	padding-left: 2.2em;
-	background-color: #e9e9e9;
+	padding-right: 1em;
+	background-color: #f0f0f0;
 	color: #000;
 	margin-bottom: 1em;
 	border-radius:3px;
@@ -173,7 +175,7 @@ li.figshare.navlink a:hover {
 
 .pbody blockquote::before{
 	content:'«';
-	font-family: 'Rancho';
+	font-family: 'Cabin Sketch';
 	color: #338800;
 	position: absolute;
     margin-left: -0.5em;
@@ -199,7 +201,7 @@ li.figshare.navlink a:hover {
 
 #page-navigation{
 	padding: 10px;
-	background-color: #e9e9e9 !important;
+	background-color: #f0f0f0 !important;
 	border-radius: 3px;
 	margin-top: 3em;
 	margin-bottom: 3em;
@@ -220,8 +222,7 @@ li.figshare.navlink a:hover {
 
 .highlight{
 	padding: 10px;
-	background-color: #e9e9e9 !important;
-	border: 1px solid #aaa;
+	background-color: #f0f0f0 !important;
 	margin-bottom: 1em;
 	border-radius: 3px;
 }
@@ -241,7 +242,7 @@ li.figshare.navlink a:hover {
 }
 
 .unique_post{
-	padding: 10px 0px;
+	padding: 5px 0px;
 }
 
 .unique_post h2{
@@ -250,6 +251,10 @@ li.figshare.navlink a:hover {
 
 .unique_post .postinfo{
 	font-weight: 300;
+}
+
+#page-navigation .postinfo{
+	padding-bottom: 1em;
 }
 
 .pbody h1{
