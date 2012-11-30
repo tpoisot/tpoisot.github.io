@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6{
 	font-weight: 700;
 }
 
-.siteinfos h1{
+.siteinfos h1, .ptitle h1{
 	font-family: 'Cabin Sketch' !important;
 	font-size: 3em;
 }
@@ -122,12 +122,6 @@ li.figshare.navlink a:hover {
 	background-color: #C9505D;
 }
 
-.ptitle{
-	font-weight: 900;
-	text-transform: uppercase;
-	font-size: 1.4em;
-}
-
 .pbody p{
 	padding-bottom: 1em;
 	line-height: 1.4em;
@@ -158,9 +152,9 @@ li.figshare.navlink a:hover {
 	margin: 0px auto;
 }
 
-.siteinfos, .nav, .pbody, .ptitle, .footer p{
-	padding-top: 3%;
-	padding-bottom: 3%;
+.siteinfos, .ptitle, .nav, .pbody, .footer p{
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 .pbody blockquote{
@@ -170,7 +164,7 @@ li.figshare.navlink a:hover {
 	background-color: #f0f0f0;
 	color: #000;
 	margin-bottom: 1em;
-	border-radius:3px;
+	border-radius:2px;
 }
 
 .pbody blockquote::before{
@@ -179,16 +173,12 @@ li.figshare.navlink a:hover {
 	color: #338800;
 	position: absolute;
     margin-left: -0.5em;
-    font-size: 2.8em;
+    font-size: 2.3em;
     margin-top: -0.45em;
 }
 
 .siteinfos{
 	margin-top: 0%;
-}
-
-.ptitle{
-	border-bottom: 1px solid #aaa;
 }
 
 .nav{
@@ -222,9 +212,9 @@ li.figshare.navlink a:hover {
 
 .highlight{
 	padding: 10px;
-	background-color: #f0f0f0 !important;
+	border-left: 2px solid #338800 !important;
+	background-color: #f0f0f0;
 	margin-bottom: 1em;
-	border-radius: 3px;
 }
 
 .latest_post{
