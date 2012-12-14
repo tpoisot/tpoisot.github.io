@@ -4,13 +4,45 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-12-01T13:52:39-05:00</updated>
+ <updated>2012-12-13T23:15:15-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>The friends of my friends (are on twitter)</title>
+   <link href="http://timotheepoisot.fr/2012/12/15/face-of-twitter/"/>
+   <updated>2012-12-15T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2012/12/15/face-of-twitter</id>
+   <content type="html">&lt;p&gt;Twitter is cool for science, because it can &lt;a href=&quot;http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/&quot;&gt;help you spread your ideas&lt;/a&gt;. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, &lt;em&gt;e.g.&lt;/em&gt;, the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye.&lt;/p&gt;
+
+&lt;p&gt;I'm running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a paper by &lt;a href=&quot;http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2148393&amp;amp;tool=pmcentrez&amp;amp;rendertype=abstract&quot;&gt;Olesen and colleagues&lt;/a&gt; about the modularity of mutualistics interactions. In a few words, you can measure, for each species, its contribution to its own module (&lt;em&gt;z&lt;/em&gt;), and to other modules (&lt;em&gt;c&lt;/em&gt;). The relative values of &lt;em&gt;c&lt;/em&gt; and &lt;em&gt;z&lt;/em&gt;  allows then to classify a node as &quot;peripherals&quot; (just hanging around), &quot;connectors&quot; (not really involved locally, but really involved in other groups), &quot;module hubs&quot; (highly involved locally, but not really involved globally), and &quot;network hubs&quot; (connected both within their group, and globally). Doing so requires to have cutoffs, the rationale for which is still not clear to me (but I'll go read the original paper). Nonetheless, high values of &lt;em&gt;c&lt;/em&gt; indicate that a node is strongly connected outside its community, and high values of &lt;em&gt;z&lt;/em&gt; indicates that it his highly connected within its community.&lt;/p&gt;
+
+&lt;p&gt;This is an ecological tool that I can understand, and it makes sense in a social perspective, so I decided to see what these values look like in a twitter network. The data I'm working on are all of my followers, and all of my friends, and all of the interactions between them. Getting these data, with a bunch of &lt;a href=&quot;https://github.com/bear/python-twitter&quot;&gt;python programming&lt;/a&gt;, is quite easy (although terribly long, because the number of requests per hour is limited). I ended up with 18505 edges, and 505 nodes. Not that high, but hey, still &lt;a href=&quot;http://www.nceas.ucsb.edu/interactionweb/resources.html&quot;&gt;larger than most food webs we know&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/twittzoom.png&quot; title=&quot;Twitter network&quot; alt=&quot;Figure1 - twitter zoom&quot; /&gt;
+The first (striking) thing is that my network is less modular than I would have expected. You see a few cliques, the more remote (purple) one being my french contacts, and the green and red nodes are other people related to science and the environment in various ways. What about the &lt;em&gt;c&lt;/em&gt; and &lt;em&gt;z&lt;/em&gt; values? I'm coming to it. The question I decided to play with is the following. On twitter, you can follow, and be followed. Assuming that information travels from the follower to the followee, this is a benefit for the later, who receives new informations. A mutualistic relationship is then defined as a bi-directional interaction (i.e. reciprocal following). So, who are the people with the most mutualistic behavior?&lt;/p&gt;
+
+&lt;p&gt;To start, let's define a metric of cooperativeness, which would tell us how many of the people who follow me I follow back. Let's call &lt;em&gt;Di&lt;/em&gt; the number of incoming links, and &lt;em&gt;Do&lt;/em&gt; the number of outgoing links. Then we'll call &lt;em&gt;S&lt;/em&gt; the number of outgoing links to someone with an incoming link to me. Let's finally call &lt;em&gt;U&lt;/em&gt; the number of people who follow me, but who I don't follow. We want an expression of all these terms, which is close to 1 when &lt;em&gt;U&lt;/em&gt; is close to 0, and close to 0 when &lt;em&gt;S&lt;/em&gt; becomes smaller than &lt;em&gt;U&lt;/em&gt;. It's not too difficult to find an expression, such as&lt;/p&gt;
+
+&lt;p&gt;$$R = \frac{S}{S+U}$$&lt;/p&gt;
+
+&lt;p&gt;As we can express &lt;em&gt;U = Di - S&lt;/em&gt;, I fixed the &quot;reciprocity coefficient&quot; as:&lt;/p&gt;
+
+&lt;p&gt;$$R = \frac{S}{D_i}$$&lt;/p&gt;
+
+&lt;p&gt;And assumed that the higher it is, the more mutualistic people are. The two biggest correlates of &lt;em&gt;R&lt;/em&gt; are the number of people you follow (&lt;em&gt;Do&lt;/em&gt;, r = 0.49), and your contribution to your own module (&lt;em&gt;z&lt;/em&gt;, r = 0.47). Surprizingly, there was no correlation between your ability to connect different modules (&lt;em&gt;c&lt;/em&gt;) and your likelihood of friending people who friend you. At this point, note that, given that the network is directional, all the algorithms used account for this. A node with incoming links from all modules (&lt;em&gt;i.e.&lt;/em&gt; getting information from all), but no outcoming link (&lt;em&gt;i.e.&lt;/em&gt; giving information to none) has a low value of &lt;em&gt;c&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So there it is. People active in their community are more likely to return your friendship, and people active across all communities are less likely to do so. There are now a few things I would like to do with this network (more details about the modules, and things related to null models). One of the most exciting potential is to go through the second degree of separation, &lt;em&gt;i.e.&lt;/em&gt; the friends of my friends, and all of their interactions. Last time I checked, it resulted in several &lt;em&gt;millions&lt;/em&gt; nodes, and a lot more interactions. Scalability issues become key, and the only solution is to have a brutally huge amount of RAM to run things on (because network algorithms get dirty really fast). I do have that -- though what I don't have is that time to implement new code.&lt;/p&gt;
+
+&lt;p&gt;Network ecologists should probably pay attention to what happens in social network analysis. It's becoming a science dealing with large amounts of data. This means that they are developping efficient data structures (you &lt;a href=&quot;http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/&quot;&gt;know where I stand on this point&lt;/a&gt;), and efficient algorithms to deal with them. As we can safely expect that we'll have access to both more networks, and more species and interactions in these networks, we should not pass the opportunity to develop tools, and train ourelves to their use, on the data already out there. Complementarily, there are some questions which could definitely benefit from some ecological tools. Playing with this network, I understood what Newman mentionned in &lt;em&gt;Networks&lt;/em&gt;: the problem of network analysis is that so many people use the tools for so many different things, that the methodology and the litterature are bound to form isolated clusters.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;P.S.:&lt;/strong&gt; For those interested, I used &lt;a href=&quot;https://gephi.org/&quot;&gt;gephi&lt;/a&gt; and &lt;a href=&quot;http://networkx.lanl.gov/&quot;&gt;networkx&lt;/a&gt; for all the analyses. &lt;em&gt;Gephi&lt;/em&gt; is wonderful for plotting, and &lt;em&gt;networkx&lt;/em&gt; is just wonderful. I've also tried the R and Python version of the &lt;em&gt;igraph&lt;/em&gt; library, but I prefer the syntax in &lt;em&gt;networkx&lt;/em&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>How to represent networks</title>
