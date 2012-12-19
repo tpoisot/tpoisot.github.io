@@ -10,6 +10,7 @@ http://timotheepoisot.fr/tags/
 http://timotheepoisot.fr/index.html
 http://timotheepoisot.fr/pages/
 
+http://timotheepoisot.fr/2012/12/19/bacteria-phage-networks/
 http://timotheepoisot.fr/2012/12/15/face-of-twitter/
 http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/
 http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect/

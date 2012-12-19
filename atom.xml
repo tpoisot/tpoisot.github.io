@@ -4,13 +4,28 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2012-12-13T23:15:15-05:00</updated>
+ <updated>2012-12-19T11:53:36-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Bacteria-phage networks</title>
+   <link href="http://timotheepoisot.fr/2012/12/19/bacteria-phage-networks/"/>
+   <updated>2012-12-19T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2012/12/19/bacteria-phage-networks</id>
+   <content type="html">&lt;p&gt;I'm really glad to announce that the review paper we have been working on with Joshua Weitz, Justin Meyer, Cesar Flores, Sergi Valverde, Matthew Sullivan and Mike Hochberg is now &lt;a href=&quot;http://linkinghub.elsevier.com/retrieve/pii/S0966842X12002004&quot;&gt;online at &lt;em&gt;Trends in Microbiology&lt;/em&gt;&lt;/a&gt; (PDF, as always, available by clicking &lt;em&gt;Papers&lt;/em&gt; on the sidebar). It's a great and exciting paper, in which we propose that bacteria-phage interactions should be studied as networks, rather than just pairs of interactions. Because the goal of the paper is to interest more people into the network methodology, the figure are really interesting. If you want a crash course in nestedness or modularity, then you should definitely have a read.&lt;/p&gt;
+
+&lt;p&gt;I'll cite from the concluding remarks:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;We have synthesized and reviewed the study of complex patterns of infection between phages and bacteria via the unifying concept of a PBIN. We find that non-random patterns, in particular, nestedness and modularity are repeatedly observed. &lt;strong&gt;Although genetic models of coevolution exist to explain both classes of patterns in simple, low-diversity communities, there is no unified theory of coevolution that can explain the emergence of complex interaction patterns in diverse communities.&lt;/strong&gt; In this review, we have focused on the antagonistic mode of interaction between phages and bacteria. Looking forward, there is a need to extend network methodologies and tools to the study of viruses of currently underrepresented bacterial hosts, viruses of algae and of archaea, as well as viruses with alternate infection strategies (&lt;em&gt;e.g.&lt;/em&gt;, lysogeny). Novel culture-independent methods and novel computational tools will be essential to connect genomic, functional, and ecological information in predicting cross-infection at the community scale. Improving the ability to quantify and predict viral infection of hosts constitutes a key challenge in assessing the functional effects of viruses in the environment.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Emphasis is mine, and I think that simple experiments with bacteria and phages can (will) provide interesting insights about how coevolution can be appreciated as a driver of change in networks. This is a subject I've &lt;a href=&quot;http://rspb.royalsocietypublishing.org/content/early/2011/06/02/rspb.2011.0826.full&quot;&gt;discussed during my doctorate&lt;/a&gt;, and I'd really like to keep on doing things on it.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The friends of my friends (are on twitter)</title>
