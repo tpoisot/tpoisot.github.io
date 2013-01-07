@@ -4,13 +4,32 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-01-07T15:22:46-05:00</updated>
+ <updated>2013-01-07T18:51:57-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>INNGE announces EcoBloggers</title>
+   <link href="http://timotheepoisot.fr/2013/01/07/ecobloggers/"/>
+   <updated>2013-01-07T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2013/01/07/ecobloggers</id>
+   <content type="html">&lt;p&gt;It all started with a rather enigmatic tweet, two weeks ago:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot;&gt;&lt;p&gt;Any ecologist with a blog, can you send me a message? @&lt;a href=&quot;https://twitter.com/inngecologist&quot;&gt;inngecologist&lt;/a&gt; is starting a cool project!&lt;/p&gt;&amp;mdash; Tim (@tpoi) &lt;a href=&quot;https://twitter.com/tpoi/status/279596822895419392&quot; data-datetime=&quot;2012-12-14T14:40:51+00:00&quot;&gt;December 14, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Thanks to &lt;a href=&quot;http://www.stanford.edu/~naupaka/&quot;&gt;Naupaka Zimmerman&lt;/a&gt; today is an important day, as &lt;a href=&quot;http://www.innge.net/&quot;&gt;INNGE&lt;/a&gt; launches &lt;a href=&quot;http://www.innge.net/?q=ecobloggers&quot;&gt;&lt;em&gt;EcoBloggers&lt;/em&gt;&lt;/a&gt;, a new platform to aggregate blog posts written by ecologists. Just this morning, there's been some discussion at &lt;a href=&quot;https://dynamicecology.wordpress.com/2013/01/07/trends-in-ecology-blogging/&quot;&gt;&lt;em&gt;Dynamic Ecology&lt;/em&gt;&lt;/a&gt; that ecological blogs may be fading away. One of the hypothesis was that the audience has not reached a critical mass, and there is not much incentive for posting. &lt;em&gt;EcoBloggers&lt;/em&gt; will aggregate all contents in a single place, much like &lt;a href=&quot;http://www.r-bloggers.com/&quot;&gt;&lt;em&gt;R-bloggers&lt;/em&gt;&lt;/a&gt; did with a tremendous success.&lt;/p&gt;
+
+&lt;p&gt;For the moment, we aggregate the blogs of people who responded to the first tweet. We're obviously hoping that more and more people will follow, so feel free to contact &lt;a href=&quot;https://twitter.com/naupakaz/&quot;&gt;@naupakaz&lt;/a&gt; or &lt;a href=&quot;https://twitter.com/tpoi/&quot;&gt;@tpoi&lt;/a&gt; if you want to join us! We hope that, by putting all the content together in a single place, the readership of all bloggers will increase, and we can use this tool to engage in a great &lt;a href=&quot;http://chronicle.com/article/The-Blogosphere-as-a-Carnival/2674&quot;&gt;carnival of (ecological) ideas&lt;/a&gt;. And who knows, we might a well generate a few new vocations!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Writing grant applications can be fun</title>
