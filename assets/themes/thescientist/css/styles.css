@@ -1,9 +1,8 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700);
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(http://fonts.googleapis.com/css?family=Imprima);
 
 html {
 	font-size: 62.5%;
@@ -13,7 +12,7 @@ html {
 /* Fonts and typograhpy */
 
 body{
-	font-family: 'Noticia Text' !important;
+	font-family: 'Imprima' !important;
 	font-weight: 400;
 	font-size: 1.5em;
 	text-align: left;
@@ -21,7 +20,7 @@ body{
 }
 
 h1, h2, h3, h4, h5, .Papers p strong:first-child, .postinfo, .read_more, .footer, .nav, #page-navigation{
-	font-family: 'Lato' !important;
+	font-family: 'Imprima' !important;
 }
 
 pre, code{
@@ -41,7 +40,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .siteinfos h1, .ptitle h1{
-	font-family: 'Cabin Sketch' !important;
+	font-family: 'Bree Serif' !important;
 	font-size: 3em;
 }
 
@@ -66,6 +65,7 @@ h1, h2, h3, h4, h5, h6{
 
 .footer{
 	font-weight: 300;
+	font-size: 80%;
 }
 
 a{
@@ -182,7 +182,7 @@ li.figshare.navlink a:hover {
 
 .pbody blockquote::before{
 	content:'«';
-	font-family: 'Cabin Sketch';
+	font-family: 'Bree Serif';
 	color: #338800;
 	position: absolute;
     margin-left: -0.7em;
