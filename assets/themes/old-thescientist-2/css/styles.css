@@ -1,0 +1,333 @@
+@import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(http://fonts.googleapis.com/css?family=Imprima);
+
+html {
+	font-size: 62.5%;
+	background-image: url('../images/debut_light.png');
+}
+
+/* Fonts and typograhpy */
+
+body{
+	font-family: 'Imprima' !important;
+	font-weight: 400;
+	font-size: 1.5em;
+	text-align: left;
+	color: #1f1f1f;
+}
+
+h1, h2, h3, h4, h5, .Papers p strong:first-child, .postinfo, .read_more, .footer, .nav, #page-navigation{
+	font-family: 'Imprima' !important;
+}
+
+pre, code{
+	font-family: 'Ubuntu Mono' !important;
+}
+
+em{
+	font-style: italic;
+}
+
+strong, b{
+	font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: 700;
+}
+
+.siteinfos h1, .ptitle h1{
+	font-family: 'Bree Serif' !important;
+	font-size: 3em;
+}
+
+.siteinfos p{
+	font-weight: 900;
+	font-size: 1.4em;
+}
+
+.misc.vcard h4{
+	font-weight: 900;
+	font-size: 1.3em;
+	padding-bottom: 1em;
+	padding-top: 1.2em;
+}
+
+.latest_post h2, .posts_list h2{
+	font-size: 1.4em;
+	font-weight: 900;
+}
+
+/* Text and background colors */
+
+.footer{
+	font-weight: 300;
+	font-size: 80%;
+}
+
+a{
+	text-decoration: none;
+	color: #338800;
+}
+
+.pbody a:hover, .footer a:hover{
+	background-color: #338800;
+	color: white;
+}
+
+.siteinfos h1 a{
+	color: #449911 !important;
+}
+
+.siteinfos h1 a:hover{
+	color: #55aa22;
+}
+
+.nav ul li a{
+	width: 110px !important;
+	margin-left: 120px;
+	display: block;
+	background-color: #f0f0f0;
+	text-transform: uppercase;
+	text-align: right;
+	padding: 5px;
+	color: #1f1f1f;
+}
+
+.nav ul li a:hover{
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	background-color: #338800;
+	color: white;
+}
+
+li.mendeley.navlink a:hover {
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	background-color: #A91B26;
+}
+
+li.github.navlink a:hover {
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	background-color: #DCF7DD;
+	color: #000 !important;
+}
+
+li.twitter.navlink a:hover {
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	background-color: #8EC1DA;
+}
+
+li.coderwall.navlink a:hover {
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	background-color: #3C7BAD;
+}
+
+li.figshare.navlink a:hover {
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	background-color: #C9505D;
+}
+
+.pbody p{
+	padding-bottom: 1em;
+	line-height: 1.4em;
+	text-align: justify;
+}
+
+#disqus_thread{
+	width: 590px;
+}
+
+/* Page layout */
+
+.wrapper{
+	width: 600px;
+	margin: 10px auto;
+}
+
+.precontent{
+	width: 240px;
+	float: left;
+	margin-left: -280px;
+	text-align: right;
+	display: block;
+	padding: 20px;
+	color: #1f1f1f;
+}
+
+.content{
+	width: 590px;
+	margin: 0px auto;
+	padding: 20px;
+	background-color: white;
+	box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.siteinfos, .ptitle, .nav, .pbody{
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.pbody blockquote{
+	padding-top: 1em;
+	padding-left: 2.2em;
+	padding-right: 1em;
+	background-color: #f8f8f8;
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	color: #000;
+	margin-bottom: 1em;
+	text-align: left !important;
+}
+
+.pbody blockquote::before{
+	content:'«';
+	font-family: 'Bree Serif';
+	color: #338800;
+	position: absolute;
+    margin-left: -0.7em;
+    font-size: 2.5em;
+    margin-top: -0.35em;
+}
+
+.siteinfos{
+	margin-top: 0%;
+}
+
+.nav{
+	margin-top: 10%;
+}
+
+.nav ul li{
+	margin-bottom: 7px;
+}
+
+#page-navigation{
+	padding: 10px;
+	background-color: #f8f8f8;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+/* Custom stylings */
+
+.Papers p{
+    padding-left: 35px;
+}
+
+.Papers p strong:first-child{
+    position: absolute;
+    left: -40 px;
+    margin-left: -40px;
+    text-align: right;
+}
+
+.highlight{
+	padding: 10px;
+	margin-bottom: 1em;
+	background-color: #f8f8f8;
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.latest_post{
+	margin-left: -50px;
+	margin-bottom: 1em;
+
+}
+
+.latest_post h2, .latest_post p, .latest_post .read_more{
+	padding-left: 50px;
+}
+
+.latest_post .read_more{
+	padding-bottom: 3%;
+}
+
+.unique_post{
+	padding: 5px 0px;
+}
+
+.unique_post h2{
+	font-size: 1.1em;
+}
+
+.unique_post .postinfo{
+	font-weight: 300;
+}
+
+#page-navigation .postinfo{
+	padding-bottom: 1em;
+}
+
+.pbody h1{
+	font-weight: 900;
+	font-size: 1.5em;
+	color: #111;
+	margin-top: 0.8em;
+	margin-bottom: 0.5em;
+}
+
+.pbody h2{
+	padding-bottom: 0.5em;
+	padding-top: 1em;
+}
+
+.subscribe{
+	padding-bottom: 1.1em;
+	margin-left: -50px;
+	padding-left: 50px;
+	text-transform: uppercase;
+	padding-top: 0.4em;
+}
+
+.subscribe h2{
+	margin: 0px;
+	padding: 0px;
+	width: auto;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.subscribe h2:before{
+	content: url('../images/rss.png');
+	width: 16px;
+	height: 16px;
+	padding-right: 0.8em;
+	vertical-align: middle;
+}
+
+/*TABLES*/
+
+#content .text table{
+	width: 100%;
+	margin: 3% 0px;
+}
+
+#content .text td, #content .text th{
+	padding: 4px;
+}
+
+#content .text table, #content .text td, #content .text tr, #content .text th{
+	border: 1px solid #c7c7c7;
+}
+
+#content .text th{
+	background-color: #c7c7c7;
+	font-weight: 900;
+}
+
+#content .text tr:nth-child(odd){
+	background-color:#eee;
+}
+
+/*IMAGES*/
+
+.pbody img{
+	background-color: rgb(255, 255, 255);
+	border: 9px solid rgb(255, 255, 255);
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);
+	padding: 1px;
+	margin-bottom: 1em;
+	max-width: 572px;
+}

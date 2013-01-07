@@ -44,21 +44,17 @@
       <div class='precontent'>
         <div class='siteinfos'>
           <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <p>Community ecologist</p>
-        </div>
-        <div class='nav'>
-          <ul>
+          <div class='nav'>
+          <ul class='main-nav'>
             <li><a class="extra navlink" href="/">About me</a></li>
             <li><a class="extra navlink" href="/papers/">Papers</a></li>
             <li><a class="extra navlink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+            <li><a class="extra navlink" href="/blog/index.html">Blog</a></li>
           </ul>
           
-          <div class="misc vcard">
-            <h4>Contact</h4>
-            <ul>
+            <ul class='sec-nav'>
               
-              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              <li class="contact navlink"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email</a></li>
               
               
               <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
@@ -71,24 +67,28 @@
               
               
               
-              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
-              
-              
               <li class="figshare navlink"><a href="http://bit.ly/UbDlP0" rel="me">FigShare</a></li>
               
             </ul>
-          </div><!-- misc -->
           
+        </div>
         </div>
       </div>
 
       <section class='content'>
       
 <section>
-	<div class='ptitle'>
-		<h1>Phylogeny without a sequencer</h1>
-	</div>
 	<div class='pbody'>
+
+		<h1 class='ptitle'>Phylogeny without a sequencer</h1>
+
+		<div class='postinfo'>
+			May  3, 2012 &mdash;
+			
+				<a class='post-tag' href="/tags/#phylogeny-ref" title="tag">phylogeny</a>
+			
+		</div>
+
 		<p>In the last issue of <em>Trends Ecol. Evol.</em>, <a href="http://www.sciencedirect.com/science/article/pii/S0169534712000730">Poole and colleagues</a> talk about <em>Ecosystomics</em>, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of <a href="http://www.ncbi.nlm.nih.gov/pubmed/22432924">a recent paper by Nico Mouquet and colleagues</a> about <em>Ecophylogenetics</em>. But I'm not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions.</p>
 
 <p>At times, one would like to re-analyze old data and add the phylogeny. If you don't see why you would want to do this, go read the excellent paper in <em>Ecol. Lett.</em> by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2012.01776.x/abstract">Scott Chamberlain and colleagues</a>, right now, I'll wait. Done? Great. The problem with old (meaning, coming from other people, from a previous study) data is that they may not have been taken in association with sequencing. Or they may date from a time were sequencing was not even a thing — which is perhaps a difficult concept to grasp for the young crowd, but I remember a time when publishing one new genome was actually an exciting event concretizing years of hard work. I disgress. The fact is that sometimes, you don't have these precious sequences on which to build a phylogeny, no access to the organisms, and no possibility to do the sequencing yourself.</p>
@@ -107,14 +107,6 @@
 
 
 		<div id="page-navigation">
-
-				<div class='postinfo'>
-					Posted by Tim on May  3, 2012 - 808 words<br />
-					Tags:
-					
-						<a class='post-tag' href="/tags/#phylogeny-ref" title="tag">phylogeny</a>
-					
-				</div>
 
         		<div class="left">
 	        		
@@ -153,15 +145,14 @@
 	</div>
 </section>
 
+      </section>
 
       <div class='footer'>
           <p>
             This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
           </p>
       </div>
-
-      </section>
-
+      
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>

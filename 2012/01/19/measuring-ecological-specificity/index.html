@@ -44,21 +44,17 @@
       <div class='precontent'>
         <div class='siteinfos'>
           <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <p>Community ecologist</p>
-        </div>
-        <div class='nav'>
-          <ul>
+          <div class='nav'>
+          <ul class='main-nav'>
             <li><a class="extra navlink" href="/">About me</a></li>
             <li><a class="extra navlink" href="/papers/">Papers</a></li>
             <li><a class="extra navlink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+            <li><a class="extra navlink" href="/blog/index.html">Blog</a></li>
           </ul>
           
-          <div class="misc vcard">
-            <h4>Contact</h4>
-            <ul>
+            <ul class='sec-nav'>
               
-              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              <li class="contact navlink"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email</a></li>
               
               
               <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
@@ -71,24 +67,30 @@
               
               
               
-              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
-              
-              
               <li class="figshare navlink"><a href="http://bit.ly/UbDlP0" rel="me">FigShare</a></li>
               
             </ul>
-          </div><!-- misc -->
           
+        </div>
         </div>
       </div>
 
       <section class='content'>
       
 <section>
-	<div class='ptitle'>
-		<h1>Measuring ecological specificity</h1>
-	</div>
 	<div class='pbody'>
+
+		<h1 class='ptitle'>Measuring ecological specificity</h1>
+
+		<div class='postinfo'>
+			January 19, 2012 &mdash;
+			
+				<a class='post-tag' href="/tags/#specificity-ref" title="tag">specificity</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#open source-ref" title="tag">open source</a>
+			
+		</div>
+
 		<p>Our paper about measurements of ecological specialization is now available online at the <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Methods in Ecology &amp; Evolution</a> website. You can also download the associated R package from <a href="https://r-forge.r-project.org/projects/esm/">R-Forge</a>. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that.</p>
 
 <p>Early during my thesis, in between watching episodes of <em>The Big Bang Theory</em>, I was wondering how we can best measure ecological specialization of parasites, knowing that we would work with very different data sources (field samples, lab systems, and models). After a quick survey of the literature, (i) it was clear that many people developed their own measure of specificity, and (ii) it was not clear what the assumptions of some of these measures were. This appeared to us as the potential for a methodological paper.</p>
@@ -120,16 +122,6 @@ plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p"
 
 
 		<div id="page-navigation">
-
-				<div class='postinfo'>
-					Posted by Tim on January 19, 2012 - 635 words<br />
-					Tags:
-					
-						<a class='post-tag' href="/tags/#specificity-ref" title="tag">specificity</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#open source-ref" title="tag">open source</a>
-					
-				</div>
 
         		<div class="left">
 	        		
@@ -168,15 +160,14 @@ plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p"
 	</div>
 </section>
 
+      </section>
 
       <div class='footer'>
           <p>
             This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
           </p>
       </div>
-
-      </section>
-
+      
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>

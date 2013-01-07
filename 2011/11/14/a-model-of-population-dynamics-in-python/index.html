@@ -44,21 +44,17 @@
       <div class='precontent'>
         <div class='siteinfos'>
           <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <p>Community ecologist</p>
-        </div>
-        <div class='nav'>
-          <ul>
+          <div class='nav'>
+          <ul class='main-nav'>
             <li><a class="extra navlink" href="/">About me</a></li>
             <li><a class="extra navlink" href="/papers/">Papers</a></li>
             <li><a class="extra navlink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+            <li><a class="extra navlink" href="/blog/index.html">Blog</a></li>
           </ul>
           
-          <div class="misc vcard">
-            <h4>Contact</h4>
-            <ul>
+            <ul class='sec-nav'>
               
-              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              <li class="contact navlink"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email</a></li>
               
               
               <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
@@ -71,24 +67,36 @@
               
               
               
-              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
-              
-              
               <li class="figshare navlink"><a href="http://bit.ly/UbDlP0" rel="me">FigShare</a></li>
               
             </ul>
-          </div><!-- misc -->
           
+        </div>
         </div>
       </div>
 
       <section class='content'>
       
 <section>
-	<div class='ptitle'>
-		<h1>A model of population dynamics in Python</h1>
-	</div>
 	<div class='pbody'>
+
+		<h1 class='ptitle'>A model of population dynamics in Python</h1>
+
+		<div class='postinfo'>
+			November 14, 2011 &mdash;
+			
+				<a class='post-tag' href="/tags/#python-ref" title="tag">python</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#R-ref" title="tag">R</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#scipy-ref" title="tag">scipy</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#simecol-ref" title="tag">simecol</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#simulations-ref" title="tag">simulations</a>
+			
+		</div>
+
 		<p>I've been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I've started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
 
 <p>In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I've become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a> in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.</p>
@@ -136,22 +144,6 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 
 		<div id="page-navigation">
 
-				<div class='postinfo'>
-					Posted by tpoisot on November 14, 2011 - 501 words<br />
-					Tags:
-					
-						<a class='post-tag' href="/tags/#python-ref" title="tag">python</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#R-ref" title="tag">R</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#scipy-ref" title="tag">scipy</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#simecol-ref" title="tag">simecol</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#simulations-ref" title="tag">simulations</a>
-					
-				</div>
-
         		<div class="left">
 	        		
 	                	Previous post: <a href="/2011/10/12/morpho-phylo-lamellodiscus/" title="Previous Post: Morphology and phylogeny in Lamellodiscus">Morphology and phylogeny in Lamellodiscus</a>
@@ -189,15 +181,14 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 	</div>
 </section>
 
+      </section>
 
       <div class='footer'>
           <p>
             This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
           </p>
       </div>
-
-      </section>
-
+      
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>

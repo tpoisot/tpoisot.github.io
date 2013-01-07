@@ -44,21 +44,17 @@
       <div class='precontent'>
         <div class='siteinfos'>
           <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <p>Community ecologist</p>
-        </div>
-        <div class='nav'>
-          <ul>
+          <div class='nav'>
+          <ul class='main-nav'>
             <li><a class="extra navlink" href="/">About me</a></li>
             <li><a class="extra navlink" href="/papers/">Papers</a></li>
             <li><a class="extra navlink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+            <li><a class="extra navlink" href="/blog/index.html">Blog</a></li>
           </ul>
           
-          <div class="misc vcard">
-            <h4>Contact</h4>
-            <ul>
+            <ul class='sec-nav'>
               
-              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              <li class="contact navlink"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email</a></li>
               
               
               <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
@@ -71,24 +67,32 @@
               
               
               
-              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
-              
-              
               <li class="figshare navlink"><a href="http://bit.ly/UbDlP0" rel="me">FigShare</a></li>
               
             </ul>
-          </div><!-- misc -->
           
+        </div>
         </div>
       </div>
 
       <section class='content'>
       
 <section>
-	<div class='ptitle'>
-		<h1>Biblatex styles for ecology</h1>
-	</div>
 	<div class='pbody'>
+
+		<h1 class='ptitle'>Biblatex styles for ecology</h1>
+
+		<div class='postinfo'>
+			April 26, 2012 &mdash;
+			
+				<a class='post-tag' href="/tags/#LaTeX-ref" title="tag">LaTeX</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#biblatex-ref" title="tag">biblatex</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#open source-ref" title="tag">open source</a>
+			
+		</div>
+
 		<p>A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of <code>natbib</code> —, I started looking into <a href="https://github.com/plk/biblatex"><code>biblatex</code></a>. <code>biblatex</code> is essentially a re-implementation of LaTeX packages like <code>cite</code>, <code>natbib</code>, and others. And the more I used it, the more I realized two things. First, <code>biblatex</code> is awesome; it's to <code>natbib</code> what <a href="http://yihui.name/knitr/"><code>knitr</code></a> is to <code>Sweave</code>. Including the fact that switching from one system to the other is virtually transparent, but you would miss a lot by not using the <code>biblatex</code> specific commands. Second, it's a pain to find citation styles for it, because it's recent, and good old <code>tex makebst</code> is not working. It would not be a problem if the default choices made any sense, but I feel like writing <em>In :</em> before the journal name, or adding the month to the year in the bibliography is not really common practice - at least in «hard» sciences. </p>
 
 <p>The really good thing, now, is that <code>biblatex</code> relies only on LaTeX macros, and not on the really weird <code>bibtex</code> language (the macro- and filed-based logic makes it closer, IMHO, to the <a href="http://citationstyles.org/"><em>Citation Style Language</em></a> used by Mendeley and Zotero). Which means that it is possible, with relatively little effort, to put together different citation styles. It's actually relatively close to what you would do in a CSS. The following commands will put the volume number in bold, and leave the page numbers alone (<code>biblatex</code> annoyingly puts "pp." in front of everything) for the entries with a type <code>article</code>:</p>
@@ -115,18 +119,6 @@
 
 
 		<div id="page-navigation">
-
-				<div class='postinfo'>
-					Posted by Tim on April 26, 2012 - 559 words<br />
-					Tags:
-					
-						<a class='post-tag' href="/tags/#LaTeX-ref" title="tag">LaTeX</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#biblatex-ref" title="tag">biblatex</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#open source-ref" title="tag">open source</a>
-					
-				</div>
 
         		<div class="left">
 	        		
@@ -165,15 +157,14 @@
 	</div>
 </section>
 
+      </section>
 
       <div class='footer'>
           <p>
             This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
           </p>
       </div>
-
-      </section>
-
+      
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>

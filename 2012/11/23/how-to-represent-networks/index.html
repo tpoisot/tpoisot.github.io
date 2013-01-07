@@ -44,21 +44,17 @@
       <div class='precontent'>
         <div class='siteinfos'>
           <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <p>Community ecologist</p>
-        </div>
-        <div class='nav'>
-          <ul>
+          <div class='nav'>
+          <ul class='main-nav'>
             <li><a class="extra navlink" href="/">About me</a></li>
             <li><a class="extra navlink" href="/papers/">Papers</a></li>
             <li><a class="extra navlink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+            <li><a class="extra navlink" href="/blog/index.html">Blog</a></li>
           </ul>
           
-          <div class="misc vcard">
-            <h4>Contact</h4>
-            <ul>
+            <ul class='sec-nav'>
               
-              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              <li class="contact navlink"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email</a></li>
               
               
               <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
@@ -71,24 +67,32 @@
               
               
               
-              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
-              
-              
               <li class="figshare navlink"><a href="http://bit.ly/UbDlP0" rel="me">FigShare</a></li>
               
             </ul>
-          </div><!-- misc -->
           
+        </div>
         </div>
       </div>
 
       <section class='content'>
       
 <section>
-	<div class='ptitle'>
-		<h1>How to represent networks</h1>
-	</div>
 	<div class='pbody'>
+
+		<h1 class='ptitle'>How to represent networks</h1>
+
+		<div class='postinfo'>
+			November 23, 2012 &mdash;
+			
+				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#species interactions-ref" title="tag">species interactions</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#data management-ref" title="tag">data management</a>
+			
+		</div>
+
 		<p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a "good" format, and it's not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
 
 <p><strong>Disclaimer:</strong> <em>This is a long entry, with code, and geeky considerations about data format. It's mostly for my personnal reference, so you may want to find <a href="http://www.theuselessweb.com/">a better way to waste your time</a>.</em></p>
@@ -201,18 +205,6 @@ b d
 
 		<div id="page-navigation">
 
-				<div class='postinfo'>
-					Posted by Tim on November 23, 2012 - 1269 words<br />
-					Tags:
-					
-						<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#species interactions-ref" title="tag">species interactions</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#data management-ref" title="tag">data management</a>
-					
-				</div>
-
         		<div class="left">
 	        		
 	                	Previous post: <a href="/2012/11/09/data-sharing-and-the-bagel-effect/" title="Previous Post: Data sharing and the bagel effect">Data sharing and the bagel effect</a>
@@ -250,15 +242,14 @@ b d
 	</div>
 </section>
 
+      </section>
 
       <div class='footer'>
           <p>
             This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
           </p>
       </div>
-
-      </section>
-
+      
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>

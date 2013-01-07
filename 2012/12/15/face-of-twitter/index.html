@@ -44,21 +44,17 @@
       <div class='precontent'>
         <div class='siteinfos'>
           <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <p>Community ecologist</p>
-        </div>
-        <div class='nav'>
-          <ul>
+          <div class='nav'>
+          <ul class='main-nav'>
             <li><a class="extra navlink" href="/">About me</a></li>
             <li><a class="extra navlink" href="/papers/">Papers</a></li>
             <li><a class="extra navlink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink" href="/blog/">Blog</a></li>
+            <li><a class="extra navlink" href="/blog/index.html">Blog</a></li>
           </ul>
           
-          <div class="misc vcard">
-            <h4>Contact</h4>
-            <ul>
+            <ul class='sec-nav'>
               
-              <li class="contact navlink"><address><span class="author fn n"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email me!</a></span></address></li>
+              <li class="contact navlink"><a href="mailto:timothee.poisot@uqar.ca" rel="me">Email</a></li>
               
               
               <li class="github navlink"><a href="http://github.com/tpoisot/" rel="me">GitHub</a></li>
@@ -71,24 +67,36 @@
               
               
               
-              <li class="coderwall navlink"><a href="http://coderwall.com/tpoisot/" rel="me">CoderWall</a></li>
-              
-              
               <li class="figshare navlink"><a href="http://bit.ly/UbDlP0" rel="me">FigShare</a></li>
               
             </ul>
-          </div><!-- misc -->
           
+        </div>
         </div>
       </div>
 
       <section class='content'>
       
 <section>
-	<div class='ptitle'>
-		<h1>The friends of my friends (are on twitter)</h1>
-	</div>
 	<div class='pbody'>
+
+		<h1 class='ptitle'>The friends of my friends (are on twitter)</h1>
+
+		<div class='postinfo'>
+			December 15, 2012 &mdash;
+			
+				<a class='post-tag' href="/tags/#social networks-ref" title="tag">social networks</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#python-ref" title="tag">python</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#networkx-ref" title="tag">networkx</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#igraph-ref" title="tag">igraph</a>
+			
+		</div>
+
 		<p>Twitter is cool for science, because it can <a href="http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/">help you spread your ideas</a>. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, <em>e.g.</em>, the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye.</p>
 
 <p>I'm running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a paper by <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2148393&amp;tool=pmcentrez&amp;rendertype=abstract">Olesen and colleagues</a> about the modularity of mutualistics interactions. In a few words, you can measure, for each species, its contribution to its own module (<em>z</em>), and to other modules (<em>c</em>). The relative values of <em>c</em> and <em>z</em>  allows then to classify a node as "peripherals" (just hanging around), "connectors" (not really involved locally, but really involved in other groups), "module hubs" (highly involved locally, but not really involved globally), and "network hubs" (connected both within their group, and globally). Doing so requires to have cutoffs, the rationale for which is still not clear to me (but I'll go read the original paper). Nonetheless, high values of <em>c</em> indicate that a node is strongly connected outside its community, and high values of <em>z</em> indicates that it his highly connected within its community.</p>
@@ -116,22 +124,6 @@ The first (striking) thing is that my network is less modular than I would have 
 
 
 		<div id="page-navigation">
-
-				<div class='postinfo'>
-					Posted by Tim on December 15, 2012 - 1027 words<br />
-					Tags:
-					
-						<a class='post-tag' href="/tags/#social networks-ref" title="tag">social networks</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#python-ref" title="tag">python</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#networkx-ref" title="tag">networkx</a>,&nbsp;
-					
-						<a class='post-tag' href="/tags/#igraph-ref" title="tag">igraph</a>
-					
-				</div>
 
         		<div class="left">
 	        		
@@ -170,15 +162,14 @@ The first (striking) thing is that my network is less modular than I would have 
 	</div>
 </section>
 
+      </section>
 
       <div class='footer'>
           <p>
             This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>. Icons by <a href="http://picons.me/">Picons</a>.
           </p>
       </div>
-
-      </section>
-
+      
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>
