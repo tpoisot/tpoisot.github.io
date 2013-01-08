@@ -1,8 +1,7 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,600italic,700,700italic,800italic,800);
-@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic);
 
 html {
 	font-size: 62.5%;
@@ -32,8 +31,8 @@ code{
 }
 
 body{
-	font-family: 'Open Sans' !important;
-	font-weight: 400;
+	font-family: 'Lato' !important;
+	font-weight: 300 !important;
 	font-size: 1.6em;
 	color: #1f1f1f;
 	height:100%;
@@ -48,7 +47,7 @@ body{
 }
 
 .footer{
-	font-weight: 300;
+	font-weight: 100 !important;
 	width: 100%;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -76,6 +75,10 @@ a:hover{
 	line-height: 1.4em;
 }
 
+.pbody p em{
+	font-weight: 300;
+}
+
 .pbody img{
 	background-color: rgb(255, 255, 255);
 	border: 9px solid rgb(255, 255, 255);
@@ -92,9 +95,8 @@ a:hover{
 }
 
 .ptitle, .latest_post h1{
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 140%;
-	font-family: 'Bree Serif';
 }
 
 .postinfo{
