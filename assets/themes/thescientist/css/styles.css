@@ -1,9 +1,10 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic);
 
 html {
+	font-weight: 400 !important;
 	font-size: 62.5%;
 	text-align: left;
 	margin: 0px;
@@ -31,9 +32,8 @@ code{
 }
 
 body{
-	font-family: 'Lato' !important;
-	font-weight: 300 !important;
-	font-size: 1.6em;
+	font-family: 'Open Sans' !important;
+	font-size: 1.5em;
 	color: #1f1f1f;
 	height:100%;
 	margin: 0px;
@@ -44,16 +44,17 @@ body{
 	background-color: #fff;
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 	padding: 40px 0px;
+	color: rgb(70,70,70);
 }
 
 .footer{
-	font-weight: 100 !important;
+	font-weight: 300 !important;
 	width: 100%;
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
 
-a{
+a, .postinfo a, a.postinfo{
 	color: #51869c;
 	text-decoration: none;
 }
@@ -72,11 +73,7 @@ a:hover{
 
 .pbody p{
 	padding-bottom: 1.7em;
-	line-height: 1.4em;
-}
-
-.pbody p em{
-	font-weight: 300;
+	line-height: 1.5em;
 }
 
 .pbody img{
@@ -91,12 +88,20 @@ a:hover{
 }
 
 .pbody h1{
-	font-weight: 700;
+	font-size: 1.25em;
+	font-weight: 600;
 }
 
-.ptitle, .latest_post h1{
-	font-weight: 700;
-	font-size: 140%;
+.ptitle{
+	font-size: 1.5em !important;
+}
+
+.ptitle, .pbody h1, .latest_post h1{
+	color: rgb(20, 20, 20);
+}
+
+.upost{
+	font-weight: 600;
 }
 
 .postinfo{
@@ -118,6 +123,7 @@ a:hover{
 }
 
 .siteinfos h1{
+	padding-top: 0.1em;
 	font-weight: 300;
 	text-transform: uppercase;
 	float: left;
@@ -156,16 +162,18 @@ a:hover{
 }
 
 #page-navigation{
-	margin-bottom: 1.5em;
-	padding: 10px;
-	background-color: #efefef;
+	margin-top: 3em;
+	margin-bottom: 1.8em;
+	padding-top: 10px;
+	border-top: 1px dotted rgba(0, 0, 0, 0.2);
 }
 
 blockquote{
-	background-color: #efefef;
+	background-color: rgba(0, 0, 0, 0.01);
 	padding: 0.8em !important;
 	margin-bottom: 1.7em !important;
-	text-align: left;
+	border-top: 1px dotted rgba(0, 0, 0, 0.2);
+	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
 }
 
 blockquote p{
@@ -188,4 +196,24 @@ blockquote p{
 .readmore{
 	margin-bottom: 1.5em !important;
 	height: 2em;
+}
+
+.Tags h2{
+	font-weight: 600;
+	font-size: 1.2em;
+}
+
+.Tags ul{
+	margin-bottom: 1em;
+}
+
+div .tagcol {
+	-moz-column-count: 2;
+	-moz-column-gap: 30px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 30px;
+	column-count: 2;
+	column-gap: 30px;
+	font-size: 0.9em;
+	text-align: left;
 }
