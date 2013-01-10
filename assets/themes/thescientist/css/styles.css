@@ -9,7 +9,7 @@ html {
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	background-color: #efefef;
+	background-color: rgb(253,253,253);
 }
 
 /* Fonts and typography */
@@ -28,7 +28,7 @@ pre{
 
 code{
 	font-family: 'Ubuntu Mono';
-	font-size: 115%;
+	font-size: 113%;
 }
 
 body{
@@ -36,15 +36,16 @@ body{
 	font-size: 1.5em;
 	color: #1f1f1f;
 	height:100%;
-	margin: 0px;
+	margin: 0px auto;
 	padding: 0px;
+	width: 760px;
 }
 
 .content{
-	background-color: #fff;
-	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+	/*background-color: #fff;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);*/
 	padding: 40px 0px;
-	color: rgb(70,70,70);
+	color: rgb(50, 50, 50);
 }
 
 .footer{
@@ -66,7 +67,6 @@ a:hover{
 /* Page layout */
 
 .pbody{
-	width: 790px;
 	margin: 10px auto;
 	text-align: justify;
 }
@@ -74,6 +74,15 @@ a:hover{
 .pbody p{
 	padding-bottom: 1.7em;
 	line-height: 1.5em;
+}
+
+.pbody p code{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid rgb(248, 248, 248);
+	background-color: rgb(255, 255, 255);
+	padding: 0px 2px;
 }
 
 .pbody img{
@@ -184,9 +193,9 @@ blockquote p{
 .highlight{
 	padding: 12px;
 	margin-bottom: 1.7em;
-	border: 1px solid #efefef;
+	border: 1px solid rgb(250, 250, 250);
 	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
-	background-color: #fefefe;
+	background-color: rgb(255, 255, 255);
 }
 
 .latest_post p{
@@ -216,4 +225,9 @@ div .tagcol {
 	column-gap: 30px;
 	font-size: 0.9em;
 	text-align: left;
+}
+
+.tw-align-center{
+	margin-bottom: 1.7em !important;
+	padding-bottom: 1.7em;
 }
