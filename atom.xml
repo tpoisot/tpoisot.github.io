@@ -4,13 +4,169 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-01-09T21:02:23-05:00</updated>
+ <updated>2013-01-10T15:52:10-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>A quick way to get good figures for your web pages</title>
+   <link href="http://timotheepoisot.fr/2013/01/10/free-workflow-figures/"/>
+   <updated>2013-01-10T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2013/01/10/free-workflow-figures</id>
+   <content type="html">&lt;p&gt;I'm a huge fan of the &lt;code&gt;pgfplots&lt;/code&gt; package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: &lt;code&gt;notes&lt;/code&gt;, &lt;code&gt;MS&lt;/code&gt;, and &lt;code&gt;code&lt;/code&gt;. The results of what happens in &lt;code&gt;code&lt;/code&gt; (usually a huge mess of R, C and Python) go directly into &lt;code&gt;MS&lt;/code&gt; as tab-delimited files, and the &lt;code&gt;.tex&lt;/code&gt; document has all the commands needed to transform this in figures. I've notably used this workflow for the &lt;code&gt;beamer&lt;/code&gt; slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons.&lt;/p&gt;
+
+&lt;p&gt;I'm &lt;em&gt;really&lt;/em&gt; happy with this setup, and &lt;code&gt;pgfplots&lt;/code&gt; is a wonderful tool. It does look really &lt;em&gt;LaTeX-y&lt;/em&gt; (&lt;code&gt;s/LaTeX-/ugl/&lt;/code&gt;) by default, but you can get good results with minor tweakings. Given that I am familiar around this system, I was thinking about how I can use it to produce good graphics to put in blog posts, when needed. As it turned out, it's remarkably easy, and it requires almost no user input.&lt;/p&gt;
+
+&lt;p&gt;Doing so requires almost nothing, except an install of &lt;a href=&quot;http://www.imagemagick.org/script/index.php&quot;&gt;&lt;code&gt;imagemagick&lt;/code&gt;&lt;/a&gt; should it not ship with your operating system. Of course you need LaTeX, and (relatively) up-to-date versions of the &lt;code&gt;tikz&lt;/code&gt; and &lt;code&gt;pgfplots&lt;/code&gt; packages installed. By the end of this walkthrough, you'll be able to generate figures like the one just below, with almost no effort.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ex-pgf-blog.png&quot; title=&quot;An example of what can be done&quot; alt=&quot;Figure1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1&gt;Gettign the figures from LaTeX&lt;/h1&gt;
+
+&lt;p&gt;To start, we need a &lt;code&gt;.tex&lt;/code&gt; document, who will act as a template for all the figures we want to produce. A minimal preamble will be more than enough:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;minimal&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[T1]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;fontenc&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[utf8]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;inputenc&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[default,scale=0.95]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;opensans&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;mathastext&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;pgfplots&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepgfplotslibrary&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;external&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\tikzexternalize&lt;/span&gt; 
+
+&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;document&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;document&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The important line is &lt;code&gt;\tikzexternalize&lt;/code&gt;. This command tells the &lt;code&gt;tikz&lt;/code&gt; library to generate a separate file for each figure, compile it in a PDF, then include this PDF file in the document. The consequence of it is that, in your working folder, you know have a list of files:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;-rw-r--r-- 1 tpoisot tpoisot      0 jan 10 15:21 pgf-figure3.dpth
+-rw-r--r-- 1 tpoisot tpoisot  31494 jan 10 15:21 pgf-figure3.log
+-rw-r--r-- 1 tpoisot tpoisot  22409 jan 10 15:21 pgf-figure3.pdf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;There is only one drawback with the use of the &lt;code&gt;\tikzexternalize&lt;/code&gt; command: as long as the corresponding PDF files are found in your working directory, &lt;code&gt;tikz&lt;/code&gt; will not recompile them. This is essentially because drawing a &lt;code&gt;tikz&lt;/code&gt; figure can be a relatively time-consuming process, especially if your graph has a lot of points. And so unless you are satisfy with your figure, comment the &lt;code&gt;%\tikzexternalize&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Once you are happy with your figure, and have re-activated the &lt;code&gt;\tikzexternalize&lt;/code&gt; command, the last step is to convert these PDF files in a format that you can put in a webpage, like PDF. This is where &lt;code&gt;imagemagick&lt;/code&gt;, and specifically the &lt;code&gt;convert&lt;/code&gt; utility, comes into play. I have this simple bash script in my working directory, to automate the process. You can read &lt;a href=&quot;http://robfelty.com/2008/03/11/convert-pdf-to-png-with-imagemagick&quot;&gt;here&lt;/a&gt; about the options used.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;file in *figure*.pdf; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+convert -density 600x600 -resize 1204x986 -quality 90 &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;|cut -f1 -d&lt;span class=&quot;s1&quot;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;.png;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;-resize 1204x986&lt;/code&gt; flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it's better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.pbody&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;742px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h1&gt;OK, let's do it!&lt;/h1&gt;
+
+&lt;p&gt;In your LaTeX file, between the &lt;code&gt;\begin{document}&lt;/code&gt; and &lt;code&gt;\end{document}&lt;/code&gt; commands, just put the code for your figure (see the &lt;a href=&quot;http://pgfplots.sourceforge.net/&quot;&gt;&lt;code&gt;pgfplots&lt;/code&gt;&lt;/a&gt; website for details on the syntax, the &lt;em&gt;Gallery&lt;/em&gt; page has a lot of examples).&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;axis&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[xlabel=Time (weeks),ylabel=Individuals,
+            width=12cm,height=6cm
+            ]
+        &lt;span class=&quot;k&quot;&gt;\addplot&lt;/span&gt; coordinates &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;(1,8) (2,9) (4,7) (5,13)
+        (6,12) (8,18) (9,17) (10,22) (11,41) (12,32)
+        (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[coordinate,pin={below:{Control}}]&lt;/span&gt; at (axis cs:16,21.5) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\addplot&lt;/span&gt; coordinates &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;(1,4) (2,3) (4,5) (5,7)
+        (6,9) (7,8) (8,12) (9,23) (10,38) (11,34)
+        (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[coordinate,pin={above:{Treatment}}]&lt;/span&gt; at (axis cs:21,24.4) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;axis&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;In a terminal, make executable, and run the &lt;code&gt;convert.sh&lt;/code&gt; script:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;tpoisot@tp002 ~/Bureau/PGFclean &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;chmod +x convert.sh
+tpoisot@tp002 ~/Bureau/PGFclean &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./convert.sh
+pgf-figure0.pdf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;You will now have a PNG file, which looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ex-pgf-default.png&quot; title=&quot;The default PGFplots settings&quot; alt=&quot;Figure2&quot; /&gt;
+It's cool, but I strongly encourage you to play around with the various opitons. Defining two colors in the preamble of your LaTeX file,&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;GR&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;RGB&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;60,170,70&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;C1&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;RGB&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;170,70,60&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;, and using them (along with other options) to make your figure less LaTeX-y, can make a substantial difference. For example, the first figure in this entry was produced with the following code:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;axis&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[xlabel=Time (weeks),ylabel=Individuals,
+            width=12cm,height=6cm, ymin = 0, ymax = 50,
+            xmin = -0.05, xmax=26.05,
+            ymajorgrids, ytick=&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;10,20,30,40&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;,
+            axis y line*=left, axis x line*=bottom,
+            tick align=outside,
+            axis background/.style=&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;shade,top color=GR!5!white,bottom color=white&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;,
+            y axis line style=&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;white, line width = 0.0001pt&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;,
+            x axis line style=&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;black!60!white&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+            ]
+        &lt;span class=&quot;k&quot;&gt;\addplot&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[color=GR,mark=none,ultra thick]&lt;/span&gt; coordinates &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;(1,8) (2,9) (4,7) (5,13)
+        (6,12) (8,18) (9,17) (10,22) (11,41)
+        (12,32) (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[coordinate,pin={[pin edge={GR,thick,densely dotted}]&lt;/span&gt;
+            below:&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\color&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;GR&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;Control&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;]
+            at (axis cs:16,21.5) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[coordinate,pin={[pin edge={black,thick,densely dotted}]&lt;/span&gt;
+            45:&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;bloom&lt;span class=&quot;nb&quot;&gt;}}}&lt;/span&gt;]
+            at (axis cs:11,41) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\addplot&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[color=C1,mark=none,ultra thick]&lt;/span&gt; coordinates &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;(1,4) (2,3) (4,5) (5,7) (6,9)
+        (7,8) (8,12) (9,23) (10,38)
+        (11,34) (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;;
+        &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[coordinate,pin={[pin edge={C1,thick,densely dotted}]&lt;/span&gt;
+            above:&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\color&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;C1&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;Treatment&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;]
+            at (axis cs:21,24.4) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
+    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;axis&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h1&gt;In conclusion&lt;/h1&gt;
+
+&lt;p&gt;It's remarkably easy, with this setup, to produce really good quality graphics to put on web pages, I originally wanted to learm something like &lt;code&gt;D3&lt;/code&gt;, but realized I have no time to invest in this at the moment. Plus, the advantage of using a LaTeX-based system is that (in addition to the geek cred) you will be able to easily re-use material from different sources. For example, I can now easily tweak a figure I made for a paper, and put it online, just by changing the &lt;code&gt;axis&lt;/code&gt; parameters. And given that everything is command-line based, you can really automate the whole process (just write a shell script taking care of LaTeX compilation, &lt;code&gt;imagemagick&lt;/code&gt; conversion, and copying the figure at the appropriate place in your website folder).&lt;/p&gt;
+
+&lt;p&gt;The inconveninent is that this system is not dynamics, &lt;em&gt;i.e.&lt;/em&gt; if you want to re-draw a figure because the data changed, you have to do it by hand, where &lt;code&gt;D3&lt;/code&gt; will automatically take care of it. But for now, I'm happy enough with this system.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>INNGE announces EcoBloggers</title>
