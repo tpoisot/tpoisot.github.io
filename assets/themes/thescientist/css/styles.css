@@ -1,6 +1,7 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic);
 
 html {
@@ -9,7 +10,7 @@ html {
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	background-color: rgb(253,253,253);
+	background-color: rgb(252,252,252);
 }
 
 /* Fonts and typography */
@@ -23,11 +24,11 @@ b, strong{
 }
 
 pre{
-	font-family: 'Ubuntu Mono';
+	font-family: 'Inconsolata';
 }
 
 code{
-	font-family: 'Ubuntu Mono';
+	font-family: 'Inconsolata';
 	font-size: 113%;
 }
 
@@ -127,7 +128,6 @@ a:hover{
 /* Header layour */
 
 .siteinfos{
-	width: 790px;
 	margin: 20px auto;
 }
 
@@ -193,7 +193,6 @@ blockquote p{
 .highlight{
 	padding: 12px;
 	margin-bottom: 1.7em;
-	border: 1px solid rgb(250, 250, 250);
 	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
 	background-color: rgb(255, 255, 255);
 }
