@@ -1,26 +1,25 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
 
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic);
 
 html {
-	font-weight: 400 !important;
+	font-weight: 300 !important;
 	font-size: 62.5%;
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	background-color: rgb(252,252,252);
+	background-color: rgb(253,253,253);
 }
 
 /* Fonts and typography */
 
 it, em{
 	font-style: italic;
+	font-weight: inherit;
 }
 
 b, strong{
-	font-weight: 700;
+	font-weight: 500 !important;
 }
 
 pre{
@@ -33,7 +32,7 @@ code{
 }
 
 body{
-	font-family: 'Open Sans' !important;
+	font-family: "museo-sans" !important;
 	font-size: 1.5em;
 	color: #1f1f1f;
 	height:100%;
@@ -47,10 +46,11 @@ body{
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);*/
 	padding: 40px 0px;
 	color: rgb(50, 50, 50);
+	font-weight: 300;
 }
 
 .footer{
-	font-weight: 300 !important;
+	font-weight: 100 !important;
 	width: 100%;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -99,7 +99,7 @@ a:hover{
 
 .pbody h1{
 	font-size: 1.25em;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .ptitle{
@@ -111,11 +111,11 @@ a:hover{
 }
 
 .upost{
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .postinfo{
-	font-weight: 300;
+	font-weight: 100;
 	color: #333;
 	margin-bottom: 0.9em;
 }
@@ -133,7 +133,7 @@ a:hover{
 
 .siteinfos h1{
 	padding-top: 0.1em;
-	font-weight: 300;
+	font-weight: 100;
 	text-transform: uppercase;
 	float: left;
 	font-size: 240%;
@@ -154,7 +154,7 @@ a:hover{
 	float: right;
 	text-align: right;
 	font-size: 110%;
-	font-weight: 300;
+	font-weight: 100;
 }
 
 .nav ul{
@@ -190,7 +190,7 @@ blockquote p{
 	padding: 0px !important;
 }
 
-.highlight{
+pre{
 	padding: 12px;
 	margin-bottom: 1.7em;
 	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
@@ -207,7 +207,7 @@ blockquote p{
 }
 
 .Tags h2{
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 1.2em;
 }
 
@@ -229,4 +229,19 @@ div .tagcol {
 .tw-align-center{
 	margin-bottom: 1.7em !important;
 	padding-bottom: 1.7em;
+}
+
+.aside{
+	color:#d75b07;
+	float: right;
+	clear: none;
+	margin-right: -150px;
+	width: 300px;
+	text-align: left;
+	font-size: 0.9em;
+	font-weight: 100;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 4px;
+	text-transform: uppercase;
 }

@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
     <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
+
+    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     
     
       <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
@@ -22,22 +25,6 @@
     <![endif]-->
 
     
-
-
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
   </head>
   <body>
     <div class="wrapper">
@@ -93,10 +80,13 @@
 
 		<p>I'm trying to move to <code>sympy</code> for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I'm playing with a simple host-parasite model. I was reading the <a href="http://docs.sympy.org/0.7.1/tutorial.html#first-steps-with-sympy"><em>First steps with sympy</em></a> section of the website when I was running my little tests, and it's relatively helpul.</p>
 
-<p>So let's assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instataneous dynamics can be written as</p>
+<p>So let's assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous dynamics can be written as</p>
 
-<p>$$\frac{dH}{dt} = H \times \left( r - q\times H - \beta \times P \right)$$
-$$\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)$$</p>
+<script type="math/tex; mode=display">\frac{dH}{dt} = H \times \left( r - q\times H - \beta \times P \right)</script>
+
+
+<script type="math/tex; mode=display">\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)</script>
+
 
 <p>The first step to get this into <code>sympy</code> is to load the package (obviously), then declare parameters and population sizes as <em>symbols</em>, and the equations as <em>Functions</em>.</p>
 
@@ -134,7 +124,7 @@ $$\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)$$</p>
 <pre><code>[(0, 0), (d/a, -(-a*r + d*q)/(a*b)), (r/q, 0)]
 </code></pre>
 
-<p>The three possible outcomes were identified: either everything crashes, the parasite goes extinct ((H* = r/q)), or the two populations persist and reach their equilibrium.</p>
+<p>The three possible outcomes were identified: either everything crashes, the parasite goes extinct (<script type="math/tex">H* = r/q</script>), or the two populations persist and reach their equilibrium.</p>
 
 <p>At this point, let's assign these solutions to an object, and focus on the coexistence case:</p>
 
@@ -180,7 +170,7 @@ $$\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)$$</p>
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
-    
+    var disqus_developer = 1;
     var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -203,7 +193,7 @@ $$\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)$$</p>
 
       <div class='footer'>
           <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a>, <a href='https://typekit.com/fonts'>TypeKit</a>, the <a href="https://developers.google.com/webfonts/">Google Fonts API</a>, and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.
           </p>
       </div>
       
