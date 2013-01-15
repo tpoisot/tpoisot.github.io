@@ -3,13 +3,14 @@
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 html {
-	font-weight: 300 !important;
 	font-size: 62.5%;
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	background-color: rgb(253,253,253);
+	background-color: rgb(254,254,254);
+	font-family: "museo-sans" !important;
 }
+
 
 /* Fonts and typography */
 
@@ -28,17 +29,18 @@ pre{
 
 code{
 	font-family: 'Inconsolata';
-	font-size: 113%;
+	font-size: 109%;
 }
 
 body{
-	font-family: "museo-sans" !important;
+	font-family: "Open Sans" !important;
 	font-size: 1.5em;
 	color: #1f1f1f;
 	height:100%;
 	margin: 0px auto;
 	padding: 0px;
 	width: 760px;
+	font-weight: 300 !important;
 }
 
 .content{
@@ -46,11 +48,10 @@ body{
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);*/
 	padding: 40px 0px;
 	color: rgb(50, 50, 50);
-	font-weight: 300;
 }
 
 .footer{
-	font-weight: 100 !important;
+	font-weight: 300 !important;
 	width: 100%;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -81,8 +82,8 @@ a:hover{
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border: 1px solid rgb(248, 248, 248);
-	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(244, 244, 244);
+	background-color: rgb(249, 249, 249);
 	padding: 0px 2px;
 }
 
@@ -242,6 +243,6 @@ div .tagcol {
 	font-weight: 100;
 	margin-left: 15px;
 	margin-bottom: 10px;
-	margin-top: 4px;
+	margin-top: 2px;
 	text-transform: uppercase;
 }
