@@ -1,5 +1,4 @@
 @import url("http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css");
-
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 html {
@@ -63,7 +62,7 @@ body{
 }
 
 a, .postinfo a, a.postinfo{
-	color: #51869c;
+	color: #859c51;
 	text-decoration: none;
 }
 
@@ -81,6 +80,7 @@ a:hover{
 .pbody p{
 	padding-bottom: 1.7em;
 	line-height: 1.5em;
+	font-family: 'museo-slab';
 }
 
 .pbody p code{
