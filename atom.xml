@@ -4,13 +4,83 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-01-10T15:52:10-05:00</updated>
+ <updated>2013-01-23T01:28:35-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Tim Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>A selection of Sublime Text 2 packages</title>
+   <link href="http://timotheepoisot.fr/2013/01/22/selection-sublime-plugins/"/>
+   <updated>2013-01-22T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2013/01/22/selection-sublime-plugins</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.sublimetext.com/2&quot;&gt;&lt;em&gt;Sublime Text 2&lt;/em&gt;&lt;/a&gt; is an awesome multi-purpose text editor, working on all major platforms, and generally being &lt;code&gt;vim&lt;/code&gt; with a nice GUI, and some &lt;code&gt;emacs&lt;/code&gt; thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed &lt;em&gt;Python&lt;/em&gt; packages for it, and I use a few of them almost daily. Following some discussions we've had on twitter, I figured I'd share them with everyone. The first one to install is &lt;a href=&quot;http://wbond.net/sublime_packages/package_control&quot;&gt;&lt;em&gt;Sublime Package Control&lt;/em&gt;&lt;/a&gt;. It allows you to open the command palette, and manage your packages. Notably, you can use the &lt;code&gt;Install packages&lt;/code&gt; command to get a drop-down list of &lt;em&gt;all&lt;/em&gt; possible packages available. They are also listed &lt;a href=&quot;http://wbond.net/sublime_packages/community&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So which packages do I use? I made a list of those I find the more useful, ranked by use frequency.&lt;/p&gt;
+
+&lt;p&gt;The first one is &lt;strong&gt;LaTeX Tools&lt;/strong&gt;. It's plain awesome. You work on a LaTeX document, hit &lt;code&gt;Ctrl-B&lt;/code&gt;, and it uses &lt;code&gt;latexmk&lt;/code&gt; to take care of &lt;em&gt;all&lt;/em&gt; the necessary compilation steps for you. And it implements &lt;code&gt;synctex&lt;/code&gt; as well, so you can use &lt;code&gt;Ctrl-L J&lt;/code&gt; to jump to the PDF, and right click on the PDF to jump to the text. Add a few other &lt;a href=&quot;https://github.com/SublimeText/LaTeXTools&quot;&gt;great shortcuts&lt;/a&gt; (transform a word in an environment with &lt;code&gt;Ctrl-L E&lt;/code&gt;, or in a command with &lt;code&gt;Ctrl-L C&lt;/code&gt;, for example), a very extensive auto-completion, and you have one of the best LaTeX editors available. Also, when using this package, do not forget that pressing &lt;code&gt;alt-q&lt;/code&gt; anywhere in a line will hard wrap the paragraph. It's almost impossible to live without this function when you use git.&lt;/p&gt;
+
+&lt;p&gt;A really good companion to the above package is &lt;strong&gt;WordCount&lt;/strong&gt;. It does what the name says: add a word and character count in the status bar. It updates the word count in real time, and when you mostly write using &lt;em&gt;Markdown&lt;/em&gt; or plain text, it's extremely useful. To write in &lt;em&gt;Markdown&lt;/em&gt;, which includes this blog, and most of the drafts of my papers, all the replies to referees, my meeting notes, and general note taking, I rely on &lt;strong&gt;MarkdownBuild&lt;/strong&gt;, which allows to &lt;a href=&quot;https://github.com/erinata/SublimeMarkdownBuild&quot;&gt;quickly visualize&lt;/a&gt; the content of the file. A simple &lt;code&gt;Ctrl-B&lt;/code&gt; brings up a browser windows with a HTML/CSS rendition of my file. When the documents are ready, I use &lt;code&gt;pandoc&lt;/code&gt; to compile them. There are two packages for this, &lt;strong&gt;Pandoc&lt;/strong&gt;, which provides a lot of output formats, and &lt;strong&gt;Pandoc Academic&lt;/strong&gt;, which provides less formats, but is reachable in less keystrokes. Both also have some complementary snippets, so I keep both.&lt;/p&gt;
+
+&lt;p&gt;There are some plugins for &lt;code&gt;git&lt;/code&gt;, but I don't use them, as I do my commits from the command line. Speaking of command line, though, the &lt;strong&gt;Sublime REPL&lt;/strong&gt; package is difficult to avoid. It allows you to &lt;a href=&quot;https://github.com/wuub/SublimeREPL&quot;&gt;run a variety of shells from within a tab in Sublime Text 2&lt;/a&gt;. Among the included languages are Python (including iPython), R, and a few others. You can also run a system shell, which I use to do my commits.&lt;/p&gt;
+
+&lt;p&gt;I also like &lt;strong&gt;Align Tab&lt;/strong&gt; a lot. If you write in LaTeX, or use &lt;code&gt;csv&lt;/code&gt; data, you know what this one is doing. Select a block of text, open the command palette and choose &lt;code&gt;Align tabular&lt;/code&gt;, give the separator string, and &lt;em&gt;bam!&lt;/em&gt;, a perfectly aligned table.&lt;/p&gt;
+
+&lt;p&gt;Going from this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;a b c d
+1 2 21 3
+abc dd e 456
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;to this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;a    b   c   d 
+1    2   21  3  
+abc  dd  e   456
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;means a whole lot in terms of readability.&lt;/p&gt;
+
+&lt;p&gt;And while we're at readability, let's talk about color schemes. The defaults are good, but not impressive. My favorites are by far from &lt;a href=&quot;https://github.com/chriskempson/base16&quot;&gt;the &lt;strong&gt;base16&lt;/strong&gt; project&lt;/a&gt;. I'm fond of &lt;code&gt;Tomorrow Light&lt;/code&gt; and &lt;code&gt;Railscasts Dark&lt;/code&gt;, but many, many others are impressive as well.&lt;/p&gt;
+
+&lt;p&gt;When coding, I use &lt;strong&gt;AndyPython&lt;/strong&gt; and &lt;strong&gt;SublimeCodeIntel&lt;/strong&gt;. They provide some good auto-completion, and code intelligence. So it means that I don't need to remember the methods I put in my classes! And any technology allowing me to get progressively lazier is good (probably, I'd check it, but it would involve some efforts). All jokes aside, when working with large python libraries (&lt;code&gt;networkx&lt;/code&gt; or &lt;code&gt;scipy&lt;/code&gt; come to mind), it's almost impossible to do without these packages.&lt;/p&gt;
+
+&lt;p&gt;So be sure to check &lt;em&gt;Sublime Text 2&lt;/em&gt; out. It's not free (but not too expensive either), and even if you don't pay, you can use the full feature set (and it is really, really impressive). Think of it as a &lt;em&gt;Photoshop&lt;/em&gt; of text editing. After a year of using it, I realize I am probably exploiting less than 10% of its potential. It's one of the best pieces of software I've came across! And if you want to know more, &lt;a href=&quot;http://nature.berkeley.edu/~kram/&quot;&gt;Karthik Ram&lt;/a&gt; has a list of &lt;a href=&quot;http://pinboard.in/u:karthik/t:sublimetext&quot;&gt;bookmarks&lt;/a&gt; about it, which I encourage you to browse.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>If Elsevier acquires Mendeley, I'm out (and you should be too)</title>
+   <link href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/"/>
+   <updated>2013-01-19T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out</id>
+   <content type="html">&lt;p&gt;Two days ago, &lt;em&gt;TechCrunch&lt;/em&gt; published an article saying that &lt;a href=&quot;http://techcrunch.com/2013/01/17/elsevier-mendeley-education/&quot;&gt;&lt;em&gt;Elsevier&lt;/em&gt; was in &quot;advanced talks&quot; to acquire &lt;em&gt;Mendeley&lt;/em&gt;&lt;/a&gt;. Why a company (&lt;em&gt;Mendeley&lt;/em&gt;) whose goal is to help scientist work, and faciliate access to papers, would associate with a company so despised by so many researchers that they are actively and publicly &lt;a href=&quot;http://thecostofknowledge.com/&quot;&gt;boycotting it&lt;/a&gt; (&lt;em&gt;Elsevier&lt;/em&gt;) makes absolutely no sense.&lt;/p&gt;
+
+&lt;p&gt;Some people on the &lt;em&gt;Mendeley advisors group&lt;/em&gt; wanted to know more, and here is the reply we got:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/mendeley-advisors-elsevier.png&quot; title=&quot;Mendeley advisors group&quot; alt=&quot;Figure1&quot; /&gt;
+So it seemed like there was nothing to worry about. All too happy to announce the good news on Twitter, here is the reply I got:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/mendeley-twitter-rumors.png&quot; title=&quot;Mendeley twitter&quot; alt=&quot;Figure2&quot; /&gt;
+Well, reading this, I'm not sure anymore I don't need to worry. Now, this corporate talk when discussing the possible acquisition is not surprizing (&lt;em&gt;Mendeley&lt;/em&gt; is, after all, a company), coming from the very people who &lt;a href=&quot;http://blog.mendeley.com/open-access/support-free-access-to-scientific-journal-articles-arising-from-taxpayer-funded-research-oamonday/&quot;&gt;were so supportive of open access&lt;/a&gt; (though, &lt;a href=&quot;https://twitter.com/mrgunn/status/292479547079794688&quot;&gt;contrary to what William Gunn said on &lt;em&gt;Twitter&lt;/em&gt;&lt;/a&gt;, I was unable to find mentions of &lt;em&gt;Elsevier&lt;/em&gt; on the &lt;em&gt;Mendeley&lt;/em&gt; blog).&lt;/p&gt;
+
+&lt;p&gt;I'm a &lt;em&gt;Mendeley&lt;/em&gt; advisor. I've used the tool over the last two years, and I've been converting people to it, and helping them, and for the most part, it's been fun. &lt;em&gt;Mendeley&lt;/em&gt; is still the only non-open source tool on my laptop, except for &lt;em&gt;Sublime Text&lt;/em&gt;. That's how big of a concession I'm making, because the software is good. But the second &lt;em&gt;Elsevier&lt;/em&gt; acquires &lt;em&gt;Mendeley&lt;/em&gt;, or the two start walking hand in hand? I'm out.&lt;/p&gt;
+
+&lt;p&gt;First, I've signed the &lt;a href=&quot;http://thecostofknowledge.com/&quot;&gt;&lt;em&gt;Cost of Knowledge&lt;/em&gt;&lt;/a&gt; petition, and I don't want to be involved with &lt;em&gt;Elsevier&lt;/em&gt;. I won't review for them, or submit to their journals. Second, I don't want them to use the data I generate. This is why I'll be leaving, and this is why I think other &lt;em&gt;Mendeley&lt;/em&gt; users should too, if this acquisition happens. The position of &lt;em&gt;Elsevier&lt;/em&gt; on text mining is &lt;a href=&quot;http://researchremix.wordpress.com/2012/04/13/elsevier-response/&quot;&gt;well known&lt;/a&gt;, and in part responsible for their bad reputation with scientists and the open-access movement.&lt;/p&gt;
+
+&lt;p&gt;When you add a paper on &lt;em&gt;Mendeley&lt;/em&gt;, you generate data. What do you read? Who do you read? Who send you papers, from which journals? These are important informations, that &lt;em&gt;Elsevier&lt;/em&gt; will perhaps be able to use to turn a profit, and I don't want that. &lt;a href=&quot;http://blog.findings.com/post/20527246081/how-we-will-read-clay-shirky&quot;&gt;Publishing is not a job, it's a &lt;em&gt;button&lt;/em&gt;&lt;/a&gt;; we pay enough for people to press this button, although other solutions (&lt;a href=&quot;http://innge.net/?q=node/327&quot;&gt;&lt;em&gt;Scholastica&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;http://innge.net/?q=node/330&quot;&gt;preprints servers&lt;/a&gt;) exists. The web &lt;em&gt;was (in part) designed&lt;/em&gt; to &lt;a href=&quot;http://scholarlykitchen.sspnet.org/2010/01/04/why-hasnt-scientific-publishing-been-disrupted-already/&quot;&gt;disrupt scholarly publishing&lt;/a&gt;, but failed. Let's not then let scientific publishers use the data we, scientists, generate for free, &lt;a href=&quot;http://www.guardian.co.uk/commentisfree/2011/aug/29/academic-publishers-murdoch-socialist&quot;&gt;to continue increasing their profits&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Did I say &quot;for free&quot;? Sorry, I meant &lt;a href=&quot;http://www.mendeley.com/upgrade/storage/&quot;&gt;$4.99 a month&lt;/a&gt; (although, full disclosure, as a &lt;em&gt;Mendeley advisor&lt;/em&gt;, I get free hosting). And call me an extremist, but I don't want anything to do with a company that makes you pay to generate data, which will be used by another company which is the poster child of a domain who replaced Paul Feyerabend as &lt;a href=&quot;http://www.guardian.co.uk/science/2012/jan/16/academic-publishers-enemies-science&quot;&gt;&lt;em&gt;the worst enemy of science&lt;/em&gt;&lt;/a&gt;. So I'm hoping that this is indeed just a rumor, and that &lt;em&gt;Mendeley&lt;/em&gt; is attentive enough to what scientists think, and will not associate with &lt;em&gt;Elsevier&lt;/em&gt;. But if this is not the case, I'll cancel my subscription; and I think you should too.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>A quick way to get good figures for your web pages</title>
@@ -25,7 +95,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/ex-pgf-blog.png&quot; title=&quot;An example of what can be done&quot; alt=&quot;Figure1&quot; /&gt;&lt;/p&gt;
 
-&lt;h1&gt;Gettign the figures from LaTeX&lt;/h1&gt;
+&lt;h1&gt;Getting the figures from LaTeX&lt;/h1&gt;
 
 &lt;p&gt;To start, we need a &lt;code&gt;.tex&lt;/code&gt; document, who will act as a template for all the figures we want to produce. A minimal preamble will be more than enough:&lt;/p&gt;
 
@@ -604,10 +674,13 @@ Quoting from the last paragraph:&lt;/p&gt;
    <id>http://timotheepoisot.fr/2012/08/15/notes-on-using-sympy</id>
    <content type="html">&lt;p&gt;I'm trying to move to &lt;code&gt;sympy&lt;/code&gt; for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I'm playing with a simple host-parasite model. I was reading the &lt;a href=&quot;http://docs.sympy.org/0.7.1/tutorial.html#first-steps-with-sympy&quot;&gt;&lt;em&gt;First steps with sympy&lt;/em&gt;&lt;/a&gt; section of the website when I was running my little tests, and it's relatively helpul.&lt;/p&gt;
 
-&lt;p&gt;So let's assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instataneous dynamics can be written as&lt;/p&gt;
+&lt;p&gt;So let's assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous dynamics can be written as&lt;/p&gt;
 
-&lt;p&gt;$$\frac{dH}{dt} = H \times \left( r - q\times H - \beta \times P \right)$$
-$$\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)$$&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{dH}{dt} = H \times \left( r - q\times H - \beta \times P \right)&lt;/script&gt;
+
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)&lt;/script&gt;
+
 
 &lt;p&gt;The first step to get this into &lt;code&gt;sympy&lt;/code&gt; is to load the package (obviously), then declare parameters and population sizes as &lt;em&gt;symbols&lt;/em&gt;, and the equations as &lt;em&gt;Functions&lt;/em&gt;.&lt;/p&gt;
 
@@ -645,7 +718,7 @@ $$\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)$$&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[(0, 0), (d/a, -(-a*r + d*q)/(a*b)), (r/q, 0)]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The three possible outcomes were identified: either everything crashes, the parasite goes extinct ((H* = r/q)), or the two populations persist and reach their equilibrium.&lt;/p&gt;
+&lt;p&gt;The three possible outcomes were identified: either everything crashes, the parasite goes extinct (&lt;script type=&quot;math/tex&quot;&gt;H* = r/q&lt;/script&gt;), or the two populations persist and reach their equilibrium.&lt;/p&gt;
 
 &lt;p&gt;At this point, let's assign these solutions to an object, and focus on the coexistence case:&lt;/p&gt;
 
