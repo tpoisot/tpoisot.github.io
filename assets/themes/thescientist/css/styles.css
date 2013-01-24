@@ -7,7 +7,7 @@ html {
 	margin: 0px;
 	padding: 0px;
 	background-color: rgb(255,255,255);
-	background-image: url('../images/bgnoise.png');
+	background-image: url('../images/debut_light.png');
 	font-family: "museo-sans" !important;
 }
 
@@ -33,7 +33,7 @@ code{
 
 body{
 	font-family: "museo-sans" !important;
-	font-size: 1.5em;
+	font-size: 1.6em;
 	color: #1f1f1f;
 	height:100%;
 	margin: 0px auto;
@@ -45,7 +45,7 @@ body{
 .wrapper{
 	background-color: #fff;
 	padding: 1em 1em;
-	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
 }
 
 .content{
@@ -109,7 +109,7 @@ a:hover{
 }
 
 .ptitle{
-	font-size: 1.3em !important;
+	font-size: 1.6em !important;
 }
 
 .ptitle, .pbody h1, .latest_post h1{
@@ -142,7 +142,7 @@ a:hover{
 	font-weight: 100;
 	text-transform: uppercase;
 	float: left;
-	font-size: 240%;
+	font-size: 260%;
 }
 
 .siteinfos a{
@@ -159,7 +159,7 @@ a:hover{
 .nav{
 	float: right;
 	text-align: right;
-	font-size: 110%;
+	font-size: 100%;
 	font-weight: 100;
 }
 
@@ -172,8 +172,25 @@ a:hover{
 	margin-left: 0.5em;
 }
 
+.nav a{
+	padding: 3px;
+	border-radius: 4px;
+}
+
+.nav a:hover{
+	background-color: #859c51;
+	color: white;
+	border-radius: 4px;
+}
+
+.outlink a:hover{
+	background-color: #a0c265;
+	color: white;
+	border-radius: 4px;
+}
+
 .main-nav{
-	border-bottom: 1px solid #ccc;
+	border-bottom: 0px solid #ccc;
 }
 
 #page-navigation{
@@ -239,6 +256,7 @@ div .tagcol {
 
 .aside p, p.aside{
 	padding-bottom: 0px !important;
+	font-family: 'museo-sans' !important;
 }
 
 .aside{
@@ -247,11 +265,72 @@ div .tagcol {
 	clear: none;
 	width: 270px;
 	text-align: left;
-	font-size: 0.8em;
+	font-size: 0.7em;
 	font-weight: 100;
 	margin-left: 20px;
 	margin-bottom: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-right: -0.5em;
 	text-transform: uppercase;
+}
+
+
+a.extra.navlink.homelink:before{
+	content: url(../images/me-d.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.homelink:hover:before{
+	content: url(../images/me-l.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.paplink:before{
+	content: url(../images/pap-d.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.paplink:hover:before{
+	content: url(../images/pap-l.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.reslink:before{
+	content: url(../images/res-d.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.reslink:hover:before{
+	content: url(../images/res-l.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.codelink:before{
+	content: url(../images/code-d.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.codelink:hover:before{
+	content: url(../images/code-l.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.bloglink:before{
+	content: url(../images/blog-d.gif);
+	padding-right: 5px;
+	display: inline-block;
+}
+
+a.extra.navlink.bloglink:hover:before{
+	content: url(../images/blog-l.gif);
+	padding-right: 5px;
+	display: inline-block;
 }
