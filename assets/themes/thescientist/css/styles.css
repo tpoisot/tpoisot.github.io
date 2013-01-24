@@ -334,3 +334,7 @@ a.extra.navlink.bloglink:hover:before{
 	padding-right: 5px;
 	display: inline-block;
 }
+
+.thl{
+	font-weight: 300;
+}
