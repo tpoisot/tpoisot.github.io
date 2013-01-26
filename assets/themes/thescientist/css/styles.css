@@ -5,8 +5,8 @@ html {
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	background-color: rgb(255,255,255);
-	background-image: url('../images/debut_light.png');
+	background-color: rgb(250,250,250);
+	background-image: url('../images/bgnoise.png');
 	font-family: "jaf-facitweb" !important;
 }
 
@@ -18,21 +18,21 @@ it, em{
 }
 
 b, strong{
-	font-weight: 500 !important;
+	font-weight: 600;
 }
 
 pre{
-	font-family: 'source-code-pro' !important;
+	font-family: 'anonymous-pro' !important;
 }
 
 code{
-	font-family: 'source-code-pro' !important;
-	font-size: 104%;
+	font-family: 'anonymous-pro' !important;
+	font-size: 105%;
 }
 
 body{
 	font-family: "jaf-facitweb" !important;
-	font-size: 1.5em;
+	font-size: 1.45em;
 	color: #1f1f1f;
 	height:100%;
 	margin: 0px auto;
@@ -61,12 +61,12 @@ body{
 }
 
 a, .postinfo a, a.postinfo{
-	color: #859c51;
+	color: rgb(176, 40, 60);
 	text-decoration: none;
 }
 
 a:hover{
-	text-decoration: underline;
+	color: rgb(61, 176, 40);
 }
 
 /* Page layout */
@@ -78,11 +78,19 @@ a:hover{
 
 .pbody p{
 	padding-bottom: 1.7em;
-	line-height: 1.5em;
-	font-size: 102%;
-	font-family: "rooney-web" !important;
+	line-height: 1.6em;
 	font-style: normal;
 	font-weight: 300;
+}
+
+.pbody ul{
+	margin-bottom: 1.7em;
+	margin-right: 10px;
+	padding: 0em 1em;
+}
+
+.pbody li{
+	list-style-type: square;
 }
 
 .pbody p code{
@@ -91,7 +99,7 @@ a:hover{
 	-moz-border-radius: 3px;
 	border: 1px solid rgb(244, 244, 244);
 	background-color: rgb(249, 249, 249);
-	padding: 0px 1px;
+	padding: 0px 0px;
 }
 
 .pbody img{
@@ -106,8 +114,8 @@ a:hover{
 }
 
 .pbody h1{
-	font-size: 1.1em;
-	font-weight: 700;
+	font-size: 1.15em;
+	font-weight: 600;
 }
 
 .ptitle{
@@ -153,7 +161,7 @@ a:hover{
 
 .siteinfos a:hover{
 	text-decoration: none;
-	color: #859c51;
+	color: rgb(176, 40, 60);
 }
 
 /* Navbar layout */
@@ -180,13 +188,13 @@ a:hover{
 }
 
 .nav a:hover{
-	background-color: #859c51;
+	background-color: rgb(176, 40, 60);
 	color: white;
 	border-radius: 4px;
 }
 
 .outlink a:hover{
-	background-color: #a0c265;
+	background-color: rgb(176, 40, 60);
 	color: white;
 	border-radius: 4px;
 }
@@ -207,12 +215,17 @@ blockquote{
 	padding: 0.8em !important;
 	margin-bottom: 1.7em !important;
 	border-top: 1px dotted rgba(0, 0, 0, 0.2);
-	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);	
+	font-weight: 300 !important;
 }
 
 blockquote p{
 	margin: 0px !important;
 	padding: 0px !important;
+}
+
+blockquote strong, blockquote b{
+	font-weight: 600 !important;
 }
 
 pre{
@@ -255,26 +268,6 @@ div .tagcol {
 	margin-bottom: 1.7em !important;
 	padding-bottom: 1.7em;
 }
-
-.aside{
-	color: #d75b07 !important;
-	display: inline !important;
-	width: 270px;
-	text-align: left;
-	font-weight: 300;
-	font-size: 0.75em !important;
-	text-transform: uppercase;
-	padding-bottom: 0px !important;
-	font-family: 'jaf-facitweb' !important;
-	line-height: 1.15em !important;
-}
-
-p span.aside{
-	position: relative !important;
-	left: 500px !important;
-	clear: both;
-}
-
 
 a.extra.navlink.homelink:before{
 	content: url(../images/me-d.gif);
