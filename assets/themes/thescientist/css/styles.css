@@ -5,8 +5,8 @@ html {
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	background-color: rgb(250,250,250);
-	background-image: url('../images/bgnoise.png');
+	/*background-color: rgb(250,250,250);
+	background-image: url('../images/bgnoise.png');*/
 	font-family: "jaf-facitweb" !important;
 }
 
@@ -44,7 +44,7 @@ body{
 .wrapper{
 	background-color: #fff;
 	padding: 1em 1em;
-	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+	/*box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);*/
 }
 
 .content{
@@ -61,12 +61,12 @@ body{
 }
 
 a, .postinfo a, a.postinfo{
-	color: rgb(176, 40, 60);
+	color: rgb(71, 158, 83);
 	text-decoration: none;
 }
 
 a:hover{
-	color: rgb(61, 176, 40);
+	color: rgb(158, 83, 71);
 }
 
 /* Page layout */
@@ -161,7 +161,7 @@ a:hover{
 
 .siteinfos a:hover{
 	text-decoration: none;
-	color: rgb(176, 40, 60);
+	color: rgb(71, 158, 83);
 }
 
 /* Navbar layout */
@@ -188,13 +188,13 @@ a:hover{
 }
 
 .nav a:hover{
-	background-color: rgb(176, 40, 60);
+	background-color: rgb(71, 158, 83);
 	color: white;
 	border-radius: 4px;
 }
 
 .outlink a:hover{
-	background-color: rgb(176, 40, 60);
+	background-color: rgb(71, 158, 83);
 	color: white;
 	border-radius: 4px;
 }
