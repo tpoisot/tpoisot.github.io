@@ -5,8 +5,6 @@ html {
 	text-align: left;
 	margin: 0px;
 	padding: 0px;
-	/*background-color: rgb(250,250,250);
-	background-image: url('../images/bgnoise.png');*/
 	font-family: "jaf-facitweb" !important;
 }
 
@@ -37,7 +35,7 @@ body{
 	height:100%;
 	margin: 0px auto;
 	padding: 0px;
-	width: 760px;
+	width: 720px;
 	font-weight: 300 !important;
 }
 
@@ -50,7 +48,7 @@ body{
 .content{
 	/*box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);*/
 	padding: 40px 0px;
-	color: rgb(50, 50, 50);
+	color: rgb(20, 20, 20);
 }
 
 .footer{
@@ -97,17 +95,17 @@ a:hover{
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border: 1px solid rgb(244, 244, 244);
-	background-color: rgb(249, 249, 249);
-	padding: 0px 0px;
+	border: 1px solid rgb(234, 234, 234);
+	background-color: rgb(252, 252, 252);
+	padding: 0px 1px;
 }
 
 .pbody img{
-	background-color: rgb(255, 255, 255);
+	/*background-color: rgb(255, 255, 255);
 	border: 9px solid rgb(255, 255, 255);
-	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);*/
 	padding: 1px;
-	max-width: 700px;
+	max-width: 80%;
 	display: block;
 	margin: 0px auto;
 	margin-bottom: 1em;
@@ -119,7 +117,7 @@ a:hover{
 }
 
 .ptitle{
-	font-size: 1.6em !important;
+	font-size: 1.4em !important;
 }
 
 .ptitle, .pbody h1, .latest_post h1{
@@ -183,7 +181,7 @@ a:hover{
 }
 
 .nav a{
-	padding: 3px;
+	padding: 2px;
 	border-radius: 4px;
 }
 
@@ -211,11 +209,10 @@ a:hover{
 }
 
 blockquote{
-	background-color: rgba(0, 0, 0, 0.01);
-	padding: 0.8em !important;
+	background-color: rgba(71, 158, 83, 0.01);
+	padding: 0.3em 0.8em !important;
 	margin-bottom: 1.7em !important;
-	border-top: 1px dotted rgba(0, 0, 0, 0.2);
-	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);	
+	border-left: 1px solid rgb(71, 158, 83);
 	font-weight: 300 !important;
 }
 
@@ -229,10 +226,13 @@ blockquote strong, blockquote b{
 }
 
 pre{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid rgb(234, 234, 234);
+	background-color: rgb(252, 252, 252);
 	padding: 12px;
 	margin-bottom: 1.7em;
-	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
-	background-color: rgb(255, 255, 255);
 }
 
 .latest_post p{
@@ -269,14 +269,13 @@ div .tagcol {
 	padding-bottom: 1.7em;
 }
 
-a.extra.navlink.homelink:before{
-	content: url(../images/me-d.gif);
-	padding-right: 5px;
-	display: inline-block;
+.thl{
+	font-weight: 300;
 }
 
-a.extra.navlink.homelink:hover:before{
-	content: url(../images/me-l.gif);
+
+a.extra.navlink.homelink:before{
+	content: url(../images/me-d.gif);
 	padding-right: 5px;
 	display: inline-block;
 }
@@ -287,20 +286,8 @@ a.extra.navlink.paplink:before{
 	display: inline-block;
 }
 
-a.extra.navlink.paplink:hover:before{
-	content: url(../images/pap-l.gif);
-	padding-right: 5px;
-	display: inline-block;
-}
-
 a.extra.navlink.reslink:before{
 	content: url(../images/res-d.gif);
-	padding-right: 5px;
-	display: inline-block;
-}
-
-a.extra.navlink.reslink:hover:before{
-	content: url(../images/res-l.gif);
 	padding-right: 5px;
 	display: inline-block;
 }
@@ -311,24 +298,8 @@ a.extra.navlink.codelink:before{
 	display: inline-block;
 }
 
-a.extra.navlink.codelink:hover:before{
-	content: url(../images/code-l.gif);
-	padding-right: 5px;
-	display: inline-block;
-}
-
 a.extra.navlink.bloglink:before{
 	content: url(../images/blog-d.gif);
 	padding-right: 5px;
 	display: inline-block;
-}
-
-a.extra.navlink.bloglink:hover:before{
-	content: url(../images/blog-l.gif);
-	padding-right: 5px;
-	display: inline-block;
-}
-
-.thl{
-	font-weight: 300;
 }
