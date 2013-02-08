@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: Null models of bipartite networks in C</title>
+    <title>Tim Poisot :: COinS metadata in Jekyll blogposts</title>
 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
@@ -84,51 +84,56 @@
 <section>
 	<div class='pbody'>
 
-		<h1 class='ptitle'>Null models of bipartite networks in C</h1>
+		<h1 class='ptitle'>COinS metadata in Jekyll blogposts</h1>
 
 		<div class='postinfo'>
-			April 15, 2012 &mdash;
+			February  8, 2013 &mdash;
 			
-				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
+				<a class='post-tag' href="/tags/#jekyll-ref" title="tag">jekyll</a>,&nbsp;
 			
-				<a class='post-tag' href="/tags/#open source-ref" title="tag">open source</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#null models-ref" title="tag">null models</a>
+				<a class='post-tag' href="/tags/#bibliography-ref" title="tag">bibliography</a>
 			
 		</div>
 
-		<p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
+		<p><a href="http://ocoins.info/">COinS</a> is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn <a href="http://dynamicecology.wordpress.com/2011/06/17/zombie-ideas-in-ecology/">blog posts into <em>TREE</em> papers</a>, citing blog posts might not be so far away).</p>
 
-<p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It's super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
+<p>Adding <code>COinS</code> data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in to generate these data for blogs running <code>jekyll</code>. Having 5 minutes to lose, I decided to just go ahead and write one. Here it goes:</p>
 
-<div class="highlight"><pre><code class="bash">chmod +x configure
-./configure
-make
-sudo make install
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;span</span>
+    <span class="na">class=</span><span class="s">&quot;Z3988&quot;</span> 
+    <span class="na">title=</span><span class="s">&quot;ctx_ver=Z39.88-2004</span>
+<span class="s">    &amp;amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc</span>
+<span class="s">    &amp;amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator</span>
+<span class="s">    &amp;amp;rft.title={{ page.title}}</span>
+<span class="s">    &amp;amp;rft.creator={{site.author.name}}</span>
+<span class="s">    &amp;amp;rft.date={{ page.date | date: &quot;</span><span class="err">%</span><span class="na">Y-</span><span class="err">%</span><span class="na">m-</span><span class="err">%</span><span class="na">d</span><span class="err">&quot;</span> <span class="err">}}</span>
+    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">language=</span><span class="s">EN</span>
+    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">rights=</span><span class="s">CC-BY-SA</span>
+    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft_id=</span><span class="s">{{site.production_url}}{{page.url}}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
 </code></pre>
 </div>
 
 
-<p>Once this is done, compile the null model generator using <code>gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE</code>, and run in using <code>./nm test.txt 3 7 1000 2000</code>. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.</p>
+<p>As usual, if you want to use it (and there might be some tweaking to do, if you don't use <em>Jekyll bootstrap</em>), just place it in the <code>_includes</code> directory, and somewhere in your blog layout</p>
 
-<p>This last argument is especially important because I put restictions on what is a suitable network: it needs ot have at least one link by species present. In some cases, this will mean that the number of possible random networks given connectance and size is extremely small, and even a large number of trials can give no successful results.</p>
+<div class="highlight"><pre><code class="html">{% include coins.html %}
+</code></pre>
+</div>
 
-<p>The programm will generate one output file for each usable network, with the suffix <code>_n1</code> for Type I (connectance based) network, and the suffix <code>_n2</code> for Type II (degree based) networks.</p>
 
-<p>My Python code took two days to run through the 175 webs, giving up after 1000 iterations at most. The C code was able to do the same, with 50000 iterations at most, in less than 30 minutes. C is awesome, and I feel dumb for not learing it sooner.</p>
+<p>So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect <code>COinS</code> data, and so might be other programs.</p>
 
 
 		<div id="page-navigation">
 
         		<div class="left">
 	        		
-	                	Previous post: <a href="/2012/01/29/sign-your-reviews/" title="Previous Post: How to make the most out of peer-review?">How to make the most out of peer-review?</a>
+	                	Previous post: <a href="/2013/01/28/introductions-reinventing-ecological-wheel/" title="Previous Post: Article introductions and the reinvention of the ecological wheel">Article introductions and the reinvention of the ecological wheel</a>
 	        		
         		</div>
 
 		        <div class="right">
-			        
-			                Next post: <a href="/2012/04/26/biblatex-styles-ecology/" title="Next Post: Biblatex styles for ecology">Biblatex styles for ecology</a>
 			        
 		        </div>
 		</div> 
@@ -158,7 +163,7 @@ sudo make install
 </section>
 <span
 	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Null models of bipartite networks in C&amp;rft.creator=Timothée Poisot&amp;rft.date=2012-04-15&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2012/04/15/null-models-C/">
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=COinS metadata in Jekyll blogposts&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-02-08&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/02/08/coins-metadata-blogposts/">
 </span>
 
       </section>
