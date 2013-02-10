@@ -20,12 +20,14 @@ b, strong{
 }
 
 pre{
-	font-family: 'anonymous-pro' !important;
+	font-family: "mplus-1m" !important;
+	font-weight: 400 !important;
 }
 
 code{
-	font-family: 'anonymous-pro' !important;
-	font-size: 105%;
+	font-family: "mplus-1m" !important;
+	font-weight: 400 !important;
+	font-size: 0.8em;
 }
 
 body{
@@ -72,13 +74,15 @@ a:hover{
 .pbody{
 	margin: 10px auto;
 	text-align: left;
+	font-style: normal;
+	font-weight: 400 !important;
+	font-family: "chaparral-pro";
+	font-size: 1.2em;
 }
 
 .pbody p{
 	padding-bottom: 1.7em;
 	line-height: 1.6em;
-	font-style: normal;
-	font-weight: 300;
 }
 
 .pbody ul{
@@ -122,16 +126,20 @@ a:hover{
 
 .ptitle, .pbody h1, .latest_post h1{
 	color: rgb(20, 20, 20);
+	font-family: "jaf-facitweb" !important;
 }
 
 .upost{
 	font-weight: 700;
+	font-family: "jaf-facitweb" !important;
 }
 
 .postinfo{
 	font-weight: 100;
 	color: #333;
 	margin-bottom: 0.9em;
+	font-size: 0.9em;
+	font-family: "jaf-facitweb" !important;
 }
 
 .precontent{
@@ -206,6 +214,9 @@ a:hover{
 	margin-bottom: 1.8em;
 	padding-top: 10px;
 	border-top: 1px dotted rgba(0, 0, 0, 0.2);
+	font-family: "jaf-facitweb" !important;
+	font-weight: 200;
+	font-size: 0.8em;
 }
 
 blockquote{
@@ -270,7 +281,7 @@ div .tagcol {
 }
 
 .thl{
-	font-weight: 300;
+	font-weight: 500;
 }
 
 
