@@ -27,7 +27,6 @@ pre{
 code{
 	font-family: "mplus-1m" !important;
 	font-weight: 400 !important;
-	font-size: 0.8em;
 }
 
 body{
@@ -75,9 +74,7 @@ a:hover{
 	margin: 10px auto;
 	text-align: left;
 	font-style: normal;
-	font-weight: 400 !important;
-	font-family: "chaparral-pro";
-	font-size: 1.2em;
+	font-weight: 300 !important;
 }
 
 .pbody p{
@@ -281,9 +278,8 @@ div .tagcol {
 }
 
 .thl{
-	font-weight: 500;
+	font-weight: 400;
 }
-
 
 a.extra.navlink.homelink:before{
 	content: url(../images/me-d.gif);
