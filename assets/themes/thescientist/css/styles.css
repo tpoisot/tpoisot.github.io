@@ -16,7 +16,7 @@ it, em{
 }
 
 b, strong{
-	font-weight: 600;
+	font-weight: 700;
 }
 
 pre{
@@ -30,7 +30,7 @@ code{
 }
 
 body{
-	font-family: "skolar" !important;
+	font-family: "ff-tisa-web-pro", 'Droid Serif', 'Georgia', serif !important;
 	color: #1f1f1f;
 	height:100%;
 	margin: 0px auto;
