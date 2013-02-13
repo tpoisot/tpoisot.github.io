@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Timothée Poisot" />
+    <title>Tim Poisot :: Estimating node contribution to network properties</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
+    
+    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <h1><a href="http://timotheepoisot.fr">Tim <span class='thl'>Poisot</span></a></h1>
+          <div class='nav'>
+          <ul class='main-nav'>
+            <li><a class="extra navlink homelink" href="/">About</a></li>
+            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
+            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='pbody'>
+
+		<h1 class='ptitle'>Estimating node contribution to network properties</h1>
+		<span class='margin'>
+			February 12, 2013<br />
+			752 words <br />	
+			Taggs:
+			
+				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#modularity-ref" title="tag">modularity</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#open lab book-ref" title="tag">open lab book</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#python-ref" title="tag">python</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#networkx-ref" title="tag">networkx</a>
+			
+		</span>
+
+		<p>I'm currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I'll just detail how it possible to get this information quickly using <code>networkx</code>.</p>
+
+<p><strong>Disclaimer:</strong> <em>I'm just using this post to take notes on code I'm currently working on.</em></p>
+
+<p><span class='margin'>Saavedra et al. <em>Nature</em> <strong>478</strong> <a href="http://dx.doi.org/10.1038/nature10433">DOI</a></span>Saavedra and colleagues proposed a method which is based on the randomization of the interactions of each species in the network. In a nutshell, to measure the contribution of a node to a network metric, you need to shuffle its interactions, and measure the difference between the original and shuffled network. This makes a whole lot of sense, and has the advantage of keeping size and connectance constant. But in my particular case, I'm more interested in measuring what happens when a node is lost, and how it affects the structure of the network. I'll show how to do that in <code>python</code>.</p>
+
+<p>Let's set up our environment. We need <code>networkx</code> and <code>numpy</code>, but let's also load <code>matplotlib</code> for the visualization.</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</code></pre>
+</div>
+
+
+<p><span class='margin'>The Louvain method is used by <em>Gephi</em>. It's extremely fast on large graphs, and give results comparable to simulated annealing methods.</span>I'll use modularity as an example metric. For large graphs, the <a href="https://sites.google.com/site/findcommunities/"><em>Louvain</em> method</a> works well, and by chance there is <a href="http://perso.crans.org/aynaud/communities/">a <code>networkx</code> implementation of it</a>. So let's download it and place it in the folder with the rest of the files, then load it with</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">community</span>
+</code></pre>
+</div>
+
+
+<p>The next step is to create a function which will remove each node in sequence, from the network, and return a copy of it. There is a <code>remove_nodes_from</code> method of graph objects, but it modifies the original copy. Fortunately we don't need to be very elegant here, and so the basic function is:</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">removeNode</span><span class="p">(</span><span class="n">web</span><span class="p">,</span><span class="n">node</span><span class="p">):</span>
+    <span class="n">tempWeb</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">([</span><span class="n">node</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">tempWeb</span>
+</code></pre>
+</div>
+
+
+<p>The hardest work is done! Now, we need to go through the following steps. <br/>
+<strong>1.</strong> Get the original value of modularity <br/>
+<strong>2.</strong> Loop through each node, and calculate the delta of modularity</p>
+
+<p>So let's write a function returning only the modularity value. The <code>community</code> package does more than that, of course, but for the purposes of this simple example, this will be enough.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">getModularity</span><span class="p">(</span><span class="n">web</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+    <span class="n">dendo</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">generate_dendogram</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">partition</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">partition_at_level</span><span class="p">(</span><span class="n">dendo</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dendo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">community</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>With that in hands, we can start the analysis. Assuming that we have an edgelist representation of our network, it's easy to load it and get its modularity:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="s">&#39;network.txt&#39;</span><span class="p">)</span>
+<span class="n">orig_mod</span> <span class="o">=</span> <span class="n">getModularity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>The final step is to compare every possible network with one species removed to the original one. And this is why I love <code>python</code>, because as <code>networkx</code> objects are <a href="http://networkx.github.com/documentation/latest/reference/classes.digraph.html">iterable</a>, this is a one-liner:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeNode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">]</span>
+</code></pre>
+</div>
+
+
+<p><span class='margin'>It's just as easy to iterate on the <em>edges</em> rather than the <em>nodes</em>. Which actually makes more sense for modularity...</span>In clear, for each node called <code>n</code> in the network <code>G</code>, we substract the modularity of the network <code>G</code> with <code>n</code> removed from the original modularity. So what does it looks like?</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">delta_mod</span><span class="p">),</span><span class="s">&#39;ok&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+
+<p>This will generate the following output:</p>
+
+<p><img src="/images/nodcontr-s1.png" title="Sorted contribution of each species to modularity" alt="Figure1" />
+Nodes with a value of &Delta; lower than 0 <em>increase</em> modularity when remove. As you can see, in this particular example, all but 3 nodes <em>decrease</em> modularity when removed. As a final twist, let's plot the network with the nodes color-coded according to the impact on modularity:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.07</span><span class="p">)</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">delta_mod</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Spectral</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sci</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+
+
+<p>This provides a nice visualization:</p>
+
+<p><img src="/images/nodimpact-gr.png" title="Graph" alt="Figure2" />
+<span class='margin'>The whole code is available as a <a href="https://gist.github.com/tpoisot/4942162">Gist</a></span>The redmost nodes are actually well connected to all modules, and it makes sense that removing them will reinforce modularity. In short, it's easy to run this analysis with <code>networkx</code>, because the graph objects are iterable. And the other good news is that it's fast (at least on reasonably sized networks), and in all cases faster than the permutation method I mentioned in the first paragraphs. Now to see how the two correlates (or not)...</p>
+
+
+		<div id="page-navigation">
+
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2013/02/08/coins-metadata-blogposts/" title="Previous Post: COinS metadata in Jekyll blogposts">COinS metadata in Jekyll blogposts</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+<span
+	class="Z3988" 
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Estimating node contribution to network properties&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-02-12&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/02/12/species-contribution-modularity/">
+</span>
+
+      </section>
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
+            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
+          </p>
+      </div>
+      
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
