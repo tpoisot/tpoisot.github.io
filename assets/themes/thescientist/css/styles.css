@@ -76,6 +76,7 @@ a:hover{
 	right: 0px;
 	width: 19%;
 	font-size: small;
+	padding-top: 0.5em;
 	font-weight: 300 !important;
 	line-height: 1.3em !important;
 }
@@ -318,4 +319,40 @@ a.extra.navlink.bloglink:before{
 	content: url(../images/blog-d.gif);
 	padding-right: 5px;
 	display: inline-block;
+}
+
+
+
+
+/* Some D3 stuff */
+
+.d3{
+	margin-bottom: 1.5em;
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 0px;
+}
+
+.link {
+  stroke: #ccc;
+  stroke-opacity: 0.6;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.dot {
+  fill: steelblue;
 }

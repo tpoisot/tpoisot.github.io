@@ -4,13 +4,72 @@
  <title>Tim <span class='thl'>Poisot</span></title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-02-12T23:08:17-05:00</updated>
+ <updated>2013-02-13T22:01:51-05:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Timothée Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Estimating edges contribution to network properties</title>
+   <link href="http://timotheepoisot.fr/2013/02/13/edges-contribution-modularity/"/>
+   <updated>2013-02-13T00:00:00-05:00</updated>
+   <id>http://timotheepoisot.fr/2013/02/13/edges-contribution-modularity</id>
+   <content type="html">&lt;p&gt;I had so much fun writing the previous post about how it is possible to measure &lt;a href=&quot;/2013/02/12/species-contribution-modularity/&quot;&gt;nodes contribution to network properties&lt;/a&gt; that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with &lt;a href=&quot;http://d3js.org/&quot;&gt;&lt;code&gt;D3.js&lt;/code&gt;&lt;/a&gt;, and I wanted to put what I've learnt in practice.&lt;/p&gt;
+
+&lt;p&gt;What I want to do is remove each &lt;em&gt;edge&lt;/em&gt;, and see how it affects modularity. This is, once again, really easy to do in &lt;code&gt;networkx&lt;/code&gt;. We'll just write a function similar to &lt;code&gt;removeNode&lt;/code&gt;, and add the possibility to keep the nodes with no links, or to remove them. By default, I'll consider that any node with no remaining edge is removed.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;removeEdge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nozero&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiGraph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_nodes_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_edges_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove_edges_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nozero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Isolated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;degree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove_nodes_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Isolated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;To get the contribution of each edge to modularity, it's simple to just adapt the one-liner from the previous post into:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;delta_mod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orig_mod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getModularity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;removeEdge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;span class='margin'&gt;The ranking method I use (&lt;code&gt;rankdata&lt;/code&gt; in &lt;code&gt;scipy&lt;/code&gt;) averages the rank of tied elements. So that explains why the points are not evely spaced.&lt;/span&gt;OK, so let's see what it looks like:&lt;/p&gt;
+
+&lt;div class='edgecontrib scatterplot d3'&gt;&lt;/div&gt;
+
+
+&lt;!-- edgecontrib-rank.tsv --&gt;
+
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;/data/edgecontrib-scatter.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The values of &amp;Delta; are low, but the message is simple: most edges, when removed, make modularity &lt;em&gt;decrease&lt;/em&gt;. For the next step, it can be cool to visualize &lt;em&gt;where&lt;/em&gt; in the networks these nodes are. &lt;code&gt;D3.js&lt;/code&gt; is able to read &lt;code&gt;JSON&lt;/code&gt; files to plot them as networks. So we just need to write a quick and dirty converter from , &lt;code&gt;networkx&lt;/code&gt; to &lt;code&gt;JSON&lt;/code&gt;, and tweak &lt;a href=&quot;http://bl.ocks.org/4062045&quot;&gt;this example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;span class='margin'&gt;And it's &lt;a href=&quot;/2012/11/23/how-to-represent-networks/&quot;&gt;a good idea&lt;/a&gt; to use &lt;code&gt;JSON&lt;/code&gt; to represent networks...&lt;/span&gt;This is so quick and dirty that I won't reproduce it here, but I ended up with a &lt;code&gt;JSON&lt;/code&gt; file containing the edges, and the nodes. For each node, the module it belongs to is known. For each edge, its contribution to modularity is known. What remains to do is to plot everything, thanks to the power of &lt;code&gt;D3.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class='edgecolor network d3'&gt;&lt;/div&gt;
+
+
+&lt;!-- edgecontrib-rank.tsv --&gt;
+
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;/data/edgecontrib-network.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;In this plot (move the nodes around!), the red links decrease modularity when removed, and the blue links increase it. The color of the nodes reflect which module they belong to. A quick eyeballing of the graph shows that blue links are established between nodes sharing different modules. Which makes sense, as if you disconnect modules, you further increase modularity. It may look good, but it's not rocket science!&lt;/p&gt;
+
+&lt;p&gt;In any case, I'm quite happy about the whole thing. First, it's super straightforward to remove edges/nodes with &lt;code&gt;networkx&lt;/code&gt;, and to measure how it affects network structure. Second, it's fast enough even on networks of a respectable size. And finally, this is perhaps the biggest revelation of the day: it's &lt;em&gt;easy&lt;/em&gt; to use &lt;code&gt;D3.js&lt;/code&gt;. It may not seem like much, but the two figures in this blog post are generated &lt;em&gt;from the original data&lt;/em&gt;. So if I want to re-generate the data, the figures will change as well. There is even more potential when creating webpages for projects, so I'll look more into that.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Estimating node contribution to network properties</title>
