@@ -5,7 +5,7 @@ html {
 	text-align: left;
 	margin: 0px auto;
 	padding: 0px;
-	background-color: rgb(251, 251, 252);
+	background-color: rgb(254, 254, 254);
 }
 
 /* Fonts and typography */
@@ -16,7 +16,7 @@ it, em{
 }
 
 b, strong{
-	font-weight: 700;
+	font-weight: 600;
 }
 
 pre{
@@ -30,12 +30,13 @@ code{
 }
 
 body{
-	font-family: "ff-tisa-web-pro", 'Droid Serif', 'Georgia', serif !important;
-	color: #1f1f1f;
+	/*font-family: "ff-tisa-web-pro", 'Droid Serif', 'Georgia', serif !important;*/
+	font-family: "jaf-facitweb" !important;
+	color: #0f0f0f;
 	height:100%;
 	margin: 0px auto;
 	padding: 0px;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	width: 850px;
 	position: relative;
 }
@@ -89,6 +90,7 @@ a:hover{
 	font-style: normal;
 	width: 75%;
 	margin-right: 25%;
+	font-weight: 300;
 }
 
 .pbody p{
@@ -112,7 +114,7 @@ a:hover{
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border: 1px solid rgb(234, 234, 234);
-	background-color: rgb(252, 252, 252);
+	background-color: rgb(254, 254, 254);
 	padding: 0px 1px;
 }
 
@@ -206,7 +208,7 @@ a:hover{
 }
 
 .nav a:hover{
-	border-bottom: 2px solid rgb(4, 149, 181);
+	border-bottom: 0px solid rgb(4, 149, 181);
 }
 
 .outlink a:hover{
@@ -251,6 +253,7 @@ pre{
 	padding-left: 3%;
 	border-left: 2px solid rgb(234, 234, 234);
 	margin-bottom: 1.7em;
+	font-size: 1.2em;
 }
 
 .latest_post p{
@@ -320,9 +323,6 @@ a.extra.navlink.bloglink:before{
 	padding-right: 5px;
 	display: inline-block;
 }
-
-
-
 
 /* Some D3 stuff */
 
