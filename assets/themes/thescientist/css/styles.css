@@ -16,28 +16,28 @@ it, em{
 }
 
 b, strong{
-	font-weight: 500;
+	font-weight: 600;
 }
 
 pre{
 	font-family: "mplus-1m" !important;
-	font-weight: 400 !important;
+	font-weight: 200 !important;
 }
 
 code{
 	font-family: "mplus-1m" !important;
-	font-weight: 400 !important;
+	font-weight: 200 !important;
 	font-size: 95%;
 }
 
 body{
 	/*font-family: "ff-tisa-web-pro", 'Droid Serif', 'Georgia', serif !important;*/
-	font-family: "museo-sans" !important;
+	font-family: "myriad-pro" !important;
 	color: #0f0f0f;
 	height:100%;
 	margin: 0px auto;
 	padding: 0px;
-	font-size: 1.4em;
+	font-size: 1.5em;
 	width: 850px;
 	position: relative;
 }
@@ -137,12 +137,12 @@ a:hover{
 
 .ptitle, .pbody h1, .latest_post h1{
 	color: rgb(60, 60, 60);
-	font-family: "jaf-facitweb" !important;
+	font-family: "myriad-pro-condensed" !important;
 }
 
 .upost{
 	font-weight: 700;
-	font-family: "jaf-facitweb" !important;
+	font-family: "myriad-pro-condensed" !important;
 }
 
 .postinfo{
