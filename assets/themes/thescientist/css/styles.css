@@ -16,7 +16,7 @@ it, em{
 }
 
 b, strong{
-	font-weight: 600;
+	font-weight: 500;
 }
 
 pre{
@@ -26,19 +26,22 @@ pre{
 
 code{
 	font-family: "mplus-1m" !important;
-	font-weight: 200 !important;
+	font-weight: 400 !important;
 	font-size: 95%;
 }
 
+.margin code{
+	font-weight: 200 !important;
+}
+
 body{
-	/*font-family: "ff-tisa-web-pro", 'Droid Serif', 'Georgia', serif !important;*/
-	font-family: "adelle-sans", 'Open Sans', sans-serif !important;
+	font-family: "prenton", 'Droid Serif', sans-serif !important;
 	color: #0f0f0f;
 	height:100%;
 	margin: 0px auto;
 	padding: 0px;
-	font-size: 1.5em;
-	width: 850px;
+	font-size: 1.4em;
+	width: 900px;
 	position: relative;
 }
 
@@ -74,6 +77,7 @@ a:hover{
 	right: 0px;
 	width: 19%;
 	font-size: small;
+	font-weight: 300;
 	padding-top: 0.5em;
 	font-weight: 300 !important;
 	line-height: 1.3em !important;
@@ -87,12 +91,12 @@ a:hover{
 	font-style: normal;
 	width: 75%;
 	margin-right: 25%;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 .pbody p{
 	padding-bottom: 1.7em;
-	line-height: 1.6em;
+	line-height: 1.5em;
 	font-size: 115%;
 }
 
@@ -129,6 +133,7 @@ a:hover{
 .pbody h1{
 	font-size: 1.3em;
 	font-weight: 600;
+	margin-bottom: 0.7em;
 }
 
 .ptitle{
