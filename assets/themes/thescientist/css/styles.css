@@ -21,7 +21,7 @@ b, strong{
 
 pre{
 	font-family: "mplus-1m" !important;
-	font-weight: 200 !important;
+	font-weight: 400 !important;
 }
 
 code{
@@ -32,7 +32,7 @@ code{
 
 body{
 	/*font-family: "ff-tisa-web-pro", 'Droid Serif', 'Georgia', serif !important;*/
-	font-family: "myriad-pro" !important;
+	font-family: "adelle-sans", 'Open Sans', sans-serif !important;
 	color: #0f0f0f;
 	height:100%;
 	margin: 0px auto;
@@ -137,12 +137,10 @@ a:hover{
 
 .ptitle, .pbody h1, .latest_post h1{
 	color: rgb(60, 60, 60);
-	font-family: "myriad-pro-condensed" !important;
 }
 
 .upost{
 	font-weight: 700;
-	font-family: "myriad-pro-condensed" !important;
 }
 
 .postinfo{
@@ -156,18 +154,14 @@ a:hover{
 	width: 100%;
 	height: 80px;
 	font-size: 1.2em;
+	font-variant: small-caps;
+	text-transform: lowercase;
 }
 
 /* Header layour */
 
-.siteinfos{
-	font-size: 100%;
-}
-
 .siteinfos h1{
-	padding-top: 0.3em;
 	font-weight: 300;
-	text-transform: lowercase;
 	float: left;
 }
 
@@ -185,11 +179,13 @@ a:hover{
 .nav{
 	float: right;
 	text-align: right;
-	font-weight: 100;
+	font-weight: 300;
+	padding: 0px;
+	margin: 0px;
 }
 
 .nav ul{
-	padding: 0.2em 0em;
+	padding: 0em 0em;
 }
 
 .nav li{
@@ -198,19 +194,7 @@ a:hover{
 }
 
 .nav a{
-	padding: 2px;
-	border-bottom: 0px solid rgb(252, 252, 252);
-	text-transform: lowercase;
-}
-
-.nav a:hover{
-	border-bottom: 0px solid rgb(4, 149, 181);
-}
-
-.outlink a:hover{
-	background-color: rgb(4, 149, 181);
-	color: white;
-	border-radius: 4px;
+	padding: 0px 2px;
 }
 
 .main-nav{
@@ -286,7 +270,7 @@ div .tagcol {
 }
 
 .thl{
-	font-weight: 400;
+	font-weight: 600;
 	color: rgb(60, 60, 60);
 }
 
