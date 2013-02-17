@@ -35,7 +35,7 @@ code{
 }
 
 body{
-	font-family: "prenton", 'Droid Serif', sans-serif !important;
+	font-family: "museo-sans", 'Droid Serif', sans-serif !important;
 	color: #0f0f0f;
 	height:100%;
 	margin: 0px auto;
@@ -91,7 +91,7 @@ a:hover{
 	font-style: normal;
 	width: 75%;
 	margin-right: 25%;
-	font-weight: 400;
+	font-weight: 300;
 }
 
 .pbody p{
@@ -132,16 +132,18 @@ a:hover{
 
 .pbody h1{
 	font-size: 1.3em;
-	font-weight: 600;
 	margin-bottom: 0.7em;
+	font-weight: 700 !important;
 }
 
-.ptitle{
+h1 .ptitle{
 	font-size: 1.4em !important;
+	font-weight: 900 !important;
 }
 
 .ptitle, .pbody h1, .latest_post h1{
 	color: rgb(60, 60, 60);
+	font-family: 'museo-sans-condensed';
 }
 
 .upost{
@@ -184,7 +186,7 @@ a:hover{
 .nav{
 	float: right;
 	text-align: right;
-	font-weight: 300;
+	font-weight: 500;
 	padding: 0px;
 	margin: 0px;
 }
@@ -226,10 +228,6 @@ blockquote{
 blockquote p{
 	margin: 0px !important;
 	padding: 0px !important;
-}
-
-blockquote strong, blockquote b{
-	font-weight: 600 !important;
 }
 
 pre{
@@ -276,7 +274,6 @@ div .tagcol {
 
 .thl{
 	font-weight: 600;
-	color: rgb(60, 60, 60);
 }
 
 a.extra.navlink.homelink:before{
