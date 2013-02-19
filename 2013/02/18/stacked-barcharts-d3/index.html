@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Timothée Poisot" />
+    <title>Tim Poisot :: A d3.js alternative to stacked bar charts</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
+    
+    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <h1><a href="http://timotheepoisot.fr">Tim <span class='thl'>Poisot</span></a></h1>
+          <div class='nav'>
+          <ul class='main-nav'>
+            <li><a class="extra navlink homelink" href="/">About</a></li>
+            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
+            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='pbody'>
+
+		<h1 class='ptitle'>A d3.js alternative to stacked bar charts</h1>
+		<span class='margin'>
+			February 18, 2013<br />
+			295 words <br />	
+			Taggs:
+			
+				<a class='post-tag' href="/tags/#data visualization-ref" title="tag">data visualization</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#D3.js-ref" title="tag">D3.js</a>
+			
+		</span>
+
+		<p>Following yesterday's post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I'll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
+
+<p>For this particular example, I assume that the data are in a matrix, in <code>csv</code> format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is:</p>
+
+<div class="highlight"><pre><code class="text">site , spa  , spb  , spc  , spd , spe 
+a    , 1    , 0.4  , 0.2  , 1.0 , 0.2 
+b    , 0.9  , 0.7  , 0.1  , 0.4 , 0.1 
+c    , 0.2  , 0.8  , 0.05 , 0.7 , 0.05
+d    , 0.1  , 0.81 , 0.07 , 0.1 , 0.12
+e    , 0.01 , 0.82 , 0.09 , 0.6 , 0.15
+f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
+</code></pre>
+</div>
+
+
+<p>The end result is as follows:</p>
+
+<div class='stackbardemo barplot d3'></div>
+
+
+<!-- stackbardemo.csv -->
+
+
+<script type="text/javascript" src="/data/stackbardemo.js"></script>
+
+
+<p>Generating the small axes on the left was the most tricky part, and I used a probably sub-optimal way to do it:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+       <span class="kd">var</span> <span class="nx">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="nx">d</span><span class="p">.</span><span class="nx">temp</span> <span class="o">=</span> <span class="nx">color</span><span class="p">.</span><span class="nx">domain</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">temp_y</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">linear</span><span class="p">()</span>
+          <span class="p">.</span><span class="nx">rangeRound</span><span class="p">([(</span><span class="nx">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nx">height</span><span class="o">/</span><span class="nx">YMax</span><span class="p">),</span> <span class="p">(</span><span class="nx">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nx">height</span><span class="o">/</span><span class="nx">YMax</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nx">height</span><span class="o">/</span><span class="nx">YMax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">OffSet</span><span class="p">)])</span>
+          <span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
+        <span class="kd">var</span> <span class="nx">temp_yAxis</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">svg</span><span class="p">.</span><span class="nx">axis</span><span class="p">()</span>
+          <span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">temp_y</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">orient</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">ticks</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">tickFormat</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;.1s&quot;</span><span class="p">));</span>
+        <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;y axis&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">temp_yAxis</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+      <span class="p">});</span>
+    <span class="p">};</span>
+  <span class="p">});</span>
+</code></pre>
+</div>
+
+
+<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I'd be really interested in finding a way to do without the <code>forEach</code> part.</p>
+
+
+		<div id="page-navigation">
+
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2013/02/17/stacked-barcharts/" title="Previous Post: An alternative to stacked bar charts">An alternative to stacked bar charts</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+<span
+	class="Z3988" 
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=A d3.js alternative to stacked bar charts&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-02-18&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/02/18/stacked-barcharts-d3/">
+</span>
+
+      </section>
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
+            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
+          </p>
+      </div>
+      
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
