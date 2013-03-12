@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Timothée Poisot" />
+    <title>Tim Poisot :: High-throughput sequencing and community ecology</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
+    
+    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <h1><a href="http://timotheepoisot.fr">Tim <span class='thl'>Poisot</span></a></h1>
+          <div class='nav'>
+          <ul class='main-nav'>
+            <li><a class="extra navlink homelink" href="/">About</a></li>
+            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
+            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='pbody'>
+
+		<h1 class='ptitle'>High-throughput sequencing and community ecology</h1>
+		<span class='margin'>
+			March 12, 2013<br />
+			607 words <br />	
+			Taggs:
+			
+				<a class='post-tag' href="/tags/#biogeography-ref" title="tag">biogeography</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#next-generation sequencing-ref" title="tag">next-generation sequencing</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#ecology-ref" title="tag">ecology</a>
+			
+		</span>
+
+		<p>High-throughput sequencing (let's abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I'm currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken by the fact that there is a huge gap between what HTS <em>could</em> do, and what it's used for.</p>
+
+<p>These methods are massively used in microbial ecology, but surprisingly they have been confined to very broad topics, like <em>biodiversity</em> or <em>ecology</em>. Indeed, a quick bibliometric analysis using different fields of ecological research, in association with 454 pyrosequencing, gave interesting results:</p>
+
+<p><img src="/images/hts-bibliometrics.png" title="Bibliometric analysis" alt="Figure1" /></p>
+
+<p>Clearly, there is some potential to look at exciting research questions in community ecology and biogeography, but except for <em>biodiversity</em> and <em>ecology</em>, most ecological subjects seem to be relatively confidential in the HTS literature. At the same time, we were discussing various papers related to the subject, about how we can increase our knowledge of diversity with various molecular methods. So it seems that there is an interest in ecologists using these methods, but we can't still feel it in the literature. Why?</p>
+
+<p>Well, the environmental microbiology literature can be difficult to get into if you're not familiar with the field. In part because it's really technical, and in part because some things are called differently by different peoples. On the other hand, most of the ecological theory was not developped with microbes in mind. And there's <a href="http://oikosjournal.wordpress.com/2011/06/10/objections-to-microcosms-in-ecology-and-their-answers/">still a stigma about doing ecology with anything smaller than a <em>Daphnia</em></a>. So in short, there is a communication problem between two fields. And that's too bad, because in the overlap between these fields, there is some truely exciting science to be done.</p>
+
+<p>So we (meaning me, my beloved wife and my boss) set our minds on writing a paper, whose goal was to present high-throughput sequencing in a way that would be appealing to ecologists. <a href="http://onlinelibrary.wiley.com/doi/10.1002/ece3.508/abstract">It is now online at <em>Ecology &amp; Evolution</em></a>. The structure of it, and to some extent the tone, was greatly inspired by <a href="http://doi.wiley.com/10.1111/j.1600-0706.2009.17557.x">an earlier paper by Jerald Johnson</a>, berating molecular ecologists for their lack of attention to ecological ideas. Not that we think that blame should be attributed to anyone in the fact that HTS is not widely used by ecologists, but the structure of the paper was brilliant: let's present <em>ecological questions</em>, and then discuss how the method brings us closer to an asnwer.</p>
+
+<p>I think we did a good job of this. Rather than focusing on the methodological details, we provide a <em>conceptual</em> approach to the use of HTS in community ecology and biogeography. This paper is intended to be a gentle introduction to the field. If you are familiar with the litterature, then you probably won't learn anything new. But if you are interested by the methods, and want to use them, then there might be things for you in the paper. Here is the abstract:</p>
+
+<blockquote><p>High-throughput sequencing is becoming increasingly important in microbial ecology, yet it is surprisingly under-used to generate or test biogeographical hypotheses. In this contribution, we highlight how adding these methods to the ecologist toolbox will allow the detection of new patterns, and will help our understanding of the structure and dynamics of diversity. Starting with a review of ecological questions that can be addressed, we move on to the technical and analytical issues that will benefit from an increased collaboration between different disciplines.</p></blockquote>
+
+
+		<div id="page-navigation">
+
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2013/02/18/stacked-barcharts-d3/" title="Previous Post: A d3.js alternative to stacked bar charts">A d3.js alternative to stacked bar charts</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+<span
+	class="Z3988" 
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=High-throughput sequencing and community ecology&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-03-12&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/03/12/ngs-community-ecology/">
+</span>
+
+      </section>
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
+            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
+          </p>
+      </div>
+      
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
