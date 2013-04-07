@@ -4,13 +4,36 @@
  <title>Tim <span class='thl'>Poisot</span></title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-03-29T11:53:41-04:00</updated>
+ <updated>2013-04-07T18:24:37-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Timothée Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Is E.O. Wilson wrong about maths?</title>
+   <link href="http://timotheepoisot.fr/2013/06/07/wilson-maths/"/>
+   <updated>2013-06-07T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/06/07/wilson-maths</id>
+   <content type="html">&lt;p&gt;E.O. Wilson recently published an editorial entitled &lt;a href=&quot;http://online.wsj.com/article/SB10001424127887323611604578398943650327184.html&quot;&gt;&quot;Great scientists don't need math&quot;&lt;/a&gt; in the &lt;em&gt;Wall Street Journal&lt;/em&gt;. Jeremy Fox wrote &lt;a href=&quot;https://dynamicecology.wordpress.com/2013/04/07/e-o-wilson-vs-math/&quot;&gt;a great rebuttal&lt;/a&gt; of it, which you should certainly read as well.&lt;/p&gt;
+
+&lt;p&gt;In short, Wilson's argument is that most of great science is the work of intuition. In Jean Cocteau's words, science is the confirmation of instinct's discoveries. And in this perspective, math literacy is not needed, because it's only a boring formality, to confirm what the &quot;great minds&quot; have been thinking. To some extent, the point is valid - the point that intuition is important, that is. Feyerabend emphasized that instinct is important, and that no great breakthrough comes from blindly following the scientific method (which is certainly debatable). But for Descartes (probably in the &lt;em&gt;Rules for the direction of mind&lt;/em&gt;), there is the &quot;obvious intuition and the necessary deduction&quot;. Given the importance he gives to &quot;obvious intuition&quot;, Wilson writes that a good level of mathematical literacy is not needed, and going in the field, checking stuff out, and developing an &quot;intuition&quot; for it should be enough.&lt;/p&gt;
+
+&lt;p&gt;Reading this text, I was immediately reminded of this piece by &lt;a href=&quot;http://timotheepoisot.fr/2012/08/13/models-are-useless/&quot;&gt;Ferdinando Boero&lt;/a&gt;, about the uselessness of models in ecology. Coming from Wilson, which is a clear authority figure, this point of view can be much more damaging.&lt;/p&gt;
+
+&lt;p&gt;First, I'm even surprised this text was written by Wilson. He's an outstanding scientist, no doubt. And he reached this reputation because of its intuition, in part, but also because they have been mathematical expressed. &lt;span class='margin'&gt;MacArthur, R.H. &amp;amp; Wilson, E.O. (2001). The Theory of Island Biogeography. Princeton University Press.&lt;/span&gt;As far as I can tell, Mac Arthur and Wilson's &lt;em&gt;Theory of Island Biogeography&lt;/em&gt; was so successful because its mathematical expression allows one to do a lot of work with it. This mathematical formulation is not purely a technical comment on the theory. It's part of it, and has no less value than the intuition giving rise to it. Would the TIB be so successful today if not for the ability to (i) test and (ii) expand it &lt;em&gt;because it can be mathematically expressed&lt;/em&gt;? I guess not. Would this theory even had a impact &lt;em&gt;at all&lt;/em&gt; if ecologists stopped, all of sudden, caring about understanding math?&lt;/p&gt;
+
+&lt;p&gt;Second, this text can do a lot of damage to students. They now have an authority figure to back up their animosity with maths. I spent the fall session teaching an intro to population biology class, and it was obviously based on a mathematical understanding of population dynamics. The students were not happy with it, because they see ecology as an essentially field-based science. Perhaps it's a local sampling bias, but the students in my class enjoyed going outdoors looking at stuff much more than understanding Lotka-Volterra equations, and (I suspect) viewed it as a higher form of science. The last thing needed is a formidable scientist like Wilson entertaining their illusion that it's OK to be mathematically illiterate, and that mathematically expressing your intuition is a technical point best left to the egg-heads in the math department. It's even more insulting that Wilson exhorts students with a poor math background to go specifically in biology or ecology. It's just appalling.&lt;/p&gt;
+
+&lt;p&gt;Third, the title of the piece is misleading. If you were a great scientist, would you not have to use maths? That's a really bold claim to do, especially in ecology. Field work and data are important, and people with the knowledge (and yes, intuition) to explain these data &lt;em&gt;are&lt;/em&gt; important, that much is certain. But having the ability to either express these intuitions as models, or to manipulate these models to &lt;em&gt;test hypotheses&lt;/em&gt; is not minor-league science. &lt;span class='margin'&gt;Lawton, J. (1999). Oikos, 84, 177–192.&lt;/span&gt;Ecology has been criticized as a science of examples, a collection of anecdotes with no discernible laws or patterns. The last thing we need is to reinforce the idea that it's more important to just have the intuition of processes.&lt;/p&gt;
+
+&lt;p&gt;&lt;span class='margin'&gt;Levin, S.A. (2012). Interface Focus, 2, 141–143. &lt;a href=&quot;http://dx.doi.org/10.1098/rsfs.2012.0006&quot;&gt;DOI&lt;/a&gt;&lt;/span&gt;It's sad that within six months, we can have a great piece by Simon Levin calling for a tighter integration between theory and data, and this opinion. I'm hoping that the students will not read too much into this text. The level of mathematical literacy needed now is not high. High-school mathematics should be enough to make you able to read your way through 90% of ecological models (it won't be easy, but it's doable). I've actually managed to become a theoretician of sorts, after a decade being a straight C student in maths. Developing the ability to go from your intuition to a formal expression of it, through mathematics or algorithmic, is an invaluable competence to have. The level of math literacy needed is not high. It's not too much. It's nothing to complain about.&lt;/p&gt;
+
+&lt;p&gt;A while back, Fred Barraquand and some other INNGE members conducted a survey of &lt;a href=&quot;http://www.innge.net/?q=node/158&quot;&gt;the opinion of ecologists about their quantitative training&lt;/a&gt;. The paper is on its way, so I'll have more to share about it later (hopefully!). But without spoiling too much: ecologists (practising, professional ecologists, &lt;em&gt;i.e.&lt;/em&gt; faculty, post-doc, and grad students) are not happy with their math background. They would like to have more of it, both in terms of modelling and statistical analysis. So don't give Wilson's piece too much credit. It's just its own personal opinion, and from what we've learned surveying the field, it's an outdated opinion, people now see math and quantitative work as a key tool in our science.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>High-throughput sequencing and community ecology</title>
