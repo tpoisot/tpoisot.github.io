@@ -91,8 +91,7 @@
 
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="kn">as</span> <span class="nn">sp_int</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Next, we write the function modeling the population growth, as a function of
@@ -101,16 +100,14 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
     <span class="n">dY</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">dY</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The syntax is relatively easy. Note that <code>t0</code> is not used by the function at any time, but is required by <code>odeint</code> to do its internal calculations. Note also that y is an array. These two parameters are required, and the other are optional. Next, we fix the values of <em>r</em> and <em>K</em>. The required format is a tuple, so you need to be very careful when passing the parameters: they must be in the same order than in the function declaration. Additionally, we'll declare a starting population size.</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Now we will do the actual numerical integration. This is fairly simple.</p>
@@ -119,8 +116,7 @@ two parameters, <em>r</em> and <em>K</em>.</p>
     <span class="n">func</span><span class="o">=</span><span class="n">logistic</span><span class="p">,</span><span class="n">y0</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
     <span class="n">t</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span><span class="n">args</span><span class="o">=</span><span class="n">params</span>
     <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Note that we define an array called <code>t</code>, in which the times at which integration needs to be performed are stored. The object <code>log_growth</code> will have all the information required to analyze the simulation results, with the time in the first column, and the population sizes after. This kind of object is fairly easy to plot using, e.g. <a href="http://pyx.sourceforge.net/">PyX</a>.</p>

@@ -4,7 +4,7 @@
  <title>Tim <span class='thl'>Poisot</span></title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-04-07T18:24:37-04:00</updated>
+ <updated>2013-04-09T16:37:53-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Timothée Poisot</name>
@@ -13,10 +13,33 @@
 
  
  <entry>
+   <title>Elsevier acquired Mendeley. It's not as bad as I thought.</title>
+   <link href="http://timotheepoisot.fr/2013/04/09/mendelsevier/"/>
+   <updated>2013-04-09T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/04/09/mendelsevier</id>
+   <content type="html">&lt;p&gt;Mendeley was &lt;a href=&quot;http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/&quot;&gt;recently acquired by public enemy Elsevier&lt;/a&gt; in a puzzling move. Some of you may remember that I've announced that, &lt;a href=&quot;http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/&quot;&gt;should this acquisition happen, I'll be out of here&lt;/a&gt;. Actually, I've switched to Zotero a while back and never ever looked back. But still. &lt;a href=&quot;http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/#comment-857798908&quot;&gt;Mr. Will Gunn himself&lt;/a&gt; asked me to do a follow-up post, on the basis that it's not as bad as I feared. And as much as I am pained to admit it, that is entirely correct. The acquisition of Mendeley by Elsevier is not as bad as I thought.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It's way worse&lt;/strong&gt;. Do you seriously expect that we are going to take the sale of our usage data to Elsevier with a smile, because of some PR speak, and an attempt to mitigate the reactions on twitter? Do you think &lt;em&gt;anyone&lt;/em&gt; will be fooled by the same usual litany of &quot;But we are bringing value to the user&quot;? Let's face it, if you sold out to Elsevier, you are also going to turn a profit on the user data. It takes a lot of nerve to go on twitter and the blogs, and say that everything is fine, after that.&lt;/p&gt;
+
+&lt;p&gt;I stand by my initial reaction on twitter:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p&gt;Oh fuck you! Fuck you! &lt;a href=&quot;http://t.co/ewGmbYp3yG&quot; title=&quot;http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/&quot;&gt;blog.mendeley.com/start-up-life/…&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim (@tpoi) &lt;a href=&quot;https://twitter.com/tpoi/status/321432025691197440&quot;&gt;April 9, 2013&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Seriously, Mendeley. Selling out to Elsevier is bad. Don't make it worse than it is by thinking that your userbase will fall for your PR speech. Most of the people  talked to this morning will not fall for that, and felt really insulted by your constant reinsurance that you will change the world for the better now. Not everything is shiny. But thanks for the reminder of a harsh reality. In the business of science, scientists are the only one still not making a profit. I thought we were the smart guys...&lt;/p&gt;
+
+&lt;p&gt;PS: If you want to leave Mendeley for good, just go &lt;a href=&quot;https://www.mendeley.com/account/details/&quot;&gt;here&lt;/a&gt;, and click on the link at the very bottom, called &lt;em&gt;Delete my account&lt;/em&gt;. Don't forget to tell them why.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Is E.O. Wilson wrong about maths?</title>
-   <link href="http://timotheepoisot.fr/2013/06/07/wilson-maths/"/>
-   <updated>2013-06-07T00:00:00-04:00</updated>
-   <id>http://timotheepoisot.fr/2013/06/07/wilson-maths</id>
+   <link href="http://timotheepoisot.fr/2013/04/07/wilson-maths/"/>
+   <updated>2013-04-07T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/04/07/wilson-maths</id>
    <content type="html">&lt;p&gt;E.O. Wilson recently published an editorial entitled &lt;a href=&quot;http://online.wsj.com/article/SB10001424127887323611604578398943650327184.html&quot;&gt;&quot;Great scientists don't need math&quot;&lt;/a&gt; in the &lt;em&gt;Wall Street Journal&lt;/em&gt;. Jeremy Fox wrote &lt;a href=&quot;https://dynamicecology.wordpress.com/2013/04/07/e-o-wilson-vs-math/&quot;&gt;a great rebuttal&lt;/a&gt; of it, which you should certainly read as well.&lt;/p&gt;
 
 &lt;p&gt;In short, Wilson's argument is that most of great science is the work of intuition. In Jean Cocteau's words, science is the confirmation of instinct's discoveries. And in this perspective, math literacy is not needed, because it's only a boring formality, to confirm what the &quot;great minds&quot; have been thinking. To some extent, the point is valid - the point that intuition is important, that is. Feyerabend emphasized that instinct is important, and that no great breakthrough comes from blindly following the scientific method (which is certainly debatable). But for Descartes (probably in the &lt;em&gt;Rules for the direction of mind&lt;/em&gt;), there is the &quot;obvious intuition and the necessary deduction&quot;. Given the importance he gives to &quot;obvious intuition&quot;, Wilson writes that a good level of mathematical literacy is not needed, and going in the field, checking stuff out, and developing an &quot;intuition&quot; for it should be enough.&lt;/p&gt;
@@ -74,8 +97,7 @@ c    , 0.2  , 0.8  , 0.05 , 0.7 , 0.05
 d    , 0.1  , 0.81 , 0.07 , 0.1 , 0.12
 e    , 0.01 , 0.82 , 0.09 , 0.6 , 0.15
 f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The end result is as follows:&lt;/p&gt;
@@ -110,8 +132,7 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
       &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So if any one here is more knowledgeable in &lt;code&gt;javascript&lt;/code&gt; than I am, I'd be really interested in finding a way to do without the &lt;code&gt;forEach&lt;/code&gt; part.&lt;/p&gt;
@@ -132,42 +153,38 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
 Abund &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; round&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;matrix&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;runif&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;nc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 Abund &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Abund&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;max&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; LETTERS&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
-colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; letters&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
+rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; LETTERS&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
+colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; letters&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
 
 pal &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; colorRampPalette&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;brewer.pal&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Paired&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))(&lt;/span&gt;nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will give us a site/abundance matrix. The next step is to create a plot with nothing in it:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;las&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-X &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-Y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+X &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+Y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 image&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;X&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;Y&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;white&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;axes&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;bty&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;span class='margin'&gt;It's easy to make it so that the width of each sub-plot is proportional to the relative abundance of each species.&lt;/span&gt;Then, for each row/line (and I'm aware this is not optimized at all), we will draw a vertical bar. Each taxon (&lt;em&gt;i.e.&lt;/em&gt; each column in our graph) will have its own sub-plot. The size can be fixed, or equal. But this allows comparison of species abundances across dates.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;&lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ro in &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
-    &lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;co in &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
-        rect&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ro&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; co&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ro&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;ro&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;co&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; co&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;border&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pal&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;ro&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;&lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ro &lt;span class=&quot;kr&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;co &lt;span class=&quot;kr&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
+        rect&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ro&lt;span class=&quot;m&quot;&gt;-0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; co&lt;span class=&quot;m&quot;&gt;-0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ro&lt;span class=&quot;m&quot;&gt;-0.5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;ro&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;co&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; co&lt;span class=&quot;m&quot;&gt;+0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;border&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pal&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;ro&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Finally, let's add reference lines for each species, and the site/species names on axes:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;abline&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;X&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;darkgrey&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;lwd&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-axis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;at&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;labels&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-axis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;at&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;labels&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;abline&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;v&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;X&lt;span class=&quot;m&quot;&gt;-0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;darkgrey&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;lwd&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+axis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;at&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;ncol&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;labels&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+axis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;at&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;labels&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Abund&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;col&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This gives the final result:&lt;/p&gt;
@@ -195,15 +212,13 @@ I find it much easier to eyeball the variation of species abundance across sites
         &lt;span class=&quot;n&quot;&gt;Isolated&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;degree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove_nodes_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Isolated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To get the contribution of each edge to modularity, it's simple to just adapt the one-liner from the previous post into:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;delta_mod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orig_mod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getModularity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;removeEdge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;span class='margin'&gt;The ranking method I use (&lt;code&gt;rankdata&lt;/code&gt; in &lt;code&gt;scipy&lt;/code&gt;) averages the rank of tied elements. So that explains why the points are not evely spaced.&lt;/span&gt;OK, so let's see what it looks like:&lt;/p&gt;
@@ -253,15 +268,13 @@ I find it much easier to eyeball the variation of species abundance across sites
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sp&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;span class='margin'&gt;The Louvain method is used by &lt;em&gt;Gephi&lt;/em&gt;. It's extremely fast on large graphs, and give results comparable to simulated annealing methods.&lt;/span&gt;I'll use modularity as an example metric. For large graphs, the &lt;a href=&quot;https://sites.google.com/site/findcommunities/&quot;&gt;&lt;em&gt;Louvain&lt;/em&gt; method&lt;/a&gt; works well, and by chance there is &lt;a href=&quot;http://perso.crans.org/aynaud/communities/&quot;&gt;a &lt;code&gt;networkx&lt;/code&gt; implementation of it&lt;/a&gt;. So let's download it and place it in the folder with the rest of the files, then load it with&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;community&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The next step is to create a function which will remove each node in sequence, from the network, and return a copy of it. There is a &lt;code&gt;remove_nodes_from&lt;/code&gt; method of graph objects, but it modifies the original copy. Fortunately we don't need to be very elegant here, and so the basic function is:&lt;/p&gt;
@@ -272,8 +285,7 @@ I find it much easier to eyeball the variation of species abundance across sites
     &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_edges_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remove_nodes_from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempWeb&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The hardest work is done! Now, we need to go through the following steps. &lt;br/&gt;
@@ -287,31 +299,27 @@ I find it much easier to eyeball the variation of species abundance across sites
     &lt;span class=&quot;n&quot;&gt;dendo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;community&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generate_dendogram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;community&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partition_at_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dendo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dendo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;community&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;modularity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;With that in hands, we can start the analysis. Assuming that we have an edgelist representation of our network, it's easy to load it and get its modularity:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_edgelist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;network.txt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;orig_mod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getModularity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The final step is to compare every possible network with one species removed to the original one. And this is why I love &lt;code&gt;python&lt;/code&gt;, because as &lt;code&gt;networkx&lt;/code&gt; objects are &lt;a href=&quot;http://networkx.github.com/documentation/latest/reference/classes.digraph.html&quot;&gt;iterable&lt;/a&gt;, this is a one-liner:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;delta_mod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orig_mod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getModularity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;removeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;span class='margin'&gt;It's just as easy to iterate on the &lt;em&gt;edges&lt;/em&gt; rather than the &lt;em&gt;nodes&lt;/em&gt;. Which actually makes more sense for modularity...&lt;/span&gt;In clear, for each node called &lt;code&gt;n&lt;/code&gt; in the network &lt;code&gt;G&lt;/code&gt;, we substract the modularity of the network &lt;code&gt;G&lt;/code&gt; with &lt;code&gt;n&lt;/code&gt; removed from the original modularity. So what does it looks like?&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delta_mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;ok&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will generate the following output:&lt;/p&gt;
@@ -327,8 +335,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This provides a nice visualization:&lt;/p&gt;
@@ -359,15 +366,13 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
     &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;amp&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rft&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rights=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;CC-BY-SA&lt;/span&gt;
     &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;amp&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rft_id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;{{site.production_url}}{{page.url}}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;As usual, if you want to use it (and there might be some tweaking to do, if you don't use &lt;em&gt;Jekyll bootstrap&lt;/em&gt;), just place it in the &lt;code&gt;_includes&lt;/code&gt; directory, and somewhere in your blog layout&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;{% include coins.html %}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect &lt;code&gt;COinS&lt;/code&gt; data, and so might be other programs.&lt;/p&gt;
@@ -501,8 +506,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;a b c d
 1 2 21 3
 abc dd e 456
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;to this&lt;/p&gt;
@@ -510,8 +514,7 @@ abc dd e 456
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;a    b   c   d 
 1    2   21  3  
 abc  dd  e   456
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;means a whole lot in terms of readability.&lt;/p&gt;
@@ -580,8 +583,7 @@ Well, reading this, I'm not sure anymore I don't need to worry. Now, this corpor
 
 &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;document&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;document&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The important line is &lt;code&gt;\tikzexternalize&lt;/code&gt;. This command tells the &lt;code&gt;tikz&lt;/code&gt; library to generate a separate file for each figure, compile it in a PDF, then include this PDF file in the document. The consequence of it is that, in your working folder, you know have a list of files:&lt;/p&gt;
@@ -589,8 +591,7 @@ Well, reading this, I'm not sure anymore I don't need to worry. Now, this corpor
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;-rw-r--r-- 1 tpoisot tpoisot      0 jan 10 15:21 pgf-figure3.dpth
 -rw-r--r-- 1 tpoisot tpoisot  31494 jan 10 15:21 pgf-figure3.log
 -rw-r--r-- 1 tpoisot tpoisot  22409 jan 10 15:21 pgf-figure3.pdf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;There is only one drawback with the use of the &lt;code&gt;\tikzexternalize&lt;/code&gt; command: as long as the corresponding PDF files are found in your working directory, &lt;code&gt;tikz&lt;/code&gt; will not recompile them. This is essentially because drawing a &lt;code&gt;tikz&lt;/code&gt; figure can be a relatively time-consuming process, especially if your graph has a lot of points. And so unless you are satisfy with your figure, comment the &lt;code&gt;%\tikzexternalize&lt;/code&gt; command.&lt;/p&gt;
@@ -601,8 +602,7 @@ Well, reading this, I'm not sure anymore I don't need to worry. Now, this corpor
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 convert -density 600x600 -resize 1204x986 -quality 90 &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;|cut -f1 -d&lt;span class=&quot;s1&quot;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;.png;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;-resize 1204x986&lt;/code&gt; flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it's better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:&lt;/p&gt;
@@ -617,8 +617,7 @@ convert -density 600x600 -resize 1204x986 -quality 90 &lt;span class=&quot;nv&qu
     &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0px&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;margin-bottom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1&gt;OK, let's do it!&lt;/h1&gt;
@@ -639,8 +638,7 @@ convert -density 600x600 -resize 1204x986 -quality 90 &lt;span class=&quot;nv&qu
         &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[coordinate,pin={above:{Treatment}}]&lt;/span&gt; at (axis cs:21,24.4) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
     &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;axis&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In a terminal, make executable, and run the &lt;code&gt;convert.sh&lt;/code&gt; script:&lt;/p&gt;
@@ -648,8 +646,7 @@ convert -density 600x600 -resize 1204x986 -quality 90 &lt;span class=&quot;nv&qu
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;tpoisot@tp002 ~/Bureau/PGFclean &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;chmod +x convert.sh
 tpoisot@tp002 ~/Bureau/PGFclean &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./convert.sh
 pgf-figure0.pdf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You will now have a PNG file, which looks like this:&lt;/p&gt;
@@ -659,8 +656,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;GR&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;RGB&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;60,170,70&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\definecolor&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;C1&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;RGB&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;170,70,60&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;, and using them (along with other options) to make your figure less LaTeX-y, can make a substantial difference. For example, the first figure in this entry was produced with the following code:&lt;/p&gt;
@@ -693,8 +689,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
             at (axis cs:21,24.4) &lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt;;
     &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;axis&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1&gt;In conclusion&lt;/h1&gt;
@@ -825,8 +820,7 @@ The first (striking) thing is that my network is less modular than I would have 
 0 0 0 1
 0 0 0 1
 0 0 0 0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Alternatively, we can write them as an edge list:&lt;/p&gt;
@@ -835,8 +829,7 @@ The first (striking) thing is that my network is less modular than I would have 
 a c
 c d
 b d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Both notation represent the same &quot;diamond&quot; food web, and can also convey some information about link strength, species biomass, &lt;em&gt;etc&lt;/em&gt;. But do they convey a lot of &lt;em&gt;ecological meaning&lt;/em&gt;? I'm not really sure. So instead of having all the network at one big entity, let's break it down in several smaller chunks. A network is a collection of interactions, so let's start by representing an interaction.&lt;/p&gt;
@@ -857,8 +850,7 @@ b d
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;predation&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;notes&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;none&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is a simple &lt;a href=&quot;http://en.wikipedia.org/wiki/JSON&quot;&gt;JSON&lt;/a&gt; object, with three central informations: a unique indentifer (&lt;code&gt;ID&lt;/code&gt;), two species (&lt;code&gt;from&lt;/code&gt; and &lt;code&gt;to&lt;/code&gt;), and a series of informations (&lt;code&gt;info&lt;/code&gt;). Within &lt;code&gt;info&lt;/code&gt;, you have two booleans; &lt;code&gt;binary&lt;/code&gt; tells you if this is a presence/absence or quantitative measure, &lt;code&gt;directional&lt;/code&gt; tells you if the interactions is, well, directional (in which case &lt;code&gt;from&lt;/code&gt; and &lt;code&gt;to&lt;/code&gt; are important), and &lt;code&gt;strength&lt;/code&gt; is the interaction strength. Finally, the &lt;code&gt;type&lt;/code&gt; property can tell which kind of interaction this is. Not rocket science so far.&lt;/p&gt;
@@ -875,8 +867,7 @@ b d
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;env_type&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;microcosm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;notes&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;none&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This should be relatively straigthforward. There is, again, an &lt;code&gt;ID&lt;/code&gt;. The &lt;code&gt;links&lt;/code&gt; component is a list of interactions, &lt;em&gt;i.e.&lt;/em&gt; the list of &lt;code&gt;ID&lt;/code&gt; of interactions. The other fields are a minimum set of informations, namely the time, place, and type of environment.&lt;/p&gt;
@@ -894,20 +885,19 @@ b d
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;body_size&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;quot;measure&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;mean&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;12.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;quot;units&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cm&amp;quot;&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;body_mass&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;quot;measure&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;mean&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;362&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;362.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;quot;units&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;g&amp;quot;&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;notes&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;none&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is probably where most of the action will happen. The interesting property here is &lt;code&gt;tax&lt;/code&gt;, which can be linked to another type of objects in the databse. Without going into more details, the &lt;code&gt;tax&lt;/code&gt; field will tell you which species or group of organism this population belongs to. For example, you can use a &lt;a href=&quot;http://bioportal.bioontology.org/ontologies/45846?p=terms&amp;amp;conceptid=EDAM%3A0001179&quot;&gt;NCBI Taxonomy ID&lt;/a&gt;. This, in turn, will allow you to go dig into &lt;a href=&quot;http://treebase.org/treebase-web/home.html&quot;&gt;TreeBase&lt;/a&gt;, using one of the &lt;a href=&quot;http://ropensci.org/&quot;&gt;ROpenSci packages&lt;/a&gt; designed to do so.&lt;/p&gt;
@@ -1008,10 +998,7 @@ The number within each quadrant represent how many networks have this property (
     &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, below of=mnnn]&lt;/span&gt; (nodfn) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;-&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
     &lt;span class=&quot;k&quot;&gt;\node&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[draw=none, fill=none, above of=mpne]&lt;/span&gt; (lab) &lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;Panel title&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;;
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tikzpicture&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </content>
  </entry>
@@ -1039,15 +1026,13 @@ The number within each quadrant represent how many networks have this property (
    <content type="html">&lt;p&gt;To reproduce the analyses presented in &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;our latest paper&lt;/a&gt;, we wrote the &lt;a href=&quot;https://github.com/tpoisot/betalink&quot;&gt;&lt;code&gt;betalink&lt;/code&gt;&lt;/a&gt; R package. This post is a walkthrough for most of the analyses. The help is not fully completed yet, and in any case, seeing examples is more informative than reading the manual. First thing first, go to the previous link, and download the package. Unzip it, open a terminal, and type&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;R CMD INSTALL betalink
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If you open &lt;code&gt;R&lt;/code&gt;, you can now load the package with&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;betalink&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Past this point, I'm assuming you are familiar with our terminology, but if not, you can go &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;&lt;strong&gt;read the previous post&lt;/strong&gt;&lt;/a&gt; (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a &lt;code&gt;list&lt;/code&gt; of &lt;code&gt;matrix&lt;/code&gt; objects. It's obviously important that species are named, &lt;em&gt;i.e.&lt;/em&gt; set the &lt;code&gt;colnames&lt;/code&gt; and &lt;code&gt;rownames&lt;/code&gt; properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).&lt;/p&gt;
@@ -1060,22 +1045,19 @@ colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&q
 rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;h1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;h2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The first step is to put these networks into a list:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;realizations &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; w2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, we cant ask about the metaweb. The package proposes the &lt;code&gt;aggregate.metaweb&lt;/code&gt; function:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;metaweb &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; aggregate.metaweb&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;realizations&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The object returned is a list with three elements, &lt;code&gt;meta&lt;/code&gt;, &lt;code&gt;template&lt;/code&gt;, and &lt;code&gt;cooc&lt;/code&gt;. All three objects are matrices, which correspond to different informations about the metaweb. &lt;code&gt;meta&lt;/code&gt; is the one you are most likely to use, as it is the adjacency matrix of the metaweb. &lt;code&gt;template&lt;/code&gt; is a matrix giving the frequency at which two species interacted (&lt;em&gt;i.e.&lt;/em&gt; the total number of realizations in which they interacted, over the total number of realizations in which they co-occured). Finally, &lt;code&gt;cooc&lt;/code&gt; gives the number of times two species co-occured, across all realizations. Note that most of the time, the &lt;code&gt;aggregate.metaweb&lt;/code&gt; function will be called internally, so except when you want to have a look at the metaweb itself, there are few reasons to call it.&lt;/p&gt;
@@ -1085,15 +1067,13 @@ rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w2&lt;span class=&quot;p&q
 &lt;p&gt;For any set of two networks, you can just call&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;betalink&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; w2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; bf&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;B01&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;However, if you have a lot more networks, then the process can be automated, and you will get a pairwise distance matrix, through&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;splus&quot;&gt;betalink.dist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;realizations&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; bf&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;B01&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If you look at the code for the &lt;code&gt;betalink.dist&lt;/code&gt; function, you will see that the last argument is actually the catch-all, &lt;code&gt;...&lt;/code&gt;. This means that if you want to modify the &lt;code&gt;betalink&lt;/code&gt; function, which &lt;code&gt;betalink.dist&lt;/code&gt; calls, you will be able to keep using &lt;code&gt;betalink.dist&lt;/code&gt;. The only difference between &lt;code&gt;betalink.dist&lt;/code&gt; and &lt;code&gt;betalink&lt;/code&gt; is that the later returns the species &amp;beta;-diversity for each side of the matrix separately (&lt;em&gt;i.e.&lt;/em&gt; for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network &amp;beta;-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.&lt;/p&gt;
@@ -1161,23 +1141,20 @@ Quoting from the last paragraph:&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;symbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;r q b a d&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# Functions&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;dH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;symbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;dH dP&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cls&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once this is done, you can write up the equations&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;dH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;dP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And solve with a &lt;em&gt;Mathematica&lt;/em&gt;-like syntax:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;At this point, you should get a list of tuples as the output:&lt;/p&gt;
@@ -1192,15 +1169,13 @@ Quoting from the last paragraph:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;equil&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;coex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;equil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coex&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I naturally tried do find which sets of parameters allow the system to coexist &lt;em&gt;with positive densities&lt;/em&gt;, so I used&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Which gave the following error message:&lt;/p&gt;
@@ -1334,8 +1309,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
         rgb255(9cm)=(50,136,189);
         rgb255(10cm)=(94,79,162);&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Or you can do a color cycle with the &lt;em&gt;Set1&lt;/em&gt; scheme:&lt;/p&gt;
@@ -1352,8 +1326,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
     s4,every mark/.append style=&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;fill=s4&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;,mark=*&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
     s5,every mark/.append style=&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;fill=s5&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;,mark=*&lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now that I think of it, it would be really easy to provide all of the brewer schemes into color map and color cycle form as an additional package. This is a project best left to someone with time on their hands.&lt;/p&gt;
@@ -1374,8 +1347,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;networkx&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nx&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then we'll set a few parameters:&lt;/p&gt;
@@ -1385,8 +1357,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
 &lt;span class=&quot;n&quot;&gt;P_col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.014&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;# Probability of colonization (c)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;P_init&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.02&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;# Probability that a patch will be occupied at the beginning&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.4&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# An arbitrary parameter to determine which patches are connected&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1&gt;Create a node class&lt;/h1&gt;
@@ -1401,8 +1372,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I won't go into the detail of this notation, but you can read more &lt;a href=&quot;http://www.penzilla.net/tutorials/python/classes/&quot;&gt;here&lt;/a&gt; or &lt;a href=&quot;http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/&quot;&gt;here&lt;/a&gt; if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.&lt;/p&gt;
@@ -1414,8 +1384,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
 &lt;p&gt;In &lt;code&gt;networkx&lt;/code&gt;, creating a graph is easy, and is done by&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We will now generate as many (&lt;code&gt;Patches&lt;/code&gt;) patches as needed, and put them on the landscape at random.&lt;/p&gt;
@@ -1424,8 +1393,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
     &lt;span class=&quot;n&quot;&gt;Stat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P_init&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Pos&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Stat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This require at least Python 2.6, but you can easily rewrite the problematic first line as an &lt;code&gt;if/else&lt;/code&gt; block. Basically, this will generate random positions in space, and randomly decide if the patch is occupied or not. This is where &lt;code&gt;networkx&lt;/code&gt; is extremely powerful: nodes can be any Python objects. In the simplest cases, you may want to use only numbers or strings, but if you have to keep track of the nodes in more advanced ways, then this become extremely fun and convenient to work with.&lt;/p&gt;
@@ -1437,8 +1405,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
         &lt;span class=&quot;n&quot;&gt;Dist&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dist&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_edge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;For all pairs of nodes, we check that their distance falls below the treshold for migration, and if so, we create an edge in the network.&lt;/p&gt;
@@ -1451,8 +1418,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
     &lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;draw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;with_labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Greys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vmin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vmax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will open a Python plotting view looking like:&lt;/p&gt;
@@ -1467,8 +1433,7 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P_ext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Simply put, for each node, if it is occupied and a random extinction event occurs, then its status is reverted to 0. Super easy. We can do something similar for the colonization routine. We assume that each occupied node will be able to colonize a single of its neighbouring nodes. This rquires to get a list of nodes adjacent to the node currently being evaluated.&lt;/p&gt;
@@ -1481,8 +1446,7 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
                 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
                     &lt;span class=&quot;n&quot;&gt;nei&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
                     &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;That's a lot of loops within loops, but it goes rougly as follows: for each of the nodes, if their is a population, we check the neighbors. For the non-occupied neighbors, we check if the colonization occurs, and if so, we break the loop.&lt;/p&gt;
@@ -1503,16 +1467,14 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
                     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P_col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
                         &lt;span class=&quot;n&quot;&gt;nei&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
                         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We then plot the lanscape using the same command as before (I've actually added the list of occupancies directly within the plot instruction, because one-liners looks cool):&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;nx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;draw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;with_labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Greys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vmin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vmax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;img src=&quot;/images/metapop_final.png&quot; title=&quot;Final step&quot; alt=&quot;Figure2&quot; /&gt;
@@ -1520,24 +1482,21 @@ But of course you would like to follow the dynamics, which is extremely easy. We
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Occupancy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Patches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And we will add infos at the end of each loop, i.e. immediately after the &lt;code&gt;break&lt;/code&gt; instruction (but in the main loop, not the colonization one):&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timestep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Occupancy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Patches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And at the really end of the simulation, just add&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Occupancy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;g-&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Which will give you the following result:&lt;/p&gt;
@@ -1662,16 +1621,14 @@ But of course you would like to follow the dynamics, which is extremely easy. We
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\DeclareFieldFormat&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[article]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;pages&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;#1&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\DeclareFieldFormat&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[article]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;volume&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\textbf&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;#1&lt;span class=&quot;nb&quot;&gt;}}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To further the CSS parallel, you can actually import most of the base functions and styles. E.g., the following lines will import the base functionalities needed to work with a numeric style compressing multiple citations, like (1-4):&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\RequireBibliographyStyle&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;standard&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\RequireBibliographyStyle&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;numeric-comp&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;What remains to do is to use a mixture of &lt;code&gt;\renewbibmacro*&lt;/code&gt;, &lt;code&gt;\usebibmacro&lt;/code&gt; and &lt;code&gt;\printfield&lt;/code&gt; to get the formatting you want.&lt;/p&gt;
@@ -1695,8 +1652,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
 ./configure
 make
 sudo make install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once this is done, compile the null model generator using &lt;code&gt;gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE&lt;/code&gt;, and run in using &lt;code&gt;./nm test.txt 3 7 1000 2000&lt;/code&gt;. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.&lt;/p&gt;
@@ -1752,8 +1708,7 @@ spe_pdi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; getspe&lt;span class=&quo
 spe_rr &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; getspe&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;web&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;rr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;spe_rr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The code is also being ported to Python and MatLab, but more on that later...&lt;/p&gt;
@@ -1808,8 +1763,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PhyloTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;ancestor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The output of this command should be &lt;code&gt;(root, ancestor)&lt;/code&gt;. The &lt;code&gt;root&lt;/code&gt; is created by default to ensure that the most basal node is a branching. The interesting thing is that it's now relatively easy to add and remove species. The &lt;code&gt;PhyloTree&lt;/code&gt; class has the &lt;code&gt;speciate&lt;/code&gt; method, who takes two arguments: the name of the ancestor, and the name of the daughter species. Calling it will go through the tree, and replace the ancestor by the (ancestor, daughter species) branching. Let's try with:&lt;/p&gt;
@@ -1817,8 +1771,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PhyloTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;speciate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0_0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;which results in the following tree: &lt;code&gt;(root,(0,0_0))&lt;/code&gt;. And I know this is not the way speciation works, so there is also a &lt;code&gt;split&lt;/code&gt; method, which will replace one ancestral species by two new species:&lt;/p&gt;
@@ -1826,8 +1779,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PhyloTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;will result in &lt;code&gt;(root,(2,1))&lt;/code&gt;. This is all made possible by the &lt;code&gt;extinct&lt;/code&gt; method, by the way, which will remove from the tree the species whose name is given in argument:&lt;/p&gt;
@@ -1836,8 +1788,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
 &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iTree&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;will result in &lt;code&gt;(root,1)&lt;/code&gt;.&lt;/p&gt;
@@ -1856,15 +1807,13 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
 &lt;p&gt;Jekyll is a lot of fun to use, especially because all of the content reside in &lt;em&gt;static text files&lt;/em&gt; instead of a database. It's also fully compatible with the &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;markdown&lt;/a&gt; format, which is a lot easier to write than html. For example, writing a simple text in bold in markdown is done through&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;**text in bold**
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;rather than the equivalent html&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;text in bold&lt;span class=&quot;nt&quot;&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So a less lot keys to press (especially on my new QWERTY keyboard). The fact that Jekyll uses the &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; templating language also make the overall design process &lt;em&gt;fun&lt;/em&gt;. In addition, the whole system is working on GitHub, so I have complete version control on everything. This is so awesome!&lt;/p&gt;
@@ -1904,8 +1853,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
 &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;aggr.dat&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errorbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()])&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writePDFfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;errorbar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;As you can see, it is really straightforward. The aggregate function needs four arguments: the data frame (in this case, a numpy array with two dimensions), the column for the group to aggregate, and the column for the response. The last argument is obviously the function which will be applied, in this case a simple mean ± standard deviation. In 30 lines of code, you can easily aggregate your data using python. Of course there is room for improvement, but this is already working quite well.&lt;/p&gt;
@@ -2011,8 +1959,7 @@ up this opportunity.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sp&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy.integrate&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sp_int&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next, we write the function modeling the population growth, as a function of
@@ -2021,16 +1968,14 @@ two parameters, &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;K&lt;/em&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;logistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;dY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The syntax is relatively easy. Note that &lt;code&gt;t0&lt;/code&gt; is not used by the function at any time, but is required by &lt;code&gt;odeint&lt;/code&gt; to do its internal calculations. Note also that y is an array. These two parameters are required, and the other are optional. Next, we fix the values of &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;K&lt;/em&gt;. The required format is a tuple, so you need to be very careful when passing the parameters: they must be in the same order than in the function declaration. Additionally, we'll declare a starting population size.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we will do the actual numerical integration. This is fairly simple.&lt;/p&gt;
@@ -2039,8 +1984,7 @@ two parameters, &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;K&lt;/em&gt;.&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Note that we define an array called &lt;code&gt;t&lt;/code&gt;, in which the times at which integration needs to be performed are stored. The object &lt;code&gt;log_growth&lt;/code&gt; will have all the information required to analyze the simulation results, with the time in the first column, and the population sizes after. This kind of object is fairly easy to plot using, e.g. &lt;a href=&quot;http://pyx.sourceforge.net/&quot;&gt;PyX&lt;/a&gt;.&lt;/p&gt;

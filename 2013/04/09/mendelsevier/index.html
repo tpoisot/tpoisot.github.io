@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: Null models of bipartite networks in C</title>
+    <title>Tim Poisot :: Elsevier acquired Mendeley. It's not as bad as I thought.</title>
 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
     <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
@@ -65,51 +65,42 @@
 <section>
 	<div class='pbody'>
 
-		<h1 class='ptitle'>Null models of bipartite networks in C</h1>
+		<h1 class='ptitle'>Elsevier acquired Mendeley. It's not as bad as I thought.</h1>
 		<span class='margin'>
-			April 15, 2012<br />
-			356 words <br />	
+			April  9, 2013<br />
+			345 words <br />	
 			Taggs:
 			
-				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#open source-ref" title="tag">open source</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#null models-ref" title="tag">null models</a>
+				<a class='post-tag' href="/tags/#open science-ref" title="tag">open science</a>
 			
 		</span>
 
-		<p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
+		<p>Mendeley was <a href="http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/">recently acquired by public enemy Elsevier</a> in a puzzling move. Some of you may remember that I've announced that, <a href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/">should this acquisition happen, I'll be out of here</a>. Actually, I've switched to Zotero a while back and never ever looked back. But still. <a href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/#comment-857798908">Mr. Will Gunn himself</a> asked me to do a follow-up post, on the basis that it's not as bad as I feared. And as much as I am pained to admit it, that is entirely correct. The acquisition of Mendeley by Elsevier is not as bad as I thought.</p>
 
-<p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It's super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
+<p><strong>It's way worse</strong>. Do you seriously expect that we are going to take the sale of our usage data to Elsevier with a smile, because of some PR speak, and an attempt to mitigate the reactions on twitter? Do you think <em>anyone</em> will be fooled by the same usual litany of "But we are bringing value to the user"? Let's face it, if you sold out to Elsevier, you are also going to turn a profit on the user data. It takes a lot of nerve to go on twitter and the blogs, and say that everything is fine, after that.</p>
 
-<div class="highlight"><pre><code class="bash">chmod +x configure
-./configure
-make
-sudo make install
-</code></pre></div>
+<p>I stand by my initial reaction on twitter:</p>
+
+<blockquote class="twitter-tweet"><p>Oh fuck you! Fuck you! <a href="http://t.co/ewGmbYp3yG" title="http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/">blog.mendeley.com/start-up-life/…</a></p>&mdash; Tim (@tpoi) <a href="https://twitter.com/tpoi/status/321432025691197440">April 9, 2013</a></blockquote>
 
 
-<p>Once this is done, compile the null model generator using <code>gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE</code>, and run in using <code>./nm test.txt 3 7 1000 2000</code>. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.</p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>This last argument is especially important because I put restictions on what is a suitable network: it needs ot have at least one link by species present. In some cases, this will mean that the number of possible random networks given connectance and size is extremely small, and even a large number of trials can give no successful results.</p>
 
-<p>The programm will generate one output file for each usable network, with the suffix <code>_n1</code> for Type I (connectance based) network, and the suffix <code>_n2</code> for Type II (degree based) networks.</p>
+<p>Seriously, Mendeley. Selling out to Elsevier is bad. Don't make it worse than it is by thinking that your userbase will fall for your PR speech. Most of the people  talked to this morning will not fall for that, and felt really insulted by your constant reinsurance that you will change the world for the better now. Not everything is shiny. But thanks for the reminder of a harsh reality. In the business of science, scientists are the only one still not making a profit. I thought we were the smart guys...</p>
 
-<p>My Python code took two days to run through the 175 webs, giving up after 1000 iterations at most. The C code was able to do the same, with 50000 iterations at most, in less than 30 minutes. C is awesome, and I feel dumb for not learing it sooner.</p>
+<p>PS: If you want to leave Mendeley for good, just go <a href="https://www.mendeley.com/account/details/">here</a>, and click on the link at the very bottom, called <em>Delete my account</em>. Don't forget to tell them why.</p>
 
 
 		<div id="page-navigation">
 
         		<div class="left">
 	        		
-	                	Previous post: <a href="/2012/01/29/sign-your-reviews/" title="Previous Post: How to make the most out of peer-review?">How to make the most out of peer-review?</a>
+	                	Previous post: <a href="/2013/04/07/wilson-maths/" title="Previous Post: Is E.O. Wilson wrong about maths?">Is E.O. Wilson wrong about maths?</a>
 	        		
         		</div>
 
 		        <div class="right">
-			        
-			                Next post: <a href="/2012/04/26/biblatex-styles-ecology/" title="Next Post: Biblatex styles for ecology">Biblatex styles for ecology</a>
 			        
 		        </div>
 		</div> 
@@ -139,7 +130,7 @@ sudo make install
 </section>
 <span
 	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Null models of bipartite networks in C&amp;rft.creator=Timothée Poisot&amp;rft.date=2012-04-15&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2012/04/15/null-models-C/">
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Elsevier acquired Mendeley. It's not as bad as I thought.&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-04-09&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/04/09/mendelsevier/">
 </span>
 
       </section>

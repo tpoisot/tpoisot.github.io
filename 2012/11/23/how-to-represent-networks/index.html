@@ -97,8 +97,7 @@
 0 0 0 1
 0 0 0 1
 0 0 0 0
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Alternatively, we can write them as an edge list:</p>
@@ -107,8 +106,7 @@
 a c
 c d
 b d
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Both notation represent the same "diamond" food web, and can also convey some information about link strength, species biomass, <em>etc</em>. But do they convey a lot of <em>ecological meaning</em>? I'm not really sure. So instead of having all the network at one big entity, let's break it down in several smaller chunks. A network is a collection of interactions, so let's start by representing an interaction.</p>
@@ -129,8 +127,7 @@ b d
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;predation&quot;</span><span class="p">,</span>
     <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This is a simple <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> object, with three central informations: a unique indentifer (<code>ID</code>), two species (<code>from</code> and <code>to</code>), and a series of informations (<code>info</code>). Within <code>info</code>, you have two booleans; <code>binary</code> tells you if this is a presence/absence or quantitative measure, <code>directional</code> tells you if the interactions is, well, directional (in which case <code>from</code> and <code>to</code> are important), and <code>strength</code> is the interaction strength. Finally, the <code>type</code> property can tell which kind of interaction this is. Not rocket science so far.</p>
@@ -147,8 +144,7 @@ b d
     <span class="nt">&quot;env_type&quot;</span><span class="p">:</span> <span class="s2">&quot;microcosm&quot;</span><span class="p">,</span>
     <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This should be relatively straigthforward. There is, again, an <code>ID</code>. The <code>links</code> component is a list of interactions, <em>i.e.</em> the list of <code>ID</code> of interactions. The other fields are a minimum set of informations, namely the time, place, and type of environment.</p>
@@ -166,20 +162,19 @@ b d
         <span class="p">{</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;body_size&quot;</span><span class="p">,</span>
             <span class="nt">&quot;measure&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="err">.</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">12.1</span><span class="p">,</span>
             <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;body_mass&quot;</span><span class="p">,</span>
             <span class="nt">&quot;measure&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">362</span><span class="err">.</span><span class="mi">7</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">362.7</span><span class="p">,</span>
             <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This is probably where most of the action will happen. The interesting property here is <code>tax</code>, which can be linked to another type of objects in the databse. Without going into more details, the <code>tax</code> field will tell you which species or group of organism this population belongs to. For example, you can use a <a href="http://bioportal.bioontology.org/ontologies/45846?p=terms&amp;conceptid=EDAM%3A0001179">NCBI Taxonomy ID</a>. This, in turn, will allow you to go dig into <a href="http://treebase.org/treebase-web/home.html">TreeBase</a>, using one of the <a href="http://ropensci.org/">ROpenSci packages</a> designed to do so.</p>
