@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Timothée Poisot" />
+    <title>Tim Poisot :: Learning how to code (in ecology)</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
+    
+    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <h1><a href="http://timotheepoisot.fr">Tim <span class='thl'>Poisot</span></a></h1>
+          <div class='nav'>
+          <ul class='main-nav'>
+            <li><a class="extra navlink homelink" href="/">About</a></li>
+            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
+            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='pbody'>
+
+		<h1 class='ptitle'>Learning how to code (in ecology)</h1>
+		<span class='margin'>
+			April 12, 2013<br />
+			1330 words <br />	
+			Taggs:
+			
+				<a class='post-tag' href="/tags/#programing-ref" title="tag">programing</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#software-ref" title="tag">software</a>
+			
+		</span>
+
+		<p>A few days ago, I received an email asking about pointers on how to program in
+ecology. I'm not sure I'm the best person to ask, but writing the answer, I
+realized that there might be potential to share tips with other people. Now, a
+little bit of foreword. I come from a very empirical background. My undergrad
+studies are in genetics and immunology, and up until the end of my Masters, I
+have been spending time either in the field or in the lab. So learning how to
+program came rather late in my studies. It all started when my PhD advisor gave
+me a PDF of a paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/15976021">Weitz and colleagues</a>, and asked me to reprogram the model to use as a basis for <a href="http://rspb.royalsocietypublishing.org/content/early/2011/06/02/rspb.2011.0826.full">a future paper</a>. All of a sudden, I had no choice but to learn how to program. Prior to that point, my experience with R was mostly limited to doing statistical analysis and figures. I had a little bit of experience with PERL and bioinformatics, but no knowledge relatable to programming in ecology. I was, all in all, fairly illiterate (idem for maths, but that will be left to another post eventually). So a few years down the road, there are a few pieces of advice I can share with those wanting to start programming.</p>
+
+<h1>Practice</h1>
+
+<p>Whenever I have (or want) to learn a new language, I always try to start writing. As when learning a new language (the kind people, not machines, use to communicate), immersion is probably the best way to go. As an ecologist, Lotka-Volterra models are my favorite. I also try to do some spatial things, like metacommunities. The good thing with these models are that you know the results. So you can check whether your code is giving you the expected results. And you'll learn the bases as you go.</p>
+
+<p><span class='margin'>Maynard Smith, J. <a href="http://linkinghub.elsevier.com/retrieve/pii/S0169534702025545">Evolutionary Genetics</a>. Oxford University Press, 2002.</span>A <em>really</em> good book to do this is <em>Evolutionary genetics</em> by John Maynard-Smith. Not only is it a good introductory book for evolutionary biology, but each chapter comes with a variety of problems that you can solve by hand and through programming. I used these to learn R, Python, and C. I plan to go back at them whenever I have to learn a new language (also because it's a good excuse to re-read through the book!). Of course any book with problems will work in the same way.</p>
+
+<p>I've also greatly benefited from teaching a class in Population and Community Biology this fall. I wrote the models for each class in Python, from scratch, every week. It was a really good practice, because I had to write things differently from what I do in research. Trying to set some time apart every week to write simple things did get me a long way. Also, it will help you generate a large base of code, which you'll re-use over time.</p>
+
+<h1>Read some code</h1>
+
+<p>Writing is good, but I also learned a lot by reading through code by other people. I was lucky enough to have people send me complete code to reproduce their papers, which was really interesting when I was trying to change their model. Do not hesitate to ask people in your department to have a look at their code. Chances are, they are working on subjects relatively close to yours, and they will be able to show you some interesting things.</p>
+
+<p>Now, <a href="http://timotheepoisot.fr/2012/01/06/science-age-social-coding/">as I mentioned before</a>, with the increased use of <em>GitHub</em> and other social coding sites, you'll have access to a lot of code. Want to know one way to do Lotka-Volterra predator-prey in Python? <a href="https://github.com/dmedvinsky/lotka-volterra/blob/master/lotka-volterra.py">Just ask</a>. You can get different examples, see what you understand, what seems natural for you, and start adapting from there. Social coding will help you, do it!</p>
+
+<h1>Have people read your code</h1>
+
+<p>Do not be ashamed of your code. You can show it around to your colleagues or to your advisor. At this point, it's time to make a short parenthesis. <em>Which language should you choose</em>? There are two things I considered. First, how many people <em>around you</em> use it? How many meters do you have to walk until you reach the office of someone good enough to help you with the problems you will run into? Alternatively, how big is the user base overall, and in your field? R and Python tend to score high on these two points among ecologists and evolutionary biologists, so you may be able to get help. The second point is, how suited is the language to what you are doing. Mostly statistics? Keep with R. Mostly simulations? Go C! And so on. Try to <em>ask</em> people what they are using. The more languages you know, the easier it seems to pick up a new one. But if you want to start programming with very little background, there is a learning curve, and you will want to maximize (i) the opportunities to get help and (ii) the fit of the language to your needs.</p>
+
+<p>Back on tracks: have people read your code. You can send them by email, but you can also meet in person and discuss it line by line. If you are lucky enough to have a skilled programmer around, you will receive great feedback on how to do things faster, more efficiently, and how to use little tricks that only your language of choice has. You will learn a lot, and you will benefit a lot from the experience. Don't worry about your code looking bad, we all were there at some point; and frankly I might still be there, and I don't care because I'm an ecologist, not a programmer.</p>
+
+<h1>Read some books</h1>
+
+<p>I have a bookshelf dedicated to programming literature. Some language references, some practical textbooks, some devoted to really particular examples, and not all of them are in languages I use. It's a good thing to have a few books at hands, because you'll be able to see how (sometimes even why, but don't get your hopes up...) things are done. And you'll see how a particular problem can be tackled, even though the code is not in a language you use.</p>
+
+<p>I started reading only after I was done experimenting. Truth be told, I never read an Introduction to R type of book, same for Python. I have a few of them at home, and I open them once in a while to check things. Whether to read a lot or not is a matter of personal taste, but I found that overtime, practice has more benefits than reading. If you do want to read, be sure to actually type the code at the same time, and experiment with it. It helped me a lot, because I learned how to adapt general knowledge to my particular needs.</p>
+
+<h1>Get a good editor</h1>
+
+<p>OK, so now you're done learning how to code. One of the most important points is, <em>get yourself a kick-ass code editor</em>. I absolutely hate Eclipse, RStudio, and other big, bloated environment for serious development. I am currently trying to learn <code>vim</code>, but be serious, who has time for that? I suspect I only want to learn it for the additional nerd credibility, because I'm not into comic books enough, so I have to compensate somehow. I use <a href="http://timotheepoisot.fr/2013/01/22/selection-sublime-plugins/"><em>Sublime Text 2</em></a> and a lot of packages, and I'm really happy with it. The point is, get something you are comfortable with. Chances are you'll be spending a lot of time looking at a screen with a blinking cursor, so you might as well want to call it home. Whoah, that almost sounds sad, does it? And an additional advice. Become extremely familiar with your terminal. The little matrix thingy that Windows people don't know exist? Turns out it's important. The more you use code, the more you'll make your editor and terminal work together, and that will increase your productivity.</p>
+
+
+		<div id="page-navigation">
+
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2013/04/09/mendelsevier/" title="Previous Post: Elsevier acquired Mendeley. It's not as bad as I thought.">Elsevier acquired Mendeley. It's not as bad as I thought.</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+<span
+	class="Z3988" 
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Learning how to code (in ecology)&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-04-12&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/04/12/learn-code-ecology/">
+</span>
+
+      </section>
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
+            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
+          </p>
+      </div>
+      
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
