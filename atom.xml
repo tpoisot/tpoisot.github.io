@@ -4,13 +4,24 @@
  <title>Tim <span class='thl'>Poisot</span></title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-04-30T12:33:25-04:00</updated>
+ <updated>2013-04-30T12:55:36-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Timothée Poisot</name>
    <email>timothee.poisot@uqar.ca</email>
  </author>
 
+ 
+ <entry>
+   <title>Data sharing and preprints in ecology</title>
+   <link href="http://timotheepoisot.fr/2013/04/30/data-sharing-ecology/"/>
+   <updated>2013-04-30T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/04/30/data-sharing-ecology</id>
+   <content type="html">&lt;p&gt;I'm glad to announce that we (I, &lt;a href=&quot;http://rossmounce.co.uk/aboutme/&quot;&gt;Ross Mounce&lt;/a&gt;, and Dom Gravel), have put up a &lt;a href=&quot;http://figshare.com/articles/Moving_toward_a_sustainable_ecological_science_don_t_let_data_go_to_waste_/693745&quot;&gt;preprint about data sharing in ecology&lt;/a&gt; on &lt;em&gt;fig&lt;strong&gt;share&lt;/strong&gt;&lt;/em&gt;. The manuscript is under consideration at &lt;em&gt;Ideas in Ecology &amp;amp; Evolution&lt;/em&gt;. We try to make a valid point about why ecologists should share their data, how we can do it in practice, and the role that funding agencies and journals can play.&lt;/p&gt;
+
+&lt;p&gt;And speaking of preprints, but also sure to check out Philippe's opinion piece on &lt;a href=&quot;http://figshare.com/articles/The_case_for_open_preprints_in_biology/655710&quot;&gt;preprints in biology&lt;/a&gt;, which should appear shortly in &lt;em&gt;PLoS Biology&lt;/em&gt;. We try to understand why biologists have not adopted the preprint culture as widely as other fields (though this is changing, fortunately).&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Learning how to code (in ecology)</title>
