@@ -4,7 +4,7 @@
  <title>Tim <span class='thl'>Poisot</span></title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-04-26T17:50:26+02:00</updated>
+ <updated>2013-04-30T12:33:25-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name>Timothée Poisot</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>Learning how to code (in ecology)</title>
    <link href="http://timotheepoisot.fr/2013/04/12/learn-code-ecology/"/>
-   <updated>2013-04-12T00:00:00+02:00</updated>
+   <updated>2013-04-12T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2013/04/12/learn-code-ecology</id>
    <content type="html">&lt;p&gt;A few days ago, I received an email asking about pointers on how to program in
 ecology. I'm not sure I'm the best person to ask, but writing the answer, I
@@ -61,7 +61,7 @@ me a PDF of a paper by &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/15976
  <entry>
    <title>Elsevier acquired Mendeley. It's not as bad as I thought.</title>
    <link href="http://timotheepoisot.fr/2013/04/09/mendelsevier/"/>
-   <updated>2013-04-09T00:00:00+02:00</updated>
+   <updated>2013-04-09T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2013/04/09/mendelsevier</id>
    <content type="html">&lt;p&gt;Mendeley was &lt;a href=&quot;http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/&quot;&gt;recently acquired by public enemy Elsevier&lt;/a&gt; in a puzzling move. Some of you may remember that I've announced that, &lt;a href=&quot;http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/&quot;&gt;should this acquisition happen, I'll be out of here&lt;/a&gt;. Actually, I've switched to Zotero a while back and never ever looked back. But still. &lt;a href=&quot;http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/#comment-857798908&quot;&gt;Mr. Will Gunn himself&lt;/a&gt; asked me to do a follow-up post, on the basis that it's not as bad as I feared. And as much as I am pained to admit it, that is entirely correct. The acquisition of Mendeley by Elsevier is not as bad as I thought.&lt;/p&gt;
 
@@ -84,7 +84,7 @@ me a PDF of a paper by &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/15976
  <entry>
    <title>Is E.O. Wilson wrong about maths?</title>
    <link href="http://timotheepoisot.fr/2013/04/07/wilson-maths/"/>
-   <updated>2013-04-07T00:00:00+02:00</updated>
+   <updated>2013-04-07T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2013/04/07/wilson-maths</id>
    <content type="html">&lt;p&gt;E.O. Wilson recently published an editorial entitled &lt;a href=&quot;http://online.wsj.com/article/SB10001424127887323611604578398943650327184.html&quot;&gt;&quot;Great scientists don't need math&quot;&lt;/a&gt; in the &lt;em&gt;Wall Street Journal&lt;/em&gt;. Jeremy Fox wrote &lt;a href=&quot;https://dynamicecology.wordpress.com/2013/04/07/e-o-wilson-vs-math/&quot;&gt;a great rebuttal&lt;/a&gt; of it, which you should certainly read as well.&lt;/p&gt;
 
@@ -107,7 +107,7 @@ me a PDF of a paper by &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/15976
  <entry>
    <title>High-throughput sequencing and community ecology</title>
    <link href="http://timotheepoisot.fr/2013/03/12/ngs-community-ecology/"/>
-   <updated>2013-03-12T00:00:00+01:00</updated>
+   <updated>2013-03-12T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2013/03/12/ngs-community-ecology</id>
    <content type="html">&lt;p&gt;High-throughput sequencing (let's abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I'm currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken by the fact that there is a huge gap between what HTS &lt;em&gt;could&lt;/em&gt; do, and what it's used for.&lt;/p&gt;
 
@@ -130,7 +130,7 @@ me a PDF of a paper by &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/15976
  <entry>
    <title>A d3.js alternative to stacked bar charts</title>
    <link href="http://timotheepoisot.fr/2013/02/18/stacked-barcharts-d3/"/>
-   <updated>2013-02-18T00:00:00+01:00</updated>
+   <updated>2013-02-18T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/02/18/stacked-barcharts-d3</id>
    <content type="html">&lt;p&gt;Following yesterday's post on &lt;a href=&quot;http://timotheepoisot.fr/2013/02/17/stacked-barcharts/&quot;&gt;an alternative to barcharts&lt;/a&gt;, I decided to write an implementation of this graph in &lt;code&gt;D3.js&lt;/code&gt;. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I'll &lt;a href=&quot;https://gist.github.com/anonymous/4982438&quot;&gt;share the code as a gist&lt;/a&gt;.&lt;/p&gt;
 
@@ -188,7 +188,7 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
  <entry>
    <title>An alternative to stacked bar charts</title>
    <link href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/"/>
-   <updated>2013-02-17T00:00:00+01:00</updated>
+   <updated>2013-02-17T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/02/17/stacked-barcharts</id>
    <content type="html">&lt;p&gt;I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It's almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with.&lt;/p&gt;
 
@@ -243,7 +243,7 @@ I find it much easier to eyeball the variation of species abundance across sites
  <entry>
    <title>Estimating edges contribution to network properties</title>
    <link href="http://timotheepoisot.fr/2013/02/13/edges-contribution-modularity/"/>
-   <updated>2013-02-13T00:00:00+01:00</updated>
+   <updated>2013-02-13T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/02/13/edges-contribution-modularity</id>
    <content type="html">&lt;p&gt;I had so much fun writing the previous post about how it is possible to measure &lt;a href=&quot;/2013/02/12/species-contribution-modularity/&quot;&gt;nodes contribution to network properties&lt;/a&gt; that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with &lt;a href=&quot;http://d3js.org/&quot;&gt;&lt;code&gt;D3.js&lt;/code&gt;&lt;/a&gt;, and I wanted to put what I've learnt in practice.&lt;/p&gt;
 
@@ -300,7 +300,7 @@ I find it much easier to eyeball the variation of species abundance across sites
  <entry>
    <title>Estimating node contribution to network properties</title>
    <link href="http://timotheepoisot.fr/2013/02/12/species-contribution-modularity/"/>
-   <updated>2013-02-12T00:00:00+01:00</updated>
+   <updated>2013-02-12T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/02/12/species-contribution-modularity</id>
    <content type="html">&lt;p&gt;I'm currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I'll just detail how it possible to get this information quickly using &lt;code&gt;networkx&lt;/code&gt;.&lt;/p&gt;
 
@@ -394,7 +394,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
  <entry>
    <title>COinS metadata in Jekyll blogposts</title>
    <link href="http://timotheepoisot.fr/2013/02/08/coins-metadata-blogposts/"/>
-   <updated>2013-02-08T00:00:00+01:00</updated>
+   <updated>2013-02-08T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/02/08/coins-metadata-blogposts</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://ocoins.info/&quot;&gt;COinS&lt;/a&gt; is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn &lt;a href=&quot;http://dynamicecology.wordpress.com/2011/06/17/zombie-ideas-in-ecology/&quot;&gt;blog posts into &lt;em&gt;TREE&lt;/em&gt; papers&lt;/a&gt;, citing blog posts might not be so far away).&lt;/p&gt;
 
@@ -428,7 +428,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
  <entry>
    <title>Article introductions and the reinvention of the ecological wheel</title>
    <link href="http://timotheepoisot.fr/2013/01/28/introductions-reinventing-ecological-wheel/"/>
-   <updated>2013-01-28T00:00:00+01:00</updated>
+   <updated>2013-01-28T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/28/introductions-reinventing-ecological-wheel</id>
    <content type="html">&lt;p&gt;Caroline Tucker and Marc Cadotte recently had a great blog post discussing the &lt;a href=&quot;http://evol-eco.blogspot.ca/2013/01/reinventing-ecological-wheel-why-do-we.html&quot;&gt;reinvention of the ecological wheel&lt;/a&gt;, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with &lt;em&gt;a lot&lt;/em&gt; of interest, for reasons that I will mention in a later post. The basic issue was that:&lt;/p&gt;
 
@@ -453,7 +453,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
  <entry>
    <title>Using forums to communicate with students</title>
    <link href="http://timotheepoisot.fr/2013/01/26/using-forums-communicate-students/"/>
-   <updated>2013-01-26T00:00:00+01:00</updated>
+   <updated>2013-01-26T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/26/using-forums-communicate-students</id>
    <content type="html">&lt;p&gt;This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it's a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it's possible to do participative lectures, it's hard; at least I think it is, perhaps I still need to find the good recipe. There are a few reasons for which it's difficult to get students to participate (and by participation, I mean, talk to you, and talk between them). Some of them did not choose the course, and so they don't feel really involved in it (I think this argument is rubbish; they did chose the major, so I expect that they will have at least some interest in the subject). Some of them are really shy, or more generally, peer-pressure is strong. It might be a strong observational bias on my side, but I have the feeling that students in Québec perceive a higher competition between them that what is the case in France, and don't want to give a bad impression. Finally, it might be that the students see you, and you only as an authority figure, and see no interest in discussing course material during the class (see also, competition).&lt;/p&gt;
 
@@ -499,7 +499,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
  <entry>
    <title>Where to submit your paper?</title>
    <link href="http://timotheepoisot.fr/2013/01/24/where-to-submit/"/>
-   <updated>2013-01-24T00:00:00+01:00</updated>
+   <updated>2013-01-24T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/24/where-to-submit</id>
    <content type="html">&lt;p&gt;Jeremy Fox offers some advice about &lt;a href=&quot;http://dynamicecology.wordpress.com/2013/01/24/advice-how-to-decide-where-to-submit-your-paper/&quot;&gt;&lt;em&gt;how to decide where to submit your paper&lt;/em&gt;&lt;/a&gt;. Also, read the response by &lt;a href=&quot;http://jabberwocky.weecology.org/2013/01/24/some-alternative-advice-on-how-to-decide-where-to-submit-your-paper/&quot;&gt;Ethan White&lt;/a&gt;. There are possibly as many perspectives on this are there are researchers, which I'll definitely take as an excuse to present mine.&lt;/p&gt;
 
@@ -533,7 +533,7 @@ Nodes with a value of &amp;Delta; lower than 0 &lt;em&gt;increase&lt;/em&gt; mod
  <entry>
    <title>A selection of Sublime Text 2 packages</title>
    <link href="http://timotheepoisot.fr/2013/01/22/selection-sublime-plugins/"/>
-   <updated>2013-01-22T00:00:00+01:00</updated>
+   <updated>2013-01-22T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/22/selection-sublime-plugins</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.sublimetext.com/2&quot;&gt;&lt;em&gt;Sublime Text 2&lt;/em&gt;&lt;/a&gt; is an awesome multi-purpose text editor, working on all major platforms, and generally being &lt;code&gt;vim&lt;/code&gt; with a nice GUI, and some &lt;code&gt;emacs&lt;/code&gt; thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed &lt;em&gt;Python&lt;/em&gt; packages for it, and I use a few of them almost daily. Following some discussions we've had on twitter, I figured I'd share them with everyone. The first one to install is &lt;a href=&quot;http://wbond.net/sublime_packages/package_control&quot;&gt;&lt;em&gt;Sublime Package Control&lt;/em&gt;&lt;/a&gt;. It allows you to open the command palette, and manage your packages. Notably, you can use the &lt;code&gt;Install packages&lt;/code&gt; command to get a drop-down list of &lt;em&gt;all&lt;/em&gt; possible packages available. They are also listed &lt;a href=&quot;http://wbond.net/sublime_packages/community&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -576,7 +576,7 @@ abc  dd  e   456
  <entry>
    <title>If Elsevier acquires Mendeley, I'm out (and you should be too)</title>
    <link href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/"/>
-   <updated>2013-01-19T00:00:00+01:00</updated>
+   <updated>2013-01-19T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out</id>
    <content type="html">&lt;p&gt;Two days ago, &lt;em&gt;TechCrunch&lt;/em&gt; published an article saying that &lt;a href=&quot;http://techcrunch.com/2013/01/17/elsevier-mendeley-education/&quot;&gt;&lt;em&gt;Elsevier&lt;/em&gt; was in &quot;advanced talks&quot; to acquire &lt;em&gt;Mendeley&lt;/em&gt;&lt;/a&gt;. Why a company (&lt;em&gt;Mendeley&lt;/em&gt;) whose goal is to help scientist work, and faciliate access to papers, would associate with a company so despised by so many researchers that they are actively and publicly &lt;a href=&quot;http://thecostofknowledge.com/&quot;&gt;boycotting it&lt;/a&gt; (&lt;em&gt;Elsevier&lt;/em&gt;) makes absolutely no sense.&lt;/p&gt;
 
@@ -601,7 +601,7 @@ Well, reading this, I'm not sure anymore I don't need to worry. Now, this corpor
  <entry>
    <title>A quick way to get good figures for your web pages</title>
    <link href="http://timotheepoisot.fr/2013/01/10/free-workflow-figures/"/>
-   <updated>2013-01-10T00:00:00+01:00</updated>
+   <updated>2013-01-10T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/10/free-workflow-figures</id>
    <content type="html">&lt;p&gt;I'm a huge fan of the &lt;code&gt;pgfplots&lt;/code&gt; package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: &lt;code&gt;notes&lt;/code&gt;, &lt;code&gt;MS&lt;/code&gt;, and &lt;code&gt;code&lt;/code&gt;. The results of what happens in &lt;code&gt;code&lt;/code&gt; (usually a huge mess of R, C and Python) go directly into &lt;code&gt;MS&lt;/code&gt; as tab-delimited files, and the &lt;code&gt;.tex&lt;/code&gt; document has all the commands needed to transform this in figures. I've notably used this workflow for the &lt;code&gt;beamer&lt;/code&gt; slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons.&lt;/p&gt;
 
@@ -749,7 +749,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
  <entry>
    <title>INNGE announces EcoBloggers</title>
    <link href="http://timotheepoisot.fr/2013/01/07/ecobloggers/"/>
-   <updated>2013-01-07T00:00:00+01:00</updated>
+   <updated>2013-01-07T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/07/ecobloggers</id>
    <content type="html">&lt;p&gt;It all started with a rather enigmatic tweet, two weeks ago:&lt;/p&gt;
 
@@ -768,7 +768,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
  <entry>
    <title>Writing grant applications can be fun</title>
    <link href="http://timotheepoisot.fr/2013/01/04/writing-grant-applications/"/>
-   <updated>2013-01-04T00:00:00+01:00</updated>
+   <updated>2013-01-04T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2013/01/04/writing-grant-applications</id>
    <content type="html">&lt;p&gt;Most of my summer, and a substantial part of whatever time in fall was left after teaching, went into applying to various grants and positions. It's a frustrating experience, because it's time not spent doing research. But as I had no other possibility than doing it, I tried to make the experience enjoyable, and I even found myself learning a few things along the way. I've done my PhD in a French university, and it's very different from what happens in the rest of the world. Most notably, as the time to completion is fixed to three years, you usually start with a well defined project (though I was able to modify mine as I went). The consequence is that you don't have to write your research proposal. So these last few months were (almost) the first time I had to invest a massive amount of time in trying to con(vince) someone into funding my research.&lt;/p&gt;
 
@@ -801,7 +801,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
  <entry>
    <title>Bacteria-phage networks</title>
    <link href="http://timotheepoisot.fr/2012/12/19/bacteria-phage-networks/"/>
-   <updated>2012-12-19T00:00:00+01:00</updated>
+   <updated>2012-12-19T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/12/19/bacteria-phage-networks</id>
    <content type="html">&lt;p&gt;I'm really glad to announce that the review paper we have been working on with Joshua Weitz, Justin Meyer, Cesar Flores, Sergi Valverde, Matthew Sullivan and Mike Hochberg is now &lt;a href=&quot;http://linkinghub.elsevier.com/retrieve/pii/S0966842X12002004&quot;&gt;online at &lt;em&gt;Trends in Microbiology&lt;/em&gt;&lt;/a&gt; (PDF, as always, available by clicking &lt;em&gt;Papers&lt;/em&gt; on the sidebar). It's a great and exciting paper, in which we propose that bacteria-phage interactions should be studied as networks, rather than just pairs of interactions. Because the goal of the paper is to interest more people into the network methodology, the figure are really interesting. If you want a crash course in nestedness or modularity, then you should definitely have a read.&lt;/p&gt;
 
@@ -816,7 +816,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
  <entry>
    <title>The friends of my friends (are on twitter)</title>
    <link href="http://timotheepoisot.fr/2012/12/15/face-of-twitter/"/>
-   <updated>2012-12-15T00:00:00+01:00</updated>
+   <updated>2012-12-15T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/12/15/face-of-twitter</id>
    <content type="html">&lt;p&gt;Twitter is cool for science, because it can &lt;a href=&quot;http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/&quot;&gt;help you spread your ideas&lt;/a&gt;. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, &lt;em&gt;e.g.&lt;/em&gt;, the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye.&lt;/p&gt;
 
@@ -848,7 +848,7 @@ The first (striking) thing is that my network is less modular than I would have 
  <entry>
    <title>How to represent networks</title>
    <link href="http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/"/>
-   <updated>2012-11-23T00:00:00+01:00</updated>
+   <updated>2012-11-23T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/11/23/how-to-represent-networks</id>
    <content type="html">&lt;p&gt;One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a &quot;good&quot; format, and it's not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.&lt;/p&gt;
 
@@ -959,7 +959,7 @@ b d
  <entry>
    <title>Data sharing and the bagel effect</title>
    <link href="http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect/"/>
-   <updated>2012-11-09T00:00:00+01:00</updated>
+   <updated>2012-11-09T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/11/09/data-sharing-and-the-bagel-effect</id>
    <content type="html">&lt;p&gt;I'm starting to organize a collection of notes and ideas I've had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I'll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would be appealing to people.&lt;/p&gt;
 
@@ -982,7 +982,7 @@ b d
  <entry>
    <title>Should we care about species interaction networks?</title>
    <link href="http://timotheepoisot.fr/2012/10/29/species-interaction-networks/"/>
-   <updated>2012-10-29T00:00:00+01:00</updated>
+   <updated>2012-10-29T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/10/29/species-interaction-networks</id>
    <content type="html">&lt;p&gt;In June, I was invited to give a talk at the &lt;a href=&quot;http://www.weblife.univ-montp2.fr/&quot;&gt;&lt;em&gt;Web of Life&lt;/em&gt; meeting in Montpellier&lt;/a&gt;. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was working on &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;our recent paper about the &amp;beta;-diversity of interaction networks&lt;/a&gt;, where we show that species and their interactions are locally sorted through different mechanisms.&lt;/p&gt;
 
@@ -1011,7 +1011,7 @@ b d
  <entry>
    <title>Presenting the results of networks null models</title>
    <link href="http://timotheepoisot.fr/2012/10/09/null-models-presentations/"/>
-   <updated>2012-10-09T00:00:00+02:00</updated>
+   <updated>2012-10-09T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/10/09/null-models-presentations</id>
    <content type="html">&lt;p&gt;I'm in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/21709225&quot;&gt;Cesar Flores and colleagues&lt;/a&gt; show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).&lt;/p&gt;
 
@@ -1052,7 +1052,7 @@ The number within each quadrant represent how many networks have this property (
  <entry>
    <title>Can phage increase bacterial growth?</title>
    <link href="http://timotheepoisot.fr/2012/10/02/bacterial-terminal-investment/"/>
-   <updated>2012-10-02T00:00:00+02:00</updated>
+   <updated>2012-10-02T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/10/02/bacterial-terminal-investment</id>
    <content type="html">&lt;p&gt;In the early days of my PhD (I probably started a week or two before that), I attended the &lt;em&gt;BRIDGES&lt;/em&gt; workshop in &lt;a href=&quot;http://www.ceab.csic.es/&quot;&gt;Blanes&lt;/a&gt;. The goal of this workshop was to bring together microbial ecologists and general ecologists. Back in Montpellier, Mike Hochberg, Tom Bell and I discussed the classical results of &lt;a href=&quot;http://plankt.oxfordjournals.org/content/17/8/1661.short&quot;&gt;&lt;em&gt;Daphnia&lt;/em&gt; changing their behavior when exposed to predators&lt;/a&gt;, and wondered if we can get this cool result with bacteria and phages. Why? Because we were working on that system, and I was supposed to focus on stress responses (then I joined the dark side, and started doing ecology-related stuff).&lt;/p&gt;
 
@@ -1067,7 +1067,7 @@ The number within each quadrant represent how many networks have this property (
  <entry>
    <title>Measuring the beta-diversity of species interaction networks</title>
    <link href="http://timotheepoisot.fr/2012/09/24/measuring-beta-diversity-networks/"/>
-   <updated>2012-09-24T00:00:00+02:00</updated>
+   <updated>2012-09-24T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/09/24/measuring-beta-diversity-networks</id>
    <content type="html">&lt;p&gt;To reproduce the analyses presented in &lt;a href=&quot;http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/&quot;&gt;our latest paper&lt;/a&gt;, we wrote the &lt;a href=&quot;https://github.com/tpoisot/betalink&quot;&gt;&lt;code&gt;betalink&lt;/code&gt;&lt;/a&gt; R package. This post is a walkthrough for most of the analyses. The help is not fully completed yet, and in any case, seeing examples is more informative than reading the manual. First thing first, go to the previous link, and download the package. Unzip it, open a terminal, and type&lt;/p&gt;
 
@@ -1138,7 +1138,7 @@ rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w2&lt;span class=&quot;p&q
  <entry>
    <title>The beta-diversity of species interaction networks</title>
    <link href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"/>
-   <updated>2012-09-20T00:00:00+02:00</updated>
+   <updated>2012-09-20T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/09/20/beta-diversity-networks</id>
    <content type="html">&lt;p&gt;Have you ever sampled interaction networks, and wished there were a good method to measure how dissimilar they are? Or have you ever thought about &amp;beta;-diversity of species interactions? Do you just love good science? If you answered yes to any of these questions, then &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract&quot;&gt;you should read our &lt;em&gt;Ecology Letters&lt;/em&gt; paper, now online&lt;/a&gt;. We propose a way to measure the &amp;beta;-diversity of networks (any kind of network, unipartite, bipartite, quantitative, ...), and propose some ideas about what we can learn from thinking about these networks in a biogeographical perspective.&lt;/p&gt;
 
@@ -1163,7 +1163,7 @@ Quoting from the last paragraph:&lt;/p&gt;
  <entry>
    <title>Notes on learning how to use sympy</title>
    <link href="http://timotheepoisot.fr/2012/08/15/notes-on-using-sympy/"/>
-   <updated>2012-08-15T00:00:00+02:00</updated>
+   <updated>2012-08-15T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/08/15/notes-on-using-sympy</id>
    <content type="html">&lt;p&gt;I'm trying to move to &lt;code&gt;sympy&lt;/code&gt; for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I'm playing with a simple host-parasite model. I was reading the &lt;a href=&quot;http://docs.sympy.org/0.7.1/tutorial.html#first-steps-with-sympy&quot;&gt;&lt;em&gt;First steps with sympy&lt;/em&gt;&lt;/a&gt; section of the website when I was running my little tests, and it's relatively helpul.&lt;/p&gt;
 
@@ -1236,7 +1236,7 @@ Quoting from the last paragraph:&lt;/p&gt;
  <entry>
    <title>Models are useless. Real ecologists should move on.</title>
    <link href="http://timotheepoisot.fr/2012/08/13/models-are-useless/"/>
-   <updated>2012-08-13T00:00:00+02:00</updated>
+   <updated>2012-08-13T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/08/13/models-are-useless</id>
    <content type="html">&lt;p&gt;I'm spending more and more of my time doing theory related thing. Data analysis, model, drawing conceptual figures to make it seem like I have deep ideas about nature, life, and everything. Yet I &lt;em&gt;love&lt;/em&gt; ecology, biology, and the complexity of natural systems. At this point, I'm sure most of you are familiar with the recent paper by &lt;a href=&quot;http://www.pnas.org/content/early/2012/06/22/1205259109.abstract&quot;&gt;Fawcett &amp;amp; Higginson in &lt;em&gt;PNAS&lt;/em&gt;&lt;/a&gt; - they conclude that the more equations are in a biology paper, the more its relative number of citation decreases. This result is equal part tragic and unsurprizing, and upon publication, the entire community of empiricists adressed a gigantic &lt;em&gt;«Told you so»&lt;/em&gt; to the theoreticians. What I was not aware of until &lt;a href=&quot;http://phdp.github.com/&quot;&gt;Philippe&lt;/a&gt; sent it to me this morning is a critique of this paper published on F1000 (mostly because I didn't cared really much for that paper, and because I think the F1000 system is outdated, archaic, and deserves to be replaced by an open platform, so I don't read it).&lt;/p&gt;
 
@@ -1273,7 +1273,7 @@ Quoting from the last paragraph:&lt;/p&gt;
  <entry>
    <title>Are student-friendly conferences worth it?</title>
    <link href="http://timotheepoisot.fr/2012/08/05/student-friendly-meetings/"/>
-   <updated>2012-08-05T00:00:00+02:00</updated>
+   <updated>2012-08-05T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/08/05/student-friendly-meetings</id>
    <content type="html">&lt;p&gt;Two recent posts by &lt;a href=&quot;http://dynamicecology.wordpress.com/2012/08/03/advice-students-shouldnt-bother-with-student-friendly-conferences/&quot;&gt;Jeremy Fox&lt;/a&gt; and &lt;a href=&quot;http://neurodojo.blogspot.ca/2012/07/student-friendly.html&quot;&gt;Zen Faulkes&lt;/a&gt; dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not how things work.&lt;/p&gt;
 
@@ -1294,7 +1294,7 @@ Quoting from the last paragraph:&lt;/p&gt;
  <entry>
    <title>My new linux setup</title>
    <link href="http://timotheepoisot.fr/2012/08/03/new-linux-setup/"/>
-   <updated>2012-08-03T00:00:00+02:00</updated>
+   <updated>2012-08-03T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/08/03/new-linux-setup</id>
    <content type="html">&lt;p&gt;I have a terrible confession to make. Two weeks ago, I installed &lt;a href=&quot;http://xkcd.com/528/&quot;&gt;Windows 7&lt;/a&gt;. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask?&lt;/p&gt;
 
@@ -1317,7 +1317,7 @@ Quoting from the last paragraph:&lt;/p&gt;
  <entry>
    <title>A walk on the intertidal zone</title>
    <link href="http://timotheepoisot.fr/2012/07/15/what-is-trophic-complexity/"/>
-   <updated>2012-07-15T00:00:00+02:00</updated>
+   <updated>2012-07-15T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/07/15/what-is-trophic-complexity</id>
    <content type="html">&lt;p&gt;I'm in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:&lt;/p&gt;
 
@@ -1331,7 +1331,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
  <entry>
    <title>Using Color Brewer schemes in LaTeX pgfplots</title>
    <link href="http://timotheepoisot.fr/2012/07/03/colorbrewer-in-pgfplots/"/>
-   <updated>2012-07-03T00:00:00+02:00</updated>
+   <updated>2012-07-03T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/07/03/colorbrewer-in-pgfplots</id>
    <content type="html">&lt;p&gt;&lt;em&gt;Color Brewer&lt;/em&gt; is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the &lt;code&gt;RColorBrewer&lt;/code&gt; package.&lt;/p&gt;
 
@@ -1382,7 +1382,7 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
  <entry>
    <title>Using networkx to simulate metapopulations in Python</title>
    <link href="http://timotheepoisot.fr/2012/05/18/networkx-metapopulations-python/"/>
-   <updated>2012-05-18T00:00:00+02:00</updated>
+   <updated>2012-05-18T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/05/18/networkx-metapopulations-python</id>
    <content type="html">&lt;p&gt;Python progressively replaced R for most of my daily simulations needs, because it's relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I've been using &lt;code&gt;networkx&lt;/code&gt; more and more. We've been having discussions in the lab about spatial graphs, surrounding a recent paper by &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/22155351&quot;&gt;Gilarranz and Bascompte&lt;/a&gt; and some of our own projects, and I thought that it will be fun to use &lt;code&gt;networkx&lt;/code&gt; to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a &lt;a href=&quot;https://gist.github.com/2725839&quot;&gt;gist&lt;/a&gt;.&lt;/p&gt;
 
@@ -1558,7 +1558,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
  <entry>
    <title>The ecological journal of the future</title>
    <link href="http://timotheepoisot.fr/2012/05/11/ecological-journal-of-the-future/"/>
-   <updated>2012-05-11T00:00:00+02:00</updated>
+   <updated>2012-05-11T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/05/11/ecological-journal-of-the-future</id>
    <content type="html">&lt;p&gt;I've been reading &lt;a href=&quot;http://gowers.wordpress.com/2012/01/29/whats-wrong-with-electronic-journals/&quot;&gt;Tim Gowers's fascinating blog&lt;/a&gt; following the call to boycott Elsevier, and stumbled upon a fascinating &lt;em&gt;gedankenexperiment&lt;/em&gt;. What would the electronic journal of the future look like in the field of Mathematics? Naturally, I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis?&lt;/p&gt;
 
@@ -1621,7 +1621,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
  <entry>
    <title>Phylogeny without a sequencer</title>
    <link href="http://timotheepoisot.fr/2012/05/03/phylogeny-without-sequencer/"/>
-   <updated>2012-05-03T00:00:00+02:00</updated>
+   <updated>2012-05-03T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/05/03/phylogeny-without-sequencer</id>
    <content type="html">&lt;p&gt;In the last issue of &lt;em&gt;Trends Ecol. Evol.&lt;/em&gt;, &lt;a href=&quot;http://www.sciencedirect.com/science/article/pii/S0169534712000730&quot;&gt;Poole and colleagues&lt;/a&gt; talk about &lt;em&gt;Ecosystomics&lt;/em&gt;, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/22432924&quot;&gt;a recent paper by Nico Mouquet and colleagues&lt;/a&gt; about &lt;em&gt;Ecophylogenetics&lt;/em&gt;. But I'm not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions.&lt;/p&gt;
 
@@ -1644,7 +1644,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
  <entry>
    <title>Ecology is not too collaborative</title>
    <link href="http://timotheepoisot.fr/2012/04/30/ecology-not-too-collaborative/"/>
-   <updated>2012-04-30T00:00:00+02:00</updated>
+   <updated>2012-04-30T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/04/30/ecology-not-too-collaborative</id>
    <content type="html">&lt;p&gt;A few days ago, Jeremy Fox published on the Oikos blog, wondering if &lt;a href=&quot;http://oikosjournal.wordpress.com/2012/04/27/is-ecology-becoming-too-collaborative&quot;&gt;ecology was becoming too collaborative&lt;/a&gt;. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can't really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it's worth, here is my contribution to the debate. I'm involved in a few short term collaborations, and I think they are awesome.&lt;/p&gt;
 
@@ -1659,7 +1659,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
  <entry>
    <title>Biblatex styles for ecology</title>
    <link href="http://timotheepoisot.fr/2012/04/26/biblatex-styles-ecology/"/>
-   <updated>2012-04-26T00:00:00+02:00</updated>
+   <updated>2012-04-26T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/04/26/biblatex-styles-ecology</id>
    <content type="html">&lt;p&gt;A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of &lt;code&gt;natbib&lt;/code&gt; —, I started looking into &lt;a href=&quot;https://github.com/plk/biblatex&quot;&gt;&lt;code&gt;biblatex&lt;/code&gt;&lt;/a&gt;. &lt;code&gt;biblatex&lt;/code&gt; is essentially a re-implementation of LaTeX packages like &lt;code&gt;cite&lt;/code&gt;, &lt;code&gt;natbib&lt;/code&gt;, and others. And the more I used it, the more I realized two things. First, &lt;code&gt;biblatex&lt;/code&gt; is awesome; it's to &lt;code&gt;natbib&lt;/code&gt; what &lt;a href=&quot;http://yihui.name/knitr/&quot;&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/a&gt; is to &lt;code&gt;Sweave&lt;/code&gt;. Including the fact that switching from one system to the other is virtually transparent, but you would miss a lot by not using the &lt;code&gt;biblatex&lt;/code&gt; specific commands. Second, it's a pain to find citation styles for it, because it's recent, and good old &lt;code&gt;tex makebst&lt;/code&gt; is not working. It would not be a problem if the default choices made any sense, but I feel like writing &lt;em&gt;In :&lt;/em&gt; before the journal name, or adding the month to the year in the bibliography is not really common practice - at least in «hard» sciences. &lt;/p&gt;
 
@@ -1688,7 +1688,7 @@ But of course you would like to follow the dynamics, which is extremely easy. We
  <entry>
    <title>Null models of bipartite networks in C</title>
    <link href="http://timotheepoisot.fr/2012/04/15/null-models-C/"/>
-   <updated>2012-04-15T00:00:00+02:00</updated>
+   <updated>2012-04-15T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2012/04/15/null-models-C</id>
    <content type="html">&lt;p&gt;I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.&lt;/p&gt;
 
@@ -1714,7 +1714,7 @@ sudo make install
  <entry>
    <title>How to make the most out of peer-review?</title>
    <link href="http://timotheepoisot.fr/2012/01/29/sign-your-reviews/"/>
-   <updated>2012-01-29T00:00:00+01:00</updated>
+   <updated>2012-01-29T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/01/29/sign-your-reviews</id>
    <content type="html">&lt;p&gt;So it seems that the love/hate relationship between science and publishers has &lt;a href=&quot;http://innge.net/?q=node/99&quot;&gt;reached its tipping point following the RWA turmoil&lt;/a&gt;, with appeals to boycott major publishers, such as &lt;a href=&quot;http://www.researchwithoutwalls.org/&quot;&gt;&lt;em&gt;researchwithoutwalls&lt;/em&gt;&lt;/a&gt; and &lt;a href=&quot;http://thecostofknowledge.com/&quot;&gt;&lt;em&gt;thecostofknowledge&lt;/em&gt;&lt;/a&gt;, and &lt;a href=&quot;http://cscs.umich.edu/~crshalizi/weblog/864.html&quot;&gt;some of the most eminents members of the scientific blogosphere talking about it&lt;/a&gt;, and using creative metaphors to illustrate &lt;a href=&quot;http://www.academicproductivity.com/2012/when-your-users-tell-you-you-are-not-adding-value-boycott-against-elsevier/&quot;&gt;how big of a scam it is&lt;/a&gt;. Specifically, most scientists are publicly stating that &lt;a href=&quot;http://jabberwocky.weecology.org/2012/01/27/why-i-will-no-longer-review-for-your-journal/&quot;&gt;they will not review papers anymore&lt;/a&gt;, at least in the case of for-profit editors. Most of the problem lies in the fact that reviewing papers does not grant you any money, yet publishers make &lt;a href=&quot;http://michaelnielsen.org/blog/on-elsevier/&quot;&gt;insane profits&lt;/a&gt; based on this use of your government-funded time.&lt;/p&gt;
 
@@ -1731,7 +1731,7 @@ sudo make install
  <entry>
    <title>Measuring ecological specificity</title>
    <link href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/"/>
-   <updated>2012-01-19T00:00:00+01:00</updated>
+   <updated>2012-01-19T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity</id>
    <content type="html">&lt;p&gt;Our paper about measurements of ecological specialization is now available online at the &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract&quot;&gt;Methods in Ecology &amp;amp; Evolution&lt;/a&gt; website. You can also download the associated R package from &lt;a href=&quot;https://r-forge.r-project.org/projects/esm/&quot;&gt;R-Forge&lt;/a&gt;. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that.&lt;/p&gt;
 
@@ -1766,7 +1766,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
  <entry>
    <title>Science in the age of social coding</title>
    <link href="http://timotheepoisot.fr/2012/01/06/science-age-social-coding/"/>
-   <updated>2012-01-06T00:00:00+01:00</updated>
+   <updated>2012-01-06T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/01/06/science-age-social-coding</id>
    <content type="html">&lt;p&gt;I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I'm wondering what I would do without it.&lt;/p&gt;
 
@@ -1799,7 +1799,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
  <entry>
    <title>Simulated phylogenetic trees and community assembly</title>
    <link href="http://timotheepoisot.fr/2012/01/05/a-python-class-for-phylogenies/"/>
-   <updated>2012-01-05T00:00:00+01:00</updated>
+   <updated>2012-01-05T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/01/05/a-python-class-for-phylogenies</id>
    <content type="html">&lt;p&gt;I'm working on a toy model of community assembly in Python, and I thought it would be cool to have an easy way to keep track of the phylogeny. To do so, I've conceived two classes for the easy handling of phylogenetic structure. They are available on GitHub in the &lt;a href=&quot;https://github.com/tpoisot/PyCoPhy&quot;&gt;&lt;code&gt;PyCoPhy&lt;/code&gt; repository&lt;/a&gt; (Python Community Phylogenetics), and check also the &lt;a href=&quot;/code/&quot;&gt;code page&lt;/a&gt;.&lt;/p&gt;
 
@@ -1846,7 +1846,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
  <entry>
    <title>Goodbye Wordpress, hello Jekyll!</title>
    <link href="http://timotheepoisot.fr/2012/01/01/migration-to-jekyll/"/>
-   <updated>2012-01-01T00:00:00+01:00</updated>
+   <updated>2012-01-01T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2012/01/01/migration-to-jekyll</id>
    <content type="html">&lt;p&gt;A few weeks ago, I discovered &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt;. In a nutshell, Jekyll is a static site generator who promised me I'll be able to &lt;a href=&quot;http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html&quot;&gt;blog like a hacker&lt;/a&gt;. This site is now hosted on GitHub, and &lt;a href=&quot;https://github.com/tpoisot/tpoisot.github.com&quot;&gt;both the template and the content can be forked&lt;/a&gt;, so everything is basically open source.&lt;/p&gt;
 
@@ -1869,7 +1869,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
  <entry>
    <title>The aggregate function in Python</title>
    <link href="http://timotheepoisot.fr/2011/12/01/the-aggregate-function-in-python/"/>
-   <updated>2011-12-01T00:00:00+01:00</updated>
+   <updated>2011-12-01T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2011/12/01/the-aggregate-function-in-python</id>
    <content type="html">&lt;p&gt;One thing I love the most about R is the &lt;a href=&quot;http://stat.ethz.ch/R-manual/R-devel/library/stats/html/aggregate.html&quot;&gt;aggregate&lt;/a&gt; function, which (in a nutshell) summarizes a data frame according to one or more columns, and perform some operations on the aggregated values. If, for example, you have a data frame with a treatment and a response, and want to calculate the mean and standard deviation of the response by level of treatment, then aggregate is usually the way to go.&lt;/p&gt;
 
@@ -1909,7 +1909,7 @@ plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;spe_pdi&lt;span class=&quot;p&
  <entry>
    <title>Get your lab on twitter!</title>
    <link href="http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/"/>
-   <updated>2011-11-19T00:00:00+01:00</updated>
+   <updated>2011-11-19T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter</id>
    <content type="html">&lt;p&gt;More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of &lt;a href=&quot;http://www.nature.com/naturejobs/science/articles/10.1038/nj7371-141a&quot;&gt;a paper in
 &lt;em&gt;Nature&lt;/em&gt; this week&lt;/a&gt;. I've read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I was left wondering, if I were not already using twitter and other similar things (partly) for scientific purposes, would this article have changed my habits? Maybe not.&lt;/p&gt;
@@ -1995,7 +1995,7 @@ up this opportunity.&lt;/p&gt;
  <entry>
    <title>A model of population dynamics in Python</title>
    <link href="http://timotheepoisot.fr/2011/11/14/a-model-of-population-dynamics-in-python/"/>
-   <updated>2011-11-14T00:00:00+01:00</updated>
+   <updated>2011-11-14T00:00:00-05:00</updated>
    <id>http://timotheepoisot.fr/2011/11/14/a-model-of-population-dynamics-in-python</id>
    <content type="html">&lt;p&gt;I've been using &lt;a href=&quot;http://python.org/&quot;&gt;Python&lt;/a&gt; more and more to do various things. When compared to &lt;a href=&quot;http://cran.cict.fr/&quot;&gt;R&lt;/a&gt; (which I use a lot), Python is not more difficult to write, and a whole lot faster. I've started exploring tools to use Python for ecological simulations, and specifically the &lt;a href=&quot;http://www.scipy.org/&quot;&gt;scipy&lt;/a&gt; library. In R, my usual tool is the &lt;a href=&quot;http://simecol.r-forge.r-project.org/&quot;&gt;simecol&lt;/a&gt; package, which implements a lot of numerical integrators, and most notably &lt;a href=&quot;http://www.oecd-nea.org/tools/abstract/detail/uscd1227&quot;&gt;&lt;code&gt;LSODA&lt;/code&gt;&lt;/a&gt; (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).&lt;/p&gt;
 
@@ -2042,7 +2042,7 @@ two parameters, &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;K&lt;/em&gt;.&lt;/p&gt;
  <entry>
    <title>Morphology and phylogeny in Lamellodiscus</title>
    <link href="http://timotheepoisot.fr/2011/10/12/morpho-phylo-lamellodiscus/"/>
-   <updated>2011-10-12T00:00:00+02:00</updated>
+   <updated>2011-10-12T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2011/10/12/morpho-phylo-lamellodiscus</id>
    <content type="html">&lt;p&gt;The final paper of my master's project was &lt;a href=&quot;http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0026252&quot;&gt;published online today in &lt;em&gt;PLoS One&lt;/em&gt;&lt;/a&gt;. It's about how species of a fish parasite, which were defined based on morphological features, may not be actual species, as they have no phylogenetic support.&lt;/p&gt;
 
@@ -2055,7 +2055,7 @@ two parameters, &lt;em&gt;r&lt;/em&gt; and &lt;em&gt;K&lt;/em&gt;.&lt;/p&gt;
  <entry>
    <title>INNGE network : this is on!</title>
    <link href="http://timotheepoisot.fr/2011/07/18/innge-network-this-is-on/"/>
-   <updated>2011-07-18T00:00:00+02:00</updated>
+   <updated>2011-07-18T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2011/07/18/innge-network-this-is-on</id>
    <content type="html">&lt;p&gt;The INNGE network is now officially started, with a short Forum article in the &lt;a href=&quot;http://www.intecol.net/&quot;&gt;INTECOL Bulletin&lt;/a&gt; (PDF attached at the end of this post). I'm obviously very glad to be part of this effort, which seeks to bring early career ecologists together from around the world, thereby strengthening international ties within a growing global community of ecologists.&lt;/p&gt;
 
@@ -2069,7 +2069,7 @@ touch using our emails, &lt;a href=&quot;http://www.facebook.com/groups/25487349
  <entry>
    <title>Models in Evolutionary Ecology, 2nd edition</title>
    <link href="http://timotheepoisot.fr/2011/07/17/models-in-evolutionary-ecology-2nd-edition/"/>
-   <updated>2011-07-17T00:00:00+02:00</updated>
+   <updated>2011-07-17T00:00:00-04:00</updated>
    <id>http://timotheepoisot.fr/2011/07/17/models-in-evolutionary-ecology-2nd-edition</id>
    <content type="html">&lt;p&gt;The videos of the talks given during the second edition of the &lt;a href=&quot;http://www.seminar-mee.org/home/programme&quot;&gt;Models in
 Evolutionary Ecology&lt;/a&gt; seminar,
