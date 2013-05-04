@@ -5,7 +5,7 @@ html {
 	text-align: left;
 	margin: 0px auto;
 	padding: 0px;
-	background-color: rgb(254, 254, 254);
+	background-color: rgb(255, 255, 254);
 }
 
 /* Fonts and typography */
@@ -35,7 +35,7 @@ code{
 }
 
 body{
-	font-family: "museo-sans", 'Droid Serif', sans-serif !important;
+	font-family: "prenton", 'Droid Serif', sans-serif !important;
 	color: #0f0f0f;
 	height:100%;
 	margin: 0px auto;
@@ -133,17 +133,17 @@ a:hover{
 .pbody h1{
 	font-size: 1.3em;
 	margin-bottom: 0.7em;
-	font-weight: 700 !important;
+	font-weight: 500 !important;
 }
 
 h1 .ptitle{
 	font-size: 1.4em !important;
-	font-weight: 900 !important;
+	font-weight: 600 !important;
 }
 
 .ptitle, .pbody h1, .latest_post h1{
 	color: rgb(60, 60, 60);
-	font-family: 'museo-sans-condensed';
+	font-family: 'prenton-condensed';
 }
 
 .upost{
@@ -186,7 +186,7 @@ h1 .ptitle{
 .nav{
 	float: right;
 	text-align: right;
-	font-weight: 500;
+	font-weight: 400;
 	padding: 0px;
 	margin: 0px;
 }
