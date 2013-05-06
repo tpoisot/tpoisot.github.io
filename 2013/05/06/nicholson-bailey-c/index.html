@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Timothée Poisot" />
+    <title>Tim Poisot :: A C version of the Nicholson-Bailey model</title>
+
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
+    
+    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    
+      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11830706-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class='precontent'>
+        <div class='siteinfos'>
+          <h1><a href="http://timotheepoisot.fr">Tim <span class='thl'>Poisot</span></a></h1>
+          <div class='nav'>
+          <ul class='main-nav'>
+            <li><a class="extra navlink homelink" href="/">About</a></li>
+            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
+            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
+            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
+            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+
+      <section class='content'>
+      
+<section>
+	<div class='pbody'>
+
+		<h1 class='ptitle'>A C version of the Nicholson-Bailey model</h1>
+		<span class='margin'>
+			May  6, 2013<br />
+			701 words <br />	
+			Taggs:
+			
+				<a class='post-tag' href="/tags/#open lab book-ref" title="tag">open lab book</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#C-ref" title="tag">C</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#parasites-ref" title="tag">parasites</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#models-ref" title="tag">models</a>,&nbsp;
+			
+				<a class='post-tag' href="/tags/#species interactions-ref" title="tag">species interactions</a>
+			
+		</span>
+
+		<p>The Nicholson-Bailey model is a <a href="http://en.wikipedia.org/wiki/Nicholson%E2%80%93Bailey_model">well known</a> model of host and parasitoid population dynamics.  It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it's brutal like that. There are a few fun things with this model. It's light in parameters (the single-patch version requires only three parameters), it's in discrete time (so it's easy to program), and it's classical put on a lattice (so it's a good way to program these kind of things).</p>
+
+<p>I wanted to test a few things, so I had to re-implement this model in space. My <a href="https://gist.github.com/tpoisot/5528745">first version</a> uses python, but it's remarkably slow. So I decided to write the <a href="">model in C</a>. Either the model is really easy to program, or I'm getting good (I vote for the other solution, because I'm sure my code is full of horrible things), but it was relatively easy to do. <a href="https://gist.github.com/tpoisot/5528759">Go get it</a> and play around. The <code>GSL</code> is required. To get it to run, you'll need to:</p>
+
+<div class="highlight"><pre><code class="bash">mkdir grids
+mkdir png
+clang nb.c -o nb -lgsl -lgslcblas -O3 -DHAVE_INLINE
+chmod +x nb
+./nb
+</code></pre></div>
+
+
+<p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class='margin'>I've never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden...</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
+
+<p>The <code>png</code> folder is used by another script, reproduced below, whose job it is to (i) read the output files, and (ii) do a plot using <code>matplotlib</code>.</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">progressbar</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">uniq</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="n">keys</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">keys</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">rml</span><span class="p">(</span><span class="n">st</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">st</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c"># Read all text file in grids/</span>
+<span class="c"># Output them all in png/</span>
+
+<span class="n">grid_path</span> <span class="o">=</span> <span class="s">&#39;./grids/&#39;</span>
+<span class="n">png_path</span> <span class="o">=</span> <span class="s">&#39;./png/&#39;</span>
+<span class="n">dirList</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">grid_path</span><span class="p">)</span>
+<span class="n">dirList</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">uniq</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">rml</span><span class="p">,</span> <span class="n">dirList</span><span class="p">)))</span>
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">dirList</span><span class="p">),</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">pbar</span> <span class="o">=</span> <span class="n">ProgressBar</span><span class="p">(</span><span class="n">maxval</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">dirList</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">dirList</span><span class="p">:</span>
+    <span class="c"># Update of the progressbar</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c"># Timestep</span>
+    <span class="n">SimTime</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+    <span class="c"># Get the filenames</span>
+    <span class="n">h_name</span> <span class="o">=</span> <span class="n">grid_path</span><span class="o">+</span><span class="s">&#39;h_&#39;</span><span class="o">+</span><span class="n">sim</span><span class="o">+</span><span class="s">&#39;.txt&#39;</span>
+    <span class="n">p_name</span> <span class="o">=</span> <span class="n">grid_path</span><span class="o">+</span><span class="s">&#39;p_&#39;</span><span class="o">+</span><span class="n">sim</span><span class="o">+</span><span class="s">&#39;.txt&#39;</span>
+    <span class="c"># Read the grids</span>
+    <span class="n">h_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">h_name</span><span class="p">)</span>
+    <span class="n">p_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">p_name</span><span class="p">)</span>
+    <span class="n">prev_grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">p_grid</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">h_grid</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c"># Output it as a png (host)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">h_grid</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">png_path</span><span class="o">+</span><span class="s">&#39;h_&#39;</span><span class="o">+</span><span class="n">sim</span><span class="o">+</span><span class="s">&#39;.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="c"># Output it as a png (parasite)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">h_grid</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">png_path</span><span class="o">+</span><span class="s">&#39;p_&#39;</span><span class="o">+</span><span class="n">sim</span><span class="o">+</span><span class="s">&#39;.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="c"># Output it as a png (prevalence)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">prev_grid</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">png_path</span><span class="o">+</span><span class="s">&#39;prev_&#39;</span><span class="o">+</span><span class="n">sim</span><span class="o">+</span><span class="s">&#39;.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="c"># Save the aggregated infos</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">SimTime</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">SimTime</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h_grid</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_grid</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prev_grid</span><span class="p">)]</span>
+<span class="n">pbar</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">&#39;dynamics.txt&#39;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>An example result would look something like this:</p>
+
+<p><img src="/images/nb-static.png" title="output" alt="Figure1" />
+But the fun part is that, with a few extra steps, you can have cool looking videos. I used <code>ffmpeg</code> to do it. It's as simple as getting all of the files in the <code>png</code> folder, and putting them together to have an animated, step-by-step output of the model:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#!/bin/bash</span>
+ffmpeg -qscale 5 -r 20 -b 9600 -i png/h_%05d.png host.mp4
+ffmpeg -qscale 5 -r 20 -b 9600 -i png/p_%05d.png para.mp4
+ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4
+</code></pre></div>
+
+
+<p>The C program is quite fast (500 steps with a 100x100 lattice can be done in just a few seconds), but the script to convert the text files in images is really slow. I'm talking tens of minutes slow, so go make yourself a coffee. It's also extremely hungry in terms of memory, and as with all things Python, will eat up a whole CPU. But it's worth it! I've uploaded an <a href="http://www.youtube.com/embed/wE3x5QABBug">example video</a> if you want to see.</p>
+
+<p>And now... Back to doing whatever I had in mind with this model!</p>
+
+
+		<div id="page-navigation">
+
+        		<div class="left">
+	        		
+	                	Previous post: <a href="/2013/04/30/data-sharing-ecology/" title="Previous Post: Data sharing and preprints in ecology">Data sharing and preprints in ecology</a>
+	        		
+        		</div>
+
+		        <div class="right">
+			        
+		        </div>
+		</div> 
+
+		
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+	</div>
+</section>
+<span
+	class="Z3988" 
+	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=A C version of the Nicholson-Bailey model&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-05-06&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/05/06/nicholson-bailey-c/">
+</span>
+
+      </section>
+
+      <div class='footer'>
+          <p>
+            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
+            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
+          </p>
+      </div>
+      
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
