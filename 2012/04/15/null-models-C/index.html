@@ -87,7 +87,8 @@
 ./configure
 make
 sudo make install
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>Once this is done, compile the null model generator using <code>gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE</code>, and run in using <code>./nm test.txt 3 7 1000 2000</code>. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.</p>

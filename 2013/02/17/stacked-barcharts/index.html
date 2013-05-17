@@ -88,7 +88,8 @@ rownames<span class="p">(</span>Abund<span class="p">)</span> <span class="o">=<
 colnames<span class="p">(</span>Abund<span class="p">)</span> <span class="o">=</span> letters<span class="p">[</span>c<span class="p">(</span><span class="m">1</span><span class="o">:</span>ncol<span class="p">(</span>Abund<span class="p">))]</span>
 
 pal <span class="o">=</span> colorRampPalette<span class="p">(</span>brewer.pal<span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s">&#39;Paired&#39;</span><span class="p">))(</span>nrow<span class="p">(</span>Abund<span class="p">))</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>This will give us a site/abundance matrix. The next step is to create a plot with nothing in it:</p>
@@ -97,7 +98,8 @@ pal <span class="o">=</span> colorRampPalette<span class="p">(</span>brewer.pal<
 X <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="o">:</span>nrow<span class="p">(</span>Abund<span class="p">))</span>
 Y <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="o">:</span>ncol<span class="p">(</span>Abund<span class="p">))</span>
 image<span class="p">(</span>X<span class="p">,</span>Y<span class="p">,</span>Abund<span class="p">,</span>col<span class="o">=</span><span class="s">&#39;white&#39;</span><span class="p">,</span>axes<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>bty<span class="o">=</span><span class="s">&#39;n&#39;</span><span class="p">)</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p><span class='margin'>It's easy to make it so that the width of each sub-plot is proportional to the relative abundance of each species.</span>Then, for each row/line (and I'm aware this is not optimized at all), we will draw a vertical bar. Each taxon (<em>i.e.</em> each column in our graph) will have its own sub-plot. The size can be fixed, or equal. But this allows comparison of species abundances across dates.</p>
@@ -107,7 +109,8 @@ image<span class="p">(</span>X<span class="p">,</span>Y<span class="p">,</span>A
         rect<span class="p">(</span>ro<span class="m">-0.5</span><span class="p">,</span> co<span class="m">-0.4</span><span class="p">,</span> ro<span class="m">-0.5</span><span class="o">+</span>Abund<span class="p">[</span>ro<span class="p">,</span>co<span class="p">]</span><span class="o">*</span><span class="m">0.9</span><span class="p">,</span> co<span class="m">+0.4</span><span class="p">,</span>border<span class="o">=</span><span class="kc">NA</span><span class="p">,</span>col<span class="o">=</span>pal<span class="p">[</span>ro<span class="p">])</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>Finally, let's add reference lines for each species, and the site/species names on axes:</p>
@@ -115,7 +118,8 @@ image<span class="p">(</span>X<span class="p">,</span>Y<span class="p">,</span>A
 <div class="highlight"><pre><code class="splus">abline<span class="p">(</span>v<span class="o">=</span>X<span class="m">-0.5</span><span class="p">,</span>col<span class="o">=</span><span class="s">&#39;darkgrey&#39;</span><span class="p">,</span>lwd<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 axis<span class="p">(</span><span class="m">2</span><span class="p">,</span>at<span class="o">=</span>c<span class="p">(</span><span class="m">1</span><span class="o">:</span>ncol<span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span>colnames<span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
 axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<span class="o">=</span>c<span class="p">(</span><span class="m">1</span><span class="o">:</span>nrow<span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span>rownames<span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>This gives the final result:</p>

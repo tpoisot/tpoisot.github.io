@@ -88,7 +88,8 @@
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>Then we'll set a few parameters:</p>
@@ -98,7 +99,8 @@
 <span class="n">P_col</span> <span class="o">=</span> <span class="mf">0.014</span>   <span class="c"># Probability of colonization (c)</span>
 <span class="n">P_init</span> <span class="o">=</span> <span class="mf">0.02</span>   <span class="c"># Probability that a patch will be occupied at the beginning</span>
 <span class="n">Distance</span> <span class="o">=</span> <span class="mf">1.4</span>  <span class="c"># An arbitrary parameter to determine which patches are connected</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <h1>Create a node class</h1>
@@ -113,7 +115,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span>
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">))</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>I won't go into the detail of this notation, but you can read more <a href="http://www.penzilla.net/tutorials/python/classes/">here</a> or <a href="http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/">here</a> if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.</p>
@@ -125,7 +128,8 @@
 <p>In <code>networkx</code>, creating a graph is easy, and is done by</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>We will now generate as many (<code>Patches</code>) patches as needed, and put them on the landscape at random.</p>
@@ -134,7 +138,8 @@
     <span class="n">Stat</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_init</span> <span class="k">else</span> <span class="mi">0</span>
     <span class="n">Pos</span>  <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span><span class="o">*</span><span class="mi">10</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span><span class="o">*</span><span class="mi">10</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">patch</span><span class="p">(</span><span class="n">Stat</span><span class="p">,</span><span class="n">Pos</span><span class="p">))</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>This require at least Python 2.6, but you can easily rewrite the problematic first line as an <code>if/else</code> block. Basically, this will generate random positions in space, and randomly decide if the patch is occupied or not. This is where <code>networkx</code> is extremely powerful: nodes can be any Python objects. In the simplest cases, you may want to use only numbers or strings, but if you have to keep track of the nodes in more advanced ways, then this become extremely fun and convenient to work with.</p>
@@ -146,7 +151,8 @@
         <span class="n">Dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p1</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">Dist</span> <span class="o">&lt;=</span> <span class="n">Distance</span><span class="p">:</span>
             <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">)</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>For all pairs of nodes, we check that their distance falls below the treshold for migration, and if so, we create an edge in the network.</p>
@@ -159,7 +165,8 @@
     <span class="n">pos</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">pos</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">occup</span><span class="p">,</span><span class="n">with_labels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>This will open a Python plotting view looking like:</p>
@@ -174,7 +181,8 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
 <div class="highlight"><pre><code class="python"><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_ext</span><span class="p">):</span>
         <span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>Simply put, for each node, if it is occupied and a random extinction event occurs, then its status is reverted to 0. Super easy. We can do something similar for the colonization routine. We assume that each occupied node will be able to colonize a single of its neighbouring nodes. This rquires to get a list of nodes adjacent to the node currently being evaluated.</p>
@@ -187,7 +195,8 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_col</span><span class="p">:</span>
                     <span class="n">nei</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
                     <span class="k">break</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>That's a lot of loops within loops, but it goes rougly as follows: for each of the nodes, if their is a population, we check the neighbors. For the non-occupied neighbors, we check if the colonization occurs, and if so, we break the loop.</p>
@@ -208,14 +217,16 @@ The black nodes are occupied patches, and the white ones are empty patches. If t
                     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_col</span><span class="p">:</span>
                         <span class="n">nei</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
                         <span class="k">break</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>We then plot the lanscape using the same command as before (I've actually added the list of occupancies directly within the plot instruction, because one-liners looks cool):</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">],</span><span class="n">with_labels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p><img src="/images/metapop_final.png" title="Final step" alt="Figure2" />
@@ -223,21 +234,24 @@ But of course you would like to follow the dynamics, which is extremely easy. We
 
 <div class="highlight"><pre><code class="python"><span class="n">Time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">Occupancy</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">Patches</span><span class="p">)]</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>And we will add infos at the end of each loop, i.e. immediately after the <code>break</code> instruction (but in the main loop, not the colonization one):</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">Time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">Occupancy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">Patches</span><span class="p">))</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>And at the really end of the simulation, just add</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span><span class="n">Occupancy</span><span class="p">,</span><span class="s">&#39;g-&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>Which will give you the following result:</p>

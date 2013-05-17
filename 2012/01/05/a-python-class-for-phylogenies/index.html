@@ -87,7 +87,8 @@
 
 <div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;ancestor&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">iTree</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>The output of this command should be <code>(root, ancestor)</code>. The <code>root</code> is created by default to ensure that the most basal node is a branching. The interesting thing is that it's now relatively easy to add and remove species. The <code>PhyloTree</code> class has the <code>speciate</code> method, who takes two arguments: the name of the ancestor, and the name of the daughter species. Calling it will go through the tree, and replace the ancestor by the (ancestor, daughter species) branching. Let's try with:</p>
@@ -95,7 +96,8 @@
 <div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">speciate</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="s">&#39;0_0&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">iTree</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>which results in the following tree: <code>(root,(0,0_0))</code>. And I know this is not the way speciation works, so there is also a <code>split</code> method, which will replace one ancestral species by two new species:</p>
@@ -103,7 +105,8 @@
 <div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">iTree</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>will result in <code>(root,(2,1))</code>. This is all made possible by the <code>extinct</code> method, by the way, which will remove from the tree the species whose name is given in argument:</p>
@@ -112,7 +115,8 @@
 <span class="n">iTree</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">extinct</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">iTree</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>will result in <code>(root,1)</code>.</p>

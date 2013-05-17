@@ -98,13 +98,15 @@
         <span class="n">Isolated</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tempWeb</span> <span class="k">if</span> <span class="n">tempWeb</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
         <span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">(</span><span class="n">Isolated</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">tempWeb</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p>To get the contribution of each edge to modularity, it's simple to just adapt the one-liner from the previous post into:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeEdge</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">e</span><span class="p">))</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 
 <p><span class='margin'>The ranking method I use (<code>rankdata</code> in <code>scipy</code>) averages the rank of tied elements. So that explains why the points are not evely spaced.</span>OK, so let's see what it looks like:</p>
