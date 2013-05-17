@@ -130,7 +130,7 @@ a:hover{
 }
 
 .pbody h1{
-	font-size: 1.3em;
+	font-size: 1.4em;
 	margin-bottom: 0.7em;
 	font-weight: 500 !important;
 }
@@ -167,7 +167,7 @@ h1 .ptitle{
 /* Header layour */
 
 .siteinfos h1{
-	font-weight: 300;
+	font-weight: 600;
 	float: left;
 }
 
@@ -185,9 +185,10 @@ h1 .ptitle{
 .nav{
 	float: right;
 	text-align: right;
-	font-weight: 400;
+	font-weight: 300;
 	padding: 0px;
 	margin: 0px;
+  color: rgb(100, 100, 100);
 }
 
 .nav ul{
