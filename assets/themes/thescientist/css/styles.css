@@ -16,12 +16,13 @@ it, em{
 }
 
 b, strong{
-	font-weight: 500;
+	font-weight: 400;
 }
 
 pre{
 	font-family: "mplus-1m" !important;
 	font-weight: 400 !important;
+  font-size: 85%;
 }
 
 code{
@@ -77,8 +78,9 @@ a:hover{
 	right: 0px;
 	width: 19%;
 	font-size: small;
+  font-family: "jaf-facitweb" !important;
 	font-weight: 200;
-	padding-top: 0.5em;
+	padding-top: 0.2em;
 	font-weight: 300 !important;
 	line-height: 1.3em !important;
 }
@@ -92,6 +94,8 @@ a:hover{
 	width: 75%;
 	margin-right: 25%;
 	font-weight: 300;
+  font-family: "rooney-web";
+  font-size: 1.15em;
 }
 
 .pbody p{
