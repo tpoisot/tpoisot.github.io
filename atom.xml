@@ -4,13 +4,26 @@
  <title>Tim Poisot</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2013-05-19T22:33:15-04:00</updated>
+ <updated>2013-05-20T13:35:05-04:00</updated>
  <id></id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Remove indels from blast output</title>
+   <link href="/2013/05/20/blast-remove-gaps/"/>
+   <updated>2013-05-20T00:00:00-04:00</updated>
+   <id>/2013/05/20/blast-remove-gaps</id>
+   <content type="html">&lt;p&gt;My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were &lt;a href=&quot;http://www.retrovirology.com/content/10/1/18/abstract&quot;&gt;indels rather than point mutations&lt;/a&gt;. It may not sound like it, but it's kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of &lt;code&gt;blast&lt;/code&gt;. So to get a &quot;reliable&quot; estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.&lt;/p&gt;
+
+&lt;p&gt;As doing it by hand would be, let's say, tedious, I started looking for a &lt;code&gt;biopython&lt;/code&gt; way to do it. As it turns out, despite the fact that the &lt;code&gt;biopython&lt;/code&gt; documentation is cryptic and baffling at some points, it turned out to be a great over-lunch coding project.&lt;/p&gt;
+
+&lt;p&gt;I've put the code up as a &lt;a href=&quot;https://gist.github.com/tpoisot/5613748&quot;&gt;gist&lt;/a&gt;. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it's not that slow (a few seconds per sequence, most of which are actually spent blasting).&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Using make and pandoc for reproducible papers</title>

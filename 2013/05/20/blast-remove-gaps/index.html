@@ -25,7 +25,7 @@
 	</script>
 	
 	<meta name="author" content="Tim Poisot" />
-   <title>Tim Poisot :: Goodbye Wordpress, hello Jekyll!</title>
+   <title>Tim Poisot :: Remove indels from blast output</title>
     
 </head>
 
@@ -66,25 +66,13 @@
 	</div>
 	
 	<div class="span6 page-content">
-	<div class='post-title muted'>Goodbye Wordpress, hello Jekyll!</div>
+	<div class='post-title muted'>Remove indels from blast output</div>
 
-<p>A few weeks ago, I discovered <a href="https://github.com/mojombo/jekyll">Jekyll</a>. In a nutshell, Jekyll is a static site generator who promised me I'll be able to <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blog like a hacker</a>. This site is now hosted on GitHub, and <a href="https://github.com/tpoisot/tpoisot.github.com">both the template and the content can be forked</a>, so everything is basically open source.</p>
+<p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it's kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a "reliable" estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
 
-<p>Jekyll is a lot of fun to use, especially because all of the content reside in <em>static text files</em> instead of a database. It's also fully compatible with the <a href="http://daringfireball.net/projects/markdown/">markdown</a> format, which is a lot easier to write than html. For example, writing a simple text in bold in markdown is done through</p>
+<p>As doing it by hand would be, let's say, tedious, I started looking for a <code>biopython</code> way to do it. As it turns out, despite the fact that the <code>biopython</code> documentation is cryptic and baffling at some points, it turned out to be a great over-lunch coding project.</p>
 
-<div class="highlight"><pre><code class="bash">**text in bold**
-</code></pre>
-</div>
-
-
-<p>rather than the equivalent html</p>
-
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;strong&gt;</span>text in bold<span class="nt">&lt;/strong&gt;</span>
-</code></pre>
-</div>
-
-
-<p>So a less lot keys to press (especially on my new QWERTY keyboard). The fact that Jekyll uses the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> templating language also make the overall design process <em>fun</em>. In addition, the whole system is working on GitHub, so I have complete version control on everything. This is so awesome!</p>
+<p>I've put the code up as a <a href="https://gist.github.com/tpoisot/5613748">gist</a>. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it's not that slow (a few seconds per sequence, most of which are actually spent blasting).</p>
 
 
 <div id="disqus_thread"></div>
@@ -106,13 +94,13 @@
 
 
 <li class="previous">
-<a href="/2011/12/01/the-aggregate-function-in-python/">&larr; Previous post</a>
+<a href="/2013/05/18/make-pandoc/">&larr; Previous post</a>
 </li>
 
 
 
-<li class="next">
-<a href="/2012/01/05/a-python-class-for-phylogenies/">Next post &rarr;</a>
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
 </li>
 
 
@@ -123,9 +111,19 @@
 	
 	<div class="span2">
 	
-	January  1, 2012<br />
-178 words <br />	
+	May 20, 2013<br />
+172 words <br />	
 <p />
+
+<span class="label label-default">open lab book</span>
+
+<span class="label label-default">bioinformatics</span>
+
+<span class="label label-default">python</span>
+
+<span class="label label-default">biopython</span>
+
+<span class="label label-default">pyrosequencing</span>
 
 
 	
