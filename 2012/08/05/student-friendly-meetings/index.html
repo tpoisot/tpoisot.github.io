@@ -1,81 +1,73 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: Are student-friendly conferences worth it?</title>
 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
-    
-    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+	<script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
     
-      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Are student-friendly conferences worth it?</title>
     
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
 
-    
+<div id='wrap'>
+
+<div class="row site-head">
+	<div class="span6 offset4">
+	<div class="jumbotron site-header">
+<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
+</div>
+
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span2 offset2">
+	<ul class="nav nav-list">
+  <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
+  <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
+  <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
+  <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-user"></i> Blog</a></li>
+</ul>
+
+<br />
+
+<ul class="nav nav-list">
+<li><a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i> email</a></li>
+<li><a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i> github</a></li>
+<li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
+<li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
+</ul>
 
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+	</div>
+	
+	<div class="span6 page-content">
+	<div class='post-title muted'>Are student-friendly conferences worth it?</div>
 
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class='precontent'>
-        <div class='siteinfos'>
-          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <div class='nav'>
-          <ul class='main-nav'>
-            <li><a class="extra navlink homelink" href="/">About</a></li>
-            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
-            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
-            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-
-      <section class='content'>
-      
-<section>
-	<div class='pbody'>
-
-		<h1 class='ptitle'>Are student-friendly conferences worth it?</h1>
-		<span class='margin'>
-			August  5, 2012<br />
-			916 words <br />	
-			Taggs:
-			
-				<a class='post-tag' href="/tags/#conferences-ref" title="tag">conferences</a>
-			
-		</span>
-
-		<p>Two recent posts by <a href="http://dynamicecology.wordpress.com/2012/08/03/advice-students-shouldnt-bother-with-student-friendly-conferences/">Jeremy Fox</a> and <a href="http://neurodojo.blogspot.ca/2012/07/student-friendly.html">Zen Faulkes</a> dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not how things work.</p>
+<p>Two recent posts by <a href="http://dynamicecology.wordpress.com/2012/08/03/advice-students-shouldnt-bother-with-student-friendly-conferences/">Jeremy Fox</a> and <a href="http://neurodojo.blogspot.ca/2012/07/student-friendly.html">Zen Faulkes</a> dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not how things work.</p>
 
 <p>When teaching, I'm always struggling to make students speak. And as far as I know, I'm not the only one in this situation. This is less of a problem with masters students, but undergrad are often terrible at participation. Why? Peer pressure! When you are afraid of (real or imagined) consequences of being wrong, i.e. asking a «bad» question, or saying something «stupid» (quoted to say  that, except in some extremely pathological cases, there are no bad questions or stupid remarks), you tend to stay silent. This is only in the classroom context, so imagine the situation when you are an undergrad student, in a room full of big-shot professors that you respect for their work. Until you have a good enough guess on which side of the «Wow that young fellow is smart!» / «Is he retarded?» line you will fall, you tend to stay silent.</p>
 
@@ -90,60 +82,50 @@
 <p>To conclude, I think we should not look down on student-friendly meetings. They provide a really good training opportunity, both for the people talikng that are given the opportunity to gain confidence, and for the people organizing them. And it is not because they are meant for students that the science will be bad, or the discussions unstimulating. It's a matter of finding the good people (faculties) to catalyze it, and it can be an extremely fun couple of days.</p>
 
 
-		<div id="page-navigation">
 
-        		<div class="left">
-	        		
-	                	Previous post: <a href="/2012/08/03/new-linux-setup/" title="Previous Post: My new linux setup">My new linux setup</a>
-	        		
-        		</div>
-
-		        <div class="right">
-			        
-			                Next post: <a href="/2012/08/13/models-are-useless/" title="Next Post: Models are useless. Real ecologists should move on.">Models are useless. Real ecologists should move on.</a>
-			        
-		        </div>
-		</div> 
-
-		
+<ul class="pager">
 
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<li class="previous">
+<a href="/2012/08/03/new-linux-setup/">&larr; Previous post</a>
+</li>
 
 
+
+<li class="next">
+<a href="/2012/08/13/models-are-useless/">Next post &rarr;</a>
+</li>
+
+
+</ul>
 
 
 	</div>
-</section>
-<span
-	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Are student-friendly conferences worth it?&amp;rft.creator=Timothée Poisot&amp;rft.date=2012-08-05&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2012/08/05/student-friendly-meetings/">
-</span>
+	
+	<div class="span2">
+	
+	August  5, 2012<br />
+916 words <br />	
+<p />
 
-      </section>
+<span class="label label-default">conferences</span>
 
-      <div class='footer'>
-          <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
-            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
-          </p>
-      </div>
-      
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+
+	
+	</div>
+	
+</div>
+
+	<div id="push"></div>
+
+</div>
+
+<div id="row footer">
+	<div class="span6 offset4">
+	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+	  </p>
+	</div>
+</div>
+
 </html>
-

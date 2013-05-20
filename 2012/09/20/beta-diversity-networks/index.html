@@ -1,85 +1,73 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: The beta-diversity of species interaction networks</title>
 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
-    
-    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+	<script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
     
-      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: The beta-diversity of species interaction networks</title>
     
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
 
-    
+<div id='wrap'>
+
+<div class="row site-head">
+	<div class="span6 offset4">
+	<div class="jumbotron site-header">
+<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
+</div>
+
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span2 offset2">
+	<ul class="nav nav-list">
+  <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
+  <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
+  <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
+  <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-user"></i> Blog</a></li>
+</ul>
+
+<br />
+
+<ul class="nav nav-list">
+<li><a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i> email</a></li>
+<li><a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i> github</a></li>
+<li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
+<li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
+</ul>
 
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+	</div>
+	
+	<div class="span6 page-content">
+	<div class='post-title muted'>The beta-diversity of species interaction networks</div>
 
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class='precontent'>
-        <div class='siteinfos'>
-          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <div class='nav'>
-          <ul class='main-nav'>
-            <li><a class="extra navlink homelink" href="/">About</a></li>
-            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
-            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
-            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-
-      <section class='content'>
-      
-<section>
-	<div class='pbody'>
-
-		<h1 class='ptitle'>The beta-diversity of species interaction networks</h1>
-		<span class='margin'>
-			September 20, 2012<br />
-			874 words <br />	
-			Taggs:
-			
-				<a class='post-tag' href="/tags/#beta-diversity-ref" title="tag">beta-diversity</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#biogeography-ref" title="tag">biogeography</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>
-			
-		</span>
-
-		<p>Have you ever sampled interaction networks, and wished there were a good method to measure how dissimilar they are? Or have you ever thought about &beta;-diversity of species interactions? Do you just love good science? If you answered yes to any of these questions, then <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">you should read our <em>Ecology Letters</em> paper, now online</a>. We propose a way to measure the &beta;-diversity of networks (any kind of network, unipartite, bipartite, quantitative, ...), and propose some ideas about what we can learn from thinking about these networks in a biogeographical perspective.</p>
+<p>Have you ever sampled interaction networks, and wished there were a good method to measure how dissimilar they are? Or have you ever thought about &beta;-diversity of species interactions? Do you just love good science? If you answered yes to any of these questions, then <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">you should read our <em>Ecology Letters</em> paper, now online</a>. We propose a way to measure the &beta;-diversity of networks (any kind of network, unipartite, bipartite, quantitative, ...), and propose some ideas about what we can learn from thinking about these networks in a biogeographical perspective.</p>
 
 <p>When you think about networks over space, it is important to make a distinction between what occurs at the regional and the local level. In short, what happens at the regional level is potential, and the local observation is realized. Species sorting is hardly a groundbreaking idea in ecology, but perhaps we should think more about interactions sorting. Not because two species that can interact co-occur at one site mean that they will interact at this site. In our paper, we propose that the regional pool of species and their interactions be called a <em>metaweb</em>, and what is effectively realized locally be called a <em>realization</em>. These are two key levels of interpretation to understand the &beta;-diversity of networks.</p>
 
@@ -98,60 +86,54 @@ Quoting from the last paragraph:</p>
 <p>In short, and this was (kind of) the conclusion of my Ottawa talk, we need more data. At this point, it's easy to do models, and to further speculate on which mechanisms will act. But there are only few datasets on which we can <em>test</em> this speculation, making it a little bit vain. More importantly, we need <em>better</em> (more suited) data. Replication of the same metaweb in space, or time; rich information about the environmental conditions; actual measurement of wether populations locally interact or not; just to name a few. The excellent theoretical work that was done in the last few years is far from useless, but until we go back to the field (or design clever experiments in microcosms...), my impression is that it will not be as beneficial as it should be.</p>
 
 
-		<div id="page-navigation">
 
-        		<div class="left">
-	        		
-	                	Previous post: <a href="/2012/08/15/notes-on-using-sympy/" title="Previous Post: Notes on learning how to use sympy">Notes on learning how to use sympy</a>
-	        		
-        		</div>
-
-		        <div class="right">
-			        
-			                Next post: <a href="/2012/09/24/measuring-beta-diversity-networks/" title="Next Post: Measuring the beta-diversity of species interaction networks">Measuring the beta-diversity of species interaction networks</a>
-			        
-		        </div>
-		</div> 
-
-		
+<ul class="pager">
 
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<li class="previous">
+<a href="/2012/08/15/notes-on-using-sympy/">&larr; Previous post</a>
+</li>
 
 
+
+<li class="next">
+<a href="/2012/09/24/measuring-beta-diversity-networks/">Next post &rarr;</a>
+</li>
+
+
+</ul>
 
 
 	</div>
-</section>
-<span
-	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=The beta-diversity of species interaction networks&amp;rft.creator=Timothée Poisot&amp;rft.date=2012-09-20&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/">
-</span>
+	
+	<div class="span2">
+	
+	September 20, 2012<br />
+874 words <br />	
+<p />
 
-      </section>
+<span class="label label-default">beta-diversity</span>
 
-      <div class='footer'>
-          <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
-            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
-          </p>
-      </div>
-      
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+<span class="label label-default">biogeography</span>
+
+<span class="label label-default">ecological networks</span>
+
+
+	
+	</div>
+	
+</div>
+
+	<div id="push"></div>
+
+</div>
+
+<div id="row footer">
+	<div class="span6 offset4">
+	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+	  </p>
+	</div>
+</div>
+
 </html>
-

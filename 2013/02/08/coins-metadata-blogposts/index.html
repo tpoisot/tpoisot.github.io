@@ -1,83 +1,73 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: COinS metadata in Jekyll blogposts</title>
 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
-    
-    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+	<script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
     
-      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: COinS metadata in Jekyll blogposts</title>
     
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
 
-    
+<div id='wrap'>
+
+<div class="row site-head">
+	<div class="span6 offset4">
+	<div class="jumbotron site-header">
+<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
+</div>
+
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span2 offset2">
+	<ul class="nav nav-list">
+  <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
+  <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
+  <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
+  <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-user"></i> Blog</a></li>
+</ul>
+
+<br />
+
+<ul class="nav nav-list">
+<li><a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i> email</a></li>
+<li><a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i> github</a></li>
+<li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
+<li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
+</ul>
 
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+	</div>
+	
+	<div class="span6 page-content">
+	<div class='post-title muted'>COinS metadata in Jekyll blogposts</div>
 
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class='precontent'>
-        <div class='siteinfos'>
-          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <div class='nav'>
-          <ul class='main-nav'>
-            <li><a class="extra navlink homelink" href="/">About</a></li>
-            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
-            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
-            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-
-      <section class='content'>
-      
-<section>
-	<div class='pbody'>
-
-		<h1 class='ptitle'>COinS metadata in Jekyll blogposts</h1>
-		<span class='margin'>
-			February  8, 2013<br />
-			241 words <br />	
-			Taggs:
-			
-				<a class='post-tag' href="/tags/#jekyll-ref" title="tag">jekyll</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#bibliography-ref" title="tag">bibliography</a>
-			
-		</span>
-
-		<p><a href="http://ocoins.info/">COinS</a> is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn <a href="http://dynamicecology.wordpress.com/2011/06/17/zombie-ideas-in-ecology/">blog posts into <em>TREE</em> papers</a>, citing blog posts might not be so far away).</p>
+<p><a href="http://ocoins.info/">COinS</a> is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn <a href="http://dynamicecology.wordpress.com/2011/06/17/zombie-ideas-in-ecology/">blog posts into <em>TREE</em> papers</a>, citing blog posts might not be so far away).</p>
 
 <p>Adding <code>COinS</code> data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in to generate these data for blogs running <code>jekyll</code>. Having 5 minutes to lose, I decided to just go ahead and write one. Here it goes:</p>
 
@@ -107,60 +97,52 @@
 <p>So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect <code>COinS</code> data, and so might be other programs.</p>
 
 
-		<div id="page-navigation">
 
-        		<div class="left">
-	        		
-	                	Previous post: <a href="/2013/01/28/introductions-reinventing-ecological-wheel/" title="Previous Post: Article introductions and the reinvention of the ecological wheel">Article introductions and the reinvention of the ecological wheel</a>
-	        		
-        		</div>
-
-		        <div class="right">
-			        
-			                Next post: <a href="/2013/02/12/species-contribution-modularity/" title="Next Post: Estimating node contribution to network properties">Estimating node contribution to network properties</a>
-			        
-		        </div>
-		</div> 
-
-		
+<ul class="pager">
 
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<li class="previous">
+<a href="/2013/01/28/introductions-reinventing-ecological-wheel/">&larr; Previous post</a>
+</li>
 
 
+
+<li class="next">
+<a href="/2013/02/12/species-contribution-modularity/">Next post &rarr;</a>
+</li>
+
+
+</ul>
 
 
 	</div>
-</section>
-<span
-	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=COinS metadata in Jekyll blogposts&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-02-08&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/02/08/coins-metadata-blogposts/">
-</span>
+	
+	<div class="span2">
+	
+	February  8, 2013<br />
+241 words <br />	
+<p />
 
-      </section>
+<span class="label label-default">jekyll</span>
 
-      <div class='footer'>
-          <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
-            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
-          </p>
-      </div>
-      
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+<span class="label label-default">bibliography</span>
+
+
+	
+	</div>
+	
+</div>
+
+	<div id="push"></div>
+
+</div>
+
+<div id="row footer">
+	<div class="span6 offset4">
+	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+	  </p>
+	</div>
+</div>
+
 </html>
-

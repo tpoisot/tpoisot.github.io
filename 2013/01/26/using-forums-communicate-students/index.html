@@ -1,83 +1,79 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: Using forums to communicate with students</title>
 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
-    
-    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+	<script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
     
-      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Using forums to communicate with students</title>
     
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
 
-    
+<div id='wrap'>
+
+<div class="row site-head">
+	<div class="span6 offset4">
+	<div class="jumbotron site-header">
+<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
+</div>
+
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span2 offset2">
+	<ul class="nav nav-list">
+  <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
+  <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
+  <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
+  <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-user"></i> Blog</a></li>
+</ul>
+
+<br />
+
+<ul class="nav nav-list">
+<li><a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i> email</a></li>
+<li><a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i> github</a></li>
+<li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
+<li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
+</ul>
 
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+	</div>
+	
+	<div class="span6 page-content">
+	<div class='post-title muted'>Using forums to communicate with students</div>
 
+<p>This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it's a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it's possible to do participative lectures, it's hard; at least I think it is, perhaps I still need to find the good recipe. There are a few reasons for which it's difficult to get students to participate (and by participation, I mean, talk to you, and talk between them). Some of them did not choose the course, and so they don't feel really involved in it (I think this argument is rubbish; they did chose the major, so I expect that they will have at least some interest in the subject). Some of them are really shy, or more generally, peer-pressure is strong. It might be a strong observational bias on my side, but I have the feeling that students in Québec perceive a higher competition between them that what is the case in France, and don't want to give a bad impression. Finally, it might be that the students see you, and you only as an authority figure, and see no interest in discussing course material during the class (see also, competition).</p>
 
+<div class="alert alert-info">
+<h4>Warning!</h4>
+This post was written over the course of six months. I have plans to write more about teaching in the future, because there is some trauma I need to share with you, but let's start by the basics!
+</div>
 
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class='precontent'>
-        <div class='siteinfos'>
-          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <div class='nav'>
-          <ul class='main-nav'>
-            <li><a class="extra navlink homelink" href="/">About</a></li>
-            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
-            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
-            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-
-      <section class='content'>
-      
-<section>
-	<div class='pbody'>
-
-		<h1 class='ptitle'>Using forums to communicate with students</h1>
-		<span class='margin'>
-			January 26, 2013<br />
-			1359 words <br />	
-			Taggs:
-			
-				<a class='post-tag' href="/tags/#teaching-ref" title="tag">teaching</a>
-			
-		</span>
-
-		<p>This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it's a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it's possible to do participative lectures, it's hard; at least I think it is, perhaps I still need to find the good recipe. There are a few reasons for which it's difficult to get students to participate (and by participation, I mean, talk to you, and talk between them). Some of them did not choose the course, and so they don't feel really involved in it (I think this argument is rubbish; they did chose the major, so I expect that they will have at least some interest in the subject). Some of them are really shy, or more generally, peer-pressure is strong. It might be a strong observational bias on my side, but I have the feeling that students in Québec perceive a higher competition between them that what is the case in France, and don't want to give a bad impression. Finally, it might be that the students see you, and you only as an authority figure, and see no interest in discussing course material during the class (see also, competition).</p>
-
-<p><strong>Disclaimer:</strong> <em>This post was written over the course of six months. I have plans to write more about teaching in the future, because there is some trauma I need to share with you, but let's start by the basics!</em></p>
 
 <p>As far as I'm concerned, I value communication in less formal setups and smaller groups over the shut-up-and-take-notes approach. Lectures are good at conveying the basic informations, but it's only (my rough estimate) 15% of the course material. Just enough material to highlight what you need to learn, and a list of books to help you locate the information. But even that is somewhat passive, and it's no secret that you retain more information when you go through the reflection yourself, rather than copying the proof, demonstration, or story hidden in the data. The French word for student is <em>étudiant</em>, or literally <em>he who studies</em>.</p>
 
@@ -115,60 +111,50 @@
 <p>So here it is. I anticipate to use something similar again in the future, because the pros (mostly the fact that all students have the same information, and can help one another) outweighs the cons. The students were not too enthusiastic about it, for different reasons. One of which is that it's not the way other lecturers and professors do it, so it felt outside their comfort zone. But those who participated in it, got something out of the exercise, and I still think it can be a good support tool for a course (though, perhaps, not the only one).</p>
 
 
-		<div id="page-navigation">
 
-        		<div class="left">
-	        		
-	                	Previous post: <a href="/2013/01/24/where-to-submit/" title="Previous Post: Where to submit your paper?">Where to submit your paper?</a>
-	        		
-        		</div>
-
-		        <div class="right">
-			        
-			                Next post: <a href="/2013/01/28/introductions-reinventing-ecological-wheel/" title="Next Post: Article introductions and the reinvention of the ecological wheel">Article introductions and the reinvention of the ecological wheel</a>
-			        
-		        </div>
-		</div> 
-
-		
+<ul class="pager">
 
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<li class="previous">
+<a href="/2013/01/24/where-to-submit/">&larr; Previous post</a>
+</li>
 
 
+
+<li class="next">
+<a href="/2013/01/28/introductions-reinventing-ecological-wheel/">Next post &rarr;</a>
+</li>
+
+
+</ul>
 
 
 	</div>
-</section>
-<span
-	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Using forums to communicate with students&amp;rft.creator=Timothée Poisot&amp;rft.date=2013-01-26&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2013/01/26/using-forums-communicate-students/">
-</span>
+	
+	<div class="span2">
+	
+	January 26, 2013<br />
+1363 words <br />	
+<p />
 
-      </section>
+<span class="label label-default">teaching</span>
 
-      <div class='footer'>
-          <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
-            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
-          </p>
-      </div>
-      
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+
+	
+	</div>
+	
+</div>
+
+	<div id="push"></div>
+
+</div>
+
+<div id="row footer">
+	<div class="span6 offset4">
+	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+	  </p>
+	</div>
+</div>
+
 </html>
-

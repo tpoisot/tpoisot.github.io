@@ -1,83 +1,73 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: A walk on the intertidal zone</title>
 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
-    
-    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+	<script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
     
-      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: A walk on the intertidal zone</title>
     
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
 
-    
+<div id='wrap'>
+
+<div class="row site-head">
+	<div class="span6 offset4">
+	<div class="jumbotron site-header">
+<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
+</div>
+
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span2 offset2">
+	<ul class="nav nav-list">
+  <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
+  <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
+  <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
+  <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-user"></i> Blog</a></li>
+</ul>
+
+<br />
+
+<ul class="nav nav-list">
+<li><a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i> email</a></li>
+<li><a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i> github</a></li>
+<li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
+<li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
+</ul>
 
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+	</div>
+	
+	<div class="span6 page-content">
+	<div class='post-title muted'>A walk on the intertidal zone</div>
 
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class='precontent'>
-        <div class='siteinfos'>
-          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <div class='nav'>
-          <ul class='main-nav'>
-            <li><a class="extra navlink homelink" href="/">About</a></li>
-            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
-            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
-            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-
-      <section class='content'>
-      
-<section>
-	<div class='pbody'>
-
-		<h1 class='ptitle'>A walk on the intertidal zone</h1>
-		<span class='margin'>
-			July 15, 2012<br />
-			292 words <br />	
-			Taggs:
-			
-				<a class='post-tag' href="/tags/#intertidal-ref" title="tag">intertidal</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#trophic complexity-ref" title="tag">trophic complexity</a>
-			
-		</span>
-
-		<p>I'm in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:</p>
+<p>I'm in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:</p>
 
 <p><img src="/images/estran.png" title="estran" alt="Figure1" />
 What immediately came to my mind is: we don't know anything. It's one thing to look at species interaction networks, and have a feeling that we can, somehow, predict, forecast, and analyse the behavior of complex systems. It's another entirely different thing to actually see millions of individuals living on top of one another, being flushed every 6 hours, and starting all over again. I was amazed by the breadth of phylogenetic diversity concentrated in such a small space: bacterial mats on the bottom of the ponds, probably some plankton grazing them, a few larvae, crustaceans, algae, and quite a lot of birds.</p>
@@ -85,60 +75,52 @@ What immediately came to my mind is: we don't know anything. It's one thing to l
 <p>And looking at the food web, or just the parasitic relationships, will make us miss the big picture. There is some hope in the fact that some recent proposal provide us with a <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2011.01732.x/abstract">more integrated view of the complexity of interactions</a>, but far too often we're happy claiming that we adress «trophic complexity» every time we add a trop predator over a Lotka-Voltera model. Perhaps is <a href="http://www.jstor.org/discover/10.2307/3546712?uid=3739464&amp;uid=2129&amp;uid=2&amp;uid=70&amp;uid=3737720&amp;uid=4&amp;sid=56308801943">community ecology a mess</a> because ecological communities <em>are</em> messy. Perhaps we've focused so much on trophic species, functional groups, and whatnot, that we forgot about the Harvard law of animal behavior: «<em>an animal will behave as it damned well pleases</em>». See, this is why theoreticians are better inside. Every time we take a look at the real world, it's a guaranteed existential crisis.</p>
 
 
-		<div id="page-navigation">
 
-        		<div class="left">
-	        		
-	                	Previous post: <a href="/2012/07/03/colorbrewer-in-pgfplots/" title="Previous Post: Using Color Brewer schemes in LaTeX pgfplots">Using Color Brewer schemes in LaTeX pgfplots</a>
-	        		
-        		</div>
-
-		        <div class="right">
-			        
-			                Next post: <a href="/2012/08/03/new-linux-setup/" title="Next Post: My new linux setup">My new linux setup</a>
-			        
-		        </div>
-		</div> 
-
-		
+<ul class="pager">
 
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<li class="previous">
+<a href="/2012/07/03/colorbrewer-in-pgfplots/">&larr; Previous post</a>
+</li>
 
 
+
+<li class="next">
+<a href="/2012/08/03/new-linux-setup/">Next post &rarr;</a>
+</li>
+
+
+</ul>
 
 
 	</div>
-</section>
-<span
-	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=A walk on the intertidal zone&amp;rft.creator=Timothée Poisot&amp;rft.date=2012-07-15&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2012/07/15/what-is-trophic-complexity/">
-</span>
+	
+	<div class="span2">
+	
+	July 15, 2012<br />
+292 words <br />	
+<p />
 
-      </section>
+<span class="label label-default">intertidal</span>
 
-      <div class='footer'>
-          <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
-            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
-          </p>
-      </div>
-      
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+<span class="label label-default">trophic complexity</span>
+
+
+	
+	</div>
+	
+</div>
+
+	<div id="push"></div>
+
+</div>
+
+<div id="row footer">
+	<div class="span6 offset4">
+	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+	  </p>
+	</div>
+</div>
+
 </html>
-

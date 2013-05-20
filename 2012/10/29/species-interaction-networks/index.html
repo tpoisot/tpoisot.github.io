@@ -1,91 +1,79 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="Timothée Poisot" />
-    <title>Tim Poisot :: Should we care about species interaction networks?</title>
 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/core.css" media="screen"/> 
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/mobile.css" media="handheld, only screen and (max-device-width:480px)"/>
-    <link rel="stylesheet" href="/assets/themes/thescientist/css/pygment.css" />
-    
-    <script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
+<head>
+	<meta charset="utf-8" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+	<script type="text/javascript" src="//use.typekit.net/kvz6lyh.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
     
-      <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Should we care about species interaction networks?</title>
     
+</head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<html lang="en">
 
-    
+<div id='wrap'>
+
+<div class="row site-head">
+	<div class="span6 offset4">
+	<div class="jumbotron site-header">
+<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
+</div>
+
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span2 offset2">
+	<ul class="nav nav-list">
+  <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
+  <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
+  <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
+  <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-user"></i> Blog</a></li>
+</ul>
+
+<br />
+
+<ul class="nav nav-list">
+<li><a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i> email</a></li>
+<li><a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i> github</a></li>
+<li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
+<li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
+</ul>
 
 
-  <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11830706-1']);
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+	</div>
+	
+	<div class="span6 page-content">
+	<div class='post-title muted'>Should we care about species interaction networks?</div>
 
+<p>In June, I was invited to give a talk at the <a href="http://www.weblife.univ-montp2.fr/"><em>Web of Life</em> meeting in Montpellier</a>. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was working on <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/">our recent paper about the &beta;-diversity of interaction networks</a>, where we show that species and their interactions are locally sorted through different mechanisms.</p>
 
+<div class="alert alert-info">
+<h4>Warning!</h4>
+This post is inspired by the introduction of an opinion/forum paper I'm currently writing. Your impressions and comments are thus very welcome. The post is also quite probably boring if you're not into ecological networks.
+</div>
 
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class='precontent'>
-        <div class='siteinfos'>
-          <h1><a href="http://timotheepoisot.fr">Tim Poisot</a></h1>
-          <div class='nav'>
-          <ul class='main-nav'>
-            <li><a class="extra navlink homelink" href="/">About</a></li>
-            <li><a class="extra navlink reslink" href="/research/">Research</a></li>
-            <li><a class="extra navlink paplink" href="/papers/">Papers</a></li>
-            <li><a class="extra navlink codelink" href="/code/">Code</a></li>     
-            <li><a class="extra navlink bloglink" href="/blog/">Blog</a></li>
-          </ul>
-        </div>
-        </div>
-      </div>
-
-      <section class='content'>
-      
-<section>
-	<div class='pbody'>
-
-		<h1 class='ptitle'>Should we care about species interaction networks?</h1>
-		<span class='margin'>
-			October 29, 2012<br />
-			1045 words <br />	
-			Taggs:
-			
-				<a class='post-tag' href="/tags/#ecological networks-ref" title="tag">ecological networks</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#species interactions-ref" title="tag">species interactions</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#ecological theory-ref" title="tag">ecological theory</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#scale of organization-ref" title="tag">scale of organization</a>,&nbsp;
-			
-				<a class='post-tag' href="/tags/#open lab book-ref" title="tag">open lab book</a>
-			
-		</span>
-
-		<p>In June, I was invited to give a talk at the <a href="http://www.weblife.univ-montp2.fr/"><em>Web of Life</em> meeting in Montpellier</a>. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was working on <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/">our recent paper about the &beta;-diversity of interaction networks</a>, where we show that species and their interactions are locally sorted through different mechanisms.</p>
-
-<p><strong>Disclaimer:</strong> <em>This post is inspired by the introduction of an opinion/forum paper I'm currently writing. Your impressions and comments are thus very welcome. The post is also quite probably boring if you're not into ecological networks.</em></p>
 
 <p>I've been discussing these results with a few people, and one of the questions that kept coming back is «but did you expect species and interactions to be sorted by the same mechanisms?». I did not. But perhaps we often imply this when working with species interaction networks, and perhaps this assumption leads us to study some processes at the wrong scale. A network (<em>e.g.</em> food web) gives you, for a list of species, their interactions. To put this another way, it tells you that species <em>B</em>, but not species <em>C</em> is within the potential niche of species <em>A</em>. In short, and especially if you infer the structure of this network from traits, or expert knowledge, you will describe interactions among species, which are <em>potential</em> interactions. When you go in the field, and record interactions between populations of these species, you will sample the <em>realized</em> interactions.</p>
 
@@ -106,60 +94,58 @@
 <p><a href="http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read">TL;DR</a>: I'm starting to develop the opinion that looking at <em>species</em> interaction networks is risky when your interest is to explain local properties of the community. Switching from species to population level will require much more sampling effort, and will probably slow down the accumulation of data a bit, but on the other hand, it comes with several advantages. First, it will improve our ability to better understand network variation from place to place (or from time to time). Second, it will help making <em>explicit</em> links between (local) interaction structure and (local) ecosystem properties. And last but not least, it's probably the only path to a biogeography of species interactions anyway...</p>
 
 
-		<div id="page-navigation">
 
-        		<div class="left">
-	        		
-	                	Previous post: <a href="/2012/10/09/null-models-presentations/" title="Previous Post: Presenting the results of networks null models">Presenting the results of networks null models</a>
-	        		
-        		</div>
-
-		        <div class="right">
-			        
-			                Next post: <a href="/2012/11/09/data-sharing-and-the-bagel-effect/" title="Next Post: Data sharing and the bagel effect">Data sharing and the bagel effect</a>
-			        
-		        </div>
-		</div> 
-
-		
+<ul class="pager">
 
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<li class="previous">
+<a href="/2012/10/09/null-models-presentations/">&larr; Previous post</a>
+</li>
 
 
+
+<li class="next">
+<a href="/2012/11/09/data-sharing-and-the-bagel-effect/">Next post &rarr;</a>
+</li>
+
+
+</ul>
 
 
 	</div>
-</section>
-<span
-	class="Z3988" 
-	title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator&amp;rft.title=Should we care about species interaction networks?&amp;rft.creator=Timothée Poisot&amp;rft.date=2012-10-29&amp;rft.language=EN&amp;rft.rights=CC-BY-SA&amp;rft_id=http://timotheepoisot.fr/2012/10/29/species-interaction-networks/">
-</span>
+	
+	<div class="span2">
+	
+	October 29, 2012<br />
+1049 words <br />	
+<p />
 
-      </section>
+<span class="label label-default">ecological networks</span>
 
-      <div class='footer'>
-          <p>
-            This website uses <a href="http://jekyllbootstrap.com/">Jekyll Bootstrap</a> and is hosted at <a href="http://pages.github.com/">GitHub pages</a>.<p />
-            The contents of this website are under the <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a> BY-SA licence 3.0.
-          </p>
-      </div>
-      
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+<span class="label label-default">species interactions</span>
+
+<span class="label label-default">ecological theory</span>
+
+<span class="label label-default">scale of organization</span>
+
+<span class="label label-default">open lab book</span>
+
+
+	
+	</div>
+	
+</div>
+
+	<div id="push"></div>
+
+</div>
+
+<div id="row footer">
+	<div class="span6 offset4">
+	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+	  </p>
+	</div>
+</div>
+
 </html>
-
