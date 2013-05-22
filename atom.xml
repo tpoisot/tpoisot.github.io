@@ -4,13 +4,53 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-05-21T13:23:57-04:00</updated>
+ <updated>2013-05-22T12:00:23-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Trophic complementarity and the BEF relationship in food webs</title>
+   <link href="http://timotheepoisot.fr/2013/05/22/food-web-structure-ecosystem-functioning/"/>
+   <updated>2013-05-22T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/05/22/food-web-structure-ecosystem-functioning</id>
+   <content type="html">&lt;p&gt;I'm really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet
+and I), have a new paper in &lt;em&gt;Ecology Letters&lt;/em&gt;, about the biodiversity-ecosystem
+functioning (BEF) relationship in food webs. In this paper, we show that
+&lt;em&gt;trophic complementarity&lt;/em&gt; is a very good predictor of productivity in complex
+ecosystems. You can &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/ele.12118/abstract&quot;&gt;go get the paper&lt;/a&gt;.
+So what is trophic complementarity, and why is this result
+important?&lt;/p&gt;
+
+&lt;p&gt;The strength of the BEF theory is that the core mechanisms are intuitive and
+elegant. You have the sampling effet, and functional complementarity. It boils
+down to something extremely simple: if each species has a set of unique
+functions, the more species you have, the more productive your ecosystem will
+be, because the niche space is entirely filled. This theoretical framework is
+extremely strong, and gave really good predictions in &lt;em&gt;competitive&lt;/em&gt; systems.
+More complex (here meaning trophic) systems are an entirely different story.&lt;/p&gt;
+
+&lt;p&gt;Previous models have been over-simplifying the structure of food webs, by
+focusing only on extreme cases (low connectance/high connectance,
+specialists/generalists). The situation of most empirical systems is
+slightly more complicated (or slightly more continuous, anyway), and a new
+approach was needed. Our core hypothesis was that the complementarity effect can
+be expressed quite simply in food webs (and possibly other types of networks),
+by just measuring the functional originality of the different species. In
+simple terms, you can be different either because you have different
+resources (that is the competitve BEF), or because different predators eat
+you.&lt;/p&gt;
+
+&lt;p&gt;In the paper, we try to measure this (which we call trophic complementarity) at differents level of complexity. The simple model, which was first used by &lt;a href=&quot;http://www.nature.com/nature/journal/v456/n7219/full/nature07248.html&quot;&gt;Chesson &amp;amp; Kuang&lt;/a&gt;, works extremely well with previous solutions for the competitive BEF published by &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2004.12685.x/full&quot;&gt;Michel Loreau&lt;/a&gt;. We've been &lt;em&gt;so&lt;/em&gt; very lucky that two important results from two different bodies of litterature were in agreement...&lt;/p&gt;
+
+&lt;p&gt;The interesting part is also that in more complex systems, trophic complementarity is easy to approximate with measures of nestedness. This is (I think) an important results for empirical studies. It offers the possibility to have a rough expectation of how productive a system can be based on the knowledge of presence/absence interactions. There are good opportunities to explore in re-analysing the results of empirical BEF studies in which trophic interactions were not accounted for.&lt;/p&gt;
+
+&lt;p&gt;As an amusing sidenote, when we were working on the revisions, Marc Cadotte and Caroline Tucker, at &lt;em&gt;EEB &amp;amp; Flow&lt;/em&gt;, wondered if most BEF discoveries were simply a &lt;a href=&quot;http://evol-eco.blogspot.ca/2013/01/reinventing-ecological-wheel-why-do-we.html&quot;&gt;reinvention of the wheel&lt;/a&gt;, which is (roughly verbatim) a comment made by one referee on the first version of our paper (it also prompted me to write &lt;a href=&quot;http://timotheepoisot.fr/2013/01/28/introductions-reinventing-ecological-wheel/&quot;&gt;this post&lt;/a&gt;).&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Should code be reviewed?</title>
