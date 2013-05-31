@@ -25,7 +25,7 @@
 	</script>
 	
 	<meta name="author" content="Tim Poisot" />
-   <title>Tim Poisot :: Null models of bipartite networks in C</title>
+   <title>Tim Poisot :: The structure of natural bacteria-phage networks</title>
     
 </head>
 
@@ -66,26 +66,9 @@
 	</div>
 	
 	<div class="span6 page-content">
-	<div class='post-title muted'>Null models of bipartite networks in C</div>
+	<div class='post-title muted'>The structure of natural bacteria-phage networks</div>
 
-<p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
-
-<p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It's super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
-
-<div class="highlight"><pre><code class="bash">chmod +x configure
-./configure
-make
-sudo make install
-</code></pre></div>
-
-
-<p>Once this is done, compile the null model generator using <code>gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE</code>, and run in using <code>./nm test.txt 3 7 1000 2000</code>. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.</p>
-
-<p>This last argument is especially important because I put restictions on what is a suitable network: it needs ot have at least one link by species present. In some cases, this will mean that the number of possible random networks given connectance and size is extremely small, and even a large number of trials can give no successful results.</p>
-
-<p>The programm will generate one output file for each usable network, with the suffix <code>_n1</code> for Type I (connectance based) network, and the suffix <code>_n2</code> for Type II (degree based) networks.</p>
-
-<p>My Python code took two days to run through the 175 webs, giving up after 1000 iterations at most. The C code was able to do the same, with 50000 iterations at most, in less than 30 minutes. C is awesome, and I feel dumb for not learing it sooner.</p>
+<p>Freedom! The final chapter of my thesis is now online on the website of <a href="http://www.ecologicalprocesses.com/content/2/1/13/abstract"><em>Ecological Processes</em></a>. We use data form a field isolated bacteria-phage system to have a network approach of the specialist-generalist coexistence problem. The main result is that, even when controlling for phylogenetic dispersal of hosts, it's better to be a generalist. This signal is highly consistent across the five networks we studied, and goes in the way of recent results on coevolution: if you let a system coevolve long enough, it's expected that generalists will emerge.</p>
 
 
 <div id="disqus_thread"></div>
@@ -107,13 +90,13 @@ sudo make install
 
 
 <li class="previous">
-<a href="/2012/01/29/sign-your-reviews/">&larr; Previous post</a>
+<a href="/2013/05/23/realized-modularity/">&larr; Previous post</a>
 </li>
 
 
 
-<li class="next">
-<a href="/2012/04/26/biblatex-styles-ecology/">Next post &rarr;</a>
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
 </li>
 
 
@@ -124,15 +107,15 @@ sudo make install
 	
 	<div class="span2">
 	
-	April 15, 2012<br />
-356 words <br />	
+	May 30, 2013<br />
+89 words <br />	
 <p />
 
 <span class="label label-default">ecological networks</span>
 
-<span class="label label-default">open source</span>
+<span class="label label-default">bacteria</span>
 
-<span class="label label-default">null models</span>
+<span class="label label-default">bacteriophages</span>
 
 
 	

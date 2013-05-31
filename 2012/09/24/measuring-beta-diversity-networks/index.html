@@ -71,15 +71,13 @@
 <p>To reproduce the analyses presented in <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/">our latest paper</a>, we wrote the <a href="https://github.com/tpoisot/betalink"><code>betalink</code></a> R package. This post is a walkthrough for most of the analyses. The help is not fully completed yet, and in any case, seeing examples is more informative than reading the manual. First thing first, go to the previous link, and download the package. Unzip it, open a terminal, and type</p>
 
 <div class="highlight"><pre><code class="bash">R CMD INSTALL betalink
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>If you open <code>R</code>, you can now load the package with</p>
 
 <div class="highlight"><pre><code class="splus">library<span class="p">(</span>betalink<span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Past this point, I'm assuming you are familiar with our terminology, but if not, you can go <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"><strong>read the previous post</strong></a> (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a <code>list</code> of <code>matrix</code> objects. It's obviously important that species are named, <em>i.e.</em> set the <code>colnames</code> and <code>rownames</code> properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).</p>
@@ -92,22 +90,19 @@ colnames<span class="p">(</span>w1<span class="p">)</span> <span class="o">=</sp
 rownames<span class="p">(</span>w1<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="s">&#39;h1&#39;</span><span class="p">,</span> <span class="s">&#39;h2&#39;</span><span class="p">)</span>
 colnames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</span> colnames<span class="p">(</span>w1<span class="p">)</span>
 rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</span> rownames<span class="p">(</span>w1<span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The first step is to put these networks into a list:</p>
 
 <div class="highlight"><pre><code class="splus">realizations <span class="o">=</span> list<span class="p">(</span>w1<span class="p">,</span> w2<span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Now, we cant ask about the metaweb. The package proposes the <code>aggregate.metaweb</code> function:</p>
 
 <div class="highlight"><pre><code class="splus">metaweb <span class="o">=</span> aggregate.metaweb<span class="p">(</span>realizations<span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The object returned is a list with three elements, <code>meta</code>, <code>template</code>, and <code>cooc</code>. All three objects are matrices, which correspond to different informations about the metaweb. <code>meta</code> is the one you are most likely to use, as it is the adjacency matrix of the metaweb. <code>template</code> is a matrix giving the frequency at which two species interacted (<em>i.e.</em> the total number of realizations in which they interacted, over the total number of realizations in which they co-occured). Finally, <code>cooc</code> gives the number of times two species co-occured, across all realizations. Note that most of the time, the <code>aggregate.metaweb</code> function will be called internally, so except when you want to have a look at the metaweb itself, there are few reasons to call it.</p>
@@ -117,15 +112,13 @@ rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</sp
 <p>For any set of two networks, you can just call</p>
 
 <div class="highlight"><pre><code class="splus">betalink<span class="p">(</span>w1<span class="p">,</span> w2<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>However, if you have a lot more networks, then the process can be automated, and you will get a pairwise distance matrix, through</p>
 
 <div class="highlight"><pre><code class="splus">betalink.dist<span class="p">(</span>realizations<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>If you look at the code for the <code>betalink.dist</code> function, you will see that the last argument is actually the catch-all, <code>...</code>. This means that if you want to modify the <code>betalink</code> function, which <code>betalink.dist</code> calls, you will be able to keep using <code>betalink.dist</code>. The only difference between <code>betalink.dist</code> and <code>betalink</code> is that the later returns the species &beta;-diversity for each side of the matrix separately (<em>i.e.</em> for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network &beta;-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.</p>

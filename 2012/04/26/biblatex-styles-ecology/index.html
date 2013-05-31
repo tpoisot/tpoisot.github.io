@@ -74,16 +74,14 @@
 
 <div class="highlight"><pre><code class="latex"><span class="k">\DeclareFieldFormat</span><span class="na">[article]</span><span class="nb">{</span>pages<span class="nb">}{</span>#1<span class="nb">}</span>
 <span class="k">\DeclareFieldFormat</span><span class="na">[article]</span><span class="nb">{</span>volume<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>#1<span class="nb">}}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>To further the CSS parallel, you can actually import most of the base functions and styles. E.g., the following lines will import the base functionalities needed to work with a numeric style compressing multiple citations, like (1-4):</p>
 
 <div class="highlight"><pre><code class="latex"><span class="k">\RequireBibliographyStyle</span><span class="nb">{</span>standard<span class="nb">}</span>
 <span class="k">\RequireBibliographyStyle</span><span class="nb">{</span>numeric-comp<span class="nb">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>What remains to do is to use a mixture of <code>\renewbibmacro*</code>, <code>\usebibmacro</code> and <code>\printfield</code> to get the formatting you want.</p>

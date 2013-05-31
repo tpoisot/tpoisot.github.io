@@ -84,15 +84,13 @@ I'm just using this post to take notes on code I'm currently working on.
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p><span class='margin'>The Louvain method is used by <em>Gephi</em>. It's extremely fast on large graphs, and give results comparable to simulated annealing methods.</span>I'll use modularity as an example metric. For large graphs, the <a href="https://sites.google.com/site/findcommunities/"><em>Louvain</em> method</a> works well, and by chance there is <a href="http://perso.crans.org/aynaud/communities/">a <code>networkx</code> implementation of it</a>. So let's download it and place it in the folder with the rest of the files, then load it with</p>
 
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">community</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The next step is to create a function which will remove each node in sequence, from the network, and return a copy of it. There is a <code>remove_nodes_from</code> method of graph objects, but it modifies the original copy. Fortunately we don't need to be very elegant here, and so the basic function is:</p>
@@ -103,8 +101,7 @@ I'm just using this post to take notes on code I'm currently working on.
     <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
     <span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">([</span><span class="n">node</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">tempWeb</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The hardest work is done! Now, we need to go through the following steps. <br/>
@@ -118,31 +115,27 @@ I'm just using this post to take notes on code I'm currently working on.
     <span class="n">dendo</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">generate_dendogram</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
     <span class="n">partition</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">partition_at_level</span><span class="p">(</span><span class="n">dendo</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dendo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">community</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>With that in hands, we can start the analysis. Assuming that we have an edgelist representation of our network, it's easy to load it and get its modularity:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="s">&#39;network.txt&#39;</span><span class="p">)</span>
 <span class="n">orig_mod</span> <span class="o">=</span> <span class="n">getModularity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The final step is to compare every possible network with one species removed to the original one. And this is why I love <code>python</code>, because as <code>networkx</code> objects are <a href="http://networkx.github.com/documentation/latest/reference/classes.digraph.html">iterable</a>, this is a one-liner:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeNode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p><span class='margin'>It's just as easy to iterate on the <em>edges</em> rather than the <em>nodes</em>. Which actually makes more sense for modularity...</span>In clear, for each node called <code>n</code> in the network <code>G</code>, we substract the modularity of the network <code>G</code> with <code>n</code> removed from the original modularity. So what does it looks like?</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">delta_mod</span><span class="p">),</span><span class="s">&#39;ok&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This will generate the following output:</p>
@@ -158,8 +151,7 @@ Nodes with a value of &Delta; lower than 0 <em>increase</em> modularity when rem
 <span class="n">plt</span><span class="o">.</span><span class="n">sci</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>This provides a nice visualization:</p>

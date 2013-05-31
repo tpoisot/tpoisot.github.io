@@ -77,8 +77,7 @@ mkdir png
 clang nb.c -o nb -lgsl -lgslcblas -O3 -DHAVE_INLINE
 chmod +x nb
 ./nb
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class='margin'>I've never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden...</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
@@ -142,8 +141,7 @@ chmod +x nb
 <span class="n">pbar</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">&#39;dynamics.txt&#39;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>An example result would look something like this:</p>
@@ -155,8 +153,7 @@ But the fun part is that, with a few extra steps, you can have cool looking vide
 ffmpeg -qscale 5 -r 20 -b 9600 -i png/h_%05d.png host.mp4
 ffmpeg -qscale 5 -r 20 -b 9600 -i png/p_%05d.png para.mp4
 ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The C program is quite fast (500 steps with a 100x100 lattice can be done in just a few seconds), but the script to convert the text files in images is really slow. I'm talking tens of minutes slow, so go make yourself a coffee. It's also extremely hungry in terms of memory, and as with all things Python, will eat up a whole CPU. But it's worth it! I've uploaded an <a href="http://www.youtube.com/embed/wE3x5QABBug">example video</a> if you want to see.</p>

@@ -94,8 +94,7 @@
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The important line is <code>\tikzexternalize</code>. This command tells the <code>tikz</code> library to generate a separate file for each figure, compile it in a PDF, then include this PDF file in the document. The consequence of it is that, in your working folder, you know have a list of files:</p>
@@ -103,8 +102,7 @@
 <div class="highlight"><pre><code class="text">-rw-r--r-- 1 tpoisot tpoisot      0 jan 10 15:21 pgf-figure3.dpth
 -rw-r--r-- 1 tpoisot tpoisot  31494 jan 10 15:21 pgf-figure3.log
 -rw-r--r-- 1 tpoisot tpoisot  22409 jan 10 15:21 pgf-figure3.pdf
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>There is only one drawback with the use of the <code>\tikzexternalize</code> command: as long as the corresponding PDF files are found in your working directory, <code>tikz</code> will not recompile them. This is essentially because drawing a <code>tikz</code> figure can be a relatively time-consuming process, especially if your graph has a lot of points. And so unless you are satisfy with your figure, comment the <code>%\tikzexternalize</code> command.</p>
@@ -115,8 +113,7 @@
 <span class="nb">echo</span> <span class="nv">$file</span>;<span class="se">\</span>
 convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span>|cut -f1 -d<span class="s1">&#39;.&#39;</span><span class="sb">`</span>.png;<span class="se">\</span>
 <span class="k">done</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>The <code>-resize 1204x986</code> flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it's better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:</p>
@@ -131,8 +128,7 @@ convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</sp
     <span class="k">margin</span><span class="o">:</span> <span class="m">0px</span> <span class="k">auto</span><span class="p">;</span>
     <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <h1>OK, let's do it!</h1>
@@ -153,8 +149,7 @@ convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</sp
         <span class="k">\node</span><span class="na">[coordinate,pin={above:{Treatment}}]</span> at (axis cs:21,24.4) <span class="nb">{}</span>;
     <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>In a terminal, make executable, and run the <code>convert.sh</code> script:</p>
@@ -162,8 +157,7 @@ convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</sp
 <div class="highlight"><pre><code class="bash">tpoisot@tp002 ~/Bureau/PGFclean <span class="nv">$ </span>chmod +x convert.sh
 tpoisot@tp002 ~/Bureau/PGFclean <span class="nv">$ </span>./convert.sh
 pgf-figure0.pdf
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>You will now have a PNG file, which looks like this:</p>
@@ -173,8 +167,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
 
 <div class="highlight"><pre><code class="latex"><span class="k">\definecolor</span><span class="nb">{</span>GR<span class="nb">}{</span>RGB<span class="nb">}{</span>60,170,70<span class="nb">}</span>
 <span class="k">\definecolor</span><span class="nb">{</span>C1<span class="nb">}{</span>RGB<span class="nb">}{</span>170,70,60<span class="nb">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>, and using them (along with other options) to make your figure less LaTeX-y, can make a substantial difference. For example, the first figure in this entry was produced with the following code:</p>
@@ -207,8 +200,7 @@ It's cool, but I strongly encourage you to play around with the various opitons.
             at (axis cs:21,24.4) <span class="nb">{}</span>;
     <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <h1>In conclusion</h1>

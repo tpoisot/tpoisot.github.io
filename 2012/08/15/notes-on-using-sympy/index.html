@@ -90,23 +90,20 @@
 <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;r q b a d&#39;</span><span class="p">)</span>
 <span class="c"># Functions</span>
 <span class="n">dH</span><span class="p">,</span> <span class="n">dP</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;dH dP&#39;</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Once this is done, you can write up the equations</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">dH</span> <span class="o">=</span> <span class="n">H</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">H</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">P</span> <span class="p">)</span>
 <span class="n">dP</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">H</span> <span class="o">-</span> <span class="n">d</span> <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>And solve with a <em>Mathematica</em>-like syntax:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">print</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>At this point, you should get a list of tuples as the output:</p>
@@ -121,15 +118,13 @@
 <div class="highlight"><pre><code class="python"><span class="n">equil</span> <span class="o">=</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>
 <span class="n">coex</span> <span class="o">=</span> <span class="n">equil</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">print</span> <span class="n">coex</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>I naturally tried do find which sets of parameters allow the system to coexist <em>with positive densities</em>, so I used</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">solve</span><span class="p">(</span><span class="n">coex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div>
 
 
 <p>Which gave the following error message:</p>
