@@ -4,6 +4,7 @@ html{
 
 body{
 	height: 100%;
+	background-color: rgb(254, 254, 254);
 	font-family: "jaf-bernino-sans";
 }
 
@@ -21,8 +22,19 @@ code, pre{
 }
 
 .main-nav{
-	padding-top: 2em;
+	background-color: rgb(251, 251, 251);
+	padding: 6px 0px;
+	margin: 40px 0px;
+	box-shadow: 0px 0px 3px #ccc;
 }
+
+.main-nav ul{
+	margin-bottom: 0px;
+	}
+
+.main-nav li{
+	padding-right: 10px;
+	}
 
 .jumbotron{
 	text-align: center;
@@ -45,8 +57,6 @@ code, pre{
 
 .site-head{
 	border-bottom: 0px solid #ccc;
-	padding-bottom: 40px;
-	margin-bottom: 60px;
 }
 
 .page-content{
@@ -87,13 +97,17 @@ code, pre{
 	line-height: 20px;
 }
 
-#push,
-#footer {
-  height: 55px;
+.footer{
+	margin-bottom: 20px;
+	margin-top: 30px;
 }
-#footer {
-	padding-top: 5px;
-	background-color: #f5f5f5;
+
+.footer nav-pills{
+	margin: 0px auto;
+}
+.footer nav-pills li a{
+	margin: 0px;
+	padding: 2px;
 }
 
 strong{
