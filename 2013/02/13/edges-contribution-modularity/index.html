@@ -34,26 +34,27 @@
 
 <div class="row-fluid site-head">
 	<div class="span6 offset3">
-	<div class="jumbotron site-header">
-<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
-</div>
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
 
 	</div>
 </div>
 
-<div class="row-fluid main-nav"><div class="span6 offset3"><ul class="nav nav-pills">
+<div class="row-fluid main-nav">
+<div class="span6 offset3"><ul class="nav nav-pills">
   <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
   <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
   <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
   <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-edit"></i> Blog</a></li>
 </ul>
 
-</div></div>
+</div>
+</div>
 
 <div class="row-fluid">
 	
 	<div class="span6 offset3 page-content">
-	<div class='post-title muted'>Estimating edges contribution to network properties</div>
+	<div class='post'>
+<h1>Estimating edges contribution to network properties</h1>
 
 <p>I had so much fun writing the previous post about how it is possible to measure <a href="2013/02/12/species-contribution-modularity/">nodes contribution to network properties</a> that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with <a href="http://d3js.org/"><code>D3.js</code></a>, and I wanted to put what I've learnt in practice.</p>
 
@@ -105,6 +106,8 @@
 
 <p>In any case, I'm quite happy about the whole thing. First, it's super straightforward to remove edges/nodes with <code>networkx</code>, and to measure how it affects network structure. Second, it's fast enough even on networks of a respectable size. And finally, this is perhaps the biggest revelation of the day: it's <em>easy</em> to use <code>D3.js</code>. It may not seem like much, but the two figures in this blog post are generated <em>from the original data</em>. So if I want to re-generate the data, the figures will change as well. There is even more potential when creating webpages for projects, so I'll look more into that.</p>
 
+
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -176,6 +179,9 @@
 <li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
 <li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
 </ul>
+</div>
+</div>
+
 </div>
 </div>
 

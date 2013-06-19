@@ -34,26 +34,27 @@
 
 <div class="row-fluid site-head">
 	<div class="span6 offset3">
-	<div class="jumbotron site-header">
-<h1>Tim Poisot</h1> <h2 class='muted'>Community ecologist & open scientist</h2>
-</div>
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
 
 	</div>
 </div>
 
-<div class="row-fluid main-nav"><div class="span6 offset3"><ul class="nav nav-pills">
+<div class="row-fluid main-nav">
+<div class="span6 offset3"><ul class="nav nav-pills">
   <li><a href="/"><i class="icon-fixed-width icon-home"></i> Home</a></li>
   <li><a href="/papers/"><i class="icon-fixed-width icon-book"></i> Publications</a></li>
   <li><a href="/research/"><i class="icon-fixed-width icon-beaker"></i> Research</a></li>
   <li class="active"><a href="/blog/"><i class="icon-fixed-width icon-edit"></i> Blog</a></li>
 </ul>
 
-</div></div>
+</div>
+</div>
 
 <div class="row-fluid">
 	
 	<div class="span6 offset3 page-content">
-	<div class='post-title muted'>Remove indels from blast output</div>
+	<div class='post'>
+<h1>Remove indels from blast output</h1>
 
 <p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it's kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a "reliable" estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
 
@@ -61,6 +62,8 @@
 
 <p>I've put the code up as a <a href="https://gist.github.com/tpoisot/5613748">gist</a>. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it's not that slow (a few seconds per sequence, most of which are actually spent blasting).</p>
 
+
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -130,6 +133,9 @@
 <li><a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i> twitter</a></li>
 <li><a href="http://bit.ly/UbDlP0"><i class="icon-fixed-width icon-picture"></i> figshare</a></li>
 </ul>
+</div>
+</div>
+
 </div>
 </div>
 
