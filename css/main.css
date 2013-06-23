@@ -2,6 +2,12 @@ html{
 	height: 100%;
 }
 
+
+.label{
+  text-shadow: none;
+  font-weight: normal;
+}
+
 code, pre{
 	border-radius: 0px !important;
 	border: 0px solid black !important;
