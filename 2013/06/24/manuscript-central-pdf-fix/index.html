@@ -26,7 +26,7 @@
 	</script>
 	
 	<meta name="author" content="Tim Poisot" />
-   <title>Tim Poisot :: A niche to fill in ecological publishing?</title>
+   <title>Tim Poisot :: Fixes for the ManuscriptCentral PDF conversion problem</title>
     
 </head>
 
@@ -54,29 +54,61 @@
 	
 	<div class="span6 offset3 page-content">
 	<div class='post'>
-<h1>A niche to fill in ecological publishing?</h1>
+<h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
 
-<p>I have been wondering, over the past few weeks, about places to submit
-really short, methodological minded papers, in ecology. As far as I know,
-there is currently no journal for that. I'm specifically talking
-about papers that are not groundbreaking, possibly extremely
-technical, but still hold value because they deal with arguments that
-happen often. As a good example, the reply of <a href="http://arxiv.org/abs/1301.3651">Rohr and
-colleagues</a> to the <a href="http://www.ncbi.nlm.nih.gov/pubmed/22722863">James and colleagues</a> paper is interesting, but technical. It's unlikely to stimulate a debate in the whole community, but for the people active on the topic, it's something to read and think of (regardless of who you side with on the issue discussed).</p>
+<p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF
+conversion problem. It was not the first time it happenned, and always on
+journals using <em>manuscriptcentral</em> as an upload system, and always with
+<code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty
+tradition of the academic world, was to (1) import the PDF in google documents,
+(2) print it as a PDF, (3) upload the PDF and (4) drink the shame
+away.</p>
 
-<p>So where to publish this? <em><a href="http://www.methodsinecologyandevolution.org/view/0/authorGuidelines.html#Editorial%20Policy">Methods in Ecology and Evolution</a></em> seems to
-be <em>the</em> ideal place for that, but their guidelines do not offer the
-opportunity to submit this kind of papers. <em>F1000Research</em> and <em>PeerJ</em> are good
-places as well, but fairly expensive is you want to do a one-off thing. You
-always have the opportunity to publish things in your blog, but unless you are
-a big-name blogger, your result will go un-noticed (which is why I'll work on
-turning <a href="http://timotheepoisot.fr/2013/06/19/notes-on-network-complexity/">this entry</a> into a short note somewhere.</p>
+<p>Only this time, I wanted to understand what was happening, and to fix it as much
+as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts
+PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions
+will generate 1.7 or 1.8, so it's obviously not going to work (but on the
+up-side, it will give you one of the most depressing and amusing error
+message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
 
-<p><em>ArXiV</em> is another possibility, but the readership in biological sciences is
-<a href="http://www.plosbiology.org/article/metrics/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">too low at the moment</a>. So there is possibly a niche to fill for an
-adventurous journal. Let's give us a place to write short notes, so that the
-active debates are <em>documented</em>, no matter what the number of people debating
-is. What do you think?</p>
+<p>First, you can add</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\pdfminorversion</span>=4
+</code></pre></div>
+
+
+<p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained
+<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That's one additional command, which is not needed in most other situations, but that's one way to fix it.</p>
+
+<p>There is a second workaround, which is to compile with <code>latex</code> instead of
+<code>pdflatex</code> (haven't tested this one, but it should work), then upload the whole
+dependencies when you submit. Note that your figures needs be <code>eps</code> for this to
+work, and you'll probably be limited by the packages installed on the remote
+server, the list of which is not known. The <em>Methods in Ecology and Evolution</em>
+staff was extremely quick in pointing that out after I raised the issue on
+Twitter, so a big thank you to them.</p>
+
+<p>The solution I found this morning is the following:</p>
+
+<div class="highlight"><pre><code class="bash">pdftops ms.pdf ms.ps
+ps2pdf13 ms.ps ps.pdf
+rm ms.ps
+</code></pre></div>
+
+
+<p>Very simply put, that will convert your pdf into a postscript file, then convert
+it into a PDF 1.3 file, that can be uploaded with no problems. You can just add
+that to a <code>makefile</code>, by the way:</p>
+
+<div class="highlight"><pre><code class="make"><span class="nf">mc</span><span class="o">:</span> <span class="m">ms.pdf</span>
+    pdftops ms.pdf ms.ps
+    ps2pdf13 ms.ps ms_mc.pdf
+    rm ms.ps
+</code></pre></div>
+
+
+<p>Once your paper is ready, a simple <code>make mc</code> will create a <code>ms_mc.pdf</code> file,
+which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.</p>
 
 
 </div>
@@ -100,13 +132,13 @@ is. What do you think?</p>
 
 
 <li class="previous">
-<a href="/2013/06/19/notes-on-network-complexity/">&larr; Previous post</a>
+<a href="/2013/06/23/niche-fill-ecological-papers/">&larr; Previous post</a>
 </li>
 
 
 
-<li class="next">
-<a href="/2013/06/24/manuscript-central-pdf-fix/">Next post &rarr;</a>
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
 </li>
 
 
@@ -117,11 +149,13 @@ is. What do you think?</p>
 	
 	<div class="span2">
 	
-	June 23, 2013<br />
-266 words <br />	
+	June 24, 2013<br />
+422 words <br />	
 <p />
 
-<span class="label label-default">scientific publishing</span>
+<span class="label label-default">LaTeX</span>
+
+<span class="label label-default">PDF</span>
 
 
 	
