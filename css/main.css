@@ -2,6 +2,14 @@ html{
 	height: 100%;
 }
 
+.narrow{
+  max-width: 900px;
+}
+
+.postinfo{
+	margin-bottom: 10px;
+	font-size: 14px;
+}
 
 .label{
   text-shadow: none;
@@ -12,15 +20,23 @@ code, pre{
 	border-radius: 0px !important;
 	border: 0px solid black !important;
 	color: #8e44ad;
-	font-family: "mplus-1m";
+	font-family: "anonymous-pro";
 	font-size: 14px;
 }
 
 body{
 	height: 100%;
 	background-color: white;
-	font-family: "prenton";
+	font-family: "rooney-web";
 }
+
+h1, h2, h3, h4,{
+	font-family: "jaf-facitweb" !important;
+}
+
+.postinfo, .main-nav, .site-head, .footer, .label{
+	font-family: "jaf-facitweb" !important;
+	}
 
 a{
 	color: #2980b9;
@@ -36,7 +52,7 @@ a:hover{
 
 .site-head h1{
 	color: #2c3e50;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 22px;
 	display: inline;
 }
@@ -73,6 +89,7 @@ a:hover{
 	font-size: 16px;
 	line-height: 26px;
 	margin-top: 20px;
+	color: #222;
 }
 
 .page-content p img{
@@ -92,9 +109,9 @@ div.post:nth-child(1) > h1:nth-child(1), h1.post-title{
 	margin-bottom: 40px;
 }
 
-h1, h2{color: #34495e;}
+h1, h2{color: #000;}
 
-h1{font-size: 18px; line-height: 30px;}
+h1{font-size: 18px; line-height: 30px; font-weight: 700;}
 
 .pager li a{
 	border-radius: 0px;
