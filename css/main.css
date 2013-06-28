@@ -1,3 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+
 html{
 	height: 100%;
 }
@@ -19,23 +23,19 @@ html{
 code, pre{
 	border-radius: 2px !important;
 	border: 0px solid black !important;
-	font-family: "anonymous-pro";
-	font-size: 16px;
+	font-family: "Droid Sans Mono";
+	font-size: 15px;
 }
 
 body{
 	height: 100%;
 	background-color: white;
-	font-family: "rooney-web";
+	font-family: "Merriweather";
 }
 
-h1, h2, h3, h4{
-	font-family: "jaf-facitweb" !important;
+h1, h2, h3, h4, .postinfo, .main-nav, .footer, .label{
+	font-family: "PT Sans" !important;
 }
-
-.postinfo, .main-nav, .site-head, .footer, .label{
-	font-family: "jaf-facitweb" !important;
-	}
 
 a{
 	color: #2980b9;
@@ -90,7 +90,6 @@ a:hover{
 }
 
 .page-content{
-	font-size: 16px;
 	line-height: 26px;
 	margin-top: 20px;
 	color: #222;
