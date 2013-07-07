@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
 
@@ -34,7 +34,8 @@ pre{
 body{
 	height: 100%;
 	background-color: white;
-	font-family: "Merriweather";
+   background: url("/images/bg.gif");
+	font-family: "Noto Serif";
 }
 
 .postinfo, .main-nav, .footer, .label{
@@ -70,7 +71,7 @@ a:hover{
 
 .main-nav{
 	width: auto;
-	margin: 60px 0px 10px 0px;
+	margin: 80px 0px 10px 0px;
 }
 
 .main-nav li a{
@@ -81,16 +82,21 @@ a:hover{
 	padding: 8px 0px;
 }
 
+
+.main-nav li a{
+   border-top: 2px solid transparent;
+}
+
 .active > a:nth-child(1):hover, .main-nav li a:hover{
-	background-color: white;
+   background-color: transparent !important;
 	color: #2c3e50;
-	border-bottom: 2px solid #34495e;
+	border-top: 2px solid #34495e;
 }
 
 .active > a:nth-child(1){
-	background-color: white;
 	color: #2c3e50;
-	border-bottom: 2px solid #2c3e50;
+   background-color: transparent !important;
+	border-top: 2px solid #2c3e50;
 }
 
 .page-content{
