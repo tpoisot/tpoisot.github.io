@@ -34,7 +34,6 @@ pre{
 body{
 	height: 100%;
 	background-color: white;
-   background: url("/images/bg.gif");
 	font-family: "Noto Serif";
 }
 
@@ -52,6 +51,7 @@ a:hover{
 
 .site-head{
    margin: 0px	0px 80px 0px;
+   font-family: "Lato";
 }
 
 .site-head h1{
@@ -72,6 +72,8 @@ a:hover{
 .main-nav{
 	width: auto;
 	margin: 80px 0px 10px 0px;
+   text-transform: lowercase;
+   font-variant: small-caps;
 }
 
 .main-nav li a{
@@ -84,19 +86,19 @@ a:hover{
 
 
 .main-nav li a{
-   border-top: 2px solid transparent;
+   border-top: 1px solid transparent;
 }
 
 .active > a:nth-child(1):hover, .main-nav li a:hover{
    background-color: transparent !important;
 	color: #2c3e50;
-	border-top: 2px solid #34495e;
+	border-top: 1px solid #34495e;
 }
 
 .active > a:nth-child(1){
 	color: #2c3e50;
    background-color: transparent !important;
-	border-top: 2px solid #2c3e50;
+	border-top: 1px solid #2c3e50;
 }
 
 .page-content{
@@ -124,7 +126,7 @@ div.post:nth-child(1) > h1:nth-child(1), h1.post-title{
 
 h1, h2{color: #000;}
 
-.page-content h1{font-size: 22px; line-height: 30px; font-weight: 700; margin-top: 20px;}
+.page-content h1{font-family: "Lato" !important; font-size: 28px; line-height: 35px; font-weight: 400; margin-top: 20px;}
 
 .pager li a{
 	border-radius: 0px;
