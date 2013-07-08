@@ -25,7 +25,7 @@
 	</script>
 	
 	<meta name="author" content="Tim Poisot" />
-   <title>Tim Poisot :: Data sharing and preprints in ecology</title>
+   <title>Tim Poisot :: A quick way to parallelize</title>
     
 </head>
 
@@ -57,18 +57,40 @@
 		
 		<div class="span10 offset1 page-content">
 		<div class='post'>
-<h1>Data sharing and preprints in ecology</h1>
+<h1>A quick way to parallelize</h1>
 
 <div class="postinfo">
 
-April 30, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">open science</span><span class="label label-default" style="margin-right: 3px;">data sharing</span>
+July  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">GNU</span><span class="label label-default" style="margin-right: 3px;">Free software</span>
 
 
 </div>
 
-<p>I'm glad to announce that we (I, <a href="http://rossmounce.co.uk/aboutme/">Ross Mounce</a>, and Dom Gravel), have put up a <a href="http://figshare.com/articles/Moving_toward_a_sustainable_ecological_science_don_t_let_data_go_to_waste_/693745">preprint about data sharing in ecology</a> on <em>fig<strong>share</strong></em>. The manuscript is under consideration at <em>Ideas in Ecology &amp; Evolution</em>. We try to make a valid point about why ecologists should share their data, how we can do it in practice, and the role that funding agencies and journals can play.</p>
+<p>I' ve often been confronted to the situation when I want to run a bunch of
+simulations, that will take long if I run them in batch, but long enough that
+I want to put them on the lab cluster. A fairly common situation is when I want
+to feed some sequentially numbered output files to a script performing all kind
+of black magic (<em>a.k.a.</em> data analysis).</p>
 
-<p>And speaking of preprints, but also sure to check out Philippe's opinion piece on <a href="http://figshare.com/articles/The_case_for_open_preprints_in_biology/655710">preprints in biology</a>, which should appear shortly in <em>PLoS Biology</em>. We try to understand why biologists have not adopted the preprint culture as widely as other fields (though this is changing, fortunately).</p>
+<p>While looking for a solution, I came across <a href="http:www//gnu.org/software/parallel/">GNU <code>parallel</code></a>. This
+little command-line program will just execute whatever you feed him on the
+different CPUs. For example, if I want to run all of the files in my <code>output/</code> folder into a python script, I can write something like:</p>
+
+<div class="highlight"><pre><code class="bash">ls output/*.dat | sort | parallel ./results.py --file output/<span class="o">{}</span>
+</code></pre></div>
+
+
+<p>That will take the files, then output then one by one, and pass them to
+<code>parallel</code>. When I run that, all of my CPU start working on the task, so I can
+cut the treatment time in four (more than what I could achieve with code
+optimization!). It's definitely poor man parallelization, but it works, and
+it's faster then setting up a bunch of simulations on a cluster.</p>
+
+<p>That's one of the (many many) nice sides of working only with GNU/Linux now.
+I'm learning a lot of nifty little tricks, and it's starting to really pay off
+in terms of how fast I can throw command lines instructions at a problem until
+it disappears (or until I accidentaly delete the files, look, I'm still
+learning...)..</p>
 
 
 </div>
@@ -92,13 +114,13 @@ April 30, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style=
 
 
 <li class="previous">
-<a href="/2013/04/12/learn-code-ecology/">&larr; Previous post</a>
+<a href="/2013/06/24/manuscript-central-pdf-fix/">&larr; Previous post</a>
 </li>
 
 
 
-<li class="next">
-<a href="/2013/05/06/nicholson-bailey-c/">Next post &rarr;</a>
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
 </li>
 
 
