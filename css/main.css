@@ -176,3 +176,15 @@ strong{font-weight: 700;}
 	font-size: 13px;
 	line-height: 20px;
 }
+
+table{
+   width: 100%;
+   margin-bottom: 14px;
+   border-top: 2px solid rgb(155, 155, 155);
+   border-bottom: 2px solid rgb(155, 155, 155);
+}
+
+th, td{padding: 3px;}
+th{font-variant: small-caps; border-bottom: 1px solid rgb(155, 155, 155);font-family: "Lato";}
+
+tr:nth-child(even){background:rgba(155, 155, 155, 0.2);}

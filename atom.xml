@@ -4,13 +4,140 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-07-08T19:26:15-04:00</updated>
+ <updated>2013-07-09T13:47:07-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>What do I read (according to Zotero)?</title>
+   <link href="http://timotheepoisot.fr/2013/07/09/zotero-number-papers/"/>
+   <updated>2013-07-09T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/07/09/zotero-number-papers</id>
+   <content type="html">&lt;p&gt;I&#39;ve been playing around a bit with &lt;a href=&quot;http://zotero.org/&quot;&gt;Zotero&lt;/a&gt; these last few days.
+Zotero stores the data about your library in a &lt;code&gt;sqlite3&lt;/code&gt; database, called
+&lt;code&gt;zotero.sqlite&lt;/code&gt;, and stored in your Zotero folder (&lt;code&gt;~/Zotero/&lt;/code&gt; in my case, but
+most likely something else in yours). The internal structure of the
+database is very weird, and it took my a bit of poking around in &lt;code&gt;sqliteman&lt;/code&gt; to
+figure it out. But in the end, I was able to come up with a solution to count
+the number of papers in each journal, stored in my library.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;python&lt;/code&gt; script is &lt;a href=&quot;https://gist.github.com/tpoisot/5958933&quot;&gt;available as a gist&lt;/a&gt;. When you run it
+(assuming you&#39;ve made a copy of the &lt;code&gt;zotero.sqlite&lt;/code&gt; in the folder where the
+script is, you will end up with a &lt;code&gt;journals.tsv&lt;/code&gt; file, in which the two
+columns are, respectively, the number of papers, and the journal title.&lt;/p&gt;
+
+&lt;p&gt;Because despite the feature being &lt;em&gt;in progress&lt;/em&gt; for a few years now there is
+still no bacth edit of journal titles (that I know of), it took me a bit of
+cleaning-up in open office to check for duplicates, especially since my
+current database is following me since the first year of my masters (so 2006).
+So, what do I read? Here is the top 15:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; Journal                   &lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; Count &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Ecology Letters           &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 202   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Ecology                   &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 198   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; PLoS One                  &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 196   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; American Naturalist       &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 181   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; PNAS                      &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 156   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Oikos                     &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 135   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Trends Ecol Evol          &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 132   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Procs R Soc B             &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 123   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Evolution                 &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 120   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Nature                    &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 119   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Science                   &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 108   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; J Evol Biol               &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 101   &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; J Anim Ecol               &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 71    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; J Biogeogr                &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 46    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; Phil Trans B              &lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; 45    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;So, what to make of this information? Note that by the time we reach number 12
+or so in that list, the paper count decreases extremely sharply. Also, the top
+five is not reallu surprising. I was expecting to see &lt;em&gt;Nature&lt;/em&gt; and &lt;em&gt;Science&lt;/em&gt;
+rank higher on the list. There is still some inertia, as well, with &lt;em&gt;J Evol
+Biol&lt;/em&gt; and &lt;em&gt;Evolution&lt;/em&gt; occupying high positions because I&#39;ve read these some
+much during my PhD and Masters. So I guess that (i) I&#39;m definitely an ecologist
+(also, &lt;em&gt;J Theor Biol&lt;/em&gt; and &lt;em&gt;Theor Pop Biol&lt;/em&gt; are lurking not far below), and (ii)
+despite this having a very very long tail, I mostly read things coming up in
+a few journals.&lt;/p&gt;
+
+&lt;p&gt;Now, the really pressing issue... How does it relates to their &lt;em&gt;Impact Factor&lt;/em&gt;?
+A quick survey of the table above shows that some high scoring journals are
+quite low on the list, and some not-so-high scoring ones are nearing the top.
+A quick googling got me the most recent IF for the first 30 or so journals of my
+list. The results are plotted below (put your mouse over a dot to see the journal name).&lt;/p&gt;
+
+&lt;div class=&#39;scatterplot d3&#39;&gt;&lt;/div&gt;
+
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;/data/zotero-if.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;It doesn&#39;t look like there is much effect of the IF on wether or not I&#39;ll save
+the paper in my library. And we can also see a small group of three journals
+I read much more than their IF would &quot;predict&quot; (&lt;em&gt;Ecology&lt;/em&gt;, &lt;em&gt;PLoS One&lt;/em&gt;, and &lt;em&gt;The
+American Naturalist&lt;/em&gt;). So that turned out to be a fun little lunch coding
+project. Don&#39;t hesitate to look at the code, I&#39;m sure there is plenty of things
+to make better.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>A quick way to parallelize</title>
@@ -23,7 +150,7 @@ I want to put them on the lab cluster. A fairly common situation is when I want
 to feed some sequentially numbered output files to a script performing all kind
 of black magic (&lt;em&gt;a.k.a.&lt;/em&gt; data analysis).&lt;/p&gt;
 
-&lt;p&gt;While looking for a solution, I came across &lt;a href=&quot;http:www//gnu.org/software/parallel/&quot;&gt;GNU &lt;code&gt;parallel&lt;/code&gt;&lt;/a&gt;. This
+&lt;p&gt;While looking for a solution, I came across &lt;a href=&quot;http://www.gnu.org/software/parallel/&quot;&gt;GNU &lt;code&gt;parallel&lt;/code&gt;&lt;/a&gt;. This
 little command-line program will just execute whatever you feed him on the
 different CPUs. For example, if I want to run all of the files in my &lt;code&gt;output/&lt;/code&gt; folder into a python script, I can write something like:&lt;/p&gt;
 
