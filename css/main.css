@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,400italic,700,700italic,300,300italic);
+@import url(http://fonts.googleapis.com/css?family=Coursine:400,400italic,700,700italic);
 
 html{
 	height: 100%;
@@ -12,8 +12,9 @@ html{
 }
 
 .postinfo{
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	font-size: 14px;
+   font-weight: 300;
 }
 
 .label{
@@ -61,10 +62,12 @@ html{
 }
 
 code, pre{
-	border-radius: 2px !important;
-	border: 0px solid rgb(108, 108, 108);
+   color: rgb(88, 88, 88);
+   padding: 1px 1px;
+	border-radius: 4px !important;
+	border: 1px solid rgb(168, 168, 168);
    background: rgb(254, 254, 254);
-	font-family: "Inconsolata";
+	font-family: "Cousine";
    font-size: inherit !important;
 }
 
@@ -83,7 +86,7 @@ body{
 }
 
 .postinfo, .main-nav, .footer, .label{
-	font-family: "Lato" !important;
+	font-family: "Merriweather Sans" !important;
 }
 
 a{
@@ -137,7 +140,7 @@ div.post:nth-child(1) > h1:nth-child(1), h1.post-title{
 
 h1, h2{color: #000;}
 
-.page-content h1{font-family: "Lato" !important; font-size: 28px; line-height: 35px; font-weight: 400; margin-top: 20px;}
+.page-content h1{font-family: "Merriweather Sans" !important; font-size: 23px; line-height: 35px; font-weight: 700; margin-top: 20px;}
 
 .pager li a{
 	border-radius: 0px;
@@ -153,6 +156,7 @@ h1, h2{color: #000;}
 
 .footer{
 	margin-top: 40px;
+   font-weight: 300;
 	}
 
 .footer a{
@@ -178,13 +182,15 @@ strong{font-weight: 700;}
 }
 
 table{
-   width: 100%;
-   margin-bottom: 14px;
+   width: 80%;
+   margin: 0px auto;
+   margin-bottom: 16px;
    border-top: 2px solid rgb(155, 155, 155);
    border-bottom: 2px solid rgb(155, 155, 155);
+   font-size: 14px;
 }
 
 th, td{padding: 3px;}
-th{font-variant: small-caps; border-bottom: 1px solid rgb(155, 155, 155);font-family: "Lato";}
+th{font-variant: small-caps; border-bottom: 1px solid rgb(155, 155, 155);font-family: "Merriweather Sans";}
 
 tr:nth-child(even){background:rgba(155, 155, 155, 0.2);}

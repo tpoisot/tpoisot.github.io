@@ -4,13 +4,113 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-07-09T13:47:07-04:00</updated>
+ <updated>2013-07-10T11:47:06-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Should we share reviews?</title>
+   <link href="http://timotheepoisot.fr/2013/07/10/sharing-reviews/"/>
+   <updated>2013-07-10T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/07/10/sharing-reviews</id>
+   <content type="html">&lt;p&gt;Britt Koskella  &lt;a href=&quot;http://brittkoskella.wordpress.com/2013/07/08/and-the-reviews-are-in/&quot;&gt;uploaded reviews, and her replies&lt;/a&gt;, for her recent
+&lt;em&gt;Current Biology&lt;/em&gt; paper (which, by the way, is great). She also announced that
+she will do the same thing &lt;em&gt;every time&lt;/em&gt; a paper is published. We&#39;ve had
+a discussion in the lab over the few months, about whether or not we should do
+almost the same thing: we wanted to put online a very tongue-in-cheek &lt;em&gt;Hall of
+fame&lt;/em&gt; of the &quot;worse&quot; comments we&#39;ve received, for papers that ended up being
+published. We decided not to make it (public). The &lt;a href=&quot;http://theseamonster.net/2013/05/are-unreasonably-harsh-reviewers-retarding-the-pace-of-coral-reef-science/&quot;&gt;SeaMonster&lt;/a&gt;
+also did a very good job of deconstructing bad practices in refereeing, and
+discuss how preprints can compensate for the fact that pre-publication review
+exists.&lt;/p&gt;
+
+&lt;p&gt;Should we share reviews &lt;em&gt;at all&lt;/em&gt;? If we want to share reviews, in the sense of,
+we put them online for all to see, along with the replies, there are
+a few things to consider. First, in most situations, it will still not
+break the assymetry in the review process. The burden of proof is still
+on the author, and by the time you can show how bad a review is (which
+is what the &lt;em&gt;SeaMonster&lt;/em&gt; people did in the above reference), the
+paper has most likely been rejected. That&#39;s a great way to vent out your
+frustration and get support from other people, but it&#39;s not really
+helping in getting your paper out there.&lt;/p&gt;
+
+&lt;p&gt;Sharing reviews and replies can also show that you&#39;ve been taking the revisions
+seriously, but that&#39;s part of our job description anyway. If you don&#39;t do
+mistakes, you&#39;re doing science wrong, and if you don&#39;t correct these mistakes,
+you&#39;re doing science &lt;em&gt;really&lt;/em&gt; wrong, or something like that. So posting the reviews and the replies is a good way to contribute some trivia, but I can&#39;t see how it can be really meaningful.&lt;/p&gt;
+
+&lt;p&gt;Now, read the following sentence carefully.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The field has responded with enthusiasm, and reviewers seem to really get it, look for what is good and what needs to be improved in the paper. You don’t need to find a reason to reject.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;This is from &lt;a href=&quot;http://exchanges.wiley.com/blog/2012/07/02/your-starter-for-tenan-interview-with-professor-allen-moore-head-of-the-department-of-genetics-university-of-georgia-athens-usa-and-editor-of-ecology-and-evolution-a-new-open-access-jour/&quot;&gt;Allen Moore&lt;/a&gt;, editor in chief of &lt;em&gt;Ecology and
+Evolution&lt;/em&gt;. This single sentence is all the difference between a good and a bad
+review. Your task is to help make the paper better (unless the paper is so bad
+that it&#39;s not possible to save it, but I&#39;ve probably had only one of
+these in my 30+ reviews so far). That&#39;s an even more straightforward
+definition of the [&lt;em&gt;Golden Rule&lt;/em&gt;][goldenrule] of reviews: don&#39;t be an assh*le.&lt;/p&gt;
+
+&lt;p&gt;This is where posting reviews can be good: we can (perhaps) make the reviews
+better. We can give credit where credit is due, and blame where blame is due.
+But that&#39;s only true if the reviews are not anonymized. If we want the sharing
+of reviews to have an impact, then it is necessary that reviews are not
+anonymous. This is the purpose of journals like &lt;em&gt;F1000Research&lt;/em&gt;. If you want to
+see an example, go see the reviews, replies, and revisions, of our paper about
+&lt;a href=&quot;http://f1000research.com/articles/1-21/v2&quot;&gt;terminal investment in bacteria&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Will it improve the quality of reviews (and, if better reviews mean better
+papers, the quality of the literature)? Results published in BMJ suggest
+&lt;a href=&quot;http://www.bmj.com/content/341/bmj.c5729&quot;&gt;it&#39;s not the case&lt;/a&gt;. But there are two striking things with this paper.
+First, the rate of &lt;em&gt;refusal&lt;/em&gt; increased when the editors told the reviewers that
+their review might be posted, online, in a non-anonymous way. Second, the
+reviewers that accepted took, on average, longer to review. And the additional
+delay makes sense: if your name is attached to it, then a review is a valid
+piece of scientific output, and you will make sure that it&#39;s good.&lt;/p&gt;
+
+&lt;p&gt;Here is how I&#39;d like to have conducted this study. Get all the reviews, and
+&lt;em&gt;once they are turned in&lt;/em&gt;, ask the authors if they agree to have them published
+online, with their name attached to it. Then have editors rate the reviews from
+each group, and check the proportion of positive/negative recommandations in
+each group. I&#39;m now signing all of my reviews, even the negative ones. And
+check for the age of the people in each group also, just in case. I&#39;m still
+hoping it won&#39;t make any difference, but perhaps the really bad kind of reviews
+(the biased ones, trashing a paper just because they don&#39;t like it, or because
+it contradicts some kind of agenda they set), will be filtered out. You don&#39;t
+want the whole world to see that you are a terrible persone (unless you are
+a clear sociopath, that is).&lt;/p&gt;
+
+&lt;p&gt;But I feel like that rate of refusal to share the reviews should not be that
+high. Fear of future payback might be a valid one, but hopefully with a very
+small number of people. And besides, they&#39;re not much to be angry about in
+reviews anyway. Because reading through most of them, the &quot;worse&quot; kind of
+reviews I write and receive are either &quot;Your paper is sound, but it needs
+a little but more work to be &lt;em&gt;awesome&lt;/em&gt;&quot;, or &quot;Hey, you probably missed this
+little flaw, correct it and we&#39;re good&quot;. There&#39;s the occasional blatant mistake
+on my side, or crazy referee, but most of the time, it&#39;s just this perfect
+blend of stimulating and annoying. There&#39;s no reason to hate people on these
+grounds, and there&#39;s no reason to be afraid of attaching your name to that
+either.  And you know what? The most awesome thing happenned to &lt;a href=&quot;http://ibartomeus.wordpress.com/2013/06/27/signing-reviews-pays-back-and-about-sharing-good-and-bad-news/&quot;&gt;Ignasi
+Bartomeus&lt;/a&gt;. He got a &lt;em&gt;thank you note&lt;/em&gt; from the authors of a paper he
+&quot;helped&quot; rejecting. &lt;em&gt;That&#39;s&lt;/em&gt; how you do it.&lt;/p&gt;
+
+&lt;p&gt;So where does that leaves us? Sharing reviews can be a good way to share your
+frustration, or illustrate all the is broken with a system where you have to
+defend your work against people you don&#39;t know the names of (although we have
+to keep in minds that the editors know what they&#39;re doing, and won&#39;t
+probably pick referees at random...). But if we take the extra step of
+having non-anonymous reviews, then sharing it (an not on our blogs or twitter,
+but on the journal web-site) will perhaps rekindle our complicated
+relationship with the peer-review procces. Because for all the frustration it
+does us, it&#39;s still done by our &lt;strong&gt;peers&lt;/strong&gt;. People we hang with at meetings, drink
+beers with, do awesome science with. We are inspired by the papers they write.
+We find ideas in their data. We&#39;re not enemies; let&#39;s not behave as if it were
+the case (except reviewer #3, this guy is the worse).&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>What do I read (according to Zotero)?</title>
