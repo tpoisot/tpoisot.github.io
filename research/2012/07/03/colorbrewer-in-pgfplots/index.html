@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Using Color Brewer schemes in LaTeX pgfplots</title>
+    
+</head>
+
+<body>
+
+<div class="header sitewide">
+<div class="container">
+<div class="row-fluid narrow">
+   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+  <li><a href="/">Home</a></li>
+  <li><a href="/papers/">Publications</a></li>
+  <li><a href="/research/">Research</a></li>
+  <li class="active"><a href="/blog/">Blog</a></li>
+</ul></nav>
+
+</div>
+</div>
+<!-- <div class="row-fluid site-head">
+	<div class="span10 offset1">
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
+
+	</div>
+</div> -->
+</div>
+</div>
+
+<div class="container main">
+	<div class="row-fluid narrow">
+		
+		<div class="span10 offset1 page-content">
+		<div class='post'>
+<h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
+
+<div class="postinfo">
+
+July  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">LaTeX</span><span class="label label-default" style="margin-right: 3px;">pgfplots</span><span class="label label-default" style="margin-right: 3px;">data visualization</span>
+
+
+</div>
+
+<p><em>Color Brewer</em> is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the <code>RColorBrewer</code> package.</p>
+
+<p>Last week, I started using <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a>, a <a href="http://www.texample.net/"><code>tikz</code></a> extension for data visualization, to prepare slides for the upcoming <a href="http://www.confersense.ca/Evolution2012/">Evolution2012</a> meeting in Ottawa. I thought it would be pretty cool to be able to use the <em>Color Brewer</em> scales in my talk.</p>
+
+<p>Using <code>pgfplots</code> , it's really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the <a href="http://colorbrewer2.org/"><em>Color Brewer</em></a> website tells you the RGB values of each color when you select a scheme, it's really easy to re-implement the color schemes.</p>
+
+<p>For example, you can do a nice color map with the <em>spectral</em> scheme:</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\pgfplotsset</span><span class="nb">{</span>
+    colormap=<span class="nb">{</span>spectral<span class="nb">}{</span>
+        rgb255(0cm)=(158,1,66); 
+        rgb255(1cm)=(213,62,79);
+        rgb255(2cm)=(244,109,67);
+        rgb255(3cm)=(253,174,97);
+        rgb255(4cm)=(254,224,139);
+        rgb255(5cm)=(255,255,191);
+        rgb255(6cm)=(230,245,152);
+        rgb255(7cm)=(171,221,164);
+        rgb255(8cm)=(102,194,165);
+        rgb255(9cm)=(50,136,189);
+        rgb255(10cm)=(94,79,162);<span class="nb">}</span>
+    <span class="nb">}</span>
+</code></pre></div>
+
+
+<p>Or you can do a color cycle with the <em>Set1</em> scheme:</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\definecolor</span><span class="nb">{</span>s1<span class="nb">}{</span>RGB<span class="nb">}{</span>228, 26, 28<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>s2<span class="nb">}{</span>RGB<span class="nb">}{</span>55, 126, 184<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>s3<span class="nb">}{</span>RGB<span class="nb">}{</span>77, 175, 74<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>s4<span class="nb">}{</span>RGB<span class="nb">}{</span>152, 78, 163<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>s5<span class="nb">}{</span>RGB<span class="nb">}{</span>255, 127, 0<span class="nb">}</span>
+<span class="k">\pgfplotscreateplotcyclelist</span><span class="nb">{</span>set1<span class="nb">}{</span>
+  s1,every mark/.append style=<span class="nb">{</span>fill=s1<span class="nb">}</span>,mark=*<span class="k">\\</span>
+    s2,every mark/.append style=<span class="nb">{</span>fill=s2<span class="nb">}</span>,mark=*<span class="k">\\</span>
+    s3,every mark/.append style=<span class="nb">{</span>fill=s3<span class="nb">}</span>,mark=*<span class="k">\\</span>
+    s4,every mark/.append style=<span class="nb">{</span>fill=s4<span class="nb">}</span>,mark=*<span class="k">\\</span>
+    s5,every mark/.append style=<span class="nb">{</span>fill=s5<span class="nb">}</span>,mark=*<span class="k">\\</span>
+<span class="nb">}</span>
+</code></pre></div>
+
+
+<p>Now that I think of it, it would be really easy to provide all of the brewer schemes into color map and color cycle form as an additional package. This is a project best left to someone with time on their hands.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2012/05/18/networkx-metapopulations-python/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next">
+<a href="/2012/07/15/what-is-trophic-complexity/">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+		</div>
+	
+	</div>
+</div>
+
+<div class="container footer">
+   <div class="row-fluid narrow">
+
+      <div class="span10 offset1 footer-content">
+         	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+      </div>
+
+   </div>
+</div>
+
+</body>
+
+</html>

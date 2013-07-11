@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: COinS metadata in Jekyll blogposts</title>
+    
+</head>
+
+<body>
+
+<div class="header sitewide">
+<div class="container">
+<div class="row-fluid narrow">
+   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+  <li><a href="/">Home</a></li>
+  <li><a href="/papers/">Publications</a></li>
+  <li><a href="/research/">Research</a></li>
+  <li class="active"><a href="/blog/">Blog</a></li>
+</ul></nav>
+
+</div>
+</div>
+<!-- <div class="row-fluid site-head">
+	<div class="span10 offset1">
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
+
+	</div>
+</div> -->
+</div>
+</div>
+
+<div class="container main">
+	<div class="row-fluid narrow">
+		
+		<div class="span10 offset1 page-content">
+		<div class='post'>
+<h1>COinS metadata in Jekyll blogposts</h1>
+
+<div class="postinfo">
+
+February  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">jekyll</span><span class="label label-default" style="margin-right: 3px;">bibliography</span>
+
+
+</div>
+
+<p><a href="http://ocoins.info/">COinS</a> is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn <a href="http://dynamicecology.wordpress.com/2011/06/17/zombie-ideas-in-ecology/">blog posts into <em>TREE</em> papers</a>, citing blog posts might not be so far away).</p>
+
+<p>Adding <code>COinS</code> data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in to generate these data for blogs running <code>jekyll</code>. Having 5 minutes to lose, I decided to just go ahead and write one. Here it goes:</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;span</span>
+    <span class="na">class=</span><span class="s">&quot;Z3988&quot;</span> 
+    <span class="na">title=</span><span class="s">&quot;ctx_ver=Z39.88-2004</span>
+<span class="s">    &amp;amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc</span>
+<span class="s">    &amp;amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator</span>
+<span class="s">    &amp;amp;rft.title={{ page.title}}</span>
+<span class="s">    &amp;amp;rft.creator={{site.author.name}}</span>
+<span class="s">    &amp;amp;rft.date={{ page.date | date: &quot;</span><span class="err">%</span><span class="na">Y-</span><span class="err">%</span><span class="na">m-</span><span class="err">%</span><span class="na">d</span><span class="err">&quot;</span> <span class="err">}}</span>
+    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">language=</span><span class="s">EN</span>
+    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">rights=</span><span class="s">CC-BY-SA</span>
+    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft_id=</span><span class="s">{{site.production_url}}{{page.url}}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</code></pre></div>
+
+
+<p>As usual, if you want to use it (and there might be some tweaking to do, if you don't use <em>Jekyll bootstrap</em>), just place it in the <code>_includes</code> directory, and somewhere in your blog layout</p>
+
+<div class="highlight"><pre><code class="html">{% include coins.html %}
+</code></pre></div>
+
+
+<p>So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect <code>COinS</code> data, and so might be other programs.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2013/01/28/introductions-reinventing-ecological-wheel/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next">
+<a href="/2013/02/12/species-contribution-modularity/">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+		</div>
+	
+	</div>
+</div>
+
+<div class="container footer">
+   <div class="row-fluid narrow">
+
+      <div class="span10 offset1 footer-content">
+         	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+      </div>
+
+   </div>
+</div>
+
+</body>
+
+</html>
