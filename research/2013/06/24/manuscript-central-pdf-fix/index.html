@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Fixes for the ManuscriptCentral PDF conversion problem</title>
+    
+</head>
+
+<body>
+
+<div class="header sitewide">
+<div class="container">
+<div class="row-fluid narrow">
+   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+  <li><a href="/">Home</a></li>
+  <li><a href="/papers/">Publications</a></li>
+  <li><a href="/research/">Research</a></li>
+  <li class="active"><a href="/blog/">Blog</a></li>
+</ul></nav>
+
+</div>
+</div>
+<!-- <div class="row-fluid site-head">
+	<div class="span10 offset1">
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
+
+	</div>
+</div> -->
+</div>
+</div>
+
+<div class="container main">
+	<div class="row-fluid narrow">
+		
+		<div class="span10 offset1 page-content">
+		<div class='post'>
+<h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
+
+<div class="postinfo">
+
+June 24, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">LaTeX</span><span class="label label-default" style="margin-right: 3px;">PDF</span>
+
+
+</div>
+
+<p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF
+conversion problem. It was not the first time it happenned, and always on
+journals using <em>manuscriptcentral</em> as an upload system, and always with
+<code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty
+tradition of the academic world, was to (1) import the PDF in google documents,
+(2) print it as a PDF, (3) upload the PDF and (4) drink the shame
+away.</p>
+
+<p>Only this time, I wanted to understand what was happening, and to fix it as much
+as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts
+PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions
+will generate 1.7 or 1.8, so it's obviously not going to work (but on the
+up-side, it will give you one of the most depressing and amusing error
+message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
+
+<p>First, you can add</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\pdfminorversion</span>=4
+</code></pre></div>
+
+
+<p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained
+<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That's one additional command, which is not needed in most other situations, but that's one way to fix it.</p>
+
+<p>There is a second workaround, which is to compile with <code>latex</code> instead of
+<code>pdflatex</code> (haven't tested this one, but it should work), then upload the whole
+dependencies when you submit. Note that your figures needs be <code>eps</code> for this to
+work, and you'll probably be limited by the packages installed on the remote
+server, the list of which is not known. The <em>Methods in Ecology and Evolution</em>
+staff was extremely quick in pointing that out after I raised the issue on
+Twitter, so a big thank you to them.</p>
+
+<p>The solution I found this morning is the following:</p>
+
+<div class="highlight"><pre><code class="bash">pdftops ms.pdf ms.ps
+ps2pdf13 ms.ps ps.pdf
+rm ms.ps
+</code></pre></div>
+
+
+<p>Very simply put, that will convert your pdf into a postscript file, then convert
+it into a PDF 1.3 file, that can be uploaded with no problems. You can just add
+that to a <code>makefile</code>, by the way:</p>
+
+<div class="highlight"><pre><code class="make"><span class="nf">mc</span><span class="o">:</span> <span class="m">ms.pdf</span>
+    pdftops ms.pdf ms.ps
+    ps2pdf13 ms.ps ms_mc.pdf
+    rm ms.ps
+</code></pre></div>
+
+
+<p>Once your paper is ready, a simple <code>make mc</code> will create a <code>ms_mc.pdf</code> file,
+which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2013/06/23/niche-fill-ecological-papers/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next">
+<a href="/2013/07/08/parallel/">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+		</div>
+	
+	</div>
+</div>
+
+<div class="container footer">
+   <div class="row-fluid narrow">
+
+      <div class="span10 offset1 footer-content">
+         	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+      </div>
+
+   </div>
+</div>
+
+</body>
+
+</html>

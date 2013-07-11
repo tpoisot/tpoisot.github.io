@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Estimating edges contribution to network properties</title>
+    
+</head>
+
+<body>
+
+<div class="header sitewide">
+<div class="container">
+<div class="row-fluid narrow">
+   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+  <li><a href="/">Home</a></li>
+  <li><a href="/papers/">Publications</a></li>
+  <li><a href="/research/">Research</a></li>
+  <li class="active"><a href="/blog/">Blog</a></li>
+</ul></nav>
+
+</div>
+</div>
+<!-- <div class="row-fluid site-head">
+	<div class="span10 offset1">
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
+
+	</div>
+</div> -->
+</div>
+</div>
+
+<div class="container main">
+	<div class="row-fluid narrow">
+		
+		<div class="span10 offset1 page-content">
+		<div class='post'>
+<h1>Estimating edges contribution to network properties</h1>
+
+<div class="postinfo">
+
+February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">ecological networks</span><span class="label label-default" style="margin-right: 3px;">modularity</span><span class="label label-default" style="margin-right: 3px;">open lab book</span><span class="label label-default" style="margin-right: 3px;">python</span><span class="label label-default" style="margin-right: 3px;">networkx</span><span class="label label-default" style="margin-right: 3px;">D3.js</span>
+
+
+</div>
+
+<p>I had so much fun writing the previous post about how it is possible to measure <a href="2013/02/12/species-contribution-modularity/">nodes contribution to network properties</a> that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with <a href="http://d3js.org/"><code>D3.js</code></a>, and I wanted to put what I've learnt in practice.</p>
+
+<p>What I want to do is remove each <em>edge</em>, and see how it affects modularity. This is, once again, really easy to do in <code>networkx</code>. We'll just write a function similar to <code>removeNode</code>, and add the possibility to keep the nodes with no links, or to remove them. By default, I'll consider that any node with no remaining edge is removed.</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">removeEdge</span><span class="p">(</span><span class="n">web</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="n">nozero</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="n">tempWeb</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">([</span><span class="n">edge</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">nozero</span><span class="p">:</span>
+        <span class="n">Isolated</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tempWeb</span> <span class="k">if</span> <span class="n">tempWeb</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">(</span><span class="n">Isolated</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tempWeb</span>
+</code></pre></div>
+
+
+<p>To get the contribution of each edge to modularity, it's simple to just adapt the one-liner from the previous post into:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeEdge</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">e</span><span class="p">))</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
+</code></pre></div>
+
+
+<p><span class='margin'>The ranking method I use (<code>rankdata</code> in <code>scipy</code>) averages the rank of tied elements. So that explains why the points are not evely spaced.</span>OK, so let's see what it looks like:</p>
+
+<div class='edgecontrib scatterplot d3'></div>
+
+
+<!-- edgecontrib-rank.tsv -->
+
+
+<script type="text/javascript" src="/data/edgecontrib-scatter.js"></script>
+
+
+<p>The values of &Delta; are low, but the message is simple: most edges, when removed, make modularity <em>decrease</em>. For the next step, it can be cool to visualize <em>where</em> in the networks these nodes are. <code>D3.js</code> is able to read <code>JSON</code> files to plot them as networks. So we just need to write a quick and dirty converter from , <code>networkx</code> to <code>JSON</code>, and tweak <a href="http://bl.ocks.org/4062045">this example</a>.</p>
+
+<p><span class='margin'>And it's <a href="2012/11/23/how-to-represent-networks/">a good idea</a> to use <code>JSON</code> to represent networks...</span>This is so quick and dirty that I won't reproduce it here, but I ended up with a <code>JSON</code> file containing the edges, and the nodes. For each node, the module it belongs to is known. For each edge, its contribution to modularity is known. What remains to do is to plot everything, thanks to the power of <code>D3.js</code>.</p>
+
+<div class='edgecolor network d3'></div>
+
+
+<!-- edgecontrib-rank.tsv -->
+
+
+<script type="text/javascript" src="/data/edgecontrib-network.js"></script>
+
+
+<p>In this plot (move the nodes around!), the red links decrease modularity when removed, and the blue links increase it. The color of the nodes reflect which module they belong to. A quick eyeballing of the graph shows that blue links are established between nodes sharing different modules. Which makes sense, as if you disconnect modules, you further increase modularity. It may look good, but it's not rocket science!</p>
+
+<p>In any case, I'm quite happy about the whole thing. First, it's super straightforward to remove edges/nodes with <code>networkx</code>, and to measure how it affects network structure. Second, it's fast enough even on networks of a respectable size. And finally, this is perhaps the biggest revelation of the day: it's <em>easy</em> to use <code>D3.js</code>. It may not seem like much, but the two figures in this blog post are generated <em>from the original data</em>. So if I want to re-generate the data, the figures will change as well. There is even more potential when creating webpages for projects, so I'll look more into that.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2013/02/12/species-contribution-modularity/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next">
+<a href="/2013/02/17/stacked-barcharts/">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+		</div>
+	
+	</div>
+</div>
+
+<div class="container footer">
+   <div class="row-fluid narrow">
+
+      <div class="span10 offset1 footer-content">
+         	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+      </div>
+
+   </div>
+</div>
+
+</body>
+
+</html>

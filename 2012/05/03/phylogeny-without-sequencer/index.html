@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Tim Poisot :: Phylogeny without a sequencer</title>
+    
+</head>
+
+<body>
+
+<div class="header sitewide">
+<div class="container">
+<div class="row-fluid narrow">
+   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+  <li><a href="/">Home</a></li>
+  <li><a href="/papers/">Publications</a></li>
+  <li><a href="/research/">Research</a></li>
+  <li class="active"><a href="/blog/">Blog</a></li>
+</ul></nav>
+
+</div>
+</div>
+<!-- <div class="row-fluid site-head">
+	<div class="span10 offset1">
+	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
+
+	</div>
+</div> -->
+</div>
+</div>
+
+<div class="container main">
+	<div class="row-fluid narrow">
+		
+		<div class="span10 offset1 page-content">
+		<div class='post'>
+<h1>Phylogeny without a sequencer</h1>
+
+<div class="postinfo">
+
+May  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">phylogeny</span>
+
+
+</div>
+
+<p>In the last issue of <em>Trends Ecol. Evol.</em>, <a href="http://www.sciencedirect.com/science/article/pii/S0169534712000730">Poole and colleagues</a> talk about <em>Ecosystomics</em>, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of <a href="http://www.ncbi.nlm.nih.gov/pubmed/22432924">a recent paper by Nico Mouquet and colleagues</a> about <em>Ecophylogenetics</em>. But I'm not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions.</p>
+
+<p>At times, one would like to re-analyze old data and add the phylogeny. If you don't see why you would want to do this, go read the excellent paper in <em>Ecol. Lett.</em> by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2012.01776.x/abstract">Scott Chamberlain and colleagues</a>, right now, I'll wait. Done? Great. The problem with old (meaning, coming from other people, from a previous study) data is that they may not have been taken in association with sequencing. Or they may date from a time were sequencing was not even a thing — which is perhaps a difficult concept to grasp for the young crowd, but I remember a time when publishing one new genome was actually an exciting event concretizing years of hard work. I disgress. The fact is that sometimes, you don't have these precious sequences on which to build a phylogeny, no access to the organisms, and no possibility to do the sequencing yourself.</p>
+
+<p>All hope is not lost, though, because you may be lucky enough to reconstruct a phylogeny. How? By getting every possible sequence for your organisms from <a href="http://www.ncbi.nlm.nih.gov/genbank/"><em>GenBank</em></a>. I'm assuming everyone is familiar with GenBank, but in a nutshell, it's a huge databse in which virtually everything ever sequenced is stored, tagged, and freely available. In their own words:</p>
+
+<blockquote><p>GenBank ® is the NIH genetic sequence database, an annotated collection of all publicly available DNA sequences ( Nucleic Acids Research , 2011 Jan;39(Database issue):D32-7 ). There are approximately 126,551,501,141 bases in 135,440,924 sequence records in the traditional GenBank divisions and 191,401,393,188 bases in 62,715,288 sequence records in the WGS division as of April 2011.</p></blockquote>
+
+<p>Theoretically, you can get a few sequences for each of your species, and reconstruct the phylogeny. In most cases, though (especially if you happen to work with organisms which were not extensively sequenced, or with a high taxonomical diversity), you will need to integrate informations coming from several genes. This is (relatively) easy to do using <a href="http://www.ncbi.nlm.nih.gov/pubmed/15205059">supertrees or supermatrices</a>. The idea is that you will combine a lot of different trees together, in one global tree. <a href="http://bioinf.nuim.ie/clann/"><em>Clann</em></a> + <a href="http://paup.csit.fsu.edu/">*PAUP**</a> are a good combination here.</p>
+
+<p>Of course, dealing with multiple trees mean that you will need to manage a complex dataset (different genes, <em>i.e.</em> different alignments, different models, and a bunch of trees). Of course it can all be done with folders full of <a href="http://en.wikipedia.org/wiki/FASTA_format"><code>fasta</code></a> files, but it is really, really annoying for large datasets. Think about the time spent if you need to remove one sequence in a lot of different text files... I personally use <a href="http://www.geneious.com/"><em>Geneious</em></a> for its ability to search GenBank in an easy way, from a GUI. It's not a freeware, it's expensive, but the free version is good enough for sequence management. The whole process can probably be done in R, with some of the <em>ROpenSci</em> <a href="http://ropensci.org/tutorials/r-taxize-tutorial/">packages</a>, and a good mixture of <em>ape</em>, <em>ade4</em>, and <em>phangorn</em>. I'd like to test that when I have time.</p>
+
+<p>And finally, there is a more general problem related to training. I know some people who think that getting a phylogeny is as easy as doing an <a href="http://en.wikipedia.org/wiki/Neighbor_joining">NJ</a> tree on the pairwise distances between sequences. You push a button, and here comes your tree. It is not, and nothing annoys me quite as that. I'm not asking for Bayesian analysis everytime you want to produce a phylogeny, but at the very least, just go with the most complete model (GTR+I+G), let <em>PhyML</em> estimate all its parameters, and work from there. You'll probaby use a few parameters you didn't need, AIC or hLRT-wise, but at least you won't under-calibrate your model. The problem of getting trees is similar to one encountered in statistics: with properly formated data, every test will give you a statistic and a p-value, which may very well mean nothing if this is not the right test. To some extent, the problem us even worse when supertrees/matrices are involved, because it's usually not covered in intro phylogenetics courses. It's really good that a lot of ecologists are getting interested in phylogenetic studies, but it would be too bad if we end up applying extremely good methods of comparative analysis or ACE to badly infered phylogenies.</p>
+
+<p>For a crash course in phylogenetics methods and concepts, you can read this <a href="http://www.nature.com/doifinder/10.1038/nrg3186">amazingly good review in <em>Nat. Rev. Gen.</em></a>, but nothing beats reading a good handbook on the subject (<a href="http://www.sinauer.com/detail.php?id=1775">Felsenstein's</a> comes to mind) — or finding someone trained in these, who will be more than happy to help you.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2012/04/30/ecology-not-too-collaborative/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next">
+<a href="/2012/05/11/ecological-journal-of-the-future/">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+		</div>
+	
+	</div>
+</div>
+
+<div class="container footer">
+   <div class="row-fluid narrow">
+
+      <div class="span10 offset1 footer-content">
+         	  <p class="muted credit">
+	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+      </div>
+
+   </div>
+</div>
+
+</body>
+
+</html>
