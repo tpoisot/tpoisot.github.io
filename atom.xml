@@ -4,13 +4,69 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-07-28T20:09:12-04:00</updated>
+ <updated>2013-08-05T15:41:28-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Codelust</title>
+   <link href="http://timotheepoisot.fr/2013/08/05/codelust/"/>
+   <updated>2013-08-05T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/08/05/codelust</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;Wanderlust&lt;/strong&gt; &lt;em&gt;(noun)&lt;/em&gt;: a strong desire to travel.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Codelust&lt;/strong&gt; &lt;em&gt;(noun)&lt;/em&gt;: a strong desire to code rather than actually work, and how you can use it for good.&lt;/p&gt;
+
+&lt;p&gt;I&#39;m lucky. I have stacks of datasets on my laptop, and good ecological
+questions to ask, and (hopefully) that will result in a few papers. But that&#39;s
+not &lt;em&gt;fun&lt;/em&gt;. I know what I have to do, how I have to do it, and I&#39;m mostly
+re-using existing tools. So over the last month or so, I&#39;ve been consumed by
+&lt;em&gt;codelust&lt;/em&gt;, a strong desire to open a text editor, and write a program that
+does something I&#39;ve never done before.&lt;/p&gt;
+
+&lt;p&gt;At first sight, it&#39;s a complete waste of time. But I&#39;ve noticed that it&#39;s
+better to let myself take one hour or two a few days a week, than fight against
+the need to do new stuff just for the sake of it, and for a few reasons.&lt;/p&gt;
+
+&lt;p&gt;First, it&#39;s a good way not to grow tired of your current projects. There are
+times when you can&#39;t see anymore of a particular dataset or paper for the day,
+and it&#39;s better to sharpen your computing skills than roam around the
+office trying to find other bored people to socialize with (at least,
+it&#39;s more productive in the long term). That&#39;s a good way to keep
+your sanity. I&#39;ve always been a big fan of Google&#39;s &lt;a href=&quot;http://www.wisebread.com/why-you-should-follow-googles-20-rule&quot;&gt;20% time
+rule&lt;/a&gt;, that states that 20% of your time should be spent on
+something &lt;em&gt;not&lt;/em&gt; directly related to what you&#39;re supposed to be. The
+precise amount of time dedicated to goofing around will vary. but the
+general idea is that you will eventually use this time to do new,
+creative things, and you will eventually have a long-term benefit.&lt;/p&gt;
+
+&lt;p&gt;Second, episodes of codelust are good times to try &lt;em&gt;something new&lt;/em&gt;. I&#39;m not
+talking about creating something new from a scientific point of view (though
+we&#39;ll get to that), but more of trying a new technique, library, or
+something like that. It recently led me to replace &lt;code&gt;tsv&lt;/code&gt; by &lt;code&gt;json&lt;/code&gt; as the
+output format for a model I&#39;m working on. I&#39;ve learnt a great deal, and
+identified new areas for improvement. This will probably help me save time in
+other projects, and now I have one more tool in my toolbox.&lt;/p&gt;
+
+&lt;p&gt;Additionaly, codelust (if you&#39;re the theory type) is a good way to get
+innovative projects started. What happpens if I change this model in this way?
+How does the relationship between these and these outputs reacts to another
+factor? With most simple, canonical ecological models, simple questions are
+easy to explore. If you&#39;re lucky (failing that, you&#39;ll have to be smart), you
+can stumble upon an interesting result that is worthy of being expanded into
+a &quot;real&quot; paper. Try not to grow bored of &lt;em&gt;this&lt;/em&gt; paper and engage in more
+codelusting, that would probably disprove the point I just made...&lt;/p&gt;
+
+&lt;p&gt;And as a final point, codelust will keep you sharp. It&#39;s easy to write one
+R package and use it for a while. Forcing yourself to write new code, using new
+methods, every once in a while, will keep you up to date, increase the range of
+situations you&#39;ve already covered, and give you a more solid experience.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Should we share reviews?</title>
