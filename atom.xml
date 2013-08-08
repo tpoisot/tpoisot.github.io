@@ -4,13 +4,52 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-08-05T15:41:28-04:00</updated>
+ <updated>2013-08-08T13:09:58-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>F1000Research announces new Ecology section</title>
+   <link href="http://timotheepoisot.fr/2013/08/08/F1000R-ecology-section/"/>
+   <updated>2013-08-08T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/08/08/F1000R-ecology-section</id>
+   <content type="html">&lt;p&gt;F1000Research just put up a &lt;a href=&quot;http://blog.f1000research.com/2013/08/08/ecologists-join-our-open-science-ecosystem/&quot;&gt;new blog post&lt;/a&gt; to announce that they
+will concentrate some of their efforts to increase the proportion of ecology
+papers they publish. We should all be excited about this. First, the article
+processing fees will be waived until 2014, so here goes a good opportunity to
+see for yourself how this journal works. Second, the publication model of
+F1000Research is extremely interesting. After initial checking, the paper is
+put on-line, and appears as a preprint. Reviews appear in real-time, and are
+not anonymous. Further changed to the paper are well documented.&lt;/p&gt;
+
+&lt;p&gt;As we discuss in &lt;a href=&quot;http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563&quot;&gt;Phil&#39;s paper&lt;/a&gt; paper on preprints in biology, this
+immediate publication model is good, especially for early-career people. When
+you need to have something to show for your work in order to apply for
+a fellowship, it&#39;s understandable that you don&#39;t want to wait for up to a whole
+year for your paper to run the gauntlet of peer review. F1000Research also
+integrates tightly with figshare, and datasets are required to be open when the
+paper is submitted. That&#39;s a really good practice, and it will further the
+integration between datasets and papers.&lt;/p&gt;
+
+&lt;p&gt;One of the coolest things for field ecologists (I&#39;ve been informed that ecology
+is the study of populations, and not a branch of applied mathematics or
+computer sciences...?) is that F1000Research will now offer to publish
+&lt;em&gt;observation articles&lt;/em&gt;. People in the medical sciences have many case studies,
+that are extremely important to the field as a whole. In ecology, despite
+the recognition that general laws are elusive and not as general as they
+appear, there seems to be a shortage of places to publish interesting
+field/lab observations. I&#39;m sure many people will be deligthed to learn that
+the modern publishing world still cares about the naturalist tradition of
+ecology.&lt;/p&gt;
+
+&lt;p&gt;So you can head to the &lt;a href=&quot;http://f1000research.com&quot;&gt;F1000Research&lt;/a&gt; website and
+see for yourself!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Codelust</title>
