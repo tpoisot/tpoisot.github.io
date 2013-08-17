@@ -26,7 +26,7 @@
 	</script>
 	
 	<meta name="author" content="Tim Poisot" />
-   <title>Tim Poisot :: F1000Research announces new Ecology section</title>
+   <title>Tim Poisot :: Writing manuscripts in Linux (like a boss)</title>
     
 </head>
 
@@ -58,46 +58,44 @@
 		
 		<div class="span10 offset1 page-content">
 		<div class='post'>
-<h1>F1000Research announces new Ecology section</h1>
+<h1>Writing manuscripts in Linux (like a boss)</h1>
 
 <div class="postinfo">
 
-August  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">open access</span><span class="label label-default" style="margin-right: 3px;">scientific publishing</span>
+August 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">free software</span><span class="label label-default" style="margin-right: 3px;">pandoc</span><span class="label label-default" style="margin-right: 3px;">linux</span>
 
 
 </div>
 
-<p>F1000Research just put up a <a href="http://blog.f1000research.com/2013/08/08/ecologists-join-our-open-science-ecosystem/">new blog post</a> to announce that they
-will concentrate some of their efforts to increase the proportion of ecology
-papers they publish. We should all be excited about this. First, the article
-processing fees will be waived until 2014, so here goes a good opportunity to
-see for yourself how this journal works. Second, the publication model of
-F1000Research is extremely interesting. After initial checking, the paper is
-put on-line, and appears as a preprint. Reviews appear in real-time, and are
-not anonymous. Further changes to the paper are well documented.</p>
+<p>Hey, it's been a year since I <a href="http://timotheepoisot.fr/2012/08/03/new-linux-setup/">switched to Linux</a>. I've tried a few
+different distros, and finally settled on <a href="https://www.archlinux.org/">Arch Linux</a> with
+<a href="http://openbox.org/">OpenBox</a>. It's ligthweight, uncluttered, and I love. But that's not what
+I'm going to talk about.</p>
 
-<p>As we discuss in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">Phil's paper</a> paper on preprints in biology, this
-immediate publication model is good, especially for early-career people. When
-you need to have something to show for your work in order to apply for
-a fellowship, it's understandable that you don't want to wait for up to a whole
-year for your paper to run the gauntlet of peer review. F1000Research also
-integrates tightly with figshare, and datasets are required to be open when the
-paper is submitted. That's a really good practice, and it will further the
-integration between datasets and papers.</p>
+<p>I may have mentionned in the past that I used <em>Sublime Text 2</em>. During my quest
+for ever-increasing minimalism, I've made the switch to <code>vim</code>. And I now have
+a <em>cool</em> writing setup. Most of what I do is writing markdown files, and using
+makefiles to use pandoc to convert them to PDF (read more about it
+<a href="http://timotheepoisot.fr/2013/05/18/make-pandoc/">here</a>). The only thing that missed was a lightweight PDF reader,
+able to auto-refresh things. I have now found <a href="http://pwmt.org/projects/zathura/"><em>zathura</em></a>. I am supper happy.</p>
 
-<p>One of the coolest things for field ecologists (I've been informed that ecology
-is the study of populations, and not a branch of applied mathematics or
-computer sciences...?) is that F1000Research will now offer to publish
-<em>observation articles</em>. People in the medical sciences have many case studies,
-that are extremely important to the field as a whole. In ecology, despite
-the recognition that general laws are elusive and not as general as they
-appear, there seems to be a shortage of places to publish interesting
-field/lab observations. I'm sure many people will be deligthed to learn that
-the modern publishing world still cares about the naturalist tradition of
-ecology.</p>
+<p><em>zathura</em> is command-line based, and uses keyboard for interaction. So whenever
+I am working on a document in a terminal (<code>rxvt-unicode</code>, in case you wonder,
+with the <em>excellent</em> font <a href="http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released">Envy Code R</a>), I just need to do a quick
+<code>zathura my-doc.pdf</code>, and I can see the output. Because <em>zathura</em>
+auto-refreshes things, whenever I <code>make pdf</code>, the output is up to date. Just
+like that.</p>
 
-<p>So you can head to the <a href="http://f1000research.com">F1000Research</a> website and
-see for yourself!</p>
+<p>And the point is: the productivity boost is amazing. I do everything from within the terminal (or rather, terminals, I have a few of them open at any time). And it's fast, ligthweight, and <em>responsive</em>.</p>
+
+<p><strong>And just in case you are curious</strong>, a list of the <em>vim</em> plugins I use:</p>
+
+<ul>
+<li><a href="https://github.com/tpope/vim-pathogen">pathogen</a> to easily install plugins</li>
+<li><a href="https://github.com/airblade/vim-gitgutter">vim-gitgutter</a> to see how my local file differs from the git version</li>
+<li><a href="https://github.com/vim-pandoc/vim-pandoc">vim-pandoc</a> for a lot of pandoc-related stuff, including <em>bibtex reference auto-completion</em></li>
+</ul>
+
 
 
 </div>
@@ -121,13 +119,13 @@ see for yourself!</p>
 
 
 <li class="previous">
-<a href="/2013/08/05/codelust/">&larr; Previous post</a>
+<a href="/2013/08/08/F1000R-ecology-section/">&larr; Previous post</a>
 </li>
 
 
 
-<li class="next">
-<a href="/2013/08/18/writing-linux-like-a-boss/">Next post &rarr;</a>
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
 </li>
 
 

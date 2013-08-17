@@ -62,10 +62,10 @@ html{
 }
 
 code, pre{
-   color: rgb(88, 88, 88);
+   color: rgb(38, 38, 38);
    padding: 1px 1px;
-	border-radius: 4px !important;
-	border: 1px solid rgb(168, 168, 168);
+	border-radius: 2px !important;
+	border: 1px solid rgb(240, 240, 240);
    background: rgb(254, 254, 254);
 	font-family: "Cousine";
    font-size: inherit !important;
