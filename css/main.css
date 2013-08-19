@@ -6,6 +6,10 @@ html{
 	height: 100%;
 }
 
+.label{
+   vertical-align: middle !important;
+}
+
 .narrow{
   max-width: 820px;
   margin: 0px auto;

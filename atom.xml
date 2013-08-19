@@ -4,13 +4,47 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-08-17T13:33:34-04:00</updated>
+ <updated>2013-08-19T17:50:36-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Complexity and connectance of ecological networks</title>
+   <link href="http://timotheepoisot.fr/2013/08/19/connectance-complexity/"/>
+   <updated>2013-08-19T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/08/19/connectance-complexity</id>
+   <content type="html">&lt;p&gt;So my &lt;a href=&quot;http://timotheepoisot.fr/2013/06/19/notes-on-network-complexity/&quot;&gt;blog post on ecological complexity in networks&lt;/a&gt; turned into
+a manuscript, now online as a preprint at &lt;a href=&quot;https://peerj.com/preprints/50/&quot;&gt;&lt;em&gt;PeerJ&lt;/em&gt;&lt;/a&gt;. We&#39;ll send it up for
+review (at &lt;em&gt;PeerJ&lt;/em&gt; also) in a while, but feel free to read it and give us
+feedback using the &lt;a href=&quot;https://github.com/tpoisot/ms_connectance_complexity/issues&quot;&gt;github issues tracker&lt;/a&gt;. We&#39;d like that very much,
+actually. And as the github repository is public, feel free to
+fork/edit/push modifications if you have something to contribute to
+the paper.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell; we argue that connectance is still a central property of
+networks. For one thing, (i) it constrains how much different networks exists
+for a given species number, which was the point of the original post. But more
+importantly, (ii), because a given connectance implies a given number of
+interactions, connectance imposes structural constraints on networks
+properties. Or in other words, all important moments of the degree distribution
+vary with connectance. And it works quite well with Erdos-Renyi graphs, and
+with the famous &quot;niche&quot; model of food webs.&lt;/p&gt;
+
+&lt;p&gt;It&#39;s kinda cool, because connectance is &lt;em&gt;simple&lt;/em&gt; to measure, and even people
+that no background in network analysis will get what it means. It also means
+that from a purely statistical point of view, any effect of the degree
+distribution must be controlled for an effect of connectance.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;P.S.&lt;/em&gt;: This is a good example of &lt;a href=&quot;http://timotheepoisot.fr/2013/08/05/codelust/&quot;&gt;Codelust&lt;/a&gt; in practice. The
+original script were written over a particularly greasy and disappointing club
+sandwich eaten alone in my office, so at least something productive came out of
+this particularly bleak view of the academic daily life...&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Writing manuscripts in Linux (like a boss)</title>
