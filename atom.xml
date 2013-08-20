@@ -4,13 +4,47 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-08-19T17:50:36-04:00</updated>
+ <updated>2013-08-20T16:10:51-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Network structure of obligate and facultative parasites</title>
+   <link href="http://timotheepoisot.fr/2013/08/20/network-structure-obligate-facultative-parasites/"/>
+   <updated>2013-08-20T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/08/20/network-structure-obligate-facultative-parasites</id>
+   <content type="html">&lt;p&gt;We have a new paper &lt;a href=&quot;http://dx.doi.org/10.1017/S0031182013000851&quot;&gt;online at &lt;em&gt;Parasitology&lt;/em&gt;&lt;/a&gt;, on the differences of
+the structure between rodents hosts, and their obligates of facultatives
+parasites. We had data from a really cool rodents-ectoparasites system, in
+which the same hosts have both facultative and obligate parasites. These data
+were also collected in different locations, and at different times.&lt;/p&gt;
+
+&lt;p&gt;There are two important things in the results. First, the networks of obligate
+and facultative parasites look &lt;em&gt;nothing&lt;/em&gt; alike. One (obligate) is highly
+modular and anti-nested, and the other (facultative) is highly nested but not
+particularly more or less modular. But when you look at all types of parasites
+together, the resulting networks are both more moudular &lt;em&gt;and&lt;/em&gt; more nested than
+expected by chance. The take-home of this particular result is: &quot;parasitism&quot; is
+a vague notion, and we should not be too surprized when lumping contrasted
+ecological strategies makes weird results emerge (also, we should focus on how
+different functional groups affect network properties).&lt;/p&gt;
+
+&lt;p&gt;The second part of the result is most likely more appealling to
+parasitologists: we show that the networks of obligate parasites vary less in
+space and time that the network of facultative ones. Not too suprising when you
+think about it long enough: facultative parasites are mostly opportunisitc, and
+thus they will probably pick their hosts more randomly (without less
+constraints) than obligate ones. There&#39;s also the fact that facultative
+parasites tend to occupy sites within the hosts that require less stringent
+adaptations. But the key message is still the same: when we lump different
+classes of organisms together in a single network, it&#39;s important to quantify
+how much each contribute to the overall properties.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Complexity and connectance of ecological networks</title>
