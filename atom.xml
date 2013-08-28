@@ -4,13 +4,51 @@
  <title>Tim Poisot</title>
  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
  <link href="http://timotheepoisot.fr"/>
- <updated>2013-08-24T14:22:51-04:00</updated>
+ <updated>2013-08-28T08:35:57-04:00</updated>
  <id>http://timotheepoisot.fr</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Teach more maths to the undergrads!</title>
+   <link href="http://timotheepoisot.fr/2013/08/28/lack-quantitative-training/"/>
+   <updated>2013-08-28T00:00:00-04:00</updated>
+   <id>http://timotheepoisot.fr/2013/08/28/lack-quantitative-training</id>
+   <content type="html">&lt;p&gt;Fred Barraquand, a bunch of INNGE-and-friends-of-INNGE people, and I, just
+published a &lt;a href=&quot;https://peerj.com/preprints/53/&quot;&gt;preprint&lt;/a&gt; at &lt;em&gt;Peer J&lt;/em&gt; about quantitative training in
+early-career ecologists (or rather, the lack thereof). Talking about how much
+maths is needed during training is all the rage in the ecological community,
+and both sides of the argument have really good arguments.&lt;/p&gt;
+
+&lt;p&gt;So Fred decided to do a survey of early-career (and older) ecologists through
+&lt;em&gt;ECOLOG-L&lt;/em&gt;. Quoting directly from the abstract, this is what we found:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;We found a clear self-perceived lack of quantitative training: &lt;strong&gt;75% are not
+satisfied with their understanding of mathematical models&lt;/strong&gt;; 75% feel the level
+of mathematics was “too low” in their ecology classes; 90% wanted more
+mathematics classes for ecologists; and 95% more statistics classes.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;There are a lot of number to process, but basically all point to the same
+message: with a few more years of experience after your undergraduate degree,
+you wish you have studied more maths (it&#39;s especially true for me). We
+conclude the paper by exploring recommendations about how to (re)design
+curriculum using the results from this survey.&lt;/p&gt;
+
+&lt;p&gt;I discussed this result with my B.Sc. class last fall. We had a fun exchange,
+and over time, the polarization between animal-watchers and number-crunchers
+(the 2 or 3 of them) decreased. But here is the fun thing. When I asked the
+students whether the found plausible that they&#39;ll wish for strong
+quantitative training in a few years, they said yes. Immediately afterwards,
+when I asked what they would do if we increased the part of quantitative
+training up to 30% of all classes, as survey respondent suggested. To a vast
+majority, they would not enroll.&lt;/p&gt;
+
+&lt;p&gt;So, it seems like we&#39;ll need to sneakily teach quantitative skills...&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>In defense of narrative reviews</title>
