@@ -4,7 +4,7 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-10-12T20:59:29-04:00</updated>
+  <updated>2013-10-15T12:49:58-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
@@ -24,14 +24,16 @@ in the &lt;code&gt;bipartite&lt;/code&gt; package&lt;/a&gt;), and that I think i
 &lt;p&gt;When a R package presenting a series of measures becomes available, it will
 become the &lt;em&gt;gold standard&lt;/em&gt; of future analyzes in this field. This is an
 extremely strong effect. French students in ecology use the (French-developed)
-&lt;code&gt;ade4&lt;/code&gt; package, while people in Québec use the (Québec-developed) &lt;code&gt;vegan&lt;/code&gt;.
-There is a priority effect when a package is released, and metrics that are
-not implemented in this package, because they are more difficult to apply,
-will be less widely used. This is a central point for methodological
-research papers. Describing the method is a small fraction of the work.
-People are more likely to apply what is proposed if there is a tool to do
-it, and as a consequence, (&lt;em&gt;I assume that&lt;/em&gt;) methods are used more if there
-is an easy and well-known way to apply them.&lt;/p&gt;
+&lt;code&gt;ade4&lt;/code&gt; package, while people in Québec use the &lt;code&gt;vegan&lt;/code&gt; package (most likely
+because of its ties with the &lt;em&gt;Numerical Ecology&lt;/em&gt; book, as Gavin
+Simpson mentioned in the comments). There is a priority effect when
+a package is released, and metrics that are not implemented in this package,
+because they are more difficult to apply, will be less widely used. This is
+a central point for methodological research papers. Describing the method is
+a small fraction of the work. People are more likely to apply what is
+proposed if there is a tool to do it, and as a consequence, (&lt;em&gt;I assume
+that&lt;/em&gt;) methods are used more if there is an easy and well-known way to
+apply them.&lt;/p&gt;
 
 &lt;p&gt;This is especially true of large-scale packages, that aim to become your single
 interface with the metrics and analyzes in a domain. Ecologists are familiar
