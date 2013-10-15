@@ -4,12 +4,148 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-10-15T12:49:58-04:00</updated>
+  <updated>2013-10-15T14:07:11-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>An additive partition of species-level specificity</title>
+     <link href="http://timotheepoisot.fr/2013/10/15/specificity-range-measures/"/>
+    <updated>2013-10-15T00:00:00-04:00</updated>
+    <content type="html">&lt;p&gt;A while ago, we published a paper in &lt;em&gt;Methods in Ecology &amp;amp; Evolution&lt;/em&gt;,
+&lt;a href=&quot;http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/&quot;&gt;comparing different ways to estimate ecological
+specificity&lt;/a&gt;
+on binary (presence/absence) and quantitative data. All the measures we
+review, and the one we introduce, work in the same way: for an organism,
+species, population, you have an array &lt;strong&gt;P&lt;/strong&gt; of its performances across &lt;em&gt;R&lt;/em&gt;
+different environments, which is (1) sorted decreasingly, and (2) ranged so
+that &lt;strong&gt;P&lt;/strong&gt;[1] = 1. In this paper, we recommend to use either &lt;em&gt;RR&lt;/em&gt; (which is
+a modification of Schoener&#39;s generality), and &lt;em&gt;PDI&lt;/em&gt; (which is first
+formally introduced in this paper), which measures how fast
+performance decreases when you move away from the optimal environment
+(the faster it decays, the more specialized you are).&lt;/p&gt;
+
+&lt;p&gt;The main advantage of &lt;em&gt;PDI&lt;/em&gt; is that it relates extremely well to the
+&lt;em&gt;definition&lt;/em&gt; of what specificity is: a rapid decay of performance on resources
+which are not your own optimum (regardless of the &lt;em&gt;absolute&lt;/em&gt; performance on
+this optimal resource, which is why we set &lt;strong&gt;P&lt;/strong&gt;[1] = 1). &lt;em&gt;PDI&lt;/em&gt; is
+nothing more that the sum of performance lost by not being on the optimal
+resource, divided by the number of non-optimal resources. Somewhere in the end
+of the paper, we write that when the data are binary, &lt;em&gt;RR&lt;/em&gt; and &lt;em&gt;PDI&lt;/em&gt; are
+equivalent. For some reason that still eludes me, the demonstration did not
+make its way in the final version of the paper. So let&#39;s start with it. First,
+for an organism of which the performances are measured in &lt;em&gt;R&lt;/em&gt;
+environments, of which it has a performance higher than 0 in &lt;em&gt;r&lt;/em&gt;, we
+define &lt;em&gt;RR&lt;/em&gt; as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; RR = \frac{R-r}{R-1} &lt;/script&gt;
+
+
+&lt;p&gt;and &lt;em&gt;PDI&lt;/em&gt; as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt; PDI = \frac{\sum_{i=2}(\mathbf{P}_1-\mathbf{P}_i)}{R-1} &lt;/script&gt;
+
+
+&lt;p&gt;It&#39;s easy to prove that if all values of &lt;strong&gt;P&lt;/strong&gt; are either 0 or 1, then &lt;em&gt;PDI&lt;/em&gt;
+= &lt;em&gt;RR&lt;/em&gt;. In this situation, the species in question has &lt;em&gt;r&lt;/em&gt; times 1 in &lt;strong&gt;P&lt;/strong&gt;,
+and &lt;em&gt;R-r&lt;/em&gt; times 0 in &lt;strong&gt;P&lt;/strong&gt;. In other words, for the first &lt;em&gt;r&lt;/em&gt; elements of
+&lt;strong&gt;P&lt;/strong&gt;, &lt;strong&gt;P&lt;/strong&gt;[1]-&lt;strong&gt;P&lt;/strong&gt;[i] = 0, and for the remaining (&lt;em&gt;R-r&lt;/em&gt;) elements,
+&lt;strong&gt;P&lt;/strong&gt;[1]-&lt;strong&gt;P&lt;/strong&gt;[i] = 1. The numerator of &lt;em&gt;PDI&lt;/em&gt; is thus &lt;em&gt;R-r&lt;/em&gt;, so the
+expression of &lt;em&gt;PDI&lt;/em&gt; is the same as the expression of &lt;em&gt;RR&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Previously, we and others discussed the fact that specificity ought to be
+separated in its &quot;interactions&quot; and &quot;impacts&quot; components, &lt;em&gt;i.e.&lt;/em&gt; (i) how many
+resources do I exploit, and (ii) how are my performances distributed. With &lt;em&gt;RR&lt;/em&gt;
+and &lt;em&gt;PDI&lt;/em&gt;, it might seem that we have the adequate tool to measure both sides
+of the specificity. There&#39;s more to do with these measures, though. Because
+&lt;em&gt;RR&lt;/em&gt; is included in &lt;em&gt;PDI&lt;/em&gt; (it&#39;s easy to show that &lt;em&gt;PDI&lt;/em&gt; &amp;geq; &lt;em&gt;RR&lt;/em&gt;), &lt;em&gt;PDI&lt;/em&gt; also
+measures an &quot;association&quot; component of specificity. But then again, the
+specificity of impact makes sense if you first consider the specificity of
+associations before. So we can start thinking of this problem as an additive
+partition of specificity:&lt;/p&gt;
+
+&lt;p&gt;Specificity = associations + impacts&lt;/p&gt;
+
+&lt;p&gt;Luckily, we know that &lt;em&gt;RR&lt;/em&gt; measures the specificity of associations, and the
+impacts are accounted for by &lt;em&gt;PDI&lt;/em&gt;, so in measurable terms, the above becomes&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PDI&lt;/em&gt; = &lt;em&gt;RR&lt;/em&gt; + &lt;em&gt;I&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This additive partition makes sense, because if you go back to the
+demonstration of &lt;em&gt;PDI = RR&lt;/em&gt;, it&#39;s straightforward that whenever performances
+are different across resources, the first &lt;em&gt;r&lt;/em&gt; elements of &lt;strong&gt;P&lt;/strong&gt;[1]-&lt;strong&gt;P&lt;/strong&gt;[i]
+will be &lt;em&gt;greater&lt;/em&gt; than 0, so the numerator will be &lt;em&gt;greater&lt;/em&gt; than &lt;em&gt;R-r&lt;/em&gt;, so
+&lt;em&gt;PDI&lt;/em&gt; will be superior or equal to &lt;em&gt;RR&lt;/em&gt;. How much greater it will be is the
+importance of different performances on specificity. Or in other words, when
+you do not have informations to measure specificity of impacts, all of the
+specificity is because of associations.&lt;/p&gt;
+
+&lt;p&gt;Now what? Well, we can start measuring how much of the total specificity
+(&lt;em&gt;PDI&lt;/em&gt;) is due to specificity of associations only (&lt;em&gt;RR&lt;/em&gt;/&lt;em&gt;PDI&lt;/em&gt;), and how much
+                                                          is due to specificity
+                                                          of impacts only
+                                                          (&lt;em&gt;I&lt;/em&gt;/&lt;em&gt;PDI&lt;/em&gt;). As far
+                                                                as I can tell,
+                                                                the couple
+                                                               &lt;em&gt;PDI&lt;/em&gt;-&lt;em&gt;RR&lt;/em&gt; is
+                                                               the only pair of
+                                                               measures that
+                                                               allow to do that
+                                                               (though there
+                                                               are other
+                                                               approaches) in
+                                                               a context where
+                                                               you can show
+                                                               that one measure
+                                                               is a component
+                                                               of the other.
+                                                               Here is a &lt;code&gt;R&lt;/code&gt;
+                                                               function to do
+                                                               it using the
+                                                               &lt;code&gt;ESM&lt;/code&gt; package
+                                                               (&lt;a href=&quot;https://r-forge.r-project.org/R/?group_id=593&quot;&gt;from
+                                                               R-Forge&lt;/a&gt;).&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ESM&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+sap &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;P&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   Spe &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; pdi&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;P&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   Ass &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rr&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;P&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   Imp &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Spe &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; Ass
+   &lt;span class=&quot;kr&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      specificity  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Spe&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      associations &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Ass&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      impacts      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Imp&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      assoc_rel    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Ass &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; Spe&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      impac_rel    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Imp &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; Spe
+      &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let&#39;s do some simple examples, and contrast to species with the same number of
+resources, but a very high performance on resource 2, or a very low performance
+on resource 3:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  specificity associations      impacts    assoc_rel    impac_rel 
+  &lt;span class=&quot;m&quot;&gt;0.500500000&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.500000000&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.000500000&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.999000999&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.000999001&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  specificity associations      impacts    assoc_rel    impac_rel 
+  &lt;span class=&quot;m&quot;&gt;0.9995000&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.5000000&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.4995000&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.5002501&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.4997499&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the second example, because the performance on the second resource is much
+almost zero, the &lt;em&gt;RR&lt;/em&gt; and &lt;em&gt;I&lt;/em&gt; components are almost as important to understand
+specificity (whereas it&#39;s not the case in the first example, wherein you can
+assume that &lt;strong&gt;P&lt;/strong&gt;[2] = 1 without changing the big picture.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>R, priority effects, and the meta-package</title>
