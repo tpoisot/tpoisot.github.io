@@ -4,12 +4,155 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-10-15T14:07:11-04:00</updated>
+  <updated>2013-10-18T16:16:30-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Mapping ecological concepts using twitter</title>
+     <link href="http://timotheepoisot.fr/2013/10/18/mapping-ecological-concepts/"/>
+    <updated>2013-10-18T00:00:00-04:00</updated>
+    <content type="html">&lt;p&gt;I&#39;ve been setting up a Twitter account for the &lt;a href=&quot;http://twitter.com/sfecologie/&quot;&gt;French Ecological
+Society&lt;/a&gt;, and while we currently use it as a tool to relay the various
+informations we want to share, it&#39;s also a great way to engage with people. So
+the question that immediately came to mind is: what kind of topics are
+associated with ecology on twitter? My own twitter list is a poor indicator of
+the &quot;general public&quot; as far as ecology is concerned, so I had to look for
+another solution.&lt;/p&gt;
+
+&lt;p&gt;Twitter offers a series of &lt;em&gt;Streaming API&lt;/em&gt;, which allows to &quot;listen&quot; to the
+conversation, by tracking some keywords, or users, or geographic location. So
+I downloaded the excellent &lt;a href=&quot;https://github.com/geduldig/TwitterAPI&quot;&gt;&lt;code&gt;TwitterAPI&lt;/code&gt; &lt;/a&gt; module for &lt;code&gt;python&lt;/code&gt;, and
+tracked a series of keywords. After some trial and error, I settled on
+&lt;code&gt;biodiversity&lt;/code&gt;, &lt;code&gt;biological diversity&lt;/code&gt;, &lt;code&gt;ecology&lt;/code&gt;, &lt;code&gt;species richness&lt;/code&gt;,
+&lt;code&gt;ecosystem services&lt;/code&gt;, &lt;code&gt;ecosystem functioning&lt;/code&gt;, and &lt;code&gt;ecological&lt;/code&gt;. I left out
+&lt;code&gt;conservation&lt;/code&gt; and &lt;code&gt;ecosystem&lt;/code&gt;, because they had a really high rate of false
+positives (in engineering and software, respectively).&lt;/p&gt;
+
+&lt;p&gt;The streaming API, in a nutshell, will return a new line everytime a tweet that
+matches the search parameters is posted. Not all tweets are sampled, but it&#39;s
+approximately a random sampling, so more than good enough for a side-project.
+I left the script running for a few hours at a time, which gave me a database
+of over 1000 tweets, about 600 of which were retained. I&#39;ve removed all tweets
+using a alphabet that is not latin, and there were quite a bit of these.&lt;/p&gt;
+
+&lt;p&gt;Once this was done, I just read each line in &lt;code&gt;python&lt;/code&gt; (the Twitter API have the
+good taste of returning everything as &lt;code&gt;json&lt;/code&gt; strings), selected the text,
+and cleaned it. I simple (i) converted everything to lower case, (ii)
+removed every non-ascii characters, (iii) removed punctuations, and (iv)
+removed the hasthag (&lt;code&gt;#&lt;/code&gt;) symbol. Then I extracted all of the unique words
+in each tweet, and let the fun begin!&lt;/p&gt;
+
+&lt;p&gt;One of the things I know how to do is network analysis. So I settled on the
+following procedure to find connections between words. All of the unique words
+are nodes in a network, and two nodes are connected whenever they appear in the
+same tweet. That makes for a &lt;em&gt;lot&lt;/em&gt; of connections, but it&#39;s not a problem
+because I will eliminate a lot of them later. At this stage, I have a network
+with 2600 nodes, and over 30000 undirected edges. Obviously (i) words appearing
+only once in the dataset have little interest, and (ii) words like &lt;code&gt;the&lt;/code&gt; and
+&lt;code&gt;in&lt;/code&gt; have a much higher chance of being in the same tweet than &lt;code&gt;amazonia&lt;/code&gt; and
+&lt;code&gt;tits&lt;/code&gt; (I checked the original tweet, and it was not about ornithology).&lt;/p&gt;
+
+&lt;p&gt;Before I go into how I accounted for that, some additional cleaning steps: all
+usernames (&lt;code&gt;@&lt;/code&gt;), urls (&lt;code&gt;htt&lt;/code&gt;), and twitter-specific idioms (&lt;code&gt;RT&lt;/code&gt;, &lt;code&gt;MT&lt;/code&gt;, &lt;code&gt;ff&lt;/code&gt;)
+were excluded. I also deleted all of the small connex components (&lt;em&gt;i.e.&lt;/em&gt;
+small groups of words that were not connected with the rest of the
+dataset). Then, the most arbitrary part of the work began. I removed
+&lt;em&gt;all&lt;/em&gt; the nodes with a betweenness centrality of 0. The betweenness
+centrality is the frequency at which a node appears in the shortest paths of
+the graph, so I assumed that words that were not part of the shortest
+connexions were not really important. Most of the words were excluded using
+this proccess, and the network felt to a much more manageable 149 nodes and
+2509 edges.&lt;/p&gt;
+
+&lt;p&gt;Part of these were still words like &lt;code&gt;the&lt;/code&gt;, &lt;code&gt;at&lt;/code&gt;, and so forth. I&#39;ll eventually
+use TF-IDF to select relevant words from each tweet, but remember, this is
+a quick-and-dirty analysis. So I simply looked at mylist of nodes, and removed
+every words that were not relevant (this is rather arbitrary too, but in doubt
+I decided to be inclusive). The final network had 58 nodes, and 250 edges.&lt;/p&gt;
+
+&lt;p&gt;Here are the top most important ones, based on their eigenvector centrality:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt; Word          &lt;/th&gt;
+&lt;th style=&quot;text-align:center;&quot;&gt; Centrality &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; ecology       &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 1          &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; biodiversity  &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.94       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; ecological    &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.70       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; human         &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.45       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; environment   &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.43       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; loss          &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.40       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; wetland       &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.36       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; environmental &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.35       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; forest        &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.34       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt; wildlife      &lt;/td&gt;
+&lt;td style=&quot;text-align:center;&quot;&gt; 0.33       &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;If you want to see the other words, you can &lt;a href=&quot;http://dx.doi.org/10.6084/m9.figshare.827286&quot;&gt;get the &lt;code&gt;graphml&lt;/code&gt; file from
+&lt;em&gt;figshare&lt;/em&gt;&lt;/a&gt;. So here is the recipe. If you want to engage with the
+public, these are the topics of interest. And they paint a quite clear picture:
+what is the role of human in biodiversity loss at the global scale? As I assume
+that the volume of non-ecologists is orders of magnitude larger than the volume
+of ecologists, these keywords are most likely what is discussed.&lt;/p&gt;
+
+&lt;p&gt;Here is finally a visualization of the network. There is a clearly
+non-significant modular structure, but I&#39;ve nonetheless colored the nodes to
+better illustrate the relationships:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tw-ecol-concepts.png&quot; title=&quot;the network&quot; alt=&quot;Figure1&quot; /&gt;
+Interestingly (the layout method groups nodes that are close to each other),
+there seems to be the &quot;sustainability/ecosystem services&quot; topics
+on one side (bottom-left), and the &quot;conservation&quot; topics on the
+other side (top-right).&lt;/p&gt;
+
+&lt;p&gt;I&#39;ll keep on running this model from time to time, but I think there is a good
+opportunity to design informed strategies for communication with the public.
+There is not much effort in collecting these data, and we (scientists) can help
+by communicating in issues in which their is a broad interest. And I may end up
+doing a best-of of the undergrads complaining on Twitter about how &lt;em&gt;Ecology
+101&lt;/em&gt; is hard, that is fun too.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>An additive partition of species-level specificity</title>
