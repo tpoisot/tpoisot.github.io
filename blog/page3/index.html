@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,195 +33,154 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<!-- This loops through the paginated posts -->
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <!-- This loops through the paginated posts -->
 
 <div class='post'>
   <h1>F1000Research announces new Ecology section</h1>
   <div class="postinfo">August  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">open access</span><span class="label label-default" style="margin-right: 3px;">scientific publishing</span></div>
-  <div class="content">
+  <p>
     F1000Research just put up a new blog post to announce that they will concentrate some of their efforts to increase the proportion of ecology papers they publish. We should all be excited about this. First, the article processing fees will be waived until 2014, so here goes a good opportunity to see for yourself how this journal works. Second, the publication model of F1000Research is extremely interesting. After initial checking, the paper is put on-line, and appears as a preprint....
-  </div>
-<a href="/2013/08/08/F1000R-ecology-section/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/08/F1000R-ecology-section/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Codelust</h1>
   <div class="postinfo">August  5, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">programming</span></div>
-  <div class="content">
+  <p>
     Wanderlust (noun): a strong desire to travel. Codelust (noun): a strong desire to code rather than actually work, and how you can use it for good. I'm lucky. I have stacks of datasets on my laptop, and good ecological questions to ask, and (hopefully) that will result in a few papers. But that's not fun. I know what I have to do, how I have to do it, and I'm mostly re-using existing tools. So over the last month or...
-  </div>
-<a href="/2013/08/05/codelust/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/05/codelust/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Should we share reviews?</h1>
   <div class="postinfo">July 10, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">peer review</span><span class="label label-default" style="margin-right: 3px;">open science</span></div>
-  <div class="content">
+  <p>
     Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We've had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the "worse" comments we've received, for papers that ended up being...
-  </div>
-<a href="/2013/07/10/sharing-reviews/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/07/10/sharing-reviews/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>What do I read (according to Zotero)?</h1>
   <div class="postinfo">July  9, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">zotero</span><span class="label label-default" style="margin-right: 3px;">bibliometry</span></div>
-  <div class="content">
+  <p>
     I've been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come up with a solution to...
-  </div>
-<a href="/2013/07/09/zotero-number-papers/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/07/09/zotero-number-papers/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>A quick way to parallelize</h1>
   <div class="postinfo">July  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">GNU</span><span class="label label-default" style="margin-right: 3px;">Free software</span></div>
-  <div class="content">
+  <p>
     I' ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across GNU parallel. This little command-line...
-  </div>
-<a href="/2013/07/08/parallel/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/07/08/parallel/">Read more...</a>
 </div>
 
 
-<div id="post-pagination" class="pagination">
+<div class="pagination-centered">
   
-  <ul class="pages">
-    <li class="page">
-      
-        <a href="/blog/">1</a>
-      
-    </li>
+  <ul class="pagination">
+     
+     <li><a href="/blog/">1</a></li>
+     
 
     
-      <li class="page">
-        
-          <a href="/blog/page2">2</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <span class="current-page">3</span>
-        
-      </li>
+    <li><a href="/blog/page2">2</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page4">4</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page5">5</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page6">6</a>
-        
-      </li>
+    <li class="current">3</li>
     
-      <li class="page">
-        
-          <a href="/blog/page7">7</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page8">8</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page9">9</a>
-        
-      </li>
+    <li><a href="/blog/page4">4</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page10">10</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page11">11</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page12">12</a>
-        
-      </li>
+    <li><a href="/blog/page5">5</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page13">13</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page14">14</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page15">15</a>
-        
-      </li>
+    <li><a href="/blog/page6">6</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page16">16</a>
-        
-      </li>
+    
+    
+    <li><a href="/blog/page7">7</a></li>
+    
+    
+    
+    <li><a href="/blog/page8">8</a></li>
+    
+    
+    
+    <li><a href="/blog/page9">9</a></li>
+    
+    
+    
+    <li><a href="/blog/page10">10</a></li>
+    
+    
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
     
   </ul>
 
 </div>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -229,9 +189,9 @@
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

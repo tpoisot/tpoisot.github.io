@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,195 +33,154 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<!-- This loops through the paginated posts -->
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <!-- This loops through the paginated posts -->
 
 <div class='post'>
   <h1>Teach more maths to the undergrads!</h1>
   <div class="postinfo">August 28, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">quantitative skills</span><span class="label label-default" style="margin-right: 3px;">ecological theory</span><span class="label label-default" style="margin-right: 3px;">teaching</span></div>
-  <div class="content">
+  <p>
     Fred Barraquand, a bunch of INNGE-and-friends-of-INNGE people, and I, just published a preprint at Peer J about quantitative training in early-career ecologists (or rather, the lack thereof). Talking about how much maths is needed during training is all the rage in the ecological community, and both sides of the argument have really good arguments. So Fred decided to do a survey of early-career (and older) ecologists through ECOLOG-L. Quoting directly from the abstract, this is what we found: We found...
-  </div>
-<a href="/2013/08/28/lack-quantitative-training/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/28/lack-quantitative-training/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>In defense of narrative reviews</h1>
   <div class="postinfo">August 24, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">academic publishing</span><span class="label label-default" style="margin-right: 3px;">epistemology</span></div>
-  <div class="content">
+  <p>
     Early in July, Christopher Lortie published a really great preprint on PeerJ, about the opportunities of systematic reviews for ecology. It's extremely insightful, and a good read. The abstract starts by Narrative reviews are dead. No they're not, nor shouldn't they be! Narrative reviews are those we are used to read now: a story built on the collection of some pieces of litterature. On the other hand, systematic reviews or meta-analyses are, well, systematic, and try to reach a consensus...
-  </div>
-<a href="/2013/08/24/in-defense-narrative-reviews/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/24/in-defense-narrative-reviews/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Network structure of obligate and facultative parasites</h1>
   <div class="postinfo">August 20, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">ecological networks</span><span class="label label-default" style="margin-right: 3px;">parasites</span></div>
-  <div class="content">
+  <p>
     We have a new paper online at Parasitology, on the differences of the structure between rodents hosts, and their obligates of facultatives parasites. We had data from a really cool rodents-ectoparasites system, in which the same hosts have both facultative and obligate parasites. These data were also collected in different locations, and at different times. There are two important things in the results. First, the networks of obligate and facultative parasites look nothing alike. One (obligate) is highly modular and...
-  </div>
-<a href="/2013/08/20/network-structure-obligate-facultative-parasites/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/20/network-structure-obligate-facultative-parasites/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Complexity and connectance of ecological networks</h1>
   <div class="postinfo">August 19, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">ecological networks</span><span class="label label-default" style="margin-right: 3px;">ecological complexity</span></div>
-  <div class="content">
+  <p>
     So my blog post on ecological complexity in networks turned into a manuscript, now online as a preprint at PeerJ. We'll send it up for review (at PeerJ also) in a while, but feel free to read it and give us feedback using the github issues tracker. We'd like that very much, actually. And as the github repository is public, feel free to fork/edit/push modifications if you have something to contribute to the paper. In a nutshell; we argue that...
-  </div>
-<a href="/2013/08/19/connectance-complexity/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/19/connectance-complexity/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Writing manuscripts in Linux (like a boss)</h1>
   <div class="postinfo">August 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">free software</span><span class="label label-default" style="margin-right: 3px;">pandoc</span><span class="label label-default" style="margin-right: 3px;">linux</span></div>
-  <div class="content">
+  <p>
     Hey, it's been a year since I switched to Linux. I've tried a few different distros, and finally settled on Arch Linux with OpenBox. It's ligthweight, uncluttered, and I love. But that's not what I'm going to talk about. I may have mentionned in the past that I used Sublime Text 2. During my quest for ever-increasing minimalism, I've made the switch to vim. And I now have a cool writing setup. Most of what I do is writing markdown...
-  </div>
-<a href="/2013/08/18/writing-linux-like-a-boss/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/08/18/writing-linux-like-a-boss/">Read more...</a>
 </div>
 
 
-<div id="post-pagination" class="pagination">
+<div class="pagination-centered">
   
-  <ul class="pages">
-    <li class="page">
-      
-        <a href="/blog/">1</a>
-      
-    </li>
+  <ul class="pagination">
+     
+     <li><a href="/blog/">1</a></li>
+     
 
     
-      <li class="page">
-        
-          <span class="current-page">2</span>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page3">3</a>
-        
-      </li>
+    <li class="current">2</li>
     
-      <li class="page">
-        
-          <a href="/blog/page4">4</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page5">5</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page6">6</a>
-        
-      </li>
+    <li><a href="/blog/page3">3</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page7">7</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page8">8</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page9">9</a>
-        
-      </li>
+    <li><a href="/blog/page4">4</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page10">10</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page11">11</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page12">12</a>
-        
-      </li>
+    <li><a href="/blog/page5">5</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page13">13</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page14">14</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page15">15</a>
-        
-      </li>
+    <li><a href="/blog/page6">6</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page16">16</a>
-        
-      </li>
+    
+    
+    <li><a href="/blog/page7">7</a></li>
+    
+    
+    
+    <li><a href="/blog/page8">8</a></li>
+    
+    
+    
+    <li><a href="/blog/page9">9</a></li>
+    
+    
+    
+    <li><a href="/blog/page10">10</a></li>
+    
+    
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
     
   </ul>
 
 </div>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -229,9 +189,9 @@
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

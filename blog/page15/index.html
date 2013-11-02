@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,195 +33,154 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<!-- This loops through the paginated posts -->
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <!-- This loops through the paginated posts -->
 
 <div class='post'>
   <h1>The aggregate function in Python</h1>
   <div class="postinfo">December  1, 2011 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">python</span><span class="label label-default" style="margin-right: 3px;">R</span><span class="label label-default" style="margin-right: 3px;">scipy</span></div>
-  <div class="content">
+  <p>
     One thing I love the most about R is the aggregate function, which (in a nutshell) summarizes a data frame according to one or more columns, and perform some operations on the aggregated values. If, for example, you have a data frame with a treatment and a response, and want to calculate the mean and standard deviation of the response by level of treatment, then aggregate is usually the way to go. I wanted to do a quick plot with...
-  </div>
-<a href="/2011/12/01/the-aggregate-function-in-python/">Read more...</a>
+  </p>
+<a class="readmore" href="/2011/12/01/the-aggregate-function-in-python/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Get your lab on twitter!</h1>
   <div class="postinfo">November 19, 2011 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">scientific communication</span><span class="label label-default" style="margin-right: 3px;">social networks</span><span class="label label-default" style="margin-right: 3px;">next-gen science</span></div>
-  <div class="content">
+  <p>
     More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of a paper in Nature this week. I've read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I was left wondering, if I...
-  </div>
-<a href="/2011/11/19/get-your-lab-on-twitter/">Read more...</a>
+  </p>
+<a class="readmore" href="/2011/11/19/get-your-lab-on-twitter/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>A model of population dynamics in Python</h1>
   <div class="postinfo">November 14, 2011 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">python</span><span class="label label-default" style="margin-right: 3px;">R</span><span class="label label-default" style="margin-right: 3px;">scipy</span><span class="label label-default" style="margin-right: 3px;">simecol</span><span class="label label-default" style="margin-right: 3px;">simulations</span></div>
-  <div class="content">
+  <p>
     I've been using Python more and more to do various things. When compared to R (which I use a lot), Python is not more difficult to write, and a whole lot faster. I've started exploring tools to use Python for ecological simulations, and specifically the scipy library. In R, my usual tool is the simecol package, which implements a lot of numerical integrators, and most notably LSODA (which is awesome for many many reasons, including but not limited to its ability...
-  </div>
-<a href="/2011/11/14/a-model-of-population-dynamics-in-python/">Read more...</a>
+  </p>
+<a class="readmore" href="/2011/11/14/a-model-of-population-dynamics-in-python/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Morphology and phylogeny in Lamellodiscus</h1>
   <div class="postinfo">October 12, 2011 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">evolution</span><span class="label label-default" style="margin-right: 3px;">parasites</span><span class="label label-default" style="margin-right: 3px;">phylogeny</span></div>
-  <div class="content">
+  <p>
     The final paper of my master's project was published online today in PLoS One. It's about how species of a fish parasite, which were defined based on morphological features, may not be actual species, as they have no phylogenetic support. Lamellodiscus Johnston &amp; Tiegs 1922 (Monogenea, Diplectanidae) is a genus of common parasites on the gills of sparid fishes. Here we show that this genus is probably undergoing a fast molecular diversification, as reflected by the important genetic variability observed within...
-  </div>
-<a href="/2011/10/12/morpho-phylo-lamellodiscus/">Read more...</a>
+  </p>
+<a class="readmore" href="/2011/10/12/morpho-phylo-lamellodiscus/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>INNGE network : this is on!</h1>
   <div class="postinfo">July 18, 2011 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">next-gen science</span></div>
-  <div class="content">
+  <p>
     The INNGE network is now officially started, with a short Forum article in the INTECOL Bulletin (PDF attached at the end of this post). I'm obviously very glad to be part of this effort, which seeks to bring early career ecologists together from around the world, thereby strengthening international ties within a growing global community of ecologists. The Société Française d'Ecologie is supporting this initiative as well. If you want to know more about this network, or want to get...
-  </div>
-<a href="/2011/07/18/innge-network-this-is-on/">Read more...</a>
+  </p>
+<a class="readmore" href="/2011/07/18/innge-network-this-is-on/">Read more...</a>
 </div>
 
 
-<div id="post-pagination" class="pagination">
+<div class="pagination-centered">
   
-  <ul class="pages">
-    <li class="page">
-      
-        <a href="/blog/">1</a>
-      
-    </li>
+  <ul class="pagination">
+     
+     <li><a href="/blog/">1</a></li>
+     
 
     
-      <li class="page">
-        
-          <a href="/blog/page2">2</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page3">3</a>
-        
-      </li>
+    <li><a href="/blog/page2">2</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page4">4</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page5">5</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page6">6</a>
-        
-      </li>
+    <li><a href="/blog/page3">3</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page7">7</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page8">8</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page9">9</a>
-        
-      </li>
+    <li><a href="/blog/page4">4</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page10">10</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page11">11</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page12">12</a>
-        
-      </li>
+    <li><a href="/blog/page5">5</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page13">13</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page14">14</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <span class="current-page">15</span>
-        
-      </li>
+    <li><a href="/blog/page6">6</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page16">16</a>
-        
-      </li>
+    
+    
+    <li><a href="/blog/page7">7</a></li>
+    
+    
+    
+    <li><a href="/blog/page8">8</a></li>
+    
+    
+    
+    <li><a href="/blog/page9">9</a></li>
+    
+    
+    
+    <li><a href="/blog/page10">10</a></li>
+    
+    
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li class="current">15</li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
     
   </ul>
 
 </div>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -229,9 +189,9 @@
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

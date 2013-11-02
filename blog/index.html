@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,195 +33,154 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<!-- This loops through the paginated posts -->
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <!-- This loops through the paginated posts -->
 
 <div class='post'>
   <h1>Mapping ecological concepts using twitter</h1>
   <div class="postinfo">October 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">twitter</span><span class="label label-default" style="margin-right: 3px;">social networks</span></div>
-  <div class="content">
+  <p>
     I've been setting up a Twitter account for the French Ecological Society, and while we currently use it as a tool to relay the various informations we want to share, it's also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the "general public" as far as ecology is concerned, so I had to...
-  </div>
-<a href="/2013/10/18/mapping-ecological-concepts/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>An additive partition of species-level specificity</h1>
   <div class="postinfo">October 15, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">specificity</span><span class="label label-default" style="margin-right: 3px;">methodology</span><span class="label label-default" style="margin-right: 3px;">metrics</span><span class="label label-default" style="margin-right: 3px;">open lab book</span></div>
-  <div class="content">
+  <p>
     A while ago, we published a paper in Methods in Ecology &amp; Evolution, comparing different ways to estimate ecological specificity on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array P of its performances across R different environments, which is (1) sorted decreasingly, and (2) ranged so that P[1] = 1. In this paper, we recommend to use either RR...
-  </div>
-<a href="/2013/10/15/specificity-range-measures/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/10/15/specificity-range-measures/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>R, priority effects, and the meta-package</h1>
   <div class="postinfo">October 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">R</span><span class="label label-default" style="margin-right: 3px;">methodology</span><span class="label label-default" style="margin-right: 3px;">software</span><span class="label label-default" style="margin-right: 3px;">computational ecology</span></div>
-  <div class="content">
+  <p>
     R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about one of my own metrics in the bipartite package), and that I think is rarely discussed. When a R package presenting a series of measures becomes available, it will...
-  </div>
-<a href="/2013/10/12/r-priority-responsibility/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/10/12/r-priority-responsibility/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Inferring the structure of food webs</h1>
   <div class="postinfo">September 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">species interaction networks</span><span class="label label-default" style="margin-right: 3px;">statistics</span></div>
-  <div class="content">
+  <p>
     We've just published a paper in Methods in Ecology and Evolution, about the inference of food web structure based on species trait data. That's a seriously cool result (we think). There is a serious challenge when you work with food webs: you need to know which species are interacting, and to do so, you need to observed interactions in the fields. It's challenging, because it must be done extensively, so as not to miss interactions. But on the other hand,...
-  </div>
-<a href="/2013/09/21/predicting-network-structure/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/09/21/predicting-network-structure/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Is programming an acquired taste?</h1>
   <div class="postinfo">September 11, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">quantitative skills</span><span class="label label-default" style="margin-right: 3px;">programming</span><span class="label label-default" style="margin-right: 3px;">teaching</span></div>
-  <div class="content">
+  <p>
     Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on Ecological Modeling. It was a whole lot of fun, and a really good way to get back to some things I've always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but I won't talk much about...
-  </div>
-<a href="/2013/09/11/programming-innate-acquired/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/09/11/programming-innate-acquired/">Read more...</a>
 </div>
 
 
-<div id="post-pagination" class="pagination">
+<div class="pagination-centered">
   
-  <ul class="pages">
-    <li class="page">
-      
-        <span class="current-page">1</span>
-      
-    </li>
+  <ul class="pagination">
+     
+     <li class="current">1</li>
+     
 
     
-      <li class="page">
-        
-          <a href="/blog/page2">2</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page3">3</a>
-        
-      </li>
+    <li><a href="/blog/page2">2</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page4">4</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page5">5</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page6">6</a>
-        
-      </li>
+    <li><a href="/blog/page3">3</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page7">7</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page8">8</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page9">9</a>
-        
-      </li>
+    <li><a href="/blog/page4">4</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page10">10</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page11">11</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page12">12</a>
-        
-      </li>
+    <li><a href="/blog/page5">5</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page13">13</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page14">14</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page15">15</a>
-        
-      </li>
+    <li><a href="/blog/page6">6</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page16">16</a>
-        
-      </li>
+    
+    
+    <li><a href="/blog/page7">7</a></li>
+    
+    
+    
+    <li><a href="/blog/page8">8</a></li>
+    
+    
+    
+    <li><a href="/blog/page9">9</a></li>
+    
+    
+    
+    <li><a href="/blog/page10">10</a></li>
+    
+    
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
     
   </ul>
 
 </div>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -229,9 +189,9 @@
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

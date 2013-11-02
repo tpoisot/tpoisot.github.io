@@ -1,0 +1,125 @@
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic);
+
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700);
+@yk: "Yanone Kaffeesatz";
+
+body{
+   background-image: url("/img/bg.png");
+   background-repeat: none;
+   background-attachment: fixed;
+   background-position: center;
+}
+
+#main{
+   background-color: rgba(255, 255, 255, 0.95) !important;
+   max-width: 700px;
+   margin: 0px auto;
+}
+
+// Typography
+
+.copy{
+   font-family: "Merriweather";
+   font-size: 16px;
+   line-height: 27px;
+   b, strong{
+      font-weight:700;
+   }
+}
+
+.display{
+   font-family: @yk;
+}
+
+.lead{
+   .display;
+   font-weight: 400;
+   font-size: 22px;
+}
+
+.postinfo{
+   .display;
+   font-weight: 400;
+   margin-bottom: 20px;
+}
+
+.post{
+   margin-bottom: 45px;
+}
+
+.content p{
+   .copy;
+}
+
+.label, .readmore, table{
+   .display;
+   font-weight: 400;
+}
+
+table{
+   width: 100%;
+}
+
+.header{
+   text-align: center;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   h1{
+      .copy;
+      font-weight: 700;
+      margin-bottom: 2px;
+   }
+   h2{
+      color: #545355;
+      .display;
+      font-weight: 300;
+      margin-top: 2px;
+   }
+}
+
+.navigation{
+   .display;
+   font-weight: 300;
+   text-transform: uppercase;
+   text-align: center;
+   ul{
+      list-style_type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      .active{
+         font-weight: 400;
+         border-bottom: 1px solid #ecefec;
+      }
+      li{
+         display: inline;
+         margin: 5px 20px;
+      }
+   }
+}
+
+.content{
+   h1, h2, h3{
+      .display;
+   }
+   h1{
+      font-size: 34px;
+      font-weight: 200;
+   }
+   h2{
+      font-size: 21px;
+      font-size: 400;
+   }
+}
+
+.footer{
+   color: #c4c5c6;
+   .display;
+   font-weight: 200;
+}
+
+// Radius
+
+.round{
+   border-radius: 4px;
+}

@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,32 +33,27 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<div class='post'>
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <div class='post'>
 <h1>Presenting the results of networks null models</h1>
 
 <div class="postinfo">
@@ -136,17 +132,13 @@ The number within each quadrant represent how many networks have this property (
 </ul>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -155,9 +147,9 @@ The number within each quadrant represent how many networks have this property (
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

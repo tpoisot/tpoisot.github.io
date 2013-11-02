@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,195 +33,154 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<!-- This loops through the paginated posts -->
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <!-- This loops through the paginated posts -->
 
 <div class='post'>
   <h1>How to make the most out of peer-review?</h1>
   <div class="postinfo">January 29, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">peer-review</span></div>
-  <div class="content">
+  <p>
     So it seems that the love/hate relationship between science and publishers has reached its tipping point following the RWA turmoil, with appeals to boycott major publishers, such as researchwithoutwalls and thecostofknowledge, and some of the most eminents members of the scientific blogosphere talking about it, and using creative metaphors to illustrate how big of a scam it is. Specifically, most scientists are publicly stating that they will not review papers anymore, at least in the case of for-profit editors. Most...
-  </div>
-<a href="/2012/01/29/sign-your-reviews/">Read more...</a>
+  </p>
+<a class="readmore" href="/2012/01/29/sign-your-reviews/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Measuring ecological specificity</h1>
   <div class="postinfo">January 19, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">specificity</span><span class="label label-default" style="margin-right: 3px;">open source</span></div>
-  <div class="content">
+  <p>
     Our paper about measurements of ecological specialization is now available online at the Methods in Ecology &amp; Evolution website. You can also download the associated R package from R-Forge. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that. Early during my thesis, in between watching episodes...
-  </div>
-<a href="/2012/01/19/measuring-ecological-specificity/">Read more...</a>
+  </p>
+<a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Science in the age of social coding</h1>
   <div class="postinfo">January  6, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">github</span><span class="label label-default" style="margin-right: 3px;">open source</span><span class="label label-default" style="margin-right: 3px;">next-gen science</span></div>
-  <div class="content">
+  <p>
     I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I'm wondering what I would do without it....
-  </div>
-<a href="/2012/01/06/science-age-social-coding/">Read more...</a>
+  </p>
+<a class="readmore" href="/2012/01/06/science-age-social-coding/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Simulated phylogenetic trees and community assembly</h1>
   <div class="postinfo">January  5, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">python</span><span class="label label-default" style="margin-right: 3px;">ecological networks</span><span class="label label-default" style="margin-right: 3px;">phylogeny</span></div>
-  <div class="content">
+  <p>
     I'm working on a toy model of community assembly in Python, and I thought it would be cool to have an easy way to keep track of the phylogeny. To do so, I've conceived two classes for the easy handling of phylogenetic structure. They are available on GitHub in the PyCoPhy repository (Python Community Phylogenetics), and check also the code page. The general idea behind them is quite easy to understand. A phylogenetic tree is a list of branchings. A...
-  </div>
-<a href="/2012/01/05/a-python-class-for-phylogenies/">Read more...</a>
+  </p>
+<a class="readmore" href="/2012/01/05/a-python-class-for-phylogenies/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Goodbye Wordpress, hello Jekyll!</h1>
   <div class="postinfo">January  1, 2012 &nbsp;&nbsp;&nbsp;&nbsp; </div>
-  <div class="content">
+  <p>
     A few weeks ago, I discovered Jekyll. In a nutshell, Jekyll is a static site generator who promised me I'll be able to blog like a hacker. This site is now hosted on GitHub, and both the template and the content can be forked, so everything is basically open source. Jekyll is a lot of fun to use, especially because all of the content reside in static text files instead of a database. It's also fully compatible with the markdown...
-  </div>
-<a href="/2012/01/01/migration-to-jekyll/">Read more...</a>
+  </p>
+<a class="readmore" href="/2012/01/01/migration-to-jekyll/">Read more...</a>
 </div>
 
 
-<div id="post-pagination" class="pagination">
+<div class="pagination-centered">
   
-  <ul class="pages">
-    <li class="page">
-      
-        <a href="/blog/">1</a>
-      
-    </li>
+  <ul class="pagination">
+     
+     <li><a href="/blog/">1</a></li>
+     
 
     
-      <li class="page">
-        
-          <a href="/blog/page2">2</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page3">3</a>
-        
-      </li>
+    <li><a href="/blog/page2">2</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page4">4</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page5">5</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page6">6</a>
-        
-      </li>
+    <li><a href="/blog/page3">3</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page7">7</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page8">8</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page9">9</a>
-        
-      </li>
+    <li><a href="/blog/page4">4</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page10">10</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page11">11</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page12">12</a>
-        
-      </li>
+    <li><a href="/blog/page5">5</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page13">13</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <span class="current-page">14</span>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page15">15</a>
-        
-      </li>
+    <li><a href="/blog/page6">6</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page16">16</a>
-        
-      </li>
+    
+    
+    <li><a href="/blog/page7">7</a></li>
+    
+    
+    
+    <li><a href="/blog/page8">8</a></li>
+    
+    
+    
+    <li><a href="/blog/page9">9</a></li>
+    
+    
+    
+    <li><a href="/blog/page10">10</a></li>
+    
+    
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li class="current">14</li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
     
   </ul>
 
 </div>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -229,9 +189,9 @@
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

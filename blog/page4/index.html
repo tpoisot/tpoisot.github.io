@@ -3,15 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/main.css" />
 	<link rel="stylesheet" href="/css/d3.css" />
 	<link rel="stylesheet" href="/css/pygments.css" />
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
     <script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -32,195 +33,154 @@
 
 <body>
 
-<div class="header sitewide">
-<div class="container">
-<div class="row-fluid narrow">
-   <div class="span10 offset1 main-nav"><h1>Tim Poisot</h1><nav><ul class="nav nav-pills">
+<div id="main">
+
+<div class="row navigation">
+   <div class="large-10 large-offset-1"><ul>
   <li><a href="/">Home</a></li>
   <li><a href="/papers/">Publications</a></li>
   <li><a href="/research/">Research</a></li>
   <li class="active"><a href="/blog/">Blog</a></li>
-</ul></nav>
-
-</div>
-</div>
-<!-- <div class="row-fluid site-head">
-	<div class="span10 offset1">
-	<h1>Tim Poisot</h1> <h2>Community ecologist & open scientist</h2>
-
-	</div>
-</div> -->
+</ul>
 </div>
 </div>
 
-<div class="container main">
-	<div class="row-fluid narrow">
-		
-		<div class="span10 offset1 page-content">
-		<!-- This loops through the paginated posts -->
+<div class="row header">
+   <div class="large-12"><h1>Tim Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <!-- This loops through the paginated posts -->
 
 <div class='post'>
   <h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
   <div class="postinfo">June 24, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">LaTeX</span><span class="label label-default" style="margin-right: 3px;">PDF</span></div>
-  <div class="content">
+  <p>
     While submitting a MS to Methods in Ecology and Evolution, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using manuscriptcentral as an upload system, and always with LaTeX-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away. Only...
-  </div>
-<a href="/2013/06/24/manuscript-central-pdf-fix/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>A niche to fill in ecological publishing?</h1>
   <div class="postinfo">June 23, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">scientific publishing</span></div>
-  <div class="content">
+  <p>
     I have been wondering, over the past few weeks, about places to submit really short, methodological minded papers, in ecology. As far as I know, there is currently no journal for that. I'm specifically talking about papers that are not groundbreaking, possibly extremely technical, but still hold value because they deal with arguments that happen often. As a good example, the reply of Rohr and colleagues to the James and colleagues paper is interesting, but technical. It's unlikely to stimulate...
-  </div>
-<a href="/2013/06/23/niche-fill-ecological-papers/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/06/23/niche-fill-ecological-papers/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>A note on network complexity</h1>
   <div class="postinfo">June 19, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">ecological networks</span><span class="label label-default" style="margin-right: 3px;">statistics</span><span class="label label-default" style="margin-right: 3px;">ecological complexity</span><span class="label label-default" style="margin-right: 3px;">open lab book</span></div>
-  <div class="content">
+  <p>
     I have seen the word complexity used to mean approximately anything in ecological network litterature, and to be extremely honest, I'm entirely guilty of that myself. We can probably find as many uses for complexity in the network litterature as there are uses for paradigm in Thomas Kuhn's The Structure of Scientific Revolutions (which is to say, probbaly way too much, and certainly enough to confuse people). It's getting bad enough that some of us (and again, I'm probably guilty...
-  </div>
-<a href="/2013/06/19/notes-on-network-complexity/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/06/19/notes-on-network-complexity/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>The structure of natural bacteria-phage networks</h1>
   <div class="postinfo">May 30, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">ecological networks</span><span class="label label-default" style="margin-right: 3px;">bacteria</span><span class="label label-default" style="margin-right: 3px;">bacteriophages</span></div>
-  <div class="content">
+  <p>
     Freedom! The final chapter of my thesis is now online on the website of Ecological Processes. We use data form a field isolated bacteria-phage system to have a network approach of the specialist-generalist coexistence problem. The main result is that, even when controlling for phylogenetic dispersal of hosts, it's better to be a generalist. This signal is highly consistent across the five networks we studied, and goes in the way of recent results on coevolution: if you let a system...
-  </div>
-<a href="/2013/05/30/bacteria-soil-networks/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/05/30/bacteria-soil-networks/">Read more...</a>
 </div>
 
 <div class='post'>
   <h1>Measuring realized network modularity</h1>
   <div class="postinfo">May 23, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">ecological networks</span></div>
-  <div class="content">
+  <p>
     A paper describing how to measure realized network modularity just appeared online at F1000 Research. It's currently waiting for reviewers. This is a short methodological note, to "solve" a problem I had when presenting the ouput of modularity analyses. Most of the time, the values you get are between 0 and 1, but they are fairly difficult to make sense of. They're not probabilities that the network is different. They're statistics to some extent, but it's not clear what a...
-  </div>
-<a href="/2013/05/23/realized-modularity/">Read more...</a>
+  </p>
+<a class="readmore" href="/2013/05/23/realized-modularity/">Read more...</a>
 </div>
 
 
-<div id="post-pagination" class="pagination">
+<div class="pagination-centered">
   
-  <ul class="pages">
-    <li class="page">
-      
-        <a href="/blog/">1</a>
-      
-    </li>
+  <ul class="pagination">
+     
+     <li><a href="/blog/">1</a></li>
+     
 
     
-      <li class="page">
-        
-          <a href="/blog/page2">2</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page3">3</a>
-        
-      </li>
+    <li><a href="/blog/page2">2</a></li>
     
-      <li class="page">
-        
-          <span class="current-page">4</span>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page5">5</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page6">6</a>
-        
-      </li>
+    <li><a href="/blog/page3">3</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page7">7</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page8">8</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page9">9</a>
-        
-      </li>
+    <li class="current">4</li>
     
-      <li class="page">
-        
-          <a href="/blog/page10">10</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page11">11</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page12">12</a>
-        
-      </li>
+    <li><a href="/blog/page5">5</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page13">13</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page14">14</a>
-        
-      </li>
     
-      <li class="page">
-        
-          <a href="/blog/page15">15</a>
-        
-      </li>
+    <li><a href="/blog/page6">6</a></li>
     
-      <li class="page">
-        
-          <a href="/blog/page16">16</a>
-        
-      </li>
+    
+    
+    <li><a href="/blog/page7">7</a></li>
+    
+    
+    
+    <li><a href="/blog/page8">8</a></li>
+    
+    
+    
+    <li><a href="/blog/page9">9</a></li>
+    
+    
+    
+    <li><a href="/blog/page10">10</a></li>
+    
+    
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
     
   </ul>
 
 </div>
 
 
-		</div>
-	
-	</div>
+   </div>
 </div>
 
-<div class="container footer">
-   <div class="row-fluid narrow">
-
-      <div class="span10 offset1 footer-content">
-         	  <p class="muted credit">
-	  This website uses <a href='http://twitter.github.io/bootstrap/index.html'>bootstrap</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://http://foundation.zurb.com/'>Foundation 4</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
      </p>	 
 <p class="lead" style="text-align: center;">
 <a href="mailto:timothee_poisot@uqar.ca"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
@@ -229,9 +189,9 @@
 <a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
 </p>
 
-      </div>
-
    </div>
+</div>
+
 </div>
 
 </body>

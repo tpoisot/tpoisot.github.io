@@ -10,7 +10,7 @@ html{
 }
 
 .narrow{
-  max-width: 800px;
+  max-width: 700px;
   margin: 0px auto;
 }
 
@@ -26,7 +26,7 @@ html{
 }
 
 .header{
-   padding: 40px 0px 40px 0px;
+   padding: 20px 0px 20px 0px;
    font-size: 15px;
    border-bottom: 1px solid rgb(210, 211, 212);
    text-align: center;
@@ -58,8 +58,8 @@ html{
 }
 
 .main{
-   font-size: 17px;
-   line-height: 29px !important;
+   font-size: 16px;
+   line-height: 28px !important;
    margin-top: 80px;
    font-weight: 300;
 }
@@ -128,7 +128,7 @@ a:hover{
 }
 
 .active > a:nth-child(1){
-	color: rgb(84, 83, 74);
+	color: rgb(84, 83, 74) !important;
    background-color: transparent !important;
 }
 
