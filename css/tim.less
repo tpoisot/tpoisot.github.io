@@ -1,19 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400,400italic);
-
-@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700);
-@yk: "Yanone Kaffeesatz";
-
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200,700);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 
 body{
    background-image: url("/img/bg.png");
    background-repeat: no-repeat;
    background-attachment: fixed;
-   background-position: center center;
+   background-position: center top;
 }
 
 #main{
-   background-color: rgba(255, 255, 255, 0.92) !important;
+   background-color: rgba(253, 253, 253, 0.92) !important;
+   box-shadow: 0px 0px 2px #eee;
    max-width: 700px;
    margin: 0px auto;
 }
@@ -30,7 +28,7 @@ body{
 }
 
 .display{
-   font-family: @yk, sans-serif;
+   font-family: "Yanone Kaffeesatz", sans-serif;
 }
 
 .lead{
@@ -57,6 +55,7 @@ body{
 pre, code{
    font-family: "Cutive Mono", monospace;
    font-size: inherit;
+   font-weight: 400;
    color: #040305;
 }
 
