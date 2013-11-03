@@ -4,12 +4,127 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-11-02T23:28:52-04:00</updated>
+  <updated>2013-11-03T15:35:49-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Why should Ecology be open?</title>
+     <link href="http://timotheepoisot.fr/2013/11/03/open-ecology/"/>
+    <updated>2013-11-03T00:00:00-04:00</updated>
+    <content type="html">&lt;p&gt;There are a lot of extremely good arguments to defend the fact that &lt;a href=&quot;http://www.technology.org/2013/10/04/science-even-open/&quot;&gt;&lt;em&gt;Science&lt;/em&gt;
+(as a whole) should be more open&lt;/a&gt;. To summarize them very roughly: it&#39;s the
+ethical thing to do as it allows everyone to access information, it&#39;s easier
+for scientists to access information, it&#39;s faster than the traditional
+peer-review system when you need to get your work noticed, and it&#39;s &lt;em&gt;much less
+expensive&lt;/em&gt; than closed-source science. I could also elaborate on transparency,
+accountability, and the refusal to put a wall around knowledge for a while
+as well. In short, I&#39;m yet to find an argument that would convince me that
+open science is a bad thing.&lt;/p&gt;
+
+&lt;p&gt;What we call &lt;em&gt;open science&lt;/em&gt; obviously varies from people to people, but the
+common thread is that it is a &lt;em&gt;set of practices aiming a lowering the
+technological, financial, and legal barrier to the accessibility of scientific
+materials, methods, processes, and outputs&lt;/em&gt;. This includes a diversity of
+practices such as open manuscript writing, the use of preprints, data sharing,
+in addition to open access publishing and the use of free/open source
+software. Most of these practices can be applied to nearly all fields
+of science, as proven by the &lt;a href=&quot;http://openwetware.org/wiki/Main_Page&quot;&gt;&lt;em&gt;OpenWetWare&lt;/em&gt; wiki&lt;/a&gt;, that caters
+specifically to experimental biology and biochemistry.&lt;/p&gt;
+
+&lt;p&gt;An interesting question that keeps popping up whenever I discuss &lt;em&gt;Open
+ecology&lt;/em&gt;, or &lt;em&gt;Open biodiversity&lt;/em&gt;, is &quot;Why should it be different in ecology?&quot;.
+Or expressed in another way, why should ecology pose particular challenges as
+far as open science is concerned? It is a very valid question, and in
+preparation for the &lt;em&gt;Open biodiversity&lt;/em&gt; panel that will take place at the QCBS
+meeting in a month and a half, I thought it was time to bring some elements to
+answer it.&lt;/p&gt;
+
+&lt;p&gt;Let&#39;s start by recognizing that there are (broadly) two types of ecologists.
+The &quot;empirical&quot; ecologists (including the microcosm people) rely on empirical
+observations, and extensive field surveys, to address their questions. The
+&quot;theoretical&quot; ecologists, on the other hand, integrate different data sources,
+or build models, to understand &quot;general&quot; questions. There are obviously
+people working all along this continuum (I don&#39;t consider myself a &quot;pure&quot;
+theoretician, for example), and empiricists contributing some of the
+most important ecological &lt;em&gt;theories&lt;/em&gt;, but we can all agree that leaning
+towards one end of the continuum implies having a different set of
+practices. And to make things worse, the communication between the two
+groups is not as good as it should. While it&#39;s easy (I would like to say
+&lt;em&gt;natural&lt;/em&gt;) for theoreticians to have an entirely open workflow (put
+your code on &lt;em&gt;GitHub&lt;/em&gt;, use it to write your manuscripts, push your
+data on &lt;em&gt;figshare&lt;/em&gt; using the API, and &lt;em&gt;voilà!&lt;/em&gt;), it&#39;s slightly more
+complicated for empiricists. While it&#39;s true that anyone can make data
+public, you can&#39;t reasonably release your field site under a &lt;em&gt;Creative
+Commons&lt;/em&gt; licence (because it doesn&#39;t make any sense...).&lt;/p&gt;
+
+&lt;p&gt;There are two points at which both worlds meet, however: data and algorithms.
+Even for the most local and system-centered question, there is a large quantity
+of required data. And because data are essentially multivariate, sometimes
+incomplete, collected with unbalanced designs, and generally subject to the
+contingencies of the &lt;a href=&quot;http://dna-protein.blogspot.com/2012/03/harvard-law-of-biology.html&quot;&gt;Harvard Law of Biology&lt;/a&gt;, these is often a need for
+elegant (read: complicated) numerical methods to make sense of them (but this
+is easy to solve, code should always be made open source, in
+non-proprietary languages). This is probably the unique challenge of
+&lt;em&gt;open ecology&lt;/em&gt;: we produce a lot of data, we need a lot of data, but there are
+so many peculiarities attached to datasets that sharing them is by nature
+a difficult task. Molecular biologists do not have this problem. The &lt;code&gt;fasta&lt;/code&gt;
+format is simple because the biological reality of what it represents
+(sequences) is simple too (or at least, it is easy to represent the building
+blocks). And so it seems almost natural than sequences databases are so
+prominent: there is no obstacle to data sharing because anyone can use
+a &lt;code&gt;fasta&lt;/code&gt; file after two minutes of explanation of the format. I cannot remember
+a single case when I managed to become entirely comfortable with the structure
+of an Excel file in less than an afternoon.&lt;/p&gt;
+
+&lt;p&gt;Open ecology will probably be much like all other forms of open science, but
+the data heterogeneity challenge is especially problematic. There are certain
+ways to solve it, though.&lt;/p&gt;
+
+&lt;p&gt;First, we need &lt;strong&gt;strict data specifications&lt;/strong&gt;. If several groups work on the
+same questions in similar systems, it would make sense that the data are
+formatted in a common way. A good opportunity to draft these specifications is
+large working groups, in which people sharing a common interest would think
+about the &quot;core&quot; and &quot;satellite&quot; properties of a dataset. This will also
+speed-up the development of data repositories with APIs. My personal favorite
+for the development of data specifications is &lt;code&gt;JSON&lt;/code&gt; schemes, but really any
+kind will do. Data are highly structured information, and it makes sense that
+they are used and shared in a highly structured way. It is quite obvious that
+there will not a be a single &lt;em&gt;ecological ontology&lt;/em&gt;, but if we managed to get it
+right for a few dozens of high quality ones, it will be a strong enhancement
+over the current data format of &quot;However I felt that day&quot; (I&#39;m guilty of this
+one, of course).&lt;/p&gt;
+
+&lt;p&gt;Second, we need &lt;strong&gt;stricter data review&lt;/strong&gt;. Once the data specification has been
+published, it is important that its use is enforced by referees and editors, so
+as to make sure that data will be re-usable. This is different from evaluating
+the quality of data (data quality is only measurable in the light of the
+specific question they are used for). What I have in mind is more along
+the lines of a checklist with a few points: is the data conforming to the
+specification (this step can be automated with a &lt;code&gt;jsonlint&lt;/code&gt;-like tool), is the
+data easy to access, and are enough data released to make the dataset re-usable?&lt;/p&gt;
+
+&lt;p&gt;Third, and finally, we need to &lt;strong&gt;un-install Excel and similar software&lt;/strong&gt;. What
+we need instead, is a &lt;code&gt;pandoc&lt;/code&gt; for data. &lt;code&gt;pandoc&lt;/code&gt; is a tool to convert text
+formats into other text formats. It&#39;s awesome. And with strict data
+specifications, we should be able to write one for ecology. This will allow use
+to store data in their correct format (&lt;em&gt;i.e.&lt;/em&gt;, conforming to the data
+specification), but use them in another format when we need them in
+another format.&lt;/p&gt;
+
+&lt;p&gt;All of this will require a fair amount of community coordination, and changes
+in the training and teaching of ecologists, but it&#39;s all for the greater good.
+Some outstanding ecological problems will only be solved when a critical mass
+of data is reached, and it would be extremely disappointing to realize that
+these data were existing, but not available due to poor practices. So in short,
+this is the challenge specific to open ecology: &lt;strong&gt;making sense of highly
+heterogeneous and local data, and mobilizing them to address global and
+general questions&lt;/strong&gt;.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>The (French) paradox of Closed Open Access</title>
