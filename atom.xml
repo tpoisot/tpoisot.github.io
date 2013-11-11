@@ -4,12 +4,92 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-11-04T22:38:51-05:00</updated>
+  <updated>2013-11-10T21:49:29-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Collaborating with markdown and bibtex</title>
+     <link href="http://timotheepoisot.fr/2013/11/10/shared-bibtex-file-markdown/"/>
+    <updated>2013-11-10T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;The single most annoying issue when using &lt;code&gt;pandoc&lt;/code&gt; to work collaboratively on
+papers is that it might be difficult for other people to compile the paper if
+they do not use your bibtex file. And if there is ony thing I avoid like the
+plague, it&#39;s having several bibtex files all over the place. And I&#39;m can&#39;t
+be bothered to keep &quot;Collections&quot; or separate folders in Zotero. So clearly,
+I had to code my way out of this one.&lt;/p&gt;
+
+&lt;p&gt;The good thing of using &lt;code&gt;pandoc&lt;/code&gt; is that the citation syntax is remarkably
+simple: &lt;code&gt;@key&lt;/code&gt;. It means that using a simple &lt;code&gt;grep&lt;/code&gt; command&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* ms.md -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never | sort  | uniq -u | sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;, I can generate &lt;code&gt;bib.keys&lt;/code&gt;, a list with all the keys encountered in
+&lt;code&gt;ms.md&lt;/code&gt;. The keys will be present only once, and sorted. The first few lines
+of one such file are&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;allesina_competitive_2011
+angilletta_temperature_2004
+araujo_using_2011
+baiser_geographic_2012
+baskerville_spatial_2011
+bluthgen_what_2008
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, I need to take each of these keys, read my big &lt;code&gt;library.bib&lt;/code&gt; file, and
+extract only the entries that are cited in the document. So I installed a
+&lt;a href=&quot;https://github.com/sciunto/python-bibtexparser&quot;&gt;bibtex parser for python&lt;/a&gt;, and started doing exactly that. The amazing
+thing is, this only takes four (interesting) lines:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;## Step 1 - read the key list&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rstrip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kl&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## Step 2 - read the library file&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BibTexParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bib_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_entry_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## Step 3 - extract the used entries&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;used_refs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;refs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iteritems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## Step 4 - convert the dicts back into bibtex&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refs_as_bib&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dict2bib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;used_refs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iteritems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uk&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uk&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uk&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;used_refs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## Step 5 - write the output file&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codecs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;utf-8-sig&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writelines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;refs_as_bib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This code will print a list of all the keys in the &lt;code&gt;bib.keys&lt;/code&gt; that have
+&lt;em&gt;not&lt;/em&gt; been matched to an entry in the main library file. If all went well,
+this list should be empty. I&#39;ve uploaded the whole file as a &lt;a href=&quot;https://gist.github.com/tpoisot/7406955&quot;&gt;gist&lt;/a&gt;, if you
+intend to use it.&lt;/p&gt;
+
+&lt;p&gt;And of course, you can nicely wrap things up in a &lt;code&gt;makefile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;makefile&quot;&gt;&lt;span class=&quot;nv&quot;&gt;python&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; python2
+&lt;span class=&quot;nv&quot;&gt;refs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; refs.bib
+&lt;span class=&quot;nv&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; ms.md
+&lt;span class=&quot;nv&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /path/to/main/bibtex/file.bib
+
+&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;refs&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;: bib.keys
+   &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;python&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; extractbib.py bib.keys &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;library&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;refs&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+
+bib.keys: 
+   grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;text&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never | sort  | uniq -u | sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I&#39;m glad that I finally have a solution to this problem. Of course, a
+multi-author version is not difficult to do (just have each author write
+its own bibtex file, and put them all together before running &lt;code&gt;pandoc&lt;/code&gt;). It
+also means that my &lt;code&gt;pandoc&lt;/code&gt;-using papers are going to finally be entirely
+reproducible, as I&#39;ll distribute the references list in the &lt;em&gt;github&lt;/em&gt;
+repository.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Notes on test-driven development (in Python)</title>
