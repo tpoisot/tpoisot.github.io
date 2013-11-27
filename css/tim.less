@@ -1,167 +1,135 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Mono);
-@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic);
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Alegreya:700,900);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic);
 
 body{
-   background-color: rgba(254, 254, 254, 0.92) !important;
+   background-color: rgb(253, 253, 253);
 }
 
-#main{
-   max-width: 720px;
-   padding:15px 0px;
-   margin: 0px auto;
-   img{
-      border: 4px solid rgb(252, 252, 252);
-      box-shadow: 0px 0px 2px #ccc;
-      display: block;
-      text-align: center;
-      max-width: 780px;
-      margin: 0px auto;
-      margin-bottom: 22px;
-   }
+.row, .top-bar{
+   max-width: 55em !important;
 }
 
-// Typography
-
-.copy{
-   font-family: "PT Serif", "Linux Libertine", serif;
-   text-align: left;
-   font-size: 16px;
-   line-height: 22px;
-   b, strong{
-      font-weight:700;
-   }
-}
-
-.display{
-   font-family: "PT Sans", sans-serif;
-}
-
-.lead{
-   .display;
+code, pre{
+   font-family: "Source Code Pro";
+   font-size: 1rem;
    font-weight: 400;
-   font-size: 22px;
-   line-height: 26px;
-}
-
-.postinfo{
-   .display;
-   font-weight: 400;
-   font-size: 16px;
-   margin-bottom: 10px;
-}
-
-.post{
-   margin-bottom: 45px;
-}
-
-.content{
-   .copy;
-}
-
-pre, code{
-   font-family: "PT Mono", monospace;
-   font-size: inherit;
-   font-weight: 400;
-   color: #040305;
+   color: #222;
 }
 
 .highlight{
-   background-color: rgba(250, 250, 250, 0.5);
-   border: 1px solid rgba(235, 235, 235, 0.9);
-   border-radius: 4px;
-   margin-bottom: 22px;
-   padding: 5px;
-   line-height: 18px;
-   font-size: 14px;
-}
-
-.label, .readmore, table{
-   .display;
-   font-weight: 400;
-}
-
-table{
-   width: 100%;
+   margin: 2em -1em;
+   border: 1px solid rgb(240, 240, 240);
+   padding: 1em 1em;
+   background-color: rgb(250, 250, 250);
+   max-width: 55em;
+   pre{
+      code{
+         font-size: 0.8em !important;
+      }
+   }
 }
 
 .header{
-   text-align: center;
-   margin-top: 40px;
-   margin-bottom: 40px;
-   padding: 0px 15px;
+   background-color: black;
+   background-image: url("../img/bg_1.png");
+   background-repeat: no-repeat;
+   background-position: center center;
+   padding-top: 70px;
+   padding-bottom: 70px;
+   .row{
+      padding: 0px 10px;
+   }
    h1{
-      font-weight: 400;
-      font-family: "PT Sans" !important;
-      font-size: 28px;
-      display: inline;
-      float: left;
+      font-family: "Alegreya";
+      font-weight: 900;
+      text-transform: lowercase;
+      font-size: 1.4em;
+      margin: 0px 0px;
+      padding: 0px 0px;
    }
    h2{
-      color: #747375;
-      font-family: "PT Sans" !important;
+      font-family: "Open Sans Condensed";
       font-weight: 400;
-      font-size: 28px;
-      float: right;
-      display: inline;
+      color: #343536;
+      font-size: 1.4em;
+      margin: 0px 0px;
+      padding: 0px 0px;
    }
 }
 
-.navigation{
-   .display;
-   font-weight: 400;
-   text-transform: uppercase;
-   text-align: center;
-   font-size: 14px;
-   ul{
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      .active{
-         font-weight: 700;
-         border-bottom: 1px solid #ecefec;
+
+.right{
+   li{
+      a{
+         font-family: "Open Sans";
       }
-      li{
-         display: inline;
-         margin: 5px 20px;
+   }
+}
+
+.name{
+   h1{
+      a{
+         font-family: "Open Sans";
+         font-weight: 800 !important;
       }
    }
 }
 
 .content{
-   h1, h2, h3{
-      .display;
-   }
+   padding: 3.4em 0em;
+   background-color: rgb(255, 255, 255);
+   border-left: 1px solid rgb(240, 240, 240);
+   border-right: 1px solid rgb(240, 240, 240);
+   border-bottom: 1px solid rgb(240, 240, 240);
+   border-radius: 0px 0px 3px 3px;
+   font-family: "Open Sans";
+   margin-bottom: 3.5em;
    h1{
-      font-size: 23px;
       font-weight: 700;
+      font-family: "Open Sans Condensed";
+      font-size: 1.3rem;
    }
-   h2{
-      font-size: 21px;
-      font-size: 700;
+   .post{
+      margin-bottom: 2.2em;
+   }
+   .postinfo{
+      font-weight: 300;
+      color: #111;
+      margin-bottom: 2em;
+   }
+   img{
+      display: block;
+      margin: 0px auto;
+   }
+   p{
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 400;
+      b, strong{
+         font-weight: 600;
+      }
+      code{
+         font-size: 103%;
+      }
+      .lead{
+         font-weight: 600;
+      }
    }
 }
 
-.footer{
-   color: #c4c5c6;
-   .display;
-   font-weight: 200;
+.label{
+   margin-bottom: 0px;
+   vertical-align: middle;
 }
 
-// Radius
-
-.round{
-   border-radius: 4px;
+.muted{
+   color: #666;
+   font-weight: 400;
 }
 
-// Custom
-
-.bibliography{
-   list-style-type: none;
-   li{
-      list-style-type: none;
-      line-height: 22px;
-      margin-bottom: 0.75em;
-   }
+.img-polaroid{
+   border-radius: 75px;
+   box-shadow: 0 0 3px rgba(0, 0, 0, .9);
 }
