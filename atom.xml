@@ -4,12 +4,103 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-11-27T14:44:42-05:00</updated>
+  <updated>2013-11-27T22:38:02-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>The pros and cons of using R packages for teaching</title>
+     <link href="http://timotheepoisot.fr/2013/11/27/r-packages-teaching/"/>
+    <updated>2013-11-27T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;R packages are one of the best tools we have. It&#39;s a library of 1000s
+of functions ready to be used, all wrapped in a single common language,
+and it&#39;s free. I wrote some, and used even more. When I review a paper,
+upon seeing &quot;we used function &lt;code&gt;x&lt;/code&gt; in the version 2.3 of package &lt;code&gt;y&lt;/code&gt;&quot;,
+I know a lot about what the authors have been doing (and I can check the
+help of this function for references and additional details). And obviously,
+training students about which packages are widely used in a particular field
+is an important task, because it will ensure that they will speak the same
+language as other scientists in the field.&lt;/p&gt;
+
+&lt;p&gt;Because packages (often) represent the &lt;em&gt;state of the art&lt;/em&gt; in a particular
+field, or because they offer a unified interface to a lot of different methods
+(&lt;code&gt;simecol&lt;/code&gt; is a good example of that), it&#39;s important that students know how
+to use them (and most importantly, which packages to use). To some extent,
+packages are just another tool, like PCR or statistics. Knowing how to use
+them (properly) saves time, and opens new possibilities for analyses. And
+let&#39;s just be realistic, everyone uses packages. All the time. So yes, of
+course, the students should be familiar with the most important in their field.&lt;/p&gt;
+
+&lt;p&gt;An important point is that we also start to see the development of &lt;em&gt;package
+ecosystems&lt;/em&gt;. The &lt;a href=&quot;http://ropensci.org/packages/index.html&quot;&gt;&lt;em&gt;rOpenSci&lt;/em&gt;&lt;/a&gt; project is an example of that. They propose a
+lot of different packages whose common purpose is to interact with databases
+and API for science, but the real power is offered by the ability to integrate
+several of these packages &lt;a href=&quot;http://ropensci.org/usecases/index.html&quot;&gt;in a single analysis&lt;/a&gt;. Want to get the list of
+species in a country, and check which are invasive, then plot that onto
+their phylogenetic tree? It can be done. Another well known example is the
+&lt;code&gt;plyr&lt;/code&gt;/&lt;code&gt;reshape2&lt;/code&gt;/&lt;code&gt;ggplot2&lt;/code&gt; combo, which is (seriously) the only reason I
+still have to start &lt;code&gt;R&lt;/code&gt; at least once a day.&lt;/p&gt;
+
+&lt;p&gt;So on one hand, packages are really good, because they save time and
+allow to do an analysis which (hopefully) conforms with the current set of
+&quot;best practices&quot; in the field. On the other hand, when you start working
+&lt;em&gt;only&lt;/em&gt; with what the packages have to offer, you can severely limit your
+creativity. There are questions that will require new code to be written,
+and you&#39;ll most likely hit obstacles along the ways. That, too, should be
+something the students encounter during their training.&lt;/p&gt;
+
+&lt;p&gt;And this is when the limits of &lt;code&gt;R&lt;/code&gt; start to show. As John Cook said (&lt;a href=&quot;http://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science&quot;&gt;source&lt;/a&gt;),
+&quot;I find it more helpful to think of R as having a programming language than
+being a programming language&quot;. I would never have put that so eloquently,
+and it is entirely ture. Over the last two months, I gave a graduate training
+class on &lt;em&gt;Algorithms and programming for environmental sciences&lt;/em&gt;, in which
+I tried to discuss how to make &quot;good&quot; (robust, user-friendly, stupid-proof)
+programs. Regardless of what the students learned, I definitely realized
+that &lt;code&gt;R&lt;/code&gt; is a &lt;em&gt;huge mess&lt;/em&gt; when you try to work outside of packages, or
+do something else than statistics. Interestingly, even Hadley Whickam&#39;s
+forthcoming &lt;a href=&quot;http://adv-r.had.co.nz/&quot;&gt;&lt;em&gt;Advanced R development&lt;/em&gt;&lt;/a&gt; starts by saying that it will
+show how &lt;em&gt;what seems horrible is merely &quot;not that bad&quot;&lt;/em&gt; (go read the book,
+by the way, it&#39;s great). And so understanding &lt;em&gt;what&lt;/em&gt; to do often comes second
+to understanding &lt;em&gt;how to do it&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The (many, many) quirks of &lt;code&gt;R&lt;/code&gt; nonwithstanding, working with a package
+and doing something new are two different approaches. The former involves
+looking at the examples, and reading the documentatin to see what each
+function does. The later requires a working knowledge of the language, and
+some notions of algorithmic. Yet, judging from my observations, these two
+different exercices are often (and let&#39;s not forget statistics) presented
+together, under the general denomination of &lt;code&gt;R&lt;/code&gt;. And when, afterwards, students
+complain of &quot;not getting &lt;code&gt;R&lt;/code&gt;&quot;, it&#39;s hard to tell whether what they don&#39;t
+get is what exactly a &lt;code&gt;while&lt;/code&gt; loop does (which is not a &lt;code&gt;R&lt;/code&gt;-specific issue),
+or why a &lt;code&gt;data.frame&lt;/code&gt; is also a &lt;code&gt;list&lt;/code&gt; and a &lt;code&gt;matrix&lt;/code&gt; (which is a reasonable
+question, and quite specific to &lt;code&gt;R&lt;/code&gt;); you may know how to do statistics with
+&lt;code&gt;R&lt;/code&gt;, or use &lt;code&gt;vegan&lt;/code&gt; or &lt;code&gt;picante&lt;/code&gt;, but not know &lt;code&gt;R&lt;/code&gt; (or the other way around).&lt;/p&gt;
+
+&lt;p&gt;The point I&#39;m slowly getting at is that you&#39;ll most likely end up in a
+situation which is not covered by &lt;em&gt;any&lt;/em&gt; package available. Or, as a student,
+you&#39;ll have to modify a code for a group project, which means re-writing
+some functions, or changing the data structure. Part of the training should
+prepare students to do this kind of things. Rather than using a pre-made
+function to calculate a Shannon&#39;s index, or even find the maximal value in
+an array, let&#39;s walk students through the writing of this function.&lt;/p&gt;
+
+&lt;p&gt;So, to conclude, while it&#39;s clear that I have a love/hate relationship
+with &lt;code&gt;R&lt;/code&gt;, I think it&#39;s still an invaluable tool for teaching, especially in
+undergraduate courses. &lt;code&gt;python&lt;/code&gt; might be as easy and more coherent, but less
+people use it (for now...), and &lt;code&gt;R&lt;/code&gt; is still the &lt;em&gt;lingua franca&lt;/em&gt;. And a part
+of the success of &lt;code&gt;R&lt;/code&gt; is the diversity of available packages. But relying
+only on packages creates this weird black box situation, in which students
+will know what the function does, but not necessarily &lt;em&gt;how&lt;/em&gt; it does it; and
+knowing how stuff works is key when you have to create your own stuff. So
+&lt;strong&gt;pros&lt;/strong&gt;, packages are awesome because 90% of what you want to do is already
+programmed. &lt;strong&gt;Cons&lt;/strong&gt;, the remaining 10% will be extremely hard for you to
+get if you don&#39;t get your hands dirty once in a while, and write things
+from scratch.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Spatially explicit metapopulation model in R</title>
