@@ -4,12 +4,99 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-11-27T22:38:02-05:00</updated>
+  <updated>2013-12-02T16:28:49-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Why JSON is my go-to data format</title>
+     <link href="http://timotheepoisot.fr/2013/12/02/json-goto-format/"/>
+    <updated>2013-12-02T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;Since this summer, I work with models that generate massive amounts
+of output. This weekend batch of simulations resulted in 20+ Gig of raw
+data. This particular model outputs very variable data. The number of
+lines/columns (were I working in a tabular format) would be unpredictable,
+vary across simulations, and generally be a little bit too massive to work
+with (simply) in &lt;code&gt;R&lt;/code&gt;. But I&#39;ve been using &lt;code&gt;JSON&lt;/code&gt; for a while now, and it
+makes working with these types of data (not the &quot;several Gig&quot; types, the
+&quot;highly heterogeneous&quot; type) easy.&lt;/p&gt;
+
+&lt;p&gt;I love &lt;code&gt;JSON&lt;/code&gt; because it can be validated. Running a command like &lt;code&gt;jsonlint
+file.json&lt;/code&gt; will either return me the pretty-printed version of the file,
+or an error telling me where the file is not conforming to the &lt;code&gt;JSON&lt;/code&gt;
+specification. Or in other words, when I read something in memory, I&#39;m
+confident it is indeed a correctly formated file.&lt;/p&gt;
+
+&lt;p&gt;But wait, there&#39;s more! In &lt;code&gt;JSON&lt;/code&gt;, you can define &lt;em&gt;schemes&lt;/em&gt;, or a &lt;code&gt;JSON&lt;/code&gt;
+file telling you (or a validator) what other &lt;code&gt;JSON&lt;/code&gt; files should look
+like. Which means that it&#39;s possible to check that a particular file is
+correctly formatted &lt;em&gt;with regard to a previously described data format&lt;/em&gt;. I
+use the &lt;code&gt;jsonschema&lt;/code&gt; python module to do that:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;jsonschema&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validate&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Read the JSON scheme file&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;scheme.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;sc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Read the JSON output file&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;output.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;op&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Validate&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Not valid&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Valid&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And because a&lt;code&gt;JSON&lt;/code&gt; scheme has &lt;a href=&quot;http://json-schema.org/&quot;&gt;field for description of each element&lt;/a&gt;,
+your output is essentially self-described. Someone with no prior knowledge
+of how you organized your data can take your results, check that they conform
+to the specification, and see what each element of the output file represents.&lt;/p&gt;
+
+&lt;p&gt;Although I haven&#39;t bothered to write a scheme (yet), you can see how &lt;code&gt;JSON&lt;/code&gt;
+can contain a lot of heterogeneous informations in an easy to read format
+&lt;a href=&quot;https://github.com/tpoisot/manna&quot;&gt;on the &lt;code&gt;manna&lt;/code&gt; index page&lt;/a&gt;: the output files give informations about
+the species, and for each time steps, the number of individuals, and each
+individual interaction.&lt;/p&gt;
+
+&lt;p&gt;While it&#39;s true this information is not extremely complicated, it&#39;s still
+simpler to have it in this form, rather than as a text file. But &lt;code&gt;JSON&lt;/code&gt;
+truly shines when &lt;em&gt;reading&lt;/em&gt; the data. In the above example, if the &lt;code&gt;op&lt;/code&gt;
+object contains a list of species, each having a body size called &lt;code&gt;bs&lt;/code&gt;,
+then we can get the mean body size with&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;m_bs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; can also read &lt;code&gt;JSON&lt;/code&gt; well with the &lt;code&gt;rjson&lt;/code&gt; package. This returns a &lt;code&gt;list&lt;/code&gt;
+representation of the &lt;code&gt;JSON&lt;/code&gt; file, so it&#39;s easy to manipulate &lt;code&gt;JSON&lt;/code&gt; objects
+with &lt;code&gt;l*ply&lt;/code&gt; functions in &lt;code&gt;plyr&lt;/code&gt;. So now, most of my models work in the same
+way. I write one &lt;code&gt;JSON&lt;/code&gt; file for each simulation (or variations thereof)
+into an &lt;code&gt;output&lt;/code&gt; folder. Then I read through each file with &lt;code&gt;python&lt;/code&gt; and/or
+&lt;code&gt;R&lt;/code&gt;, and I have a great time doing it!&lt;/p&gt;
+
+&lt;p&gt;The main drawback of &lt;code&gt;JSON&lt;/code&gt; (&lt;a href=&quot;http://www.alcides-mp.com/?p=1&quot;&gt;as pointed out here&lt;/a&gt; are that it must be
+read in memory entirely before it&#39;s used (and it gets parsed at this time
+too). Or in other words, it can be slow. But it&#39;s a good thing! I found out
+that it forces me to (i) aim for the most concise representation possible,
+and (ii) split the output in chunks when needed. These chunks can be read
+in parallel later, and re-assembled, so I don&#39;t try to load files of a few
+hundreds Mb at times.&lt;/p&gt;
+
+&lt;p&gt;So now, go try &lt;code&gt;JSON&lt;/code&gt; for yourself. In the &lt;code&gt;manna&lt;/code&gt; program linked above, there
+are examples with (admittedly badly written) &lt;code&gt;R&lt;/code&gt; files to read and manipulate
+&lt;code&gt;JSON&lt;/code&gt; outputs. And keep in mind that when you&#39;ll be coming back to your
+output files in six months, you&#39;ll be glad to have a verbose format and a
+scheme describing it to understand what is going on...!&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>The pros and cons of using R packages for teaching</title>
