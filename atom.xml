@@ -4,12 +4,34 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-12-03T14:22:29-05:00</updated>
+  <updated>2013-12-05T12:35:14-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Data-sharing paper online</title>
+     <link href="http://timotheepoisot.fr/2013/12/05/data-sharing-paper/"/>
+    <updated>2013-12-05T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;Our &lt;a href=&quot;http://library.queensu.ca/ojs/index.php/IEE/article/view/4632&quot;&gt;paper&lt;/a&gt; &lt;em&gt;Towards a sustainable ecological science&lt;/em&gt; is now online at
+&lt;em&gt;Ideas in Ecology and Evolution&lt;/em&gt;. Thanks are due to Karthik Ram for the
+invitation. This is going to be a very exciting special issue. If you want
+to know more about the paper, the best thing to do is most likely to read it
+(it&#39;s open access). But in short, we (I, Ross Mounce, and Dominique Gravel),
+try to make a point of all the benefits of sharing data in ecology. There
+are some parts about licenses, and some parts about &lt;code&gt;JSON&lt;/code&gt; (because of course
+there are).&lt;/p&gt;
+
+&lt;p&gt;But besides the content of the paper (that made me think &lt;em&gt;a lot&lt;/em&gt; about data
+sharing), the way we wrote it was extremely fun. Everything was &lt;a href=&quot;https://github.com/tpoisot/DataSharingPaper/network&quot;&gt;done on
+&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;, in &lt;em&gt;mardkwon&lt;/em&gt;,and  we&#39;ve used Issues and all the tricks in
+the book to keep track of what needed to be done. It&#39;s also the first paper
+in which my twitter handle is listed in the contacts, and I&#39;ll probably do
+that for every paper now.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Why JSON is my go-to data format</title>
