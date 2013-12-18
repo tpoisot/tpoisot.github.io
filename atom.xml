@@ -4,12 +4,72 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-12-05T12:35:14-05:00</updated>
+  <updated>2013-12-17T20:19:50-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>What's hot on PeerJ?</title>
+     <link href="http://timotheepoisot.fr/2013/12/17/what-peerj/"/>
+    <updated>2013-12-17T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;Lat week, I mentionned that ecology is the leading discipline on &lt;a href=&quot;https://peerj.com/preprints/&quot;&gt;&lt;em&gt;PeerJ&lt;/em&gt;
+preprints&lt;/a&gt;, as attested by the number of submissions. Which led me to
+wondering which topics were actually &lt;em&gt;hot&lt;/em&gt; on the preprint server. &lt;em&gt;PeerJ&lt;/em&gt; do
+not have an API, but there URL scheme is not too complicated, and most of the
+relevant informations are in the webpage body. So I wrote a very short python
+script to get the first 158 preprints, download them, and get the abstract.&lt;/p&gt;
+
+&lt;p&gt;The code goes like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;BaseURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;https://peerj.com/preprints/&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;StopAt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;158&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;StartAt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Corpus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Fulltext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprint_id&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;xrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;StartAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StopAt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;preprint_page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BaseURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preprint_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprint_page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status_code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;preprint_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprint_page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;preprint_soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preprint_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprint_soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;content&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Fulltext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Corpus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fulltext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There is actually a one-liner version of this code, that exsist solely to
+show that you can do horrible twisted things with python. I&#39;m not showing
+it. But the point is: this code will return a list of all abstracts, pasted
+together in a single sentence. Which I copied, and used in &lt;a href=&quot;http://www.wordle.net&quot;&gt;wordle&lt;/a&gt; to get
+the following graphic:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/w-peerj-abs.png&quot; title=&quot;With abstracts&quot; alt=&quot;With abstracts&quot; /&gt;
+So apparently, &lt;code&gt;data&lt;/code&gt; are big, followed by &lt;code&gt;sharks&lt;/code&gt; and &lt;code&gt;whales&lt;/code&gt; (actually
+whale sharks), but suriprisingly, there are no big ecological keywords
+that are very prominent - which goes well with the idea that &lt;em&gt;PeerJ&lt;/em&gt;
+is multi-disciplinary. By changing the &lt;code&gt;BaseURL&lt;/code&gt; variable in my code,
+it was easy to get the same picture but for the &lt;em&gt;articles&lt;/em&gt;, &lt;em&gt;i.e.&lt;/em&gt; the
+contributions that went through peer-review. According to the front page,
+Ecology and Biodiversity are still the leading disciplines there.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/w-peerj-pap.png&quot; title=&quot;With papers&quot; alt=&quot;With papers&quot; /&gt;
+It seems to be the case, with &lt;code&gt;species&lt;/code&gt; being the most important word, followed
+(still) by &lt;code&gt;data&lt;/code&gt;. Interestingly, clinical and molecular keywords are more
+prominent in the published papers than in the preprints. But in any case,
+&lt;em&gt;PeerJ&lt;/em&gt; is definitely ecology-friendly, which hopefully will mean that more
+and more people will submit there.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Data-sharing paper online</title>
