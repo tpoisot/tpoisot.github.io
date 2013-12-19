@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Software papers and open source licenses</title>
+    
+</head>
+
+<body>
+
+<div id="main">
+
+
+<div class="header">
+   <div class="row">
+   <div class="navigation">
+      <div class="contain-to-grid">
+
+<nav class="top-bar" data-topbar>
+
+<ul class="title-area">
+	<li class="name">
+		<h1><a href="#">Blog</a></h1>
+	</li>
+</ul>
+
+<section class="top-bar-section">
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/papers/">Publications</a></li>
+		<li><a href="/research/">Research</a></li>
+		<li class="active"><a href="/blog/">Blog</a></li>
+	</ul>
+</section>
+
+</nav>
+
+</div>
+
+
+   </div>
+      <div class="large-12"><h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+   </div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <div class='post'>
+<h1>Software papers and open source licenses</h1>
+
+<div class="postinfo">
+
+December 19, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">open source</span><span class="label label-default" style="margin-right: 3px;">open science</span><span class="label label-default" style="margin-right: 3px;">peer-review</span>
+
+
+</div>
+
+<p>I have been reviewing a lot more software / methodological papers these
+days, which led me to think about open <em>vs.</em> closed software (even more
+than usual). By <em>closed</em>, I mean any software that would require me to pay
+to be able to reproduce the method, either directly, or through a licence
+costing money to the university. Think <em>Mathematica</em>, <em>matlab</em>, or any other
+commercial tools. Despite what <a href="http://www.quantumforest.com/2013/12/should-i-reject-a-manuscript-because-the-analyses-werent-done-using-open-source-software/">some</a> would have you believe, the way
+analyses are done in a "traditional" research paper (<q>Here is my experiment,
+here are the analyses I have been doing, and here are my conclusions</q>)
+is an entirely different piece of work. When I review such papers, I care
+very little about the software used to obtain the results. And of course,
+it's difficult to reproduce a field survey or a large lab experiment, and
+no amount of free software will change that.</p>
+
+<p>But software papers, <em>i.e.</em> either papers presenting a new software,
+or relying heavily on computer code (<em>i.e.</em> most simulation studies),
+are defined largely by their computability. So let's jump straight to the
+conclusion: would I reject such a paper because the code relies on closed
+software? <strong>No</strong>, for two reasons. The first reason is highly personal:
+I would not accept to review it in the first place. My condition to review
+a software paper is to be able to understand and evaluate the code, so if
+I can't run the software or understand what it does, I won't review the
+paper. The second reason is that, ultimately, the important thing in a
+software paper is the method described, and so as long as I can reproduce
+what the authors propose, and it is a useful addition to the methodological
+toolkit, there is no reason to reject the paper. An additional reason is that
+I am a co-author on at least two (<em>in prep.</em>) papers using closed software,
+and I won't hold others to a higher standard than the one I hold myself to...</p>
+
+<p>That being said, there are extremely strong arguments to be made in favor
+of using Free and Open-Source Software (FOSS) whenever possible. For one
+thing, and although it's easy to forget that coming from a <em>rich</em> university,
+not everyone can afford to pay a software license. Tools that are relevant
+for conservation may be unavailalbe to NGOs if they need to pay to use
+them. Even in the academic world, researchers from developing countries,
+may have a hard time justifying spending thousands of dollars on software
+when there are free alternatives available. My (highly personal) point of
+view is that using FOSS software is part of the collective responsibility
+to lower the access fee to science.</p>
+
+<p>Now that we know that <a href="https://peerj.com/articles/175/">open data</a> is associated with an increased
+citation rate, I wonder whether the same is true of FOSS-using papers. I
+can think a couple reasons for why it should be the case. Describing a new
+method is much like explaining a recipe. But I'm much less likely to cook
+true <em>crêpes</em> from Britanny, which require a bulky and expensive <em>billlig</em>,
+than I am to cook the regular version that I can do at home with my frying
+pan. Wow, that is a bad metaphor, it almost reads like FOSS is the cheap
+knock-off version of science. Never mind... In any case, offering users
+a way to apply an analysis at no cost is a good incentive to using your
+method. And now that almost anyone knows and uses R (especially students),
+you can reach ~100% of your field this way.</p>
+
+<p>But what should we do when no FOSS software can do the particular analysis
+one wants to do? This is a valid and difficult question. It's obvious
+that what matters most is to have the most solid result one can get using
+the currently available tools. But on the other hand, contributing new
+software is an activity in itself, that is starting to be recognized as
+such. Porting a good method into FOSS is probably going to get you some
+recognition withing your community. <em>ImpactStory</em> let you track the impact
+of software releases through <em>e.g.</em> <em>GitHub</em>. For example, the <em>ImpactStory</em>
+page <a href="http://impactstory.org/timpoisot/product/puktfnm5rj97v383zwo6smlp">for the <code>digitize</code> package</a> I wrote in one afternoon because I
+wanted to know whether it (it: extracting data from published scatterplots)
+could be done, show that people found this package useful. While it's true that
+writing useful code is not as appreciated as writing papers that get cited, the
+development of new metrics will probably make it increasingly rewarding. And
+the less people have to pay, the more likely they are to use your code.</p>
+
+<p>At the very least, if your code requires proprietary software to run,
+pick a <a href="http://choosealicense.com/">FOSS license</a>. There are tools (like <em>Choose a license</em>,
+linked just before) that will allow you to select licenses according to your
+needs. Even if people can't <em>run</em> the software, they can see how it works,
+and translate it in another language it they need it. Starting in January,
+all <a href="http://www.britishecologicalsociety.org/publications/">BES journals</a> will require that <em>data</em> are available, free of
+charge and in a repository, when the paper is accepted - and the goal is
+clear: allow reprodubilityand re-use. Perhaps the same type of initiatives
+should be progressively introduced for code. And this is the part where, as
+referees, we can start making a small difference: by suggesting appropriate
+FOSS licenses if the authors have not done so. It will help software spread,
+and the most methods we have at our disposal, the most likely we have to
+find the right one to solve a problem.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2013/12/17/what-peerj/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+   </div>
+</div>
+
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+   </div>
+</div>
+
+</div>
+
+</body>
+
+</html>
