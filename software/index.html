@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Software</title>
+    
+</head>
+
+<body>
+
+<div id="main">
+
+
+<div class="header">
+   <div class="row">
+   <div class="navigation">
+      <div class="contain-to-grid">
+
+<nav class="top-bar" data-topbar>
+
+<ul class="title-area">
+	<li class="name">
+		<h1><a href="#"></a></h1>
+	</li>
+</ul>
+
+<section class="top-bar-section">
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/papers/">Publications</a></li>
+		<li class="active"><a href="/software/">Software</a></li>
+		<li><a href="/research/">Research</a></li>
+		<li><a href="/blog/">Blog</a></li>
+	</ul>
+</section>
+
+</nav>
+
+</div>
+
+
+   </div>
+      <div class="large-12"><h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+   </div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <p>This page is a non-exhaustive list of software I've released. Only the
+most significant/ambitious projects, or those in which I contributed a lot,
+are listed.</p>
+
+<h1>R packages</h1>
+
+<p><strong>betalink</strong> - measures of ecological network &beta;-diversity <br/>
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a> <br/>
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code) <br/>
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/betalink")</code></p>
+
+<p><strong>ESM</strong> - measures of ecological specificity <br/>
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a> <br/>
+<i class="fa fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code) <br/>
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>install.packages("ESM", repos="http://R-Forge.R-project.org")</code></p>
+
+<p><strong>digitize</strong> - extraction of data from scatterplots <br/>
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a> <br/>
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code) <br/>
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/digitize")</code></p>
+
+<h1>Inference of food-web structure</h1>
+
+<p>We propose a method to infer the structure of food-webs based on species body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and <a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a> <br/>
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a> <br/>
+<i class="fa fa-fw fa-code"></i> <a href="http://figshare.com/articles/Code_and_example_data_to_calibrate_the_niche_model_of_food_webs_based_on_allometric_relationships/650228">Code and example data</a></p>
+
+<h1>Bipartite webs analysis</h1>
+
+<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/~cflores/">Cesar Flores</a> <br/>
+<i class="fa fa-fw fa-file-text-o"></i> Paper in preparation <br/>
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/biweb">GitHub repo</a> (dual <code>matlab</code>/<code>python</code> code)</p>
+
+<h1>Other (possibly) useful code</h1>
+
+<p>Reasonably fast generation of null bipartite networks in C under different scenarios    <br/>
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)</p>
+
+<p>Python class to track phylogenetic structure during simulations <br/>
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)</p>
+
+<p>Simulation of individual-based trophic communities under niche/neutral scenarios <br/>
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/manna">GitHub repository</a> (source code)</p>
+
+
+   </div>
+</div>
+
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+   </div>
+</div>
+
+</div>
+
+</body>
+
+</html>
