@@ -1,9 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
 
-@mono: 'PT Mono';
+@mono: 'Cousine';
 @sans: 'PT Sans';
 @sans-narrow: 'PT Sans Narrow';
 @serif: 'PT Serif';
@@ -27,7 +27,7 @@ body{
 
 code, pre{
    font-family: @mono;
-   font-size: 1rem;
+   font-size: 0.9rem;
    font-weight: 400;
    color: #222;
 }
@@ -44,10 +44,11 @@ blockquote{
    }
 }
 
+@tmar: 47px;
+
 .highlight{
-   margin: 2em -3em;
-   border: 1px solid rgb(240, 240, 240);
-   padding: 1em 3em;
+   margin: 2em -@tmar;
+   padding: 1em @tmar;
    background-color: rgb(250, 250, 250);
    max-width: 55em;
    pre{
@@ -157,10 +158,10 @@ blockquote{
       line-height: 1.7;
       font-weight: 400;
       b, strong{
-         font-weight: 600;
+         font-weight: 700;
       }
       code{
-         font-size: 103%;
+         font-size: 95%;
       }
       .lead{
          font-weight: 600;
