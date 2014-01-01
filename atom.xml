@@ -4,12 +4,82 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2013-12-30T21:40:12-05:00</updated>
+  <updated>2014-01-01T18:25:38-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Using Vim as a writing environment</title>
+     <link href="http://timotheepoisot.fr/2014/01/01/vim-writing-environment/"/>
+    <updated>2014-01-01T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;Happy new year, everyone! And to make sure it starts in a good way, let me
+bring you the gift of productivity! Or specifically, how to set-up &lt;code&gt;Vim&lt;/code&gt;
+in a way that will transform it into an impressively efficient writing
+environment. &lt;code&gt;Vim&lt;/code&gt; is a really good code editor, there is no questioning
+that. But writing code and writing prose are entirely different exercises,
+and some tools you need to efficiently write code are only getting in the
+way when you write prose. But &lt;code&gt;Vim&lt;/code&gt; can handle that, and I&#39;m going to share
+my configuration with you.&lt;/p&gt;
+
+&lt;h2&gt;The font&lt;/h2&gt;
+
+&lt;p&gt;I care &lt;em&gt;way too much&lt;/em&gt; about fonts and typography. And as I spend several
+hours each days looking at a terminal, picking a good font for writing is
+important. What makes a font good will vary from person to person, but there
+are a few common elements. I want glyphs that are easy to differentiate (&lt;code&gt;0&lt;/code&gt;
+&lt;em&gt;vs.&lt;/em&gt; &lt;code&gt;O&lt;/code&gt;, &lt;code&gt;l&lt;/code&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;code&gt;1&lt;/code&gt;, for example), and a font with a good negative
+space, so that reading long paragraphs of texts is not eye-straining. When
+spending a few hours working on a paper, it can make all the difference in
+the world to have a good, easily legible font. I use the &lt;a href=&quot;http://www.google.com/fonts/specimen/Cousine&quot;&gt;Cousine&lt;/a&gt; family,
+which can be freely downloaded. It works well as all sizes, and has a good
+inventory of glyphs.&lt;/p&gt;
+
+&lt;h2&gt;The color scheme&lt;/h2&gt;
+
+&lt;p&gt;No surprise, I use &lt;a href=&quot;http://ethanschoonover.com/solarized&quot;&gt;Solarized&lt;/a&gt; (light). It has a good contrast, and because
+of the beige background, you don&#39;t feel like you are staring at a light
+bulb. And the &lt;code&gt;solarized-vim&lt;/code&gt; version comes with quite a very exhaustive
+syntax set, so everything (i) works and (ii) looks great out of the box.&lt;/p&gt;
+
+&lt;h2&gt;The plugins&lt;/h2&gt;
+
+&lt;p&gt;Although you can get my entire &lt;a href=&quot;https://github.com/tpoisot/dotfiles/blob/master/vimrc&quot;&gt;&lt;code&gt;.vimrc&lt;/code&gt; file&lt;/a&gt; from &lt;em&gt;GitHub&lt;/em&gt;, I
+will just walk you through the most important plugins. I manage them using
+&lt;a href=&quot;https://github.com/gmarik/vundle&quot;&gt;vundle&lt;/a&gt;, and the ones I &lt;em&gt;absolutely need&lt;/em&gt; to do some serious writing are:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;tpope/vim-markdown&amp;#39;&lt;/span&gt;
+Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;mikewest/vimroom&amp;#39;&lt;/span&gt;
+Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;vim-pandoc/vim-pandoc&amp;#39;&lt;/span&gt;
+Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;altercation/vim-colors-solarized&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;First, &lt;code&gt;vim-markdown&lt;/code&gt; and &lt;code&gt;vim-pandoc&lt;/code&gt; are extremely powerful extensions for
+(you guessed it), &lt;code&gt;markdown&lt;/code&gt; and &lt;code&gt;pandoc&lt;/code&gt;. As I used these for &lt;em&gt;everything&lt;/em&gt;
+these days, having good plugins is a requirement. They introduce things like
+autocompletion of citations from a &lt;code&gt;bibtex&lt;/code&gt; file, and things like &lt;em&gt;replacing
+LaTeX greek letters by the actual greek letter&lt;/em&gt;, which means that when you
+are looking at a paragraph, it shows no markup, but the formatting. It&#39;s
+really, really amazing when you want to &lt;em&gt;read&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The most recent addition to this collection is &lt;code&gt;vimroom&lt;/code&gt;. This plugins
+attempts to replicate the look and feel of &lt;em&gt;WriteRoom&lt;/em&gt;, one of the many, many
+&quot;distraction-free&quot; writing softwares. When editing a document, &lt;code&gt;&amp;lt;leader&amp;gt;V&lt;/code&gt;
+will center the text on the screen, with ample white-space on each sides,
+and remove every piece of clutter from the &quot;interface&quot;. It means that, if
+you have a large screen, you don&#39;t need to turn your head all the way to
+the left to read what you are working on.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;So that&#39;s it! It&#39;s not much work, and it makes for a really pleasant writing
+experience in &lt;code&gt;Vim&lt;/code&gt;. And it&#39;s effortless to switch from &quot;code&quot; to &quot;prose&quot;
+mode, making &lt;code&gt;Vim&lt;/code&gt; a very versatile and productive tool.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Software papers and open source licenses</title>
@@ -2083,16 +2153,6 @@ you&#39;ll need to run a lot more trials than that.&lt;/p&gt;
      <link href="http://timotheepoisot.fr/2013/05/30/bacteria-soil-networks/"/>
     <updated>2013-05-30T00:00:00-04:00</updated>
     <content type="html">&lt;p&gt;Freedom! The final chapter of my thesis is now online on the website of &lt;a href=&quot;http://www.ecologicalprocesses.com/content/2/1/13/abstract&quot;&gt;&lt;em&gt;Ecological Processes&lt;/em&gt;&lt;/a&gt;. We use data form a field isolated bacteria-phage system to have a network approach of the specialist-generalist coexistence problem. The main result is that, even when controlling for phylogenetic dispersal of hosts, it&#39;s better to be a generalist. This signal is highly consistent across the five networks we studied, and goes in the way of recent results on coevolution: if you let a system coevolve long enough, it&#39;s expected that generalists will emerge.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>Measuring realized network modularity</title>
-     <link href="http://timotheepoisot.fr/2013/05/23/realized-modularity/"/>
-    <updated>2013-05-23T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;A paper describing how to measure &lt;a href=&quot;http://f1000research.com/articles/2-130/v1&quot;&gt;realized network modularity&lt;/a&gt; just appeared online at &lt;em&gt;F1000 Research&lt;/em&gt;. It&#39;s currently waiting for reviewers. This is a short methodological note, to &quot;solve&quot; a problem I had when presenting the ouput of modularity analyses. Most of the time,  the values you get are between 0 and 1, but they are fairly difficult to make sense of. They&#39;re not probabilities that the network is different. They&#39;re statistics to some extent, but it&#39;s not clear what a critical value should be.&lt;/p&gt;
-
-&lt;p&gt;I simply propose to count the number of links established by species from the same module, and by species from different modules. This give a very simple measure to understand: a network with a &lt;em&gt;realized&lt;/em&gt; modularity of 1 has no links between species from different modules. The other interesting thing is that you can use this measure as an &lt;em&gt;a posteriori&lt;/em&gt; criteria to decide which community partition to use, which can be useful when deciding on which module detection method you should pick.&lt;/p&gt;
 </content>
   </entry>
   
