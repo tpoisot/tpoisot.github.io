@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Using git throughout your wokflow</title>
+    
+</head>
+
+<body>
+
+<div id="main">
+
+
+<div class="header">
+   <div class="row">
+   <div class="navigation">
+      <div class="contain-to-grid">
+
+<nav class="top-bar" data-topbar>
+
+<ul class="title-area">
+	<li class="name">
+		<h1><a href="#">Blog</a></h1>
+	</li>
+</ul>
+
+<section class="top-bar-section">
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/papers/">Publications</a></li>
+		<li><a href="/software/">Software</a></li>
+		<li><a href="/research/">Research</a></li>
+		<li class="active"><a href="/blog/">Blog</a></li>
+	</ul>
+</section>
+
+</nav>
+
+</div>
+
+
+   </div>
+      <div class="large-12"><h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+   </div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <div class='post'>
+<h1>Using git throughout your wokflow</h1>
+
+<div class="postinfo">
+
+January  2, 2014 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label label-default" style="margin-right: 3px;">git</span><span class="label label-default" style="margin-right: 3px;">productivity</span><span class="label label-default" style="margin-right: 3px;">open science</span>
+
+
+</div>
+
+<p>There are good chances that I will give an introductory workshop to the many,
+many uses of <code>git</code> for scientists in the next weeks. What follows is a series
+of notes about the things <em>I</em> use <code>git</code> for, which I will cover. In a way,
+this post is a list of all the possible ways to introduce <code>git</code> into your
+workflow as a (computational) scientist. Some things are specific to <code>git</code>
+as a protocol, some others to <em>GitHub</em> as a platform. I will try to make
+the distinction clear.</p>
+
+<h1>Tracking your code</h1>
+
+<p>It would be tempting to discard this one if you are not mainly a computational
+scientist. Please don't. Even the simplest piece of code you write, the most
+basic <code>R</code> function is a <em>central</em> step in your workflow if it is responsible
+for transforming raw data into something you can show around (a figure,
+or a table). In the most fundamental way, <code>git</code> is a way for you to track
+what you changed, and when. And you can <em>revert</em> back to the previous state
+of your code if you want.</p>
+
+<p>The most important feature of <code>git</code> (in my opinion), and one that is shared
+with most versioning systems, is the ability to (i) give the reasons of
+a particular change, and (ii) see exactly what has been changed. See, for
+example, what happens after <em>adding</em> a few lines of code:</p>
+
+<div class="highlight"><pre><code class="diff"><span class="gu">@@ -50,6 +50,11 @@</span>
+  #&#39; }
+  tax_agg &lt;- function(x, rank, db = &#39;ncbi&#39;, ...) 
+  {
+ +  if(is.matrix(x))
+ +  {
+ +    if(is.null(colnames(x))) stop(&quot;The community data matrix must have named columns&quot;)
+ +    x &lt;- data.frame(x)
+ +  }
+    # bring to long format
+    x$rownames &lt;- rownames(x)
+    df_m &lt;- melt(x, id = &#39;rownames&#39;)
+</code></pre></div>
+
+
+<p>If a change in your code breaks it, you can track the lines that where
+modified, and start looking here for possible bugs.</p>
+
+<h1>Collaborative manuscript writing</h1>
+
+<p><a href="http://www.scfbm.org/content/8/1/7">Karthik Ram</a> went over this point at large in its paper, so I will keep
+this point short. If you dread exchanging multiple versions of a paper over
+email, and fear the day where you will have to handle conflicting edits, or
+Word and OpenOffice will ruin your formatting, then look into <code>git</code>. Although
+it requires that you use <em>different</em> formats to write (<code>markdown</code> or <code>LaTeX</code>),
+the advantages are numerous (and yes, I count <em>not using Word</em> as a <em>huge</em>
+advantage). You will have the same opportunity to track precisely what is
+going on with a clear summary of the changes. And because <code>git</code> handles
+several people working concurrently just fine, you can have a lot happening:</p>
+
+<p><img src="/images/gitnetwork.png" title="Figure 1" alt="Figure1" /></p>
+
+<h1>Make replying to reviewers <em>easy</em></h1>
+
+<p><a href="http://carlboettiger.info/2013/06/10/mansucript-reviews-on-github.html">Carl Boettiger</a> and <a href="https://github.com/trvrb/flux/issues?page=1&amp;state=closed">Trevor Bedford</a> (and I, for some papers) use
+<em>Issues</em> as a way to handle reviewers comments. Issues are a paradigm taken
+straight from software development, where a problem in your code needs to
+be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil's
+<em>in prep</em> paper</a> on the <code>scriptoria</code> project. In short, you can
+attribute each point raised by a referee to an Issue. You can then assign
+Issues to people working on the manuscript, and track the progression of
+the replies. Because most issues tracking systems come with a <em>Milestones</em>
+ability, you can assign all issues to the <em>Milestone</em> "First revision",
+and set a deadline at which all the issues have to be fixed.</p>
+
+<p>As <em>GitHub</em> allows you to reference <em>commits</em> (<em>i.e.</em> changes made to your
+code/paper), it is really easy to say, in the reply to each point, what you
+did to address it, and give a link to the <code>diff</code> (<em>i.e.</em> the list of all
+changes). Instead of replying things like "<em>We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)</em>", you can say "<em>We changed
+the text in the following way, ..., see commit <code>e30b8e</code></em>". <em>GitHub</em> will take
+care of putting a link in place, and the reviewer can then see exactly which
+changes were made. As a final note on this point: it's obviously good practice
+to <em>ask</em> the editor if s/he agrees with the reviews being put on <em>GitHub</em>.</p>
+
+<h1>Give support to users</h1>
+
+<p>The <em>Issues</em> system works, obviously, for code. People using your code can
+suggest improvements, or report bug. It is also possible to contribute new
+code (through the <em>fork</em>/<em>pull</em> mechanism).</p>
+
+<p>One of the things I enjoy in the <em>Issues</em> system is that it can (when the
+people actually use it...) unclutter your mailbox. Instead of sending an email
+to report a bug, people can submit an issue. You will have a clear list of
+what to do, and then again, the ability to indicate exactly how you solved it.</p>
+
+<h1>Release versions for publications</h1>
+
+<p><em>GitHub</em> (and probably other platforms) comes with a <em>release</em> mechanism. You
+can select one <em>commit</em> and label it as something special (for example,
+the version of a code you used to do the analysis presented in a paper). In
+the context of manuscript writing, I use releases to identify major steps in
+the life of a paper: first preprint, update to the preprint, revised version,
+final revision, etc etc. You can see <a href="https://github.com/tpoisot/ms_connectance_complexity/releases">an example here</a>. Reading through
+a large number of commits can be a bore, but quickly browsing a list of
+releases can give you a sense of when the important things happened. The
+release mechanism is also, of course, useful for code.</p>
+
+<h1>Get confident in your code</h1>
+
+<p>This is one of the features of <em>GitHub</em> (and related tools) I hope to use more
+and more in the future. I started looking into <a href="https://travis-ci.org/">TravisCI</a> a month
+or so ago, and I love it. In short, TravisCI is a <em>continuous integration</em>
+system: each time you commit a change to your code, it will run a pre-specified
+series of steps to <code>build</code> it, and tell you (and other people) whether it
+was a success or not. The list of instructions to build your project can be
+whatever you want (compiling the <code>LaTeX</code> document, running the test suite,
+...). But the central point is that you will know, in real time, if your
+changes <em>still allow your code to run</em> or not. Another related service is
+<a href="https://coveralls.io/">coveralls</a> - it gives you an overview of which proportion of your code is
+covered by tests. These two services (TravisCI and coveralls) are automated,
+so you have nothing to do to make sure that you code run, and that it is
+covered by tests (except that coding well, and writing tests...). Both
+services will allow you to display little badges on your project page,
+so your <em>users</em> can have some confidence in your code.</p>
+
+<h1>A terrible way to showcase your work</h1>
+
+<p>One thing for which social coding platforms are <em>not</em> so good is showcasing
+your work. This is why I now have a <a href="http://timotheepoisot.fr/software/">software</a> page on this website. If you use
+<em>GitHub</em> to track of lot of things (and I do), what is important can often be
+buried beneath a pile of your active-but-not-yet-useful projects. And because
+the listing of your repositories is just the project name and a one-line
+description, it's not obvious what is important. So my recommendation if
+your want to give people a broad overview of what you have been up to,
+is to have a webpage with your projects, instead of just giving the URL to
+your <em>GitHub</em> account.</p>
+
+<hr />
+
+<p>And that's the way I use <code>git</code> in my everyday workflow. There is a bit of a
+learning curve, but you can learn (most of) <code>git</code> <a href="http://try.github.io/levels/1/challenges/1">in 15 minutes</a>. And
+it saves time in the long run, both because it simplifies some tedious tasks,
+and because it gives you a single formalism in which you can inscribe your
+daily activities.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2014/01/01/vim-writing-environment/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+   </div>
+</div>
+
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+   </div>
+</div>
+
+</div>
+
+</body>
+
+</html>

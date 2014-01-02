@@ -4,12 +4,157 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-01T18:25:38-05:00</updated>
+  <updated>2014-01-02T18:48:06-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Using git throughout your wokflow</title>
+     <link href="http://timotheepoisot.fr/2014/01/02/git-workflow/"/>
+    <updated>2014-01-02T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;There are good chances that I will give an introductory workshop to the many,
+many uses of &lt;code&gt;git&lt;/code&gt; for scientists in the next weeks. What follows is a series
+of notes about the things &lt;em&gt;I&lt;/em&gt; use &lt;code&gt;git&lt;/code&gt; for, which I will cover. In a way,
+this post is a list of all the possible ways to introduce &lt;code&gt;git&lt;/code&gt; into your
+workflow as a (computational) scientist. Some things are specific to &lt;code&gt;git&lt;/code&gt;
+as a protocol, some others to &lt;em&gt;GitHub&lt;/em&gt; as a platform. I will try to make
+the distinction clear.&lt;/p&gt;
+
+&lt;h1&gt;Tracking your code&lt;/h1&gt;
+
+&lt;p&gt;It would be tempting to discard this one if you are not mainly a computational
+scientist. Please don&#39;t. Even the simplest piece of code you write, the most
+basic &lt;code&gt;R&lt;/code&gt; function is a &lt;em&gt;central&lt;/em&gt; step in your workflow if it is responsible
+for transforming raw data into something you can show around (a figure,
+or a table). In the most fundamental way, &lt;code&gt;git&lt;/code&gt; is a way for you to track
+what you changed, and when. And you can &lt;em&gt;revert&lt;/em&gt; back to the previous state
+of your code if you want.&lt;/p&gt;
+
+&lt;p&gt;The most important feature of &lt;code&gt;git&lt;/code&gt; (in my opinion), and one that is shared
+with most versioning systems, is the ability to (i) give the reasons of
+a particular change, and (ii) see exactly what has been changed. See, for
+example, what happens after &lt;em&gt;adding&lt;/em&gt; a few lines of code:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;diff&quot;&gt;&lt;span class=&quot;gu&quot;&gt;@@ -50,6 +50,11 @@&lt;/span&gt;
+  #&amp;#39; }
+  tax_agg &amp;lt;- function(x, rank, db = &amp;#39;ncbi&amp;#39;, ...) 
+  {
+ +  if(is.matrix(x))
+ +  {
+ +    if(is.null(colnames(x))) stop(&amp;quot;The community data matrix must have named columns&amp;quot;)
+ +    x &amp;lt;- data.frame(x)
+ +  }
+    # bring to long format
+    x$rownames &amp;lt;- rownames(x)
+    df_m &amp;lt;- melt(x, id = &amp;#39;rownames&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If a change in your code breaks it, you can track the lines that where
+modified, and start looking here for possible bugs.&lt;/p&gt;
+
+&lt;h1&gt;Collaborative manuscript writing&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.scfbm.org/content/8/1/7&quot;&gt;Karthik Ram&lt;/a&gt; went over this point at large in its paper, so I will keep
+this point short. If you dread exchanging multiple versions of a paper over
+email, and fear the day where you will have to handle conflicting edits, or
+Word and OpenOffice will ruin your formatting, then look into &lt;code&gt;git&lt;/code&gt;. Although
+it requires that you use &lt;em&gt;different&lt;/em&gt; formats to write (&lt;code&gt;markdown&lt;/code&gt; or &lt;code&gt;LaTeX&lt;/code&gt;),
+the advantages are numerous (and yes, I count &lt;em&gt;not using Word&lt;/em&gt; as a &lt;em&gt;huge&lt;/em&gt;
+advantage). You will have the same opportunity to track precisely what is
+going on with a clear summary of the changes. And because &lt;code&gt;git&lt;/code&gt; handles
+several people working concurrently just fine, you can have a lot happening:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/gitnetwork.png&quot; title=&quot;Figure 1&quot; alt=&quot;Figure1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1&gt;Make replying to reviewers &lt;em&gt;easy&lt;/em&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://carlboettiger.info/2013/06/10/mansucript-reviews-on-github.html&quot;&gt;Carl Boettiger&lt;/a&gt; and &lt;a href=&quot;https://github.com/trvrb/flux/issues?page=1&amp;amp;state=closed&quot;&gt;Trevor Bedford&lt;/a&gt; (and I, for some papers) use
+&lt;em&gt;Issues&lt;/em&gt; as a way to handle reviewers comments. Issues are a paradigm taken
+straight from software development, where a problem in your code needs to
+be addressed. We make a point for the relevance of this metaphor in &lt;a href=&quot;https://github.com/PhDP/ms_scriptoria/blob/master/ms.md&quot;&gt;Phil&#39;s
+&lt;em&gt;in prep&lt;/em&gt; paper&lt;/a&gt; on the &lt;code&gt;scriptoria&lt;/code&gt; project. In short, you can
+attribute each point raised by a referee to an Issue. You can then assign
+Issues to people working on the manuscript, and track the progression of
+the replies. Because most issues tracking systems come with a &lt;em&gt;Milestones&lt;/em&gt;
+ability, you can assign all issues to the &lt;em&gt;Milestone&lt;/em&gt; &quot;First revision&quot;,
+and set a deadline at which all the issues have to be fixed.&lt;/p&gt;
+
+&lt;p&gt;As &lt;em&gt;GitHub&lt;/em&gt; allows you to reference &lt;em&gt;commits&lt;/em&gt; (&lt;em&gt;i.e.&lt;/em&gt; changes made to your
+code/paper), it is really easy to say, in the reply to each point, what you
+did to address it, and give a link to the &lt;code&gt;diff&lt;/code&gt; (&lt;em&gt;i.e.&lt;/em&gt; the list of all
+changes). Instead of replying things like &quot;&lt;em&gt;We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)&lt;/em&gt;&quot;, you can say &quot;&lt;em&gt;We changed
+the text in the following way, ..., see commit &lt;code&gt;e30b8e&lt;/code&gt;&lt;/em&gt;&quot;. &lt;em&gt;GitHub&lt;/em&gt; will take
+care of putting a link in place, and the reviewer can then see exactly which
+changes were made. As a final note on this point: it&#39;s obviously good practice
+to &lt;em&gt;ask&lt;/em&gt; the editor if s/he agrees with the reviews being put on &lt;em&gt;GitHub&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Give support to users&lt;/h1&gt;
+
+&lt;p&gt;The &lt;em&gt;Issues&lt;/em&gt; system works, obviously, for code. People using your code can
+suggest improvements, or report bug. It is also possible to contribute new
+code (through the &lt;em&gt;fork&lt;/em&gt;/&lt;em&gt;pull&lt;/em&gt; mechanism).&lt;/p&gt;
+
+&lt;p&gt;One of the things I enjoy in the &lt;em&gt;Issues&lt;/em&gt; system is that it can (when the
+people actually use it...) unclutter your mailbox. Instead of sending an email
+to report a bug, people can submit an issue. You will have a clear list of
+what to do, and then again, the ability to indicate exactly how you solved it.&lt;/p&gt;
+
+&lt;h1&gt;Release versions for publications&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;GitHub&lt;/em&gt; (and probably other platforms) comes with a &lt;em&gt;release&lt;/em&gt; mechanism. You
+can select one &lt;em&gt;commit&lt;/em&gt; and label it as something special (for example,
+the version of a code you used to do the analysis presented in a paper). In
+the context of manuscript writing, I use releases to identify major steps in
+the life of a paper: first preprint, update to the preprint, revised version,
+final revision, etc etc. You can see &lt;a href=&quot;https://github.com/tpoisot/ms_connectance_complexity/releases&quot;&gt;an example here&lt;/a&gt;. Reading through
+a large number of commits can be a bore, but quickly browsing a list of
+releases can give you a sense of when the important things happened. The
+release mechanism is also, of course, useful for code.&lt;/p&gt;
+
+&lt;h1&gt;Get confident in your code&lt;/h1&gt;
+
+&lt;p&gt;This is one of the features of &lt;em&gt;GitHub&lt;/em&gt; (and related tools) I hope to use more
+and more in the future. I started looking into &lt;a href=&quot;https://travis-ci.org/&quot;&gt;TravisCI&lt;/a&gt; a month
+or so ago, and I love it. In short, TravisCI is a &lt;em&gt;continuous integration&lt;/em&gt;
+system: each time you commit a change to your code, it will run a pre-specified
+series of steps to &lt;code&gt;build&lt;/code&gt; it, and tell you (and other people) whether it
+was a success or not. The list of instructions to build your project can be
+whatever you want (compiling the &lt;code&gt;LaTeX&lt;/code&gt; document, running the test suite,
+...). But the central point is that you will know, in real time, if your
+changes &lt;em&gt;still allow your code to run&lt;/em&gt; or not. Another related service is
+&lt;a href=&quot;https://coveralls.io/&quot;&gt;coveralls&lt;/a&gt; - it gives you an overview of which proportion of your code is
+covered by tests. These two services (TravisCI and coveralls) are automated,
+so you have nothing to do to make sure that you code run, and that it is
+covered by tests (except that coding well, and writing tests...). Both
+services will allow you to display little badges on your project page,
+so your &lt;em&gt;users&lt;/em&gt; can have some confidence in your code.&lt;/p&gt;
+
+&lt;h1&gt;A terrible way to showcase your work&lt;/h1&gt;
+
+&lt;p&gt;One thing for which social coding platforms are &lt;em&gt;not&lt;/em&gt; so good is showcasing
+your work. This is why I now have a &lt;a href=&quot;http://timotheepoisot.fr/software/&quot;&gt;software&lt;/a&gt; page on this website. If you use
+&lt;em&gt;GitHub&lt;/em&gt; to track of lot of things (and I do), what is important can often be
+buried beneath a pile of your active-but-not-yet-useful projects. And because
+the listing of your repositories is just the project name and a one-line
+description, it&#39;s not obvious what is important. So my recommendation if
+your want to give people a broad overview of what you have been up to,
+is to have a webpage with your projects, instead of just giving the URL to
+your &lt;em&gt;GitHub&lt;/em&gt; account.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;And that&#39;s the way I use &lt;code&gt;git&lt;/code&gt; in my everyday workflow. There is a bit of a
+learning curve, but you can learn (most of) &lt;code&gt;git&lt;/code&gt; &lt;a href=&quot;http://try.github.io/levels/1/challenges/1&quot;&gt;in 15 minutes&lt;/a&gt;. And
+it saves time in the long run, both because it simplifies some tedious tasks,
+and because it gives you a single formalism in which you can inscribe your
+daily activities.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Using Vim as a writing environment</title>
@@ -2145,14 +2290,6 @@ extremely connected, and extremely sparse networks, is small, so both are
 extremely constrained. Finally, sparse networks are difficult to generate if you
 want all species to be connected. In short, if you want 1000 null replicates,
 you&#39;ll need to run a lot more trials than that.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>The structure of natural bacteria-phage networks</title>
-     <link href="http://timotheepoisot.fr/2013/05/30/bacteria-soil-networks/"/>
-    <updated>2013-05-30T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;Freedom! The final chapter of my thesis is now online on the website of &lt;a href=&quot;http://www.ecologicalprocesses.com/content/2/1/13/abstract&quot;&gt;&lt;em&gt;Ecological Processes&lt;/em&gt;&lt;/a&gt;. We use data form a field isolated bacteria-phage system to have a network approach of the specialist-generalist coexistence problem. The main result is that, even when controlling for phylogenetic dispersal of hosts, it&#39;s better to be a generalist. This signal is highly consistent across the five networks we studied, and goes in the way of recent results on coevolution: if you let a system coevolve long enough, it&#39;s expected that generalists will emerge.&lt;/p&gt;
 </content>
   </entry>
   
