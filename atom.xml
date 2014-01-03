@@ -4,7 +4,7 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-02T18:48:06-05:00</updated>
+  <updated>2014-01-02T19:22:50-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
@@ -12,7 +12,7 @@
   </author>
   
   <entry>
-     <title>Using git throughout your wokflow</title>
+     <title>Using git throughout your workflow</title>
      <link href="http://timotheepoisot.fr/2014/01/02/git-workflow/"/>
     <updated>2014-01-02T00:00:00-05:00</updated>
     <content type="html">&lt;p&gt;There are good chances that I will give an introductory workshop to the many,
