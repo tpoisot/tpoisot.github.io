@@ -4,12 +4,77 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-02T19:22:50-05:00</updated>
+  <updated>2014-01-03T12:56:12-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Understanding the variation of species interactions</title>
+     <link href="http://timotheepoisot.fr/2014/01/03/variation-species-interactions/"/>
+    <updated>2014-01-03T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;I spent most of the last two years thinking about &lt;em&gt;why&lt;/em&gt; species interaction
+vary over time and space. The trouble is that, even though we have some
+methodological tools, and some interesting observations, we lack a solid
+framework to make sense of it all. So we (I, &lt;a href=&quot;http://www.stoufferlab.org/people/stouffer/&quot;&gt;Daniel Stouffer&lt;/a&gt; and
+&lt;a href=&quot;http://chaire-eec.uqar.ca/&quot;&gt;Dominique Gravel&lt;/a&gt;) started thinking about the mechanisms involved
+in the variation of species interactions. The paper is now available &lt;a href=&quot;http://biorxiv.org/content/early/2014/01/03/001677&quot;&gt;as
+a preprint&lt;/a&gt; on &lt;em&gt;bioRxiV&lt;/em&gt; (the upload process is really smooth,
+by the way), and will be submitted shortly.&lt;/p&gt;
+
+&lt;p&gt;Interestingly, understanding why species interactions vary require that we
+focus on &lt;em&gt;populations&lt;/em&gt;, rather than &lt;em&gt;species&lt;/em&gt;. Most of our argument is that
+interactions vary because (i) local abundances change, and (ii) there is local
+variation in traits distributions. &lt;span class=&quot;margin&quot;&gt;Gravel &lt;em&gt;et al.&lt;/em&gt; (2013)
+Methods Ecol Evol &lt;a href=&quot;http://dx.doi.org/10.1111/2041-210X.12103&quot;&gt;DOI&lt;/a&gt;&lt;/span&gt;And so inferences
+at the level of the species (such as we made using body size in food webs)
+will give you an idea of what &lt;em&gt;can&lt;/em&gt; happen (regionally), but the observed
+interactions (locally) will likely be different. The important point is that,
+assuming we want to predict ecosystem properties from network structure,
+it&#39;s not really wise to &lt;em&gt;assume&lt;/em&gt; that interactions happen, because whether
+they will happen or not depends, again, on local conditions.&lt;/p&gt;
+
+&lt;p&gt;So whereas the &quot;current&quot; view of interaction networks is &lt;em&gt;a matrix of 0s
+and 1s telling whether two species interact&lt;/em&gt;, it would make sense that we
+think about these networks in terms of probability that the interaction
+will happen. The interesting thing is that once everything is put together,
+we are left with something that is close to a predictive framework:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+P(i \rightarrow j) \propto \mathcal{T}(i,j) \times \mathcal{N}(i, j) + \epsilon
+&lt;/script&gt;
+
+
+&lt;p&gt;, or in other words, the probability that &lt;em&gt;i&lt;/em&gt; and &lt;em&gt;j&lt;/em&gt; interact depends
+on their traits (&lt;em&gt;T&lt;/em&gt;) and local abundances (&lt;em&gt;N&lt;/em&gt;). With a good assumption
+about the shape of the &lt;em&gt;T&lt;/em&gt; and &lt;em&gt;N&lt;/em&gt; functions, which can be informed by some
+observations in the field, then it should be possible to extrapolate the
+probability than any pair of species will interact.&lt;/p&gt;
+
+&lt;p&gt;As we discuss at length in the paper, this has some nice implications for
+a very active line of research in biogeography, which seeks to integrate
+species interactions into predictive models of species distribution. So if
+you want to read more, here is the abstract, and the &lt;a href=&quot;http://biorxiv.org/content/early/2014/01/03/001677&quot;&gt;full text&lt;/a&gt;
+is available online:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Community ecology is tasked with the considerable challenge of predicting the
+structure, and properties, of emerging ecosystems. It requires the ability to
+understand how and why species interact, as this will allow the development
+of mechanism-based predictive models, and as such to better characterize
+how ecological mechanisms act locally on the existence of inter-specific
+interactions. Here we argue that the current conceptualization of species
+interaction networks is ill-suited for this task. Instead, we propose that
+future research must start to account for the intrinsic variability of
+interaction networks. This can be accomplished simply by recognizing that
+there exists intra-specific variability, in traits or properties related
+to the establishment of species interactions. By shifting the scale towards
+population-based processes, we show that this new approach will improve our
+predictive ability and mechanistic understanding of how species interact
+over biogeographical scales.&lt;/p&gt;&lt;/blockquote&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Using git throughout your workflow</title>
@@ -2154,142 +2219,6 @@ turning &lt;a href=&quot;http://timotheepoisot.fr/2013/06/19/notes-on-network-co
 adventurous journal. Let&#39;s give us a place to write short notes, so that the
 active debates are &lt;em&gt;documented&lt;/em&gt;, no matter what the number of people debating
 is. What do you think?&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>A note on network complexity</title>
-     <link href="http://timotheepoisot.fr/2013/06/19/notes-on-network-complexity/"/>
-    <updated>2013-06-19T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;I have seen the word &lt;em&gt;complexity&lt;/em&gt; used to mean approximately anything in
-ecological network litterature, and to be  extremely honest, I&#39;m entirely guilty
-of that myself. We can probably find as many uses for &lt;em&gt;complexity&lt;/em&gt; in the
-network litterature as there are uses for &lt;em&gt;paradigm&lt;/em&gt; in Thomas Kuhn&#39;s &lt;em&gt;The
-Structure of Scientific Revolutions&lt;/em&gt; (which is to say, probbaly way too much,
-and certainly enough to confuse people). It&#39;s getting bad enough that some
-of us (and again, I&#39;m probably guilty of that) use &lt;em&gt;complex network&lt;/em&gt; any time we
-should just say &lt;em&gt;network&lt;/em&gt;. Or &lt;em&gt;species-rich network&lt;/em&gt; (which we can argue is not
-necessarily complex), or &lt;em&gt;densely connected network&lt;/em&gt; (same thing).&lt;/p&gt;
-
-&lt;div class=&quot;alert alert-info&quot;&gt;
-&lt;h4&gt;Warning!&lt;/h4&gt;
-This was supposed to be a short post. It&#39;s not. Unless you are terribly interested in networks, you can safely skip this one. If you have an eye for statistics, please read through, there are likely mistakes to correct...&lt;/div&gt;
-
-
-&lt;p&gt;Consider this post my humble attempt to clarify things. The thing is, networks
-are physically constrained, in that you can&#39;t put more edges in them than the
-number of nodes will allow. In ecological terms, a predator won&#39;t eat a prey
-more than once. So for example, one could argue that a very densely connected
-network is not complex. The &lt;em&gt;dynamics of the community&lt;/em&gt; probably will be, but
-the network in itself has no exceptional properties to speak of. In the same
-line of thinking, a minimally connected network is simple as well. It can have
-1000 species in a linear chain, that won&#39;t give it any properties worth being
-excited about (in terms of topology that is, because a super-long food chain is
-pretty exciting by itself).&lt;/p&gt;
-
-&lt;p&gt;So let&#39;s start this way. What are the lower and upper bounds of the number of
-links you can put in a network made of a given number of species? The key issue
-is that there should be no species with a degree of 0, which is to say
-everything should have at least one partner. To keep things simple, we&#39;ll assume
-that we work on binary undirected adjacency matrices, with no self-loops.
-Finding the lower bound is simple enough. If you want a strongly connected
-graph, so that you can reach any node from any other node by travelling along
-edges, the minimal number of edges if you have N nodes is simply N-1. If you
-don&#39;t care about your graph being strongly connected, then the minimal number of
-edges is (N+1)/2 if N is odd, and N/2 if N is even.&lt;/p&gt;
-
-&lt;p&gt;Whether you care or not about the graph being strongly connected, the maximal
-number of edges in a graph with N nodes, &lt;em&gt;i.e.&lt;/em&gt; a complete graph, is N(N-1)/2.
-This is a starting point: for any number of N species, we can predict the
-interval in which the number of interactions will fall. Now, keep in mind that
-(species indentity nonwithstanding), there is only one way to have a complete
-graph, and only one way to have the minimally connected graph. This is a cool
-thing right here: most of the action will happen for intermediate number of
-edges within the range! And a thing that serves our purpose: the maximal number
-of edges is the maximal number of &quot;slots&quot; that we can fill with edges. This
-becomes a quite simple combination problem.&lt;/p&gt;
-
-&lt;p&gt;So here is an interesting questions: knowing N, and a number of edges L, how
-many different graphs can I produce? This is simple enough to solve, we just
-need to calculate how many ways there are to put L elements in N(N-1)/2
-elements. Let&#39;s call M the maximal number of edges, and the solution to this
-problem is simply M!/(L!(M-L)!), which we will note C(M,L). For example, with
-4 nodes, the maximal number of edges M is 6. How many ways are there to
-distribute 5 edges between 4 nodes? Using the formula above, we get 6.&lt;/p&gt;
-
-&lt;p&gt;But that&#39;s not quite the original problem: among these 6 combinations, how many
-of them leave at least one node unconnected? It took me a while to figure out
-the rather simple solution. In the simple system with 4 species, and 5 edges, if
-we assume that one species has no connection, then we will look for the number
-of combinations of 5 edges, in the maximal number of edges allowed by 3 nodes.
-With three nodes, there is at most 3 edges, and as it turns out, it&#39;s impossible
-to make 5 edges fit in only 3 slots. So with this simple exercice, we can say
-that there are 6 different networks of 5 edges and 4 nodes that have no
-unconnected nodes.&lt;/p&gt;
-
-&lt;p&gt;Let&#39;s now try a slightly more complicated (noticed how I didn&#39;t wrote &lt;em&gt;complex&lt;/em&gt;?
-Good.) situation. Assuming 5 nodes, we will have between 3 and 10 edges.
-A very interesting question is: if I have 3 edges to distribute in this network,
-how many combinations can I do with no unconnected edges? C(10,3) gives 120 of
-them. But, we need to account for the fact that some of these combinations
-will result in nodes having no edges. Specifically, there are 20 ways to
-distribute 3 edges in a 4 node network. Note that these 20 ways also include
-all the possible combinations of 3 edges in a 3 nodes network, so just
-counting the number of networks connecting at most N-1 is good. So here is the
-routine: removing one node, how many combination can I make with the same
-number of edges? The answer is simply the number of times I can distribute
-L edges in a network of size N-1. In our example, as stated above, this is 20.
-But we need to do that for &lt;em&gt;each&lt;/em&gt; node in the network, so there are actually
-100 (5 times 20) combinations we need to remove. This left us with only 20
-&quot;good&quot; networks.&lt;/p&gt;
-
-&lt;p&gt;Let&#39;s wrap things up. If we call m(N) the mininal number of edges in a network
-of N nodes, and M(N) the maximal number of edges in the same network, and C(X,L)
-the number of ways to distribute L edges in X possible edges configurations,
-then we can calculate the number of networks with N links and L edges for
-which no node is unconnected. This is quite simply C(M(N),L)-N*C(M(N-1),L),
-and we will call this R(N,L). You may not realize it yet, but this actually
-quite cool. What does it means for complexity? Well, that   a network with
-a given number of species will be more or less constrained in the diversity of
-structure it can adopt, as a function of the number of interactions.&lt;/p&gt;
-
-&lt;p&gt;It is actually easy to measure the amount to which a network is constrained.
-Simply dividing R(N,L) by C(N,L) will give an idea of how difficult is is to
-find a network with no free nodes given N and L. There are important
-applications, like predicting the time needed to generate null models of network
-structure. But also, we can ask how many &lt;em&gt;different&lt;/em&gt; networks we will be able to
-generate for a given network size.&lt;/p&gt;
-
-&lt;p&gt;I ran some simple tests using 10 nodes, and here is what happenned.&lt;/p&gt;
-
-&lt;p&gt;First, the size of the &quot;network space&quot; is hump-shaped, which means that for
-intermediate number of links, you have much more work to do if you want to
-explore the possible configurations that your network can take. Things seems to
-be &lt;em&gt;more&lt;/em&gt; complex (or at least have more potential for complexity) at
-intermediate connectance values.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/netspacedistrib.png&quot; title=&quot;Figure 1&quot; alt=&quot;Figure1&quot; /&gt;
-Note that the number of networks with no free nodes is, all things considered,
-quite close to the whole network space, so you&#39;ll have to be quite unlucky
-not to have all nodes connected. But how strong exactly is the constraint
-on network structure? Let&#39;s measure 1 minus the ratio of networks having no
-free nodes:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/netspaceconstraint.png&quot; title=&quot;Figure 2&quot; alt=&quot;Figure2&quot; /&gt;
-Quite simply, it shows that when the networks are not strongly connected, you
-have a lot of chance to pick at random a network in which nodes are not
-connected. This has important consequences for the geenration of null models: it
-is &lt;em&gt;extremely difficult&lt;/em&gt; to generate random networks based on large, sparsely
-connected networks. You know what is large and sparsely connected? All
-ecological networks. Yeah!&lt;/p&gt;
-
-&lt;p&gt;So, it&#39;s time to wrap things up. First, networks have more potential for
-complexity when the connectance takes on intermediate values. That&#39;s a cool
-little piece of information with some ecological potential. Second, the space of
-extremely connected, and extremely sparse networks, is small, so both are
-extremely constrained. Finally, sparse networks are difficult to generate if you
-want all species to be connected. In short, if you want 1000 null replicates,
-you&#39;ll need to run a lot more trials than that.&lt;/p&gt;
 </content>
   </entry>
   

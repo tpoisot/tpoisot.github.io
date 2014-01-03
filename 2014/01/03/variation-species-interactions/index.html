@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Understanding the variation of species interactions</title>
+    
+</head>
+
+<body>
+
+<div id="main">
+
+
+<div class="header">
+   <div class="row">
+   <div class="navigation">
+      <div class="contain-to-grid">
+
+<nav class="top-bar" data-topbar>
+
+<ul class="title-area">
+	<li class="name">
+		<h1><a href="#">Blog</a></h1>
+	</li>
+</ul>
+
+<section class="top-bar-section">
+	<!-- Right Nav Section -->
+	<ul class="right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/papers/">Papers</a></li>
+		<li><a href="/software/">Software</a></li>
+		<li><a href="/research/">Research</a></li>
+		<li class="active"><a href="/blog/">Blog</a></li>
+	</ul>
+</section>
+
+</nav>
+
+</div>
+
+
+   </div>
+      <div class="large-12"><h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+</div>
+   </div>
+</div>
+
+<div class="row content">
+   <div class="large-12 columns">
+   <div class='post'>
+<h1>Understanding the variation of species interactions</h1>
+
+<div class="postinfo">
+
+January  3, 2014 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">species interactions</span><span class="label radius small" style="margin-right: 3px;">beta-diversity</span>
+
+
+</div>
+
+<p>I spent most of the last two years thinking about <em>why</em> species interaction
+vary over time and space. The trouble is that, even though we have some
+methodological tools, and some interesting observations, we lack a solid
+framework to make sense of it all. So we (I, <a href="http://www.stoufferlab.org/people/stouffer/">Daniel Stouffer</a> and
+<a href="http://chaire-eec.uqar.ca/">Dominique Gravel</a>) started thinking about the mechanisms involved
+in the variation of species interactions. The paper is now available <a href="http://biorxiv.org/content/early/2014/01/03/001677">as
+a preprint</a> on <em>bioRxiV</em> (the upload process is really smooth,
+by the way), and will be submitted shortly.</p>
+
+<p>Interestingly, understanding why species interactions vary require that we
+focus on <em>populations</em>, rather than <em>species</em>. Most of our argument is that
+interactions vary because (i) local abundances change, and (ii) there is local
+variation in traits distributions. <span class="margin">Gravel <em>et al.</em> (2013)
+Methods Ecol Evol <a href="http://dx.doi.org/10.1111/2041-210X.12103">DOI</a></span>And so inferences
+at the level of the species (such as we made using body size in food webs)
+will give you an idea of what <em>can</em> happen (regionally), but the observed
+interactions (locally) will likely be different. The important point is that,
+assuming we want to predict ecosystem properties from network structure,
+it's not really wise to <em>assume</em> that interactions happen, because whether
+they will happen or not depends, again, on local conditions.</p>
+
+<p>So whereas the "current" view of interaction networks is <em>a matrix of 0s
+and 1s telling whether two species interact</em>, it would make sense that we
+think about these networks in terms of probability that the interaction
+will happen. The interesting thing is that once everything is put together,
+we are left with something that is close to a predictive framework:</p>
+
+<script type="math/tex; mode=display">
+P(i \rightarrow j) \propto \mathcal{T}(i,j) \times \mathcal{N}(i, j) + \epsilon
+</script>
+
+
+<p>, or in other words, the probability that <em>i</em> and <em>j</em> interact depends
+on their traits (<em>T</em>) and local abundances (<em>N</em>). With a good assumption
+about the shape of the <em>T</em> and <em>N</em> functions, which can be informed by some
+observations in the field, then it should be possible to extrapolate the
+probability than any pair of species will interact.</p>
+
+<p>As we discuss at length in the paper, this has some nice implications for
+a very active line of research in biogeography, which seeks to integrate
+species interactions into predictive models of species distribution. So if
+you want to read more, here is the abstract, and the <a href="http://biorxiv.org/content/early/2014/01/03/001677">full text</a>
+is available online:</p>
+
+<blockquote><p>Community ecology is tasked with the considerable challenge of predicting the
+structure, and properties, of emerging ecosystems. It requires the ability to
+understand how and why species interact, as this will allow the development
+of mechanism-based predictive models, and as such to better characterize
+how ecological mechanisms act locally on the existence of inter-specific
+interactions. Here we argue that the current conceptualization of species
+interaction networks is ill-suited for this task. Instead, we propose that
+future research must start to account for the intrinsic variability of
+interaction networks. This can be accomplished simply by recognizing that
+there exists intra-specific variability, in traits or properties related
+to the establishment of species interactions. By shifting the scale towards
+population-based processes, we show that this new approach will improve our
+predictive ability and mechanistic understanding of how species interact
+over biogeographical scales.</p></blockquote>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2014/01/02/git-workflow/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+   </div>
+</div>
+
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+   </div>
+</div>
+
+</div>
+
+</body>
+
+</html>
