@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
 
@@ -95,7 +58,7 @@ away.</p>
 <p>Only this time, I wanted to understand what was happening, and to fix it as much
 as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts
 PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions
-will generate 1.7 or 1.8, so it's obviously not going to work (but on the
+will generate 1.7 or 1.8, so it&#39;s obviously not going to work (but on the
 up-side, it will give you one of the most depressing and amusing error
 message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
 
@@ -104,14 +67,13 @@ message ever: your PDF file cannot be converted in the correct PDF format). So t
 <div class="highlight"><pre><code class="latex"><span class="k">\pdfminorversion</span>=4
 </code></pre></div>
 
-
 <p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained
-<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That's one additional command, which is not needed in most other situations, but that's one way to fix it.</p>
+<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That&#39;s one additional command, which is not needed in most other situations, but that&#39;s one way to fix it.</p>
 
 <p>There is a second workaround, which is to compile with <code>latex</code> instead of
-<code>pdflatex</code> (haven't tested this one, but it should work), then upload the whole
+<code>pdflatex</code> (haven&#39;t tested this one, but it should work), then upload the whole
 dependencies when you submit. Note that your figures needs be <code>eps</code> for this to
-work, and you'll probably be limited by the packages installed on the remote
+work, and you&#39;ll probably be limited by the packages installed on the remote
 server, the list of which is not known. The <em>Methods in Ecology and Evolution</em>
 staff was extremely quick in pointing that out after I raised the issue on
 Twitter, so a big thank you to them.</p>
@@ -123,7 +85,6 @@ ps2pdf13 ms.ps ps.pdf
 rm ms.ps
 </code></pre></div>
 
-
 <p>Very simply put, that will convert your pdf into a postscript file, then convert
 it into a PDF 1.3 file, that can be uploaded with no problems. You can just add
 that to a <code>makefile</code>, by the way:</p>
@@ -133,7 +94,6 @@ that to a <code>makefile</code>, by the way:</p>
     ps2pdf13 ms.ps ms_mc.pdf
     rm ms.ps
 </code></pre></div>
-
 
 <p>Once your paper is ready, a simple <code>make mc</code> will create a <code>ms_mc.pdf</code> file,
 which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.</p>
@@ -174,6 +134,23 @@ which is suitable for upload. So here you go, happy upload to all of you, and ma
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

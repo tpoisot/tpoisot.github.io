@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>Collaborating with markdown and bibtex</h1>
+  <div class="postinfo">November 10, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">bibtex</span><span class="label radius small" style="margin-right: 3px;">scholarly markdown</span><span class="label radius small" style="margin-right: 3px;">python</span></div>
+  <p>
+    The single most annoying issue when using pandoc to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it&#39;s having several bibtex files all over the place. And I&#39;m can&#39;t be bothered to keep &quot;Collections&quot; or separate folders in Zotero. So clearly, I had to code my way out of this one. The good thing of using pandoc is that the citation syntax is remarkably simple: @key. It means that using a simple...
+  </p>
+<a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>Notes on test-driven development (in Python)</h1>
   <div class="postinfo">November  4, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">scientific software</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">open lab book</span></div>
   <p>
-    I'm looking into the methodology of test-driven development, that is when you write your tests before writing your code. The advertised benefit is that you know in advance the behavior of your code, and it will make it easier to implement and debug. This paper at O'Reilly is a good introduction (although the exact functions of unittest it uses are now deprecated). To get started, I'll work on a simple script that takes a series of numerical values, and divide...
+    I&#39;m looking into the methodology of test-driven development, that is when you write your tests before writing your code. The advertised benefit is that you know in advance the behavior of your code, and it will make it easier to implement and debug. This paper at O&#39;Reilly is a good introduction (although the exact functions of unittest it uses are now deprecated). To get started, I&#39;ll work on a simple script that takes a series of numerical values, and divide them by their max, to get the equivalent series of values but in [0;1]. Let&#39;s start with the basics: import...
   </p>
 <a class="readmore" href="/2013/11/04/test-driven-python/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>Why should Ecology be open?</h1>
   <div class="postinfo">November  3, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span></div>
   <p>
-    There are a lot of extremely good arguments to defend the fact that Science (as a whole) should be more open. To summarize them very roughly: it's the ethical thing to do as it allows everyone to access information, it's easier for scientists to access information, it's faster than the traditional peer-review system when you need to get your work noticed, and it's much less expensive than closed-source science. I could also elaborate on transparency, accountability, and the refusal to...
+    There are a lot of extremely good arguments to defend the fact that Science (as a whole) should be more open. To summarize them very roughly: it&#39;s the ethical thing to do as it allows everyone to access information, it&#39;s easier for scientists to access information, it&#39;s faster than the traditional peer-review system when you need to get your work noticed, and it&#39;s much less expensive than closed-source science. I could also elaborate on transparency, accountability, and the refusal to put a wall around knowledge for a while as well. In short, I&#39;m yet to find an argument that would...
   </p>
 <a class="readmore" href="/2013/11/03/open-ecology/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>The (French) paradox of Closed Open Access</h1>
   <div class="postinfo">November  2, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open access</span><span class="label radius small" style="margin-right: 3px;">academic publishing</span></div>
   <p>
-    The OpenAccessWeek in France generated a huge backlash, mostly owing to the identity of the organizer. This edition was organized by the for profit "scientific social network" MyScienceWork (I'm not going to link them). My Science Work (MSW henceforth) is a social network in which people can... well, you know what a social network is. This one is yet another social network for scientists, much like Academia.edu and ResearchGate. I don't care all that much about these tools. Let's summarize...
+    The OpenAccessWeek in France generated a huge backlash, mostly owing to the identity of the organizer. This edition was organized by the for profit &quot;scientific social network&quot; MyScienceWork (I&#39;m not going to link them). My Science Work (MSW henceforth) is a social network in which people can... well, you know what a social network is. This one is yet another social network for scientists, much like Academia.edu and ResearchGate. I don&#39;t care all that much about these tools. Let&#39;s summarize the situation. The French OpenAccesWeek was organized by My Science Work, and got backed up by several public organisms involved...
   </p>
 <a class="readmore" href="/2013/11/02/my-science-work/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>Mapping ecological concepts using twitter</h1>
   <div class="postinfo">October 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">twitter</span><span class="label radius small" style="margin-right: 3px;">social networks</span></div>
   <p>
-    I've been setting up a Twitter account for the French Ecological Society, and while we currently use it as a tool to relay the various informations we want to share, it's also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the "general public" as far as ecology is concerned, so I had to...
+    I&#39;ve been setting up a Twitter account for the French Ecological Society, and while we currently use it as a tool to relay the various informations we want to share, it&#39;s also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the &quot;general public&quot; as far as ecology is concerned, so I had to look for another solution. Twitter offers a series of Streaming API, which allows to &quot;listen&quot; to the conversation, by tracking...
   </p>
 <a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>An additive partition of species-level specificity</h1>
-  <div class="postinfo">October 15, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">specificity</span><span class="label radius small" style="margin-right: 3px;">methodology</span><span class="label radius small" style="margin-right: 3px;">metrics</span><span class="label radius small" style="margin-right: 3px;">open lab book</span></div>
-  <p>
-    A while ago, we published a paper in Methods in Ecology &amp; Evolution, comparing different ways to estimate ecological specificity on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array P of its performances across R different environments, which is (1) sorted decreasingly, and (2) ranged so that P[1] = 1. In this paper, we recommend to use either RR...
-  </p>
-<a class="readmore" href="/2013/10/15/specificity-range-measures/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

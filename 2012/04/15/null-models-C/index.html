@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Null models of bipartite networks in C</h1>
 
@@ -84,16 +47,15 @@ April 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="
 
 </div>
 
-<p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
+<p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I&#39;m currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
 
-<p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It's super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
+<p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It&#39;s super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
 
 <div class="highlight"><pre><code class="bash">chmod +x configure
 ./configure
 make
 sudo make install
 </code></pre></div>
-
 
 <p>Once this is done, compile the null model generator using <code>gcc nulls.c -o nm -lgsl -lgslcblas -O3 -DHAVE_INLINE</code>, and run in using <code>./nm test.txt 3 7 1000 2000</code>. The arguments are, in order of appearance, a binary file containing the adjacency matrix (0/1) of the network, the number of columns, the number of sums, the number of random networks to do, and finally, the number of iterations after which to stop, no matter how many webs were succesfully created.</p>
 
@@ -139,6 +101,23 @@ sudo make install
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

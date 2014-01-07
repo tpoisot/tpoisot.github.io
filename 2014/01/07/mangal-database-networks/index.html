@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Introducing mangal, a database for ecological networks</title>
+    
+</head>
+
+<body>
+<a id="top"></a>
+<div id="main">
+
+<div class="row content">
+   <div class="large-9 small-10 columns maintext">
+   <div class='post'>
+<h1>Introducing mangal, a database for ecological networks</h1>
+
+<div class="postinfo">
+
+January  7, 2014 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">R</span><span class="label radius small" style="margin-right: 3px;">mangal</span><span class="label radius small" style="margin-right: 3px;">ecological networks</span>
+
+
+</div>
+
+<p>Working with data on ecological networks is usually a huge mess. Most of the
+time, what you have is a series of matrices with <code>0</code> and <code>1</code>, and in the best
+cases, another file with some associated metadata. The other issue is that,
+simply put, data on ecological networks are hard to get. The <a href="http://www.nceas.ucsb.edu/interactionweb/"><em>Interaction Web
+Database</em></a> has some, but it&#39;s not as actively maintained as it should,
+and the data are not standardized in any way. When you need to pull a lot
+of networks to compare them, it means that you need to go through a long,
+tedious, and error-prone process of cleaning and preparing the data. It
+should not be that way, and that is the particular problem I&#39;ve been trying
+to solve since this spring.</p>
+
+<p>About a year ago, I discussed why <a href="http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/">we should have a common language</a>
+to represent interaction networks. So with this idea in mind, and with
+great feedback from colleagues, I assembled a series of <code>JSON</code> schemes to
+represent networks, in a way that will allow programmatic interaction with the
+data. And I&#39;m now super glad to announce that I am looking for beta-testers,
+before I release the tool in a formal way. This post is the first part of a
+series of two or three posts, which will give informations about the project,
+how to interact with the database, and how to contribute data. I&#39;ll probably
+try to write a few use-cases, but if reading these posts inspire you, feel
+free to suggest some!</p>
+
+<h1>So what is that about?</h1>
+
+<p><code>mangal</code> (another word for a mangrove, and a type of barbecue) is a way to
+represent and interact with networks in a way that is (i) relatively easy and
+(ii) allows for powerful analyses. It&#39;s built around a data format, <em>i.e.</em>
+a common language to represent ecological networks. You can have an overview
+of the data format <a href="http://mangal.uqar.ca/doc/spec/">on the website</a>. The data format was conceived with
+two ideas in mind. First, it must makes sense from an ecological point of
+view. Second, it must be easy to use to exchange data, send them to database,
+and get them through APIs. Going on a website to download a text file (or
+an Excel one) should be a thing of the past, and the data format is built
+around the idea that everything should be done in a programmatic way.</p>
+
+<p>Very importantly, the data specification explains how data should be formatted
+when they are <em>exchanged</em>, not when they are used. The <code>R</code> package, notably,
+uses <code>igraph</code> to manipulate networks. It means that anyone with a database
+of ecological networks can write an API to expose these data in the <code>mangal</code>
+format, and in turn, anyone can access the data with the URL of the API as
+the only information.</p>
+
+<p>Because everyone uses <code>R</code>, as I&#39;ve mentionned above, we are also releasing
+a <code>R</code> package (unimaginatively titled <code>rmangal</code>). You can <a href="https://github.com/mangal-wg/rmangal">get it from
+<em>GitHub</em></a>, and we&#39;ll see in a minute how to install it until it
+is released on CRAN. Most of these posts will deal with how to use the <code>R</code>
+package, and what can be done with it. Ideally, you won&#39;t need to go on the
+website <em>at all</em> to interact with the data (but just to make sure you do, the
+website has some nice eye-candy, with clickable maps and animated networks).</p>
+
+<h1>Things to know before getting started</h1>
+
+<p>As I&#39;ve mentionned above, I&#39;m looking for people to give the database
+and package a test before I move on with the release. A <strong>very important
+point</strong> is that, because this is a testing period, the database will be
+emptied quiet frequently. So do not share what you put on the database at
+the moment. Basically, until the first version of the <code>rmangal</code> package hits
+CRAN, consider that all data may be wiped at any moment.</p>
+
+<h2>The necessary R packages</h2>
+
+<p>The <code>rmangal</code> package requires a few others things to work with (but if you
+are using any of the <a href="http://ropensci.org/">rOpenSci</a> packages, chances are you already
+have most of them. In any case, the installation will take care of getting
+any required dependencies, so install <code>devtools</code> if you don&#39;t have it, and run:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">options<span class="p">(</span>stringsAsFactors <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="kr">if</span> <span class="p">(</span>getOption<span class="p">(</span><span class="s">&quot;unzip&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span> options<span class="p">(</span>unzip <span class="o">=</span> <span class="s">&quot;unzip&quot;</span><span class="p">)</span>
+library<span class="p">(</span>devtools<span class="p">)</span>
+install_github<span class="p">(</span><span class="s">&quot;rmangal&quot;</span><span class="p">,</span> <span class="s">&quot;mangal-wg&quot;</span><span class="p">)</span>
+library<span class="p">(</span>rmangal<span class="p">)</span>
+</code></pre></div>
+<p>This will pull the most recent version from the <em>GitHub</em> repository of the
+package, so it&#39;s a good idea to run that at the beginning of each session.</p>
+
+<h2>How to report problems and suggest improvements</h2>
+
+<p>The best place to report problems is the <a href="https://github.com/mangal-wg/rmangal/issues">Issues page</a> of the <code>rmangal</code>
+repository. Suggestions of improvements are particularly welcome. The code
+for the API is not open-sourced at the moment, because I have a fair amount
+of work to do to make it easy to install.</p>
+
+<h2>How to get more informations?</h2>
+
+<p>In the <a href="https://github.com/mangal-wg/rmangal/tree/master/vignettes">repository of the package</a>, there is a series of (in progress)
+vignettes. They give a little bit more background on what is going on.</p>
+
+<h1>Getting data from R</h1>
+
+<p>OK, let&#39;s get started!</p>
+
+<p>The <em>first</em> thing you have to do is create a <code>R</code> object with
+the URL of the API you want to connect to. By default, this is
+<code>http://mangal.uqar.ca/api/v1/</code>. Note that there are arguments for username
+and password, but we&#39;ll get to those in the second post.</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">api <span class="o">&lt;-</span> mangalapi<span class="p">()</span>
+names<span class="p">(</span>api<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##  [1] &quot;base&quot;        &quot;trail&quot;       &quot;dataset&quot;     &quot;environment&quot; &quot;interaction&quot;
+##  [6] &quot;item&quot;        &quot;network&quot;     &quot;population&quot;  &quot;reference&quot;   &quot;taxa&quot;       
+## [11] &quot;trait&quot;       &quot;user&quot;
+</code></pre></div>
+<p>The <code>names</code> options is a list of all of the properties of the API. Aside from <code>base</code> and <code>trail</code> (and if you are logged-in, <code>me</code> and <code>auth</code>), they all resources you can interact with. For example</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">api<span class="o">$</span>taxa
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## $url
+## [1] &quot;http://mangal.uqar.ca/api/v1/taxa/&quot;
+## 
+## $verbs
+## [1] &quot;get&quot;   &quot;post&quot;  &quot;patch&quot;
+</code></pre></div>
+<p>This gives you two informations. First, the URL to do anything related with taxa (<code>api$taxa$url</code>), and the versb you can use. Verbs are a way to represent actions when talking to a server. I&#39;m not going to go into much details at this point, but here is the gist: <code>get</code> will retrieve information, <code>post</code> will add it, and <code>patch</code> will modify it. Butyou don&#39;t have to know any of that to use the package.</p>
+
+<p>The functions to interact with the data in <code>rmangal</code> are all following a naming convention: first the action, then the type of object. The actions are <code>list</code> and <code>get</code> (and <code>add</code> and <code>patch</code>, which we&#39;ll see in the next post), and the type of objects are what was returned by <code>names(api)</code>, with the first letter capitalized.</p>
+
+<h2>First step - a list of all taxa</h2>
+
+<p>So, if you want to have a list of all the taxa in the database, it&#39;s as simple as doing the following (a bit of <code>plyr</code> magic to have a nice <code>data.frame</code>):</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">all_taxa <span class="o">&lt;-</span> listTaxa<span class="p">(</span>api<span class="p">)</span>
+head<span class="p">(</span>data.frame<span class="p">(</span>laply<span class="p">(</span>all_taxa<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="p">)),</span> <span class="m">3</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##   bold description gbif id itis                    name ncbi   owner
+## 1 NULL        NULL NULL  9 NULL Lamellodiscus ignoratus NULL tpoisot
+## 2 NULL        NULL NULL 10 NULL   Lamellodiscus elegans NULL tpoisot
+## 3 NULL        NULL NULL 11 NULL   Lamellodiscus ergensi NULL tpoisot
+##                vernacular
+## 1 Lamellodiscus ignoratus
+## 2   Lamellodiscus elegans
+## 3   Lamellodiscus ergensi
+</code></pre></div>
+<p>And let&#39;s look at the first element of <code>all_taxa</code>:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">all_taxa<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## $bold
+## NULL
+## 
+## $description
+## NULL
+## 
+## $gbif
+## NULL
+## 
+## $id
+## [1] &quot;9&quot;
+## 
+## $itis
+## NULL
+## 
+## $name
+## [1] &quot;Lamellodiscus ignoratus&quot;
+## 
+## $ncbi
+## NULL
+## 
+## $owner
+## [1] &quot;tpoisot&quot;
+## 
+## $vernacular
+## [1] &quot;Lamellodiscus ignoratus&quot;
+</code></pre></div>
+<p>So what are all these fields? There is a <code>whatIs</code> function in <code>rmangal</code>, whose purpose is to tell you everything you need to know about a type of object. Let&#39;s do that with <code>taxa</code>:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">whatIs<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;taxa&quot;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##         field                                        help    type  null
+## 1        bold             The BOLD identifier of the taxa integer  TRUE
+## 2 description             A short description of the taxa  string  TRUE
+## 3        gbif             The GBIF identifier of the taxa integer  TRUE
+## 5        itis             The ITIS identifier of the taxa integer  TRUE
+## 6        name             The scientific name of the taxa  string FALSE
+## 7        ncbi    The NCBI Taxonomy identifier of the taxa integer  TRUE
+## 9  vernacular The vernacular name of the taxa, in English  string FALSE
+##   unique values
+## 1   TRUE       
+## 2  FALSE       
+## 3   TRUE       
+## 5   TRUE       
+## 6   TRUE       
+## 7   TRUE       
+## 9  FALSE
+</code></pre></div>
+<p>The first column is the name of the field, the second is a description of the data, and the <code>type</code> column is the format of the field content. The <code>null</code> column will tell you whether the field can be <code>NULL</code> or not. The <code>unique</code> column will tell you whether two different objects can share a value for this field (in the example of <code>taxa</code>, we see that no two taxa can have the same indetifiers or latin name). Finally, the <code>values</code> column is set <em>only</em> when a field accepts a particular set of values.</p>
+
+<p>Another way to get the first <code>taxa</code> if we know its <code>id</code> is</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">getTaxa<span class="p">(</span>api<span class="p">,</span> all_taxa<span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span>id<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## $bold
+## NULL
+## 
+## $description
+## NULL
+## 
+## $gbif
+## NULL
+## 
+## $id
+## [1] &quot;9&quot;
+## 
+## $itis
+## NULL
+## 
+## $name
+## [1] &quot;Lamellodiscus ignoratus&quot;
+## 
+## $ncbi
+## NULL
+## 
+## $owner
+## [1] &quot;tpoisot&quot;
+## 
+## $vernacular
+## [1] &quot;Lamellodiscus ignoratus&quot;
+</code></pre></div>
+<h2>Getting real data</h2>
+
+<p>The most frequent use will be to look at <code>dataset</code>s, and get the data within. After looking at the data specification, you&#39;ll reach the conclusion that a <code>dataset</code> is mostly a list of <code>network</code>s, which are themselves lists of <code>interactions</code>, which point to <code>taxa</code> objects (among other things - it&#39;s explained in the vignettes).</p>
+
+<p>First thing first, let&#39;s have a look at the datasets:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r"><span class="p">(</span>all_ds <span class="o">&lt;-</span> ldply<span class="p">(</span>listDataset<span class="p">(</span>api<span class="p">),</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> unlist<span class="p">(</span>x<span class="p">)))</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##   description id                                              name
+## 1              1 Host-parasite interactions in marine environments
+##   networks    owner
+## 1        2 poisti01
+</code></pre></div>
+<p>Note that you can also <a href="http://mangal.uqar.ca/data/">browse the data</a> from the website, where there are animated maps, and cool dynamical representations of the networks. But meanwhile, let&#39;s get the first dataset:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r"><span class="p">(</span>ds <span class="o">&lt;-</span> getDataset<span class="p">(</span>api<span class="p">,</span> all_ds<span class="o">$</span>id<span class="p">[</span><span class="m">1</span><span class="p">]))</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## $data
+## list()
+## 
+## $description
+## [1] &quot;&quot;
+## 
+## $id
+## [1] &quot;1&quot;
+## 
+## $name
+## [1] &quot;Host-parasite interactions in marine environments&quot;
+## 
+## $networks
+## [1] &quot;2&quot;
+## 
+## $owner
+## [1] &quot;poisti01&quot;
+## 
+## $papers
+## list()
+</code></pre></div>
+<p>This dataset has a single network (of <code>id</code> 2), which looks like:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">getNetwork<span class="p">(</span>api<span class="p">,</span> ds<span class="o">$</span>networks<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## $date
+## [1] &quot;2007/04/05&quot;
+## 
+## $description
+## [1] &quot;&quot;
+## 
+## $environment
+## list()
+## 
+## $id
+## [1] &quot;2&quot;
+## 
+## $interactions
+##  [1] &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot; &quot;16&quot;
+## [15] &quot;17&quot;
+## 
+## $latitude
+## [1] &quot;42.482&quot;
+## 
+## $longitude
+## [1] &quot;3.137&quot;
+## 
+## $metaweb
+## [1] TRUE
+## 
+## $name
+## [1] &quot;Lamellodiscus of sparids in the Banyuls Bay Area&quot;
+## 
+## $owner
+## [1] &quot;poisti01&quot;
+</code></pre></div>
+<p>So the process of getting an entire network is calling <code>getInteraction</code> on each interaction, see which <code>taxa</code> it involves, then call <code>getTaxa</code> on each of those, and so forth. But as this is extremely boring, there is a <code>network_as_graph</code> function, which is doing exactly that:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">g <span class="o">&lt;-</span> network_as_graph<span class="p">(</span>api<span class="p">,</span> ds<span class="o">$</span>networks<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</code></pre></div>
+<p>Because this function will have to go through (possibly) a lot of resources to find the whole network, and because getting each resource requires an interaction with the server, it can be long. The good strategy is, rather obviously, to decide which objects to store, and interact with them locally, rather than querying the database everytime you want to see what&#39;s in a network. The <code>g</code> object created this way is an <code>igraph</code> graph, meaning that we can plot it:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">plot<span class="p">(</span>g<span class="p">,</span> edge.arrow.size <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> vertex.size <span class="o">=</span> <span class="m">30</span><span class="p">,</span> vertex.color <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">,</span> vertex.frame.color <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> 
+    vertex.label.family <span class="o">=</span> <span class="s">&quot;sans&quot;</span><span class="p">,</span> vertex.label.color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> layout <span class="o">=</span> layout.circle<span class="p">)</span>
+</code></pre></div>
+<p><img src="/rfig/rmangal_first_network.png" alt="plot of chunk rmangal_first_network"> </p>
+
+<p>Note also that because <code>g</code> in an <code>igraph</code> object, both the nodes and interactions have retained their attributes. So if you want to see what type of interactions (<code>whatIs</code> will tell you that this is the <code>ecotype</code> field of an <code>interaction</code>) are in this network, this is as simple as:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">E<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>ecotype
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##  [1] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+##  [5] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+##  [9] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+## [13] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+</code></pre></div>
+<p>This is an important idea behind the data specification. The <em>right</em> way to store data and the <em>right</em> way to work with these data are most likely different. Although some people will want to manipulate the data directly using the <code>get</code> and <code>list</code> functions, it&#39;s always nice to have functions to speed up the process. And if you use <code>network_as_graph</code>, and want to get a list of the NCBI identifiers of all the species, you don&#39;t need to use <code>getTaxa</code>; writing <code>V(g)$ncbi</code> will do the trick.</p>
+
+<h1>So now what?</h1>
+
+<p>This is the end of the first part of this series of posts on <code>mangal</code>. Later this week, I will publish the next part, about how to <em>upload</em> your data in the database. This is where I&#39;ll be looking for people to actually test how things work. Meanwhile, if you want to play with the package and report weird things, that&#39;s cool!</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2014/01/03/variation-species-interactions/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+   </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
+</div>
+
+<div class="row footer">
+   <div class="large-12 columns">
+      	  <p class="muted credit">
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
+     </p>	 
+<p class="lead" style="text-align: center;">
+<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
+<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
+<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
+<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
+</p>
+
+   </div>
+</div>
+
+</div>
+
+</body>
+
+</html>

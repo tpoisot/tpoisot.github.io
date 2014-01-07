@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
 
@@ -88,7 +51,7 @@ July  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="m
 
 <p>Last week, I started using <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a>, a <a href="http://www.texample.net/"><code>tikz</code></a> extension for data visualization, to prepare slides for the upcoming <a href="http://www.confersense.ca/Evolution2012/">Evolution2012</a> meeting in Ottawa. I thought it would be pretty cool to be able to use the <em>Color Brewer</em> scales in my talk.</p>
 
-<p>Using <code>pgfplots</code> , it's really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the <a href="http://colorbrewer2.org/"><em>Color Brewer</em></a> website tells you the RGB values of each color when you select a scheme, it's really easy to re-implement the color schemes.</p>
+<p>Using <code>pgfplots</code> , it&#39;s really easy to define color cycles (for different series of points), and color maps (for surface plots). Given that the <a href="http://colorbrewer2.org/"><em>Color Brewer</em></a> website tells you the RGB values of each color when you select a scheme, it&#39;s really easy to re-implement the color schemes.</p>
 
 <p>For example, you can do a nice color map with the <em>spectral</em> scheme:</p>
 
@@ -108,7 +71,6 @@ July  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="m
     <span class="nb">}</span>
 </code></pre></div>
 
-
 <p>Or you can do a color cycle with the <em>Set1</em> scheme:</p>
 
 <div class="highlight"><pre><code class="latex"><span class="k">\definecolor</span><span class="nb">{</span>s1<span class="nb">}{</span>RGB<span class="nb">}{</span>228, 26, 28<span class="nb">}</span>
@@ -124,7 +86,6 @@ July  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="m
     s5,every mark/.append style=<span class="nb">{</span>fill=s5<span class="nb">}</span>,mark=*<span class="k">\\</span>
 <span class="nb">}</span>
 </code></pre></div>
-
 
 <p>Now that I think of it, it would be really easy to provide all of the brewer schemes into color map and color cycle form as an additional package. This is a project best left to someone with time on their hands.</p>
 
@@ -164,6 +125,23 @@ July  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="m
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

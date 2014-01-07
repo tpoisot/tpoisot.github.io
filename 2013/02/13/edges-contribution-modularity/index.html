@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Estimating edges contribution to network properties</h1>
 
@@ -84,9 +47,9 @@ February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 </div>
 
-<p>I had so much fun writing the previous post about how it is possible to measure <a href="2013/02/12/species-contribution-modularity/">nodes contribution to network properties</a> that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with <a href="http://d3js.org/"><code>D3.js</code></a>, and I wanted to put what I've learnt in practice.</p>
+<p>I had so much fun writing the previous post about how it is possible to measure <a href="2013/02/12/species-contribution-modularity/">nodes contribution to network properties</a> that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with <a href="http://d3js.org/"><code>D3.js</code></a>, and I wanted to put what I&#39;ve learnt in practice.</p>
 
-<p>What I want to do is remove each <em>edge</em>, and see how it affects modularity. This is, once again, really easy to do in <code>networkx</code>. We'll just write a function similar to <code>removeNode</code>, and add the possibility to keep the nodes with no links, or to remove them. By default, I'll consider that any node with no remaining edge is removed.</p>
+<p>What I want to do is remove each <em>edge</em>, and see how it affects modularity. This is, once again, really easy to do in <code>networkx</code>. We&#39;ll just write a function similar to <code>removeNode</code>, and add the possibility to keep the nodes with no links, or to remove them. By default, I&#39;ll consider that any node with no remaining edge is removed.</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">removeEdge</span><span class="p">(</span><span class="n">web</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="n">nozero</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="n">tempWeb</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -99,40 +62,32 @@ February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
     <span class="k">return</span> <span class="n">tempWeb</span>
 </code></pre></div>
 
-
-<p>To get the contribution of each edge to modularity, it's simple to just adapt the one-liner from the previous post into:</p>
+<p>To get the contribution of each edge to modularity, it&#39;s simple to just adapt the one-liner from the previous post into:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeEdge</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">e</span><span class="p">))</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
 </code></pre></div>
 
-
-<p><span class='margin'>The ranking method I use (<code>rankdata</code> in <code>scipy</code>) averages the rank of tied elements. So that explains why the points are not evely spaced.</span>OK, so let's see what it looks like:</p>
+<p><span class='margin'>The ranking method I use (<code>rankdata</code> in <code>scipy</code>) averages the rank of tied elements. So that explains why the points are not evely spaced.</span>OK, so let&#39;s see what it looks like:</p>
 
 <div class='edgecontrib scatterplot d3'></div>
 
-
 <!-- edgecontrib-rank.tsv -->
-
 
 <script type="text/javascript" src="/data/edgecontrib-scatter.js"></script>
 
-
 <p>The values of &Delta; are low, but the message is simple: most edges, when removed, make modularity <em>decrease</em>. For the next step, it can be cool to visualize <em>where</em> in the networks these nodes are. <code>D3.js</code> is able to read <code>JSON</code> files to plot them as networks. So we just need to write a quick and dirty converter from , <code>networkx</code> to <code>JSON</code>, and tweak <a href="http://bl.ocks.org/4062045">this example</a>.</p>
 
-<p><span class='margin'>And it's <a href="2012/11/23/how-to-represent-networks/">a good idea</a> to use <code>JSON</code> to represent networks...</span>This is so quick and dirty that I won't reproduce it here, but I ended up with a <code>JSON</code> file containing the edges, and the nodes. For each node, the module it belongs to is known. For each edge, its contribution to modularity is known. What remains to do is to plot everything, thanks to the power of <code>D3.js</code>.</p>
+<p><span class='margin'>And it&#39;s <a href="2012/11/23/how-to-represent-networks/">a good idea</a> to use <code>JSON</code> to represent networks...</span>This is so quick and dirty that I won&#39;t reproduce it here, but I ended up with a <code>JSON</code> file containing the edges, and the nodes. For each node, the module it belongs to is known. For each edge, its contribution to modularity is known. What remains to do is to plot everything, thanks to the power of <code>D3.js</code>.</p>
 
 <div class='edgecolor network d3'></div>
 
-
 <!-- edgecontrib-rank.tsv -->
-
 
 <script type="text/javascript" src="/data/edgecontrib-network.js"></script>
 
+<p>In this plot (move the nodes around!), the red links decrease modularity when removed, and the blue links increase it. The color of the nodes reflect which module they belong to. A quick eyeballing of the graph shows that blue links are established between nodes sharing different modules. Which makes sense, as if you disconnect modules, you further increase modularity. It may look good, but it&#39;s not rocket science!</p>
 
-<p>In this plot (move the nodes around!), the red links decrease modularity when removed, and the blue links increase it. The color of the nodes reflect which module they belong to. A quick eyeballing of the graph shows that blue links are established between nodes sharing different modules. Which makes sense, as if you disconnect modules, you further increase modularity. It may look good, but it's not rocket science!</p>
-
-<p>In any case, I'm quite happy about the whole thing. First, it's super straightforward to remove edges/nodes with <code>networkx</code>, and to measure how it affects network structure. Second, it's fast enough even on networks of a respectable size. And finally, this is perhaps the biggest revelation of the day: it's <em>easy</em> to use <code>D3.js</code>. It may not seem like much, but the two figures in this blog post are generated <em>from the original data</em>. So if I want to re-generate the data, the figures will change as well. There is even more potential when creating webpages for projects, so I'll look more into that.</p>
+<p>In any case, I&#39;m quite happy about the whole thing. First, it&#39;s super straightforward to remove edges/nodes with <code>networkx</code>, and to measure how it affects network structure. Second, it&#39;s fast enough even on networks of a respectable size. And finally, this is perhaps the biggest revelation of the day: it&#39;s <em>easy</em> to use <code>D3.js</code>. It may not seem like much, but the two figures in this blog post are generated <em>from the original data</em>. So if I want to re-generate the data, the figures will change as well. There is even more potential when creating webpages for projects, so I&#39;ll look more into that.</p>
 
 
 </div>
@@ -170,6 +125,23 @@ February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

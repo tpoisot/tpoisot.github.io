@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>What's hot on PeerJ?</h1>
+  <div class="postinfo">December 17, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">bibliometrics</span><span class="label radius small" style="margin-right: 3px;">open access</span><span class="label radius small" style="margin-right: 3px;">preprints</span></div>
+  <p>
+    Lat week, I mentionned that ecology is the leading discipline on PeerJ preprints, as attested by the number of submissions. Which led me to wondering which topics were actually hot on the preprint server. PeerJ do not have an API, but there URL scheme is not too complicated, and most of the relevant informations are in the webpage body. So I wrote a very short python script to get the first 158 preprints, download them, and get the abstract. The code goes like this: import requests from bs4 import BeautifulSoup BaseURL = &quot;https://peerj.com/preprints/&quot; StopAt = 158 StartAt = 1 Corpus...
+  </p>
+<a class="readmore" href="/2013/12/17/what-peerj/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>Data-sharing paper online</h1>
   <div class="postinfo">December  5, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">open data</span></div>
   <p>
-    Our paper Towards a sustainable ecological science is now online at Ideas in Ecology and Evolution. Thanks are due to Karthik Ram for the invitation. This is going to be a very exciting special issue. If you want to know more about the paper, the best thing to do is most likely to read it (it's open access). But in short, we (I, Ross Mounce, and Dominique Gravel), try to make a point of all the benefits of sharing data...
+    Our paper Towards a sustainable ecological science is now online at Ideas in Ecology and Evolution. Thanks are due to Karthik Ram for the invitation. This is going to be a very exciting special issue. If you want to know more about the paper, the best thing to do is most likely to read it (it&#39;s open access). But in short, we (I, Ross Mounce, and Dominique Gravel), try to make a point of all the benefits of sharing data in ecology. There are some parts about licenses, and some parts about JSON (because of course there are). But besides...
   </p>
 <a class="readmore" href="/2013/12/05/data-sharing-paper/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>Why JSON is my go-to data format</h1>
   <div class="postinfo">December  2, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">JSON</span><span class="label radius small" style="margin-right: 3px;">data format</span></div>
   <p>
-    Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in R. But I've been using JSON for a while now, and it makes working with these types of...
+    Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in R. But I&#39;ve been using JSON for a while now, and it makes working with these types of data (not the &quot;several Gig&quot; types, the &quot;highly heterogeneous&quot; type) easy. I love JSON because it can be validated. Running...
   </p>
 <a class="readmore" href="/2013/12/02/json-goto-format/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>The pros and cons of using R packages for teaching</h1>
   <div class="postinfo">November 27, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">R</span><span class="label radius small" style="margin-right: 3px;">Teaching</span></div>
   <p>
-    R packages are one of the best tools we have. It's a library of 1000s of functions ready to be used, all wrapped in a single common language, and it's free. I wrote some, and used even more. When I review a paper, upon seeing "we used function x in the version 2.3 of package y", I know a lot about what the authors have been doing (and I can check the help of this function for references and additional...
+    R packages are one of the best tools we have. It&#39;s a library of 1000s of functions ready to be used, all wrapped in a single common language, and it&#39;s free. I wrote some, and used even more. When I review a paper, upon seeing &quot;we used function x in the version 2.3 of package y&quot;, I know a lot about what the authors have been doing (and I can check the help of this function for references and additional details). And obviously, training students about which packages are widely used in a particular field is an important task, because...
   </p>
 <a class="readmore" href="/2013/11/27/r-packages-teaching/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>Spatially explicit metapopulation model in R</h1>
   <div class="postinfo">November 25, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">R</span></div>
   <p>
-    One of my favorite tools to work with networks is the networkx python package (if only because lists comprehensions make so much sense when you work with graphs). But for teaching purposes (especially in ecology), having purely R-based tools is better. The students know the language (at least enough to get around most problems in a few hours, and so they can focus on the theory rather than the tedious details of implementation. So I started looking for good graph...
+    One of my favorite tools to work with networks is the networkx python package. But for teaching purposes (especially in ecology), having purely R-based tools is better. The students know the language (at least enough to get around most problems in a few hours, and so they can focus on the theory rather than the tedious details of implementation. So I started looking for good graph analysis tools in R. I&#39;ve read good thing (well, good-looking code, actually) about the igraph package, so I decided to try it (good surprise: there are both R, python and C implementations. My first...
   </p>
 <a class="readmore" href="/2013/11/25/metapopulation-model-r/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>Collaborating with markdown and bibtex</h1>
-  <div class="postinfo">November 10, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">bibtex</span><span class="label radius small" style="margin-right: 3px;">scholarly markdown</span><span class="label radius small" style="margin-right: 3px;">python</span></div>
-  <p>
-    The single most annoying issue when using pandoc to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it's having several bibtex files all over the place. And I'm can't be bothered to keep "Collections" or separate folders in Zotero. So clearly, I had to code my way out of this one. The...
-  </p>
-<a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

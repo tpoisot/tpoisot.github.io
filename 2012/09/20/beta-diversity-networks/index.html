@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>The beta-diversity of species interaction networks</h1>
 
@@ -88,19 +51,23 @@ September 20, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" sty
 
 <p>When you think about networks over space, it is important to make a distinction between what occurs at the regional and the local level. In short, what happens at the regional level is potential, and the local observation is realized. Species sorting is hardly a groundbreaking idea in ecology, but perhaps we should think more about interactions sorting. Not because two species that can interact co-occur at one site mean that they will interact at this site. In our paper, we propose that the regional pool of species and their interactions be called a <em>metaweb</em>, and what is effectively realized locally be called a <em>realization</em>. These are two key levels of interpretation to understand the &beta;-diversity of networks.</p>
 
-<p><img src="/images/metaweb.png" title="metaweb" alt="Figure1 - the metaweb" />
-What we propose in our paper is two-fold. First, we lay out a methodological framework to measure how realizations differ between them. Second, we think about what we can learn from these methods, in terms of networks biogeography. I'll go shortly over these two aspects in turn. There is an extensive litterature on &beta;-diversity of species composition, which was begging to be adapted to networks. Formally, any set of interactions is a group of two objects, the nodes (species) and the edges (their interactions). Measuring species &beta;-diversity is easy. Measuring &beta;-diversity of interactions is not. The problem is that in order to have an interaction, you have to have two species present. So the &beta;-diversity of interactions is really contingented by the species &beta;-diversity.</p>
+<p><img src="/images/metaweb.png" alt="Figure1 - the metaweb" title="metaweb"></p>
 
-<p>Let's be naïve for a moment. We can simply treat each interaction as an item, which can be shared, or unique, across two sites (we propose a multi-site extension in the paper, but more on that later). This will give us a <em>whole-network dissimilarity</em>, &beta;<sub>WN</sub>. This, obviously is positively correlated with the <em>species dissimilarity</em>, &beta;<sub>S</sub>. But because interactions for which not all species co-occur cannot be compared, we can extract the "common denominator" for both networks, <em>i.e.</em> only the interactions between species present at both sites. We call this the <em>overlapping species dissimilarity</em>, &beta;<sub>OS</sub>. If you want to measure this on your own data, go download the <a href="https://github.com/tpoisot/betalink"><code>betalink</code></a> package for R (see the wiki for a quickstart, and use the Issues page for help). But this paper is not a methods paper, so I'll put another post online this week to explain how to do the analyses.</p>
+<p>What we propose in our paper is two-fold. First, we lay out a methodological framework to measure how realizations differ between them. Second, we think about what we can learn from these methods, in terms of networks biogeography. I&#39;ll go shortly over these two aspects in turn. There is an extensive litterature on &beta;-diversity of species composition, which was begging to be adapted to networks. Formally, any set of interactions is a group of two objects, the nodes (species) and the edges (their interactions). Measuring species &beta;-diversity is easy. Measuring &beta;-diversity of interactions is not. The problem is that in order to have an interaction, you have to have two species present. So the &beta;-diversity of interactions is really contingented by the species &beta;-diversity.</p>
+
+<p>Let&#39;s be naïve for a moment. We can simply treat each interaction as an item, which can be shared, or unique, across two sites (we propose a multi-site extension in the paper, but more on that later). This will give us a <em>whole-network dissimilarity</em>, &beta;<sub>WN</sub>. This, obviously is positively correlated with the <em>species dissimilarity</em>, &beta;<sub>S</sub>. But because interactions for which not all species co-occur cannot be compared, we can extract the &quot;common denominator&quot; for both networks, <em>i.e.</em> only the interactions between species present at both sites. We call this the <em>overlapping species dissimilarity</em>, &beta;<sub>OS</sub>. If you want to measure this on your own data, go download the <a href="https://github.com/tpoisot/betalink"><code>betalink</code></a> package for R (see the wiki for a quickstart, and use the Issues page for help). But this paper is not a methods paper, so I&#39;ll put another post online this week to explain how to do the analyses.</p>
 
 <p>The interesting point is that &beta;<sub>S</sub> and &beta;<sub>OS</sub> show no correlation. We can go into some details about what it means, but to be short: species and their interactions are locally sorted by different mechanisms. I will repeat the last slide of my <a href="http://www.confersense.ca/Evolution2012/">Evolution2012</a> presentation: because we can measure a &beta;-diversity of interactions means that we <em>can</em> develop a biogeographic theory for their occurence; because the &beta;-diversity of interactions is not the same that the &beta;-diversity of species mean that we <em>should</em> develop this theory. So how much closer does this paper leaves us from this theory?</p>
 
-<p><img src="/images/IntSpSorting.png" title="Interactions and Species sorting" alt="Figure2 - interactions and species sorting" />
-Quoting from the last paragraph:</p>
+<p><img src="/images/IntSpSorting.png" alt="Figure2 - interactions and species sorting" title="Interactions and Species sorting"></p>
 
-<blockquote><p>[F]urther understanding of the processes acting on network structure through space is contingent upon our ability to gather sufficient high-quality data. While it is now easy, and tempting, to build on recent theoretical studies to speculate about what a biogeographical theory of species interaction would look like, it is our opinion that this reasoning would be better grounded in data. [G]athering enough networks to adequately describe the metaweb is a difficult task, and assuming that species co-occurence is enough for an interaction to happen is not a sufficient sampling strategy. For this reason, we think it is time for the community of ecologists interested in interaction networks to engage in a discussion about the best way to gather data from the field, as this will pave the way to a biogeographical theory of species interactions.</p></blockquote>
+<p>Quoting from the last paragraph:</p>
 
-<p>In short, and this was (kind of) the conclusion of my Ottawa talk, we need more data. At this point, it's easy to do models, and to further speculate on which mechanisms will act. But there are only few datasets on which we can <em>test</em> this speculation, making it a little bit vain. More importantly, we need <em>better</em> (more suited) data. Replication of the same metaweb in space, or time; rich information about the environmental conditions; actual measurement of wether populations locally interact or not; just to name a few. The excellent theoretical work that was done in the last few years is far from useless, but until we go back to the field (or design clever experiments in microcosms...), my impression is that it will not be as beneficial as it should be.</p>
+<blockquote>
+<p>[F]urther understanding of the processes acting on network structure through space is contingent upon our ability to gather sufficient high-quality data. While it is now easy, and tempting, to build on recent theoretical studies to speculate about what a biogeographical theory of species interaction would look like, it is our opinion that this reasoning would be better grounded in data. [G]athering enough networks to adequately describe the metaweb is a difficult task, and assuming that species co-occurence is enough for an interaction to happen is not a sufficient sampling strategy. For this reason, we think it is time for the community of ecologists interested in interaction networks to engage in a discussion about the best way to gather data from the field, as this will pave the way to a biogeographical theory of species interactions.</p>
+</blockquote>
+
+<p>In short, and this was (kind of) the conclusion of my Ottawa talk, we need more data. At this point, it&#39;s easy to do models, and to further speculate on which mechanisms will act. But there are only few datasets on which we can <em>test</em> this speculation, making it a little bit vain. More importantly, we need <em>better</em> (more suited) data. Replication of the same metaweb in space, or time; rich information about the environmental conditions; actual measurement of wether populations locally interact or not; just to name a few. The excellent theoretical work that was done in the last few years is far from useless, but until we go back to the field (or design clever experiments in microcosms...), my impression is that it will not be as beneficial as it should be.</p>
 
 
 </div>
@@ -138,6 +105,23 @@ Quoting from the last paragraph:</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

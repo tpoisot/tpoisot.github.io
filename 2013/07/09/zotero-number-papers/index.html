@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>What do I read (according to Zotero)?</h1>
 
@@ -84,7 +47,7 @@ July  9, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="m
 
 </div>
 
-<p>I've been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days.
+<p>I&#39;ve been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days.
 Zotero stores the data about your library in a <code>sqlite3</code> database, called
 <code>zotero.sqlite</code>, and stored in your Zotero folder (<code>~/Zotero/</code> in my case, but
 most likely something else in yours). The internal structure of the
@@ -93,7 +56,7 @@ figure it out. But in the end, I was able to come up with a solution to count
 the number of papers in each journal, stored in my library.</p>
 
 <p>The <code>python</code> script is <a href="https://gist.github.com/tpoisot/5958933">available as a gist</a>. When you run it
-(assuming you've made a copy of the <code>zotero.sqlite</code> in the folder where the
+(assuming you&#39;ve made a copy of the <code>zotero.sqlite</code> in the folder where the
 script is, you will end up with a <code>journals.tsv</code> file, in which the two
 columns are, respectively, the number of papers, and the journal title.</p>
 
@@ -103,84 +66,30 @@ cleaning-up in open office to check for duplicates, especially since my
 current database is following me since the first year of my masters (so 2006).
 So, what do I read? Here is the top 15:</p>
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;"> Journal                   </th>
-<th style="text-align:left;"> Count </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;"> Ecology Letters           </td>
-<td style="text-align:left;"> 202   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Ecology                   </td>
-<td style="text-align:left;"> 198   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> PLoS One                  </td>
-<td style="text-align:left;"> 196   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> American Naturalist       </td>
-<td style="text-align:left;"> 181   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> PNAS                      </td>
-<td style="text-align:left;"> 156   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Oikos                     </td>
-<td style="text-align:left;"> 135   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Trends Ecol Evol          </td>
-<td style="text-align:left;"> 132   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Procs R Soc B             </td>
-<td style="text-align:left;"> 123   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Evolution                 </td>
-<td style="text-align:left;"> 120   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Nature                    </td>
-<td style="text-align:left;"> 119   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Science                   </td>
-<td style="text-align:left;"> 108   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> J Evol Biol               </td>
-<td style="text-align:left;"> 101   </td>
-</tr>
-<tr>
-<td style="text-align:left;"> J Anim Ecol               </td>
-<td style="text-align:left;"> 71    </td>
-</tr>
-<tr>
-<td style="text-align:left;"> J Biogeogr                </td>
-<td style="text-align:left;"> 46    </td>
-</tr>
-<tr>
-<td style="text-align:left;"> Phil Trans B              </td>
-<td style="text-align:left;"> 45    </td>
-</tr>
-</tbody>
-</table>
-
+<p>| Journal                   | Count |
+|:--------------------------|:------|
+| Ecology Letters           | 202   |
+| Ecology                   | 198   |
+| PLoS One                  | 196   |
+| American Naturalist       | 181   |
+| PNAS                      | 156   |
+| Oikos                     | 135   |
+| Trends Ecol Evol          | 132   |
+| Procs R Soc B             | 123   |
+| Evolution                 | 120   |
+| Nature                    | 119   |
+| Science                   | 108   |
+| J Evol Biol               | 101   |
+| J Anim Ecol               | 71    |
+| J Biogeogr                | 46    |
+| Phil Trans B              | 45    |</p>
 
 <p>So, what to make of this information? Note that by the time we reach number 12
 or so in that list, the paper count decreases extremely sharply. Also, the top
 five is not reallu surprising. I was expecting to see <em>Nature</em> and <em>Science</em>
 rank higher on the list. There is still some inertia, as well, with <em>J Evol
-Biol</em> and <em>Evolution</em> occupying high positions because I've read these some
-much during my PhD and Masters. So I guess that (i) I'm definitely an ecologist
+Biol</em> and <em>Evolution</em> occupying high positions because I&#39;ve read these some
+much during my PhD and Masters. So I guess that (i) I&#39;m definitely an ecologist
 (also, <em>J Theor Biol</em> and <em>Theor Pop Biol</em> are lurking not far below), and (ii)
 despite this having a very very long tail, I mostly read things coming up in
 a few journals.</p>
@@ -193,15 +102,13 @@ list. The results are plotted below (put your mouse over a dot to see the journa
 
 <div class='scatterplot d3'></div>
 
-
 <script type="text/javascript" src="/data/zotero-if.js"></script>
 
-
-<p>It doesn't look like there is much effect of the IF on wether or not I'll save
+<p>It doesn&#39;t look like there is much effect of the IF on wether or not I&#39;ll save
 the paper in my library. And we can also see a small group of three journals
-I read much more than their IF would "predict" (<em>Ecology</em>, <em>PLoS One</em>, and <em>The
+I read much more than their IF would &quot;predict&quot; (<em>Ecology</em>, <em>PLoS One</em>, and <em>The
 American Naturalist</em>). So that turned out to be a fun little lunch coding
-project. Don't hesitate to look at the code, I'm sure there is plenty of things
+project. Don&#39;t hesitate to look at the code, I&#39;m sure there is plenty of things
 to make better.</p>
 
 
@@ -240,6 +147,23 @@ to make better.</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

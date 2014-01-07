@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>An additive partition of species-level specificity</h1>
+  <div class="postinfo">October 15, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">specificity</span><span class="label radius small" style="margin-right: 3px;">methodology</span><span class="label radius small" style="margin-right: 3px;">metrics</span><span class="label radius small" style="margin-right: 3px;">open lab book</span></div>
+  <p>
+    A while ago, we published a paper in Methods in Ecology &amp; Evolution, comparing different ways to estimate ecological specificity on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array P of its performances across R different environments, which is (1) sorted decreasingly, and (2) ranged so that P[1] = 1. In this paper, we recommend to use either RR (which is a modification of Schoener&#39;s generality), and PDI (which is first formally introduced in this paper), which measures how...
+  </p>
+<a class="readmore" href="/2013/10/15/specificity-range-measures/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>R, priority effects, and the meta-package</h1>
   <div class="postinfo">October 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">R</span><span class="label radius small" style="margin-right: 3px;">methodology</span><span class="label radius small" style="margin-right: 3px;">software</span><span class="label radius small" style="margin-right: 3px;">computational ecology</span></div>
   <p>
-    R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about one of my own metrics in the bipartite package), and that I think is rarely discussed. When a R package presenting a series of measures becomes available, it will...
+    R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about one of my own metrics in the bipartite package), and that I think is rarely discussed. When a R package presenting a series of measures becomes available, it will become the gold standard of future analyzes in this field. This is an extremely strong effect. French students in ecology...
   </p>
 <a class="readmore" href="/2013/10/12/r-priority-responsibility/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>Inferring the structure of food webs</h1>
   <div class="postinfo">September 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">species interaction networks</span><span class="label radius small" style="margin-right: 3px;">statistics</span></div>
   <p>
-    We've just published a paper in Methods in Ecology and Evolution, about the inference of food web structure based on species trait data. That's a seriously cool result (we think). There is a serious challenge when you work with food webs: you need to know which species are interacting, and to do so, you need to observed interactions in the fields. It's challenging, because it must be done extensively, so as not to miss interactions. But on the other hand,...
+    We&#39;ve just published a paper in Methods in Ecology and Evolution, about the inference of food web structure based on species trait data. That&#39;s a seriously cool result (we think). There is a serious challenge when you work with food webs: you need to know which species are interacting, and to do so, you need to observed interactions in the fields. It&#39;s challenging, because it must be done extensively, so as not to miss interactions. But on the other hand, there are well described relationships between traits of interacting species. In the particular case of food webs, notably, there is...
   </p>
 <a class="readmore" href="/2013/09/21/predicting-network-structure/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>Is programming an acquired taste?</h1>
   <div class="postinfo">September 11, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">quantitative skills</span><span class="label radius small" style="margin-right: 3px;">programming</span><span class="label radius small" style="margin-right: 3px;">teaching</span></div>
   <p>
-    Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on Ecological Modeling. It was a whole lot of fun, and a really good way to get back to some things I've always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but I won't talk much about...
+    Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on Ecological Modeling. It was a whole lot of fun, and a really good way to get back to some things I&#39;ve always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but I won&#39;t talk much about these. While the students were sweating on the programming problems, we discussed the fact that programming is maybe an innate...
   </p>
 <a class="readmore" href="/2013/09/11/programming-innate-acquired/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>Teach more maths to the undergrads!</h1>
   <div class="postinfo">August 28, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">quantitative skills</span><span class="label radius small" style="margin-right: 3px;">ecological theory</span><span class="label radius small" style="margin-right: 3px;">teaching</span></div>
   <p>
-    Fred Barraquand, a bunch of INNGE-and-friends-of-INNGE people, and I, just published a preprint at Peer J about quantitative training in early-career ecologists (or rather, the lack thereof). Talking about how much maths is needed during training is all the rage in the ecological community, and both sides of the argument have really good arguments. So Fred decided to do a survey of early-career (and older) ecologists through ECOLOG-L. Quoting directly from the abstract, this is what we found: We found...
+    Fred Barraquand, a bunch of INNGE-and-friends-of-INNGE people, and I, just published a preprint at Peer J about quantitative training in early-career ecologists (or rather, the lack thereof). Talking about how much maths is needed during training is all the rage in the ecological community, and both sides of the argument have really good arguments. So Fred decided to do a survey of early-career (and older) ecologists through ECOLOG-L. Quoting directly from the abstract, this is what we found: We found a clear self-perceived lack of quantitative training: 75% are not satisfied with their understanding of mathematical models; 75% feel the...
   </p>
 <a class="readmore" href="/2013/08/28/lack-quantitative-training/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>In defense of narrative reviews</h1>
-  <div class="postinfo">August 24, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">academic publishing</span><span class="label radius small" style="margin-right: 3px;">epistemology</span></div>
-  <p>
-    Early in July, Christopher Lortie published a really great preprint on PeerJ, about the opportunities of systematic reviews for ecology. It's extremely insightful, and a good read. The abstract starts by Narrative reviews are dead. No they're not, nor shouldn't they be! Narrative reviews are those we are used to read now: a story built on the collection of some pieces of litterature. On the other hand, systematic reviews or meta-analyses are, well, systematic, and try to reach a consensus...
-  </p>
-<a class="readmore" href="/2013/08/24/in-defense-narrative-reviews/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

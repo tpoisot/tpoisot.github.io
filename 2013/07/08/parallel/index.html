@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>A quick way to parallelize</h1>
 
@@ -84,7 +47,7 @@ July  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="m
 
 </div>
 
-<p>I' ve often been confronted to the situation when I want to run a bunch of
+<p>I&#39; ve often been confronted to the situation when I want to run a bunch of
 simulations, that will take long if I run them in batch, but long enough that
 I want to put them on the lab cluster. A fairly common situation is when I want
 to feed some sequentially numbered output files to a script performing all kind
@@ -97,17 +60,16 @@ different CPUs. For example, if I want to run all of the files in my <code>outpu
 <div class="highlight"><pre><code class="bash">ls output/*.dat | sort | parallel ./results.py --file output/<span class="o">{}</span>
 </code></pre></div>
 
-
 <p>That will take the files, then output then one by one, and pass them to
 <code>parallel</code>. When I run that, all of my CPU start working on the task, so I can
 cut the treatment time in four (more than what I could achieve with code
-optimization!). It's definitely poor man parallelization, but it works, and
-it's faster then setting up a bunch of simulations on a cluster.</p>
+optimization!). It&#39;s definitely poor man parallelization, but it works, and
+it&#39;s faster then setting up a bunch of simulations on a cluster.</p>
 
-<p>That's one of the (many many) nice sides of working only with GNU/Linux now.
-I'm learning a lot of nifty little tricks, and it's starting to really pay off
+<p>That&#39;s one of the (many many) nice sides of working only with GNU/Linux now.
+I&#39;m learning a lot of nifty little tricks, and it&#39;s starting to really pay off
 in terms of how fast I can throw command lines instructions at a problem until
-it disappears (or until I accidentaly delete the files, look, I'm still
+it disappears (or until I accidentaly delete the files, look, I&#39;m still
 learning...)..</p>
 
 
@@ -146,6 +108,23 @@ learning...)..</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

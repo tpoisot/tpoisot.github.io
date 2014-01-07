@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>Codelust</h1>
+  <div class="postinfo">August  5, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">programming</span></div>
+  <p>
+    Wanderlust (noun): a strong desire to travel. Codelust (noun): a strong desire to code rather than actually work, and how you can use it for good. I&#39;m lucky. I have stacks of datasets on my laptop, and good ecological questions to ask, and (hopefully) that will result in a few papers. But that&#39;s not fun. I know what I have to do, how I have to do it, and I&#39;m mostly re-using existing tools. So over the last month or so, I&#39;ve been consumed by codelust, a strong desire to open a text editor, and write a program that does...
+  </p>
+<a class="readmore" href="/2013/08/05/codelust/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>Should we share reviews?</h1>
   <div class="postinfo">July 10, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">peer review</span><span class="label radius small" style="margin-right: 3px;">open science</span></div>
   <p>
-    Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We've had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the "worse" comments we've received, for papers that ended up being...
+    Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We&#39;ve had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the &quot;worse&quot; comments we&#39;ve received, for papers that ended up being published. We decided not to make it (public). The SeaMonster also did a very good job of deconstructing bad practices...
   </p>
 <a class="readmore" href="/2013/07/10/sharing-reviews/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>What do I read (according to Zotero)?</h1>
   <div class="postinfo">July  9, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">zotero</span><span class="label radius small" style="margin-right: 3px;">bibliometry</span></div>
   <p>
-    I've been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come up with a solution to...
+    I&#39;ve been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come up with a solution to count the number of papers in each journal, stored in my library. The python script is available as a gist....
   </p>
 <a class="readmore" href="/2013/07/09/zotero-number-papers/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>A quick way to parallelize</h1>
   <div class="postinfo">July  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">GNU</span><span class="label radius small" style="margin-right: 3px;">Free software</span></div>
   <p>
-    I' ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across GNU parallel. This little command-line...
+    I&#39; ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across GNU parallel. This little command-line program will just execute whatever you feed him on the different CPUs. For example, if I want to run all...
   </p>
 <a class="readmore" href="/2013/07/08/parallel/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
   <div class="postinfo">June 24, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">LaTeX</span><span class="label radius small" style="margin-right: 3px;">PDF</span></div>
   <p>
-    While submitting a MS to Methods in Ecology and Evolution, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using manuscriptcentral as an upload system, and always with LaTeX-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away. Only...
+    While submitting a MS to Methods in Ecology and Evolution, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using manuscriptcentral as an upload system, and always with LaTeX-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away. Only this time, I wanted to understand what was happening, and to fix it as much as I could. Well, as...
   </p>
 <a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>A niche to fill in ecological publishing?</h1>
-  <div class="postinfo">June 23, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">scientific publishing</span></div>
-  <p>
-    I have been wondering, over the past few weeks, about places to submit really short, methodological minded papers, in ecology. As far as I know, there is currently no journal for that. I'm specifically talking about papers that are not groundbreaking, possibly extremely technical, but still hold value because they deal with arguments that happen often. As a good example, the reply of Rohr and colleagues to the James and colleagues paper is interesting, but technical. It's unlikely to stimulate...
-  </p>
-<a class="readmore" href="/2013/06/23/niche-fill-ecological-papers/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

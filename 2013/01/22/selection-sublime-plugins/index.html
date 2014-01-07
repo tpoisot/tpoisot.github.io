@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>A selection of Sublime Text 2 packages</h1>
 
@@ -84,15 +47,15 @@ January 22, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style
 
 </div>
 
-<p><a href="http://www.sublimetext.com/2"><em>Sublime Text 2</em></a> is an awesome multi-purpose text editor, working on all major platforms, and generally being <code>vim</code> with a nice GUI, and some <code>emacs</code> thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed <em>Python</em> packages for it, and I use a few of them almost daily. Following some discussions we've had on twitter, I figured I'd share them with everyone. The first one to install is <a href="http://wbond.net/sublime_packages/package_control"><em>Sublime Package Control</em></a>. It allows you to open the command palette, and manage your packages. Notably, you can use the <code>Install packages</code> command to get a drop-down list of <em>all</em> possible packages available. They are also listed <a href="http://wbond.net/sublime_packages/community">here</a>.</p>
+<p><a href="http://www.sublimetext.com/2"><em>Sublime Text 2</em></a> is an awesome multi-purpose text editor, working on all major platforms, and generally being <code>vim</code> with a nice GUI, and some <code>emacs</code> thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed <em>Python</em> packages for it, and I use a few of them almost daily. Following some discussions we&#39;ve had on twitter, I figured I&#39;d share them with everyone. The first one to install is <a href="http://wbond.net/sublime_packages/package_control"><em>Sublime Package Control</em></a>. It allows you to open the command palette, and manage your packages. Notably, you can use the <code>Install packages</code> command to get a drop-down list of <em>all</em> possible packages available. They are also listed <a href="http://wbond.net/sublime_packages/community">here</a>.</p>
 
 <p>So which packages do I use? I made a list of those I find the more useful, ranked by use frequency.</p>
 
-<p>The first one is <strong>LaTeX Tools</strong>. It's plain awesome. You work on a LaTeX document, hit <code>Ctrl-B</code>, and it uses <code>latexmk</code> to take care of <em>all</em> the necessary compilation steps for you. And it implements <code>synctex</code> as well, so you can use <code>Ctrl-L J</code> to jump to the PDF, and right click on the PDF to jump to the text. Add a few other <a href="https://github.com/SublimeText/LaTeXTools">great shortcuts</a> (transform a word in an environment with <code>Ctrl-L E</code>, or in a command with <code>Ctrl-L C</code>, for example), a very extensive auto-completion, and you have one of the best LaTeX editors available. Also, when using this package, do not forget that pressing <code>alt-q</code> anywhere in a line will hard wrap the paragraph. It's almost impossible to live without this function when you use git.</p>
+<p>The first one is <strong>LaTeX Tools</strong>. It&#39;s plain awesome. You work on a LaTeX document, hit <code>Ctrl-B</code>, and it uses <code>latexmk</code> to take care of <em>all</em> the necessary compilation steps for you. And it implements <code>synctex</code> as well, so you can use <code>Ctrl-L J</code> to jump to the PDF, and right click on the PDF to jump to the text. Add a few other <a href="https://github.com/SublimeText/LaTeXTools">great shortcuts</a> (transform a word in an environment with <code>Ctrl-L E</code>, or in a command with <code>Ctrl-L C</code>, for example), a very extensive auto-completion, and you have one of the best LaTeX editors available. Also, when using this package, do not forget that pressing <code>alt-q</code> anywhere in a line will hard wrap the paragraph. It&#39;s almost impossible to live without this function when you use git.</p>
 
-<p>A really good companion to the above package is <strong>WordCount</strong>. It does what the name says: add a word and character count in the status bar. It updates the word count in real time, and when you mostly write using <em>Markdown</em> or plain text, it's extremely useful. To write in <em>Markdown</em>, which includes this blog, and most of the drafts of my papers, all the replies to referees, my meeting notes, and general note taking, I rely on <strong>MarkdownBuild</strong>, which allows to <a href="https://github.com/erinata/SublimeMarkdownBuild">quickly visualize</a> the content of the file. A simple <code>Ctrl-B</code> brings up a browser windows with a HTML/CSS rendition of my file. When the documents are ready, I use <code>pandoc</code> to compile them. There are two packages for this, <strong>Pandoc</strong>, which provides a lot of output formats, and <strong>Pandoc Academic</strong>, which provides less formats, but is reachable in less keystrokes. Both also have some complementary snippets, so I keep both.</p>
+<p>A really good companion to the above package is <strong>WordCount</strong>. It does what the name says: add a word and character count in the status bar. It updates the word count in real time, and when you mostly write using <em>Markdown</em> or plain text, it&#39;s extremely useful. To write in <em>Markdown</em>, which includes this blog, and most of the drafts of my papers, all the replies to referees, my meeting notes, and general note taking, I rely on <strong>MarkdownBuild</strong>, which allows to <a href="https://github.com/erinata/SublimeMarkdownBuild">quickly visualize</a> the content of the file. A simple <code>Ctrl-B</code> brings up a browser windows with a HTML/CSS rendition of my file. When the documents are ready, I use <code>pandoc</code> to compile them. There are two packages for this, <strong>Pandoc</strong>, which provides a lot of output formats, and <strong>Pandoc Academic</strong>, which provides less formats, but is reachable in less keystrokes. Both also have some complementary snippets, so I keep both.</p>
 
-<p>There are some plugins for <code>git</code>, but I don't use them, as I do my commits from the command line. Speaking of command line, though, the <strong>Sublime REPL</strong> package is difficult to avoid. It allows you to <a href="https://github.com/wuub/SublimeREPL">run a variety of shells from within a tab in Sublime Text 2</a>. Among the included languages are Python (including iPython), R, and a few others. You can also run a system shell, which I use to do my commits.</p>
+<p>There are some plugins for <code>git</code>, but I don&#39;t use them, as I do my commits from the command line. Speaking of command line, though, the <strong>Sublime REPL</strong> package is difficult to avoid. It allows you to <a href="https://github.com/wuub/SublimeREPL">run a variety of shells from within a tab in Sublime Text 2</a>. Among the included languages are Python (including iPython), R, and a few others. You can also run a system shell, which I use to do my commits.</p>
 
 <p>I also like <strong>Align Tab</strong> a lot. If you write in LaTeX, or use <code>csv</code> data, you know what this one is doing. Select a block of text, open the command palette and choose <code>Align tabular</code>, give the separator string, and <em>bam!</em>, a perfectly aligned table.</p>
 
@@ -103,7 +66,6 @@ January 22, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style
 abc dd e 456
 </code></pre></div>
 
-
 <p>to this</p>
 
 <div class="highlight"><pre><code class="text">a    b   c   d 
@@ -111,14 +73,13 @@ abc dd e 456
 abc  dd  e   456
 </code></pre></div>
 
+<p>means a whole lot in terms of readability. </p>
 
-<p>means a whole lot in terms of readability.</p>
+<p>And while we&#39;re at readability, let&#39;s talk about color schemes. The defaults are good, but not impressive. My favorites are by far from <a href="https://github.com/chriskempson/base16">the <strong>base16</strong> project</a>. I&#39;m fond of <code>Tomorrow Light</code> and <code>Railscasts Dark</code>, but many, many others are impressive as well.</p>
 
-<p>And while we're at readability, let's talk about color schemes. The defaults are good, but not impressive. My favorites are by far from <a href="https://github.com/chriskempson/base16">the <strong>base16</strong> project</a>. I'm fond of <code>Tomorrow Light</code> and <code>Railscasts Dark</code>, but many, many others are impressive as well.</p>
+<p>When coding, I use <strong>AndyPython</strong> and <strong>SublimeCodeIntel</strong>. They provide some good auto-completion, and code intelligence. So it means that I don&#39;t need to remember the methods I put in my classes! And any technology allowing me to get progressively lazier is good (probably, I&#39;d check it, but it would involve some efforts). All jokes aside, when working with large python libraries (<code>networkx</code> or <code>scipy</code> come to mind), it&#39;s almost impossible to do without these packages.</p>
 
-<p>When coding, I use <strong>AndyPython</strong> and <strong>SublimeCodeIntel</strong>. They provide some good auto-completion, and code intelligence. So it means that I don't need to remember the methods I put in my classes! And any technology allowing me to get progressively lazier is good (probably, I'd check it, but it would involve some efforts). All jokes aside, when working with large python libraries (<code>networkx</code> or <code>scipy</code> come to mind), it's almost impossible to do without these packages.</p>
-
-<p>So be sure to check <em>Sublime Text 2</em> out. It's not free (but not too expensive either), and even if you don't pay, you can use the full feature set (and it is really, really impressive). Think of it as a <em>Photoshop</em> of text editing. After a year of using it, I realize I am probably exploiting less than 10% of its potential. It's one of the best pieces of software I've came across! And if you want to know more, <a href="http://nature.berkeley.edu/~kram/">Karthik Ram</a> has a list of <a href="http://pinboard.in/u:karthik/t:sublimetext">bookmarks</a> about it, which I encourage you to browse.</p>
+<p>So be sure to check <em>Sublime Text 2</em> out. It&#39;s not free (but not too expensive either), and even if you don&#39;t pay, you can use the full feature set (and it is really, really impressive). Think of it as a <em>Photoshop</em> of text editing. After a year of using it, I realize I am probably exploiting less than 10% of its potential. It&#39;s one of the best pieces of software I&#39;ve came across! And if you want to know more, <a href="http://nature.berkeley.edu/%7Ekram/">Karthik Ram</a> has a list of <a href="http://pinboard.in/u:karthik/t:sublimetext">bookmarks</a> about it, which I encourage you to browse.</p>
 
 
 </div>
@@ -156,6 +117,23 @@ abc  dd  e   456
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

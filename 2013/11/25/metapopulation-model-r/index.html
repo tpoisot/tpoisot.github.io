@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Spatially explicit metapopulation model in R</h1>
 
@@ -84,17 +47,16 @@ November 25, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 </div>
 
-<p>One of my favorite tools to work with networks is <a href="http://networkx.github.io/">the <code>networkx</code> python
-package</a> (if only because lists comprehensions make so much sense when you
-work with graphs). But for teaching purposes (especially in ecology), having
+<p>One of my favorite tools to work with networks is <a href="if%20only%20because%20lists%20comprehensions%20make%20so%20much%20sense%20when%20you%0Awork%20with%20graphs">the <code>networkx</code> python
+package</a>. But for teaching purposes (especially in ecology), having
 purely <code>R</code>-based tools is better. The students know the language (at least
 enough to get around most problems in a few hours, and so they can focus on
 the theory rather than the tedious details of implementation. So I started
 looking for good graph analysis tools in R.</p>
 
-<p>I've read good thing (well, <a href="http://assemblingnetwork.wordpress.com/tutorials/network-basics/">good-looking code</a>, actually) about the
+<p>I&#39;ve read good thing (well, <a href="http://assemblingnetwork.wordpress.com/tutorials/network-basics/">good-looking code</a>, actually) about the
 <code>igraph</code> package, so I decided to try it (good surprise: there are both <code>R</code>,
-<code>python</code> and <code>C</code> implementations. My first two projects when I'm doing graph
+<code>python</code> and <code>C</code> implementations. My first two projects when I&#39;m doing graph
 things are (i) how fast can I implement Williams &amp; Martinez <em>niche model</em>, and
 (ii) how fast can I implement a spatially explicit metapopulation model. I have
 folders in my computers with various versions of both in various languages.</p>
@@ -103,12 +65,13 @@ folders in my computers with various versions of both in various languages.</p>
 generate a random geometric graph, and use that as the landscape over which the
 metapopulation is simulated. The code is <a href="https://gist.github.com/tpoisot/7547954">available as a gist</a>. Coming
 from <code>networkx</code>, it took some time getting used to the different approach. But
-overall, <code>igraph</code> convinced me, and I'll most definitely use it when teaching
+overall, <code>igraph</code> convinced me, and I&#39;ll most definitely use it when teaching
 about networks in the future.</p>
 
-<p><img src="/images/rmetapop.png" alt="Fig1" />
-As a side note, the code allows to generate 3D spatial graphs. It's entirely
-useless, but it's kinda cool!</p>
+<p><img src="/images/rmetapop.png" alt="Fig1"></p>
+
+<p>As a side note, the code allows to generate 3D spatial graphs. It&#39;s entirely
+useless, but it&#39;s kinda cool!</p>
 
 
 </div>
@@ -146,6 +109,23 @@ useless, but it's kinda cool!</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

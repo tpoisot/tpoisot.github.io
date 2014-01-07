@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Measuring realized network modularity</h1>
 
@@ -84,7 +47,7 @@ May 23, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 </div>
 
-<p>A paper describing how to measure <a href="http://f1000research.com/articles/2-130/v1">realized network modularity</a> just appeared online at <em>F1000 Research</em>. It's currently waiting for reviewers. This is a short methodological note, to "solve" a problem I had when presenting the ouput of modularity analyses. Most of the time,  the values you get are between 0 and 1, but they are fairly difficult to make sense of. They're not probabilities that the network is different. They're statistics to some extent, but it's not clear what a critical value should be.</p>
+<p>A paper describing how to measure <a href="http://f1000research.com/articles/2-130/v1">realized network modularity</a> just appeared online at <em>F1000 Research</em>. It&#39;s currently waiting for reviewers. This is a short methodological note, to &quot;solve&quot; a problem I had when presenting the ouput of modularity analyses. Most of the time,  the values you get are between 0 and 1, but they are fairly difficult to make sense of. They&#39;re not probabilities that the network is different. They&#39;re statistics to some extent, but it&#39;s not clear what a critical value should be.</p>
 
 <p>I simply propose to count the number of links established by species from the same module, and by species from different modules. This give a very simple measure to understand: a network with a <em>realized</em> modularity of 1 has no links between species from different modules. The other interesting thing is that you can use this measure as an <em>a posteriori</em> criteria to decide which community partition to use, which can be useful when deciding on which module detection method you should pick.</p>
 
@@ -124,6 +87,23 @@ May 23, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

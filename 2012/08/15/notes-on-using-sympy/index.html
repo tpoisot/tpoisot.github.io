@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Notes on learning how to use sympy</h1>
 
@@ -84,15 +47,13 @@ August 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style=
 
 </div>
 
-<p>I'm trying to move to <code>sympy</code> for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I'm playing with a simple host-parasite model. I was reading the <a href="http://docs.sympy.org/0.7.1/tutorial.html#first-steps-with-sympy"><em>First steps with sympy</em></a> section of the website when I was running my little tests, and it's relatively helpul.</p>
+<p>I&#39;m trying to move to <code>sympy</code> for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I&#39;m playing with a simple host-parasite model. I was reading the <a href="http://docs.sympy.org/0.7.1/tutorial.html#first-steps-with-sympy"><em>First steps with sympy</em></a> section of the website when I was running my little tests, and it&#39;s relatively helpul.</p>
 
-<p>So let's assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous dynamics can be written as</p>
+<p>So let&#39;s assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous dynamics can be written as</p>
 
 <script type="math/tex; mode=display">\frac{dH}{dt} = H \times \left( r - q\times H - \beta \times P \right)</script>
 
-
 <script type="math/tex; mode=display">\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)</script>
-
 
 <p>The first step to get this into <code>sympy</code> is to load the package (obviously), then declare parameters and population sizes as <em>symbols</em>, and the equations as <em>Functions</em>.</p>
 
@@ -108,47 +69,38 @@ August 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style=
 <span class="n">dH</span><span class="p">,</span> <span class="n">dP</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;dH dP&#39;</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Once this is done, you can write up the equations</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">dH</span> <span class="o">=</span> <span class="n">H</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">H</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">P</span> <span class="p">)</span>
 <span class="n">dP</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">H</span> <span class="o">-</span> <span class="n">d</span> <span class="p">)</span>
 </code></pre></div>
 
-
 <p>And solve with a <em>Mathematica</em>-like syntax:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">print</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>
 </code></pre></div>
 
-
 <p>At this point, you should get a list of tuples as the output:</p>
-
-<pre><code>[(0, 0), (d/a, -(-a*r + d*q)/(a*b)), (r/q, 0)]
-</code></pre>
-
+<div class="highlight"><pre><code class="text language-text" data-lang="text">[(0, 0), (d/a, -(-a*r + d*q)/(a*b)), (r/q, 0)]
+</code></pre></div>
 <p>The three possible outcomes were identified: either everything crashes, the parasite goes extinct (<script type="math/tex">H* = r/q</script>), or the two populations persist and reach their equilibrium.</p>
 
-<p>At this point, let's assign these solutions to an object, and focus on the coexistence case:</p>
+<p>At this point, let&#39;s assign these solutions to an object, and focus on the coexistence case:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">equil</span> <span class="o">=</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>
 <span class="n">coex</span> <span class="o">=</span> <span class="n">equil</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">print</span> <span class="n">coex</span>
 </code></pre></div>
 
-
 <p>I naturally tried do find which sets of parameters allow the system to coexist <em>with positive densities</em>, so I used</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">solve</span><span class="p">(</span><span class="n">coex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Which gave the following error message:</p>
-
-<pre><code>NotImplementedError: only univariate inequalities are supported
-</code></pre>
-
-<p>Well, so that does it for today. I'll be exploring <em>Maxima</em> in the next weeks, because if <code>sympy</code> is stuck on this common problem, there is no way you can use it to do some decent analysis. Oh, and in case you wonder: the maths are rendered with the <a href="http://www.mathjax.org/"><em>MathJax</em></a> library.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">NotImplementedError: only univariate inequalities are supported
+</code></pre></div>
+<p>Well, so that does it for today. I&#39;ll be exploring <em>Maxima</em> in the next weeks, because if <code>sympy</code> is stuck on this common problem, there is no way you can use it to do some decent analysis. Oh, and in case you wonder: the maths are rendered with the <a href="http://www.mathjax.org/"><em>MathJax</em></a> library.</p>
 
 
 </div>
@@ -186,6 +138,23 @@ August 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style=
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Measuring ecological specificity</h1>
 
@@ -90,12 +53,15 @@ January 19, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style
 
 <p>So we went back to basics, and thought about what specificity is.  In <a href="http://www.ncbi.nlm.nih.gov/pubmed/21699641">a previous paper</a>, we defined it as «displaying differential adaptation to a subset of suitable environments. Whereas specialisation refers to the process or tendency of change, specificity is the state of adaptation to environments at any given time or place». Ideally, a good measure of specificity would match this definition, as for example the <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2008.16644.x/full">NODF</a> measure does for nestedness. This is with this definition in mind that we conceived the <em>Paired Differences Index</em>; the reasoning behind it is really simple, it measures how fast performance decreases when an organism is moved away from its optimal resource.</p>
 
-<p>What we've done, is that we examined how different measures of specificity behave with regard to two important informations: (i) the thoroughness of sampling, and (ii) the distribution of links between species that exploit, and resources that are exploited (which is related to the structure of the interaction network). In a nutshell, we found that <em>d'</em> and <em>PDI</em> were highly robust, but only the later is highly informative. So, problem solved? Not really. <em>PDI</em> is super good at situating species along a continuum of specificity, with the interesting property of returning a value of 0.5 (neither specialist nor generalist) when the performances decrease linearly. But as shown in the figure 1 (reproduced below), it tends to saturate with really high degree of specialization. Other measures, such as <em>CoV</em>, are less affected by this.</p>
+<p>What we&#39;ve done, is that we examined how different measures of specificity behave with regard to two important informations: (i) the thoroughness of sampling, and (ii) the distribution of links between species that exploit, and resources that are exploited (which is related to the structure of the interaction network). In a nutshell, we found that <em>d&#39;</em> and <em>PDI</em> were highly robust, but only the later is highly informative. So, problem solved? Not really. <em>PDI</em> is super good at situating species along a continuum of specificity, with the interesting property of returning a value of 0.5 (neither specialist nor generalist) when the performances decrease linearly. But as shown in the figure 1 (reproduced below), it tends to saturate with really high degree of specialization. Other measures, such as <em>CoV</em>, are less affected by this.</p>
 
-<p><img src="/images/pdi_fig1.png" title="Figure 1" alt="Figure1" />
-We conclude by providing the following recommendations:</p>
+<p><img src="/images/pdi_fig1.png" alt="Figure1" title="Figure 1"></p>
 
-<blockquote><p>In conclusion, based on our evaluations, we encourage researchers to make use of RR to estimate the specificity of associations (i.e. Schoener’s generality) and PDI to estimate the specificity of impacts (i.e. the skewness of the link strength distribution), with the possibility to use other measures to detect fine-scale variation in specificity among highly specialized species. Previous literature has established that quantitative information on link strength is not necessary for some problems, and in these cases, PDI and RR are equivalent.</p></blockquote>
+<p>We conclude by providing the following recommendations:</p>
+
+<blockquote>
+<p>In conclusion, based on our evaluations, we encourage researchers to make use of RR to estimate the specificity of associations (i.e. Schoener’s generality) and PDI to estimate the specificity of impacts (i.e. the skewness of the link strength distribution), with the possibility to use other measures to detect fine-scale variation in specificity among highly specialized species. Previous literature has established that quantitative information on link strength is not necessary for some problems, and in these cases, PDI and RR are equivalent.</p>
+</blockquote>
 
 <p>The measures described in this paper can be done using the <code>ESM</code> package mentioned above. Given an object <code>web</code> with focal species as rows, you can calculate the specificity using <em>PDI</em> and <em>RR</em> with the following commands:</p>
 
@@ -107,10 +73,9 @@ spe_rr <span class="o">=</span> getspe<span class="p">(</span>web<span class="p"
 plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p">)</span>
 </code></pre></div>
 
-
 <p>The code is also being ported to Python and MatLab, but more on that later...</p>
 
-<p>For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it's basically a mess of nested for statements). The network generation routine is based on the same logic that something published by <a href="http://schamberlain.github.com/2011/01/ecological-networks-from-abundance/">Scott Chamberlain</a>, if you have any interest in doing such things.</p>
+<p>For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it&#39;s basically a mess of nested for statements). The network generation routine is based on the same logic that something published by <a href="http://schamberlain.github.com/2011/01/ecological-networks-from-abundance/">Scott Chamberlain</a>, if you have any interest in doing such things.</p>
 
 
 </div>
@@ -148,6 +113,23 @@ plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p"
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

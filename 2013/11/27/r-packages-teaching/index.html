@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>The pros and cons of using R packages for teaching</h1>
 
@@ -84,10 +47,10 @@ November 27, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 </div>
 
-<p>R packages are one of the best tools we have. It's a library of 1000s
+<p>R packages are one of the best tools we have. It&#39;s a library of 1000s
 of functions ready to be used, all wrapped in a single common language,
-and it's free. I wrote some, and used even more. When I review a paper,
-upon seeing "we used function <code>x</code> in the version 2.3 of package <code>y</code>",
+and it&#39;s free. I wrote some, and used even more. When I review a paper,
+upon seeing &quot;we used function <code>x</code> in the version 2.3 of package <code>y</code>&quot;,
 I know a lot about what the authors have been doing (and I can check the
 help of this function for references and additional details). And obviously,
 training students about which packages are widely used in a particular field
@@ -96,11 +59,11 @@ language as other scientists in the field.</p>
 
 <p>Because packages (often) represent the <em>state of the art</em> in a particular
 field, or because they offer a unified interface to a lot of different methods
-(<code>simecol</code> is a good example of that), it's important that students know how
+(<code>simecol</code> is a good example of that), it&#39;s important that students know how
 to use them (and most importantly, which packages to use). To some extent,
 packages are just another tool, like PCR or statistics. Knowing how to use
 them (properly) saves time, and opens new possibilities for analyses. And
-let's just be realistic, everyone uses packages. All the time. So yes, of
+let&#39;s just be realistic, everyone uses packages. All the time. So yes, of
 course, the students should be familiar with the most important in their field.</p>
 
 <p>An important point is that we also start to see the development of <em>package
@@ -115,24 +78,24 @@ still have to start <code>R</code> at least once a day.</p>
 
 <p>So on one hand, packages are really good, because they save time and
 allow to do an analysis which (hopefully) conforms with the current set of
-"best practices" in the field. On the other hand, when you start working
+&quot;best practices&quot; in the field. On the other hand, when you start working
 <em>only</em> with what the packages have to offer, you can severely limit your
 creativity. There are questions that will require new code to be written,
-and you'll most likely hit obstacles along the ways. That, too, should be
+and you&#39;ll most likely hit obstacles along the ways. That, too, should be
 something the students encounter during their training.</p>
 
 <p>And this is when the limits of <code>R</code> start to show. As John Cook said (<a href="http://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science">source</a>),
-"I find it more helpful to think of R as having a programming language than
-being a programming language". I would never have put that so eloquently,
+&quot;I find it more helpful to think of R as having a programming language than
+being a programming language&quot;. I would never have put that so eloquently,
 and it is entirely ture. Over the last two months, I gave a graduate training
 class on <em>Algorithms and programming for environmental sciences</em>, in which
-I tried to discuss how to make "good" (robust, user-friendly, stupid-proof)
+I tried to discuss how to make &quot;good&quot; (robust, user-friendly, stupid-proof)
 programs. Regardless of what the students learned, I definitely realized
 that <code>R</code> is a <em>huge mess</em> when you try to work outside of packages, or
-do something else than statistics. Interestingly, even Hadley Whickam's
+do something else than statistics. Interestingly, even Hadley Whickam&#39;s
 forthcoming <a href="http://adv-r.had.co.nz/"><em>Advanced R development</em></a> starts by saying that it will
-show how <em>what seems horrible is merely "not that bad"</em> (go read the book,
-by the way, it's great). And so understanding <em>what</em> to do often comes second
+show how <em>what seems horrible is merely &quot;not that bad&quot;</em> (go read the book,
+by the way, it&#39;s great). And so understanding <em>what</em> to do often comes second
 to understanding <em>how to do it</em>.</p>
 
 <p>The (many, many) quirks of <code>R</code> nonwithstanding, working with a package
@@ -140,24 +103,24 @@ and doing something new are two different approaches. The former involves
 looking at the examples, and reading the documentatin to see what each
 function does. The later requires a working knowledge of the language, and
 some notions of algorithmic. Yet, judging from my observations, these two
-different exercices are often (and let's not forget statistics) presented
+different exercices are often (and let&#39;s not forget statistics) presented
 together, under the general denomination of <code>R</code>. And when, afterwards, students
-complain of "not getting <code>R</code>", it's hard to tell whether what they don't
+complain of &quot;not getting <code>R</code>&quot;, it&#39;s hard to tell whether what they don&#39;t
 get is what exactly a <code>while</code> loop does (which is not a <code>R</code>-specific issue),
 or why a <code>data.frame</code> is also a <code>list</code> and a <code>matrix</code> (which is a reasonable
 question, and quite specific to <code>R</code>); you may know how to do statistics with
 <code>R</code>, or use <code>vegan</code> or <code>picante</code>, but not know <code>R</code> (or the other way around).</p>
 
-<p>The point I'm slowly getting at is that you'll most likely end up in a
+<p>The point I&#39;m slowly getting at is that you&#39;ll most likely end up in a
 situation which is not covered by <em>any</em> package available. Or, as a student,
-you'll have to modify a code for a group project, which means re-writing
+you&#39;ll have to modify a code for a group project, which means re-writing
 some functions, or changing the data structure. Part of the training should
 prepare students to do this kind of things. Rather than using a pre-made
-function to calculate a Shannon's index, or even find the maximal value in
-an array, let's walk students through the writing of this function.</p>
+function to calculate a Shannon&#39;s index, or even find the maximal value in
+an array, let&#39;s walk students through the writing of this function.</p>
 
-<p>So, to conclude, while it's clear that I have a love/hate relationship
-with <code>R</code>, I think it's still an invaluable tool for teaching, especially in
+<p>So, to conclude, while it&#39;s clear that I have a love/hate relationship
+with <code>R</code>, I think it&#39;s still an invaluable tool for teaching, especially in
 undergraduate courses. <code>python</code> might be as easy and more coherent, but less
 people use it (for now...), and <code>R</code> is still the <em>lingua franca</em>. And a part
 of the success of <code>R</code> is the diversity of available packages. But relying
@@ -166,7 +129,7 @@ will know what the function does, but not necessarily <em>how</em> it does it; a
 knowing how stuff works is key when you have to create your own stuff. So
 <strong>pros</strong>, packages are awesome because 90% of what you want to do is already
 programmed. <strong>Cons</strong>, the remaining 10% will be extremely hard for you to
-get if you don't get your hands dirty once in a while, and write things
+get if you don&#39;t get your hands dirty once in a while, and write things
 from scratch.</p>
 
 
@@ -205,6 +168,23 @@ from scratch.</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

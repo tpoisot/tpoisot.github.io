@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>A d3.js alternative to stacked bar charts</h1>
 
@@ -84,7 +47,7 @@ February 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 </div>
 
-<p>Following yesterday's post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I'll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
+<p>Following yesterday&#39;s post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I&#39;ll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
 
 <p>For this particular example, I assume that the data are in a matrix, in <code>csv</code> format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is:</p>
 
@@ -97,17 +60,13 @@ e    , 0.01 , 0.82 , 0.09 , 0.6 , 0.15
 f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
 </code></pre></div>
 
-
 <p>The end result is as follows:</p>
 
 <div class='stackbardemo barplot d3'></div>
 
-
 <!-- stackbardemo.csv -->
 
-
 <script type="text/javascript" src="/data/stackbardemo.js"></script>
-
 
 <p>Generating the small axes on the left was the most tricky part, and I used a probably sub-optimal way to do it:</p>
 
@@ -132,8 +91,7 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
   <span class="p">});</span>
 </code></pre></div>
 
-
-<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I'd be really interested in finding a way to do without the <code>forEach</code> part.</p>
+<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I&#39;d be really interested in finding a way to do without the <code>forEach</code> part.</p>
 
 
 </div>
@@ -171,6 +129,23 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

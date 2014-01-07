@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Remove indels from blast output</h1>
 
@@ -84,11 +47,11 @@ May 20, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 </div>
 
-<p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it's kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a "reliable" estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
+<p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it&#39;s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a &quot;reliable&quot; estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
 
-<p>As doing it by hand would be, let's say, tedious, I started looking for a <code>biopython</code> way to do it. As it turns out, despite the fact that the <code>biopython</code> documentation is cryptic and baffling at some points, it turned out to be a great over-lunch coding project.</p>
+<p>As doing it by hand would be, let&#39;s say, tedious, I started looking for a <code>biopython</code> way to do it. As it turns out, despite the fact that the <code>biopython</code> documentation is cryptic and baffling at some points, it turned out to be a great over-lunch coding project.</p>
 
-<p>I've put the code up as a <a href="https://gist.github.com/tpoisot/5613748">gist</a>. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it's not that slow (a few seconds per sequence, most of which are actually spent blasting).</p>
+<p>I&#39;ve put the code up as a <a href="https://gist.github.com/tpoisot/5613748">gist</a>. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it&#39;s not that slow (a few seconds per sequence, most of which are actually spent blasting).</p>
 
 
 </div>
@@ -126,6 +89,23 @@ May 20, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

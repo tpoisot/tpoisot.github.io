@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>Phylogeny without a sequencer</h1>
+  <div class="postinfo">May  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">phylogeny</span></div>
+  <p>
+    In the last issue of Trends Ecol. Evol., Poole and colleagues talk about Ecosystomics, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of a recent paper by Nico Mouquet and colleagues about Ecophylogenetics. But I&#39;m not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions. At times, one would like to re-analyze old data and add the phylogeny. If you don&#39;t see why you would want to do this, go read the excellent paper in...
+  </p>
+<a class="readmore" href="/2012/05/03/phylogeny-without-sequencer/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>Ecology is not too collaborative</h1>
   <div class="postinfo">April 30, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecology</span><span class="label radius small" style="margin-right: 3px;">research</span></div>
   <p>
-    A few days ago, Jeremy Fox published on the Oikos blog, wondering if ecology was becoming too collaborative. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can't really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it's worth, here is my contribution to...
+    A few days ago, Jeremy Fox published on the Oikos blog, wondering if ecology was becoming too collaborative. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can&#39;t really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it&#39;s worth, here is my contribution to the debate. I&#39;m involved in a few short term collaborations, and I think they are awesome. One of the ideas...
   </p>
 <a class="readmore" href="/2012/04/30/ecology-not-too-collaborative/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>Biblatex styles for ecology</h1>
   <div class="postinfo">April 26, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">LaTeX</span><span class="label radius small" style="margin-right: 3px;">biblatex</span><span class="label radius small" style="margin-right: 3px;">open source</span></div>
   <p>
-    A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of natbib —, I started looking into biblatex. biblatex is essentially a re-implementation of LaTeX packages like cite, natbib, and others. And the more I used it, the more I realized two things. First, biblatex is awesome; it's to natbib what knitr is to Sweave. Including the fact that switching from one system to the other is virtually transparent, but you...
+    A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of natbib —, I started looking into biblatex. biblatex is essentially a re-implementation of LaTeX packages like cite, natbib, and others. And the more I used it, the more I realized two things. First, biblatex is awesome; it&#39;s to natbib what knitr is to Sweave. Including the fact that switching from one system to the other is virtually transparent, but you would miss a lot by not using the biblatex specific commands. Second, it&#39;s a pain to find citation styles for...
   </p>
 <a class="readmore" href="/2012/04/26/biblatex-styles-ecology/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>Null models of bipartite networks in C</h1>
   <div class="postinfo">April 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">open source</span><span class="label radius small" style="margin-right: 3px;">null models</span></div>
   <p>
-    I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I'm currently re-learning C, and I thought it would be a cool...
+    I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I&#39;m currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C. The code is on GitHub if you are interested. It&#39;s super fast....
   </p>
 <a class="readmore" href="/2012/04/15/null-models-C/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>How to make the most out of peer-review?</h1>
   <div class="postinfo">January 29, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">peer-review</span></div>
   <p>
-    So it seems that the love/hate relationship between science and publishers has reached its tipping point following the RWA turmoil, with appeals to boycott major publishers, such as researchwithoutwalls and thecostofknowledge, and some of the most eminents members of the scientific blogosphere talking about it, and using creative metaphors to illustrate how big of a scam it is. Specifically, most scientists are publicly stating that they will not review papers anymore, at least in the case of for-profit editors. Most...
+    So it seems that the love/hate relationship between science and publishers has reached its tipping point following the RWA turmoil, with appeals to boycott major publishers, such as researchwithoutwalls and thecostofknowledge, and some of the most eminents members of the scientific blogosphere talking about it, and using creative metaphors to illustrate how big of a scam it is. Specifically, most scientists are publicly stating that they will not review papers anymore, at least in the case of for-profit editors. Most of the problem lies in the fact that reviewing papers does not grant you any money, yet publishers make insane...
   </p>
 <a class="readmore" href="/2012/01/29/sign-your-reviews/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>Measuring ecological specificity</h1>
-  <div class="postinfo">January 19, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">specificity</span><span class="label radius small" style="margin-right: 3px;">open source</span></div>
-  <p>
-    Our paper about measurements of ecological specialization is now available online at the Methods in Ecology &amp; Evolution website. You can also download the associated R package from R-Forge. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that. Early during my thesis, in between watching episodes...
-  </p>
-<a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>A d3.js alternative to stacked bar charts</h1>
+  <div class="postinfo">February 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">data visualization</span><span class="label radius small" style="margin-right: 3px;">D3.js</span></div>
+  <p>
+    Following yesterday&#39;s post on an alternative to barcharts, I decided to write an implementation of this graph in D3.js. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I&#39;ll share the code as a gist. For this particular example, I assume that the data are in a matrix, in csv format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is: site , spa ,...
+  </p>
+<a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>An alternative to stacked bar charts</h1>
   <div class="postinfo">February 17, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">data visualization</span></div>
   <p>
-    I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It's almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with. First let's load a few...
+    I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It&#39;s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with. First let&#39;s load a few packages, and generate some random abundance data. Let&#39;s imagine that we have 10 sites, and we sample 20 species. library(RColorBrewer)...
   </p>
 <a class="readmore" href="/2013/02/17/stacked-barcharts/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>Estimating edges contribution to network properties</h1>
   <div class="postinfo">February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">modularity</span><span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span><span class="label radius small" style="margin-right: 3px;">D3.js</span></div>
   <p>
-    I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I've learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do in networkx. We'll just write...
+    I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I&#39;ve learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do in networkx. We&#39;ll just write a function similar to removeNode, and add the possibility to keep the nodes with no links, or to remove them....
   </p>
 <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>Estimating node contribution to network properties</h1>
   <div class="postinfo">February 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">modularity</span><span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span></div>
   <p>
-    I'm currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I'll just detail how it possible to get this information quickly using networkx. Warning! I'm just using this post to take notes on code I'm currently working on. Saavedra et al. Nature 478...
+    I&#39;m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I&#39;ll just detail how it possible to get this information quickly using networkx. Warning! I'm just using this post to take notes on code I'm currently working on. Saavedra et al. Nature 478 DOISaavedra and colleagues proposed a method which is based on the randomization of the interactions of each species in the...
   </p>
 <a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>COinS metadata in Jekyll blogposts</h1>
   <div class="postinfo">February  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">jekyll</span><span class="label radius small" style="margin-right: 3px;">bibliography</span></div>
   <p>
-    COinS is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn blog posts into TREE papers, citing blog posts might not be so far away)....
+    COinS is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn blog posts into TREE papers, citing blog posts might not be so far away). Adding COinS data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in...
   </p>
 <a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>Article introductions and the reinvention of the ecological wheel</h1>
-  <div class="postinfo">January 28, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">scientific publishing</span><span class="label radius small" style="margin-right: 3px;">ecological theory</span><span class="label radius small" style="margin-right: 3px;">scientific literature</span></div>
-  <p>
-    Caroline Tucker and Marc Cadotte recently had a great blog post discussing the reinvention of the ecological wheel, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with a lot of interest, for reasons that I will mention in a later post. The basic issue was that: Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence. I'll keep my opinion about...
-  </p>
-<a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

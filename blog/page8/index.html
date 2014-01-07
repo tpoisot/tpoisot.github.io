@@ -32,55 +32,28 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
+
+
+<div class='post'>
+  <h1>Should code be reviewed?</h1>
+  <div class="postinfo">May 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open source</span><span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">peer review</span><span class="label radius small" style="margin-right: 3px;">software</span><span class="label radius small" style="margin-right: 3px;">next-gen science</span></div>
+  <p>
+    Joppa and colleagues published a policy forum in Science, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do...
+  </p>
+<a class="readmore" href="/2013/05/21/should-code-reviewed/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>Remove indels from blast output</h1>
   <div class="postinfo">May 20, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">bioinformatics</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">biopython</span><span class="label radius small" style="margin-right: 3px;">pyrosequencing</span></div>
   <p>
-    My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were indels rather than point mutations. It may not sound like it, but it's kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of blast. So to get a "reliable" estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps. As doing it by hand...
+    My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were indels rather than point mutations. It may not sound like it, but it&#39;s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of blast. So to get a &quot;reliable&quot; estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps. As doing it by hand would be, let&#39;s say, tedious, I started looking for a biopython way to do it. As it turns out, despite...
   </p>
 <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Read more...</a>
 </div>
@@ -89,7 +62,7 @@
   <h1>Using make and pandoc for reproducible papers</h1>
   <div class="postinfo">May 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">pandoc</span></div>
   <p>
-    I tend to use pandoc more and more to write my papers. The syntax of markdown is ligthweight, doesn't get in the way of my writing, and it's easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like pgfplots a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It's quite important if you want...
+    I tend to use pandoc more and more to write my papers. The syntax of markdown is ligthweight, doesn&#39;t get in the way of my writing, and it&#39;s easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like pgfplots a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It&#39;s quite important if you want to tweak som simulation parameters, for instance. Using pgfplots from within pandoc can be done, but the heavy syntax seems...
   </p>
 <a class="readmore" href="/2013/05/18/make-pandoc/">Read more...</a>
 </div>
@@ -98,7 +71,7 @@
   <h1>Steal my paper! (seriously, please, don't)</h1>
   <div class="postinfo">May 16, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">data sharing</span></div>
   <p>
-    With Phil's paper on preprints out, and the idea that writing manuscripts in the open introduced by Karthik Ram, it's almost not completely crazy to write research papers in an entirely open space, like github or Google Docs. I'm currently doing it (everything with paper or ms in the title of the repository is something not yet published), and so are a few other people. And it's a good thing. It might actually be the better way to disseminate research...
+    With Phil&#39;s paper on preprints out, and the idea that writing manuscripts in the open introduced by Karthik Ram, it&#39;s almost not completely crazy to write research papers in an entirely open space, like github or Google Docs. I&#39;m currently doing it (everything with paper or ms in the title of the repository is something not yet published), and so are a few other people. And it&#39;s a good thing. It might actually be the better way to disseminate research fast. Not to mention that version controlling will help people studying scientists a great deal: you can now have a...
   </p>
 <a class="readmore" href="/2013/05/16/steal-my-paper/">Read more...</a>
 </div>
@@ -107,18 +80,9 @@
   <h1>A C version of the Nicholson-Bailey model</h1>
   <div class="postinfo">May  6, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">C</span><span class="label radius small" style="margin-right: 3px;">parasites</span><span class="label radius small" style="margin-right: 3px;">models</span><span class="label radius small" style="margin-right: 3px;">species interactions</span></div>
   <p>
-    The Nicholson-Bailey model is a well known model of host and parasitoid population dynamics. It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it's brutal like that. There are a few fun things with this model. It's light in parameters (the single-patch version requires only three parameters), it's in discrete time (so it's easy to program), and it's classical put on a lattice (so it's a good way to program these...
+    The Nicholson-Bailey model is a well known model of host and parasitoid population dynamics. It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it&#39;s brutal like that. There are a few fun things with this model. It&#39;s light in parameters (the single-patch version requires only three parameters), it&#39;s in discrete time (so it&#39;s easy to program), and it&#39;s classical put on a lattice (so it&#39;s a good way to program these kind of things). I wanted to test a few things, so I had to re-implement this model in space. My...
   </p>
 <a class="readmore" href="/2013/05/06/nicholson-bailey-c/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>Data sharing and preprints in ecology</h1>
-  <div class="postinfo">April 30, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">data sharing</span></div>
-  <p>
-    I'm glad to announce that we (I, Ross Mounce, and Dom Gravel), have put up a preprint about data sharing in ecology on figshare. The manuscript is under consideration at Ideas in Ecology &amp; Evolution. We try to make a valid point about why ecologists should share their data, how we can do it in practice, and the role that funding agencies and journals can play. And speaking of preprints, but also sure to check out Philippe's opinion piece on...
-  </p>
-<a class="readmore" href="/2013/04/30/data-sharing-ecology/">Read more...</a>
 </div>
 
 
@@ -204,6 +168,23 @@
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Should code be reviewed?</h1>
 
@@ -84,39 +47,39 @@ May 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 </div>
 
-<p>Joppa and colleagues published a <a href="http://www.sciencemag.org/content/340/6134/814">policy forum</a> in <em>Science</em>, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do an outdated analysis because "everyone else is doing this analysis" - way to go).</p>
+<p>Joppa and colleagues published a <a href="http://www.sciencemag.org/content/340/6134/814">policy forum</a> in <em>Science</em>, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do an outdated analysis because &quot;everyone else is doing this analysis&quot; - way to go).</p>
 
-<p>As Joppa and colleagues say quite early in the paper, "the software code used to
-do the science has not been formally reviewed". This is, indeed, one of the main
+<p>As Joppa and colleagues say quite early in the paper, &quot;the software code used to
+do the science has not been formally reviewed&quot;. This is, indeed, one of the main
 recommandations that Joppa and colleagues make: code should be reviewed, just as
 the paper it is attached to. And it is obvious, but just saying that referees
 will read the code, and all the problems will go away, is wishful thinking.
 Should code be reviewed? Yes. Can it? Not quite yet, I think.</p>
 
-<p>I've talked to five different people this morning about computer stuff. We
+<p>I&#39;ve talked to five different people this morning about computer stuff. We
 mentionned approximately ten different languages. Of these, I knew four well
 (enough to write functional code in a reasonable amount of time), two
 approximately (I can guess what a code does by reading it, most of the time),
 and the others not at all. Sure, <code>R</code> has become a <em>lingua franca</em>
 for ecologists and many other fields, but there are still other
 languages out there. Think you can review my <code>python</code> code?
-I wouldn't even do it myself! What about very verbose languages
+I wouldn&#39;t even do it myself! What about very verbose languages
 (<code>C</code>), or things that should have gone extinct a long time ago but
 for some reason are still around (<code>delphi</code>)? We are collectively
 using a multitude of languages. Now think about it in a review
-perspective. How likely is it that you'll be able to (i)
+perspective. How likely is it that you&#39;ll be able to (i)
 understand, (ii) evalute, and (iii) assess the quality of a random
-piece of code? If you're not in the top 90% programers in your field, then you're not likely to review the code properly.</p>
+piece of code? If you&#39;re not in the top 90% programers in your field, then you&#39;re not likely to review the code properly.</p>
 
-<p>Joppa and colleagues also call for more widespread unit tests. Some languages have really easy way to write them (<code>python</code>, for example). I'm guilty of not using them, just as a lot of other people. And the reason is simple: ain't nobody got time for that! <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Nick Barnes</a> encouraged us to publish our computer code because it was "good enough", and most of the time, our code is just that. Good <em>enough</em> for the project we are currently working on. When I write a model of whatever ecological process to look at how it affects the relationship between two variables, I mostly don't think that people can use it to do something else. I write it as well as I can, and stupid-test it (does it behave the way my calculations tell me it should in some important yet simple cases?). Then I'm done with it. But I don't write unit tests, and I don't adhere to any good practices of code quality. This is bad, we are (to a vast majority), bad people.</p>
+<p>Joppa and colleagues also call for more widespread unit tests. Some languages have really easy way to write them (<code>python</code>, for example). I&#39;m guilty of not using them, just as a lot of other people. And the reason is simple: ain&#39;t nobody got time for that! <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Nick Barnes</a> encouraged us to publish our computer code because it was &quot;good enough&quot;, and most of the time, our code is just that. Good <em>enough</em> for the project we are currently working on. When I write a model of whatever ecological process to look at how it affects the relationship between two variables, I mostly don&#39;t think that people can use it to do something else. I write it as well as I can, and stupid-test it (does it behave the way my calculations tell me it should in some important yet simple cases?). Then I&#39;m done with it. But I don&#39;t write unit tests, and I don&#39;t adhere to any good practices of code quality. This is bad, we are (to a vast majority), bad people.</p>
 
-<p>It's true that most of what Joppa and colleagues discuss are big projects. The
+<p>It&#39;s true that most of what Joppa and colleagues discuss are big projects. The
 <code>vegan</code> and <code>bipartite</code>, for example. And writing these big projects is the
-<em>exception</em>, not the rule. We are not trained to work on them, we don't know how
-to behave, and it's not what we do most of the time! And for he very same
-reason, we probably wouldn't know how to review it, either. So what is the solution?</p>
+<em>exception</em>, not the rule. We are not trained to work on them, we don&#39;t know how
+to behave, and it&#39;s not what we do most of the time! And for he very same
+reason, we probably wouldn&#39;t know how to review it, either. So what is the solution?</p>
 
-<p>First, more open science. As I've mentionned <a href="http://timotheepoisot.fr/2012/01/06/science-age-social-coding/">before</a>, I'm quite convinced that the ability to have other people read our code will increase the probability that we received feedback. Second, (still) more open science. Hearing that your program is flawed when you submit the paper is a terrible waste of time. <a href="http://timotheepoisot.fr/2013/05/16/steal-my-paper/">Put your papers on line when you write them</a>, with the code you use, and ask people for input. It's better to hear that something is wrong soon, when you can still change it withouth going through a full rewrite, rather than at the end of the process. And finally, (one again) more open science. Make reviews (of code, but why stop there) public. If you detect a mistake in the code, explain where, how, whay, and what it does to the results. Help the <em>users</em> of the software, not only the developpers. Also, when you spot a mistake, explain it so that other people will avoid it in the future.</p>
+<p>First, more open science. As I&#39;ve mentionned <a href="http://timotheepoisot.fr/2012/01/06/science-age-social-coding/">before</a>, I&#39;m quite convinced that the ability to have other people read our code will increase the probability that we received feedback. Second, (still) more open science. Hearing that your program is flawed when you submit the paper is a terrible waste of time. <a href="http://timotheepoisot.fr/2013/05/16/steal-my-paper/">Put your papers on line when you write them</a>, with the code you use, and ask people for input. It&#39;s better to hear that something is wrong soon, when you can still change it withouth going through a full rewrite, rather than at the end of the process. And finally, (one again) more open science. Make reviews (of code, but why stop there) public. If you detect a mistake in the code, explain where, how, whay, and what it does to the results. Help the <em>users</em> of the software, not only the developpers. Also, when you spot a mistake, explain it so that other people will avoid it in the future.</p>
 
 <p>Now, enabling all of this requires massive training efforts. No more sending
 code by email in <code>zip</code> files. No more developping using closed systems that the
@@ -124,8 +87,8 @@ reviewers will not have access to. No mor <code>.exe</code> files in supplementa
 materials. Does it sound like a high standard? Good, because we should set high
 standards for the science we create.So start putting in place training sessions
 of computer litteracy, evangelize open source and social coding, and help
-everyone move from "perhaps code should be reviewed" to "we have the tools to do
-this, let's go!".</p>
+everyone move from &quot;perhaps code should be reviewed&quot; to &quot;we have the tools to do
+this, let&#39;s go!&quot;.</p>
 
 
 </div>
@@ -163,6 +126,23 @@ this, let's go!".</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

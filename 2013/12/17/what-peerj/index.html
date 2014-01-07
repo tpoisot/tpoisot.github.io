@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>What's hot on PeerJ?</h1>
 
@@ -115,15 +78,15 @@ script to get the first 158 preprints, download them, and get the abstract.</p>
 <span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>There is actually a one-liner version of this code, that exsist solely to
-show that you can do horrible twisted things with python. I'm not showing
+show that you can do horrible twisted things with python. I&#39;m not showing
 it. But the point is: this code will return a list of all abstracts, pasted
 together in a single sentence. Which I copied, and used in <a href="http://www.wordle.net">wordle</a> to get
 the following graphic:</p>
 
-<p><img src="/images/w-peerj-abs.png" title="With abstracts" alt="With abstracts" />
-So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually
+<p><img src="/images/w-peerj-abs.png" alt="With abstracts" title="With abstracts"></p>
+
+<p>So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually
 whale sharks), but suriprisingly, there are no big ecological keywords
 that are very prominent - which goes well with the idea that <em>PeerJ</em>
 is multi-disciplinary. By changing the <code>BaseURL</code> variable in my code,
@@ -131,8 +94,9 @@ it was easy to get the same picture but for the <em>articles</em>, <em>i.e.</em>
 contributions that went through peer-review. According to the front page,
 Ecology and Biodiversity are still the leading disciplines there.</p>
 
-<p><img src="/images/w-peerj-pap.png" title="With papers" alt="With papers" />
-It seems to be the case, with <code>species</code> being the most important word, followed
+<p><img src="/images/w-peerj-pap.png" alt="With papers" title="With papers"></p>
+
+<p>It seems to be the case, with <code>species</code> being the most important word, followed
 (still) by <code>data</code>. Interestingly, clinical and molecular keywords are more
 prominent in the published papers than in the preprints. But in any case,
 <em>PeerJ</em> is definitely ecology-friendly, which hopefully will mean that more
@@ -174,6 +138,23 @@ and more people will submit there.</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

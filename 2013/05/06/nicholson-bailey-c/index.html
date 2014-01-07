@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>A C version of the Nicholson-Bailey model</h1>
 
@@ -84,9 +47,9 @@ May  6, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 </div>
 
-<p>The Nicholson-Bailey model is a <a href="http://en.wikipedia.org/wiki/Nicholson%E2%80%93Bailey_model">well known</a> model of host and parasitoid population dynamics.  It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it's brutal like that. There are a few fun things with this model. It's light in parameters (the single-patch version requires only three parameters), it's in discrete time (so it's easy to program), and it's classical put on a lattice (so it's a good way to program these kind of things).</p>
+<p>The Nicholson-Bailey model is a <a href="http://en.wikipedia.org/wiki/Nicholson%E2%80%93Bailey_model">well known</a> model of host and parasitoid population dynamics.  It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it&#39;s brutal like that. There are a few fun things with this model. It&#39;s light in parameters (the single-patch version requires only three parameters), it&#39;s in discrete time (so it&#39;s easy to program), and it&#39;s classical put on a lattice (so it&#39;s a good way to program these kind of things).</p>
 
-<p>I wanted to test a few things, so I had to re-implement this model in space. My <a href="https://gist.github.com/tpoisot/5528745">first version</a> uses python, but it's remarkably slow. So I decided to write the <a href="">model in C</a>. Either the model is really easy to program, or I'm getting good (I vote for the other solution, because I'm sure my code is full of horrible things), but it was relatively easy to do. <a href="https://gist.github.com/tpoisot/5528759">Go get it</a> and play around. The <code>GSL</code> is required. To get it to run, you'll need to:</p>
+<p>I wanted to test a few things, so I had to re-implement this model in space. My <a href="https://gist.github.com/tpoisot/5528745">first version</a> uses python, but it&#39;s remarkably slow. So I decided to write the <a href="">model in C</a>. Either the model is really easy to program, or I&#39;m getting good (I vote for the other solution, because I&#39;m sure my code is full of horrible things), but it was relatively easy to do. <a href="https://gist.github.com/tpoisot/5528759">Go get it</a> and play around. The <code>GSL</code> is required. To get it to run, you&#39;ll need to:</p>
 
 <div class="highlight"><pre><code class="bash">mkdir grids
 mkdir png
@@ -95,8 +58,7 @@ chmod +x nb
 ./nb
 </code></pre></div>
 
-
-<p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class='margin'>I've never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden...</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
+<p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class='margin'>I&#39;ve never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden...</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
 
 <p>The <code>png</code> folder is used by another script, reproduced below, whose job it is to (i) read the output files, and (ii) do a plot using <code>matplotlib</code>.</p>
 
@@ -159,11 +121,11 @@ chmod +x nb
 <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s">&#39;dynamics.txt&#39;</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>An example result would look something like this:</p>
 
-<p><img src="/images/nb-static.png" title="output" alt="Figure1" />
-But the fun part is that, with a few extra steps, you can have cool looking videos. I used <code>ffmpeg</code> to do it. It's as simple as getting all of the files in the <code>png</code> folder, and putting them together to have an animated, step-by-step output of the model:</p>
+<p><img src="/images/nb-static.png" alt="Figure1" title="output"></p>
+
+<p>But the fun part is that, with a few extra steps, you can have cool looking videos. I used <code>ffmpeg</code> to do it. It&#39;s as simple as getting all of the files in the <code>png</code> folder, and putting them together to have an animated, step-by-step output of the model:</p>
 
 <div class="highlight"><pre><code class="bash"><span class="c">#!/bin/bash</span>
 ffmpeg -qscale 5 -r 20 -b 9600 -i png/h_%05d.png host.mp4
@@ -171,8 +133,7 @@ ffmpeg -qscale 5 -r 20 -b 9600 -i png/p_%05d.png para.mp4
 ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4
 </code></pre></div>
 
-
-<p>The C program is quite fast (500 steps with a 100x100 lattice can be done in just a few seconds), but the script to convert the text files in images is really slow. I'm talking tens of minutes slow, so go make yourself a coffee. It's also extremely hungry in terms of memory, and as with all things Python, will eat up a whole CPU. But it's worth it! I've uploaded an <a href="http://www.youtube.com/embed/wE3x5QABBug">example video</a> if you want to see.</p>
+<p>The C program is quite fast (500 steps with a 100x100 lattice can be done in just a few seconds), but the script to convert the text files in images is really slow. I&#39;m talking tens of minutes slow, so go make yourself a coffee. It&#39;s also extremely hungry in terms of memory, and as with all things Python, will eat up a whole CPU. But it&#39;s worth it! I&#39;ve uploaded an <a href="http://www.youtube.com/embed/wE3x5QABBug">example video</a> if you want to see.</p>
 
 <p>And now... Back to doing whatever I had in mind with this model!</p>
 
@@ -212,6 +173,23 @@ ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

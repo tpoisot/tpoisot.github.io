@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Presenting the results of networks null models</h1>
 
@@ -84,12 +47,13 @@ October  9, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style
 
 </div>
 
-<p>I'm in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
+<p>I&#39;m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
 
-<p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It's a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>
+<p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It&#39;s a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>
 
-<p><img src="/images/nullmodels.png" title="nullmodels" alt="Figure1 - heatmap" />
-The number within each quadrant represent how many networks have this property (<em>e.g.</em> for the leftmost dataset, 72 networks are both more nested and more modular than expected), and the shading is a measure of the proportion of networks falling within each quadrant. I quite like this method, because as illustrated above, you can easily compare different datasets at a glance, even when the number of networks differ. And you also get a sense of some interesting phenomenon: in the middle dataset, networks are clearly more nested, but equally less or more modular than expected.</p>
+<p><img src="/images/nullmodels.png" alt="Figure1 - heatmap" title="nullmodels"></p>
+
+<p>The number within each quadrant represent how many networks have this property (<em>e.g.</em> for the leftmost dataset, 72 networks are both more nested and more modular than expected), and the shading is a measure of the proportion of networks falling within each quadrant. I quite like this method, because as illustrated above, you can easily compare different datasets at a glance, even when the number of networks differ. And you also get a sense of some interesting phenomenon: in the middle dataset, networks are clearly more nested, but equally less or more modular than expected.</p>
 
 <p>The figures were made in <code>tikz</code>, and the code is really nothing complicated. If some of you are interested, it looks like this:</p>
 
@@ -116,7 +80,6 @@ The number within each quadrant represent how many networks have this property (
     <span class="k">\node</span><span class="na">[draw=none, fill=none, above of=mpne]</span> (lab) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>Panel title<span class="nb">}}</span>;
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 </code></pre></div>
-
 
 
 </div>
@@ -154,6 +117,23 @@ The number within each quadrant represent how many networks have this property (
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

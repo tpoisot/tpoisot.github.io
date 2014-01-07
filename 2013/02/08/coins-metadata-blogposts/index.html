@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>COinS metadata in Jekyll blogposts</h1>
 
@@ -102,12 +65,10 @@ February  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 <span class="nt">&lt;/span&gt;</span>
 </code></pre></div>
 
-
-<p>As usual, if you want to use it (and there might be some tweaking to do, if you don't use <em>Jekyll bootstrap</em>), just place it in the <code>_includes</code> directory, and somewhere in your blog layout</p>
+<p>As usual, if you want to use it (and there might be some tweaking to do, if you don&#39;t use <em>Jekyll bootstrap</em>), just place it in the <code>_includes</code> directory, and somewhere in your blog layout</p>
 
 <div class="highlight"><pre><code class="html">{% include coins.html %}
 </code></pre></div>
-
 
 <p>So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect <code>COinS</code> data, and so might be other programs.</p>
 
@@ -147,6 +108,23 @@ February  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

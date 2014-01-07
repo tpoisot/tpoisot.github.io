@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Notes on test-driven development (in Python)</h1>
 
@@ -84,21 +47,20 @@ November  4, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 </div>
 
-<p>I'm looking into the methodology of <em>test-driven development</em>, that is when
+<p>I&#39;m looking into the methodology of <em>test-driven development</em>, that is when
 you write your tests <em>before</em> writing your code. The advertised benefit is
 that you know in advance the behavior of your code, and it will make it easier
-to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O'Reilly</a> is a good introduction
+to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O&#39;Reilly</a> is a good introduction
 (although the exact functions of <code>unittest</code> it uses are now deprecated). To
-get started, I'll work on a simple script that takes a series of numerical
+get started, I&#39;ll work on a simple script that takes a series of numerical
 values, and divide them by their max, to get the equivalent series of values
-but in [0;1]. Let's start with the basics:</p>
+but in [0;1]. Let&#39;s start with the basics:</p>
 
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">unittest</span>     <span class="c"># for testing</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span>
 </code></pre></div>
 
-
-<p>The first function I'd like to write will be called <code>scale</code>, and it will take a
+<p>The first function I&#39;d like to write will be called <code>scale</code>, and it will take a
 (<code>numpy</code>) array of numerical values, and return the same array divided by its
 maximal value. So my first <em>unit test</em> will test that the function performs
 as needed:</p>
@@ -110,10 +72,9 @@ as needed:</p>
       <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">))</span>
 </code></pre></div>
 
-
 <p>There are a number of stupid-proofing steps required. First, the function
 cannot work when all values in the array are 0, or if there are negative
-values, so I'll write a test for that. I want the function <code>scale</code> to raise a
+values, so I&#39;ll write a test for that. I want the function <code>scale</code> to raise a
 <code>ValueError</code>.</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">testNegative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -123,7 +84,6 @@ values, so I'll write a test for that. I want the function <code>scale</code> to
    <span class="n">OnlyNull</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">OnlyNull</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Now I have one test to check that the expected behavior is indeed obtained,
 and two tests to check that the input values are correct. Things are starting
@@ -136,26 +96,24 @@ not the case, the <code>scale</code> function will raise a <code>TypeError</code
    <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithCar</span><span class="p">)</span>
 </code></pre></div>
 
-
-<p>At this point, even though I haven't yet wrote a single line of the <code>scale</code>
+<p>At this point, even though I haven&#39;t yet wrote a single line of the <code>scale</code>
 function, I know quite well how it should work! Importantly, I know the
 type of data that will come in this function. This is something I like when
 writing code: I need to understand which data go where, and how they are
 formatted and transformed along the way. I try to make students think about
 this when giving courses. What kind of data go in? What kind of data come
 out? This approach forces to determine when and how the function will break,
-and it's great to have a very clear idea of the data types.</p>
+and it&#39;s great to have a very clear idea of the data types.</p>
 
 <p>Now is the time to program the actual function. It will take one argument,
-and return another array (the original one is not modified). Let's write
+and return another array (the original one is not modified). Let&#39;s write
 the simplest possible form of this function:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
    <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
-
-<p>In most situations, I would have been happy writing the function this way. Let's integrate it with the test suite, and see how it goes:</p>
+<p>In most situations, I would have been happy writing the function this way. Let&#39;s integrate it with the test suite, and see how it goes:</p>
 
 <div class="highlight"><pre><code class="python"><span class="c">#! /usr/bin/python2</span>
 
@@ -172,7 +130,6 @@ the simplest possible form of this function:</p>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-
 
 <p>Here is the output of running this file:</p>
 
@@ -195,7 +152,6 @@ Ran 4 tests in 0.001s
 FAILED (failures=2)
 </code></pre></div>
 
-
 <p>There are <em>only</em> two failed tests. This is because <code>testOnKnownResult</code> is
 expected to succeed, and <code>testType</code> will catch the <code>TypeError</code> raised by
 <code>np.max</code> if there are arguments of the bad type. So now I just need to test
@@ -212,7 +168,6 @@ that the argument are not negative, or not only zeroes:</p>
    <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>With these two checks, we can now re-run the tests:</p>
 
 <div class="highlight"><pre><code class="text">....
@@ -220,7 +175,6 @@ that the argument are not negative, or not only zeroes:</p>
 Ran 4 tests in 0.001s
 OK
 </code></pre></div>
-
 
 <p>Mission accomplished! It requires some discipline to work this way, but I
 actually enjoyed going through this example. I really like the fact that
@@ -263,6 +217,23 @@ and write the actual code later.</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">

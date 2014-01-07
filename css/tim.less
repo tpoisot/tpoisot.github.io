@@ -1,20 +1,27 @@
 @import url(http://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
-@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
+@import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
 
 @mono: 'Cousine';
 @sans: 'PT Sans';
-@sans-narrow: 'PT Sans Narrow';
-@serif: 'PT Serif';
+@serif: 'Noticia Text';
 @hand: 'Satisfy';
 
 body{
-   background-color: rgb(245, 245, 245);
+   background-color: rgb(250, 250, 250);
    font-family: @sans !important;
    h1, h2, h3{
-      font-family: @sans-narrow;
+      font-family: @sans;
    }
+}
+
+a{
+   transition: text-shadow 1s;
+}
+
+a:hover{
+   text-shadow: 0px 0px 2px rgb(200, 200, 200, 0.5);
 }
 
 hr{
@@ -27,7 +34,7 @@ hr{
 }
 
 .row{
-   max-width: 55em !important;
+//   max-width: 55em !important;
 }
 
 code, pre{
@@ -38,85 +45,62 @@ code, pre{
 }
 
 blockquote{
-   margin: 2em -@tmar;
-   padding: 1em @tmar;
-   background-color: rgb(250, 250, 250);
-   border: 0px solid white;
-   max-width: 55em;
+   .box;
+   background-color: rgb(230, 230, 230);
    p {
       padding-bottom: 0px;
       margin-bottom: 0px;
    }
 }
 
-@tmar: 47px;
+@tmar: 80px;
+
+.box{
+   margin: 2em 0em 2em -@tmar;
+   padding: 2em 2em 2em @tmar;
+}
 
 .highlight{
-   margin: 2em -@tmar;
-   padding: 1em @tmar;
-   background-color: rgb(250, 250, 250);
-   max-width: 55em;
+   .box;
    pre{
       code{
-         font-size: 0.9em !important;
+         font-size: 0.85em !important;
       }
    }
 }
 
 .header{
-   background-color: black;
-   background-image: url("../img/bg_4.png");
-   background-repeat: no-repeat;
-   background-position: center center;
-   box-shadow: 0px 0px 3px rgba(10, 12, 08, 0.5);
-   padding-top: 0em;
-   padding-bottom: 5em;
-   .top-bar{
-      background-color: white !important;
-      h1{
-         padding: 0em !important;
-         a{
-            color: #333;
-         }
-      }
-      li{
-         a{
-            background-color: white !important;
-            color: #555;
-         }
-         a:hover{
-            color: #000 !important;
-         }
-      }
-      li.active a{
-         background-color: rgb(240, 240, 240) !important;
-         color: #111;
-      }
+   .top{
+      position: fixed;
+      top: 50%;
+      padding-right: 2em;
+      text-transform: uppercase;
+      font-family: @sans;
+      color: rgb(140, 140, 140) !important;
    }
+   padding-top: 0em;
+   margin-top: 0em;
+   text-align: right;
    h1{
-      font-family: @hand;
-      font-weight: 700;
-      text-transform: lowercase;
-      font-size: 1.5em;
-      margin: 0px 0px;
-      padding: 2em 0em 0em 1em;
+      font-family: @hand !important;
    }
    h2{
-      font-family: @sans-narrow;
-      font-weight: 300;
-      color: #343536;
-      font-size: 1.4em;
-      margin: 0px 0px;
-      padding: 0em 0em 0em 1em;
+      font-weight: 400 !important;
+      color: rgb(155, 155, 155);
+      font-size: 0.75rem !important;
+   }
+   ul{
+      padding-top: 3em;
+      li{
+         font-family: @sans;
+      }
    }
 }
 
-.right{
-   li{
-      a{
-         font-family: @sans !important;
-         font-weight: 400;
-      }
+.active{
+   font-weight: bold;
+   a{
+      color: rgb(120, 120, 120) !important;
    }
 }
 
@@ -130,15 +114,19 @@ blockquote{
 }
 
 .content{
-   margin-top: -2em;
-   padding: 2em 2em;
-   background-color: rgb(255, 255, 255);
-   border-radius: 1px;
-   font-family: @sans;
+   margin-top: 0em;
+   padding: 3em 3em;
+   background-color: rgb(254, 254, 254);
+   box-shadow: 0px 0px 3px rgba(140, 140, 140, 0.8);
+   font-family: @serif;
    margin-bottom: 3.5em;
+   .maintext{
+      padding: 2em 2em !important;
+      margin-top: 4em;
+   }
    h1{
       font-weight: 700;
-      font-family: @sans-narrow;
+      margin-left: -1.5em;
       font-size: 1.3rem;
    }
    h2{
@@ -146,33 +134,32 @@ blockquote{
     font-size: 1.1rem;
   }
    .post{
-      margin-bottom: 2.2em;
+      margin-bottom: 5.2em;
    }
    .postinfo{
       font-family: @sans;
       font-weight: 300;
-      color: #111;
-      margin-bottom: 2em;
+      color: rgb(120, 120, 120);
+      margin-bottom: 3em;
    }
    img{
       display: block;
       margin: 0px auto;
+      margin-bottom: 1.5em;
    }
    p{
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.7;
       font-weight: 400;
       b, strong{
          font-weight: 700;
       }
       code{
-         font-size: 95%;
-         border: 1px solid rgb(200, 200, 200);
-         background-color: rgb(245, 245, 245);
-         border-radius: 3px;
-         padding: 0px 2px;
+         font-size: 99%;
+         color: rgb(120, 80, 88);
       }
       .lead{
+         font-family: @sans;
          font-weight: 600;
       }
    }
@@ -197,12 +184,17 @@ blockquote{
 
 .margin{
    display: block;
-   float: right;
+   float: left;
+   font-family: @sans;
    max-width: 12em;
    font-size: 0.85rem;
    line-height: 0.9rem;
-   margin: 0.8em -@tmar 0.8em 0.8em;
+   margin: 0.8em 0.8em 0.8em -80px;
    padding: 0.6em;
    text-align: right;
    background-color: rgb(220, 220, 220);
+}
+
+.MathJax_Display{
+   padding: 2em 0em;
 }

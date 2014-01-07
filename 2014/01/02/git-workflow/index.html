@@ -32,48 +32,11 @@
 </head>
 
 <body>
-
+<a id="top"></a>
 <div id="main">
 
-
-<div class="header">
-   <div class="row">
-   <div class="navigation">
-      <div class="contain-to-grid">
-
-<nav class="top-bar" data-topbar>
-
-<ul class="title-area">
-	<li class="name">
-		<h1><a href="#">Blog</a></h1>
-	</li>
-</ul>
-
-<section class="top-bar-section">
-	<!-- Right Nav Section -->
-	<ul class="right">
-		<li><a href="/">Home</a></li>
-		<li><a href="/papers/">Papers</a></li>
-		<li><a href="/software/">Software</a></li>
-		<li><a href="/research/">Research</a></li>
-		<li class="active"><a href="/blog/">Blog</a></li>
-	</ul>
-</section>
-
-</nav>
-
-</div>
-
-
-   </div>
-      <div class="large-12"><h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-</div>
-   </div>
-</div>
-
 <div class="row content">
-   <div class="large-12 columns">
+   <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Using git throughout your workflow</h1>
 
@@ -95,7 +58,7 @@ the distinction clear.</p>
 <h1>Tracking your code</h1>
 
 <p>It would be tempting to discard this one if you are not mainly a computational
-scientist. Please don't. Even the simplest piece of code you write, the most
+scientist. Please don&#39;t. Even the simplest piece of code you write, the most
 basic <code>R</code> function is a <em>central</em> step in your workflow if it is responsible
 for transforming raw data into something you can show around (a figure,
 or a table). In the most fundamental way, <code>git</code> is a way for you to track
@@ -121,7 +84,6 @@ example, what happens after <em>adding</em> a few lines of code:</p>
     df_m &lt;- melt(x, id = &#39;rownames&#39;)
 </code></pre></div>
 
-
 <p>If a change in your code breaks it, you can track the lines that where
 modified, and start looking here for possible bugs.</p>
 
@@ -137,29 +99,29 @@ advantage). You will have the same opportunity to track precisely what is
 going on with a clear summary of the changes. And because <code>git</code> handles
 several people working concurrently just fine, you can have a lot happening:</p>
 
-<p><img src="/images/gitnetwork.png" title="Figure 1" alt="Figure1" /></p>
+<p><img src="/images/gitnetwork.png" alt="Figure1" title="Figure 1"></p>
 
 <h1>Make replying to reviewers <em>easy</em></h1>
 
 <p><a href="http://carlboettiger.info/2013/06/10/mansucript-reviews-on-github.html">Carl Boettiger</a> and <a href="https://github.com/trvrb/flux/issues?page=1&amp;state=closed">Trevor Bedford</a> (and I, for some papers) use
 <em>Issues</em> as a way to handle reviewers comments. Issues are a paradigm taken
 straight from software development, where a problem in your code needs to
-be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil's
+be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil&#39;s
 <em>in prep</em> paper</a> on the <code>scriptoria</code> project. In short, you can
 attribute each point raised by a referee to an Issue. You can then assign
 Issues to people working on the manuscript, and track the progression of
 the replies. Because most issues tracking systems come with a <em>Milestones</em>
-ability, you can assign all issues to the <em>Milestone</em> "First revision",
+ability, you can assign all issues to the <em>Milestone</em> &quot;First revision&quot;,
 and set a deadline at which all the issues have to be fixed.</p>
 
 <p>As <em>GitHub</em> allows you to reference <em>commits</em> (<em>i.e.</em> changes made to your
 code/paper), it is really easy to say, in the reply to each point, what you
 did to address it, and give a link to the <code>diff</code> (<em>i.e.</em> the list of all
-changes). Instead of replying things like "<em>We replaced the sentence P.4
-L.24-25 by a short statement (now P.6 L.14-21)</em>", you can say "<em>We changed
-the text in the following way, ..., see commit <code>e30b8e</code></em>". <em>GitHub</em> will take
+changes). Instead of replying things like &quot;<em>We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)</em>&quot;, you can say &quot;<em>We changed
+the text in the following way, ..., see commit <code>e30b8e</code></em>&quot;. <em>GitHub</em> will take
 care of putting a link in place, and the reviewer can then see exactly which
-changes were made. As a final note on this point: it's obviously good practice
+changes were made. As a final note on this point: it&#39;s obviously good practice
 to <em>ask</em> the editor if s/he agrees with the reviews being put on <em>GitHub</em>.</p>
 
 <h1>Give support to users</h1>
@@ -210,14 +172,14 @@ your work. This is why I now have a <a href="http://timotheepoisot.fr/software/"
 <em>GitHub</em> to track of lot of things (and I do), what is important can often be
 buried beneath a pile of your active-but-not-yet-useful projects. And because
 the listing of your repositories is just the project name and a one-line
-description, it's not obvious what is important. So my recommendation if
+description, it&#39;s not obvious what is important. So my recommendation if
 your want to give people a broad overview of what you have been up to,
 is to have a webpage with your projects, instead of just giving the URL to
 your <em>GitHub</em> account.</p>
 
-<hr />
+<hr>
 
-<p>And that's the way I use <code>git</code> in my everyday workflow. There is a bit of a
+<p>And that&#39;s the way I use <code>git</code> in my everyday workflow. There is a bit of a
 learning curve, but you can learn (most of) <code>git</code> <a href="http://try.github.io/levels/1/challenges/1">in 15 minutes</a>. And
 it saves time in the long run, both because it simplifies some tedious tasks,
 and because it gives you a single formalism in which you can inscribe your
@@ -259,6 +221,23 @@ daily activities.</p>
 
 
    </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+
 </div>
 
 <div class="row footer">
