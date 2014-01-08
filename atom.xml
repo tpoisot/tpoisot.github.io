@@ -4,12 +4,314 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-07T22:02:53-05:00</updated>
+  <updated>2014-01-08T12:31:19-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Uploading data into mangal</title>
+     <link href="http://timotheepoisot.fr/2014/01/08/mangal-add-data/"/>
+    <updated>2014-01-08T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;In the first part, I introduced &lt;code&gt;mangal&lt;/code&gt;, the database and associated &lt;code&gt;R&lt;/code&gt; package to interact with ecological networks. In the second part, I&amp;#39;ll give an overview of how to upload and curate your data. In the last part, we used functions starting with &lt;code&gt;get&lt;/code&gt; and &lt;code&gt;list&lt;/code&gt;. This time, we will use the &lt;code&gt;add&lt;/code&gt; and &lt;code&gt;patch&lt;/code&gt; functions, as they allow to change resouces on the server. There are a few important informations to have before we start.&lt;/p&gt;
+
+&lt;p&gt;First, working on the server is &lt;em&gt;for real&lt;/em&gt;, so please be careful. But take the opportunity of the testing phase to try to break the database in new, innovative ways! Second, the licence under which the data are released is the &lt;em&gt;CC-0&lt;/em&gt; waiver. In short, when data are uploaded in the database, they are frelly available, for all to see and use. Almost all data sharing services use this license for data. Finally, the database is &lt;em&gt;add-only&lt;/em&gt;, which means that you can&amp;#39;t remove data (but I can, in case things go exceptionally wrong).&lt;/p&gt;
+
+&lt;p&gt;In this post, we&amp;#39;ll see (i) how to create an account on the database, (ii)
+how to create and populate a dataset, and (iii) how to modify the interactions
+after sending them. You are of coure invited to try similar things. Note
+that the database won&amp;#39;t accept objects with duplicated names, so if you try
+to re-upload some of the taxa in this example, it most likely won&amp;#39;t work.&lt;/p&gt;
+
+&lt;h1&gt;Setting things up&lt;/h1&gt;
+
+&lt;p&gt;As always, we&amp;#39;ll start by getting the latest release of &lt;code&gt;rmangal&lt;/code&gt;. And we&amp;#39;ll also get the latest release of &lt;code&gt;taxize&lt;/code&gt;, because there is a really neat trick I want to show you (in short: automated curation).&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;options&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;stringsAsFactors &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;getOption&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;unzip&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; options&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;unzip &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;unzip&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;devtools&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+install_github&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;rmangal&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mangal-wg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rmangal&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+install_github&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;taxize&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;ropensci&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;taxize&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Signing-up&lt;/h1&gt;
+
+&lt;p&gt;Uploading and curating data require that you are logged in. The reason is simple: each object in the database has an &lt;code&gt;owner&lt;/code&gt; property, and this owner becomes you every time you modify an object. Signing up can be done directly from &lt;code&gt;R&lt;/code&gt;: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;api &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; mangalapi&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+me &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; signUp&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;my_user_name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;my_password&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# This line will log you with your newly acquired identifiers!&lt;/span&gt;
+api &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; mangalapi&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;usr &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; me&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;username&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pwd &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; me&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;password&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+me
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## $email
+## [1] &amp;quot;&amp;quot;
+## 
+## $first_name
+## [1] &amp;quot;&amp;quot;
+## 
+## $id
+## [1] 3
+## 
+## $last_name
+## [1] &amp;quot;&amp;quot;
+## 
+## $password
+## [1] &amp;quot;my_password&amp;quot;
+## 
+## $username
+## [1] &amp;quot;my_user_name&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Before we start, let&amp;#39;s add some personal informations to your profile:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;me&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;first_name &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Fake&amp;quot;&lt;/span&gt;
+me&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;last_name &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;People&amp;quot;&lt;/span&gt;
+me&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;email &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;me@fake.people&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we just need to update this information on the server:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;me &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; patchUser&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; me&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+me
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## $email
+## [1] &amp;quot;me@fake.people&amp;quot;
+## 
+## $first_name
+## [1] &amp;quot;Fake&amp;quot;
+## 
+## $id
+## [1] 3
+## 
+## $last_name
+## [1] &amp;quot;People&amp;quot;
+## 
+## $password
+## [1] &amp;quot;my_password&amp;quot;
+## 
+## $username
+## [1] &amp;quot;my_user_name&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next time you want to work on data, you&amp;#39;ll just need to start your session by&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;api &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; mangalapi&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;URL&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; usr &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;my_username&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pwd &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;my_password&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Putting data on the database&lt;/h1&gt;
+
+&lt;p&gt;In the previous part, I may have mentionned that the usual way to get a network is to start at the &lt;code&gt;dataset&lt;/code&gt; level, then go all the way down to the &lt;code&gt;taxa&lt;/code&gt;. When uploading data, you need to follow the opposite direction. Let&amp;#39;s say that we want to send data about what (probably) happens in the &lt;em&gt;Isle Royale National Park&lt;/em&gt;: wolves eat mooses, mooses eat balsam fir.&lt;/p&gt;
+
+&lt;p&gt;As for &lt;code&gt;get&lt;/code&gt; and &lt;code&gt;list&lt;/code&gt;, the functions to modify data follow a single naming convention: either &lt;code&gt;patch&lt;/code&gt; or &lt;code&gt;add&lt;/code&gt;, and the name of the resource with its first letter capitalized.&lt;/p&gt;
+
+&lt;h2&gt;Creating taxa&lt;/h2&gt;
+
+&lt;p&gt;The first thing we need to do is create a few &lt;code&gt;taxa&lt;/code&gt; objects. In case you don&amp;#39;t remember how a &lt;code&gt;taxa&lt;/code&gt; is formatted, you can call&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;whatIs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;taxa&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##         field                                        help    type  null
+## 1        bold             The BOLD identifier of the taxa integer  TRUE
+## 2 description             A short description of the taxa  string  TRUE
+## 3        gbif             The GBIF identifier of the taxa integer  TRUE
+## 5        itis             The ITIS identifier of the taxa integer  TRUE
+## 6        name             The scientific name of the taxa  string FALSE
+## 7        ncbi    The NCBI Taxonomy identifier of the taxa integer  TRUE
+## 9  vernacular The vernacular name of the taxa, in English  string FALSE
+##   unique values
+## 1   TRUE       
+## 2  FALSE       
+## 3   TRUE       
+## 5   TRUE       
+## 6   TRUE       
+## 7   TRUE       
+## 9  FALSE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So we&amp;#39;ll want to create three taxa:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;moose &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Alces americanus&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vernacular &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;American moose&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+wolf &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Canis lupus&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vernacular &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Gray wolf&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+balsam &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Abies balsamea&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vernacular &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Balsam fir&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, let&amp;#39;s put them in the database:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;wolf &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addTaxa&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; wolf&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+moose &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addTaxa&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; moose&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+balsam &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addTaxa&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; balsam&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can check that our taxa are indeed in the database with&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;getTaxa&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; wolf&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## $bold
+## NULL
+## 
+## $description
+## NULL
+## 
+## $gbif
+## NULL
+## 
+## $id
+## [1] &amp;quot;20&amp;quot;
+## 
+## $itis
+## NULL
+## 
+## $name
+## [1] &amp;quot;Canis lupus&amp;quot;
+## 
+## $ncbi
+## NULL
+## 
+## $owner
+## [1] &amp;quot;my_user_name&amp;quot;
+## 
+## $vernacular
+## [1] &amp;quot;Gray wolf&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Creating interactions&lt;/h2&gt;
+
+&lt;p&gt;We will now create interactions between these taxa. Once more, have a look at &lt;code&gt;whatIs(api, &amp;#39;interaction&amp;#39;)&lt;/code&gt;, and in particular pay attention to the &lt;code&gt;values&lt;/code&gt; column of the &lt;code&gt;ecotype&lt;/code&gt; field. It tells you that &lt;code&gt;ecotype&lt;/code&gt; (the type of ecological interaction betwee two organisms), can only be one of:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;strsplit&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;subset&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;whatIs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;interaction&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; field &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;ecotype&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;values&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;, &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##  [1] &amp;quot;predation&amp;quot;                 &amp;quot;ectoparasitism&amp;quot;           
+##  [3] &amp;quot;endoparasitism&amp;quot;            &amp;quot;intra-cellular parasitism&amp;quot;
+##  [5] &amp;quot;parasitoidism&amp;quot;             &amp;quot;mycoheterotrophy&amp;quot;         
+##  [7] &amp;quot;antixenosis&amp;quot;               &amp;quot;teletoxy&amp;quot;                 
+##  [9] &amp;quot;amensalism&amp;quot;                &amp;quot;antibiosis&amp;quot;               
+## [11] &amp;quot;allelopathy&amp;quot;               &amp;quot;competition&amp;quot;              
+## [13] &amp;quot;facilitation&amp;quot;              &amp;quot;refuge creation&amp;quot;          
+## [15] &amp;quot;inquilinism&amp;quot;               &amp;quot;phoresis&amp;quot;                 
+## [17] &amp;quot;epibiosis&amp;quot;                 &amp;quot;pollination&amp;quot;              
+## [19] &amp;quot;mutualistic symbiosis&amp;quot;     &amp;quot;zoochory&amp;quot;                 
+## [21] &amp;quot;mutual protection&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that this list of terms will probably increase in the future. In any case, we have enough informations to start writing our interactions:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;w_e_m &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;taxa_from &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; wolf&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; taxa_to &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; moose&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ecotype &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;predation&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+m_e_b &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;taxa_from &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; moose&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; taxa_to &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; balsam&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ecotype &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;herbivory&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+w_e_m &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addInteraction&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; w_e_m&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+m_e_b &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addInteraction&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; m_e_b&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Congratulations! Note that within the &lt;code&gt;R&lt;/code&gt; package, it&amp;#39;s perfectly acceptable to pass the whole &lt;code&gt;taxa&lt;/code&gt; object (but if you want to interact with the API, you need to pass only the URI, and if you want to interact directly with the API, chances are you knew that already...).&lt;/p&gt;
+
+&lt;h2&gt;Wrapping things up&lt;/h2&gt;
+
+&lt;p&gt;At this point, we&amp;#39;re almost done. We simply need to wrap our interactions in a &lt;code&gt;network&lt;/code&gt; object:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;isle_royale &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addNetwork&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Isle Royale National Park&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; description &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Or at least a simplified version of it&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    interactions &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;w_e_m&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; m_e_b&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; metaweb &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;metaweb&lt;/code&gt; attribute comes from our &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/22994257&quot;&gt;paper on network beta-diversity&lt;/a&gt;. If you are reporting regionally observed or infered interactions, then it is &lt;code&gt;TRUE&lt;/code&gt;. if you have been sitting in the field looking at stuff, then it&amp;#39;s &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;And finally, even if we only have one network, we will publish it as a dataset:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;ir_dataset &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addDataset&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;North-American Terrestrial food webs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    networks &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;isle_royale&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And we&amp;#39;re done!&lt;/p&gt;
+
+&lt;h1&gt;Modifying data&lt;/h1&gt;
+
+&lt;p&gt;In this part, we will go through the different ways to alter data already in the database.&lt;/p&gt;
+
+&lt;h2&gt;Adding some attributes&lt;/h2&gt;
+
+&lt;p&gt;Now, let&amp;#39;s add some informations to our data. First, we have told almost nothing about where our network is in space. We&amp;#39;ll pull it from the database, and add the &lt;code&gt;latitude&lt;/code&gt; and &lt;code&gt;longitude&lt;/code&gt; attribute:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;isle_royale &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; getNetwork&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; isle_royale&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+isle_royale&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;latitude &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;48.015&lt;/span&gt;
+isle_royale&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;longitude &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-88.831&lt;/span&gt;
+isle_royale &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; patchNetwork&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; isle_royale&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+isle_royale
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## $date
+## NULL
+## 
+## $description
+## [1] &amp;quot;Or at least a simplified version of it&amp;quot;
+## 
+## $environment
+## list()
+## 
+## $id
+## [1] &amp;quot;3&amp;quot;
+## 
+## $interactions
+## [1] &amp;quot;18&amp;quot; &amp;quot;19&amp;quot;
+## 
+## $latitude
+## [1] &amp;quot;48.015&amp;quot;
+## 
+## $longitude
+## [1] &amp;quot;-88.831&amp;quot;
+## 
+## $metaweb
+## [1] TRUE
+## 
+## $name
+## [1] &amp;quot;Isle Royale National Park&amp;quot;
+## 
+## $owner
+## [1] &amp;quot;my_user_name&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Because the &lt;code&gt;ir_dataset&lt;/code&gt; dataset contains a &lt;em&gt;reference&lt;/em&gt; to the object we just modified, there is no need to alter it in any way.&lt;/p&gt;
+
+&lt;p&gt;At this point, you can have a look at &lt;code&gt;http://mangal.uqar.ca/data/&lt;/code&gt;, and on the map, there should be a little dot somewhere between Ontario and Wisconsin, representing the network.&lt;/p&gt;
+
+&lt;h2&gt;Adding new relations&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;#39;s say that we want to provide a short bibliography along with the data. An important paper on this system is &lt;em&gt;The Rise and Fall of Isle Royale Wolves&lt;/em&gt;, by Peterson &amp;amp; Page. We know the DOI of this article (&lt;code&gt;10.2307/1381751&lt;/code&gt;), so we&amp;#39;ll just add a reference to the dataset. Datasets have &lt;code&gt;papers&lt;/code&gt; and &lt;code&gt;data&lt;/code&gt; fields, that point to &lt;code&gt;reference&lt;/code&gt; objects. First, we will create a reference (again, look at &lt;code&gt;whatIs(api, &amp;#39;reference&amp;#39;)&lt;/code&gt; to see the possible field (and beware, there is a typo, the &lt;code&gt;jstorid&lt;/code&gt; field is called &lt;code&gt;jsonid&lt;/code&gt;, I will fix that really soon). &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;peterson_n_page &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addReference&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;doi &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;10.2307/1381751&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, we need to add the reference to the &lt;code&gt;papers&lt;/code&gt; field of the &lt;code&gt;dataset&lt;/code&gt; object:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;ir_dataset&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;papers &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;peterson_n_page&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ir_dataset &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; patchDataset&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ir_dataset&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ir_dataset
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## $data
+## list()
+## 
+## $description
+## NULL
+## 
+## $id
+## [1] &amp;quot;2&amp;quot;
+## 
+## $name
+## [1] &amp;quot;North-American Terrestrial food webs&amp;quot;
+## 
+## $networks
+## [1] &amp;quot;3&amp;quot;
+## 
+## $owner
+## [1] &amp;quot;my_user_name&amp;quot;
+## 
+## $papers
+## [1] &amp;quot;1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And if you go to &lt;code&gt;http://mangal.uqar.ca/data/dataset/&amp;lt;id&amp;gt;/&lt;/code&gt; (where &lt;code&gt;&amp;lt;id&amp;gt;&lt;/code&gt; is whatever number is in the &lt;code&gt;id&lt;/code&gt; field of the dataset), you will see a list of the references.&lt;/p&gt;
+
+&lt;h2&gt;Using the power of open science for good&lt;/h2&gt;
+
+&lt;p&gt;When describing the taxa, we only gave the latin and vernacular names. It&amp;#39;s good, but if we want to really take advantage of all the great tools we have, we will need a little more. One solution is to do a bit of googling, and just copy/paste the taxonomic identifiers and patch the taxa this way. Another solution is to use &lt;code&gt;taxize&lt;/code&gt;. &lt;code&gt;taxize&lt;/code&gt; has a function to get the NCBI identifiers from the latin name, which is perfect for our case:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;tax &lt;span class=&quot;kr&quot;&gt;in&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;wolf&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; moose&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; balsam&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;is.null&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;tax&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ncbi&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        identifier &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; get_uid&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;tax&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ask &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;is.na&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;identifier&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            tax&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ncbi &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; identifier&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            patchTaxa&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; tax&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Retrieving data for taxon &amp;#39;Canis lupus&amp;#39;
+## 
+## 
+## Retrieving data for taxon &amp;#39;Alces americanus&amp;#39;
+## 
+## 
+## Retrieving data for taxon &amp;#39;Abies balsamea&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#39;s get the whole network and see that the NCBI identifiers have been added:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;g &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; network_as_graph&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; isle_royale&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;V&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;g&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ncbi&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## [1] 999462  90345   9612
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is probably more and more we can do using combination of packages, I&amp;#39;ll try to show some possibilities in use-cases.&lt;/p&gt;
+
+&lt;h1&gt;What now?&lt;/h1&gt;
+
+&lt;p&gt;As before, keep in mind that the test database will be periodically wiped
+clean, so don&amp;#39;t use it to do some actual data deposition (yet). But it would
+be really cool for you to try writing scripts to upload/modify your datasets,
+and tell me if anything goes wrong. Meanwhile, I&amp;#39;m working on preparing
+use cases (including one to automatically upload your data on &lt;em&gt;figshare&lt;/em&gt;
+and returning the DOI), which I&amp;#39;ll publish (hopefully) later this week,
+or early next week. As always, use the &lt;a href=&quot;https://github.com/mangal-wg/rmangal/issues?state=open&quot;&gt;GitHub page&lt;/a&gt; to report issues.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Introducing mangal, a database for ecological networks</title>
@@ -2409,63 +2711,6 @@ I&amp;#39;m learning a lot of nifty little tricks, and it&amp;#39;s starting to 
 in terms of how fast I can throw command lines instructions at a problem until
 it disappears (or until I accidentaly delete the files, look, I&amp;#39;m still
 learning...)..&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>Fixes for the ManuscriptCentral PDF conversion problem</title>
-     <link href="http://timotheepoisot.fr/2013/06/24/manuscript-central-pdf-fix/"/>
-    <updated>2013-06-24T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;While submitting a MS to &lt;em&gt;Methods in Ecology and Evolution&lt;/em&gt;, I ran into a PDF
-conversion problem. It was not the first time it happenned, and always on
-journals using &lt;em&gt;manuscriptcentral&lt;/em&gt; as an upload system, and always with
-&lt;code&gt;LaTeX&lt;/code&gt;-generated PDF. My previous fix for this, in the proud quick-and-dirty
-tradition of the academic world, was to (1) import the PDF in google documents,
-(2) print it as a PDF, (3) upload the PDF and (4) drink the shame
-away.&lt;/p&gt;
-
-&lt;p&gt;Only this time, I wanted to understand what was happening, and to fix it as much
-as I could. Well, as it turns out, the &lt;em&gt;manuscriptcentral&lt;/em&gt; system only accepts
-PDF up to version 1.5 of the standard. Reasonably recent &lt;code&gt;LaTeX&lt;/code&gt; distributions
-will generate 1.7 or 1.8, so it&amp;#39;s obviously not going to work (but on the
-up-side, it will give you one of the most depressing and amusing error
-message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.&lt;/p&gt;
-
-&lt;p&gt;First, you can add&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\pdfminorversion&lt;/span&gt;=4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;to your &lt;code&gt;LaTeX&lt;/code&gt; preamble, if compiling with &lt;code&gt;pdflatex&lt;/code&gt;, as explained
-&lt;a href=&quot;http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html&quot;&gt;here&lt;/a&gt;. That&amp;#39;s one additional command, which is not needed in most other situations, but that&amp;#39;s one way to fix it.&lt;/p&gt;
-
-&lt;p&gt;There is a second workaround, which is to compile with &lt;code&gt;latex&lt;/code&gt; instead of
-&lt;code&gt;pdflatex&lt;/code&gt; (haven&amp;#39;t tested this one, but it should work), then upload the whole
-dependencies when you submit. Note that your figures needs be &lt;code&gt;eps&lt;/code&gt; for this to
-work, and you&amp;#39;ll probably be limited by the packages installed on the remote
-server, the list of which is not known. The &lt;em&gt;Methods in Ecology and Evolution&lt;/em&gt;
-staff was extremely quick in pointing that out after I raised the issue on
-Twitter, so a big thank you to them.&lt;/p&gt;
-
-&lt;p&gt;The solution I found this morning is the following:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;pdftops ms.pdf ms.ps
-ps2pdf13 ms.ps ps.pdf
-rm ms.ps
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Very simply put, that will convert your pdf into a postscript file, then convert
-it into a PDF 1.3 file, that can be uploaded with no problems. You can just add
-that to a &lt;code&gt;makefile&lt;/code&gt;, by the way:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;make&quot;&gt;&lt;span class=&quot;nf&quot;&gt;mc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;ms.pdf&lt;/span&gt;
-    pdftops ms.pdf ms.ps
-    ps2pdf13 ms.ps ms_mc.pdf
-    rm ms.ps
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Once your paper is ready, a simple &lt;code&gt;make mc&lt;/code&gt; will create a &lt;code&gt;ms_mc.pdf&lt;/code&gt; file,
-which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.&lt;/p&gt;
 </content>
   </entry>
   
