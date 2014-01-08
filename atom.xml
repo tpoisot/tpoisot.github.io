@@ -4,7 +4,7 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-07T16:03:45-05:00</updated>
+  <updated>2014-01-07T22:02:53-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
@@ -1435,18 +1435,53 @@ I decided to be inclusive). The final network had 58 nodes, and 250 edges.&lt;/p
 
 &lt;p&gt;Here are the top most important ones, based on their eigenvector centrality:&lt;/p&gt;
 
-&lt;p&gt;| Word          | Centrality |
-|:--------------|:----------:|
-| ecology       | 1          |
-| biodiversity  | 0.94       |
-| ecological    | 0.70       |
-| human         | 0.45       |
-| environment   | 0.43       |
-| loss          | 0.40       |
-| wetland       | 0.36       |
-| environmental | 0.35       |
-| forest        | 0.34       |
-| wildlife      | 0.33       |&lt;/p&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;Word&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Centrality&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;ecology&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;biodiversity&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.94&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;ecological&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.70&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;human&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;environment&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;loss&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.40&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;wetland&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.36&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;environmental&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;forest&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;wildlife&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;0.33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;p&gt;If you want to see the other words, you can &lt;a href=&quot;http://dx.doi.org/10.6084/m9.figshare.827286&quot;&gt;get the &lt;code&gt;graphml&lt;/code&gt; file from
 &lt;em&gt;figshare&lt;/em&gt;&lt;/a&gt;. So here is the recipe. If you want to engage with the
@@ -2249,23 +2284,73 @@ cleaning-up in open office to check for duplicates, especially since my
 current database is following me since the first year of my masters (so 2006).
 So, what do I read? Here is the top 15:&lt;/p&gt;
 
-&lt;p&gt;| Journal                   | Count |
-|:--------------------------|:------|
-| Ecology Letters           | 202   |
-| Ecology                   | 198   |
-| PLoS One                  | 196   |
-| American Naturalist       | 181   |
-| PNAS                      | 156   |
-| Oikos                     | 135   |
-| Trends Ecol Evol          | 132   |
-| Procs R Soc B             | 123   |
-| Evolution                 | 120   |
-| Nature                    | 119   |
-| Science                   | 108   |
-| J Evol Biol               | 101   |
-| J Anim Ecol               | 71    |
-| J Biogeogr                | 46    |
-| Phil Trans B              | 45    |&lt;/p&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;Journal&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;Count&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Ecology Letters&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;202&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Ecology&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;198&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;PLoS One&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;196&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;American Naturalist&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;181&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;PNAS&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;156&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Oikos&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;135&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Trends Ecol Evol&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;132&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Procs R Soc B&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;123&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Evolution&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;120&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Nature&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;119&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Science&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;108&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;J Evol Biol&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;101&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;J Anim Ecol&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;71&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;J Biogeogr&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Phil Trans B&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
 
 &lt;p&gt;So, what to make of this information? Note that by the time we reach number 12
 or so in that list, the paper count decreases extremely sharply. Also, the top
