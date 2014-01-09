@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>How to represent networks</h1>
@@ -47,16 +48,16 @@ November 23, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 </div>
 
-<p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a &quot;good&quot; format, and it&#39;s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
+<p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a &ldquo;good&rdquo; format, and it&#39;s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
 
 <div class="alert alert-info">
 <h4>Warning!</h4>
-This is a long entry, with code, and geeky considerations about data format. It's mostly for my personnal reference, so you may want to find <a href='http://www.theuselessweb.com/'>a better way to waste your time</a>.
+This is a long entry, with code, and geeky considerations about data format. It&rsquo;s mostly for my personnal reference, so you may want to find <a href='http://www.theuselessweb.com/'>a better way to waste your time</a>.
 </div>
 
 <h1>The problem</h1>
 
-<p>As an example, look at what is available on the <a href="http://www.nceas.ucsb.edu/interactionweb/">InteractionWeb Database</a>. For our <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract"><em>Methods in Ecology &amp; Evolution</em> paper</a> on estimators of species specificity, I had to fetch all of the networks, then look on the main page the number of top and bottom level species, then check that they were always in the same configuration. To make a long story short: they were not. It did not took me this long to get it right, but it was frustrating. I had to open an Excel file, with the network &quot;code&quot;, the text file path, the number of top and bottom level species, and finally the type of interaction. Difficult? No. Boring? Yes.</p>
+<p>As an example, look at what is available on the <a href="http://www.nceas.ucsb.edu/interactionweb/">InteractionWeb Database</a>. For our <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract"><em>Methods in Ecology &amp; Evolution</em> paper</a> on estimators of species specificity, I had to fetch all of the networks, then look on the main page the number of top and bottom level species, then check that they were always in the same configuration. To make a long story short: they were not. It did not took me this long to get it right, but it was frustrating. I had to open an Excel file, with the network &ldquo;code&rdquo;, the text file path, the number of top and bottom level species, and finally the type of interaction. Difficult? No. Boring? Yes.</p>
 
 <p>Keep in mind that <em>IWDB</em> is the only resource for people wanting to download networks to, <em>e.g.</em> test algorithms, or check the distribution of some properties. And it involved a lot of groundwork before you even get to do the basic stuff. This is frustrating, and this should not be. Which brings me to a question that has been floating in my mind for a few months now: how should interaction networks be coded, from a data management point of view? This is an important question, because our ability to develop networks as a predictive tool will be as good as our ability to do data-mining on these networks. And in 2012, looking through text files is not the solution (it should not even be considered <em>a</em> solution). And yes, I&#39;m ashamed to be part of the problem, because when I recently released data about <a href="http://figshare.com/articles/Bacteria-phage_adjacency_matrix_along_an_environmental_gradient/97583">bacteria-phage interactions</a>, I put three text files in a zip archive, and called it a day. Then, while I was thinking about why <a href="http://timotheepoisot.fr/2012/10/29/species-interaction-networks/">populations matter more than species</a> in the context of networks, I started to develop a feeling about a data structure.</p>
 
@@ -76,7 +77,7 @@ c d
 b d
 </code></pre></div>
 
-<p>Both notation represent the same &quot;diamond&quot; food web, and can also convey some information about link strength, species biomass, <em>etc</em>. But do they convey a lot of <em>ecological meaning</em>? I&#39;m not really sure. So instead of having all the network at one big entity, let&#39;s break it down in several smaller chunks. A network is a collection of interactions, so let&#39;s start by representing an interaction.</p>
+<p>Both notation represent the same &ldquo;diamond&rdquo; food web, and can also convey some information about link strength, species biomass, <em>etc</em>. But do they convey a lot of <em>ecological meaning</em>? I&#39;m not really sure. So instead of having all the network at one big entity, let&#39;s break it down in several smaller chunks. A network is a collection of interactions, so let&#39;s start by representing an interaction.</p>
 
 <h1>A solution?</h1>
 
@@ -201,23 +202,53 @@ b d
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

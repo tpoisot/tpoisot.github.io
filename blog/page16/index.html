@@ -36,9 +36,19 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
 
+
+<div class='post'>
+  <h1>Using networkx to simulate metapopulations in Python</h1>
+  <div class="postinfo">May 18, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span><span class="label radius small" style="margin-right: 3px;">metapopulation</span></div>
+  <p>
+    Python progressively replaced R for most of my daily simulations needs, because it&#39;s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I&#39;ve been using networkx more and more. We&#39;ve been having discussions in the lab about spatial graphs, surrounding a recent paper by Gilarranz and Bascompte and some of our own projects, and I thought that it will be fun to use networkx to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through...
+  </p>
+<a class="readmore" href="/2012/05/18/networkx-metapopulations-python/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>The ecological journal of the future</h1>
@@ -74,15 +84,6 @@
     A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of natbib —, I started looking into biblatex. biblatex is essentially a re-implementation of LaTeX packages like cite, natbib, and others. And the more I used it, the more I realized two things. First, biblatex is awesome; it&#39;s to natbib what knitr is to Sweave. Including the fact that switching from one system to the other is virtually transparent, but you would miss a lot by not using the biblatex specific commands. Second, it&#39;s a pain to find citation styles for...
   </p>
 <a class="readmore" href="/2012/04/26/biblatex-styles-ecology/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>Null models of bipartite networks in C</h1>
-  <div class="postinfo">April 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">open source</span><span class="label radius small" style="margin-right: 3px;">null models</span></div>
-  <p>
-    I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time... Python is not the right tool. I&#39;m currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C. The code is on GitHub if you are interested. It&#39;s super fast....
-  </p>
-<a class="readmore" href="/2012/04/15/null-models-C/">Read more...</a>
 </div>
 
 
@@ -188,23 +189,53 @@
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Examples of mangal in action</title>
+    
+</head>
+
+<body>
+<a id="top"></a>
+<div id="main">
+
+<div class="row content">
+   <div class = "row copy">
+   <div class="large-9 small-10 columns maintext">
+   <div class='post'>
+<h1>Examples of mangal in action</h1>
+
+<div class="postinfo">
+
+January  9, 2014 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">R</span><span class="label radius small" style="margin-right: 3px;">mangal</span><span class="label radius small" style="margin-right: 3px;">ecological networks</span>
+
+
+</div>
+
+<p>In the two previous posts (see <a href="http://timotheepoisot.fr/2014/01/07/mangal-database-networks/">Part 1</a> and <a href="http://timotheepoisot.fr/2014/01/08/mangal-add-data/">Part 2</a>), I&#39;ve presented the basics of using <code>mangal</code> and the <code>rmangal</code> package to access, deposit, and edit data about ecological networks. The final post in the series is going to be slightly more fun: I&#39;ll illustrate some use cases of things you can potentially do with the database. We will start from the representation of a network in space, then move on to measuring beta-diversity in the dataset, and end with some more classical species-links relationships.</p>
+
+<h1>Setting things up</h1>
+
+<p>We&#39;ll need to pull the latest version of <code>rmangal</code>, as usual. In addition, we&#39;ll need a few other packages.</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">options<span class="p">(</span>stringsAsFactors <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="kr">if</span> <span class="p">(</span>getOption<span class="p">(</span><span class="s">&quot;unzip&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">)</span> options<span class="p">(</span>unzip <span class="o">=</span> <span class="s">&quot;unzip&quot;</span><span class="p">)</span>
+library<span class="p">(</span>devtools<span class="p">)</span>
+install_github<span class="p">(</span><span class="s">&quot;rmangal&quot;</span><span class="p">,</span> <span class="s">&quot;mangal-wg&quot;</span><span class="p">)</span>
+install_github<span class="p">(</span><span class="s">&quot;betalink&quot;</span><span class="p">,</span> <span class="s">&quot;tpoisot&quot;</span><span class="p">)</span>
+library<span class="p">(</span>rmangal<span class="p">)</span>
+<span class="c1"># Let&#39;s connect to the database</span>
+URL <span class="o">&lt;-</span> <span class="s">&quot;http://localhost:8000&quot;</span>
+api <span class="o">&lt;-</span> rmangal<span class="o">::</span>mangalapi<span class="p">(</span>URL<span class="p">)</span>
+library<span class="p">(</span>betalink<span class="p">)</span>
+<span class="c1"># Tools for spatial analyses</span>
+library<span class="p">(</span>sp<span class="p">)</span>
+library<span class="p">(</span>RgoogleMaps<span class="p">)</span>
+library<span class="p">(</span>RColorBrewer<span class="p">)</span>
+</code></pre></div>
+<p><span class="margin">Ricciardi et al. (2010) <em>Env Biol Fishes</em> <a href="http://dx.doi.org/10.1007/s10641-010-9606-0">DOI</a></span>I will do everything using a dataset released by Ricciardi and colleagues. The <a href="http://www.nceas.ucsb.edu/interactionweb/html/ricciardi-et-al-2010.html">original data</a> are on the <em>Interaction Web DataBase</em>. This dataset describes 16 anemonefish/fishes mutualistic networks in Indonesia. It&#39;s an extremely cool dataset, because (i) there are a lot of sites in a small space, (ii) a lot of species are in common across sites, and (iii) anemonefishes. So I&#39;ve uploaded these data in my local copy of the database, and I&#39;m going to illustrate a few uses-cases. The only &ldquo;manual&rdquo; operation was determining the spatial coordinates in each networks, based on the map presented in the original paper.</p>
+
+<h1>Use-case 1: spatialized network</h1>
+
+<p><span class='margin'>Bascompte (2009) <em>Science</em> <a href="http://dx.doi.org/10.1126/science.1170749">DOI</a></span>There is a really cool figure in one of Jordi Bascompte&#39;s paper, in which a network is plotted in space, and the position of each species is the center of mass of its area. This is an interesting way to plot networks when spatial information is available, so let&#39;s do just that.</p>
+
+<p>We start by getting the dataset:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">Dataset <span class="o">&lt;-</span> getDataset<span class="p">(</span>api<span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+Dataset<span class="o">$</span>networks
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##  [1] &quot;32&quot; &quot;33&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot; &quot;21&quot; &quot;22&quot; &quot;23&quot; &quot;24&quot; &quot;25&quot; &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot;
+## [15] &quot;30&quot; &quot;31&quot;
+</code></pre></div>
+<p>Now, this dataset has a lot of networks. So we&#39;ll do to things. First, we will get a list of all network objects, because they have the metadata we need:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">Networks <span class="o">&lt;-</span> alply<span class="p">(</span>Dataset<span class="o">$</span>networks<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> getNetwork<span class="p">(</span>api<span class="p">,</span> x<span class="p">))</span>
+Networks<span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span>latitude
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## [1] 1.651
+</code></pre></div>
+<p>Next, we will call the <code>network_as_graph</code> function to get all the interactions, and associated informations on the taxa. We will also convert these graphs into matrices, because that will be easier for some of the next steps.</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">Graphs <span class="o">&lt;-</span> llply<span class="p">(</span>Networks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> network_as_graph<span class="p">(</span>api<span class="p">,</span> x<span class="o">$</span>id<span class="p">))</span>
+names<span class="p">(</span>Graphs<span class="p">)</span> <span class="o">&lt;-</span> laply<span class="p">(</span>Networks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>name<span class="p">)</span>
+Matrices <span class="o">&lt;-</span> llply<span class="p">(</span>Graphs<span class="p">,</span> get.adjacency<span class="p">,</span> sparse <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</code></pre></div>
+<p>Let&#39;s now get a table with the sites spatial coordinates:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">Coord <span class="o">&lt;-</span> ldply<span class="p">(</span>Networks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> c<span class="p">(</span>name <span class="o">=</span> x<span class="o">$</span>name<span class="p">,</span> lon <span class="o">=</span> x<span class="o">$</span>longitude<span class="p">,</span> lat <span class="o">=</span> x<span class="o">$</span>latitude<span class="p">))</span>
+rownames<span class="p">(</span>Coord<span class="p">)</span> <span class="o">&lt;-</span> Coord<span class="o">$</span>name
+Coord <span class="o">&lt;-</span> Coord<span class="p">[,</span> c<span class="p">(</span><span class="s">&quot;lat&quot;</span><span class="p">,</span> <span class="s">&quot;lon&quot;</span><span class="p">)]</span>
+Coord<span class="o">$</span>lat <span class="o">&lt;-</span> as.numeric<span class="p">(</span>Coord<span class="o">$</span>lat<span class="p">)</span>
+Coord<span class="o">$</span>lon <span class="o">&lt;-</span> as.numeric<span class="p">(</span>Coord<span class="o">$</span>lon<span class="p">)</span>
+head<span class="p">(</span>Coord<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##                 lat   lon
+## Tanjung Kopi  1.651 124.7
+## Tanjung Pisok 1.578 124.8
+## bahowo        1.585 124.8
+## Kampung Bajo  1.608 124.9
+## Batu Kapal    1.788 124.8
+## Bualo         1.616 124.7
+</code></pre></div>
+<p>Good!</p>
+
+<p>Almost final steps, let&#39;s (i) get the list of species in each site, (ii) make a community matrix from this, and (iii) calculate the center of mass of each species based on its occurence in each of the 16 locations. </p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r"><span class="c1"># Get the list of species</span>
+sp_by_site <span class="o">&lt;-</span> llply<span class="p">(</span>Graphs<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> unlist<span class="p">(</span>V<span class="p">(</span>x<span class="p">)</span><span class="o">$</span>name<span class="p">))</span>
+sp_list <span class="o">&lt;-</span> unique<span class="p">(</span>unlist<span class="p">(</span>sp_by_site<span class="p">))</span>
+
+<span class="c1"># Species-by-site matrix</span>
+M <span class="o">&lt;-</span> matrix<span class="p">(</span><span class="m">0</span><span class="p">,</span> ncol <span class="o">=</span> length<span class="p">(</span>sp_list<span class="p">),</span> nrow <span class="o">=</span> length<span class="p">(</span>sp_by_site<span class="p">))</span>
+colnames<span class="p">(</span>M<span class="p">)</span> <span class="o">&lt;-</span> sp_list
+rownames<span class="p">(</span>M<span class="p">)</span> <span class="o">&lt;-</span> names<span class="p">(</span>sp_by_site<span class="p">)</span>
+<span class="kr">for</span> <span class="p">(</span>site <span class="kr">in</span> c<span class="p">(</span><span class="m">1</span><span class="o">:</span>length<span class="p">(</span>sp_by_site<span class="p">)))</span> M<span class="p">[</span>names<span class="p">(</span>sp_by_site<span class="p">)[</span>site<span class="p">],</span> sp_by_site<span class="p">[[</span>site<span class="p">]]]</span> <span class="o">=</span> <span class="m">1</span>
+
+<span class="c1"># Get the center of mass for each species</span>
+sp_center <span class="o">&lt;-</span> adply<span class="p">(</span>M<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> colMeans<span class="p">(</span>Coord<span class="p">[</span>names<span class="p">(</span>x<span class="p">)[</span>x <span class="o">&gt;</span> <span class="m">0</span><span class="p">],</span> <span class="p">]))</span>
+rownames<span class="p">(</span>sp_center<span class="p">)</span> <span class="o">&lt;-</span> sp_center<span class="p">[,</span> <span class="m">1</span><span class="p">]</span>
+sp_center <span class="o">&lt;-</span> sp_center<span class="p">[,</span> <span class="m">-1</span><span class="p">]</span>
+head<span class="p">(</span>sp_center<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##                           lat   lon
+## Entacmaea quadricolor   1.599 124.8
+## Heteractis aurora       1.677 124.8
+## Heteractis crispa       1.614 124.8
+## Stichodactyla mertensii 1.625 124.8
+## Heteractis magnifica    1.601 124.8
+## Amphiprion melanopus    1.620 124.7
+</code></pre></div>
+<p>Finally, we use the <code>metaweb</code> function from <code>betalink</code> to get the regional network, as an <code>igraph</code> graph:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">Mw <span class="o">&lt;-</span> graph.adjacency<span class="p">(</span>metaweb<span class="p">(</span>Matrices<span class="p">)</span><span class="o">$</span>web<span class="p">)</span>
+</code></pre></div>
+<p>And now, we&#39;ll use the <code>RgoogleMaps</code> package to plot a map, and overlay the spatialized network on top:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r"><span class="c1"># But first we need this function to convert spatial coordinates</span>
+ll_to_gm <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>Map<span class="p">,</span> ll<span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># Lat. conversion</span>
+    lat <span class="o">&lt;-</span> ll<span class="o">$</span>lat
+    lat <span class="o">&lt;-</span> lat <span class="o">-</span> Map<span class="o">$</span>lat.center
+    lat <span class="o">&lt;-</span> lat<span class="o">/</span><span class="p">(</span>Map<span class="o">$</span>BBOX<span class="o">$</span>ur<span class="p">[,</span> <span class="s">&quot;lat&quot;</span><span class="p">]</span> <span class="o">-</span> Map<span class="o">$</span>BBOX<span class="o">$</span>ll<span class="p">[,</span> <span class="s">&quot;lat&quot;</span><span class="p">])</span>
+    lat <span class="o">&lt;-</span> lat <span class="o">*</span> <span class="m">640</span>
+    <span class="c1"># Lat. conversion</span>
+    lon <span class="o">&lt;-</span> ll<span class="o">$</span>lon
+    lon <span class="o">&lt;-</span> lon <span class="o">-</span> Map<span class="o">$</span>lon.center
+    lon <span class="o">&lt;-</span> lon<span class="o">/</span><span class="p">(</span>Map<span class="o">$</span>BBOX<span class="o">$</span>ur<span class="p">[,</span> <span class="s">&quot;lon&quot;</span><span class="p">]</span> <span class="o">-</span> Map<span class="o">$</span>BBOX<span class="o">$</span>ll<span class="p">[,</span> <span class="s">&quot;lon&quot;</span><span class="p">])</span>
+    lon <span class="o">&lt;-</span> lon <span class="o">*</span> <span class="m">640</span>
+    <span class="c1">## Return matrix</span>
+    <span class="kr">return</span><span class="p">(</span>cbind<span class="p">(</span>lon<span class="p">,</span> lat<span class="p">))</span>
+<span class="p">}</span>
+<span class="c1"># Plot a map</span>
+center_point <span class="o">&lt;-</span> colMeans<span class="p">(</span>sp_center<span class="p">)</span>
+Map <span class="o">&lt;-</span> GetMap<span class="p">(</span>center <span class="o">=</span> center_point<span class="p">,</span> zoom <span class="o">=</span> <span class="m">11</span><span class="p">,</span> SCALE <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+par<span class="p">(</span>pty <span class="o">=</span> <span class="s">&quot;s&quot;</span><span class="p">)</span>
+colors <span class="o">&lt;-</span> c<span class="p">(</span>brewer.pal<span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="s">&quot;Set1&quot;</span><span class="p">),</span> brewer.pal<span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="s">&quot;Set2&quot;</span><span class="p">))</span>
+PlotOnStaticMap<span class="p">(</span>Map<span class="p">)</span>
+plot<span class="p">(</span>Mw<span class="p">,</span> layout <span class="o">=</span> jitter<span class="p">(</span>ll_to_gm<span class="p">(</span>Map<span class="p">,</span> sp_center<span class="p">),</span> amount <span class="o">=</span> <span class="m">10</span><span class="p">),</span> rescale <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> 
+    add <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> vertex.size <span class="o">=</span> <span class="m">600</span><span class="p">,</span> vertex.label <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> vertex.color <span class="o">=</span> colors<span class="p">,</span> 
+    edge.arrow.size <span class="o">=</span> <span class="m">0.25</span><span class="p">,</span> edge.color <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+legend<span class="p">(</span><span class="s">&quot;bottomleft&quot;</span><span class="p">,</span> fill <span class="o">=</span> colors<span class="p">,</span> legend <span class="o">=</span> V<span class="p">(</span>Mw<span class="p">)</span><span class="o">$</span>name<span class="p">,</span> inset <span class="o">=</span> <span class="m">0.02</span><span class="p">,</span> cex <span class="o">=</span> <span class="m">0.7</span><span class="p">,</span> 
+    bty <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="/rfig/mangal_make_map_network.png" alt="plot of chunk mangal_make_map_network"> </p>
+
+<p>And here we are! It might not be the best-looking graph ever, but I was fairly surprised that it was so easy to produce.</p>
+
+<h1>Use-case 2: network &beta;-diversity</h1>
+
+<p>For use-case number two, I will use the functions in <code>betalink</code> to do a quick illustration of how network &beta;-diversity depends on the distance between two networks. In the first use case, we have created a <code>Matrices</code> objects, which is a list of matrices. So we can simply do:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">bdiv <span class="o">&lt;-</span> betalink.dist<span class="p">(</span>Matrices<span class="p">)</span>
+</code></pre></div>
+<p>We&#39;ll add the spatial distance between sites, using a function from the <code>sp</code>:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">GeoDist <span class="o">&lt;-</span> spDists<span class="p">(</span>as.matrix<span class="p">(</span>Coord<span class="p">),</span> longlat <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+colnames<span class="p">(</span>GeoDist<span class="p">)</span> <span class="o">&lt;-</span> rownames<span class="p">(</span>GeoDist<span class="p">)</span> <span class="o">&lt;-</span> rownames<span class="p">(</span>Coord<span class="p">)</span>
+bdiv<span class="o">$</span>Space <span class="o">&lt;-</span> as.dist<span class="p">(</span>GeoDist<span class="p">)</span>
+</code></pre></div>
+<p>And now, some plots:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">par<span class="p">(</span>mfcol <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span>
+with<span class="p">(</span>bdiv<span class="p">,</span> <span class="p">{</span>
+    plot<span class="p">(</span>Space<span class="p">,</span> WN<span class="p">,</span> pch <span class="o">=</span> <span class="m">19</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;Distance (in km.)&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Network dissim. (all species)&quot;</span><span class="p">)</span>
+    plot<span class="p">(</span>Space<span class="p">,</span> OS<span class="p">,</span> pch <span class="o">=</span> <span class="m">19</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;Distance (in km.)&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Network dissim. (common species)&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<p><img src="/rfig/betadiv_rmangal_plots.png" alt="plot of chunk betadiv_rmangal_plots"> </p>
+
+<p>And here is a cool new mini-result: the dissimilarity of networks increases with distance overal, but not when you only account for the species which are shared between two locations.</p>
+
+<h1>Use-case 3: link-species relationships</h1>
+
+<p>Let&#39;s end with a more classical example: in this system, what is the relationship between number of species (S), and number of interactions (L)? This information is super easy to get with a little bit of <code>plyr</code> magic:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">LS <span class="o">&lt;-</span> ldply<span class="p">(</span>Graphs<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> c<span class="p">(</span>S <span class="o">=</span> length<span class="p">(</span>V<span class="p">(</span>x<span class="p">)),</span> L <span class="o">=</span> length<span class="p">(</span>E<span class="p">(</span>x<span class="p">))))</span>
+head<span class="p">(</span>LS<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##             .id  S  L
+## 1  Tanjung Kopi 10  8
+## 2 Tanjung Pisok  9  7
+## 3        bahowo 11 10
+## 4  Kampung Bajo  6  4
+## 5    Batu Kapal  5  4
+## 6         Bualo  9  8
+</code></pre></div>
+<p>The only thing left is to plot this table:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">plot<span class="p">(</span>LS<span class="p">[,</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)],</span> log <span class="o">=</span> <span class="s">&quot;xy&quot;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;Species&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Links&quot;</span><span class="p">,</span> pch <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="/rfig/mangal_demo_ls_png.png" alt="plot of chunk mangal_demo_ls.png"> </p>
+
+<p>We find the expect positive, log/log relationship. And it only required three lines of code!</p>
+
+<h1>To conclude</h1>
+
+<p>These three use cases are (I think) good examples of what can be done with the <code>rmangal</code> package. I&#39;ll refine them a little bit to add in the paper. If you have nay any suggestions, that would be greatly appreciated as well!</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<ul class="pager">
+
+
+<li class="previous">
+<a href="/2014/01/08/mangal-add-data/">&larr; Previous post</a>
+</li>
+
+
+
+<li class="next disabled">
+<a href="#">Next post &rarr;</a>
+</li>
+
+
+</ul>
+
+
+   </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+   </div>
+
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
+</div>
+
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
+
+   </div>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>

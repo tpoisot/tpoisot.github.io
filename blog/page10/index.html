@@ -36,9 +36,19 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
 
+
+<div class='post'>
+  <h1>Is E.O. Wilson wrong about maths?</h1>
+  <div class="postinfo">April  7, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological theory</span><span class="label radius small" style="margin-right: 3px;">teaching</span></div>
+  <p>
+    E.O. Wilson recently published an editorial entitled &ldquo;Great scientists don&#39;t need math&rdquo; in the Wall Street Journal. Jeremy Fox wrote a great rebuttal of it, which you should certainly read as well. In short, Wilson&#39;s argument is that most of great science is the work of intuition. In Jean Cocteau&#39;s words, science is the confirmation of instinct&#39;s discoveries. And in this perspective, math literacy is not needed, because it&#39;s only a boring formality, to confirm what the &ldquo;great minds&rdquo; have been thinking. To some extent, the point is valid - the point that intuition is important, that is. Feyerabend emphasized...
+  </p>
+<a class="readmore" href="/2013/04/07/wilson-maths/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>High-throughput sequencing and community ecology</h1>
@@ -74,15 +84,6 @@
     I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I&#39;ve learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do in networkx. We&#39;ll just write a function similar to removeNode, and add the possibility to keep the nodes with no links, or to remove them....
   </p>
 <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>Estimating node contribution to network properties</h1>
-  <div class="postinfo">February 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">modularity</span><span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span></div>
-  <p>
-    I&#39;m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I&#39;ll just detail how it possible to get this information quickly using networkx. Warning! I'm just using this post to take notes on code I'm currently working on. Saavedra et al. Nature 478 DOISaavedra and colleagues proposed a method which is based on the randomization of the interactions of each species in the...
-  </p>
-<a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a>
 </div>
 
 
@@ -188,23 +189,53 @@
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

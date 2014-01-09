@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Estimating node contribution to network properties</h1>
@@ -51,7 +52,7 @@ February 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 <div class="alert alert-info">
 <h4>Warning!</h4>
-I'm just using this post to take notes on code I'm currently working on.
+I&rsquo;m just using this post to take notes on code I&rsquo;m currently working on.
 </div>
 
 <p><span class='margin'>Saavedra et al. <em>Nature</em> <strong>478</strong> <a href="http://dx.doi.org/10.1038/nature10433">DOI</a></span>Saavedra and colleagues proposed a method which is based on the randomization of the interactions of each species in the network. In a nutshell, to measure the contribution of a node to a network metric, you need to shuffle its interactions, and measure the difference between the original and shuffled network. This makes a whole lot of sense, and has the advantage of keeping size and connectance constant. But in my particular case, I&#39;m more interested in measuring what happens when a node is lost, and how it affects the structure of the network. I&#39;ll show how to do that in <code>python</code>.</p>
@@ -103,7 +104,7 @@ I'm just using this post to take notes on code I'm currently working on.
 <div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeNode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">]</span>
 </code></pre></div>
 
-<p><span class='margin'>It&#39;s just as easy to iterate on the <em>edges</em> rather than the <em>nodes</em>. Which actually makes more sense for modularity...</span>In clear, for each node called <code>n</code> in the network <code>G</code>, we substract the modularity of the network <code>G</code> with <code>n</code> removed from the original modularity. So what does it looks like?</p>
+<p><span class='margin'>It&#39;s just as easy to iterate on the <em>edges</em> rather than the <em>nodes</em>. Which actually makes more sense for modularity&hellip;</span>In clear, for each node called <code>n</code> in the network <code>G</code>, we substract the modularity of the network <code>G</code> with <code>n</code> removed from the original modularity. So what does it looks like?</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">delta_mod</span><span class="p">),</span><span class="s">&#39;ok&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -129,7 +130,7 @@ I'm just using this post to take notes on code I'm currently working on.
 
 <p><img src="/images/nodimpact-gr.png" alt="Figure2" title="Graph"></p>
 
-<p><span class='margin'>The whole code is available as a <a href="https://gist.github.com/tpoisot/4942162">Gist</a></span>The redmost nodes are actually well connected to all modules, and it makes sense that removing them will reinforce modularity. In short, it&#39;s easy to run this analysis with <code>networkx</code>, because the graph objects are iterable. And the other good news is that it&#39;s fast (at least on reasonably sized networks), and in all cases faster than the permutation method I mentioned in the first paragraphs. Now to see how the two correlates (or not)...</p>
+<p><span class='margin'>The whole code is available as a <a href="https://gist.github.com/tpoisot/4942162">Gist</a></span>The redmost nodes are actually well connected to all modules, and it makes sense that removing them will reinforce modularity. In short, it&#39;s easy to run this analysis with <code>networkx</code>, because the graph objects are iterable. And the other good news is that it&#39;s fast (at least on reasonably sized networks), and in all cases faster than the permutation method I mentioned in the first paragraphs. Now to see how the two correlates (or not)&hellip;</p>
 
 
 </div>
@@ -183,23 +184,53 @@ I'm just using this post to take notes on code I'm currently working on.
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

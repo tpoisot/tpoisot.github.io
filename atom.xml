@@ -4,12 +4,181 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-08T12:31:19-05:00</updated>
+  <updated>2014-01-09T18:04:48-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Examples of mangal in action</title>
+     <link href="http://timotheepoisot.fr/2014/01/09/mangal-in-action/"/>
+    <updated>2014-01-09T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;In the two previous posts (see &lt;a href=&quot;http://timotheepoisot.fr/2014/01/07/mangal-database-networks/&quot;&gt;Part 1&lt;/a&gt; and &lt;a href=&quot;http://timotheepoisot.fr/2014/01/08/mangal-add-data/&quot;&gt;Part 2&lt;/a&gt;), I&amp;#39;ve presented the basics of using &lt;code&gt;mangal&lt;/code&gt; and the &lt;code&gt;rmangal&lt;/code&gt; package to access, deposit, and edit data about ecological networks. The final post in the series is going to be slightly more fun: I&amp;#39;ll illustrate some use cases of things you can potentially do with the database. We will start from the representation of a network in space, then move on to measuring beta-diversity in the dataset, and end with some more classical species-links relationships.&lt;/p&gt;
+
+&lt;h1&gt;Setting things up&lt;/h1&gt;
+
+&lt;p&gt;We&amp;#39;ll need to pull the latest version of &lt;code&gt;rmangal&lt;/code&gt;, as usual. In addition, we&amp;#39;ll need a few other packages.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;options&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;stringsAsFactors &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;getOption&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;unzip&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; options&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;unzip &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;unzip&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;devtools&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+install_github&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;rmangal&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;mangal-wg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+install_github&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;betalink&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;tpoisot&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rmangal&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Let&amp;#39;s connect to the database&lt;/span&gt;
+URL &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;http://localhost:8000&amp;quot;&lt;/span&gt;
+api &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rmangal&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;mangalapi&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;URL&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;betalink&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Tools for spatial analyses&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;RgoogleMaps&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;RColorBrewer&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&quot;margin&quot;&gt;Ricciardi et al. (2010) &lt;em&gt;Env Biol Fishes&lt;/em&gt; &lt;a href=&quot;http://dx.doi.org/10.1007/s10641-010-9606-0&quot;&gt;DOI&lt;/a&gt;&lt;/span&gt;I will do everything using a dataset released by Ricciardi and colleagues. The &lt;a href=&quot;http://www.nceas.ucsb.edu/interactionweb/html/ricciardi-et-al-2010.html&quot;&gt;original data&lt;/a&gt; are on the &lt;em&gt;Interaction Web DataBase&lt;/em&gt;. This dataset describes 16 anemonefish/fishes mutualistic networks in Indonesia. It&amp;#39;s an extremely cool dataset, because (i) there are a lot of sites in a small space, (ii) a lot of species are in common across sites, and (iii) anemonefishes. So I&amp;#39;ve uploaded these data in my local copy of the database, and I&amp;#39;m going to illustrate a few uses-cases. The only &amp;ldquo;manual&amp;rdquo; operation was determining the spatial coordinates in each networks, based on the map presented in the original paper.&lt;/p&gt;
+
+&lt;h1&gt;Use-case 1: spatialized network&lt;/h1&gt;
+
+&lt;p&gt;&lt;span class=&#39;margin&#39;&gt;Bascompte (2009) &lt;em&gt;Science&lt;/em&gt; &lt;a href=&quot;http://dx.doi.org/10.1126/science.1170749&quot;&gt;DOI&lt;/a&gt;&lt;/span&gt;There is a really cool figure in one of Jordi Bascompte&amp;#39;s paper, in which a network is plotted in space, and the position of each species is the center of mass of its area. This is an interesting way to plot networks when spatial information is available, so let&amp;#39;s do just that.&lt;/p&gt;
+
+&lt;p&gt;We start by getting the dataset:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;Dataset &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; getDataset&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+Dataset&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;networks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##  [1] &amp;quot;32&amp;quot; &amp;quot;33&amp;quot; &amp;quot;18&amp;quot; &amp;quot;19&amp;quot; &amp;quot;20&amp;quot; &amp;quot;21&amp;quot; &amp;quot;22&amp;quot; &amp;quot;23&amp;quot; &amp;quot;24&amp;quot; &amp;quot;25&amp;quot; &amp;quot;26&amp;quot; &amp;quot;27&amp;quot; &amp;quot;28&amp;quot; &amp;quot;29&amp;quot;
+## [15] &amp;quot;30&amp;quot; &amp;quot;31&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, this dataset has a lot of networks. So we&amp;#39;ll do to things. First, we will get a list of all network objects, because they have the metadata we need:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;Networks &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; alply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Dataset&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;networks&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; getNetwork&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+Networks&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;latitude
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## [1] 1.651
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next, we will call the &lt;code&gt;network_as_graph&lt;/code&gt; function to get all the interactions, and associated informations on the taxa. We will also convert these graphs into matrices, because that will be easier for some of the next steps.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;Graphs &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; llply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Networks&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; network_as_graph&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+names&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Graphs&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; laply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Networks&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+Matrices &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; llply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Graphs&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; get.adjacency&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sparse &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#39;s now get a table with the sites spatial coordinates:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;Coord &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; ldply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Networks&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lon &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;longitude&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lat &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;latitude&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; Coord&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name
+Coord &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; Coord&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;lat&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;lon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+Coord&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lat &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; as.numeric&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lat&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+Coord&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lon &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; as.numeric&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lon&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+head&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##                 lat   lon
+## Tanjung Kopi  1.651 124.7
+## Tanjung Pisok 1.578 124.8
+## bahowo        1.585 124.8
+## Kampung Bajo  1.608 124.9
+## Batu Kapal    1.788 124.8
+## Bualo         1.616 124.7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Good!&lt;/p&gt;
+
+&lt;p&gt;Almost final steps, let&amp;#39;s (i) get the list of species in each site, (ii) make a community matrix from this, and (iii) calculate the center of mass of each species based on its occurence in each of the 16 locations. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Get the list of species&lt;/span&gt;
+sp_by_site &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; llply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Graphs&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;V&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+sp_list &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; unique&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_by_site&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Species-by-site matrix&lt;/span&gt;
+M &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; matrix&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ncol &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; length&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_list&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; nrow &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; length&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_by_site&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; sp_list
+rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; names&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_by_site&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;site &lt;span class=&quot;kr&quot;&gt;in&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;length&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_by_site&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; M&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;names&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_by_site&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;site&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; sp_by_site&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;site&lt;span class=&quot;p&quot;&gt;]]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Get the center of mass for each species&lt;/span&gt;
+sp_center &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; adply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;M&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; colMeans&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;names&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_center&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; sp_center&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+sp_center &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; sp_center&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+head&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_center&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##                           lat   lon
+## Entacmaea quadricolor   1.599 124.8
+## Heteractis aurora       1.677 124.8
+## Heteractis crispa       1.614 124.8
+## Stichodactyla mertensii 1.625 124.8
+## Heteractis magnifica    1.601 124.8
+## Amphiprion melanopus    1.620 124.7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally, we use the &lt;code&gt;metaweb&lt;/code&gt; function from &lt;code&gt;betalink&lt;/code&gt; to get the regional network, as an &lt;code&gt;igraph&lt;/code&gt; graph:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;Mw &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; graph.adjacency&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;metaweb&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Matrices&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;web&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And now, we&amp;#39;ll use the &lt;code&gt;RgoogleMaps&lt;/code&gt; package to plot a map, and overlay the spatialized network on top:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# But first we need this function to convert spatial coordinates&lt;/span&gt;
+ll_to_gm &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Map&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ll&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Lat. conversion&lt;/span&gt;
+    lat &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; ll&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lat
+    lat &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; lat &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; Map&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lat.center
+    lat &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; lat&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Map&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;BBOX&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ur&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;lat&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; Map&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;BBOX&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ll&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;lat&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    lat &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; lat &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;640&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Lat. conversion&lt;/span&gt;
+    lon &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; ll&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lon
+    lon &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; lon &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; Map&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;lon.center
+    lon &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; lon&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Map&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;BBOX&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ur&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;lon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; Map&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;BBOX&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;ll&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;lon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    lon &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; lon &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;640&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;## Return matrix&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cbind&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;lon&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; lat&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Plot a map&lt;/span&gt;
+center_point &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; colMeans&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sp_center&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+Map &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; GetMap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;center &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; center_point&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; zoom &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; SCALE &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;pty &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;s&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+colors &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;brewer.pal&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Set1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; brewer.pal&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Set2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+PlotOnStaticMap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Map&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Mw&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; layout &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; jitter&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ll_to_gm&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Map&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; sp_center&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; amount &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; rescale &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    add &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vertex.size &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vertex.label &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vertex.color &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    edge.arrow.size &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; edge.color &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+legend&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bottomleft&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; fill &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; legend &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; V&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Mw&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; inset &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.02&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; cex &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    bty &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;n&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/rfig/mangal_make_map_network.png&quot; alt=&quot;plot of chunk mangal_make_map_network&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;And here we are! It might not be the best-looking graph ever, but I was fairly surprised that it was so easy to produce.&lt;/p&gt;
+
+&lt;h1&gt;Use-case 2: network &amp;beta;-diversity&lt;/h1&gt;
+
+&lt;p&gt;For use-case number two, I will use the functions in &lt;code&gt;betalink&lt;/code&gt; to do a quick illustration of how network &amp;beta;-diversity depends on the distance between two networks. In the first use case, we have created a &lt;code&gt;Matrices&lt;/code&gt; objects, which is a list of matrices. So we can simply do:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;bdiv &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; betalink.dist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Matrices&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We&amp;#39;ll add the spatial distance between sites, using a function from the &lt;code&gt;sp&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;GeoDist &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; spDists&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;as.matrix&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; longlat &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+colnames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;GeoDist&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;GeoDist&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rownames&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Coord&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+bdiv&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Space &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; as.dist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;GeoDist&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And now, some plots:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;par&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;mfcol &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+with&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;bdiv&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Space&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; WN&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; xlab &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Distance (in km.)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylab &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Network dissim. (all species)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Space&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; OS&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; xlab &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Distance (in km.)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylab &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Network dissim. (common species)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/rfig/betadiv_rmangal_plots.png&quot; alt=&quot;plot of chunk betadiv_rmangal_plots&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;And here is a cool new mini-result: the dissimilarity of networks increases with distance overal, but not when you only account for the species which are shared between two locations.&lt;/p&gt;
+
+&lt;h1&gt;Use-case 3: link-species relationships&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;#39;s end with a more classical example: in this system, what is the relationship between number of species (S), and number of interactions (L)? This information is super easy to get with a little bit of &lt;code&gt;plyr&lt;/code&gt; magic:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;LS &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; ldply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Graphs&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;S &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; length&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;V&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; L &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; length&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;E&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+head&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;LS&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##             .id  S  L
+## 1  Tanjung Kopi 10  8
+## 2 Tanjung Pisok  9  7
+## 3        bahowo 11 10
+## 4  Kampung Bajo  6  4
+## 5    Batu Kapal  5  4
+## 6         Bualo  9  8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The only thing left is to plot this table:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;LS&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt; log &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;xy&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; xlab &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylab &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Links&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pch &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/rfig/mangal_demo_ls_png.png&quot; alt=&quot;plot of chunk mangal_demo_ls.png&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;We find the expect positive, log/log relationship. And it only required three lines of code!&lt;/p&gt;
+
+&lt;h1&gt;To conclude&lt;/h1&gt;
+
+&lt;p&gt;These three use cases are (I think) good examples of what can be done with the &lt;code&gt;rmangal&lt;/code&gt; package. I&amp;#39;ll refine them a little bit to add in the paper. If you have nay any suggestions, that would be greatly appreciated as well!&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Uploading data into mangal</title>
@@ -179,7 +348,7 @@ m_e_b &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; list&lt;span class=
 w_e_m &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addInteraction&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; w_e_m&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 m_e_b &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; addInteraction&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; m_e_b&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Congratulations! Note that within the &lt;code&gt;R&lt;/code&gt; package, it&amp;#39;s perfectly acceptable to pass the whole &lt;code&gt;taxa&lt;/code&gt; object (but if you want to interact with the API, you need to pass only the URI, and if you want to interact directly with the API, chances are you knew that already...).&lt;/p&gt;
+&lt;p&gt;Congratulations! Note that within the &lt;code&gt;R&lt;/code&gt; package, it&amp;#39;s perfectly acceptable to pass the whole &lt;code&gt;taxa&lt;/code&gt; object (but if you want to interact with the API, you need to pass only the URI, and if you want to interact directly with the API, chances are you knew that already&amp;hellip;).&lt;/p&gt;
 
 &lt;h2&gt;Wrapping things up&lt;/h2&gt;
 
@@ -638,7 +807,7 @@ assuming we want to predict ecosystem properties from network structure,
 it&amp;#39;s not really wise to &lt;em&gt;assume&lt;/em&gt; that interactions happen, because whether
 they will happen or not depends, again, on local conditions.&lt;/p&gt;
 
-&lt;p&gt;So whereas the &amp;quot;current&amp;quot; view of interaction networks is &lt;em&gt;a matrix of 0s
+&lt;p&gt;So whereas the &amp;ldquo;current&amp;rdquo; view of interaction networks is &lt;em&gt;a matrix of 0s
 and 1s telling whether two species interact&lt;/em&gt;, it would make sense that we
 think about these networks in terms of probability that the interaction
 will happen. The interesting thing is that once everything is put together,
@@ -747,15 +916,15 @@ be addressed. We make a point for the relevance of this metaphor in &lt;a href=&
 attribute each point raised by a referee to an Issue. You can then assign
 Issues to people working on the manuscript, and track the progression of
 the replies. Because most issues tracking systems come with a &lt;em&gt;Milestones&lt;/em&gt;
-ability, you can assign all issues to the &lt;em&gt;Milestone&lt;/em&gt; &amp;quot;First revision&amp;quot;,
+ability, you can assign all issues to the &lt;em&gt;Milestone&lt;/em&gt; &amp;ldquo;First revision&amp;rdquo;,
 and set a deadline at which all the issues have to be fixed.&lt;/p&gt;
 
 &lt;p&gt;As &lt;em&gt;GitHub&lt;/em&gt; allows you to reference &lt;em&gt;commits&lt;/em&gt; (&lt;em&gt;i.e.&lt;/em&gt; changes made to your
 code/paper), it is really easy to say, in the reply to each point, what you
 did to address it, and give a link to the &lt;code&gt;diff&lt;/code&gt; (&lt;em&gt;i.e.&lt;/em&gt; the list of all
-changes). Instead of replying things like &amp;quot;&lt;em&gt;We replaced the sentence P.4
-L.24-25 by a short statement (now P.6 L.14-21)&lt;/em&gt;&amp;quot;, you can say &amp;quot;&lt;em&gt;We changed
-the text in the following way, ..., see commit &lt;code&gt;e30b8e&lt;/code&gt;&lt;/em&gt;&amp;quot;. &lt;em&gt;GitHub&lt;/em&gt; will take
+changes). Instead of replying things like &amp;ldquo;&lt;em&gt;We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)&lt;/em&gt;&amp;rdquo;, you can say &amp;ldquo;&lt;em&gt;We changed
+the text in the following way, &amp;hellip;, see commit &lt;code&gt;e30b8e&lt;/code&gt;&lt;/em&gt;&amp;rdquo;. &lt;em&gt;GitHub&lt;/em&gt; will take
 care of putting a link in place, and the reviewer can then see exactly which
 changes were made. As a final note on this point: it&amp;#39;s obviously good practice
 to &lt;em&gt;ask&lt;/em&gt; the editor if s/he agrees with the reviews being put on &lt;em&gt;GitHub&lt;/em&gt;.&lt;/p&gt;
@@ -767,7 +936,7 @@ suggest improvements, or report bug. It is also possible to contribute new
 code (through the &lt;em&gt;fork&lt;/em&gt;/&lt;em&gt;pull&lt;/em&gt; mechanism).&lt;/p&gt;
 
 &lt;p&gt;One of the things I enjoy in the &lt;em&gt;Issues&lt;/em&gt; system is that it can (when the
-people actually use it...) unclutter your mailbox. Instead of sending an email
+people actually use it&amp;hellip;) unclutter your mailbox. Instead of sending an email
 to report a bug, people can submit an issue. You will have a clear list of
 what to do, and then again, the ability to indicate exactly how you solved it.&lt;/p&gt;
 
@@ -792,12 +961,12 @@ system: each time you commit a change to your code, it will run a pre-specified
 series of steps to &lt;code&gt;build&lt;/code&gt; it, and tell you (and other people) whether it
 was a success or not. The list of instructions to build your project can be
 whatever you want (compiling the &lt;code&gt;LaTeX&lt;/code&gt; document, running the test suite,
-...). But the central point is that you will know, in real time, if your
+&amp;hellip;). But the central point is that you will know, in real time, if your
 changes &lt;em&gt;still allow your code to run&lt;/em&gt; or not. Another related service is
 &lt;a href=&quot;https://coveralls.io/&quot;&gt;coveralls&lt;/a&gt; - it gives you an overview of which proportion of your code is
 covered by tests. These two services (TravisCI and coveralls) are automated,
 so you have nothing to do to make sure that you code run, and that it is
-covered by tests (except that coding well, and writing tests...). Both
+covered by tests (except that coding well, and writing tests&amp;hellip;). Both
 services will allow you to display little badges on your project page,
 so your &lt;em&gt;users&lt;/em&gt; can have some confidence in your code.&lt;/p&gt;
 
@@ -878,16 +1047,16 @@ really, really amazing when you want to &lt;em&gt;read&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;The most recent addition to this collection is &lt;code&gt;vimroom&lt;/code&gt;. This plugins
 attempts to replicate the look and feel of &lt;em&gt;WriteRoom&lt;/em&gt;, one of the many, many
-&amp;quot;distraction-free&amp;quot; writing softwares. When editing a document, &lt;code&gt;&amp;lt;leader&amp;gt;V&lt;/code&gt;
+&amp;ldquo;distraction-free&amp;rdquo; writing softwares. When editing a document, &lt;code&gt;&amp;lt;leader&amp;gt;V&lt;/code&gt;
 will center the text on the screen, with ample white-space on each sides,
-and remove every piece of clutter from the &amp;quot;interface&amp;quot;. It means that, if
+and remove every piece of clutter from the &amp;ldquo;interface&amp;rdquo;. It means that, if
 you have a large screen, you don&amp;#39;t need to turn your head all the way to
 the left to read what you are working on.&lt;/p&gt;
 
 &lt;hr&gt;
 
 &lt;p&gt;So that&amp;#39;s it! It&amp;#39;s not much work, and it makes for a really pleasant writing
-experience in &lt;code&gt;Vim&lt;/code&gt;. And it&amp;#39;s effortless to switch from &amp;quot;code&amp;quot; to &amp;quot;prose&amp;quot;
+experience in &lt;code&gt;Vim&lt;/code&gt;. And it&amp;#39;s effortless to switch from &amp;ldquo;code&amp;rdquo; to &amp;ldquo;prose&amp;rdquo;
 mode, making &lt;code&gt;Vim&lt;/code&gt; a very versatile and productive tool.&lt;/p&gt;
 </content>
   </entry>
@@ -902,7 +1071,7 @@ than usual). By &lt;em&gt;closed&lt;/em&gt;, I mean any software that would requ
 to be able to reproduce the method, either directly, or through a licence
 costing money to the university. Think &lt;em&gt;Mathematica&lt;/em&gt;, &lt;em&gt;matlab&lt;/em&gt;, or any other
 commercial tools. Despite what &lt;a href=&quot;http://www.quantumforest.com/2013/12/should-i-reject-a-manuscript-because-the-analyses-werent-done-using-open-source-software/&quot;&gt;some&lt;/a&gt; would have you believe, the way
-analyses are done in a &amp;quot;traditional&amp;quot; research paper (&lt;q&gt;Here is my experiment,
+analyses are done in a &amp;ldquo;traditional&amp;rdquo; research paper (&lt;q&gt;Here is my experiment,
 here are the analyses I have been doing, and here are my conclusions&lt;/q&gt;)
 is an entirely different piece of work. When I review such papers, I care
 very little about the software used to obtain the results. And of course,
@@ -922,7 +1091,7 @@ software paper is the method described, and so as long as I can reproduce
 what the authors propose, and it is a useful addition to the methodological
 toolkit, there is no reason to reject the paper. An additional reason is that
 I am a co-author on at least two (&lt;em&gt;in prep.&lt;/em&gt;) papers using closed software,
-and I won&amp;#39;t hold others to a higher standard than the one I hold myself to...&lt;/p&gt;
+and I won&amp;#39;t hold others to a higher standard than the one I hold myself to&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;That being said, there are extremely strong arguments to be made in favor
 of using Free and Open-Source Software (FOSS) whenever possible. For one
@@ -942,7 +1111,7 @@ method is much like explaining a recipe. But I&amp;#39;m much less likely to coo
 true &lt;em&gt;crêpes&lt;/em&gt; from Britanny, which require a bulky and expensive &lt;em&gt;billlig&lt;/em&gt;,
 than I am to cook the regular version that I can do at home with my frying
 pan. Wow, that is a bad metaphor, it almost reads like FOSS is the cheap
-knock-off version of science. Never mind... In any case, offering users
+knock-off version of science. Never mind&amp;hellip; In any case, offering users
 a way to apply an analysis at no cost is a good incentive to using your
 method. And now that almost anyone knows and uses R (especially students),
 you can reach ~100% of your field this way.&lt;/p&gt;
@@ -1071,8 +1240,8 @@ data. This particular model outputs very variable data. The number of
 lines/columns (were I working in a tabular format) would be unpredictable,
 vary across simulations, and generally be a little bit too massive to work
 with (simply) in &lt;code&gt;R&lt;/code&gt;. But I&amp;#39;ve been using &lt;code&gt;JSON&lt;/code&gt; for a while now, and it
-makes working with these types of data (not the &amp;quot;several Gig&amp;quot; types, the
-&amp;quot;highly heterogeneous&amp;quot; type) easy.&lt;/p&gt;
+makes working with these types of data (not the &amp;ldquo;several Gig&amp;rdquo; types, the
+&amp;ldquo;highly heterogeneous&amp;rdquo; type) easy.&lt;/p&gt;
 
 &lt;p&gt;I love &lt;code&gt;JSON&lt;/code&gt; because it can be validated. Running a command like &lt;code&gt;jsonlint
 file.json&lt;/code&gt; will either return me the pretty-printed version of the file,
@@ -1142,7 +1311,7 @@ hundreds Mb at times.&lt;/p&gt;
 are examples with (admittedly badly written) &lt;code&gt;R&lt;/code&gt; files to read and manipulate
 &lt;code&gt;JSON&lt;/code&gt; outputs. And keep in mind that when you&amp;#39;ll be coming back to your
 output files in six months, you&amp;#39;ll be glad to have a verbose format and a
-scheme describing it to understand what is going on...!&lt;/p&gt;
+scheme describing it to understand what is going on&amp;hellip;!&lt;/p&gt;
 </content>
   </entry>
   
@@ -1153,7 +1322,7 @@ scheme describing it to understand what is going on...!&lt;/p&gt;
     <content type="html">&lt;p&gt;R packages are one of the best tools we have. It&amp;#39;s a library of 1000s
 of functions ready to be used, all wrapped in a single common language,
 and it&amp;#39;s free. I wrote some, and used even more. When I review a paper,
-upon seeing &amp;quot;we used function &lt;code&gt;x&lt;/code&gt; in the version 2.3 of package &lt;code&gt;y&lt;/code&gt;&amp;quot;,
+upon seeing &amp;ldquo;we used function &lt;code&gt;x&lt;/code&gt; in the version 2.3 of package &lt;code&gt;y&lt;/code&gt;&amp;rdquo;,
 I know a lot about what the authors have been doing (and I can check the
 help of this function for references and additional details). And obviously,
 training students about which packages are widely used in a particular field
@@ -1181,23 +1350,23 @@ still have to start &lt;code&gt;R&lt;/code&gt; at least once a day.&lt;/p&gt;
 
 &lt;p&gt;So on one hand, packages are really good, because they save time and
 allow to do an analysis which (hopefully) conforms with the current set of
-&amp;quot;best practices&amp;quot; in the field. On the other hand, when you start working
+&amp;ldquo;best practices&amp;rdquo; in the field. On the other hand, when you start working
 &lt;em&gt;only&lt;/em&gt; with what the packages have to offer, you can severely limit your
 creativity. There are questions that will require new code to be written,
 and you&amp;#39;ll most likely hit obstacles along the ways. That, too, should be
 something the students encounter during their training.&lt;/p&gt;
 
 &lt;p&gt;And this is when the limits of &lt;code&gt;R&lt;/code&gt; start to show. As John Cook said (&lt;a href=&quot;http://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science&quot;&gt;source&lt;/a&gt;),
-&amp;quot;I find it more helpful to think of R as having a programming language than
-being a programming language&amp;quot;. I would never have put that so eloquently,
+&amp;ldquo;I find it more helpful to think of R as having a programming language than
+being a programming language&amp;rdquo;. I would never have put that so eloquently,
 and it is entirely ture. Over the last two months, I gave a graduate training
 class on &lt;em&gt;Algorithms and programming for environmental sciences&lt;/em&gt;, in which
-I tried to discuss how to make &amp;quot;good&amp;quot; (robust, user-friendly, stupid-proof)
+I tried to discuss how to make &amp;ldquo;good&amp;rdquo; (robust, user-friendly, stupid-proof)
 programs. Regardless of what the students learned, I definitely realized
 that &lt;code&gt;R&lt;/code&gt; is a &lt;em&gt;huge mess&lt;/em&gt; when you try to work outside of packages, or
 do something else than statistics. Interestingly, even Hadley Whickam&amp;#39;s
 forthcoming &lt;a href=&quot;http://adv-r.had.co.nz/&quot;&gt;&lt;em&gt;Advanced R development&lt;/em&gt;&lt;/a&gt; starts by saying that it will
-show how &lt;em&gt;what seems horrible is merely &amp;quot;not that bad&amp;quot;&lt;/em&gt; (go read the book,
+show how &lt;em&gt;what seems horrible is merely &amp;ldquo;not that bad&amp;rdquo;&lt;/em&gt; (go read the book,
 by the way, it&amp;#39;s great). And so understanding &lt;em&gt;what&lt;/em&gt; to do often comes second
 to understanding &lt;em&gt;how to do it&lt;/em&gt;.&lt;/p&gt;
 
@@ -1208,7 +1377,7 @@ function does. The later requires a working knowledge of the language, and
 some notions of algorithmic. Yet, judging from my observations, these two
 different exercices are often (and let&amp;#39;s not forget statistics) presented
 together, under the general denomination of &lt;code&gt;R&lt;/code&gt;. And when, afterwards, students
-complain of &amp;quot;not getting &lt;code&gt;R&lt;/code&gt;&amp;quot;, it&amp;#39;s hard to tell whether what they don&amp;#39;t
+complain of &amp;ldquo;not getting &lt;code&gt;R&lt;/code&gt;&amp;rdquo;, it&amp;#39;s hard to tell whether what they don&amp;#39;t
 get is what exactly a &lt;code&gt;while&lt;/code&gt; loop does (which is not a &lt;code&gt;R&lt;/code&gt;-specific issue),
 or why a &lt;code&gt;data.frame&lt;/code&gt; is also a &lt;code&gt;list&lt;/code&gt; and a &lt;code&gt;matrix&lt;/code&gt; (which is a reasonable
 question, and quite specific to &lt;code&gt;R&lt;/code&gt;); you may know how to do statistics with
@@ -1225,7 +1394,7 @@ an array, let&amp;#39;s walk students through the writing of this function.&lt;/
 &lt;p&gt;So, to conclude, while it&amp;#39;s clear that I have a love/hate relationship
 with &lt;code&gt;R&lt;/code&gt;, I think it&amp;#39;s still an invaluable tool for teaching, especially in
 undergraduate courses. &lt;code&gt;python&lt;/code&gt; might be as easy and more coherent, but less
-people use it (for now...), and &lt;code&gt;R&lt;/code&gt; is still the &lt;em&gt;lingua franca&lt;/em&gt;. And a part
+people use it (for now&amp;hellip;), and &lt;code&gt;R&lt;/code&gt; is still the &lt;em&gt;lingua franca&lt;/em&gt;. And a part
 of the success of &lt;code&gt;R&lt;/code&gt; is the diversity of available packages. But relying
 only on packages creates this weird black box situation, in which students
 will know what the function does, but not necessarily &lt;em&gt;how&lt;/em&gt; it does it; and
@@ -1277,7 +1446,7 @@ useless, but it&amp;#39;s kinda cool!&lt;/p&gt;
 papers is that it might be difficult for other people to compile the paper if
 they do not use your bibtex file. And if there is ony thing I avoid like the
 plague, it&amp;#39;s having several bibtex files all over the place. And I&amp;#39;m can&amp;#39;t
-be bothered to keep &amp;quot;Collections&amp;quot; or separate folders in Zotero. So clearly,
+be bothered to keep &amp;ldquo;Collections&amp;rdquo; or separate folders in Zotero. So clearly,
 I had to code my way out of this one.&lt;/p&gt;
 
 &lt;p&gt;The good thing of using &lt;code&gt;pandoc&lt;/code&gt; is that the citation syntax is remarkably
@@ -1510,7 +1679,7 @@ of science, as proven by the &lt;a href=&quot;http://openwetware.org/wiki/Main_P
 specifically to experimental biology and biochemistry.&lt;/p&gt;
 
 &lt;p&gt;An interesting question that keeps popping up whenever I discuss &lt;em&gt;Open
-ecology&lt;/em&gt;, or &lt;em&gt;Open biodiversity&lt;/em&gt;, is &amp;quot;Why should it be different in ecology?&amp;quot;.
+ecology&lt;/em&gt;, or &lt;em&gt;Open biodiversity&lt;/em&gt;, is &amp;ldquo;Why should it be different in ecology?&amp;rdquo;.
 Or expressed in another way, why should ecology pose particular challenges as
 far as open science is concerned? It is a very valid question, and in
 preparation for the &lt;em&gt;Open biodiversity&lt;/em&gt; panel that will take place at the QCBS
@@ -1518,11 +1687,11 @@ meeting in a month and a half, I thought it was time to bring some elements to
 answer it.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;#39;s start by recognizing that there are (broadly) two types of ecologists.
-The &amp;quot;empirical&amp;quot; ecologists (including the microcosm people) rely on empirical
+The &amp;ldquo;empirical&amp;rdquo; ecologists (including the microcosm people) rely on empirical
 observations, and extensive field surveys, to address their questions. The
-&amp;quot;theoretical&amp;quot; ecologists, on the other hand, integrate different data sources,
-or build models, to understand &amp;quot;general&amp;quot; questions. There are obviously
-people working all along this continuum (I don&amp;#39;t consider myself a &amp;quot;pure&amp;quot;
+&amp;ldquo;theoretical&amp;rdquo; ecologists, on the other hand, integrate different data sources,
+or build models, to understand &amp;ldquo;general&amp;rdquo; questions. There are obviously
+people working all along this continuum (I don&amp;#39;t consider myself a &amp;ldquo;pure&amp;rdquo;
 theoretician, for example), and empiricists contributing some of the
 most important ecological &lt;em&gt;theories&lt;/em&gt;, but we can all agree that leaning
 towards one end of the continuum implies having a different set of
@@ -1533,7 +1702,7 @@ your code on &lt;em&gt;GitHub&lt;/em&gt;, use it to write your manuscripts, push
 data on &lt;em&gt;figshare&lt;/em&gt; using the API, and &lt;em&gt;voilà!&lt;/em&gt;), it&amp;#39;s slightly more
 complicated for empiricists. While it&amp;#39;s true that anyone can make data
 public, you can&amp;#39;t reasonably release your field site under a &lt;em&gt;Creative
-Commons&lt;/em&gt; licence (because it doesn&amp;#39;t make any sense...).&lt;/p&gt;
+Commons&lt;/em&gt; licence (because it doesn&amp;#39;t make any sense&amp;hellip;).&lt;/p&gt;
 
 &lt;p&gt;There are two points at which both worlds meet, however: data and algorithms.
 Even for the most local and system-centered question, there is a large quantity
@@ -1562,14 +1731,14 @@ ways to solve it, though.&lt;/p&gt;
 same questions in similar systems, it would make sense that the data are
 formatted in a common way. A good opportunity to draft these specifications is
 large working groups, in which people sharing a common interest would think
-about the &amp;quot;core&amp;quot; and &amp;quot;satellite&amp;quot; properties of a dataset. This will also
+about the &amp;ldquo;core&amp;rdquo; and &amp;ldquo;satellite&amp;rdquo; properties of a dataset. This will also
 speed-up the development of data repositories with APIs. My personal favorite
 for the development of data specifications is &lt;code&gt;JSON&lt;/code&gt; schemes, but really any
 kind will do. Data are highly structured information, and it makes sense that
 they are used and shared in a highly structured way. It is quite obvious that
 there will not a be a single &lt;em&gt;ecological ontology&lt;/em&gt;, but if we managed to get it
 right for a few dozens of high quality ones, it will be a strong enhancement
-over the current data format of &amp;quot;However I felt that day&amp;quot; (I&amp;#39;m guilty of this
+over the current data format of &amp;ldquo;However I felt that day&amp;rdquo; (I&amp;#39;m guilty of this
 one, of course).&lt;/p&gt;
 
 &lt;p&gt;Second, we need &lt;strong&gt;stricter data review&lt;/strong&gt;. Once the data specification has been
@@ -1606,8 +1775,8 @@ general questions&lt;/strong&gt;.&lt;/p&gt;
     <updated>2013-11-02T00:00:00-04:00</updated>
     <content type="html">&lt;p&gt;The OpenAccessWeek in France generated a &lt;em&gt;huge&lt;/em&gt; backlash, mostly owing to the
 identity of the organizer. This edition was organized by the for profit
-&amp;quot;scientific social network&amp;quot; &lt;em&gt;MyScienceWork&lt;/em&gt; (I&amp;#39;m not going to link them). &lt;em&gt;My
-Science Work&lt;/em&gt; (&lt;em&gt;MSW&lt;/em&gt; henceforth) is a social network in which people can...
+&amp;ldquo;scientific social network&amp;rdquo; &lt;em&gt;MyScienceWork&lt;/em&gt; (I&amp;#39;m not going to link them). &lt;em&gt;My
+Science Work&lt;/em&gt; (&lt;em&gt;MSW&lt;/em&gt; henceforth) is a social network in which people can&amp;hellip;
 well, you know what a social network is. This one is yet another social network
 for scientists, much like Academia.edu and ResearchGate. I don&amp;#39;t care all that
 much about these tools.&lt;/p&gt;
@@ -1626,9 +1795,9 @@ reactions on twitter and in blogs (both links are through Google translate,
 which gives a fairly broken but acceptable translation). What are these
 critics about?&lt;/p&gt;
 
-&lt;p&gt;Well, for a &amp;quot;Frontrunner in Open Access&amp;quot;, &lt;em&gt;MSW&lt;/em&gt; is surprisingly closed. Their
+&lt;p&gt;Well, for a &amp;ldquo;Frontrunner in Open Access&amp;rdquo;, &lt;em&gt;MSW&lt;/em&gt; is surprisingly closed. Their
 website lists over 28 millions academic papers in Open Access. I tried to
-access some of mine, and when I clicked on the &amp;quot;Download link&amp;quot;, I got
+access some of mine, and when I clicked on the &amp;ldquo;Download link&amp;rdquo;, I got
 redirected to a login/signup page. Does it seems like a &lt;em&gt;huge&lt;/em&gt; problem to you?
 Because it is. When you put papers behind a wall, you are not advancing Open
 Access. You are using the OA label to advance your business, and you are not
@@ -1638,7 +1807,7 @@ another website we&amp;#39;ll never visit again. &lt;/p&gt;
 
 &lt;p&gt;And it&amp;#39;s not like the links to the original publications is easy to spot,
 either. It&amp;#39;s nowhere to be found on the pages. You have no choice but to
-signup for their &amp;quot;service&amp;quot;, if you want to get access to the paper (or,
+signup for their &amp;ldquo;service&amp;rdquo;, if you want to get access to the paper (or,
 well, you can realize that this is bullshit and go find the PDF
 somewhere else). When some authors took offense with the practice,
 the heads of &lt;em&gt;MSW&lt;/em&gt; proposed to remove their articles from the platform.
@@ -1649,7 +1818,7 @@ cannot silence French people - criticism is an &lt;em&gt;art de vivre&lt;/em&gt;
 us!).&lt;/p&gt;
 
 &lt;p&gt;If it were just yet another social network for scientists, I&amp;#39;m sure no one
-would have cared about their &amp;quot;signup-required&amp;quot; policy. But &lt;em&gt;MSW&lt;/em&gt; was, for
+would have cared about their &amp;ldquo;signup-required&amp;rdquo; policy. But &lt;em&gt;MSW&lt;/em&gt; was, for
 a week, the face of French Open Access. The closed, greedy, critics-insulting
 face of French Open Access. So here is your explanation of the huge backslash.
 People advocating &lt;em&gt;open&lt;/em&gt; access took it badly when a business tried to trick
@@ -1681,10 +1850,10 @@ Society&lt;/a&gt;, and while we currently use it as a tool to relay the various
 informations we want to share, it&amp;#39;s also a great way to engage with people. So
 the question that immediately came to mind is: what kind of topics are
 associated with ecology on twitter? My own twitter list is a poor indicator of
-the &amp;quot;general public&amp;quot; as far as ecology is concerned, so I had to look for
+the &amp;ldquo;general public&amp;rdquo; as far as ecology is concerned, so I had to look for
 another solution.&lt;/p&gt;
 
-&lt;p&gt;Twitter offers a series of &lt;em&gt;Streaming API&lt;/em&gt;, which allows to &amp;quot;listen&amp;quot; to the
+&lt;p&gt;Twitter offers a series of &lt;em&gt;Streaming API&lt;/em&gt;, which allows to &amp;ldquo;listen&amp;rdquo; to the
 conversation, by tracking some keywords, or users, or geographic location. So
 I downloaded the excellent &lt;a href=&quot;https://github.com/geduldig/TwitterAPI&quot;&gt;&lt;code&gt;TwitterAPI&lt;/code&gt; &lt;/a&gt; module for &lt;code&gt;python&lt;/code&gt;, and
 tracked a series of keywords. After some trial and error, I settled on
@@ -1799,8 +1968,8 @@ better illustrate the relationships:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/tw-ecol-concepts.png&quot; alt=&quot;Figure1&quot; title=&quot;the network&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Interestingly (the layout method groups nodes that are close to each other),
-there seems to be the &amp;quot;sustainability/ecosystem services&amp;quot; topics
-on one side (bottom-left), and the &amp;quot;conservation&amp;quot; topics on the
+there seems to be the &amp;ldquo;sustainability/ecosystem services&amp;rdquo; topics
+on one side (bottom-left), and the &amp;ldquo;conservation&amp;rdquo; topics on the
 other side (top-right).&lt;/p&gt;
 
 &lt;p&gt;I&amp;#39;ll keep on running this model from time to time, but I think there is a good
@@ -1856,12 +2025,12 @@ and &lt;em&gt;R-r&lt;/em&gt; times 0 in &lt;strong&gt;P&lt;/strong&gt;. In other
 expression of &lt;em&gt;PDI&lt;/em&gt; is the same as the expression of &lt;em&gt;RR&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Previously, we and others discussed the fact that specificity ought to be
-separated in its &amp;quot;interactions&amp;quot; and &amp;quot;impacts&amp;quot; components, &lt;em&gt;i.e.&lt;/em&gt; (i) how many
+separated in its &amp;ldquo;interactions&amp;rdquo; and &amp;ldquo;impacts&amp;rdquo; components, &lt;em&gt;i.e.&lt;/em&gt; (i) how many
 resources do I exploit, and (ii) how are my performances distributed. With &lt;em&gt;RR&lt;/em&gt;
 and &lt;em&gt;PDI&lt;/em&gt;, it might seem that we have the adequate tool to measure both sides
 of the specificity. There&amp;#39;s more to do with these measures, though. Because
 &lt;em&gt;RR&lt;/em&gt; is included in &lt;em&gt;PDI&lt;/em&gt; (it&amp;#39;s easy to show that &lt;em&gt;PDI&lt;/em&gt; &amp;geq; &lt;em&gt;RR&lt;/em&gt;), &lt;em&gt;PDI&lt;/em&gt; also
-measures an &amp;quot;association&amp;quot; component of specificity. But then again, the
+measures an &amp;ldquo;association&amp;rdquo; component of specificity. But then again, the
 specificity of impact makes sense if you first consider the specificity of
 associations before. So we can start thinking of this problem as an additive
 partition of specificity:&lt;/p&gt;
@@ -1970,7 +2139,7 @@ apply them.&lt;/p&gt;
 
 &lt;p&gt;This is especially true of large-scale packages, that aim to become your single
 interface with the metrics and analyzes in a domain. Ecologists are familiar
-with &lt;code&gt;bipartite&lt;/code&gt;, &lt;code&gt;vegan&lt;/code&gt;, &lt;code&gt;picante&lt;/code&gt;, &lt;code&gt;ape&lt;/code&gt;, for example. These &amp;quot;mega-packages&amp;quot;
+with &lt;code&gt;bipartite&lt;/code&gt;, &lt;code&gt;vegan&lt;/code&gt;, &lt;code&gt;picante&lt;/code&gt;, &lt;code&gt;ape&lt;/code&gt;, for example. These &amp;ldquo;mega-packages&amp;rdquo;
 implement a lot of measures, and for this reason, some will look through the
 manual to see what kind of analyzes they can do. I most likely still do it
 myself, especially so for side-projects where I&amp;#39;m not entirely familiar with
@@ -1978,13 +2147,13 @@ the methodological literature yet. So based on my experience, this is
 particularly problematic for newcomers to a field, because when you don&amp;#39;t know,
 you assume that the default values were chosen as defaults by
 someone knowing what he was doing. Then I remember the &lt;a href=&quot;http://www.python.org/dev/peps/pep-0020/&quot;&gt;&lt;em&gt;Zen of
-Python&lt;/em&gt;&lt;/a&gt;: &lt;em&gt;&amp;quot;In the face of ambiguity, refuse the temptation
-to guess.&amp;quot;&lt;/em&gt;&lt;/p&gt;
+Python&lt;/em&gt;&lt;/a&gt;: &lt;em&gt;&amp;ldquo;In the face of ambiguity, refuse the temptation
+to guess.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;And as we all have different sensibilities, it shows in the way we think about
 code, and in the way we write it. The default options of a function, for
 example, can be a matter of choice, and especially so when this function
-becomes as broad as &amp;quot;measure diversity&amp;quot;. This partiality is not an issue when
+becomes as broad as &amp;ldquo;measure diversity&amp;rdquo;. This partiality is not an issue when
 developing tools that you will use for your own research. But when developing
 tools intended for a broad audience, then this code becomes a service, and it
 is our duty as service providers that the defaults reflect our own biases the
@@ -2022,14 +2191,14 @@ require you to do a lot of small steps by hand have a great advantage, you know
 what is happening in real time (then again, I like C and doing every thing by
 hand, so perhaps I just enjoy hurting myself).&lt;/p&gt;
 
-&lt;p&gt;In any case, the &amp;quot;default&amp;quot; behavior of programs is something that should be
+&lt;p&gt;In any case, the &amp;ldquo;default&amp;rdquo; behavior of programs is something that should be
 held under intense scrutiny by the community, and improved code review will
 definitely help. This is also where big packages can somehow escape the system:
 even if they are reviewed formally (as opposed to being reviewed informally,
 which they are in real time as people use them), this will not happen for
 each release, and some new releases may introduce things that can be argued
 against. In short, my point is: R packages (or packages in other languages, but
-you get the idea) tend to rapidly represent the &amp;quot;canon&amp;quot; of the analyzes
+you get the idea) tend to rapidly represent the &amp;ldquo;canon&amp;rdquo; of the analyzes
 to perform, and for this reason, we should always keep a critical eye on them.
 Also, keep on writing open-source code, that will enrich the code base
 available to the community.&lt;/p&gt;
@@ -2078,7 +2247,7 @@ the interactions. As we discuss in the paper, the more traits you put in your
 prediction, the better it will get. Using a dataset of fishes, we generated
 a convicing network using only body size and bathymetry.&lt;/p&gt;
 
-&lt;p&gt;We think this result is cool, because by opposition to the &amp;quot;observational&amp;quot;
+&lt;p&gt;We think this result is cool, because by opposition to the &amp;ldquo;observational&amp;rdquo;
 method of constructing food webs, you only need to know (well) a small number
 of interactions. As we show in the paper, whenever you have a high R² of the
 trait-trait-interaction relationship, the infered network is close to the
@@ -2116,8 +2285,8 @@ then you&amp;#39;ll probably have no problem structuring your code.&lt;/p&gt;
 
 &lt;p&gt;But this particular skill can be trained, I think. One of the things I asked of
 the students was to code something implementing Williams &amp;amp; Martinez &lt;em&gt;niche
-model&lt;/em&gt; of food webs. The title of the assignment may be &amp;quot;Write a program
-implementing the NM in R&amp;quot;. I took the opportunity of turning that into an
+model&lt;/em&gt; of food webs. The title of the assignment may be &amp;ldquo;Write a program
+implementing the NM in R&amp;rdquo;. I took the opportunity of turning that into an
 exercise about how to organize code. The whole problem can be easily
 sub-divided into a series of smaller problems. In this case, we first need to
 generate species, then to find out the interactions between them. The first
@@ -2126,7 +2295,7 @@ go into a function, or can be handled by logical tests.&lt;/p&gt;
 
 &lt;p&gt;Perhaps there will be a &lt;em&gt;happy few&lt;/em&gt; that will take this series of steps by
 themselves. Looking back on the first programs I wrote (I am unlucky enough to
-have kept some of my spaghetti code from my first year of Masters, ...),
+have kept some of my spaghetti code from my first year of Masters, &amp;hellip;),
 I&amp;#39;m definitely not one of these people. As in most things, the key to
 developing a feeling of how to organize things will come with practice, and
 thinking about what you felt comfortable with. Which is why I always
@@ -2138,7 +2307,7 @@ first to need to specify things clearly at a very small scale. Some people may
 call it intuitive, and be comfortable with the &lt;code&gt;if&lt;/code&gt;s and the &lt;code&gt;while&lt;/code&gt;s really
 quickly, but I don&amp;#39;t think these are majority. And that might explain why it&amp;#39;s
 not uncommon to hear students say that they aren&amp;#39;t able to code well (aside
-from the fact that, well, monkeys and typewriters...). Learning how to
+from the fact that, well, monkeys and typewriters&amp;hellip;). Learning how to
 code is like learning a language with a different grammatical structure. On
 your first day, Python and &lt;a href=&quot;http://en.wikipedia.org/wiki/Brainfuck&quot;&gt;brainfuck&lt;/a&gt;
 look awfully similar. Things you conceptualize easily will not translate well
@@ -2188,7 +2357,7 @@ when I asked what they would do if we increased the part of quantitative
 training up to 30% of all classes, as survey respondent suggested. To a vast
 majority, they would not enroll.&lt;/p&gt;
 
-&lt;p&gt;So, it seems like we&amp;#39;ll need to sneakily teach quantitative skills...&lt;/p&gt;
+&lt;p&gt;So, it seems like we&amp;#39;ll need to sneakily teach quantitative skills&amp;hellip;&lt;/p&gt;
 </content>
   </entry>
   
@@ -2226,7 +2395,7 @@ influenced which authors, was important when I had to develop my own research
 questions. I won&amp;#39;t spend time on the argument that narrative reviews are great
 teaching material, and that it&amp;#39;s a gentler introduction to a field to be walked
 through a concept rather than to read through tables of ANOVA. I enjoy these
-much more when I have an idea of the &amp;quot;story&amp;quot; behind.&lt;/p&gt;
+much more when I have an idea of the &amp;ldquo;story&amp;rdquo; behind.&lt;/p&gt;
 
 &lt;p&gt;Essentially, narrative reviews should not be discarded because they serve
 a different purpose from systematic reviews. Let&amp;#39;s take the example of the
@@ -2236,8 +2405,8 @@ biodiversity has a long-tail, with a lot of species being in extremely low
 abundances. Classical sampling and enumeration technique only described the tip
 of the iceberg. Fast forward a few years later, and the existence of the rare
 biosphere is well established, and people start questioning its impact in
-ecosystem processes, among other things. How we switched from &amp;quot;it probably
-exists&amp;quot; to &amp;quot;we need to understand what it&amp;#39;s doing&amp;quot; is best understood with
+ecosystem processes, among other things. How we switched from &amp;ldquo;it probably
+exists&amp;rdquo; to &amp;ldquo;we need to understand what it&amp;#39;s doing&amp;rdquo; is best understood with
 a little bit of narration. Specifically, the development of molecular biology
 methods, and recently high-throughput sequencing, increased our detection
 ability by order of magnitudes. The emergence of new tools (which in the
@@ -2262,7 +2431,7 @@ that people will enjoy one of these more than the other, or would
 prefer to read statistics before naration. But I think we should
 continue reading, and writing, narrative reviews.&lt;/p&gt;
 
-&lt;p&gt;As a final point, whatever you may think of the issue, go read the &amp;quot;companion&amp;quot;
+&lt;p&gt;As a final point, whatever you may think of the issue, go read the &amp;ldquo;companion&amp;rdquo;
 paper about the &lt;a href=&quot;https://peerj.com/preprints/38/&quot;&gt;&lt;em&gt;interpretation&lt;/em&gt;&lt;/a&gt; of meta-analyses in ecology. It&amp;#39;s
 a really good introduction.&lt;/p&gt;
 </content>
@@ -2283,7 +2452,7 @@ and facultative parasites look &lt;em&gt;nothing&lt;/em&gt; alike. One (obligate
 modular and anti-nested, and the other (facultative) is highly nested but not
 particularly more or less modular. But when you look at all types of parasites
 together, the resulting networks are both more moudular &lt;em&gt;and&lt;/em&gt; more nested than
-expected by chance. The take-home of this particular result is: &amp;quot;parasitism&amp;quot; is
+expected by chance. The take-home of this particular result is: &amp;ldquo;parasitism&amp;rdquo; is
 a vague notion, and we should not be too surprized when lumping contrasted
 ecological strategies makes weird results emerge (also, we should focus on how
 different functional groups affect network properties).&lt;/p&gt;
@@ -2320,7 +2489,7 @@ importantly, (ii), because a given connectance implies a given number of
 interactions, connectance imposes structural constraints on networks
 properties. Or in other words, all important moments of the degree distribution
 vary with connectance. And it works quite well with Erdos-Renyi graphs, and
-with the famous &amp;quot;niche&amp;quot; model of food webs.&lt;/p&gt;
+with the famous &amp;ldquo;niche&amp;rdquo; model of food webs.&lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s kinda cool, because connectance is &lt;em&gt;simple&lt;/em&gt; to measure, and even people
 that no background in network analysis will get what it means. It also means
@@ -2330,7 +2499,7 @@ distribution must be controlled for an effect of connectance. &lt;/p&gt;
 &lt;p&gt;&lt;em&gt;P.S.&lt;/em&gt;: This is a good example of &lt;a href=&quot;http://timotheepoisot.fr/2013/08/05/codelust/&quot;&gt;Codelust&lt;/a&gt; in practice. The
 original script were written over a particularly greasy and disappointing club
 sandwich eaten alone in my office, so at least something productive came out of
-this particularly bleak view of the academic daily life...&lt;/p&gt;
+this particularly bleak view of the academic daily life&amp;hellip;&lt;/p&gt;
 </content>
   </entry>
   
@@ -2393,7 +2562,7 @@ integration between datasets and papers.&lt;/p&gt;
 
 &lt;p&gt;One of the coolest things for field ecologists (I&amp;#39;ve been informed that ecology
 is the study of populations, and not a branch of applied mathematics or
-computer sciences...?) is that F1000Research will now offer to publish
+computer sciences&amp;hellip;?) is that F1000Research will now offer to publish
 &lt;em&gt;observation articles&lt;/em&gt;. People in the medical sciences have many case studies,
 that are extremely important to the field as a whole. In ecology, despite
 the recognition that general laws are elusive and not as general as they
@@ -2452,8 +2621,8 @@ How does the relationship between these and these outputs reacts to another
 factor? With most simple, canonical ecological models, simple questions are
 easy to explore. If you&amp;#39;re lucky (failing that, you&amp;#39;ll have to be smart), you
 can stumble upon an interesting result that is worthy of being expanded into
-a &amp;quot;real&amp;quot; paper. Try not to grow bored of &lt;em&gt;this&lt;/em&gt; paper and engage in more
-codelusting, that would probably disprove the point I just made...&lt;/p&gt;
+a &amp;ldquo;real&amp;rdquo; paper. Try not to grow bored of &lt;em&gt;this&lt;/em&gt; paper and engage in more
+codelusting, that would probably disprove the point I just made&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;And as a final point, codelust will keep you sharp. It&amp;#39;s easy to write one
 R package and use it for a while. Forcing yourself to write new code, using new
@@ -2471,7 +2640,7 @@ situations you&amp;#39;ve already covered, and give you a more solid experience.
 she will do the same thing &lt;em&gt;every time&lt;/em&gt; a paper is published. We&amp;#39;ve had
 a discussion in the lab over the few months, about whether or not we should do
 almost the same thing: we wanted to put online a very tongue-in-cheek &lt;em&gt;Hall of
-fame&lt;/em&gt; of the &amp;quot;worse&amp;quot; comments we&amp;#39;ve received, for papers that ended up being
+fame&lt;/em&gt; of the &amp;ldquo;worse&amp;rdquo; comments we&amp;#39;ve received, for papers that ended up being
 published. We decided not to make it (public). The &lt;a href=&quot;http://theseamonster.net/2013/05/are-unreasonably-harsh-reviewers-retarding-the-pace-of-coral-reef-science/&quot;&gt;SeaMonster&lt;/a&gt;
 also did a very good job of deconstructing bad practices in refereeing, and
 discuss how preprints can compensate for the fact that pre-publication review
@@ -2537,22 +2706,22 @@ a clear sociopath, that is).&lt;/p&gt;
 &lt;p&gt;But I feel like that rate of refusal to share the reviews should not be that
 high. Fear of future payback might be a valid one, but hopefully with a very
 small number of people. And besides, they&amp;#39;re not much to be angry about in
-reviews anyway. Because reading through most of them, the &amp;quot;worse&amp;quot; kind of
-reviews I write and receive are either &amp;quot;Your paper is sound, but it needs
-a little but more work to be &lt;em&gt;awesome&lt;/em&gt;&amp;quot;, or &amp;quot;Hey, you probably missed this
-little flaw, correct it and we&amp;#39;re good&amp;quot;. There&amp;#39;s the occasional blatant mistake
+reviews anyway. Because reading through most of them, the &amp;ldquo;worse&amp;rdquo; kind of
+reviews I write and receive are either &amp;ldquo;Your paper is sound, but it needs
+a little but more work to be &lt;em&gt;awesome&lt;/em&gt;&amp;rdquo;, or &amp;ldquo;Hey, you probably missed this
+little flaw, correct it and we&amp;#39;re good&amp;rdquo;. There&amp;#39;s the occasional blatant mistake
 on my side, or crazy referee, but most of the time, it&amp;#39;s just this perfect
 blend of stimulating and annoying. There&amp;#39;s no reason to hate people on these
 grounds, and there&amp;#39;s no reason to be afraid of attaching your name to that
 either.  And you know what? The most awesome thing happenned to &lt;a href=&quot;http://ibartomeus.wordpress.com/2013/06/27/signing-reviews-pays-back-and-about-sharing-good-and-bad-news/&quot;&gt;Ignasi
 Bartomeus&lt;/a&gt;. He got a &lt;em&gt;thank you note&lt;/em&gt; from the authors of a paper he
-&amp;quot;helped&amp;quot; rejecting. &lt;em&gt;That&amp;#39;s&lt;/em&gt; how you do it.&lt;/p&gt;
+&amp;ldquo;helped&amp;rdquo; rejecting. &lt;em&gt;That&amp;#39;s&lt;/em&gt; how you do it.&lt;/p&gt;
 
 &lt;p&gt;So where does that leaves us? Sharing reviews can be a good way to share your
 frustration, or illustrate all the is broken with a system where you have to
 defend your work against people you don&amp;#39;t know the names of (although we have
 to keep in minds that the editors know what they&amp;#39;re doing, and won&amp;#39;t
-probably pick referees at random...). But if we take the extra step of
+probably pick referees at random&amp;hellip;). But if we take the extra step of
 having non-anonymous reviews, then sharing it (an not on our blogs or twitter,
 but on the journal web-site) will perhaps rekindle our complicated
 relationship with the peer-review procces. Because for all the frustration it
@@ -2664,7 +2833,7 @@ much during my PhD and Masters. So I guess that (i) I&amp;#39;m definitely an ec
 despite this having a very very long tail, I mostly read things coming up in
 a few journals.&lt;/p&gt;
 
-&lt;p&gt;Now, the really pressing issue... How does it relates to their &lt;em&gt;Impact Factor&lt;/em&gt;?
+&lt;p&gt;Now, the really pressing issue&amp;hellip; How does it relates to their &lt;em&gt;Impact Factor&lt;/em&gt;?
 A quick survey of the table above shows that some high scoring journals are
 quite low on the list, and some not-so-high scoring ones are nearing the top.
 A quick googling got me the most recent IF for the first 30 or so journals of my
@@ -2676,41 +2845,10 @@ list. The results are plotted below (put your mouse over a dot to see the journa
 
 &lt;p&gt;It doesn&amp;#39;t look like there is much effect of the IF on wether or not I&amp;#39;ll save
 the paper in my library. And we can also see a small group of three journals
-I read much more than their IF would &amp;quot;predict&amp;quot; (&lt;em&gt;Ecology&lt;/em&gt;, &lt;em&gt;PLoS One&lt;/em&gt;, and &lt;em&gt;The
+I read much more than their IF would &amp;ldquo;predict&amp;rdquo; (&lt;em&gt;Ecology&lt;/em&gt;, &lt;em&gt;PLoS One&lt;/em&gt;, and &lt;em&gt;The
 American Naturalist&lt;/em&gt;). So that turned out to be a fun little lunch coding
 project. Don&amp;#39;t hesitate to look at the code, I&amp;#39;m sure there is plenty of things
 to make better.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>A quick way to parallelize</title>
-     <link href="http://timotheepoisot.fr/2013/07/08/parallel/"/>
-    <updated>2013-07-08T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;I&amp;#39; ve often been confronted to the situation when I want to run a bunch of
-simulations, that will take long if I run them in batch, but long enough that
-I want to put them on the lab cluster. A fairly common situation is when I want
-to feed some sequentially numbered output files to a script performing all kind
-of black magic (&lt;em&gt;a.k.a.&lt;/em&gt; data analysis).&lt;/p&gt;
-
-&lt;p&gt;While looking for a solution, I came across &lt;a href=&quot;http://www.gnu.org/software/parallel/&quot;&gt;GNU &lt;code&gt;parallel&lt;/code&gt;&lt;/a&gt;. This
-little command-line program will just execute whatever you feed him on the
-different CPUs. For example, if I want to run all of the files in my &lt;code&gt;output/&lt;/code&gt; folder into a python script, I can write something like:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;ls output/*.dat | sort | parallel ./results.py --file output/&lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;That will take the files, then output then one by one, and pass them to
-&lt;code&gt;parallel&lt;/code&gt;. When I run that, all of my CPU start working on the task, so I can
-cut the treatment time in four (more than what I could achieve with code
-optimization!). It&amp;#39;s definitely poor man parallelization, but it works, and
-it&amp;#39;s faster then setting up a bunch of simulations on a cluster.&lt;/p&gt;
-
-&lt;p&gt;That&amp;#39;s one of the (many many) nice sides of working only with GNU/Linux now.
-I&amp;#39;m learning a lot of nifty little tricks, and it&amp;#39;s starting to really pay off
-in terms of how fast I can throw command lines instructions at a problem until
-it disappears (or until I accidentaly delete the files, look, I&amp;#39;m still
-learning...)..&lt;/p&gt;
 </content>
   </entry>
   

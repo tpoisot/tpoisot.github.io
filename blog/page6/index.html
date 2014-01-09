@@ -36,9 +36,19 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <!-- This loops through the paginated posts -->
 
+
+<div class='post'>
+  <h1>Writing manuscripts in Linux (like a boss)</h1>
+  <div class="postinfo">August 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">free software</span><span class="label radius small" style="margin-right: 3px;">pandoc</span><span class="label radius small" style="margin-right: 3px;">linux</span></div>
+  <p>
+    Hey, it&#39;s been a year since I switched to Linux. I&#39;ve tried a few different distros, and finally settled on Arch Linux with OpenBox. It&#39;s ligthweight, uncluttered, and I love. But that&#39;s not what I&#39;m going to talk about. I may have mentionned in the past that I used Sublime Text 2. During my quest for ever-increasing minimalism, I&#39;ve made the switch to vim. And I now have a cool writing setup. Most of what I do is writing markdown files, and using makefiles to use pandoc to convert them to PDF (read more about it here). The only thing...
+  </p>
+<a class="readmore" href="/2013/08/18/writing-linux-like-a-boss/">Read more...</a>
+</div>
 
 <div class='post'>
   <h1>F1000Research announces new Ecology section</h1>
@@ -62,7 +72,7 @@
   <h1>Should we share reviews?</h1>
   <div class="postinfo">July 10, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">peer review</span><span class="label radius small" style="margin-right: 3px;">open science</span></div>
   <p>
-    Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We&#39;ve had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the &quot;worse&quot; comments we&#39;ve received, for papers that ended up being published. We decided not to make it (public). The SeaMonster also did a very good job of deconstructing bad practices...
+    Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We&#39;ve had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the &ldquo;worse&rdquo; comments we&#39;ve received, for papers that ended up being published. We decided not to make it (public). The SeaMonster also did a very good job of deconstructing bad practices...
   </p>
 <a class="readmore" href="/2013/07/10/sharing-reviews/">Read more...</a>
 </div>
@@ -74,15 +84,6 @@
     I&#39;ve been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come up with a solution to count the number of papers in each journal, stored in my library. The python script is available as a gist....
   </p>
 <a class="readmore" href="/2013/07/09/zotero-number-papers/">Read more...</a>
-</div>
-
-<div class='post'>
-  <h1>A quick way to parallelize</h1>
-  <div class="postinfo">July  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">GNU</span><span class="label radius small" style="margin-right: 3px;">Free software</span></div>
-  <p>
-    I&#39; ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across GNU parallel. This little command-line program will just execute whatever you feed him on the different CPUs. For example, if I want to run all...
-  </p>
-<a class="readmore" href="/2013/07/08/parallel/">Read more...</a>
 </div>
 
 
@@ -188,23 +189,53 @@
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

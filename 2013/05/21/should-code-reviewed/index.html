@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Should code be reviewed?</h1>
@@ -47,10 +48,10 @@ May 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="ma
 
 </div>
 
-<p>Joppa and colleagues published a <a href="http://www.sciencemag.org/content/340/6134/814">policy forum</a> in <em>Science</em>, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do an outdated analysis because &quot;everyone else is doing this analysis&quot; - way to go).</p>
+<p>Joppa and colleagues published a <a href="http://www.sciencemag.org/content/340/6134/814">policy forum</a> in <em>Science</em>, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do an outdated analysis because &ldquo;everyone else is doing this analysis&rdquo; - way to go).</p>
 
-<p>As Joppa and colleagues say quite early in the paper, &quot;the software code used to
-do the science has not been formally reviewed&quot;. This is, indeed, one of the main
+<p>As Joppa and colleagues say quite early in the paper, &ldquo;the software code used to
+do the science has not been formally reviewed&rdquo;. This is, indeed, one of the main
 recommandations that Joppa and colleagues make: code should be reviewed, just as
 the paper it is attached to. And it is obvious, but just saying that referees
 will read the code, and all the problems will go away, is wishful thinking.
@@ -71,7 +72,7 @@ perspective. How likely is it that you&#39;ll be able to (i)
 understand, (ii) evalute, and (iii) assess the quality of a random
 piece of code? If you&#39;re not in the top 90% programers in your field, then you&#39;re not likely to review the code properly.</p>
 
-<p>Joppa and colleagues also call for more widespread unit tests. Some languages have really easy way to write them (<code>python</code>, for example). I&#39;m guilty of not using them, just as a lot of other people. And the reason is simple: ain&#39;t nobody got time for that! <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Nick Barnes</a> encouraged us to publish our computer code because it was &quot;good enough&quot;, and most of the time, our code is just that. Good <em>enough</em> for the project we are currently working on. When I write a model of whatever ecological process to look at how it affects the relationship between two variables, I mostly don&#39;t think that people can use it to do something else. I write it as well as I can, and stupid-test it (does it behave the way my calculations tell me it should in some important yet simple cases?). Then I&#39;m done with it. But I don&#39;t write unit tests, and I don&#39;t adhere to any good practices of code quality. This is bad, we are (to a vast majority), bad people.</p>
+<p>Joppa and colleagues also call for more widespread unit tests. Some languages have really easy way to write them (<code>python</code>, for example). I&#39;m guilty of not using them, just as a lot of other people. And the reason is simple: ain&#39;t nobody got time for that! <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Nick Barnes</a> encouraged us to publish our computer code because it was &ldquo;good enough&rdquo;, and most of the time, our code is just that. Good <em>enough</em> for the project we are currently working on. When I write a model of whatever ecological process to look at how it affects the relationship between two variables, I mostly don&#39;t think that people can use it to do something else. I write it as well as I can, and stupid-test it (does it behave the way my calculations tell me it should in some important yet simple cases?). Then I&#39;m done with it. But I don&#39;t write unit tests, and I don&#39;t adhere to any good practices of code quality. This is bad, we are (to a vast majority), bad people.</p>
 
 <p>It&#39;s true that most of what Joppa and colleagues discuss are big projects. The
 <code>vegan</code> and <code>bipartite</code>, for example. And writing these big projects is the
@@ -87,8 +88,8 @@ reviewers will not have access to. No mor <code>.exe</code> files in supplementa
 materials. Does it sound like a high standard? Good, because we should set high
 standards for the science we create.So start putting in place training sessions
 of computer litteracy, evangelize open source and social coding, and help
-everyone move from &quot;perhaps code should be reviewed&quot; to &quot;we have the tools to do
-this, let&#39;s go!&quot;.</p>
+everyone move from &ldquo;perhaps code should be reviewed&rdquo; to &ldquo;we have the tools to do
+this, let&#39;s go!&rdquo;.</p>
 
 
 </div>
@@ -142,23 +143,53 @@ this, let&#39;s go!&quot;.</p>
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

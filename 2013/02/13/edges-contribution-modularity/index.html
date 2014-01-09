@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Estimating edges contribution to network properties</h1>
@@ -77,7 +78,7 @@ February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 
 <p>The values of &Delta; are low, but the message is simple: most edges, when removed, make modularity <em>decrease</em>. For the next step, it can be cool to visualize <em>where</em> in the networks these nodes are. <code>D3.js</code> is able to read <code>JSON</code> files to plot them as networks. So we just need to write a quick and dirty converter from , <code>networkx</code> to <code>JSON</code>, and tweak <a href="http://bl.ocks.org/4062045">this example</a>.</p>
 
-<p><span class='margin'>And it&#39;s <a href="2012/11/23/how-to-represent-networks/">a good idea</a> to use <code>JSON</code> to represent networks...</span>This is so quick and dirty that I won&#39;t reproduce it here, but I ended up with a <code>JSON</code> file containing the edges, and the nodes. For each node, the module it belongs to is known. For each edge, its contribution to modularity is known. What remains to do is to plot everything, thanks to the power of <code>D3.js</code>.</p>
+<p><span class='margin'>And it&#39;s <a href="2012/11/23/how-to-represent-networks/">a good idea</a> to use <code>JSON</code> to represent networks&hellip;</span>This is so quick and dirty that I won&#39;t reproduce it here, but I ended up with a <code>JSON</code> file containing the edges, and the nodes. For each node, the module it belongs to is known. For each edge, its contribution to modularity is known. What remains to do is to plot everything, thanks to the power of <code>D3.js</code>.</p>
 
 <div class='edgecolor network d3'></div>
 
@@ -141,23 +142,53 @@ February 13, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

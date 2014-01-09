@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>A note on network complexity</h1>
@@ -59,7 +60,7 @@ necessarily complex), or <em>densely connected network</em> (same thing). </p>
 
 <div class="alert alert-info">
 <h4>Warning!</h4>
-This was supposed to be a short post. It's not. Unless you are terribly interested in networks, you can safely skip this one. If you have an eye for statistics, please read through, there are likely mistakes to correct...</div>
+This was supposed to be a short post. It&rsquo;s not. Unless you are terribly interested in networks, you can safely skip this one. If you have an eye for statistics, please read through, there are likely mistakes to correct&hellip;</div>
 
 <p>Consider this post my humble attempt to clarify things. The thing is, networks
 are physically constrained, in that you can&#39;t put more edges in them than the
@@ -91,7 +92,7 @@ interval in which the number of interactions will fall. Now, keep in mind that
 graph, and only one way to have the minimally connected graph. This is a cool
 thing right here: most of the action will happen for intermediate number of
 edges within the range! And a thing that serves our purpose: the maximal number
-of edges is the maximal number of &quot;slots&quot; that we can fill with edges. This
+of edges is the maximal number of &ldquo;slots&rdquo; that we can fill with edges. This
 becomes a quite simple combination problem.</p>
 
 <p>So here is an interesting questions: knowing N, and a number of edges L, how
@@ -126,7 +127,7 @@ number of edges? The answer is simply the number of times I can distribute
 L edges in a network of size N-1. In our example, as stated above, this is 20.
 But we need to do that for <em>each</em> node in the network, so there are actually
 100 (5 times 20) combinations we need to remove. This left us with only 20
-&quot;good&quot; networks.</p>
+&ldquo;good&rdquo; networks.</p>
 
 <p>Let&#39;s wrap things up. If we call m(N) the mininal number of edges in a network
 of N nodes, and M(N) the maximal number of edges in the same network, and C(X,L)
@@ -147,7 +148,7 @@ generate for a given network size.</p>
 
 <p>I ran some simple tests using 10 nodes, and here is what happenned.</p>
 
-<p>First, the size of the &quot;network space&quot; is hump-shaped, which means that for
+<p>First, the size of the &ldquo;network space&rdquo; is hump-shaped, which means that for
 intermediate number of links, you have much more work to do if you want to
 explore the possible configurations that your network can take. Things seems to
 be <em>more</em> complex (or at least have more potential for complexity) at
@@ -230,23 +231,53 @@ you&#39;ll need to run a lot more trials than that.</p>
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

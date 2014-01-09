@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>The pros and cons of using R packages for teaching</h1>
@@ -50,7 +51,7 @@ November 27, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" styl
 <p>R packages are one of the best tools we have. It&#39;s a library of 1000s
 of functions ready to be used, all wrapped in a single common language,
 and it&#39;s free. I wrote some, and used even more. When I review a paper,
-upon seeing &quot;we used function <code>x</code> in the version 2.3 of package <code>y</code>&quot;,
+upon seeing &ldquo;we used function <code>x</code> in the version 2.3 of package <code>y</code>&rdquo;,
 I know a lot about what the authors have been doing (and I can check the
 help of this function for references and additional details). And obviously,
 training students about which packages are widely used in a particular field
@@ -78,23 +79,23 @@ still have to start <code>R</code> at least once a day.</p>
 
 <p>So on one hand, packages are really good, because they save time and
 allow to do an analysis which (hopefully) conforms with the current set of
-&quot;best practices&quot; in the field. On the other hand, when you start working
+&ldquo;best practices&rdquo; in the field. On the other hand, when you start working
 <em>only</em> with what the packages have to offer, you can severely limit your
 creativity. There are questions that will require new code to be written,
 and you&#39;ll most likely hit obstacles along the ways. That, too, should be
 something the students encounter during their training.</p>
 
 <p>And this is when the limits of <code>R</code> start to show. As John Cook said (<a href="http://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science">source</a>),
-&quot;I find it more helpful to think of R as having a programming language than
-being a programming language&quot;. I would never have put that so eloquently,
+&ldquo;I find it more helpful to think of R as having a programming language than
+being a programming language&rdquo;. I would never have put that so eloquently,
 and it is entirely ture. Over the last two months, I gave a graduate training
 class on <em>Algorithms and programming for environmental sciences</em>, in which
-I tried to discuss how to make &quot;good&quot; (robust, user-friendly, stupid-proof)
+I tried to discuss how to make &ldquo;good&rdquo; (robust, user-friendly, stupid-proof)
 programs. Regardless of what the students learned, I definitely realized
 that <code>R</code> is a <em>huge mess</em> when you try to work outside of packages, or
 do something else than statistics. Interestingly, even Hadley Whickam&#39;s
 forthcoming <a href="http://adv-r.had.co.nz/"><em>Advanced R development</em></a> starts by saying that it will
-show how <em>what seems horrible is merely &quot;not that bad&quot;</em> (go read the book,
+show how <em>what seems horrible is merely &ldquo;not that bad&rdquo;</em> (go read the book,
 by the way, it&#39;s great). And so understanding <em>what</em> to do often comes second
 to understanding <em>how to do it</em>.</p>
 
@@ -105,7 +106,7 @@ function does. The later requires a working knowledge of the language, and
 some notions of algorithmic. Yet, judging from my observations, these two
 different exercices are often (and let&#39;s not forget statistics) presented
 together, under the general denomination of <code>R</code>. And when, afterwards, students
-complain of &quot;not getting <code>R</code>&quot;, it&#39;s hard to tell whether what they don&#39;t
+complain of &ldquo;not getting <code>R</code>&rdquo;, it&#39;s hard to tell whether what they don&#39;t
 get is what exactly a <code>while</code> loop does (which is not a <code>R</code>-specific issue),
 or why a <code>data.frame</code> is also a <code>list</code> and a <code>matrix</code> (which is a reasonable
 question, and quite specific to <code>R</code>); you may know how to do statistics with
@@ -122,7 +123,7 @@ an array, let&#39;s walk students through the writing of this function.</p>
 <p>So, to conclude, while it&#39;s clear that I have a love/hate relationship
 with <code>R</code>, I think it&#39;s still an invaluable tool for teaching, especially in
 undergraduate courses. <code>python</code> might be as easy and more coherent, but less
-people use it (for now...), and <code>R</code> is still the <em>lingua franca</em>. And a part
+people use it (for now&hellip;), and <code>R</code> is still the <em>lingua franca</em>. And a part
 of the success of <code>R</code> is the diversity of available packages. But relying
 only on packages creates this weird black box situation, in which students
 will know what the function does, but not necessarily <em>how</em> it does it; and
@@ -184,23 +185,53 @@ from scratch.</p>
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

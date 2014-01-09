@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>Using git throughout your workflow</h1>
@@ -111,15 +112,15 @@ be addressed. We make a point for the relevance of this metaphor in <a href="htt
 attribute each point raised by a referee to an Issue. You can then assign
 Issues to people working on the manuscript, and track the progression of
 the replies. Because most issues tracking systems come with a <em>Milestones</em>
-ability, you can assign all issues to the <em>Milestone</em> &quot;First revision&quot;,
+ability, you can assign all issues to the <em>Milestone</em> &ldquo;First revision&rdquo;,
 and set a deadline at which all the issues have to be fixed.</p>
 
 <p>As <em>GitHub</em> allows you to reference <em>commits</em> (<em>i.e.</em> changes made to your
 code/paper), it is really easy to say, in the reply to each point, what you
 did to address it, and give a link to the <code>diff</code> (<em>i.e.</em> the list of all
-changes). Instead of replying things like &quot;<em>We replaced the sentence P.4
-L.24-25 by a short statement (now P.6 L.14-21)</em>&quot;, you can say &quot;<em>We changed
-the text in the following way, ..., see commit <code>e30b8e</code></em>&quot;. <em>GitHub</em> will take
+changes). Instead of replying things like &ldquo;<em>We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)</em>&rdquo;, you can say &ldquo;<em>We changed
+the text in the following way, &hellip;, see commit <code>e30b8e</code></em>&rdquo;. <em>GitHub</em> will take
 care of putting a link in place, and the reviewer can then see exactly which
 changes were made. As a final note on this point: it&#39;s obviously good practice
 to <em>ask</em> the editor if s/he agrees with the reviews being put on <em>GitHub</em>.</p>
@@ -131,7 +132,7 @@ suggest improvements, or report bug. It is also possible to contribute new
 code (through the <em>fork</em>/<em>pull</em> mechanism).</p>
 
 <p>One of the things I enjoy in the <em>Issues</em> system is that it can (when the
-people actually use it...) unclutter your mailbox. Instead of sending an email
+people actually use it&hellip;) unclutter your mailbox. Instead of sending an email
 to report a bug, people can submit an issue. You will have a clear list of
 what to do, and then again, the ability to indicate exactly how you solved it.</p>
 
@@ -156,12 +157,12 @@ system: each time you commit a change to your code, it will run a pre-specified
 series of steps to <code>build</code> it, and tell you (and other people) whether it
 was a success or not. The list of instructions to build your project can be
 whatever you want (compiling the <code>LaTeX</code> document, running the test suite,
-...). But the central point is that you will know, in real time, if your
+&hellip;). But the central point is that you will know, in real time, if your
 changes <em>still allow your code to run</em> or not. Another related service is
 <a href="https://coveralls.io/">coveralls</a> - it gives you an overview of which proportion of your code is
 covered by tests. These two services (TravisCI and coveralls) are automated,
 so you have nothing to do to make sure that you code run, and that it is
-covered by tests (except that coding well, and writing tests...). Both
+covered by tests (except that coding well, and writing tests&hellip;). Both
 services will allow you to display little badges on your project page,
 so your <em>users</em> can have some confidence in your code.</p>
 
@@ -237,23 +238,53 @@ daily activities.</p>
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 

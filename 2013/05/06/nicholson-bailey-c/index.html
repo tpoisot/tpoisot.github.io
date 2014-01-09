@@ -36,6 +36,7 @@
 <div id="main">
 
 <div class="row content">
+   <div class = "row copy">
    <div class="large-9 small-10 columns maintext">
    <div class='post'>
 <h1>A C version of the Nicholson-Bailey model</h1>
@@ -58,7 +59,7 @@ chmod +x nb
 ./nb
 </code></pre></div>
 
-<p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class='margin'>I&#39;ve never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden...</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
+<p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class='margin'>I&#39;ve never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden&hellip;</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
 
 <p>The <code>png</code> folder is used by another script, reproduced below, whose job it is to (i) read the output files, and (ii) do a plot using <code>matplotlib</code>.</p>
 
@@ -135,7 +136,7 @@ ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4
 
 <p>The C program is quite fast (500 steps with a 100x100 lattice can be done in just a few seconds), but the script to convert the text files in images is really slow. I&#39;m talking tens of minutes slow, so go make yourself a coffee. It&#39;s also extremely hungry in terms of memory, and as with all things Python, will eat up a whole CPU. But it&#39;s worth it! I&#39;ve uploaded an <a href="http://www.youtube.com/embed/wE3x5QABBug">example video</a> if you want to see.</p>
 
-<p>And now... Back to doing whatever I had in mind with this model!</p>
+<p>And now&hellip; Back to doing whatever I had in mind with this model!</p>
 
 
 </div>
@@ -189,23 +190,53 @@ ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4
          <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
+   </div>
 
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
 </div>
 
-<div class="row footer">
-   <div class="large-12 columns">
-      	  <p class="muted credit">
-	  This website uses <a href='http://foundation.zurb.com/'>Foundation 5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, is built with <a href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a href='http://pages.github.com/'>GitHub pages</a>. Contents under the <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC BY-SA 3.0</a> licence.
-     </p>	 
-<p class="lead" style="text-align: center;">
-<a href="mailto:t.poisot@gmail.com"><i class="icon-fixed-width icon-envelope"></i></a>&nbsp;
-<a href="http://feeds.feedburner.com/timpoisot"><i class="icon-fixed-width icon-rss"></i></a>&nbsp;
-<a href="https://github.com/tpoisot/"><i class="icon-fixed-width icon-github"></i></a>&nbsp;
-<a href="https://twitter.com/tpoi/"><i class="icon-fixed-width icon-twitter"></i></a>
-</p>
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
+   
+   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
 
    </div>
+
 </div>
+
 
 </div>
 
