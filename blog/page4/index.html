@@ -41,49 +41,104 @@
    <!-- This loops through the paginated posts -->
 
 
-<div class='post'>
-  <h1>The (French) paradox of Closed Open Access</h1>
-  <div class="postinfo">November  2, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open access</span><span class="label radius small" style="margin-right: 3px;">academic publishing</span></div>
-  <p>
-    The OpenAccessWeek in France generated a huge backlash, mostly owing to the identity of the organizer. This edition was organized by the for profit &ldquo;scientific social network&rdquo; MyScienceWork (I&#39;m not going to link them). My Science Work (MSW henceforth) is a social network in which people can&hellip; well, you know what a social network is. This one is yet another social network for scientists, much like Academia.edu and ResearchGate. I don&#39;t care all that much about these tools. Let&#39;s summarize the situation. The French OpenAccesWeek was organized by My Science Work, and got backed up by several public organisms involved...
-  </p>
-<a class="readmore" href="/2013/11/02/my-science-work/">Read more...</a>
+<div class='post postlist'>
+   <h1>What do I read (according to Zotero)?</h1>
+   <div class="postinfo">
+      July  9, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/zotero/">zotero</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliometry/">bibliometry</a></span>
+   </div>
+      <p>I&#39;ve been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come...</p>
+      <a class="readmore" href="/2013/07/09/zotero-number-papers/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Mapping ecological concepts using twitter</h1>
-  <div class="postinfo">October 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">twitter</span><span class="label radius small" style="margin-right: 3px;">social networks</span></div>
-  <p>
-    I&#39;ve been setting up a Twitter account for the French Ecological Society, and while we currently use it as a tool to relay the various informations we want to share, it&#39;s also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the &ldquo;general public&rdquo; as far as ecology is concerned, so I had to look for another solution. Twitter offers a series of Streaming API, which allows to &ldquo;listen&rdquo; to the conversation, by tracking...
-  </p>
-<a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Read more...</a>
+<div class='post postlist'>
+   <h1>A quick way to parallelize</h1>
+   <div class="postinfo">
+      July  8, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/GNU/">GNU</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
+   </div>
+      <p>I&#39; ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across...</p>
+      <a class="readmore" href="/2013/07/08/parallel/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>An additive partition of species-level specificity</h1>
-  <div class="postinfo">October 15, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">specificity</span><span class="label radius small" style="margin-right: 3px;">methodology</span><span class="label radius small" style="margin-right: 3px;">metrics</span><span class="label radius small" style="margin-right: 3px;">open lab book</span></div>
-  <p>
-    A while ago, we published a paper in Methods in Ecology &amp; Evolution, comparing different ways to estimate ecological specificity on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array P of its performances across R different environments, which is (1) sorted decreasingly, and (2) ranged so that P[1] = 1. In this paper, we recommend to use either RR (which is a modification of Schoener&#39;s generality), and PDI (which is first formally introduced in this paper), which measures how...
-  </p>
-<a class="readmore" href="/2013/10/15/specificity-range-measures/">Read more...</a>
+<div class='post postlist'>
+   <h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
+   <div class="postinfo">
+      June 24, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/PDF/">PDF</a></span>
+   </div>
+      <p>While submitting a MS to Methods in Ecology and Evolution, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using manuscriptcentral as an upload system, and always with LaTeX-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4)...</p>
+      <a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>R, priority effects, and the meta-package</h1>
-  <div class="postinfo">October 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">R</span><span class="label radius small" style="margin-right: 3px;">methodology</span><span class="label radius small" style="margin-right: 3px;">software</span><span class="label radius small" style="margin-right: 3px;">computational ecology</span></div>
-  <p>
-    R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about one of my own metrics in the bipartite package), and that I think is rarely discussed. When a R package presenting a series of measures becomes available, it will become the gold standard of future analyzes in this field. This is an extremely strong effect. French students in ecology...
-  </p>
-<a class="readmore" href="/2013/10/12/r-priority-responsibility/">Read more...</a>
+<div class='post postlist'>
+   <h1>A niche to fill in ecological publishing?</h1>
+   <div class="postinfo">
+      June 23, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span>
+   </div>
+      <p>I have been wondering, over the past few weeks, about places to submit really short, methodological minded papers, in ecology. As far as I know, there is currently no journal for that. I&#39;m specifically talking about papers that are not groundbreaking, possibly extremely technical, but still hold value because they deal with arguments that happen often. As a good example, the reply of Rohr and colleagues to the James and colleagues paper is interesting, but...</p>
+      <a class="readmore" href="/2013/06/23/niche-fill-ecological-papers/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Inferring the structure of food webs</h1>
-  <div class="postinfo">September 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">species interaction networks</span><span class="label radius small" style="margin-right: 3px;">statistics</span></div>
-  <p>
-    We&#39;ve just published a paper in Methods in Ecology and Evolution, about the inference of food web structure based on species trait data. That&#39;s a seriously cool result (we think). There is a serious challenge when you work with food webs: you need to know which species are interacting, and to do so, you need to observed interactions in the fields. It&#39;s challenging, because it must be done extensively, so as not to miss interactions. But on the other hand, there are well described relationships between traits of interacting species. In the particular case of food webs, notably, there is...
-  </p>
-<a class="readmore" href="/2013/09/21/predicting-network-structure/">Read more...</a>
+<div class='post postlist'>
+   <h1>A note on network complexity</h1>
+   <div class="postinfo">
+      June 19, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/statistics/">statistics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological complexity/">ecological complexity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
+   </div>
+      <p>I have seen the word complexity used to mean approximately anything in ecological network litterature, and to be extremely honest, I&#39;m entirely guilty of that myself. We can probably find as many uses for complexity in the network litterature as there are uses for paradigm in Thomas Kuhn&#39;s The Structure of Scientific Revolutions (which is to say, probbaly way too much, and certainly enough to confuse people). It&#39;s getting bad enough that some of us...</p>
+      <a class="readmore" href="/2013/06/19/notes-on-network-complexity/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>The structure of natural bacteria-phage networks</h1>
+   <div class="postinfo">
+      May 30, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteria/">bacteria</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteriophages/">bacteriophages</a></span>
+   </div>
+      <p>Freedom! The final chapter of my thesis is now online on the website of Ecological Processes. We use data form a field isolated bacteria-phage system to have a network approach of the specialist-generalist coexistence problem. The main result is that, even when controlling for phylogenetic dispersal of hosts, it&#39;s better to be a generalist. This signal is highly consistent across the five networks we studied, and goes in the way of recent results on coevolution:...</p>
+      <a class="readmore" href="/2013/05/30/bacteria-soil-networks/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Measuring realized network modularity</h1>
+   <div class="postinfo">
+      May 23, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span>
+   </div>
+      <p>A paper describing how to measure realized network modularity just appeared online at F1000 Research. It&#39;s currently waiting for reviewers. This is a short methodological note, to &ldquo;solve&rdquo; a problem I had when presenting the ouput of modularity analyses. Most of the time, the values you get are between 0 and 1, but they are fairly difficult to make sense of. They&#39;re not probabilities that the network is different. They&#39;re statistics to some extent, but...</p>
+      <a class="readmore" href="/2013/05/23/realized-modularity/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Trophic complementarity and the BEF relationship in food webs</h1>
+   <div class="postinfo">
+      May 22, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecosystem functioning/">ecosystem functioning</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological modeling/">ecological modeling</a></span>
+   </div>
+      <p>I&#39;m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet and I), have a new paper in Ecology Letters, about the biodiversity-ecosystem functioning (BEF) relationship in food webs. In this paper, we show that trophic complementarity is a very good predictor of productivity in complex ecosystems. You can go get the paper. So what is trophic complementarity, and why is this result important? The strength of the BEF theory is that the...</p>
+      <a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Should code be reviewed?</h1>
+   <div class="postinfo">
+      May 21, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer review/">peer review</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/software/">software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
+   </div>
+      <p>Joppa and colleagues published a policy forum in Science, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations...</p>
+      <a class="readmore" href="/2013/05/21/should-code-reviewed/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Remove indels from blast output</h1>
+   <div class="postinfo">
+      May 20, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bioinformatics/">bioinformatics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biopython/">biopython</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pyrosequencing/">pyrosequencing</a></span>
+   </div>
+      <p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were indels rather than point mutations. It may not sound like it, but it&#39;s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of blast. So to get a &ldquo;reliable&rdquo; estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps....</p>
+      <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Read more...</a>
+   <hr />
 </div>
 
 
@@ -131,42 +186,6 @@
     <li><a href="/blog/page10">10</a></li>
     
     
-    
-    <li><a href="/blog/page11">11</a></li>
-    
-    
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
-    
-    <li><a href="/blog/page14">14</a></li>
-    
-    
-    
-    <li><a href="/blog/page15">15</a></li>
-    
-    
-    
-    <li><a href="/blog/page16">16</a></li>
-    
-    
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
-    
-    <li><a href="/blog/page19">19</a></li>
-    
-    
   </ul>
 
 </div>
@@ -206,13 +225,13 @@
    <h5>Most recent posts</h5>
    <ul class='no-bullet'>
    
+   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
+   
    <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
    
    <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
    
    <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
-   
-   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
    
    </ul>
 </div>

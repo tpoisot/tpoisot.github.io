@@ -41,49 +41,104 @@
    <!-- This loops through the paginated posts -->
 
 
-<div class='post'>
-  <h1>Measuring realized network modularity</h1>
-  <div class="postinfo">May 23, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span></div>
-  <p>
-    A paper describing how to measure realized network modularity just appeared online at F1000 Research. It&#39;s currently waiting for reviewers. This is a short methodological note, to &ldquo;solve&rdquo; a problem I had when presenting the ouput of modularity analyses. Most of the time, the values you get are between 0 and 1, but they are fairly difficult to make sense of. They&#39;re not probabilities that the network is different. They&#39;re statistics to some extent, but it&#39;s not clear what a critical value should be. I simply propose to count the number of links established by species from the same module,...
-  </p>
-<a class="readmore" href="/2013/05/23/realized-modularity/">Read more...</a>
+<div class='post postlist'>
+   <h1>Notes on learning how to use sympy</h1>
+   <div class="postinfo">
+      August 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/sympy/">sympy</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span>
+   </div>
+      <p>I&#39;m trying to move to sympy for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I&#39;m playing with a simple host-parasite model. I was reading the First steps with sympy section of the website when I was running my little tests, and it&#39;s relatively helpul. So let&#39;s assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous...</p>
+      <a class="readmore" href="/2012/08/15/notes-on-using-sympy/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Trophic complementarity and the BEF relationship in food webs</h1>
-  <div class="postinfo">May 22, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">ecosystem functioning</span><span class="label radius small" style="margin-right: 3px;">ecological modeling</span></div>
-  <p>
-    I&#39;m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet and I), have a new paper in Ecology Letters, about the biodiversity-ecosystem functioning (BEF) relationship in food webs. In this paper, we show that trophic complementarity is a very good predictor of productivity in complex ecosystems. You can go get the paper. So what is trophic complementarity, and why is this result important? The strength of the BEF theory is that the core mechanisms are intuitive and elegant. You have the sampling effet, and functional complementarity. It boils down to something extremely simple: if each species has...
-  </p>
-<a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Read more...</a>
+<div class='post postlist'>
+   <h1>Models are useless. Real ecologists should move on.</h1>
+   <div class="postinfo">
+      August 13, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological theory/">ecological theory</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/models/">models</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/equations/">equations</a></span>
+   </div>
+      <p>I&#39;m spending more and more of my time doing theory related thing. Data analysis, model, drawing conceptual figures to make it seem like I have deep ideas about nature, life, and everything. Yet I love ecology, biology, and the complexity of natural systems. At this point, I&#39;m sure most of you are familiar with the recent paper by Fawcett &amp; Higginson in PNAS - they conclude that the more equations are in a biology paper,...</p>
+      <a class="readmore" href="/2012/08/13/models-are-useless/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Should code be reviewed?</h1>
-  <div class="postinfo">May 21, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open source</span><span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">peer review</span><span class="label radius small" style="margin-right: 3px;">software</span><span class="label radius small" style="margin-right: 3px;">next-gen science</span></div>
-  <p>
-    Joppa and colleagues published a policy forum in Science, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do...
-  </p>
-<a class="readmore" href="/2013/05/21/should-code-reviewed/">Read more...</a>
+<div class='post postlist'>
+   <h1>Are student-friendly conferences worth it?</h1>
+   <div class="postinfo">
+      August  5, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/conferences/">conferences</a></span>
+   </div>
+      <p>Two recent posts by Jeremy Fox and Zen Faulkes dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not...</p>
+      <a class="readmore" href="/2012/08/05/student-friendly-meetings/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Remove indels from blast output</h1>
-  <div class="postinfo">May 20, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">bioinformatics</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">biopython</span><span class="label radius small" style="margin-right: 3px;">pyrosequencing</span></div>
-  <p>
-    My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were indels rather than point mutations. It may not sound like it, but it&#39;s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of blast. So to get a &ldquo;reliable&rdquo; estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps. As doing it by hand would be, let&#39;s say, tedious, I started looking for a biopython way to do it. As it turns out, despite...
-  </p>
-<a class="readmore" href="/2013/05/20/blast-remove-gaps/">Read more...</a>
+<div class='post postlist'>
+   <h1>My new linux setup</h1>
+   <div class="postinfo">
+      August  3, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/linux/">linux</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
+   </div>
+      <p>I have a terrible confession to make. Two weeks ago, I installed Windows 7. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask? I made the switch from Mac to Linux, that&#39;s why. I needed to install Windows...</p>
+      <a class="readmore" href="/2012/08/03/new-linux-setup/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Using make and pandoc for reproducible papers</h1>
-  <div class="postinfo">May 18, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">pandoc</span></div>
-  <p>
-    I tend to use pandoc more and more to write my papers. The syntax of markdown is ligthweight, doesn&#39;t get in the way of my writing, and it&#39;s easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like pgfplots a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It&#39;s quite important if you want to tweak som simulation parameters, for instance. Using pgfplots from within pandoc can be done, but the heavy syntax seems...
-  </p>
-<a class="readmore" href="/2013/05/18/make-pandoc/">Read more...</a>
+<div class='post postlist'>
+   <h1>A walk on the intertidal zone</h1>
+   <div class="postinfo">
+      July 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/intertidal/">intertidal</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/trophic complexity/">trophic complexity</a></span>
+   </div>
+      <p>I&#39;m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this: What immediately came to my mind is: we don&#39;t know anything. It&#39;s one thing to look at species interaction networks, and...</p>
+      <a class="readmore" href="/2012/07/15/what-is-trophic-complexity/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
+   <div class="postinfo">
+      July  3, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+   </div>
+      <p>Color Brewer is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the RColorBrewer package. Last week, I started using pgfplots, a tikz extension for data visualization, to prepare slides for the upcoming Evolution2012 meeting in Ottawa. I thought it would be pretty cool to be able to use the Color Brewer...</p>
+      <a class="readmore" href="/2012/07/03/colorbrewer-in-pgfplots/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Using networkx to simulate metapopulations in Python</h1>
+   <div class="postinfo">
+      May 18, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/metapopulation/">metapopulation</a></span>
+   </div>
+      <p>Python progressively replaced R for most of my daily simulations needs, because it&#39;s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I&#39;ve been using networkx more and more. We&#39;ve been having discussions in the lab about spatial graphs, surrounding a recent paper by Gilarranz and Bascompte and some of our own projects, and I thought...</p>
+      <a class="readmore" href="/2012/05/18/networkx-metapopulations-python/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>The ecological journal of the future</h1>
+   <div class="postinfo">
+      May 11, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open access/">open access</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
+   </div>
+      <p>I&#39;ve been reading Tim Gowers&#39;s fascinating blog following the call to boycott Elsevier, and stumbled upon a fascinating gedankenexperiment. What would the electronic journal of the future look like in the field of Mathematics? Naturally, I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis? I have been thinking about this for the last few months (the earliest draft of this text dates...</p>
+      <a class="readmore" href="/2012/05/11/ecological-journal-of-the-future/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Phylogeny without a sequencer</h1>
+   <div class="postinfo">
+      May  3, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phylogeny/">phylogeny</a></span>
+   </div>
+      <p>In the last issue of Trends Ecol. Evol., Poole and colleagues talk about Ecosystomics, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of a recent paper by Nico Mouquet and colleagues about Ecophylogenetics. But I&#39;m not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions. At times, one would like...</p>
+      <a class="readmore" href="/2012/05/03/phylogeny-without-sequencer/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Ecology is not too collaborative</h1>
+   <div class="postinfo">
+      April 30, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecology/">ecology</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/research/">research</a></span>
+   </div>
+      <p>A few days ago, Jeremy Fox published on the Oikos blog, wondering if ecology was becoming too collaborative. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can&#39;t really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it&#39;s worth,...</p>
+      <a class="readmore" href="/2012/04/30/ecology-not-too-collaborative/">Read more...</a>
+   <hr />
 </div>
 
 
@@ -131,42 +186,6 @@
     <li><a href="/blog/page10">10</a></li>
     
     
-    
-    <li><a href="/blog/page11">11</a></li>
-    
-    
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
-    
-    <li><a href="/blog/page14">14</a></li>
-    
-    
-    
-    <li><a href="/blog/page15">15</a></li>
-    
-    
-    
-    <li><a href="/blog/page16">16</a></li>
-    
-    
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
-    
-    <li><a href="/blog/page19">19</a></li>
-    
-    
   </ul>
 
 </div>
@@ -206,13 +225,13 @@
    <h5>Most recent posts</h5>
    <ul class='no-bullet'>
    
+   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
+   
    <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
    
    <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
    
    <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
-   
-   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
    
    </ul>
 </div>

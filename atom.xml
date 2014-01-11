@@ -4,12 +4,91 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-09T18:04:48-05:00</updated>
+  <updated>2014-01-11T18:01:03-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Animate networks with igraph</title>
+     <link href="http://timotheepoisot.fr/2014/01/11/animate-networks-with-igraph/"/>
+    <updated>2014-01-11T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;The &lt;code&gt;igraph&lt;/code&gt; package in &lt;code&gt;R&lt;/code&gt; is a good solution to manipulate networks. A
+few days ago, I had to produce an animated figure for a paper, and I really
+wanted to use &lt;code&gt;igraph&lt;/code&gt; to do it. As it turns out, it&amp;#39;s not overly complicated
+(you need to have &lt;code&gt;imagemagick&lt;/code&gt; installed, though.&lt;/p&gt;
+
+&lt;p&gt;So as to provide a quick visualisation, let&amp;#39;s start with a simple dynamical
+model of a diamond food web (one primary producer, two consumers, one top
+predator, classic stuff). The &amp;ldquo;usual&amp;rdquo; way to represent the dynamics of biomass
+is to have four time series. The &amp;ldquo;captivating&amp;rdquo; way (good for talks!) is to
+animate the network, with each node size being proportional to its biomass
+at any time.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;igraph&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;simecol&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# A simple LV diamond food web model&lt;/span&gt;
+glv &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;time&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; init&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; parms&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    N &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; init
+    with&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;as.list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;parms&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        d1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rp &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a1p &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; a2p &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+        d2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rc &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; a1p &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; ap1 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        d3 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rc &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; a2p &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; ap2 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        d4 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rt &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; ap1 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; ap1 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; N&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;kr&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;d1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; d2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; d3&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; d4&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Some default parameters&lt;/span&gt;
+params &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rp &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; rc &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; rt &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; a1p &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; a2p &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ap1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    ap2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+init &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+times &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; seq&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;from &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; to &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; length &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# And the simulations...&lt;/span&gt;
+output &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; ode&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;init&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; times&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; func &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; glv&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; parms &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; params&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nevermind that the parameters aren&amp;#39;t realistic at all, it&amp;#39;s not what matters
+for this example. At this point, we have a simulation running for 50 timesteps,
+with a total of 300 points. Now, let&amp;#39;s build a graph:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;adjacency &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; matrix&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+diamond &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; graph.adjacency&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;adjacency&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+layout &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; layout.fruchterman.reingold&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;diamond&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can start building a loop to create all networks for each time. The trick is
+that &lt;code&gt;igraph&lt;/code&gt; accepts vectors for allmost all edges and vertex attributes. It
+can be used to change the color, size, label, etc. An important point is that,
+by default, the layout of each plot is scaled and center. But in our case,
+it&amp;#39;s important that it&amp;#39;s fixed for all plots, so we&amp;#39;ll just need to add
+&lt;code&gt;rescale = FALSE&lt;/code&gt;, and give explicit &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt;; this way, the center
+of each vertex is always at the same position.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# We&amp;#39;ll make sure that the maximal biomass is not too big&lt;/span&gt;
+MaxBio &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; max&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;output&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+png&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;file &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;biomass_%04d.png&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; height &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;i &lt;span class=&quot;kr&quot;&gt;in&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;nrow&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;output&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    Biomass &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; output&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    plot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;diamond&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; layout &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; layout&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vertex.size &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; Biomass&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; rescale &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+        xlim &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; range&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;layout&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt; ylim &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; range&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;layout&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+dev.off&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# The we use ImageMagick to convert all images to a gif file&lt;/span&gt;
+system&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;convert -delay 5 biomass_*.png animation_biomass.gif&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# And remove the images&lt;/span&gt;
+file.remove&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;list.files&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;pattern &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;biomass_&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And here is the result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/rfig/animation_biomass.gif&quot; alt=&quot;Animation&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Clearly it&amp;#39;s not extremely good looking, but it can help show the dynamics
+of networks. An interesting thing is that you can also &lt;em&gt;hide&lt;/em&gt; some edges or
+vertices, so it&amp;#39;s possible to show temporal dynamics.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Examples of mangal in action</title>
@@ -2729,126 +2808,6 @@ does us, it&amp;#39;s still done by our &lt;strong&gt;peers&lt;/strong&gt;. Peop
 beers with, do awesome science with. We are inspired by the papers they write.
 We find ideas in their data. We&amp;#39;re not enemies; let&amp;#39;s not behave as if it were
 the case (except reviewer #3, this guy is the worse).&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>What do I read (according to Zotero)?</title>
-     <link href="http://timotheepoisot.fr/2013/07/09/zotero-number-papers/"/>
-    <updated>2013-07-09T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;I&amp;#39;ve been playing around a bit with &lt;a href=&quot;http://zotero.org/&quot;&gt;Zotero&lt;/a&gt; these last few days.
-Zotero stores the data about your library in a &lt;code&gt;sqlite3&lt;/code&gt; database, called
-&lt;code&gt;zotero.sqlite&lt;/code&gt;, and stored in your Zotero folder (&lt;code&gt;~/Zotero/&lt;/code&gt; in my case, but
-most likely something else in yours). The internal structure of the
-database is very weird, and it took my a bit of poking around in &lt;code&gt;sqliteman&lt;/code&gt; to
-figure it out. But in the end, I was able to come up with a solution to count
-the number of papers in each journal, stored in my library.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;python&lt;/code&gt; script is &lt;a href=&quot;https://gist.github.com/tpoisot/5958933&quot;&gt;available as a gist&lt;/a&gt;. When you run it
-(assuming you&amp;#39;ve made a copy of the &lt;code&gt;zotero.sqlite&lt;/code&gt; in the folder where the
-script is, you will end up with a &lt;code&gt;journals.tsv&lt;/code&gt; file, in which the two
-columns are, respectively, the number of papers, and the journal title.&lt;/p&gt;
-
-&lt;p&gt;Because despite the feature being &lt;em&gt;in progress&lt;/em&gt; for a few years now there is
-still no bacth edit of journal titles (that I know of), it took me a bit of
-cleaning-up in open office to check for duplicates, especially since my
-current database is following me since the first year of my masters (so 2006).
-So, what do I read? Here is the top 15:&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;Journal&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;Count&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Ecology Letters&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;202&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Ecology&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;198&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;PLoS One&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;196&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;American Naturalist&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;181&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;PNAS&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;156&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Oikos&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;135&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Trends Ecol Evol&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;132&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Procs R Soc B&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;123&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Evolution&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;120&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Nature&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;119&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Science&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;108&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;J Evol Biol&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;101&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;J Anim Ecol&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;71&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;J Biogeogr&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;46&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;Phil Trans B&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;45&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-
-&lt;p&gt;So, what to make of this information? Note that by the time we reach number 12
-or so in that list, the paper count decreases extremely sharply. Also, the top
-five is not reallu surprising. I was expecting to see &lt;em&gt;Nature&lt;/em&gt; and &lt;em&gt;Science&lt;/em&gt;
-rank higher on the list. There is still some inertia, as well, with &lt;em&gt;J Evol
-Biol&lt;/em&gt; and &lt;em&gt;Evolution&lt;/em&gt; occupying high positions because I&amp;#39;ve read these some
-much during my PhD and Masters. So I guess that (i) I&amp;#39;m definitely an ecologist
-(also, &lt;em&gt;J Theor Biol&lt;/em&gt; and &lt;em&gt;Theor Pop Biol&lt;/em&gt; are lurking not far below), and (ii)
-despite this having a very very long tail, I mostly read things coming up in
-a few journals.&lt;/p&gt;
-
-&lt;p&gt;Now, the really pressing issue&amp;hellip; How does it relates to their &lt;em&gt;Impact Factor&lt;/em&gt;?
-A quick survey of the table above shows that some high scoring journals are
-quite low on the list, and some not-so-high scoring ones are nearing the top.
-A quick googling got me the most recent IF for the first 30 or so journals of my
-list. The results are plotted below (put your mouse over a dot to see the journal name).&lt;/p&gt;
-
-&lt;div class=&#39;scatterplot d3&#39;&gt;&lt;/div&gt;
-
-&lt;script type=&quot;text/javascript&quot; src=&quot;/data/zotero-if.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;It doesn&amp;#39;t look like there is much effect of the IF on wether or not I&amp;#39;ll save
-the paper in my library. And we can also see a small group of three journals
-I read much more than their IF would &amp;ldquo;predict&amp;rdquo; (&lt;em&gt;Ecology&lt;/em&gt;, &lt;em&gt;PLoS One&lt;/em&gt;, and &lt;em&gt;The
-American Naturalist&lt;/em&gt;). So that turned out to be a fun little lunch coding
-project. Don&amp;#39;t hesitate to look at the code, I&amp;#39;m sure there is plenty of things
-to make better.&lt;/p&gt;
 </content>
   </entry>
   
