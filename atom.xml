@@ -4,12 +4,110 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-11T18:01:03-05:00</updated>
+  <updated>2014-01-14T17:10:54-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>These aren't the networks you're looking for</title>
+     <link href="http://timotheepoisot.fr/2014/01/14/filtering-in-mangal/"/>
+    <updated>2014-01-14T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;The development of the &lt;code&gt;rmangal&lt;/code&gt; package is making good progress. I just
+finised implementing a way to filter results, which will be extremely useful
+when the number of taxa and networks will start growing. Before we get into
+how filtering is done, I&amp;#39;d like to take the opportunity to bore everyone
+with technical details. &lt;code&gt;mangal&lt;/code&gt; (the API) relies on &lt;code&gt;tastypie&lt;/code&gt;, which is a
+&lt;code&gt;django&lt;/code&gt; plugin to use the data models as API resources (bored yet?). The
+&lt;code&gt;tastypie&lt;/code&gt; developers had the good taste to allow &lt;code&gt;django&lt;/code&gt;&amp;#39;s ORM filter as
+URL parameters to filter results. Or in short, there is a filtering solution
+working out of the box.&lt;/p&gt;
+
+&lt;p&gt;The filtering is realtively easy to do, as it follows the common pattern:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;?field__relation=target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For example, to look for taxa whose name starts with &lt;em&gt;Lamellodiscus&lt;/em&gt;, we
+just need to append:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;?name__startswith=Lamellodiscus
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;The basics of filtering&lt;/h1&gt;
+
+&lt;p&gt;So how does it works in the &lt;code&gt;R&lt;/code&gt; package? There is a &lt;code&gt;mangalSearch&lt;/code&gt; function,
+which takes as arguments the &lt;code&gt;api&lt;/code&gt;, the type of resource to look for (the
+list of resources can be now be viewed with &lt;code&gt;api$resources&lt;/code&gt;), and a list of
+filters. The filters are themselves &lt;code&gt;list&lt;/code&gt; objects, with three properties:
+&lt;code&gt;field&lt;/code&gt;, &lt;code&gt;relation&lt;/code&gt; (I give an overview of these below), and &lt;code&gt;target&lt;/code&gt;. Let
+me illustrate:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rmangal&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: rjson
+## Loading required package: httr
+## Loading required package: igraph
+## Loading required package: stringr
+## Loading required package: cheddar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;api &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; mangalapi&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://localhost:8000/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+Amphiprion &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; mangalSearch&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;taxa&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;field &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; relation &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;startswith&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    target &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Amphiprion&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+laply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Amphiprion&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## [1] &amp;quot;Amphiprion clarkii&amp;quot;      &amp;quot;Amphiprion perideraion&amp;quot; 
+## [3] &amp;quot;Amphiprion ocellaris&amp;quot;    &amp;quot;Amphiprion sandaracinos&amp;quot;
+## [5] &amp;quot;Amphiprion melanopus&amp;quot;    &amp;quot;Amphiprion polymnus&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It may look like a convoluted way to do a simple thing, &lt;em&gt;but&lt;/em&gt; the interest
+is that you can combine filters to have more precise requests. Let&amp;#39;s say we
+are really interested in a small portion of the pacific ocean, and want to
+know if there are any networks inside. We will define two different filters:
+one for latitude, and one for longitude.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;filter_lat &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;field &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;latitude&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; relation &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;range&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; target &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.756&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;m&quot;&gt;1.813&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+filter_lon &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;field &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;longitude&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; relation &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;range&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; target &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;124.76&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;m&quot;&gt;124.808&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+Networks &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; mangalSearch&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;network&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;filter_lat&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; filter_lon&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+laply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Networks&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;name&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;## [1] &amp;quot;Batu Kapal&amp;quot;  &amp;quot;Jalan Masuk&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Types of relations&lt;/h1&gt;
+
+&lt;p&gt;There are ten different values for the &lt;code&gt;relation&lt;/code&gt; type. &lt;code&gt;starswith&lt;/code&gt; and
+&lt;code&gt;endswith&lt;/code&gt; will match the beginnign and end of the value. &lt;code&gt;exact&lt;/code&gt; will match
+the entirety of the field. &lt;code&gt;contains&lt;/code&gt; will look for &lt;code&gt;target&lt;/code&gt; somewhere in
+the field. &lt;code&gt;in&lt;/code&gt; will return objects that have &lt;code&gt;target&lt;/code&gt; in the values of a
+multi-valued field (example of use: with the identifier of an interactio,
+find the network it belongs to). &lt;code&gt;range&lt;/code&gt; will return all objects that have
+values in the &lt;code&gt;target&lt;/code&gt; range. And finally, &lt;code&gt;gte&lt;/code&gt;, &lt;code&gt;gt&lt;/code&gt;, &lt;code&gt;lte&lt;/code&gt; and &lt;code&gt;lt&lt;/code&gt;,
+handle superior/inferior (or equal) relationships.&lt;/p&gt;
+
+&lt;h1&gt;More advanced usage&lt;/h1&gt;
+
+&lt;p&gt;If you look at the code of &lt;code&gt;mangalSearch&lt;/code&gt;, you&amp;#39;ll see that it passes
+an addition argument (&lt;code&gt;filtering&lt;/code&gt;) to &lt;code&gt;mangalList&lt;/code&gt;. This allows you
+to handle more complicated filtering schemes. In the filtering pattern
+&lt;code&gt;field__relation=target&lt;/code&gt;, &lt;code&gt;field&lt;/code&gt; can actually be a &lt;em&gt;path&lt;/em&gt; across multiple
+objects. Let&amp;#39;s illustrate with an example.&lt;/p&gt;
+
+&lt;p&gt;We want to retrieve all interactions involving &lt;code&gt;taxa&lt;/code&gt; whose name starts with
+&lt;code&gt;Amphiprion&lt;/code&gt;. The &lt;em&gt;path&lt;/em&gt; from &lt;code&gt;interaction&lt;/code&gt; to &lt;code&gt;taxa&lt;/code&gt; goes through the field &lt;code&gt;taxa_to&lt;/code&gt;/&lt;code&gt;taxa_from&lt;/code&gt; in interaction. So what we want to do is:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;?taxa_from__name__startswith=Amphiprion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can add that as the &lt;code&gt;filtering&lt;/code&gt; argument of &lt;code&gt;mangalList&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r language-r&quot; data-lang=&quot;r&quot;&gt;Interactions &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rmangal&lt;span class=&quot;o&quot;&gt;:::&lt;/span&gt;mangalList&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;api&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;interaction&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; filtering &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;taxa_from__name__startswith=Amphiprion&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+laply&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Interactions&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;id&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;##  [1] &amp;quot;93&amp;quot;  &amp;quot;92&amp;quot;  &amp;quot;87&amp;quot;  &amp;quot;86&amp;quot;  &amp;quot;85&amp;quot;  &amp;quot;82&amp;quot;  &amp;quot;81&amp;quot;  &amp;quot;76&amp;quot;  &amp;quot;75&amp;quot;  &amp;quot;69&amp;quot;  &amp;quot;68&amp;quot; 
+## [12] &amp;quot;67&amp;quot;  &amp;quot;59&amp;quot;  &amp;quot;58&amp;quot;  &amp;quot;53&amp;quot;  &amp;quot;52&amp;quot;  &amp;quot;51&amp;quot;  &amp;quot;50&amp;quot;  &amp;quot;45&amp;quot;  &amp;quot;44&amp;quot;  &amp;quot;23&amp;quot;  &amp;quot;24&amp;quot; 
+## [23] &amp;quot;25&amp;quot;  &amp;quot;26&amp;quot;  &amp;quot;27&amp;quot;  &amp;quot;28&amp;quot;  &amp;quot;29&amp;quot;  &amp;quot;30&amp;quot;  &amp;quot;31&amp;quot;  &amp;quot;32&amp;quot;  &amp;quot;33&amp;quot;  &amp;quot;34&amp;quot;  &amp;quot;35&amp;quot; 
+## [34] &amp;quot;36&amp;quot;  &amp;quot;37&amp;quot;  &amp;quot;38&amp;quot;  &amp;quot;39&amp;quot;  &amp;quot;41&amp;quot;  &amp;quot;42&amp;quot;  &amp;quot;43&amp;quot;  &amp;quot;44&amp;quot;  &amp;quot;45&amp;quot;  &amp;quot;46&amp;quot;  &amp;quot;47&amp;quot; 
+## [45] &amp;quot;48&amp;quot;  &amp;quot;49&amp;quot;  &amp;quot;50&amp;quot;  &amp;quot;51&amp;quot;  &amp;quot;52&amp;quot;  &amp;quot;53&amp;quot;  &amp;quot;54&amp;quot;  &amp;quot;56&amp;quot;  &amp;quot;58&amp;quot;  &amp;quot;59&amp;quot;  &amp;quot;60&amp;quot; 
+## [56] &amp;quot;61&amp;quot;  &amp;quot;62&amp;quot;  &amp;quot;64&amp;quot;  &amp;quot;65&amp;quot;  &amp;quot;66&amp;quot;  &amp;quot;67&amp;quot;  &amp;quot;68&amp;quot;  &amp;quot;69&amp;quot;  &amp;quot;71&amp;quot;  &amp;quot;72&amp;quot;  &amp;quot;73&amp;quot; 
+## [67] &amp;quot;75&amp;quot;  &amp;quot;76&amp;quot;  &amp;quot;77&amp;quot;  &amp;quot;78&amp;quot;  &amp;quot;79&amp;quot;  &amp;quot;81&amp;quot;  &amp;quot;82&amp;quot;  &amp;quot;83&amp;quot;  &amp;quot;84&amp;quot;  &amp;quot;85&amp;quot;  &amp;quot;86&amp;quot; 
+## [78] &amp;quot;87&amp;quot;  &amp;quot;88&amp;quot;  &amp;quot;89&amp;quot;  &amp;quot;90&amp;quot;  &amp;quot;91&amp;quot;  &amp;quot;92&amp;quot;  &amp;quot;93&amp;quot;  &amp;quot;95&amp;quot;  &amp;quot;96&amp;quot;  &amp;quot;97&amp;quot;  &amp;quot;98&amp;quot; 
+## [89] &amp;quot;99&amp;quot;  &amp;quot;100&amp;quot; &amp;quot;101&amp;quot; &amp;quot;102&amp;quot; &amp;quot;103&amp;quot; &amp;quot;104&amp;quot; &amp;quot;105&amp;quot; &amp;quot;106&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Because &lt;code&gt;mangalList&lt;/code&gt; is not exported, you have to use the &lt;code&gt;:::&lt;/code&gt; operator
+to explicitely call it. Note that these functions may not work (quite yet)
+with the public database, because we will update the API later this week.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Animate networks with igraph</title>
@@ -2707,107 +2805,6 @@ codelusting, that would probably disprove the point I just made&amp;hellip;&lt;/
 R package and use it for a while. Forcing yourself to write new code, using new
 methods, every once in a while, will keep you up to date, increase the range of
 situations you&amp;#39;ve already covered, and give you a more solid experience. &lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>Should we share reviews?</title>
-     <link href="http://timotheepoisot.fr/2013/07/10/sharing-reviews/"/>
-    <updated>2013-07-10T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;Britt Koskella  &lt;a href=&quot;http://brittkoskella.wordpress.com/2013/07/08/and-the-reviews-are-in/&quot;&gt;uploaded reviews, and her replies&lt;/a&gt;, for her recent
-&lt;em&gt;Current Biology&lt;/em&gt; paper (which, by the way, is great). She also announced that
-she will do the same thing &lt;em&gt;every time&lt;/em&gt; a paper is published. We&amp;#39;ve had
-a discussion in the lab over the few months, about whether or not we should do
-almost the same thing: we wanted to put online a very tongue-in-cheek &lt;em&gt;Hall of
-fame&lt;/em&gt; of the &amp;ldquo;worse&amp;rdquo; comments we&amp;#39;ve received, for papers that ended up being
-published. We decided not to make it (public). The &lt;a href=&quot;http://theseamonster.net/2013/05/are-unreasonably-harsh-reviewers-retarding-the-pace-of-coral-reef-science/&quot;&gt;SeaMonster&lt;/a&gt;
-also did a very good job of deconstructing bad practices in refereeing, and
-discuss how preprints can compensate for the fact that pre-publication review
-exists.&lt;/p&gt;
-
-&lt;p&gt;Should we share reviews &lt;em&gt;at all&lt;/em&gt;? If we want to share reviews, in the sense of,
-we put them online for all to see, along with the replies, there are
-a few things to consider. First, in most situations, it will still not
-break the assymetry in the review process. The burden of proof is still
-on the author, and by the time you can show how bad a review is (which
-is what the &lt;em&gt;SeaMonster&lt;/em&gt; people did in the above reference), the
-paper has most likely been rejected. That&amp;#39;s a great way to vent out your
-frustration and get support from other people, but it&amp;#39;s not really
-helping in getting your paper out there.&lt;/p&gt;
-
-&lt;p&gt;Sharing reviews and replies can also show that you&amp;#39;ve been taking the revisions
-seriously, but that&amp;#39;s part of our job description anyway. If you don&amp;#39;t do
-mistakes, you&amp;#39;re doing science wrong, and if you don&amp;#39;t correct these mistakes,
-you&amp;#39;re doing science &lt;em&gt;really&lt;/em&gt; wrong, or something like that. So posting the reviews and the replies is a good way to contribute some trivia, but I can&amp;#39;t see how it can be really meaningful.&lt;/p&gt;
-
-&lt;p&gt;Now, read the following sentence carefully.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The field has responded with enthusiasm, and reviewers seem to really get it, look for what is good and what needs to be improved in the paper. You don’t need to find a reason to reject.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This is from &lt;a href=&quot;http://exchanges.wiley.com/blog/2012/07/02/your-starter-for-tenan-interview-with-professor-allen-moore-head-of-the-department-of-genetics-university-of-georgia-athens-usa-and-editor-of-ecology-and-evolution-a-new-open-access-jour/&quot;&gt;Allen Moore&lt;/a&gt;, editor in chief of &lt;em&gt;Ecology and
-Evolution&lt;/em&gt;. This single sentence is all the difference between a good and a bad
-review. Your task is to help make the paper better (unless the paper is so bad
-that it&amp;#39;s not possible to save it, but I&amp;#39;ve probably had only one of
-these in my 30+ reviews so far). That&amp;#39;s an even more straightforward
-definition of the [&lt;em&gt;Golden Rule&lt;/em&gt;][goldenrule] of reviews: don&amp;#39;t be an assh*le.&lt;/p&gt;
-
-&lt;p&gt;This is where posting reviews can be good: we can (perhaps) make the reviews
-better. We can give credit where credit is due, and blame where blame is due.
-But that&amp;#39;s only true if the reviews are not anonymized. If we want the sharing
-of reviews to have an impact, then it is necessary that reviews are not
-anonymous. This is the purpose of journals like &lt;em&gt;F1000Research&lt;/em&gt;. If you want to
-see an example, go see the reviews, replies, and revisions, of our paper about
-&lt;a href=&quot;http://f1000research.com/articles/1-21/v2&quot;&gt;terminal investment in bacteria&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Will it improve the quality of reviews (and, if better reviews mean better
-papers, the quality of the literature)? Results published in BMJ suggest
-&lt;a href=&quot;http://www.bmj.com/content/341/bmj.c5729&quot;&gt;it&amp;#39;s not the case&lt;/a&gt;. But there are two striking things with this paper.
-First, the rate of &lt;em&gt;refusal&lt;/em&gt; increased when the editors told the reviewers that
-their review might be posted, online, in a non-anonymous way. Second, the
-reviewers that accepted took, on average, longer to review. And the additional
-delay makes sense: if your name is attached to it, then a review is a valid
-piece of scientific output, and you will make sure that it&amp;#39;s good.&lt;/p&gt;
-
-&lt;p&gt;Here is how I&amp;#39;d like to have conducted this study. Get all the reviews, and
-&lt;em&gt;once they are turned in&lt;/em&gt;, ask the authors if they agree to have them published
-online, with their name attached to it. Then have editors rate the reviews from
-each group, and check the proportion of positive/negative recommandations in
-each group. I&amp;#39;m now signing all of my reviews, even the negative ones. And
-check for the age of the people in each group also, just in case. I&amp;#39;m still
-hoping it won&amp;#39;t make any difference, but perhaps the really bad kind of reviews
-(the biased ones, trashing a paper just because they don&amp;#39;t like it, or because
-it contradicts some kind of agenda they set), will be filtered out. You don&amp;#39;t
-want the whole world to see that you are a terrible persone (unless you are
-a clear sociopath, that is).&lt;/p&gt;
-
-&lt;p&gt;But I feel like that rate of refusal to share the reviews should not be that
-high. Fear of future payback might be a valid one, but hopefully with a very
-small number of people. And besides, they&amp;#39;re not much to be angry about in
-reviews anyway. Because reading through most of them, the &amp;ldquo;worse&amp;rdquo; kind of
-reviews I write and receive are either &amp;ldquo;Your paper is sound, but it needs
-a little but more work to be &lt;em&gt;awesome&lt;/em&gt;&amp;rdquo;, or &amp;ldquo;Hey, you probably missed this
-little flaw, correct it and we&amp;#39;re good&amp;rdquo;. There&amp;#39;s the occasional blatant mistake
-on my side, or crazy referee, but most of the time, it&amp;#39;s just this perfect
-blend of stimulating and annoying. There&amp;#39;s no reason to hate people on these
-grounds, and there&amp;#39;s no reason to be afraid of attaching your name to that
-either.  And you know what? The most awesome thing happenned to &lt;a href=&quot;http://ibartomeus.wordpress.com/2013/06/27/signing-reviews-pays-back-and-about-sharing-good-and-bad-news/&quot;&gt;Ignasi
-Bartomeus&lt;/a&gt;. He got a &lt;em&gt;thank you note&lt;/em&gt; from the authors of a paper he
-&amp;ldquo;helped&amp;rdquo; rejecting. &lt;em&gt;That&amp;#39;s&lt;/em&gt; how you do it.&lt;/p&gt;
-
-&lt;p&gt;So where does that leaves us? Sharing reviews can be a good way to share your
-frustration, or illustrate all the is broken with a system where you have to
-defend your work against people you don&amp;#39;t know the names of (although we have
-to keep in minds that the editors know what they&amp;#39;re doing, and won&amp;#39;t
-probably pick referees at random&amp;hellip;). But if we take the extra step of
-having non-anonymous reviews, then sharing it (an not on our blogs or twitter,
-but on the journal web-site) will perhaps rekindle our complicated
-relationship with the peer-review procces. Because for all the frustration it
-does us, it&amp;#39;s still done by our &lt;strong&gt;peers&lt;/strong&gt;. People we hang with at meetings, drink
-beers with, do awesome science with. We are inspired by the papers they write.
-We find ideas in their data. We&amp;#39;re not enemies; let&amp;#39;s not behave as if it were
-the case (except reviewer #3, this guy is the worse).&lt;/p&gt;
 </content>
   </entry>
   

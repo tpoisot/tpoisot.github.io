@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: These aren't the networks you're looking for</title>
+    
+</head>
+
+<body>
+<a id="top"></a>
+<div id="main">
+
+<div class="row content">
+   <div class = "row copy">
+   <div class="large-9 small-10 columns maintext">
+   <div class='post'>
+<h1>These aren't the networks you're looking for</h1>
+
+   <div class="postinfo">
+      January 14, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/mangal/">mangal</a></span>
+   </div>
+
+
+<p>The development of the <code>rmangal</code> package is making good progress. I just
+finised implementing a way to filter results, which will be extremely useful
+when the number of taxa and networks will start growing. Before we get into
+how filtering is done, I&#39;d like to take the opportunity to bore everyone
+with technical details. <code>mangal</code> (the API) relies on <code>tastypie</code>, which is a
+<code>django</code> plugin to use the data models as API resources (bored yet?). The
+<code>tastypie</code> developers had the good taste to allow <code>django</code>&#39;s ORM filter as
+URL parameters to filter results. Or in short, there is a filtering solution
+working out of the box.</p>
+
+<p>The filtering is realtively easy to do, as it follows the common pattern:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">?field__relation=target
+</code></pre></div>
+<p>For example, to look for taxa whose name starts with <em>Lamellodiscus</em>, we
+just need to append:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">?name__startswith=Lamellodiscus
+</code></pre></div>
+<h1>The basics of filtering</h1>
+
+<p>So how does it works in the <code>R</code> package? There is a <code>mangalSearch</code> function,
+which takes as arguments the <code>api</code>, the type of resource to look for (the
+list of resources can be now be viewed with <code>api$resources</code>), and a list of
+filters. The filters are themselves <code>list</code> objects, with three properties:
+<code>field</code>, <code>relation</code> (I give an overview of these below), and <code>target</code>. Let
+me illustrate:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">library<span class="p">(</span>rmangal<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## Loading required package: rjson
+## Loading required package: httr
+## Loading required package: igraph
+## Loading required package: stringr
+## Loading required package: cheddar
+</code></pre></div><div class="highlight"><pre><code class="r language-r" data-lang="r">api <span class="o">&lt;-</span> mangalapi<span class="p">(</span><span class="s">&quot;http://localhost:8000/&quot;</span><span class="p">)</span>
+Amphiprion <span class="o">&lt;-</span> mangalSearch<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;taxa&quot;</span><span class="p">,</span> list<span class="p">(</span>list<span class="p">(</span>field <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> relation <span class="o">=</span> <span class="s">&quot;startswith&quot;</span><span class="p">,</span> 
+    target <span class="o">=</span> <span class="s">&quot;Amphiprion&quot;</span><span class="p">)))</span>
+laply<span class="p">(</span>Amphiprion<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>name<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## [1] &quot;Amphiprion clarkii&quot;      &quot;Amphiprion perideraion&quot; 
+## [3] &quot;Amphiprion ocellaris&quot;    &quot;Amphiprion sandaracinos&quot;
+## [5] &quot;Amphiprion melanopus&quot;    &quot;Amphiprion polymnus&quot;
+</code></pre></div>
+<p>It may look like a convoluted way to do a simple thing, <em>but</em> the interest
+is that you can combine filters to have more precise requests. Let&#39;s say we
+are really interested in a small portion of the pacific ocean, and want to
+know if there are any networks inside. We will define two different filters:
+one for latitude, and one for longitude.</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">filter_lat <span class="o">=</span> list<span class="p">(</span>field <span class="o">=</span> <span class="s">&quot;latitude&quot;</span><span class="p">,</span> relation <span class="o">=</span> <span class="s">&quot;range&quot;</span><span class="p">,</span> target <span class="o">=</span> c<span class="p">(</span><span class="m">1.756</span><span class="p">,</span> 
+    <span class="m">1.813</span><span class="p">))</span>
+filter_lon <span class="o">=</span> list<span class="p">(</span>field <span class="o">=</span> <span class="s">&quot;longitude&quot;</span><span class="p">,</span> relation <span class="o">=</span> <span class="s">&quot;range&quot;</span><span class="p">,</span> target <span class="o">=</span> c<span class="p">(</span><span class="m">124.76</span><span class="p">,</span> 
+    <span class="m">124.808</span><span class="p">))</span>
+Networks <span class="o">&lt;-</span> mangalSearch<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;network&quot;</span><span class="p">,</span> list<span class="p">(</span>filter_lat<span class="p">,</span> filter_lon<span class="p">))</span>
+laply<span class="p">(</span>Networks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>name<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## [1] &quot;Batu Kapal&quot;  &quot;Jalan Masuk&quot;
+</code></pre></div>
+<h1>Types of relations</h1>
+
+<p>There are ten different values for the <code>relation</code> type. <code>starswith</code> and
+<code>endswith</code> will match the beginnign and end of the value. <code>exact</code> will match
+the entirety of the field. <code>contains</code> will look for <code>target</code> somewhere in
+the field. <code>in</code> will return objects that have <code>target</code> in the values of a
+multi-valued field (example of use: with the identifier of an interactio,
+find the network it belongs to). <code>range</code> will return all objects that have
+values in the <code>target</code> range. And finally, <code>gte</code>, <code>gt</code>, <code>lte</code> and <code>lt</code>,
+handle superior/inferior (or equal) relationships.</p>
+
+<h1>More advanced usage</h1>
+
+<p>If you look at the code of <code>mangalSearch</code>, you&#39;ll see that it passes
+an addition argument (<code>filtering</code>) to <code>mangalList</code>. This allows you
+to handle more complicated filtering schemes. In the filtering pattern
+<code>field__relation=target</code>, <code>field</code> can actually be a <em>path</em> across multiple
+objects. Let&#39;s illustrate with an example.</p>
+
+<p>We want to retrieve all interactions involving <code>taxa</code> whose name starts with
+<code>Amphiprion</code>. The <em>path</em> from <code>interaction</code> to <code>taxa</code> goes through the field <code>taxa_to</code>/<code>taxa_from</code> in interaction. So what we want to do is:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">?taxa_from__name__startswith=Amphiprion
+</code></pre></div>
+<p>We can add that as the <code>filtering</code> argument of <code>mangalList</code>:</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">Interactions <span class="o">&lt;-</span> rmangal<span class="o">:::</span>mangalList<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;interaction&quot;</span><span class="p">,</span> filtering <span class="o">=</span> <span class="s">&quot;taxa_from__name__startswith=Amphiprion&quot;</span><span class="p">)</span>
+laply<span class="p">(</span>Interactions<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>id<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##  [1] &quot;93&quot;  &quot;92&quot;  &quot;87&quot;  &quot;86&quot;  &quot;85&quot;  &quot;82&quot;  &quot;81&quot;  &quot;76&quot;  &quot;75&quot;  &quot;69&quot;  &quot;68&quot; 
+## [12] &quot;67&quot;  &quot;59&quot;  &quot;58&quot;  &quot;53&quot;  &quot;52&quot;  &quot;51&quot;  &quot;50&quot;  &quot;45&quot;  &quot;44&quot;  &quot;23&quot;  &quot;24&quot; 
+## [23] &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot;  &quot;34&quot;  &quot;35&quot; 
+## [34] &quot;36&quot;  &quot;37&quot;  &quot;38&quot;  &quot;39&quot;  &quot;41&quot;  &quot;42&quot;  &quot;43&quot;  &quot;44&quot;  &quot;45&quot;  &quot;46&quot;  &quot;47&quot; 
+## [45] &quot;48&quot;  &quot;49&quot;  &quot;50&quot;  &quot;51&quot;  &quot;52&quot;  &quot;53&quot;  &quot;54&quot;  &quot;56&quot;  &quot;58&quot;  &quot;59&quot;  &quot;60&quot; 
+## [56] &quot;61&quot;  &quot;62&quot;  &quot;64&quot;  &quot;65&quot;  &quot;66&quot;  &quot;67&quot;  &quot;68&quot;  &quot;69&quot;  &quot;71&quot;  &quot;72&quot;  &quot;73&quot; 
+## [67] &quot;75&quot;  &quot;76&quot;  &quot;77&quot;  &quot;78&quot;  &quot;79&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot;  &quot;85&quot;  &quot;86&quot; 
+## [78] &quot;87&quot;  &quot;88&quot;  &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;95&quot;  &quot;96&quot;  &quot;97&quot;  &quot;98&quot; 
+## [89] &quot;99&quot;  &quot;100&quot; &quot;101&quot; &quot;102&quot; &quot;103&quot; &quot;104&quot; &quot;105&quot; &quot;106&quot;
+</code></pre></div>
+<p>Because <code>mangalList</code> is not exported, you have to use the <code>:::</code> operator
+to explicitely call it. Note that these functions may not work (quite yet)
+with the public database, because we will update the API later this week.</p>
+
+
+</div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="pager">
+
+
+<span class="previous">
+   <a href="/2014/01/11/animate-networks-with-igraph/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
+</span>
+
+
+
+<span class="next disabled">
+   Next post <i class="fa fa-fw fa-chevron-right"></i>
+</span>
+
+</div>
+
+
+   </div>
+   <div class="large-3 small-2 columns">
+      <div class='header'>
+         <h1>Timothée Poisot</h1>
+<h2>Spatial ecology of species interactions</h2>
+
+         <ul class="no-bullet main-nav">
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+</ul>
+
+         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
+      </div>
+   </div>
+   </div>
+
+   <div class="row footer">
+         <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
+</div>
+
+<div class="small-8 columns">
+   <h5>Most recent posts</h5>
+   <ul class='no-bullet'>
+   
+   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
+   
+   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
+   
+   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
+   
+   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
+   
+   </ul>
+</div>
+
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
+
+   </div>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>
