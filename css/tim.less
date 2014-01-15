@@ -8,6 +8,10 @@
 @serif: 'Noticia Text';
 @hand: 'Satisfy';
 
+html, body{
+   height: 100% !important;
+}
+
 body{
    background-color: rgb(243, 243, 243);
    font-family: @sans !important;
@@ -55,7 +59,7 @@ blockquote{
    }
 }
 
-@tmar: 65px;
+@tmar: 96px;
 
 .box{
    margin: 2em 0em 2em -@tmar;
@@ -115,42 +119,58 @@ blockquote{
    }
 }
 
-.content{
-   margin: 3em auto;
+@ftheight: 290px;
+
+.wrapper {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   margin: 0 auto -@ftheight;
+}
+
+
+.push{
+   height: @ftheight;
+   clear: both;
+}
+
+
+.footer{
+   height: @ftheight !important;
+   .date{
+      padding-right: 1em;
+   }
+   i, code{
+      color: rgb(80, 80, 80);
+   }
+   color: rgb(100, 100, 100);
+   p, li{
+      font-size: 0.8rem !important;
+   }
+   li{
+      padding-top: 0.3em;
+      margin-bottom: 0.3em;
+      height: 1.9em !important;
+   }
+   font-family: @sans;
+   background-color: rgb(230, 230, 230);
+   .footercontent{
+      padding: 1.2em 3em;
+   }
+}
+
+.wrapper{
+   margin: 0em auto -@ftheight;
+   background-color: rgb(254, 254, 254);
+   box-shadow: 0px 0px 50px rgba(140, 140, 140, 0.2);
+   font-family: @serif;
    padding: 3em 3em;
-   padding-bottom: 0px;
    background-color: rgb(254, 254, 254);
    box-shadow: 0px 0px 30px rgba(140, 140, 140, 0.2);
    font-family: @serif;
    border-radius: 2px;
-   .footer{
-      .date{
-         padding-right: 1em;
-      }
-      i, code{
-         color: rgb(80, 80, 80);
-      }
-      color: rgb(100, 100, 100);
-      p, li{
-         font-size: 0.8rem !important;
-      }
-      li{
-         padding-top: 0.3em;
-         margin-bottom: 0.3em;
-         height: 1.9em !important;
-      }
-      margin-top: 6em;
-      font-family: @sans;
-      margin-left: -48px;
-      margin-right: -48px;
-      background-color: rgb(230, 230, 230);
-      padding: 24px 48px;
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
-   }
    .maintext{
-      padding: 2em 2em !important;
-      margin-top: 4em;
+      padding: 3em 3em !important;
    }
    h1{
       font-weight: 400;
@@ -179,8 +199,8 @@ blockquote{
       text-align: right;
    }
    p{
-      font-size: 0.9rem;
-      line-height: 1.8;
+      font-size: 0.95rem;
+      line-height: 1.85;
       font-weight: 400;
       b, strong{
          font-weight: 700;
