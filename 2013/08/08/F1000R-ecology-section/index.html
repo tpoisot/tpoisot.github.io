@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>F1000Research announces new Ecology section</h1>
 
@@ -59,28 +84,29 @@ F1000Research is extremely interesting. After initial checking, the paper is
 put on-line, and appears as a preprint. Reviews appear in real-time, and are
 not anonymous. Further changes to the paper are well documented.</p>
 
-<p>As we discuss in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">Phil&#39;s paper</a> paper on preprints in biology, this
+<p>As we discuss in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">Phil’s paper</a> paper on preprints in biology, this
 immediate publication model is good, especially for early-career people. When
 you need to have something to show for your work in order to apply for
-a fellowship, it&#39;s understandable that you don&#39;t want to wait for up to a whole
+a fellowship, it’s understandable that you don’t want to wait for up to a whole
 year for your paper to run the gauntlet of peer review. F1000Research also
 integrates tightly with figshare, and datasets are required to be open when the
-paper is submitted. That&#39;s a really good practice, and it will further the
+paper is submitted. That’s a really good practice, and it will further the
 integration between datasets and papers.</p>
 
-<p>One of the coolest things for field ecologists (I&#39;ve been informed that ecology
+<p>One of the coolest things for field ecologists (I’ve been informed that ecology
 is the study of populations, and not a branch of applied mathematics or
-computer sciences&hellip;?) is that F1000Research will now offer to publish
+computer sciences…?) is that F1000Research will now offer to publish
 <em>observation articles</em>. People in the medical sciences have many case studies,
 that are extremely important to the field as a whole. In ecology, despite
 the recognition that general laws are elusive and not as general as they
 appear, there seems to be a shortage of places to publish interesting
-field/lab observations. I&#39;m sure many people will be deligthed to learn that
+field/lab observations. I’m sure many people will be deligthed to learn that
 the modern publishing world still cares about the naturalist tradition of
 ecology.</p>
 
 <p>So you can head to the <a href="http://f1000research.com">F1000Research</a> website and
 see for yourself!</p>
+
 
 
 </div>
@@ -119,19 +145,6 @@ see for yourself!</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -147,22 +160,6 @@ see for yourself!</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>What do I read (according to Zotero)?</h1>
 
@@ -50,7 +75,7 @@
    </div>
 
 
-<p>I&#39;ve been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days.
+<p>I’ve been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days.
 Zotero stores the data about your library in a <code>sqlite3</code> database, called
 <code>zotero.sqlite</code>, and stored in your Zotero folder (<code>~/Zotero/</code> in my case, but
 most likely something else in yours). The internal structure of the
@@ -59,7 +84,7 @@ figure it out. But in the end, I was able to come up with a solution to count
 the number of papers in each journal, stored in my library.</p>
 
 <p>The <code>python</code> script is <a href="https://gist.github.com/tpoisot/5958933">available as a gist</a>. When you run it
-(assuming you&#39;ve made a copy of the <code>zotero.sqlite</code> in the folder where the
+(assuming you’ve made a copy of the <code>zotero.sqlite</code> in the folder where the
 script is, you will end up with a <code>journals.tsv</code> file, in which the two
 columns are, respectively, the number of papers, and the journal title.</p>
 
@@ -69,100 +94,103 @@ cleaning-up in open office to check for duplicates, especially since my
 current database is following me since the first year of my masters (so 2006).
 So, what do I read? Here is the top 15:</p>
 
-<table><thead>
-<tr>
-<th align="left">Journal</th>
-<th align="left">Count</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="left">Ecology Letters</td>
-<td align="left">202</td>
-</tr>
-<tr>
-<td align="left">Ecology</td>
-<td align="left">198</td>
-</tr>
-<tr>
-<td align="left">PLoS One</td>
-<td align="left">196</td>
-</tr>
-<tr>
-<td align="left">American Naturalist</td>
-<td align="left">181</td>
-</tr>
-<tr>
-<td align="left">PNAS</td>
-<td align="left">156</td>
-</tr>
-<tr>
-<td align="left">Oikos</td>
-<td align="left">135</td>
-</tr>
-<tr>
-<td align="left">Trends Ecol Evol</td>
-<td align="left">132</td>
-</tr>
-<tr>
-<td align="left">Procs R Soc B</td>
-<td align="left">123</td>
-</tr>
-<tr>
-<td align="left">Evolution</td>
-<td align="left">120</td>
-</tr>
-<tr>
-<td align="left">Nature</td>
-<td align="left">119</td>
-</tr>
-<tr>
-<td align="left">Science</td>
-<td align="left">108</td>
-</tr>
-<tr>
-<td align="left">J Evol Biol</td>
-<td align="left">101</td>
-</tr>
-<tr>
-<td align="left">J Anim Ecol</td>
-<td align="left">71</td>
-</tr>
-<tr>
-<td align="left">J Biogeogr</td>
-<td align="left">46</td>
-</tr>
-<tr>
-<td align="left">Phil Trans B</td>
-<td align="left">45</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Journal</th>
+      <th style="text-align: left">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ecology Letters</td>
+      <td style="text-align: left">202</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ecology</td>
+      <td style="text-align: left">198</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PLoS One</td>
+      <td style="text-align: left">196</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">American Naturalist</td>
+      <td style="text-align: left">181</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PNAS</td>
+      <td style="text-align: left">156</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Oikos</td>
+      <td style="text-align: left">135</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trends Ecol Evol</td>
+      <td style="text-align: left">132</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Procs R Soc B</td>
+      <td style="text-align: left">123</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Evolution</td>
+      <td style="text-align: left">120</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Nature</td>
+      <td style="text-align: left">119</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Science</td>
+      <td style="text-align: left">108</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J Evol Biol</td>
+      <td style="text-align: left">101</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J Anim Ecol</td>
+      <td style="text-align: left">71</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J Biogeogr</td>
+      <td style="text-align: left">46</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Phil Trans B</td>
+      <td style="text-align: left">45</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>So, what to make of this information? Note that by the time we reach number 12
 or so in that list, the paper count decreases extremely sharply. Also, the top
 five is not reallu surprising. I was expecting to see <em>Nature</em> and <em>Science</em>
 rank higher on the list. There is still some inertia, as well, with <em>J Evol
-Biol</em> and <em>Evolution</em> occupying high positions because I&#39;ve read these some
-much during my PhD and Masters. So I guess that (i) I&#39;m definitely an ecologist
+Biol</em> and <em>Evolution</em> occupying high positions because I’ve read these some
+much during my PhD and Masters. So I guess that (i) I’m definitely an ecologist
 (also, <em>J Theor Biol</em> and <em>Theor Pop Biol</em> are lurking not far below), and (ii)
 despite this having a very very long tail, I mostly read things coming up in
 a few journals.</p>
 
-<p>Now, the really pressing issue&hellip; How does it relates to their <em>Impact Factor</em>?
+<p>Now, the really pressing issue… How does it relates to their <em>Impact Factor</em>?
 A quick survey of the table above shows that some high scoring journals are
 quite low on the list, and some not-so-high scoring ones are nearing the top.
 A quick googling got me the most recent IF for the first 30 or so journals of my
 list. The results are plotted below (put your mouse over a dot to see the journal name).</p>
 
-<div class='scatterplot d3'></div>
-
+<div class="scatterplot d3"></div>
 <script type="text/javascript" src="/data/zotero-if.js"></script>
 
-<p>It doesn&#39;t look like there is much effect of the IF on wether or not I&#39;ll save
+<p>It doesn’t look like there is much effect of the IF on wether or not I’ll save
 the paper in my library. And we can also see a small group of three journals
-I read much more than their IF would &ldquo;predict&rdquo; (<em>Ecology</em>, <em>PLoS One</em>, and <em>The
+I read much more than their IF would “predict” (<em>Ecology</em>, <em>PLoS One</em>, and <em>The
 American Naturalist</em>). So that turned out to be a fun little lunch coding
-project. Don&#39;t hesitate to look at the code, I&#39;m sure there is plenty of things
+project. Don’t hesitate to look at the code, I’m sure there is plenty of things
 to make better.</p>
+
 
 
 </div>
@@ -201,19 +229,6 @@ to make better.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -229,22 +244,6 @@ to make better.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

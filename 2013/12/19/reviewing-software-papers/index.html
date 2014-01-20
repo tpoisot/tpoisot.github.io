@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Software papers and open source licenses</h1>
 
@@ -56,31 +81,31 @@ than usual). By <em>closed</em>, I mean any software that would require me to pa
 to be able to reproduce the method, either directly, or through a licence
 costing money to the university. Think <em>Mathematica</em>, <em>matlab</em>, or any other
 commercial tools. Despite what <a href="http://www.quantumforest.com/2013/12/should-i-reject-a-manuscript-because-the-analyses-werent-done-using-open-source-software/">some</a> would have you believe, the way
-analyses are done in a &ldquo;traditional&rdquo; research paper (<q>Here is my experiment,
+analyses are done in a “traditional” research paper (<q>Here is my experiment,
 here are the analyses I have been doing, and here are my conclusions</q>)
 is an entirely different piece of work. When I review such papers, I care
 very little about the software used to obtain the results. And of course,
-it&#39;s difficult to reproduce a field survey or a large lab experiment, and
+it’s difficult to reproduce a field survey or a large lab experiment, and
 no amount of free software will change that.</p>
 
 <p>But software papers, <em>i.e.</em> either papers presenting a new software,
 or relying heavily on computer code (<em>i.e.</em> most simulation studies),
-are defined largely by their computability. So let&#39;s jump straight to the
+are defined largely by their computability. So let’s jump straight to the
 conclusion: would I reject such a paper because the code relies on closed
 software? <strong>No</strong>, for two reasons. The first reason is highly personal:
 I would not accept to review it in the first place. My condition to review
 a software paper is to be able to understand and evaluate the code, so if
-I can&#39;t run the software or understand what it does, I won&#39;t review the
+I can’t run the software or understand what it does, I won’t review the
 paper. The second reason is that, ultimately, the important thing in a
 software paper is the method described, and so as long as I can reproduce
 what the authors propose, and it is a useful addition to the methodological
 toolkit, there is no reason to reject the paper. An additional reason is that
 I am a co-author on at least two (<em>in prep.</em>) papers using closed software,
-and I won&#39;t hold others to a higher standard than the one I hold myself to&hellip;</p>
+and I won’t hold others to a higher standard than the one I hold myself to…</p>
 
 <p>That being said, there are extremely strong arguments to be made in favor
 of using Free and Open-Source Software (FOSS) whenever possible. For one
-thing, and although it&#39;s easy to forget that coming from a <em>rich</em> university,
+thing, and although it’s easy to forget that coming from a <em>rich</em> university,
 not everyone can afford to pay a software license. Tools that are relevant
 for conservation may be unavailalbe to NGOs if they need to pay to use
 them. Even in the academic world, researchers from developing countries,
@@ -92,17 +117,17 @@ to lower the access fee to science.</p>
 <p>Now that we know that <a href="https://peerj.com/articles/175/">open data</a> is associated with an increased
 citation rate, I wonder whether the same is true of FOSS-using papers. I
 can think a couple reasons for why it should be the case. Describing a new
-method is much like explaining a recipe. But I&#39;m much less likely to cook
+method is much like explaining a recipe. But I’m much less likely to cook
 true <em>crêpes</em> from Britanny, which require a bulky and expensive <em>billlig</em>,
 than I am to cook the regular version that I can do at home with my frying
 pan. Wow, that is a bad metaphor, it almost reads like FOSS is the cheap
-knock-off version of science. Never mind&hellip; In any case, offering users
+knock-off version of science. Never mind… In any case, offering users
 a way to apply an analysis at no cost is a good incentive to using your
 method. And now that almost anyone knows and uses R (especially students),
 you can reach ~100% of your field this way.</p>
 
 <p>But what should we do when no FOSS software can do the particular analysis
-one wants to do? This is a valid and difficult question. It&#39;s obvious
+one wants to do? This is a valid and difficult question. It’s obvious
 that what matters most is to have the most solid result one can get using
 the currently available tools. But on the other hand, contributing new
 software is an activity in itself, that is starting to be recognized as
@@ -111,7 +136,7 @@ recognition withing your community. <em>ImpactStory</em> let you track the impac
 of software releases through <em>e.g.</em> <em>GitHub</em>. For example, the <em>ImpactStory</em>
 page <a href="http://impactstory.org/timpoisot/product/puktfnm5rj97v383zwo6smlp">for the <code>digitize</code> package</a> I wrote in one afternoon because I
 wanted to know whether it (it: extracting data from published scatterplots)
-could be done, show that people found this package useful. While it&#39;s true that
+could be done, show that people found this package useful. While it’s true that
 writing useful code is not as appreciated as writing papers that get cited, the
 development of new metrics will probably make it increasingly rewarding. And
 the less people have to pay, the more likely they are to use your code.</p>
@@ -119,7 +144,7 @@ the less people have to pay, the more likely they are to use your code.</p>
 <p>At the very least, if your code requires proprietary software to run,
 pick a <a href="http://choosealicense.com/">FOSS license</a>. There are tools (like <em>Choose a license</em>,
 linked just before) that will allow you to select licenses according to your
-needs. Even if people can&#39;t <em>run</em> the software, they can see how it works,
+needs. Even if people can’t <em>run</em> the software, they can see how it works,
 and translate it in another language it they need it. Starting in January,
 all <a href="http://www.britishecologicalsociety.org/publications/">BES journals</a> will require that <em>data</em> are available, free of
 charge and in a repository, when the paper is accepted - and the goal is
@@ -129,6 +154,7 @@ referees, we can start making a small difference: by suggesting appropriate
 FOSS licenses if the authors have not done so. It will help software spread,
 and the most methods we have at our disposal, the most likely we have to
 find the right one to solve a problem.</p>
+
 
 
 </div>
@@ -167,19 +193,6 @@ find the right one to solve a problem.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -195,22 +208,6 @@ find the right one to solve a problem.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

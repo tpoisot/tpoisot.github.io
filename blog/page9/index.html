@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,114 +37,96 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <!-- This loops through the paginated posts -->
 
 
 <div class='post postlist'>
-   <h1>Ecology is not too collaborative</h1>
+   <h1>Is E.O. Wilson wrong about maths?</h1>
    <div class="postinfo">
-      April 30, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecology/">ecology</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/research/">research</a></span>
+      April  7, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological theory/">ecological theory</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/teaching/">teaching</a></span>
    </div>
-      <p>A few days ago, Jeremy Fox published on the Oikos blog, wondering if ecology was becoming too collaborative. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can&#39;t really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it&#39;s worth,...</p>
-      <a class="readmore" href="/2012/04/30/ecology-not-too-collaborative/">Read more...</a>
+      <p>E.O. Wilson recently published an editorial entitled “Great scientists don’t need math” in the Wall Street Journal. Jeremy Fox wrote a great rebuttal of it, which you should certainly read as well. In short, Wilson’s argument is that most of great science is the work of intuition. In Jean Cocteau’s words, science is the confirmation of instinct’s discoveries. And in this perspective, math literacy is not needed, because it’s only a boring formality, to confirm...</p>
+      <a class="readmore" href="/2013/04/07/wilson-maths/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Biblatex styles for ecology</h1>
+   <h1>High-throughput sequencing and community ecology</h1>
    <div class="postinfo">
-      April 26, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biblatex/">biblatex</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
+      March 12, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biogeography/">biogeography</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-generation sequencing/">next-generation sequencing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecology/">ecology</a></span>
    </div>
-      <p>A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of natbib —, I started looking into biblatex. biblatex is essentially a re-implementation of LaTeX packages like cite, natbib, and others. And the more I used it, the more I realized two things. First, biblatex is awesome; it&#39;s to natbib what knitr is to Sweave. Including the fact that switching from one system to the other...</p>
-      <a class="readmore" href="/2012/04/26/biblatex-styles-ecology/">Read more...</a>
+      <p>High-throughput sequencing (let’s abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I’m currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken...</p>
+      <a class="readmore" href="/2013/03/12/ngs-community-ecology/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Null models of bipartite networks in C</h1>
+   <h1>A d3.js alternative to stacked bar charts</h1>
    <div class="postinfo">
-      April 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/null models/">null models</a></span>
+      February 18, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/D3.js/">D3.js</a></span>
    </div>
-      <p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time&hellip; Python is not the right tool. I&#39;m currently re-learning C, and I thought...</p>
-      <a class="readmore" href="/2012/04/15/null-models-C/">Read more...</a>
+      <p>Following yesterday’s post on an alternative to barcharts, I decided to write an implementation of this graph in D3.js. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I’ll share the code as a gist. For this particular example, I assume that the data are in a matrix, in csv format, with sites as the first row, and species abundances in columns. I...</p>
+      <a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>How to make the most out of peer-review?</h1>
+   <h1>An alternative to stacked bar charts</h1>
    <div class="postinfo">
-      January 29, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
+      February 17, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
    </div>
-      <p>So it seems that the love/hate relationship between science and publishers has reached its tipping point following the RWA turmoil, with appeals to boycott major publishers, such as researchwithoutwalls and thecostofknowledge, and some of the most eminents members of the scientific blogosphere talking about it, and using creative metaphors to illustrate how big of a scam it is. Specifically, most scientists are publicly stating that they will not review papers anymore, at least in the...</p>
-      <a class="readmore" href="/2012/01/29/sign-your-reviews/">Read more...</a>
+      <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with....</p>
+      <a class="readmore" href="/2013/02/17/stacked-barcharts/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Measuring ecological specificity</h1>
+   <h1>Estimating edges contribution to network properties</h1>
    <div class="postinfo">
-      January 19, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/specificity/">specificity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
+      February 13, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/modularity/">modularity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/D3.js/">D3.js</a></span>
    </div>
-      <p>Our paper about measurements of ecological specialization is now available online at the Methods in Ecology &amp; Evolution website. You can also download the associated R package from R-Forge. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that. Early during my...</p>
-      <a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Read more...</a>
+      <p>I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I’ve learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do...</p>
+      <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Science in the age of social coding</h1>
+   <h1>Estimating node contribution to network properties</h1>
    <div class="postinfo">
-      January  6, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/github/">github</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
+      February 12, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/modularity/">modularity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span>
    </div>
-      <p>I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I&#39;m wondering what...</p>
-      <a class="readmore" href="/2012/01/06/science-age-social-coding/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Simulated phylogenetic trees and community assembly</h1>
-   <div class="postinfo">
-      January  5, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phylogeny/">phylogeny</a></span>
-   </div>
-      <p>I&#39;m working on a toy model of community assembly in Python, and I thought it would be cool to have an easy way to keep track of the phylogeny. To do so, I&#39;ve conceived two classes for the easy handling of phylogenetic structure. They are available on GitHub in the PyCoPhy repository (Python Community Phylogenetics), and check also the code page. The general idea behind them is quite easy to understand. A phylogenetic tree is...</p>
-      <a class="readmore" href="/2012/01/05/a-python-class-for-phylogenies/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Goodbye Wordpress, hello Jekyll!</h1>
-   <div class="postinfo">
-      January  1, 2012 &mdash; 
-   </div>
-      <p>A few weeks ago, I discovered Jekyll. In a nutshell, Jekyll is a static site generator who promised me I&#39;ll be able to blog like a hacker. This site is now hosted on GitHub, and both the template and the content can be forked, so everything is basically open source. Jekyll is a lot of fun to use, especially because all of the content reside in static text files instead of a database. It&#39;s also...</p>
-      <a class="readmore" href="/2012/01/01/migration-to-jekyll/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>The aggregate function in Python</h1>
-   <div class="postinfo">
-      December  1, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scipy/">scipy</a></span>
-   </div>
-      <p>One thing I love the most about R is the aggregate function, which (in a nutshell) summarizes a data frame according to one or more columns, and perform some operations on the aggregated values. If, for example, you have a data frame with a treatment and a response, and want to calculate the mean and standard deviation of the response by level of treatment, then aggregate is usually the way to go. I wanted to...</p>
-      <a class="readmore" href="/2011/12/01/the-aggregate-function-in-python/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Get your lab on twitter!</h1>
-   <div class="postinfo">
-      November 19, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific communication/">scientific communication</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
-   </div>
-      <p>More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of a paper in Nature this week. I&#39;ve read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I...</p>
-      <a class="readmore" href="/2011/11/19/get-your-lab-on-twitter/">Read more...</a>
+      <p>I’m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I’ll just detail how it possible to get this information quickly using networkx. Warning! I'm just using this post to take notes on code I'm currently working on....</p>
+      <a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a>
    <hr />
 </div>
 
@@ -190,24 +175,35 @@
     <li><a href="/blog/page10">10</a></li>
     
     
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
+    
   </ul>
 
 </div>
 
 
-      </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
       </div>
    </div>
    <div class='push'></div>
@@ -224,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

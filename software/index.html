@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,77 +37,88 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li class="active"><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
-         <p><span class='lead'>This page is a non-exhaustive list of software I&#39;ve released. Only the
+      <div class="large-12 small-12 columns maintext">
+         <p><span class="lead">This page is a non-exhaustive list of software I’ve released. Only the
 most significant/ambitious projects, or those in which I contributed a lot,
      are listed.</span></p>
 
-<h1>R packages</h1>
+<h1 id="r-packages">R packages</h1>
 
-<p><strong>rmangal</strong> - programmatic access to ecological network data (<em>beta version</em>)<br>
-<i class="fa fa-fw fa-file-text-o"></i> <a href="https://github.com/mangal-wg/mangal">Open draft</a><br>
-<i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/rmangal">GitHub repository</a> (source code)<br>
-<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;mangal-wg/rmangal&quot;)</code></p>
+<p><strong>rmangal</strong> - programmatic access to ecological network data (<em>beta version</em>)<br />
+<i class="fa fa-fw fa-file-text-o"></i> <a href="https://github.com/mangal-wg/mangal">Open draft</a> <br />
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/rmangal">GitHub repository</a> (source code) <br />
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/pymangal">GitHub repository</a> (python version) <br />
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("mangal-wg/rmangal")</code></p>
 
-<p><strong>betalink</strong> - measures of ecological network &beta;-diversity<br>
-<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a><br>
-<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code)<br>
-<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;tpoisot/betalink&quot;)</code></p>
+<p><strong>betalink</strong> - measures of ecological network β-diversity <br />
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a> <br />
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code) <br />
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/betalink")</code></p>
 
-<p><strong>ESM</strong> - measures of ecological specificity<br>
-<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a><br>
-<i class="fa fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code)<br>
-<i class="fa fa-fw fa-terminal"></i> Easy install: <code>install.packages(&quot;ESM&quot;, repos=&quot;http://R-Forge.R-project.org&quot;)</code></p>
+<p><strong>ESM</strong> - measures of ecological specificity <br />
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a> <br />
+<i class="fa fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code) <br />
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>install.packages("ESM", repos="http://R-Forge.R-project.org")</code></p>
 
-<p><strong>digitize</strong> - extraction of data from scatterplots<br>
-<i class="fa fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a><br>
-<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code)<br>
-<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;tpoisot/digitize&quot;)</code></p>
+<p><strong>digitize</strong> - extraction of data from scatterplots <br />
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a> <br />
+<i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code) <br />
+<i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/digitize")</code></p>
 
-<h1>Inference of food-web structure</h1>
+<h1 id="inference-of-food-web-structure">Inference of food-web structure</h1>
 
-<p>We propose a method to infer the structure of food-webs based on species body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and <a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a><br>
-<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a><br>
+<p>We propose a method to infer the structure of food-webs based on species body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and <a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a> <br />
+<i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a> <br />
 <i class="fa fa-fw fa-code"></i> <a href="http://figshare.com/articles/Code_and_example_data_to_calibrate_the_niche_model_of_food_webs_based_on_allometric_relationships/650228">Code and example data</a></p>
 
-<h1>Bipartite webs analysis</h1>
+<h1 id="bipartite-webs-analysis">Bipartite webs analysis</h1>
 
-<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/%7Ecflores/">Cesar Flores</a><br>
-<i class="fa fa-fw fa-file-text-o"></i> Paper in preparation<br>
+<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/~cflores/">Cesar Flores</a> <br />
+<i class="fa fa-fw fa-file-text-o"></i> Paper in preparation <br />
 <i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/biweb">GitHub repo</a> (dual <code>matlab</code>/<code>python</code> code) </p>
 
-<h1>Other (possibly) useful code</h1>
+<h1 id="other-possibly-useful-code">Other (possibly) useful code</h1>
 
-<p>Reasonably fast generation of null bipartite networks in C under different scenarios<br>
+<p>Reasonably fast generation of null bipartite networks in C under different scenarios    <br />
 <i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)   </p>
 
-<p>Python class to track phylogenetic structure during simulations<br>
+<p>Python class to track phylogenetic structure during simulations <br />
 <i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/PyCoPhy">GitHub repository</a> (source code)   </p>
 
-<p>Simulation of individual-based trophic communities under niche/neutral scenarios<br>
+<p>Simulation of individual-based trophic communities under niche/neutral scenarios <br />
 <i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/manna">GitHub repository</a> (source code)   </p>
 
 
-      </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li class="active"><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li><a href="/blog/">Blog</a></li>
-</ul>
 
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
       </div>
    </div>
    <div class='push'></div>
@@ -121,22 +135,6 @@ most significant/ambitious projects, or those in which I contributed a lot,
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

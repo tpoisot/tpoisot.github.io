@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>R, priority effects, and the meta-package</h1>
 
@@ -72,31 +97,31 @@ apply them.</p>
 
 <p>This is especially true of large-scale packages, that aim to become your single
 interface with the metrics and analyzes in a domain. Ecologists are familiar
-with <code>bipartite</code>, <code>vegan</code>, <code>picante</code>, <code>ape</code>, for example. These &ldquo;mega-packages&rdquo;
+with <code>bipartite</code>, <code>vegan</code>, <code>picante</code>, <code>ape</code>, for example. These “mega-packages”
 implement a lot of measures, and for this reason, some will look through the
 manual to see what kind of analyzes they can do. I most likely still do it
-myself, especially so for side-projects where I&#39;m not entirely familiar with
+myself, especially so for side-projects where I’m not entirely familiar with
 the methodological literature yet. So based on my experience, this is
-particularly problematic for newcomers to a field, because when you don&#39;t know,
+particularly problematic for newcomers to a field, because when you don’t know,
 you assume that the default values were chosen as defaults by
 someone knowing what he was doing. Then I remember the <a href="http://www.python.org/dev/peps/pep-0020/"><em>Zen of
-Python</em></a>: <em>&ldquo;In the face of ambiguity, refuse the temptation
-to guess.&rdquo;</em></p>
+Python</em></a>: <em>“In the face of ambiguity, refuse the temptation
+to guess.”</em></p>
 
 <p>And as we all have different sensibilities, it shows in the way we think about
 code, and in the way we write it. The default options of a function, for
 example, can be a matter of choice, and especially so when this function
-becomes as broad as &ldquo;measure diversity&rdquo;. This partiality is not an issue when
+becomes as broad as “measure diversity”. This partiality is not an issue when
 developing tools that you will use for your own research. But when developing
 tools intended for a broad audience, then this code becomes a service, and it
 is our duty as service providers that the defaults reflect our own biases the
 least, and the current consensus the most.</p>
 
 <p>This is why extremely big packages <em>can</em> be a problem under some circumstances:
-they break Doug McIlroy&#39;s <em>Unix philosophy</em>:</p>
+they break Doug McIlroy’s <em>Unix philosophy</em>:</p>
 
 <blockquote>
-<p>This is the Unix philosophy: <em>Write programs that do one thing</em> and do it
+  <p>This is the Unix philosophy: <em>Write programs that do one thing</em> and do it
 well. <em>Write programs to work together</em>. Write programs to handle text
 streams, because that is a universal interface.</p>
 </blockquote>
@@ -104,7 +129,7 @@ streams, because that is a universal interface.</p>
 <p>When we, as users, rely on a big package to do our work, we assume that every
 component of this package is (i) well implemented, (ii) conform to the original
 paper, and (iii) up-to-date. Given the frequency of commits in the biggest
-ecological packages, I&#39;m sure this is the case, but it&#39;s worth keeping in mind.
+ecological packages, I’m sure this is the case, but it’s worth keeping in mind.
 My personal preference goes to using a lot of packages doing a small number of
 things. For my two papers relying on heavily on the development of comparison
 of new methods, I started by writing the R package (well I started at the
@@ -124,14 +149,14 @@ require you to do a lot of small steps by hand have a great advantage, you know
 what is happening in real time (then again, I like C and doing every thing by
 hand, so perhaps I just enjoy hurting myself).</p>
 
-<p>In any case, the &ldquo;default&rdquo; behavior of programs is something that should be
+<p>In any case, the “default” behavior of programs is something that should be
 held under intense scrutiny by the community, and improved code review will
 definitely help. This is also where big packages can somehow escape the system:
 even if they are reviewed formally (as opposed to being reviewed informally,
 which they are in real time as people use them), this will not happen for
 each release, and some new releases may introduce things that can be argued
 against. In short, my point is: R packages (or packages in other languages, but
-you get the idea) tend to rapidly represent the &ldquo;canon&rdquo; of the analyzes
+you get the idea) tend to rapidly represent the “canon” of the analyzes
 to perform, and for this reason, we should always keep a critical eye on them.
 Also, keep on writing open-source code, that will enrich the code base
 available to the community.</p>
@@ -153,6 +178,7 @@ own. This would also shift the balance towards a system in which there is
 a strict one paper / one package relationship, which I think would
 considerably clarify the type of analyzes included in a package, in
 addition to matching these analyzes to the primary literature.</p>
+
 
 
 </div>
@@ -191,19 +217,6 @@ addition to matching these analyzes to the primary literature.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -219,22 +232,6 @@ addition to matching these analyzes to the primary literature.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

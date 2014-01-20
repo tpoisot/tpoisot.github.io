@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Notes on test-driven development (in Python)</h1>
 
@@ -50,20 +75,20 @@
    </div>
 
 
-<p>I&#39;m looking into the methodology of <em>test-driven development</em>, that is when
+<p>I’m looking into the methodology of <em>test-driven development</em>, that is when
 you write your tests <em>before</em> writing your code. The advertised benefit is
 that you know in advance the behavior of your code, and it will make it easier
-to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O&#39;Reilly</a> is a good introduction
+to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O’Reilly</a> is a good introduction
 (although the exact functions of <code>unittest</code> it uses are now deprecated). To
-get started, I&#39;ll work on a simple script that takes a series of numerical
+get started, I’ll work on a simple script that takes a series of numerical
 values, and divide them by their max, to get the equivalent series of values
-but in [0;1]. Let&#39;s start with the basics:</p>
+but in [0;1]. Let’s start with the basics:</p>
 
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">unittest</span>     <span class="c"># for testing</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span>
 </code></pre></div>
 
-<p>The first function I&#39;d like to write will be called <code>scale</code>, and it will take a
+<p>The first function I’d like to write will be called <code>scale</code>, and it will take a
 (<code>numpy</code>) array of numerical values, and return the same array divided by its
 maximal value. So my first <em>unit test</em> will test that the function performs
 as needed:</p>
@@ -77,7 +102,7 @@ as needed:</p>
 
 <p>There are a number of stupid-proofing steps required. First, the function
 cannot work when all values in the array are 0, or if there are negative
-values, so I&#39;ll write a test for that. I want the function <code>scale</code> to raise a
+values, so I’ll write a test for that. I want the function <code>scale</code> to raise a
 <code>ValueError</code>.</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">testNegative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -99,24 +124,24 @@ not the case, the <code>scale</code> function will raise a <code>TypeError</code
    <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithCar</span><span class="p">)</span>
 </code></pre></div>
 
-<p>At this point, even though I haven&#39;t yet wrote a single line of the <code>scale</code>
+<p>At this point, even though I haven’t yet wrote a single line of the <code>scale</code>
 function, I know quite well how it should work! Importantly, I know the
 type of data that will come in this function. This is something I like when
 writing code: I need to understand which data go where, and how they are
 formatted and transformed along the way. I try to make students think about
 this when giving courses. What kind of data go in? What kind of data come
 out? This approach forces to determine when and how the function will break,
-and it&#39;s great to have a very clear idea of the data types.</p>
+and it’s great to have a very clear idea of the data types.</p>
 
 <p>Now is the time to program the actual function. It will take one argument,
-and return another array (the original one is not modified). Let&#39;s write
+and return another array (the original one is not modified). Let’s write
 the simplest possible form of this function:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
    <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
-<p>In most situations, I would have been happy writing the function this way. Let&#39;s integrate it with the test suite, and see how it goes:</p>
+<p>In most situations, I would have been happy writing the function this way. Let’s integrate it with the test suite, and see how it goes:</p>
 
 <div class="highlight"><pre><code class="python"><span class="c">#! /usr/bin/python2</span>
 
@@ -185,6 +210,7 @@ this approach forces to ask question about the structure of the code first,
 and write the actual code later.</p>
 
 
+
 </div>
 
 
@@ -221,19 +247,6 @@ and write the actual code later.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -249,22 +262,6 @@ and write the actual code later.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

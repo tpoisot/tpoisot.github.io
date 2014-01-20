@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>These aren't the networks you're looking for</h1>
 
@@ -53,21 +78,25 @@
 <p>The development of the <code>rmangal</code> package is making good progress. I just
 finised implementing a way to filter results, which will be extremely useful
 when the number of taxa and networks will start growing. Before we get into
-how filtering is done, I&#39;d like to take the opportunity to bore everyone
+how filtering is done, I’d like to take the opportunity to bore everyone
 with technical details. <code>mangal</code> (the API) relies on <code>tastypie</code>, which is a
 <code>django</code> plugin to use the data models as API resources (bored yet?). The
-<code>tastypie</code> developers had the good taste to allow <code>django</code>&#39;s ORM filter as
+<code>tastypie</code> developers had the good taste to allow <code>django</code>’s ORM filter as
 URL parameters to filter results. Or in short, there is a filtering solution
 working out of the box.</p>
 
 <p>The filtering is realtively easy to do, as it follows the common pattern:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">?field__relation=target
-</code></pre></div>
+
+<pre><code>?field__relation=target
+</code></pre>
+
 <p>For example, to look for taxa whose name starts with <em>Lamellodiscus</em>, we
 just need to append:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">?name__startswith=Lamellodiscus
-</code></pre></div>
-<h1>The basics of filtering</h1>
+
+<pre><code>?name__startswith=Lamellodiscus
+</code></pre>
+
+<h1 id="the-basics-of-filtering">The basics of filtering</h1>
 
 <p>So how does it works in the <code>R</code> package? There is a <code>mangalSearch</code> function,
 which takes as arguments the <code>api</code>, the type of resource to look for (the
@@ -75,34 +104,46 @@ list of resources can be now be viewed with <code>api$resources</code>), and a l
 filters. The filters are themselves <code>list</code> objects, with three properties:
 <code>field</code>, <code>relation</code> (I give an overview of these below), and <code>target</code>. Let
 me illustrate:</p>
-<div class="highlight"><pre><code class="r language-r" data-lang="r">library<span class="p">(</span>rmangal<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## Loading required package: rjson
+
+<pre><code class="language-r">library(rmangal)
+</code></pre>
+
+<pre><code>## Loading required package: rjson
 ## Loading required package: httr
 ## Loading required package: igraph
 ## Loading required package: stringr
 ## Loading required package: cheddar
-</code></pre></div><div class="highlight"><pre><code class="r language-r" data-lang="r">api <span class="o">&lt;-</span> mangalapi<span class="p">(</span><span class="s">&quot;http://localhost:8000/&quot;</span><span class="p">)</span>
-Amphiprion <span class="o">&lt;-</span> mangalSearch<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;taxa&quot;</span><span class="p">,</span> list<span class="p">(</span>list<span class="p">(</span>field <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> relation <span class="o">=</span> <span class="s">&quot;startswith&quot;</span><span class="p">,</span> 
-    target <span class="o">=</span> <span class="s">&quot;Amphiprion&quot;</span><span class="p">)))</span>
-laply<span class="p">(</span>Amphiprion<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>name<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## [1] &quot;Amphiprion clarkii&quot;      &quot;Amphiprion perideraion&quot; 
-## [3] &quot;Amphiprion ocellaris&quot;    &quot;Amphiprion sandaracinos&quot;
-## [5] &quot;Amphiprion melanopus&quot;    &quot;Amphiprion polymnus&quot;
-</code></pre></div>
+</code></pre>
+
+<pre><code class="language-r">api &lt;- mangalapi("http://localhost:8000/")
+Amphiprion &lt;- mangalSearch(api, "taxa", list(list(field = "name", relation = "startswith", 
+    target = "Amphiprion")))
+laply(Amphiprion, function(x) x$name)
+</code></pre>
+
+<pre><code>## [1] "Amphiprion clarkii"      "Amphiprion perideraion" 
+## [3] "Amphiprion ocellaris"    "Amphiprion sandaracinos"
+## [5] "Amphiprion melanopus"    "Amphiprion polymnus"
+</code></pre>
+
 <p>It may look like a convoluted way to do a simple thing, <em>but</em> the interest
-is that you can combine filters to have more precise requests. Let&#39;s say we
+is that you can combine filters to have more precise requests. Let’s say we
 are really interested in a small portion of the pacific ocean, and want to
 know if there are any networks inside. We will define two different filters:
 one for latitude, and one for longitude.</p>
-<div class="highlight"><pre><code class="r language-r" data-lang="r">filter_lat <span class="o">=</span> list<span class="p">(</span>field <span class="o">=</span> <span class="s">&quot;latitude&quot;</span><span class="p">,</span> relation <span class="o">=</span> <span class="s">&quot;range&quot;</span><span class="p">,</span> target <span class="o">=</span> c<span class="p">(</span><span class="m">1.756</span><span class="p">,</span> 
-    <span class="m">1.813</span><span class="p">))</span>
-filter_lon <span class="o">=</span> list<span class="p">(</span>field <span class="o">=</span> <span class="s">&quot;longitude&quot;</span><span class="p">,</span> relation <span class="o">=</span> <span class="s">&quot;range&quot;</span><span class="p">,</span> target <span class="o">=</span> c<span class="p">(</span><span class="m">124.76</span><span class="p">,</span> 
-    <span class="m">124.808</span><span class="p">))</span>
-Networks <span class="o">&lt;-</span> mangalSearch<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;network&quot;</span><span class="p">,</span> list<span class="p">(</span>filter_lat<span class="p">,</span> filter_lon<span class="p">))</span>
-laply<span class="p">(</span>Networks<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>name<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">## [1] &quot;Batu Kapal&quot;  &quot;Jalan Masuk&quot;
-</code></pre></div>
-<h1>Types of relations</h1>
+
+<pre><code class="language-r">filter_lat = list(field = "latitude", relation = "range", target = c(1.756, 
+    1.813))
+filter_lon = list(field = "longitude", relation = "range", target = c(124.76, 
+    124.808))
+Networks &lt;- mangalSearch(api, "network", list(filter_lat, filter_lon))
+laply(Networks, function(x) x$name)
+</code></pre>
+
+<pre><code>## [1] "Batu Kapal"  "Jalan Masuk"
+</code></pre>
+
+<h1 id="types-of-relations">Types of relations</h1>
 
 <p>There are ten different values for the <code>relation</code> type. <code>starswith</code> and
 <code>endswith</code> will match the beginnign and end of the value. <code>exact</code> will match
@@ -113,31 +154,37 @@ find the network it belongs to). <code>range</code> will return all objects that
 values in the <code>target</code> range. And finally, <code>gte</code>, <code>gt</code>, <code>lte</code> and <code>lt</code>,
 handle superior/inferior (or equal) relationships.</p>
 
-<h1>More advanced usage</h1>
+<h1 id="more-advanced-usage">More advanced usage</h1>
 
-<p>If you look at the code of <code>mangalSearch</code>, you&#39;ll see that it passes
+<p>If you look at the code of <code>mangalSearch</code>, you’ll see that it passes
 an addition argument (<code>filtering</code>) to <code>mangalList</code>. This allows you
 to handle more complicated filtering schemes. In the filtering pattern
 <code>field__relation=target</code>, <code>field</code> can actually be a <em>path</em> across multiple
-objects. Let&#39;s illustrate with an example.</p>
+objects. Let’s illustrate with an example.</p>
 
 <p>We want to retrieve all interactions involving <code>taxa</code> whose name starts with
 <code>Amphiprion</code>. The <em>path</em> from <code>interaction</code> to <code>taxa</code> goes through the field <code>taxa_to</code>/<code>taxa_from</code> in interaction. So what we want to do is:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">?taxa_from__name__startswith=Amphiprion
-</code></pre></div>
+
+<pre><code>?taxa_from__name__startswith=Amphiprion
+</code></pre>
+
 <p>We can add that as the <code>filtering</code> argument of <code>mangalList</code>:</p>
-<div class="highlight"><pre><code class="r language-r" data-lang="r">Interactions <span class="o">&lt;-</span> rmangal<span class="o">:::</span>mangalList<span class="p">(</span>api<span class="p">,</span> <span class="s">&quot;interaction&quot;</span><span class="p">,</span> filtering <span class="o">=</span> <span class="s">&quot;taxa_from__name__startswith=Amphiprion&quot;</span><span class="p">)</span>
-laply<span class="p">(</span>Interactions<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> x<span class="o">$</span>id<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">##  [1] &quot;93&quot;  &quot;92&quot;  &quot;87&quot;  &quot;86&quot;  &quot;85&quot;  &quot;82&quot;  &quot;81&quot;  &quot;76&quot;  &quot;75&quot;  &quot;69&quot;  &quot;68&quot; 
-## [12] &quot;67&quot;  &quot;59&quot;  &quot;58&quot;  &quot;53&quot;  &quot;52&quot;  &quot;51&quot;  &quot;50&quot;  &quot;45&quot;  &quot;44&quot;  &quot;23&quot;  &quot;24&quot; 
-## [23] &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot;  &quot;34&quot;  &quot;35&quot; 
-## [34] &quot;36&quot;  &quot;37&quot;  &quot;38&quot;  &quot;39&quot;  &quot;41&quot;  &quot;42&quot;  &quot;43&quot;  &quot;44&quot;  &quot;45&quot;  &quot;46&quot;  &quot;47&quot; 
-## [45] &quot;48&quot;  &quot;49&quot;  &quot;50&quot;  &quot;51&quot;  &quot;52&quot;  &quot;53&quot;  &quot;54&quot;  &quot;56&quot;  &quot;58&quot;  &quot;59&quot;  &quot;60&quot; 
-## [56] &quot;61&quot;  &quot;62&quot;  &quot;64&quot;  &quot;65&quot;  &quot;66&quot;  &quot;67&quot;  &quot;68&quot;  &quot;69&quot;  &quot;71&quot;  &quot;72&quot;  &quot;73&quot; 
-## [67] &quot;75&quot;  &quot;76&quot;  &quot;77&quot;  &quot;78&quot;  &quot;79&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot;  &quot;85&quot;  &quot;86&quot; 
-## [78] &quot;87&quot;  &quot;88&quot;  &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;95&quot;  &quot;96&quot;  &quot;97&quot;  &quot;98&quot; 
-## [89] &quot;99&quot;  &quot;100&quot; &quot;101&quot; &quot;102&quot; &quot;103&quot; &quot;104&quot; &quot;105&quot; &quot;106&quot;
-</code></pre></div>
+
+<pre><code class="language-r">Interactions &lt;- rmangal:::mangalList(api, "interaction", filtering = "taxa_from__name__startswith=Amphiprion")
+laply(Interactions, function(x) x$id)
+</code></pre>
+
+<pre><code>##  [1] "93"  "92"  "87"  "86"  "85"  "82"  "81"  "76"  "75"  "69"  "68" 
+## [12] "67"  "59"  "58"  "53"  "52"  "51"  "50"  "45"  "44"  "23"  "24" 
+## [23] "25"  "26"  "27"  "28"  "29"  "30"  "31"  "32"  "33"  "34"  "35" 
+## [34] "36"  "37"  "38"  "39"  "41"  "42"  "43"  "44"  "45"  "46"  "47" 
+## [45] "48"  "49"  "50"  "51"  "52"  "53"  "54"  "56"  "58"  "59"  "60" 
+## [56] "61"  "62"  "64"  "65"  "66"  "67"  "68"  "69"  "71"  "72"  "73" 
+## [67] "75"  "76"  "77"  "78"  "79"  "81"  "82"  "83"  "84"  "85"  "86" 
+## [78] "87"  "88"  "89"  "90"  "91"  "92"  "93"  "95"  "96"  "97"  "98" 
+## [89] "99"  "100" "101" "102" "103" "104" "105" "106"
+</code></pre>
+
 <p>Because <code>mangalList</code> is not exported, you have to use the <code>:::</code> operator
 to explicitely call it. Note that these functions may not work (quite yet)
 with the public database, because we will update the API later this week.</p>
@@ -171,26 +218,13 @@ with the public database, because we will update the API later this week.</p>
 
 
 
-<span class="next disabled">
-   Next post <i class="fa fa-fw fa-chevron-right"></i>
+<span class="next">
+<a href="/2014/01/19/pymangal/">Next post <i class="fa fa-fw fa-chevron-right"></i></a>
 </span>
 
 </div>
 
 
-      </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
       </div>
    </div>
    <div class='push'></div>
@@ -207,22 +241,6 @@ with the public database, because we will update the API later this week.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

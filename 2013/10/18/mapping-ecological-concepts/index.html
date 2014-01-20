@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Mapping ecological concepts using twitter</h1>
 
@@ -50,15 +75,15 @@
    </div>
 
 
-<p>I&#39;ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological
+<p>I’ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological
 Society</a>, and while we currently use it as a tool to relay the various
-informations we want to share, it&#39;s also a great way to engage with people. So
+informations we want to share, it’s also a great way to engage with people. So
 the question that immediately came to mind is: what kind of topics are
 associated with ecology on twitter? My own twitter list is a poor indicator of
-the &ldquo;general public&rdquo; as far as ecology is concerned, so I had to look for
+the “general public” as far as ecology is concerned, so I had to look for
 another solution.</p>
 
-<p>Twitter offers a series of <em>Streaming API</em>, which allows to &ldquo;listen&rdquo; to the
+<p>Twitter offers a series of <em>Streaming API</em>, which allows to “listen” to the
 conversation, by tracking some keywords, or users, or geographic location. So
 I downloaded the excellent <a href="https://github.com/geduldig/TwitterAPI"><code>TwitterAPI</code> </a> module for <code>python</code>, and
 tracked a series of keywords. After some trial and error, I settled on
@@ -68,10 +93,10 @@ tracked a series of keywords. After some trial and error, I settled on
 positives (in engineering and software, respectively).</p>
 
 <p>The streaming API, in a nutshell, will return a new line everytime a tweet that
-matches the search parameters is posted. Not all tweets are sampled, but it&#39;s
+matches the search parameters is posted. Not all tweets are sampled, but it’s
 approximately a random sampling, so more than good enough for a side-project.
 I left the script running for a few hours at a time, which gave me a database
-of over 1000 tweets, about 600 of which were retained. I&#39;ve removed all tweets
+of over 1000 tweets, about 600 of which were retained. I’ve removed all tweets
 using a alphabet that is not latin, and there were quite a bit of these.</p>
 
 <p>Once this was done, I just read each line in <code>python</code> (the Twitter API have the
@@ -84,7 +109,7 @@ in each tweet, and let the fun begin!</p>
 <p>One of the things I know how to do is network analysis. So I settled on the
 following procedure to find connections between words. All of the unique words
 are nodes in a network, and two nodes are connected whenever they appear in the
-same tweet. That makes for a <em>lot</em> of connections, but it&#39;s not a problem
+same tweet. That makes for a <em>lot</em> of connections, but it’s not a problem
 because I will eliminate a lot of them later. At this stage, I have a network
 with 2600 nodes, and over 30000 undirected edges. Obviously (i) words appearing
 only once in the dataset have little interest, and (ii) words like <code>the</code> and
@@ -103,7 +128,7 @@ connexions were not really important. Most of the words were excluded using
 this proccess, and the network felt to a much more manageable 149 nodes and
 2509 edges.</p>
 
-<p>Part of these were still words like <code>the</code>, <code>at</code>, and so forth. I&#39;ll eventually
+<p>Part of these were still words like <code>the</code>, <code>at</code>, and so forth. I’ll eventually
 use TF-IDF to select relevant words from each tweet, but remember, this is
 a quick-and-dirty analysis. So I simply looked at mylist of nodes, and removed
 every words that were not relevant (this is rather arbitrary too, but in doubt
@@ -111,53 +136,56 @@ I decided to be inclusive). The final network had 58 nodes, and 250 edges.</p>
 
 <p>Here are the top most important ones, based on their eigenvector centrality:</p>
 
-<table><thead>
-<tr>
-<th align="left">Word</th>
-<th align="center">Centrality</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="left">ecology</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="left">biodiversity</td>
-<td align="center">0.94</td>
-</tr>
-<tr>
-<td align="left">ecological</td>
-<td align="center">0.70</td>
-</tr>
-<tr>
-<td align="left">human</td>
-<td align="center">0.45</td>
-</tr>
-<tr>
-<td align="left">environment</td>
-<td align="center">0.43</td>
-</tr>
-<tr>
-<td align="left">loss</td>
-<td align="center">0.40</td>
-</tr>
-<tr>
-<td align="left">wetland</td>
-<td align="center">0.36</td>
-</tr>
-<tr>
-<td align="left">environmental</td>
-<td align="center">0.35</td>
-</tr>
-<tr>
-<td align="left">forest</td>
-<td align="center">0.34</td>
-</tr>
-<tr>
-<td align="left">wildlife</td>
-<td align="center">0.33</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Word</th>
+      <th style="text-align: center">Centrality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ecology</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">biodiversity</td>
+      <td style="text-align: center">0.94</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ecological</td>
+      <td style="text-align: center">0.70</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">human</td>
+      <td style="text-align: center">0.45</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">environment</td>
+      <td style="text-align: center">0.43</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">loss</td>
+      <td style="text-align: center">0.40</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">wetland</td>
+      <td style="text-align: center">0.36</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">environmental</td>
+      <td style="text-align: center">0.35</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">forest</td>
+      <td style="text-align: center">0.34</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">wildlife</td>
+      <td style="text-align: center">0.33</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>If you want to see the other words, you can <a href="http://dx.doi.org/10.6084/m9.figshare.827286">get the <code>graphml</code> file from
 <em>figshare</em></a>. So here is the recipe. If you want to engage with the
@@ -167,22 +195,23 @@ that the volume of non-ecologists is orders of magnitude larger than the volume
 of ecologists, these keywords are most likely what is discussed.</p>
 
 <p>Here is finally a visualization of the network. There is a clearly
-non-significant modular structure, but I&#39;ve nonetheless colored the nodes to
+non-significant modular structure, but I’ve nonetheless colored the nodes to
 better illustrate the relationships:</p>
 
-<p><img src="/images/tw-ecol-concepts.png" alt="Figure1" title="the network"></p>
+<p><img src="/images/tw-ecol-concepts.png" alt="The network" /></p>
 
 <p>Interestingly (the layout method groups nodes that are close to each other),
-there seems to be the &ldquo;sustainability/ecosystem services&rdquo; topics
-on one side (bottom-left), and the &ldquo;conservation&rdquo; topics on the
+there seems to be the “sustainability/ecosystem services” topics
+on one side (bottom-left), and the “conservation” topics on the
 other side (top-right).</p>
 
-<p>I&#39;ll keep on running this model from time to time, but I think there is a good
+<p>I’ll keep on running this model from time to time, but I think there is a good
 opportunity to design informed strategies for communication with the public.
 There is not much effort in collecting these data, and we (scientists) can help
 by communicating in issues in which their is a broad interest. And I may end up
 doing a best-of of the undergrads complaining on Twitter about how <em>Ecology
 101</em> is hard, that is fun too.</p>
+
 
 
 </div>
@@ -221,19 +250,6 @@ doing a best-of of the undergrads complaining on Twitter about how <em>Ecology
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -249,22 +265,6 @@ doing a best-of of the undergrads complaining on Twitter about how <em>Ecology
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

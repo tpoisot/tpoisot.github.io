@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -33,57 +36,98 @@
 
 <body>
 <a id="top"></a>
-<div id="main">
 
-<div class="row content">
-   <div class = "row copy">
-   <div class="large-9 small-10 columns maintext">
-   <!-- This loops through the paginated posts -->
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
+<div class="row wrapper">
+   <div class = "copy">
+      <div class="large-12 small-12 columns maintext">
+         <!-- This loops through the paginated posts -->
 
 
-<div class='post'>
-  <h1>Models are useless. Real ecologists should move on.</h1>
-  <div class="postinfo">August 13, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological theory</span><span class="label radius small" style="margin-right: 3px;">models</span><span class="label radius small" style="margin-right: 3px;">equations</span></div>
-  <p>
-    I&#39;m spending more and more of my time doing theory related thing. Data analysis, model, drawing conceptual figures to make it seem like I have deep ideas about nature, life, and everything. Yet I love ecology, biology, and the complexity of natural systems. At this point, I&#39;m sure most of you are familiar with the recent paper by Fawcett &amp; Higginson in PNAS - they conclude that the more equations are in a biology paper, the more its relative number of citation decreases. This result is equal part tragic and unsurprizing, and upon publication, the entire community of empiricists adressed...
-  </p>
-<a class="readmore" href="/2012/08/13/models-are-useless/">Read more...</a>
+<div class='post postlist'>
+   <h1>How to make the most out of peer-review?</h1>
+   <div class="postinfo">
+      January 29, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
+   </div>
+      <p>So it seems that the love/hate relationship between science and publishers has reached its tipping point following the RWA turmoil, with appeals to boycott major publishers, such as researchwithoutwalls and thecostofknowledge, and some of the most eminents members of the scientific blogosphere talking about it, and using creative metaphors to illustrate how big of a scam it is. Specifically, most scientists are publicly stating that they will not review papers anymore, at least in the...</p>
+      <a class="readmore" href="/2012/01/29/sign-your-reviews/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Are student-friendly conferences worth it?</h1>
-  <div class="postinfo">August  5, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">conferences</span></div>
-  <p>
-    Two recent posts by Jeremy Fox and Zen Faulkes dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not how things work. When teaching, I&#39;m always struggling to make students speak. And as far as I know, I&#39;m not the only one in this...
-  </p>
-<a class="readmore" href="/2012/08/05/student-friendly-meetings/">Read more...</a>
+<div class='post postlist'>
+   <h1>Measuring ecological specificity</h1>
+   <div class="postinfo">
+      January 19, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/specificity/">specificity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
+   </div>
+      <p>Our paper about measurements of ecological specialization is now available online at the Methods in Ecology &amp; Evolution website. You can also download the associated R package from R-Forge. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that. Early during my...</p>
+      <a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>My new linux setup</h1>
-  <div class="postinfo">August  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">linux</span><span class="label radius small" style="margin-right: 3px;">free software</span></div>
-  <p>
-    I have a terrible confession to make. Two weeks ago, I installed Windows 7. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask? I made the switch from Mac to Linux, that&#39;s why. I needed to install Windows on my new machine before wiping it up and replacing it by Ubuntu (needless to say, I derived a great amount of pleasure in the...
-  </p>
-<a class="readmore" href="/2012/08/03/new-linux-setup/">Read more...</a>
+<div class='post postlist'>
+   <h1>Science in the age of social coding</h1>
+   <div class="postinfo">
+      January  6, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/github/">github</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
+   </div>
+      <p>I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I’m wondering what...</p>
+      <a class="readmore" href="/2012/01/06/science-age-social-coding/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>A walk on the intertidal zone</h1>
-  <div class="postinfo">July 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">intertidal</span><span class="label radius small" style="margin-right: 3px;">trophic complexity</span></div>
-  <p>
-    I&#39;m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this: What immediately came to my mind is: we don&#39;t know anything. It&#39;s one thing to look at species interaction networks, and have a feeling that we can, somehow, predict, forecast, and analyse the behavior of complex systems. It&#39;s another entirely different thing to actually see millions...
-  </p>
-<a class="readmore" href="/2012/07/15/what-is-trophic-complexity/">Read more...</a>
+<div class='post postlist'>
+   <h1>Simulated phylogenetic trees and community assembly</h1>
+   <div class="postinfo">
+      January  5, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phylogeny/">phylogeny</a></span>
+   </div>
+      <p>I’m working on a toy model of community assembly in Python, and I thought it would be cool to have an easy way to keep track of the phylogeny. To do so, I’ve conceived two classes for the easy handling of phylogenetic structure. They are available on GitHub in the PyCoPhy repository (Python Community Phylogenetics), and check also the code page. The general idea behind them is quite easy to understand. A phylogenetic tree is...</p>
+      <a class="readmore" href="/2012/01/05/a-python-class-for-phylogenies/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
-  <div class="postinfo">July  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">LaTeX</span><span class="label radius small" style="margin-right: 3px;">pgfplots</span><span class="label radius small" style="margin-right: 3px;">data visualization</span></div>
-  <p>
-    Color Brewer is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the RColorBrewer package. Last week, I started using pgfplots, a tikz extension for data visualization, to prepare slides for the upcoming Evolution2012 meeting in Ottawa. I thought it would be pretty cool to be able to use the Color Brewer scales in my talk. Using pgfplots , it&#39;s really easy to define color cycles (for different series of points), and color maps (for surface plots)....
-  </p>
-<a class="readmore" href="/2012/07/03/colorbrewer-in-pgfplots/">Read more...</a>
+<div class='post postlist'>
+   <h1>Goodbye Wordpress, hello Jekyll!</h1>
+   <div class="postinfo">
+      January  1, 2012 &mdash; 
+   </div>
+      <p>A few weeks ago, I discovered Jekyll. In a nutshell, Jekyll is a static site generator who promised me I’ll be able to blog like a hacker. This site is now hosted on GitHub, and both the template and the content can be forked, so everything is basically open source. Jekyll is a lot of fun to use, especially because all of the content reside in static text files instead of a database. It’s also...</p>
+      <a class="readmore" href="/2012/01/01/migration-to-jekyll/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>The aggregate function in Python</h1>
+   <div class="postinfo">
+      December  1, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scipy/">scipy</a></span>
+   </div>
+      <p>One thing I love the most about R is the aggregate function, which (in a nutshell) summarizes a data frame according to one or more columns, and perform some operations on the aggregated values. If, for example, you have a data frame with a treatment and a response, and want to calculate the mean and standard deviation of the response by level of treatment, then aggregate is usually the way to go. I wanted to...</p>
+      <a class="readmore" href="/2011/12/01/the-aggregate-function-in-python/">Read more...</a>
+   <hr />
 </div>
 
 
@@ -155,44 +199,19 @@
     <li><a href="/blog/page16">16</a></li>
     
     
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
-    
-    <li><a href="/blog/page19">19</a></li>
-    
-    
   </ul>
 
 </div>
 
 
-   </div>
-   <div class="large-3 small-2 columns">
-      <div class='header'>
-         <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-         <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
-   </div>
+   <div class='push'></div>
+</div>
 
-   <div class="row footer">
-         <div class="small-4 columns">
+<div class="row footer">
+   <div class="footercontent">
+      <div class="small-4 columns">
 <h5>Contact</h5>
 <ul class='no-bullet'>
    <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
@@ -201,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
-   
-   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>
@@ -233,12 +236,7 @@
 
 
    </div>
-
 </div>
-
-
-</div>
-
 </body>
 
 </html>

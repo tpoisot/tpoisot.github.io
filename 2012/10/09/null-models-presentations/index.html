@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Presenting the results of networks null models</h1>
 
@@ -50,11 +75,11 @@
    </div>
 
 
-<p>I&#39;m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
+<p>I’m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
 
-<p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It&#39;s a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>
+<p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It’s a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>
 
-<p><img src="/images/nullmodels.png" alt="Figure1 - heatmap" title="nullmodels"></p>
+<p><img src="/images/nullmodels.png" alt="Figure1 - heatmap" /></p>
 
 <p>The number within each quadrant represent how many networks have this property (<em>e.g.</em> for the leftmost dataset, 72 networks are both more nested and more modular than expected), and the shading is a measure of the proportion of networks falling within each quadrant. I quite like this method, because as illustrated above, you can easily compare different datasets at a glance, even when the number of networks differ. And you also get a sense of some interesting phenomenon: in the middle dataset, networks are clearly more nested, but equally less or more modular than expected.</p>
 
@@ -62,27 +87,28 @@
 
 <div class="highlight"><pre><code class="latex"><span class="k">\tikzstyle</span><span class="nb">{</span>val<span class="nb">}</span> = [minimum size=1cm, inner sep = 0pt, draw=black, thick]
 <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-    <span class="k">\node</span><span class="na">[val, fill=black!9]</span> (mpnn) at (0, 0) <span class="nb">{</span>12<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[val, fill=black!2, right of=mpnn]</span> (mpne) <span class="nb">{</span>8<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[val, fill=black!57, right of=mpne]</span> (mpnp) <span class="nb">{</span>72<span class="nb">}</span>;
-    
-    <span class="k">\node</span><span class="na">[val, fill=black!2, below of=mpnn]</span> (menn) <span class="nb">{</span>3<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[val, fill=black!4, below of=mpne]</span> (mene) <span class="nb">{</span>6<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[val, fill=black!9, below of=mpnp]</span> (menp) <span class="nb">{</span>12<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!9]</span> (mpnn) at (0, 0) <span class="nb">{</span>12<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!2, right of=mpnn]</span> (mpne) <span class="nb">{</span>8<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!57, right of=mpne]</span> (mpnp) <span class="nb">{</span>72<span class="nb">}</span>;
+	
+	<span class="k">\node</span><span class="na">[val, fill=black!2, below of=mpnn]</span> (menn) <span class="nb">{</span>3<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!4, below of=mpne]</span> (mene) <span class="nb">{</span>6<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!9, below of=mpnp]</span> (menp) <span class="nb">{</span>12<span class="nb">}</span>;
 
-    <span class="k">\node</span><span class="na">[val, fill=black!1, below of=menn]</span> (mnnn) <span class="nb">{</span>2<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[val, fill=black!0, below of=mene]</span> (mnne) <span class="nb">{</span>1<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[val, fill=black!7, below of=menp]</span> (mnnp) <span class="nb">{</span>9<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!1, below of=menn]</span> (mnnn) <span class="nb">{</span>2<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!0, below of=mene]</span> (mnne) <span class="nb">{</span>1<span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[val, fill=black!7, below of=menp]</span> (mnnp) <span class="nb">{</span>9<span class="nb">}</span>;
 
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, left of=menn]</span> (mQ) <span class="nb">{</span><span class="s">$</span><span class="nb">Q_{bip}</span><span class="s">$</span><span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, left of=mpnn]</span> (mQp) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>+<span class="nb">}}</span>;
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, left of=mnnn]</span> (mQn) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>-<span class="nb">}}</span>;
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnne]</span> (nodf) <span class="nb">{</span><span class="s">$</span><span class="nb">N</span><span class="s">$</span><span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnnp]</span> (nodfp) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>+<span class="nb">}}</span>;
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnnn]</span> (nodfn) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>-<span class="nb">}}</span>;
-    <span class="k">\node</span><span class="na">[draw=none, fill=none, above of=mpne]</span> (lab) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>Panel title<span class="nb">}}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, left of=menn]</span> (mQ) <span class="nb">{</span><span class="s">$</span><span class="nb">Q_{bip}</span><span class="s">$</span><span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, left of=mpnn]</span> (mQp) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>+<span class="nb">}}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, left of=mnnn]</span> (mQn) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>-<span class="nb">}}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnne]</span> (nodf) <span class="nb">{</span><span class="s">$</span><span class="nb">N</span><span class="s">$</span><span class="nb">}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnnp]</span> (nodfp) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>+<span class="nb">}}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, below of=mnnn]</span> (nodfn) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>-<span class="nb">}}</span>;
+	<span class="k">\node</span><span class="na">[draw=none, fill=none, above of=mpne]</span> (lab) <span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>Panel title<span class="nb">}}</span>;
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 </code></pre></div>
+
 
 
 </div>
@@ -121,19 +147,6 @@
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -149,22 +162,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

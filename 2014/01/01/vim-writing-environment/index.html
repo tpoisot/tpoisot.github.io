@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Using Vim as a writing environment</h1>
 
@@ -56,30 +81,30 @@ in a way that will transform it into an impressively efficient writing
 environment. <code>Vim</code> is a really good code editor, there is no questioning
 that. But writing code and writing prose are entirely different exercises,
 and some tools you need to efficiently write code are only getting in the
-way when you write prose. But <code>Vim</code> can handle that, and I&#39;m going to share
+way when you write prose. But <code>Vim</code> can handle that, and I’m going to share
 my configuration with you.</p>
 
-<h2>The font</h2>
+<h2 id="the-font">The font</h2>
 
 <p>I care <em>way too much</em> about fonts and typography. And as I spend several
 hours each days looking at a terminal, picking a good font for writing is
 important. What makes a font good will vary from person to person, but there
 are a few common elements. I want glyphs that are easy to differentiate (<code>0</code>
-<em>vs.</em> <code>O</code>, <code>l</code> <em>vs.</em> <code>1</code>, for example), and a font with a good negative
+<em>vs.</em> <code>O</code>, <code>l </code> <em>vs.</em> <code>1</code>, for example), and a font with a good negative
 space, so that reading long paragraphs of texts is not eye-straining. When
 spending a few hours working on a paper, it can make all the difference in
 the world to have a good, easily legible font. I use the <a href="http://www.google.com/fonts/specimen/Cousine">Cousine</a> family,
 which can be freely downloaded. It works well as all sizes, and has a good
 inventory of glyphs.</p>
 
-<h2>The color scheme</h2>
+<h2 id="the-color-scheme">The color scheme</h2>
 
-<p>No surprise, I use <a href="light">Solarized</a>. It has a good contrast, and because
-of the beige background, you don&#39;t feel like you are staring at a light
+<p>No surprise, I use <a href="http://ethanschoonover.com/solarized">Solarized</a> (light). It has a good contrast, and because
+of the beige background, you don’t feel like you are staring at a light
 bulb. And the <code>solarized-vim</code> version comes with quite a very exhaustive
 syntax set, so everything (i) works and (ii) looks great out of the box.</p>
 
-<h2>The plugins</h2>
+<h2 id="the-plugins">The plugins</h2>
 
 <p>Although you can get my entire <a href="https://github.com/tpoisot/dotfiles/blob/master/vimrc"><code>.vimrc</code> file</a> from <em>GitHub</em>, I
 will just walk you through the most important plugins. I manage them using
@@ -96,22 +121,23 @@ Bundle <span class="s1">&#39;altercation/vim-colors-solarized&#39;</span>
 these days, having good plugins is a requirement. They introduce things like
 autocompletion of citations from a <code>bibtex</code> file, and things like <em>replacing
 LaTeX greek letters by the actual greek letter</em>, which means that when you
-are looking at a paragraph, it shows no markup, but the formatting. It&#39;s
+are looking at a paragraph, it shows no markup, but the formatting. It’s
 really, really amazing when you want to <em>read</em>.</p>
 
 <p>The most recent addition to this collection is <code>vimroom</code>. This plugins
 attempts to replicate the look and feel of <em>WriteRoom</em>, one of the many, many
-&ldquo;distraction-free&rdquo; writing softwares. When editing a document, <code>&lt;leader&gt;V</code>
+“distraction-free” writing softwares. When editing a document, <code>&lt;leader&gt;V</code>
 will center the text on the screen, with ample white-space on each sides,
-and remove every piece of clutter from the &ldquo;interface&rdquo;. It means that, if
-you have a large screen, you don&#39;t need to turn your head all the way to
+and remove every piece of clutter from the “interface”. It means that, if
+you have a large screen, you don’t need to turn your head all the way to
 the left to read what you are working on.</p>
 
-<hr>
+<hr />
 
-<p>So that&#39;s it! It&#39;s not much work, and it makes for a really pleasant writing
-experience in <code>Vim</code>. And it&#39;s effortless to switch from &ldquo;code&rdquo; to &ldquo;prose&rdquo;
+<p>So that’s it! It’s not much work, and it makes for a really pleasant writing
+experience in <code>Vim</code>. And it’s effortless to switch from “code” to “prose”
 mode, making <code>Vim</code> a very versatile and productive tool.</p>
+
 
 
 </div>
@@ -150,19 +176,6 @@ mode, making <code>Vim</code> a very versatile and productive tool.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -178,22 +191,6 @@ mode, making <code>Vim</code> a very versatile and productive tool.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

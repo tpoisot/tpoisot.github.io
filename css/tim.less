@@ -2,21 +2,44 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,900italic,900,700italic);
+
+@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
 
 @mono: 'Cousine';
-@sans: 'PT Sans';
+@sans: 'Signika';
 @serif: 'Noticia Text';
 @hand: 'Satisfy';
+
+@bg: rgb(254, 254, 254);
+@struct: rgb(221, 221, 221);
+@hl: rgb(87, 83, 74);
+@txt: rgb(67, 63, 54);
 
 html, body{
    height: 100% !important;
 }
 
+.alert{
+   background-color: @struct;
+   font-family: @sans;
+   font-weight: 400;
+   padding: 1em;
+   margin: 2em 0em;
+   line-height: 1.2rem;
+   h4{
+      font-weight: 700;
+      display: inline;
+      font-size: 1rem;
+   }
+}
+
 body{
-   background-color: rgb(243, 243, 243);
+   background-color: @bg;
    font-family: @sans !important;
    h1, h2, h3{
       font-family: @sans;
+      font-weight: 600;
    }
 }
 
@@ -25,7 +48,42 @@ a{
 }
 
 a:hover{
-   text-shadow: 0px 0px 2px rgb(200, 200, 200, 0.5);
+   text-shadow: 0px 0px 1px rgb(87, 83, 64, 0.8);
+}
+
+.contain-to-grid{
+   background-color: @bg !important;
+   border-bottom: 1px solid @struct;
+   box-shadow: 0px 0px 10px rgba(254, 254, 254, 0.8);
+}
+
+.top-bar{
+   max-width: 800px !important;
+   background: none !important;
+   color: @hl !important;
+   .name h1 a:hover{
+      text-shadow: none;
+   }
+   .name h1 a{
+      color: @hl;
+      padding: 0px 0px !important;
+   }
+}
+
+.top-bar-section
+{
+   li a{
+      background: @bg !important;
+      color: @txt !important;
+   }
+   li.active a{
+      background: @struct !important;
+   }
+   li a:hover{
+      background: @bg !important;
+      color: @hl !important;
+      text-shadow: none;
+   }
 }
 
 hr{
@@ -33,6 +91,8 @@ hr{
    margin-left: 0px;
    margin-right: 60%;
    border-width: 3px 0 0;
+   color: @struct;
+   border-color: @struct;
 }
 
 .pagination{
@@ -51,28 +111,31 @@ code, pre{
 }
 
 blockquote{
-   .box;
-   background-color: rgb(230, 230, 230);
+   border: 0px solid white;
    p {
+      font-family: @sans;
+      font-size: 1.05rem;
       padding-bottom: 0px;
       margin-bottom: 0px;
+      font-weight: 300 !important;
+      b, strong{
+         font-weight: 400 !important;
+      }
+      color: @hl;
    }
 }
 
 @tmar: 96px;
 
-.box{
-   margin: 2em 0em 2em -@tmar;
-   padding: 2em 2em 2em @tmar;
-}
-
-.highlight{
-   .box;
-   pre{
-      code{
-         font-size: 0.85em !important;
-      }
-   }
+.hljs{
+   border-left: 4px solid @struct;
+   margin-left: -1em;
+   padding: 0em !important;
+   padding-left: 1em !important;
+   margin-bottom: 2em;
+   margin-top: 2em;
+   font-size: 0.95em !important;
+   line-height: 1.3rem;
 }
 
 .header{
@@ -119,13 +182,14 @@ blockquote{
    }
 }
 
-@ftheight: 290px;
+@ftheight: 160px;
 
 .wrapper {
    min-height: 100%;
    height: auto !important;
    height: 100%;
    margin: 0 auto -@ftheight;
+   max-width: 800px;
 }
 
 
@@ -136,7 +200,13 @@ blockquote{
 
 
 .footer{
+   max-width: 800px;
    height: @ftheight !important;
+   color: @hl !important;
+   font-weight: 300 !important;
+   a{
+      color: @txt;
+   }
    .date{
       padding-right: 1em;
    }
@@ -146,41 +216,34 @@ blockquote{
    color: rgb(100, 100, 100);
    p, li{
       font-size: 0.8rem !important;
+      font-weight: 300 !important;
    }
    li{
       padding-top: 0.3em;
       margin-bottom: 0.3em;
-      height: 1.9em !important;
+      height: 1.4em !important;
    }
    font-family: @sans;
-   background-color: rgb(230, 230, 230);
    .footercontent{
-      padding: 1.2em 3em;
+      padding: 1.2em 0em;
    }
 }
 
 .wrapper{
    margin: 0em auto -@ftheight;
-   background-color: rgb(254, 254, 254);
-   box-shadow: 0px 0px 50px rgba(140, 140, 140, 0.2);
    font-family: @serif;
-   padding: 3em 3em;
-   background-color: rgb(254, 254, 254);
-   box-shadow: 0px 0px 30px rgba(140, 140, 140, 0.2);
-   font-family: @serif;
-   border-radius: 2px;
+   padding: 3em 0em;
+   color: @txt;
    .maintext{
-      padding: 3em 3em !important;
+      padding: 6em 0em !important;
    }
    h1{
-      font-weight: 400;
       font-size: 1.4rem;
-      font-color: rgb(150, 150, 150);
+      color: @hl;
    }
    h2{
-    font-weight: 700;
     font-size: 1.1rem;
-    font-color: rgb(150, 150, 150);
+    color: @hl;
   }
    .post{
       margin-bottom: 5.2em;
@@ -199,9 +262,13 @@ blockquote{
       text-align: right;
    }
    p{
-      font-size: 0.95rem;
+      font-size: 1.0rem;
       line-height: 1.85;
       font-weight: 400;
+      a{
+         color: @hl;
+         border-bottom: 1px solid @struct;
+      }
       b, strong{
          font-weight: 700;
       }
@@ -235,15 +302,16 @@ blockquote{
 
 .margin{
    display: block;
-   float: left;
+   float: right;
    font-family: @sans;
    max-width: 12em;
-   font-size: 0.85rem;
+   font-size: 0.8rem;
    line-height: 0.9rem;
-   margin: 0.8em 0.8em 0.8em -@tmar;
+   margin: 0.8em 0em 0.8em 0.8em;
    padding: 0.6em;
-   text-align: right;
+   text-align: left;
    background-color: rgb(220, 220, 220);
+   font-weight: 300 !important;
 }
 
 .MathJax_Display{
@@ -262,5 +330,17 @@ blockquote{
    }
    .disabled{
       color: rgb(190, 190, 190);
+   }
+}
+
+.footnotes{
+   margin-top: 2em;
+   p{
+      font-size: 0.9rem;
+      font-family: @sans;
+      font-weight: 300 !important;
+   }
+   .reversefootnote{
+      margin-left: 20px;
    }
 }

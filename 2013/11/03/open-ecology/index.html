@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Why should Ecology be open?</h1>
 
@@ -51,13 +76,13 @@
 
 
 <p>There are a lot of extremely good arguments to defend the fact that <a href="http://www.technology.org/2013/10/04/science-even-open/"><em>Science</em>
-(as a whole) should be more open</a>. To summarize them very roughly: it&#39;s the
-ethical thing to do as it allows everyone to access information, it&#39;s easier
-for scientists to access information, it&#39;s faster than the traditional
-peer-review system when you need to get your work noticed, and it&#39;s <em>much less
+(as a whole) should be more open</a>. To summarize them very roughly: it’s the
+ethical thing to do as it allows everyone to access information, it’s easier
+for scientists to access information, it’s faster than the traditional
+peer-review system when you need to get your work noticed, and it’s <em>much less
 expensive</em> than closed-source science. I could also elaborate on transparency,
 accountability, and the refusal to put a wall around knowledge for a while
-as well. In short, I&#39;m yet to find an argument that would convince me that
+as well. In short, I’m yet to find an argument that would convince me that
 open science is a bad thing.</p>
 
 <p>What we call <em>open science</em> obviously varies from people to people, but the
@@ -71,30 +96,30 @@ of science, as proven by the <a href="http://openwetware.org/wiki/Main_Page"><em
 specifically to experimental biology and biochemistry.</p>
 
 <p>An interesting question that keeps popping up whenever I discuss <em>Open
-ecology</em>, or <em>Open biodiversity</em>, is &ldquo;Why should it be different in ecology?&rdquo;.
+ecology</em>, or <em>Open biodiversity</em>, is “Why should it be different in ecology?”.
 Or expressed in another way, why should ecology pose particular challenges as
 far as open science is concerned? It is a very valid question, and in
 preparation for the <em>Open biodiversity</em> panel that will take place at the QCBS
 meeting in a month and a half, I thought it was time to bring some elements to
 answer it.</p>
 
-<p>Let&#39;s start by recognizing that there are (broadly) two types of ecologists.
-The &ldquo;empirical&rdquo; ecologists (including the microcosm people) rely on empirical
+<p>Let’s start by recognizing that there are (broadly) two types of ecologists.
+The “empirical” ecologists (including the microcosm people) rely on empirical
 observations, and extensive field surveys, to address their questions. The
-&ldquo;theoretical&rdquo; ecologists, on the other hand, integrate different data sources,
-or build models, to understand &ldquo;general&rdquo; questions. There are obviously
-people working all along this continuum (I don&#39;t consider myself a &ldquo;pure&rdquo;
+“theoretical” ecologists, on the other hand, integrate different data sources,
+or build models, to understand “general” questions. There are obviously
+people working all along this continuum (I don’t consider myself a “pure”
 theoretician, for example), and empiricists contributing some of the
 most important ecological <em>theories</em>, but we can all agree that leaning
 towards one end of the continuum implies having a different set of
 practices. And to make things worse, the communication between the two
-groups is not as good as it should. While it&#39;s easy (I would like to say
+groups is not as good as it should. While it’s easy (I would like to say
 <em>natural</em>) for theoreticians to have an entirely open workflow (put
 your code on <em>GitHub</em>, use it to write your manuscripts, push your
-data on <em>figshare</em> using the API, and <em>voilà!</em>), it&#39;s slightly more
-complicated for empiricists. While it&#39;s true that anyone can make data
-public, you can&#39;t reasonably release your field site under a <em>Creative
-Commons</em> licence (because it doesn&#39;t make any sense&hellip;).</p>
+data on <em>figshare</em> using the API, and <em>voilà!</em>), it’s slightly more
+complicated for empiricists. While it’s true that anyone can make data
+public, you can’t reasonably release your field site under a <em>Creative
+Commons</em> licence (because it doesn’t make any sense…).</p>
 
 <p>There are two points at which both worlds meet, however: data and algorithms.
 Even for the most local and system-centered question, there is a large quantity
@@ -123,14 +148,14 @@ ways to solve it, though.</p>
 same questions in similar systems, it would make sense that the data are
 formatted in a common way. A good opportunity to draft these specifications is
 large working groups, in which people sharing a common interest would think
-about the &ldquo;core&rdquo; and &ldquo;satellite&rdquo; properties of a dataset. This will also
+about the “core” and “satellite” properties of a dataset. This will also
 speed-up the development of data repositories with APIs. My personal favorite
 for the development of data specifications is <code>JSON</code> schemes, but really any
 kind will do. Data are highly structured information, and it makes sense that
 they are used and shared in a highly structured way. It is quite obvious that
 there will not a be a single <em>ecological ontology</em>, but if we managed to get it
 right for a few dozens of high quality ones, it will be a strong enhancement
-over the current data format of &ldquo;However I felt that day&rdquo; (I&#39;m guilty of this
+over the current data format of “However I felt that day” (I’m guilty of this
 one, of course).</p>
 
 <p>Second, we need <strong>stricter data review</strong>. Once the data specification has been
@@ -144,20 +169,21 @@ data easy to access, and are enough data released to make the dataset re-usable?
 
 <p>Third, and finally, we need to <strong>un-install Excel and similar software</strong>. What
 we need instead, is a <code>pandoc</code> for data. <code>pandoc</code> is a tool to convert text
-formats into other text formats. It&#39;s awesome. And with strict data
+formats into other text formats. It’s awesome. And with strict data
 specifications, we should be able to write one for ecology. This will allow use
 to store data in their correct format (<em>i.e.</em>, conforming to the data
 specification), but use them in another format when we need them in
 another format.</p>
 
 <p>All of this will require a fair amount of community coordination, and changes
-in the training and teaching of ecologists, but it&#39;s all for the greater good.
+in the training and teaching of ecologists, but it’s all for the greater good.
 Some outstanding ecological problems will only be solved when a critical mass
 of data is reached, and it would be extremely disappointing to realize that
 these data were existing, but not available due to poor practices. So in short,
 this is the challenge specific to open ecology: <strong>making sense of highly
 heterogeneous and local data, and mobilizing them to address global and
 general questions</strong>.</p>
+
 
 
 </div>
@@ -196,19 +222,6 @@ general questions</strong>.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -224,22 +237,6 @@ general questions</strong>.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

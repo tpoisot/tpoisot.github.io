@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Using networkx to simulate metapopulations in Python</h1>
 
@@ -50,18 +75,18 @@
    </div>
 
 
-<p>Python progressively replaced R for most of my daily simulations needs, because it&#39;s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I&#39;ve been using <code>networkx</code> more and more. We&#39;ve been having discussions in the lab about spatial graphs, surrounding a recent paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/22155351">Gilarranz and Bascompte</a> and some of our own projects, and I thought that it will be fun to use <code>networkx</code> to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a <a href="https://gist.github.com/2725839">gist</a>.</p>
+<p>Python progressively replaced R for most of my daily simulations needs, because it’s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I’ve been using <code>networkx</code> more and more. We’ve been having discussions in the lab about spatial graphs, surrounding a recent paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/22155351">Gilarranz and Bascompte</a> and some of our own projects, and I thought that it will be fun to use <code>networkx</code> to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a <a href="https://gist.github.com/2725839">gist</a>.</p>
 
-<h1>Setting things up</h1>
+<h1 id="setting-things-up">Setting things up</h1>
 
-<p>Before we start, we&#39;ll need a few things. Some modules are required: obviously <code>networkx</code> to deal with the graph objects, <code>numpy</code> to generate random numbers, and the <code>pyplot</code> module to deal with the output. I&#39;d much rather do the output work using <code>pyx</code>, but it would add a good 50 lines of code to get a good-looking output, so let&#39;s go the easy way.</p>
+<p>Before we start, we’ll need a few things. Some modules are required: obviously <code>networkx</code> to deal with the graph objects, <code>numpy</code> to generate random numbers, and the <code>pyplot</code> module to deal with the output. I’d much rather do the output work using <code>pyx</code>, but it would add a good 50 lines of code to get a good-looking output, so let’s go the easy way.</p>
 
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </code></pre></div>
 
-<p>Then we&#39;ll set a few parameters:</p>
+<p>Then we’ll set a few parameters:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">Patches</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c"># Number of patches</span>
 <span class="n">P_ext</span> <span class="o">=</span> <span class="mf">0.01</span>    <span class="c"># Probability of extinction (e)</span>
@@ -70,11 +95,11 @@
 <span class="n">Distance</span> <span class="o">=</span> <span class="mf">1.4</span>  <span class="c"># An arbitrary parameter to determine which patches are connected</span>
 </code></pre></div>
 
-<h1>Create a node class</h1>
+<h1 id="create-a-node-class">Create a node class</h1>
 
-<p>The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class <code>patch</code>. Before writing up, let&#39;s think about what to put in. We need a simple parameter which we call <code>status</code>, whose value can be either <code>0</code> (the patch is empty) or <code>1</code> (the patch is occupied).</p>
+<p>The first thing to do is to create a class for the patches, which will be the nodes of our spatial graph. This is relatively easy to do, and we call this new class <code>patch</code>. Before writing up, let’s think about what to put in. We need a simple parameter which we call <code>status</code>, whose value can be either <code>0</code> (the patch is empty) or <code>1</code> (the patch is occupied).</p>
 
-<p>We&#39;ll also create a tuple called <code>pos</code>, to store the position of the node in a two-dimensional space. The resulting class is:</p>
+<p>We’ll also create a tuple called <code>pos</code>, to store the position of the node in a two-dimensional space. The resulting class is:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">patch</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">status</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)):</span>
@@ -84,9 +109,9 @@
         <span class="k">return</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">))</span>
 </code></pre></div>
 
-<p>I won&#39;t go into the detail of this notation, but you can read more <a href="http://www.penzilla.net/tutorials/python/classes/">here</a> or <a href="http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/">here</a> if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.</p>
+<p>I won’t go into the detail of this notation, but you can read more <a href="http://www.penzilla.net/tutorials/python/classes/">here</a> or <a href="http://jhamrick.mit.edu/2011/05/18/an-introduction-to-classes-and-inheritance-in-python/">here</a> if you want. In any case, we now have a way to specify patches, with a spatial position and an occupancy. With this in hand, the next step is to create a network of patches, which will be the spatial landscape over which we simulate our metapopulation.</p>
 
-<h1>Create a spatially explicit graph</h1>
+<h1 id="create-a-spatially-explicit-graph">Create a spatially explicit graph</h1>
 
 <p>There are a lot of ways to create spatial graphs, but for the sake of simplicity, let us assume that we will use simples rules. Nodes (patches) have a position (<em>x,y</em>), and two nodes are connected by an edge if the euclidean distance between them is inferior or equal to a fixed value. In other words, we can decide how close two patches should be to allow migration to occur.</p>
 
@@ -116,7 +141,7 @@
 
 <p>For all pairs of nodes, we check that their distance falls below the treshold for migration, and if so, we create an edge in the network.</p>
 
-<p>At this point, it&#39;s easy to visualize the network:</p>
+<p>At this point, it’s easy to visualize the network:</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">occup</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">]</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
@@ -128,13 +153,13 @@
 
 <p>This will open a Python plotting view looking like:</p>
 
-<p><img src="/images/metapop_step1.png" alt="Figure1" title="Step 1"></p>
+<p><img src="/images/metapop_step1.png" alt="Figure1" /></p>
 
 <p>The black nodes are occupied patches, and the white ones are empty patches. If the landscape it too connected (or not connected enough), act on the <code>Distance</code> parameter to fix it.</p>
 
-<h1>Start the simulation</h1>
+<h1 id="start-the-simulation">Start the simulation</h1>
 
-<p>So now, we have everything to start the simulation. We&#39;ll first do a loop to update the status of the nodes, starting with extinctions, and then colonization. Let&#39;s start with the extinction routine:</p>
+<p>So now, we have everything to start the simulation. We’ll first do a loop to update the status of the nodes, starting with extinctions, and then colonization. Let’s start with the extinction routine:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_ext</span><span class="p">):</span>
@@ -153,9 +178,9 @@
                     <span class="k">break</span>
 </code></pre></div>
 
-<p>That&#39;s a lot of loops within loops, but it goes rougly as follows: for each of the nodes, if their is a population, we check the neighbors. For the non-occupied neighbors, we check if the colonization occurs, and if so, we break the loop.</p>
+<p>That’s a lot of loops within loops, but it goes rougly as follows: for each of the nodes, if their is a population, we check the neighbors. For the non-occupied neighbors, we check if the colonization occurs, and if so, we break the loop.</p>
 
-<p>With these two blocks, it&#39;s easy to do the actual simulation:</p>
+<p>With these two blocks, it’s easy to do the actual simulation:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">for</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
     <span class="c"># Check for extinctions</span>
@@ -173,13 +198,13 @@
                         <span class="k">break</span>
 </code></pre></div>
 
-<p>We then plot the lanscape using the same command as before (I&#39;ve actually added the list of occupancies directly within the plot instruction, because one-liners looks cool):</p>
+<p>We then plot the lanscape using the same command as before (I’ve actually added the list of occupancies directly within the plot instruction, because one-liners looks cool):</p>
 
 <div class="highlight"><pre><code class="python"><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">status</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">],</span><span class="n">with_labels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-<p><img src="/images/metapop_final.png" alt="Figure2" title="Final step"></p>
+<p><img src="/images/metapop_final.png" alt="Figure2" /></p>
 
 <p>But of course you would like to follow the dynamics, which is extremely easy. We will just add, just before the beginning of the simulation loop, the lines</p>
 
@@ -201,11 +226,11 @@
 
 <p>Which will give you the following result:</p>
 
-<p><img src="/images/metapop_dynamics.png" alt="Figure3" title="Occupancy dynamics"></p>
+<p><img src="/images/metapop_dynamics.png" alt="Figure3" /></p>
 
-<h1>Conclusions</h1>
+<h1 id="conclusions">Conclusions</h1>
 
-<p>And that&#39;s it! Using the ability of <code>networkx</code> to make any arbitrary object into a node, it&#39;s possible to implement a metapopulation simulation in roughly 50 lines. The package is reasonably fast, so it&#39;s possible to run more complex simulations (I&#39;ve been playing with metacommunities with no problem, for example).</p>
+<p>And that’s it! Using the ability of <code>networkx</code> to make any arbitrary object into a node, it’s possible to implement a metapopulation simulation in roughly 50 lines. The package is reasonably fast, so it’s possible to run more complex simulations (I’ve been playing with metacommunities with no problem, for example).</p>
 
 
 </div>
@@ -244,19 +269,6 @@
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -272,22 +284,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

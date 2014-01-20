@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -33,57 +36,98 @@
 
 <body>
 <a id="top"></a>
-<div id="main">
 
-<div class="row content">
-   <div class = "row copy">
-   <div class="large-9 small-10 columns maintext">
-   <!-- This loops through the paginated posts -->
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
+<div class="row wrapper">
+   <div class = "copy">
+      <div class="large-12 small-12 columns maintext">
+         <!-- This loops through the paginated posts -->
 
 
-<div class='post'>
-  <h1>Estimating node contribution to network properties</h1>
-  <div class="postinfo">February 12, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">modularity</span><span class="label radius small" style="margin-right: 3px;">open lab book</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span></div>
-  <p>
-    I&#39;m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I&#39;ll just detail how it possible to get this information quickly using networkx. Warning! I&rsquo;m just using this post to take notes on code I&rsquo;m currently working on. Saavedra et al. Nature 478 DOISaavedra and colleagues proposed a method which is based on the randomization of the interactions of each species in the...
-  </p>
-<a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a>
+<div class='post postlist'>
+   <h1>A quick way to get good figures for your web pages</h1>
+   <div class="postinfo">
+      January 10, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+   </div>
+      <p>I’m a huge fan of the pgfplots package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: notes, MS, and code. The results of what happens in code (usually a huge mess of R, C and Python) go directly into MS as tab-delimited files, and the .tex document has...</p>
+      <a class="readmore" href="/2013/01/10/free-workflow-figures/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>COinS metadata in Jekyll blogposts</h1>
-  <div class="postinfo">February  8, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">jekyll</span><span class="label radius small" style="margin-right: 3px;">bibliography</span></div>
-  <p>
-    COinS is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn blog posts into TREE papers, citing blog posts might not be so far away). Adding COinS data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in...
-  </p>
-<a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">Read more...</a>
+<div class='post postlist'>
+   <h1>INNGE announces EcoBloggers</h1>
+   <div class="postinfo">
+      January  7, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific communication/">scientific communication</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span>
+   </div>
+      <p>It all started with a rather enigmatic tweet, two weeks ago: Any ecologist with a blog, can you send me a message? @inngecologist is starting a cool project!&mdash; Tim (@tpoi) December 14, 2012 Thanks to Naupaka Zimmerman today is an important day, as INNGE launches EcoBloggers, a new platform to aggregate blog posts written by ecologists. Just this morning, there’s been some discussion at Dynamic Ecology that ecological blogs may be fading away. One of...</p>
+      <a class="readmore" href="/2013/01/07/ecobloggers/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Article introductions and the reinvention of the ecological wheel</h1>
-  <div class="postinfo">January 28, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">scientific publishing</span><span class="label radius small" style="margin-right: 3px;">ecological theory</span><span class="label radius small" style="margin-right: 3px;">scientific literature</span></div>
-  <p>
-    Caroline Tucker and Marc Cadotte recently had a great blog post discussing the reinvention of the ecological wheel, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with a lot of interest, for reasons that I will mention in a later post. The basic issue was that: Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence. I&#39;ll keep my opinion about whether I agree or not with this, and whether or not I think some rediscoveries are useful, for later. Caroline...
-  </p>
-<a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Read more...</a>
+<div class='post postlist'>
+   <h1>Writing grant applications can be fun</h1>
+   <div class="postinfo">
+      January  4, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/grants/">grants</a></span>
+   </div>
+      <p>Most of my summer, and a substantial part of whatever time in fall was left after teaching, went into applying to various grants and positions. It’s a frustrating experience, because it’s time not spent doing research. But as I had no other possibility than doing it, I tried to make the experience enjoyable, and I even found myself learning a few things along the way. I’ve done my PhD in a French university, and it’s...</p>
+      <a class="readmore" href="/2013/01/04/writing-grant-applications/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Using forums to communicate with students</h1>
-  <div class="postinfo">January 26, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">teaching</span></div>
-  <p>
-    This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it&#39;s a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it&#39;s possible to do participative lectures, it&#39;s hard; at least I think it is, perhaps I still need to find the good recipe. There are a few reasons for which it&#39;s difficult to get...
-  </p>
-<a class="readmore" href="/2013/01/26/using-forums-communicate-students/">Read more...</a>
+<div class='post postlist'>
+   <h1>Bacteria-phage networks</h1>
+   <div class="postinfo">
+      December 19, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phages/">phages</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteria/">bacteria</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span>
+   </div>
+      <p>I’m really glad to announce that the review paper we have been working on with Joshua Weitz, Justin Meyer, Cesar Flores, Sergi Valverde, Matthew Sullivan and Mike Hochberg is now online at Trends in Microbiology (PDF, as always, available by clicking Papers on the sidebar). It’s a great and exciting paper, in which we propose that bacteria-phage interactions should be studied as networks, rather than just pairs of interactions. Because the goal of the paper...</p>
+      <a class="readmore" href="/2012/12/19/bacteria-phage-networks/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Where to submit your paper?</h1>
-  <div class="postinfo">January 24, 2013 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">peer-review</span><span class="label radius small" style="margin-right: 3px;">research</span><span class="label radius small" style="margin-right: 3px;">scientific publishing</span><span class="label radius small" style="margin-right: 3px;">open science</span></div>
-  <p>
-    Jeremy Fox offers some advice about how to decide where to submit your paper. Also, read the response by Ethan White. There are possibly as many perspectives on this are there are researchers, which I&#39;ll definitely take as an excuse to present mine. Aim as high as you reasonably can. Then submit a step higher than that. I&#39;ve had really good surprizes with papers being accepted in journals I would have considered too high (speaking purely in term of impact factor). The worth you risk is being rejected (which is short, so you don&#39;t lose anything), or going into review....
-  </p>
-<a class="readmore" href="/2013/01/24/where-to-submit/">Read more...</a>
+<div class='post postlist'>
+   <h1>The friends of my friends (are on twitter)</h1>
+   <div class="postinfo">
+      December 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/igraph/">igraph</a></span>
+   </div>
+      <p>Twitter is cool for science, because it can help you spread your ideas. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, e.g., the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye. I’m running pilots for a cool...</p>
+      <a class="readmore" href="/2012/12/15/face-of-twitter/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>How to represent networks</h1>
+   <div class="postinfo">
+      November 23, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data management/">data management</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
+   </div>
+      <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through...</p>
+      <a class="readmore" href="/2012/11/23/how-to-represent-networks/">Read more...</a>
+   <hr />
 </div>
 
 
@@ -155,44 +199,19 @@
     <li><a href="/blog/page16">16</a></li>
     
     
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
-    
-    <li><a href="/blog/page19">19</a></li>
-    
-    
   </ul>
 
 </div>
 
 
-   </div>
-   <div class="large-3 small-2 columns">
-      <div class='header'>
-         <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-         <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
-   </div>
+   <div class='push'></div>
+</div>
 
-   <div class="row footer">
-         <div class="small-4 columns">
+<div class="row footer">
+   <div class="footercontent">
+      <div class="small-4 columns">
 <h5>Contact</h5>
 <ul class='no-bullet'>
    <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
@@ -201,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
-   
-   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>
@@ -233,12 +236,7 @@
 
 
    </div>
-
 </div>
-
-
-</div>
-
 </body>
 
 </html>

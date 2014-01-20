@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Measuring the beta-diversity of species interaction networks</h1>
 
@@ -60,9 +85,9 @@
 <div class="highlight"><pre><code class="splus">library<span class="p">(</span>betalink<span class="p">)</span>
 </code></pre></div>
 
-<p>Past this point, I&#39;m assuming you are familiar with our terminology, but if not, you can go <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"><strong>read the previous post</strong></a> (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a <code>list</code> of <code>matrix</code> objects. It&#39;s obviously important that species are named, <em>i.e.</em> set the <code>colnames</code> and <code>rownames</code> properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).</p>
+<p>Past this point, I’m assuming you are familiar with our terminology, but if not, you can go <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"><strong>read the previous post</strong></a> (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a <code>list</code> of <code>matrix</code> objects. It’s obviously important that species are named, <em>i.e.</em> set the <code>colnames</code> and <code>rownames</code> properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).</p>
 
-<p>Let&#39;s start with a simple example: two hosts, two parasites, two realizations:</p>
+<p>Let’s start with a simple example: two hosts, two parasites, two realizations:</p>
 
 <div class="highlight"><pre><code class="splus">w1 <span class="o">=</span> matrix<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 w2 <span class="o">=</span> matrix<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
@@ -84,7 +109,7 @@ rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</sp
 
 <p>The object returned is a list with three elements, <code>meta</code>, <code>template</code>, and <code>cooc</code>. All three objects are matrices, which correspond to different informations about the metaweb. <code>meta</code> is the one you are most likely to use, as it is the adjacency matrix of the metaweb. <code>template</code> is a matrix giving the frequency at which two species interacted (<em>i.e.</em> the total number of realizations in which they interacted, over the total number of realizations in which they co-occured). Finally, <code>cooc</code> gives the number of times two species co-occured, across all realizations. Note that most of the time, the <code>aggregate.metaweb</code> function will be called internally, so except when you want to have a look at the metaweb itself, there are few reasons to call it.</p>
 
-<p>The next step is to measure the dissimilarity between your two networks. Once again, the process is mostly automated. Your need to pick a &beta;-diversity measure, to start. We implemented the 23 listed by Koleff and colleagues in their 2003 paper. They are coded <code>B01</code> to <code>B23</code>. In all functions, the default is to use <code>B01</code>. Note that if you want to use quantitative measures, the <em>framework</em> allows it, but this is not currently implemented in the <em>package</em> &mdash; but this is really simple to do if you need.</p>
+<p>The next step is to measure the dissimilarity between your two networks. Once again, the process is mostly automated. Your need to pick a β-diversity measure, to start. We implemented the 23 listed by Koleff and colleagues in their 2003 paper. They are coded <code>B01</code> to <code>B23</code>. In all functions, the default is to use <code>B01</code>. Note that if you want to use quantitative measures, the <em>framework</em> allows it, but this is not currently implemented in the <em>package</em> — but this is really simple to do if you need.</p>
 
 <p>For any set of two networks, you can just call</p>
 
@@ -96,17 +121,17 @@ rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</sp
 <div class="highlight"><pre><code class="splus">betalink.dist<span class="p">(</span>realizations<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span>
 </code></pre></div>
 
-<p>If you look at the code for the <code>betalink.dist</code> function, you will see that the last argument is actually the catch-all, <code>...</code>. This means that if you want to modify the <code>betalink</code> function, which <code>betalink.dist</code> calls, you will be able to keep using <code>betalink.dist</code>. The only difference between <code>betalink.dist</code> and <code>betalink</code> is that the later returns the species &beta;-diversity for each side of the matrix separately (<em>i.e.</em> for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network &beta;-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.</p>
+<p>If you look at the code for the <code>betalink.dist</code> function, you will see that the last argument is actually the catch-all, <code>...</code>. This means that if you want to modify the <code>betalink</code> function, which <code>betalink.dist</code> calls, you will be able to keep using <code>betalink.dist</code>. The only difference between <code>betalink.dist</code> and <code>betalink</code> is that the later returns the species β-diversity for each side of the matrix separately (<em>i.e.</em> for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network β-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.</p>
 
-<p>At this point, you might want to <em>see</em> how things look, rather than just look at numbers. This option is nowhere in the paper, but I actually developed a way to plot network dissimilarity. You can use it through the <code>betalink.plot</code> function, which takes two realizations as arguments. It will plot a matrix, when interactions are color-coded: interactions which are found in both networks and do not experience turnover are in grey; interactions between species unique to realization one or two are, respectively, in green and blue; finally, interactions which are established betwen shared species, but experience turnover, are in orange. The good thing with this visualisation, an example of which is given below, is that, by looking at the relative area of each color, you can guesstimate the values of the different components of &beta;-diversity. A large grey/orange area means that most species are shared. More orange than grey means the turnover of interactions between shared species is high. And so on. The example below uses random networks, but you see the general idea.</p>
+<p>At this point, you might want to <em>see</em> how things look, rather than just look at numbers. This option is nowhere in the paper, but I actually developed a way to plot network dissimilarity. You can use it through the <code>betalink.plot</code> function, which takes two realizations as arguments. It will plot a matrix, when interactions are color-coded: interactions which are found in both networks and do not experience turnover are in grey; interactions between species unique to realization one or two are, respectively, in green and blue; finally, interactions which are established betwen shared species, but experience turnover, are in orange. The good thing with this visualisation, an example of which is given below, is that, by looking at the relative area of each color, you can guesstimate the values of the different components of β-diversity. A large grey/orange area means that most species are shared. More orange than grey means the turnover of interactions between shared species is high. And so on. The example below uses random networks, but you see the general idea.</p>
 
-<p><img src="/images/betaplot.png" alt="Figure1 - the betaplot" title="betaplot"></p>
+<p><img src="/images/betaplot.png" alt="Figure1 - the betaplot" /></p>
 
-<p>&nbsp;    </p>
+<p>     </p>
 
-<p>The last thing you may want to do is to measure the distance of each realization to the relevant portion of the metaweb (see Appendix 1 for the many reasons to do it). To do so, just use the <code>beta.os_prime</code> function, whose argument are a list of webs, and a &beta;-diversity measure.</p>
+<p>The last thing you may want to do is to measure the distance of each realization to the relevant portion of the metaweb (see Appendix 1 for the many reasons to do it). To do so, just use the <code>beta.os_prime</code> function, whose argument are a list of webs, and a β-diversity measure.</p>
 
-<p>You&#39;re now good to go, feel free to fork the package if you have any improvements to do, and email me in case of problems, I&#39;ll be glad to help you!</p>
+<p>You’re now good to go, feel free to fork the package if you have any improvements to do, and email me in case of problems, I’ll be glad to help you!</p>
 
 
 </div>
@@ -145,19 +170,6 @@ rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</sp
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -173,22 +185,6 @@ rownames<span class="p">(</span>w2<span class="p">)</span> <span class="o">=</sp
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

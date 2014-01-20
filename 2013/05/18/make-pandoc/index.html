@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Using make and pandoc for reproducible papers</h1>
 
@@ -51,16 +76,16 @@
 
 
 <p>I tend to use <a href="http://johnmacfarlane.net/pandoc/"><code>pandoc</code></a> more and more to
-write my papers. The syntax of markdown is ligthweight, doesn&#39;t get in the way
-of my writing, and it&#39;s easy to export the text to almost any format you can
+write my papers. The syntax of markdown is ligthweight, doesn’t get in the way
+of my writing, and it’s easy to export the text to almost any format you can
 name afterward. The only issue I ran in is that I also like
 <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> a lot for graphics, because they
 come with the ability to update themselves at each compilation, when the data
-are re-generated. It&#39;s quite important if you want to tweak som simulation
+are re-generated. It’s quite important if you want to tweak som simulation
 parameters, for instance. Using <code>pgfplots</code> from within <code>pandoc</code> can be done, but
 the heavy syntax seems rather clumsy.</p>
 
-<p>So I started looking at what <code>gnuplot</code> can do, and as it turns out, <code>gnuplot</code> can do <em>a lot</em>. Look at the <a href="http://gnuplot.sourceforge.net/demo_cvs/">demo gallery</a> or the excellent <a href="http://www.gnuplotting.org/">gnuplotting</a> if you want to see more. So anyway, I started looking for a way to make the whole process or generating data, getting them in figures, and then keeping the paper updated, as seemless as it <em>should</em> be (because awesome technology should make our lives awesomely simple). Then I discovered <code>makefiles</code>, and I think there&#39;s no coming back from that. The extremely impressive <a href="http://bost.ocks.org/mike/make/">Mike Bostock</a> (if you are into data visualization, check his stuff out), gives good arguments about why you should use them. I spent a few minutes setting up an example, and I&#39;m deeply in love with the concept.</p>
+<p>So I started looking at what <code>gnuplot</code> can do, and as it turns out, <code>gnuplot</code> can do <em>a lot</em>. Look at the <a href="http://gnuplot.sourceforge.net/demo_cvs/">demo gallery</a> or the excellent <a href="http://www.gnuplotting.org/">gnuplotting</a> if you want to see more. So anyway, I started looking for a way to make the whole process or generating data, getting them in figures, and then keeping the paper updated, as seemless as it <em>should</em> be (because awesome technology should make our lives awesomely simple). Then I discovered <code>makefiles</code>, and I think there’s no coming back from that. The extremely impressive <a href="http://bost.ocks.org/mike/make/">Mike Bostock</a> (if you are into data visualization, check his stuff out), gives good arguments about why you should use them. I spent a few minutes setting up an example, and I’m deeply in love with the concept.</p>
 
 <p>Here it goes. Assume that you have a file for your paper, called <code>paper.md</code>. You
 need to get it into <code>paper.pdf</code>. This <code>paper.md</code> file needs a <code>fig1.png</code> figure
@@ -95,11 +120,11 @@ needed. How, you ask? Using a <code>makefile</code>. For this simple example, th
 <p>All <code>Makefile</code>s look the same: on the first line, there is a <em>target</em>, followed
 by its <em>dependencies</em>. Then, on the line below, are the <em>commands</em>. Everytime
 a dependency is also a target, then if the dependencies of this target have
-changed, the dependency is rebuilt. OK that&#39;s not clear at all. If you change
+changed, the dependency is rebuilt. OK that’s not clear at all. If you change
 <code>script.py</code>, the next time you build <code>fig1.png</code>, the files that <code>fig1.png</code>
 depend on that have <code>script.py</code> as a dependency will be rebuilt. But see it the
 other way around. If you just modified the text of your <code>paper.md</code> file, then
-there is no reason to re-build any of the figures or dataset. See? That&#39;s the
+there is no reason to re-build any of the figures or dataset. See? That’s the
 greatness of <code>make</code>. </p>
 
 <p>The <code>all</code> rule here is just having <code>paper.pdf</code> as a dependency. So if I type
@@ -146,19 +171,6 @@ I have no need for the <code>pdf</code>, and a simple <code>make fig1.png</code>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -174,22 +186,6 @@ I have no need for the <code>pdf</code>, and a simple <code>make fig1.png</code>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

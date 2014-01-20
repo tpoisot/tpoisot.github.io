@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Understanding the variation of species interactions</h1>
 
@@ -68,10 +93,10 @@ at the level of the species (such as we made using body size in food webs)
 will give you an idea of what <em>can</em> happen (regionally), but the observed
 interactions (locally) will likely be different. The important point is that,
 assuming we want to predict ecosystem properties from network structure,
-it&#39;s not really wise to <em>assume</em> that interactions happen, because whether
+it’s not really wise to <em>assume</em> that interactions happen, because whether
 they will happen or not depends, again, on local conditions.</p>
 
-<p>So whereas the &ldquo;current&rdquo; view of interaction networks is <em>a matrix of 0s
+<p>So whereas the “current” view of interaction networks is <em>a matrix of 0s
 and 1s telling whether two species interact</em>, it would make sense that we
 think about these networks in terms of probability that the interaction
 will happen. The interesting thing is that once everything is put together,
@@ -94,7 +119,7 @@ you want to read more, here is the abstract, and the <a href="http://biorxiv.org
 is available online:</p>
 
 <blockquote>
-<p>Community ecology is tasked with the considerable challenge of predicting the
+  <p>Community ecology is tasked with the considerable challenge of predicting the
 structure, and properties, of emerging ecosystems. It requires the ability to
 understand how and why species interact, as this will allow the development
 of mechanism-based predictive models, and as such to better characterize
@@ -109,6 +134,7 @@ population-based processes, we show that this new approach will improve our
 predictive ability and mechanistic understanding of how species interact
 over biogeographical scales.</p>
 </blockquote>
+
 
 
 </div>
@@ -147,19 +173,6 @@ over biogeographical scales.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -175,22 +188,6 @@ over biogeographical scales.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

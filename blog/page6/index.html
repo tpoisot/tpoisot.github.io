@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,114 +37,96 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <!-- This loops through the paginated posts -->
 
 
 <div class='post postlist'>
-   <h1>An alternative to stacked bar charts</h1>
+   <h1>Codelust</h1>
    <div class="postinfo">
-      February 17, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+      August  5, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/programming/">programming</a></span>
    </div>
-      <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It&#39;s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with....</p>
-      <a class="readmore" href="/2013/02/17/stacked-barcharts/">Read more...</a>
+      <p>Wanderlust (noun): a strong desire to travel. Codelust (noun): a strong desire to code rather than actually work, and how you can use it for good. I’m lucky. I have stacks of datasets on my laptop, and good ecological questions to ask, and (hopefully) that will result in a few papers. But that’s not fun. I know what I have to do, how I have to do it, and I’m mostly re-using existing tools. So...</p>
+      <a class="readmore" href="/2013/08/05/codelust/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Estimating edges contribution to network properties</h1>
+   <h1>Should we share reviews?</h1>
    <div class="postinfo">
-      February 13, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/modularity/">modularity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/D3.js/">D3.js</a></span>
+      July 10, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer review/">peer review</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span>
    </div>
-      <p>I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I&#39;ve learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do...</p>
-      <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Read more...</a>
+      <p>Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We’ve had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the “worse” comments we’ve received, for...</p>
+      <a class="readmore" href="/2013/07/10/sharing-reviews/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Estimating node contribution to network properties</h1>
+   <h1>What do I read (according to Zotero)?</h1>
    <div class="postinfo">
-      February 12, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/modularity/">modularity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span>
+      July  9, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/zotero/">zotero</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliometry/">bibliometry</a></span>
    </div>
-      <p>I&#39;m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I&#39;ll just detail how it possible to get this information quickly using networkx. Warning! I&rsquo;m just using this post to take notes on code I&rsquo;m currently working on....</p>
-      <a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a>
+      <p>I’ve been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come...</p>
+      <a class="readmore" href="/2013/07/09/zotero-number-papers/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>COinS metadata in Jekyll blogposts</h1>
+   <h1>A quick way to parallelize</h1>
    <div class="postinfo">
-      February  8, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/jekyll/">jekyll</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliography/">bibliography</a></span>
+      July  8, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/GNU/">GNU</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
    </div>
-      <p>COinS is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn blog posts into TREE papers, citing blog posts might...</p>
-      <a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">Read more...</a>
+      <p>I’ ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across...</p>
+      <a class="readmore" href="/2013/07/08/parallel/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Article introductions and the reinvention of the ecological wheel</h1>
+   <h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
    <div class="postinfo">
-      January 28, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological theory/">ecological theory</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific literature/">scientific literature</a></span>
+      June 24, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/PDF/">PDF</a></span>
    </div>
-      <p>Caroline Tucker and Marc Cadotte recently had a great blog post discussing the reinvention of the ecological wheel, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with a lot of interest, for reasons that I will mention in a later post. The basic issue was that: Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence....</p>
-      <a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Read more...</a>
+      <p>While submitting a MS to Methods in Ecology and Evolution, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using manuscriptcentral as an upload system, and always with LaTeX-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4)...</p>
+      <a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Using forums to communicate with students</h1>
+   <h1>A niche to fill in ecological publishing?</h1>
    <div class="postinfo">
-      January 26, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/teaching/">teaching</a></span>
+      June 23, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span>
    </div>
-      <p>This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it&#39;s a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it&#39;s possible to do participative lectures, it&#39;s hard; at...</p>
-      <a class="readmore" href="/2013/01/26/using-forums-communicate-students/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Where to submit your paper?</h1>
-   <div class="postinfo">
-      January 24, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/research/">research</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span>
-   </div>
-      <p>Jeremy Fox offers some advice about how to decide where to submit your paper. Also, read the response by Ethan White. There are possibly as many perspectives on this are there are researchers, which I&#39;ll definitely take as an excuse to present mine. Aim as high as you reasonably can. Then submit a step higher than that. I&#39;ve had really good surprizes with papers being accepted in journals I would have considered too high (speaking...</p>
-      <a class="readmore" href="/2013/01/24/where-to-submit/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>A selection of Sublime Text 2 packages</h1>
-   <div class="postinfo">
-      January 22, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/software/">software</a></span>
-   </div>
-      <p>Sublime Text 2 is an awesome multi-purpose text editor, working on all major platforms, and generally being vim with a nice GUI, and some emacs thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed Python packages for it, and I use a few of them almost daily. Following some discussions we&#39;ve had on twitter, I figured I&#39;d share...</p>
-      <a class="readmore" href="/2013/01/22/selection-sublime-plugins/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>If Elsevier acquires Mendeley, I'm out (and you should be too)</h1>
-   <div class="postinfo">
-      January 19, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span>
-   </div>
-      <p>Two days ago, TechCrunch published an article saying that Elsevier was in &ldquo;advanced talks&rdquo; to acquire Mendeley. Why a company (Mendeley) whose goal is to help scientist work, and faciliate access to papers, would associate with a company so despised by so many researchers that they are actively and publicly boycotting it (Elsevier) makes absolutely no sense. Some people on the Mendeley advisors group wanted to know more, and here is the reply we got:...</p>
-      <a class="readmore" href="/2013/01/19/elsevier-mendeley-out/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>A quick way to get good figures for your web pages</h1>
-   <div class="postinfo">
-      January 10, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
-   </div>
-      <p>I&#39;m a huge fan of the pgfplots package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: notes, MS, and code. The results of what happens in code (usually a huge mess of R, C and Python) go directly into MS as tab-delimited files, and the .tex document has...</p>
-      <a class="readmore" href="/2013/01/10/free-workflow-figures/">Read more...</a>
+      <p>I have been wondering, over the past few weeks, about places to submit really short, methodological minded papers, in ecology. As far as I know, there is currently no journal for that. I’m specifically talking about papers that are not groundbreaking, possibly extremely technical, but still hold value because they deal with arguments that happen often. As a good example, the reply of Rohr and colleagues to the James and colleagues paper is interesting, but...</p>
+      <a class="readmore" href="/2013/06/23/niche-fill-ecological-papers/">Read more...</a>
    <hr />
 </div>
 
@@ -190,24 +175,35 @@
     <li><a href="/blog/page10">10</a></li>
     
     
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
+    
   </ul>
 
 </div>
 
 
-      </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
       </div>
    </div>
    <div class='push'></div>
@@ -224,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

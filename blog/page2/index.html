@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,114 +37,96 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <!-- This loops through the paginated posts -->
 
+
+<div class='post postlist'>
+   <h1>Understanding the variation of species interactions</h1>
+   <div class="postinfo">
+      January  3, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/beta-diversity/">beta-diversity</a></span>
+   </div>
+      <p>I spent most of the last two years thinking about why species interaction vary over time and space. The trouble is that, even though we have some methodological tools, and some interesting observations, we lack a solid framework to make sense of it all. So we (I, Daniel Stouffer and Dominique Gravel) started thinking about the mechanisms involved in the variation of species interactions. The paper is now available as a preprint on bioRxiV (the...</p>
+      <a class="readmore" href="/2014/01/03/variation-species-interactions/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Using git throughout your workflow</h1>
+   <div class="postinfo">
+      January  2, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/git/">git</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/productivity/">productivity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span>
+   </div>
+      <p>There are good chances that I will give an introductory workshop to the many, many uses of git for scientists in the next weeks. What follows is a series of notes about the things I use git for, which I will cover. In a way, this post is a list of all the possible ways to introduce git into your workflow as a (computational) scientist. Some things are specific to git as a protocol, some...</p>
+      <a class="readmore" href="/2014/01/02/git-workflow/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Using Vim as a writing environment</h1>
+   <div class="postinfo">
+      January  1, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/vim/">vim</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/productivity/">productivity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/writing/">writing</a></span>
+   </div>
+      <p>Happy new year, everyone! And to make sure it starts in a good way, let me bring you the gift of productivity! Or specifically, how to set-up Vim in a way that will transform it into an impressively efficient writing environment. Vim is a really good code editor, there is no questioning that. But writing code and writing prose are entirely different exercises, and some tools you need to efficiently write code are only getting...</p>
+      <a class="readmore" href="/2014/01/01/vim-writing-environment/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Software papers and open source licenses</h1>
+   <div class="postinfo">
+      December 19, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
+   </div>
+      <p>I have been reviewing a lot more software / methodological papers these days, which led me to think about open vs. closed software (even more than usual). By closed, I mean any software that would require me to pay to be able to reproduce the method, either directly, or through a licence costing money to the university. Think Mathematica, matlab, or any other commercial tools. Despite what some would have you believe, the way analyses...</p>
+      <a class="readmore" href="/2013/12/19/reviewing-software-papers/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>What's hot on PeerJ?</h1>
+   <div class="postinfo">
+      December 17, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliometrics/">bibliometrics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open access/">open access</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/preprints/">preprints</a></span>
+   </div>
+      <p>Lat week, I mentionned that ecology is the leading discipline on PeerJ preprints, as attested by the number of submissions. Which led me to wondering which topics were actually hot on the preprint server. PeerJ do not have an API, but there URL scheme is not too complicated, and most of the relevant informations are in the webpage body. So I wrote a very short python script to get the first 158 preprints, download them,...</p>
+      <a class="readmore" href="/2013/12/17/what-peerj/">Read more...</a>
+   <hr />
+</div>
 
 <div class='post postlist'>
    <h1>Data-sharing paper online</h1>
    <div class="postinfo">
       December  5, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open data/">open data</a></span>
    </div>
-      <p>Our paper Towards a sustainable ecological science is now online at Ideas in Ecology and Evolution. Thanks are due to Karthik Ram for the invitation. This is going to be a very exciting special issue. If you want to know more about the paper, the best thing to do is most likely to read it (it&#39;s open access). But in short, we (I, Ross Mounce, and Dominique Gravel), try to make a point of all...</p>
+      <p>Our paper Towards a sustainable ecological science is now online at Ideas in Ecology and Evolution. Thanks are due to Karthik Ram for the invitation. This is going to be a very exciting special issue. If you want to know more about the paper, the best thing to do is most likely to read it (it’s open access). But in short, we (I, Ross Mounce, and Dominique Gravel), try to make a point of all...</p>
       <a class="readmore" href="/2013/12/05/data-sharing-paper/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Why JSON is my go-to data format</h1>
-   <div class="postinfo">
-      December  2, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/JSON/">JSON</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data format/">data format</a></span>
-   </div>
-      <p>Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in R. But I&#39;ve been using JSON for a while now, and it makes...</p>
-      <a class="readmore" href="/2013/12/02/json-goto-format/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>The pros and cons of using R packages for teaching</h1>
-   <div class="postinfo">
-      November 27, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/Teaching/">Teaching</a></span>
-   </div>
-      <p>R packages are one of the best tools we have. It&#39;s a library of 1000s of functions ready to be used, all wrapped in a single common language, and it&#39;s free. I wrote some, and used even more. When I review a paper, upon seeing &ldquo;we used function x in the version 2.3 of package y&rdquo;, I know a lot about what the authors have been doing (and I can check the help of this...</p>
-      <a class="readmore" href="/2013/11/27/r-packages-teaching/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Spatially explicit metapopulation model in R</h1>
-   <div class="postinfo">
-      November 25, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/igraph/">igraph</a></span>
-   </div>
-      <p>One of my favorite tools to work with networks is the networkx python package. But for teaching purposes (especially in ecology), having purely R-based tools is better. The students know the language (at least enough to get around most problems in a few hours, and so they can focus on the theory rather than the tedious details of implementation. So I started looking for good graph analysis tools in R. I&#39;ve read good thing (well,...</p>
-      <a class="readmore" href="/2013/11/25/metapopulation-model-r/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Collaborating with markdown and bibtex</h1>
-   <div class="postinfo">
-      November 10, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibtex/">bibtex</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scholarly markdown/">scholarly markdown</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span>
-   </div>
-      <p>The single most annoying issue when using pandoc to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it&#39;s having several bibtex files all over the place. And I&#39;m can&#39;t be bothered to keep &ldquo;Collections&rdquo; or separate folders in Zotero. So clearly, I had to code my way...</p>
-      <a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Notes on test-driven development (in Python)</h1>
-   <div class="postinfo">
-      November  4, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific software/">scientific software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
-   </div>
-      <p>I&#39;m looking into the methodology of test-driven development, that is when you write your tests before writing your code. The advertised benefit is that you know in advance the behavior of your code, and it will make it easier to implement and debug. This paper at O&#39;Reilly is a good introduction (although the exact functions of unittest it uses are now deprecated). To get started, I&#39;ll work on a simple script that takes a series...</p>
-      <a class="readmore" href="/2013/11/04/test-driven-python/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Why should Ecology be open?</h1>
-   <div class="postinfo">
-      November  3, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span>
-   </div>
-      <p>There are a lot of extremely good arguments to defend the fact that Science (as a whole) should be more open. To summarize them very roughly: it&#39;s the ethical thing to do as it allows everyone to access information, it&#39;s easier for scientists to access information, it&#39;s faster than the traditional peer-review system when you need to get your work noticed, and it&#39;s much less expensive than closed-source science. I could also elaborate on transparency,...</p>
-      <a class="readmore" href="/2013/11/03/open-ecology/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>The (French) paradox of Closed Open Access</h1>
-   <div class="postinfo">
-      November  2, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open access/">open access</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/academic publishing/">academic publishing</a></span>
-   </div>
-      <p>The OpenAccessWeek in France generated a huge backlash, mostly owing to the identity of the organizer. This edition was organized by the for profit &ldquo;scientific social network&rdquo; MyScienceWork (I&#39;m not going to link them). My Science Work (MSW henceforth) is a social network in which people can&hellip; well, you know what a social network is. This one is yet another social network for scientists, much like Academia.edu and ResearchGate. I don&#39;t care all that much...</p>
-      <a class="readmore" href="/2013/11/02/my-science-work/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Mapping ecological concepts using twitter</h1>
-   <div class="postinfo">
-      October 18, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/twitter/">twitter</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span>
-   </div>
-      <p>I&#39;ve been setting up a Twitter account for the French Ecological Society, and while we currently use it as a tool to relay the various informations we want to share, it&#39;s also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the &ldquo;general public&rdquo; as far as ecology is...</p>
-      <a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>An additive partition of species-level specificity</h1>
-   <div class="postinfo">
-      October 15, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/specificity/">specificity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/methodology/">methodology</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/metrics/">metrics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
-   </div>
-      <p>A while ago, we published a paper in Methods in Ecology &amp; Evolution, comparing different ways to estimate ecological specificity on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array P of its performances across R different environments, which is (1) sorted decreasingly, and (2) ranged so that P[1] = 1. In this paper, we...</p>
-      <a class="readmore" href="/2013/10/15/specificity-range-measures/">Read more...</a>
    <hr />
 </div>
 
@@ -190,24 +175,35 @@
     <li><a href="/blog/page10">10</a></li>
     
     
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
+    
   </ul>
 
 </div>
 
 
-      </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
       </div>
    </div>
    <div class='push'></div>
@@ -224,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

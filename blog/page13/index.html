@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -33,57 +36,98 @@
 
 <body>
 <a id="top"></a>
-<div id="main">
 
-<div class="row content">
-   <div class = "row copy">
-   <div class="large-9 small-10 columns maintext">
-   <!-- This loops through the paginated posts -->
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
+<div class="row wrapper">
+   <div class = "copy">
+      <div class="large-12 small-12 columns maintext">
+         <!-- This loops through the paginated posts -->
 
 
-<div class='post'>
-  <h1>Bacteria-phage networks</h1>
-  <div class="postinfo">December 19, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">phages</span><span class="label radius small" style="margin-right: 3px;">bacteria</span><span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">species interactions</span></div>
-  <p>
-    I&#39;m really glad to announce that the review paper we have been working on with Joshua Weitz, Justin Meyer, Cesar Flores, Sergi Valverde, Matthew Sullivan and Mike Hochberg is now online at Trends in Microbiology (PDF, as always, available by clicking Papers on the sidebar). It&#39;s a great and exciting paper, in which we propose that bacteria-phage interactions should be studied as networks, rather than just pairs of interactions. Because the goal of the paper is to interest more people into the network methodology, the figure are really interesting. If you want a crash course in nestedness or modularity, then...
-  </p>
-<a class="readmore" href="/2012/12/19/bacteria-phage-networks/">Read more...</a>
+<div class='post postlist'>
+   <h1>Notes on learning how to use sympy</h1>
+   <div class="postinfo">
+      August 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/sympy/">sympy</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span>
+   </div>
+      <p>I’m trying to move to sympy for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I’m playing with a simple host-parasite model. I was reading the First steps with sympy section of the website when I was running my little tests, and it’s relatively helpul. So let’s assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous...</p>
+      <a class="readmore" href="/2012/08/15/notes-on-using-sympy/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>The friends of my friends (are on twitter)</h1>
-  <div class="postinfo">December 15, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">social networks</span><span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span><span class="label radius small" style="margin-right: 3px;">igraph</span></div>
-  <p>
-    Twitter is cool for science, because it can help you spread your ideas. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, e.g., the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye. I&#39;m running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a...
-  </p>
-<a class="readmore" href="/2012/12/15/face-of-twitter/">Read more...</a>
+<div class='post postlist'>
+   <h1>Models are useless. Real ecologists should move on.</h1>
+   <div class="postinfo">
+      August 13, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological theory/">ecological theory</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/models/">models</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/equations/">equations</a></span>
+   </div>
+      <p>I’m spending more and more of my time doing theory related thing. Data analysis, model, drawing conceptual figures to make it seem like I have deep ideas about nature, life, and everything. Yet I love ecology, biology, and the complexity of natural systems. At this point, I’m sure most of you are familiar with the recent paper by Fawcett &amp; Higginson in PNAS - they conclude that the more equations are in a biology paper,...</p>
+      <a class="readmore" href="/2012/08/13/models-are-useless/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>How to represent networks</h1>
-  <div class="postinfo">November 23, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">species interactions</span><span class="label radius small" style="margin-right: 3px;">data management</span><span class="label radius small" style="margin-right: 3px;">open lab book</span></div>
-  <p>
-    One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a &ldquo;good&rdquo; format, and it&#39;s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth. Warning! This is a long entry, with code, and geeky...
-  </p>
-<a class="readmore" href="/2012/11/23/how-to-represent-networks/">Read more...</a>
+<div class='post postlist'>
+   <h1>Are student-friendly conferences worth it?</h1>
+   <div class="postinfo">
+      August  5, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/conferences/">conferences</a></span>
+   </div>
+      <p>Two recent posts by Jeremy Fox and Zen Faulkes dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not...</p>
+      <a class="readmore" href="/2012/08/05/student-friendly-meetings/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Data sharing and the bagel effect</h1>
-  <div class="postinfo">November  9, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">open science</span><span class="label radius small" style="margin-right: 3px;">data sharing</span></div>
-  <p>
-    I&#39;m starting to organize a collection of notes and ideas I&#39;ve had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I&#39;ll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would be appealing to people. Let&#39;s imagine that you go to your local coffee shop, and order a bagel. A tasty, garnished, bagel, with bacon, eggs,...
-  </p>
-<a class="readmore" href="/2012/11/09/data-sharing-and-the-bagel-effect/">Read more...</a>
+<div class='post postlist'>
+   <h1>My new linux setup</h1>
+   <div class="postinfo">
+      August  3, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/linux/">linux</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
+   </div>
+      <p>I have a terrible confession to make. Two weeks ago, I installed Windows 7. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask? I made the switch from Mac to Linux, that’s why. I needed to install Windows...</p>
+      <a class="readmore" href="/2012/08/03/new-linux-setup/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Should we care about species interaction networks?</h1>
-  <div class="postinfo">October 29, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecological networks</span><span class="label radius small" style="margin-right: 3px;">species interactions</span><span class="label radius small" style="margin-right: 3px;">ecological theory</span><span class="label radius small" style="margin-right: 3px;">scale of organization</span><span class="label radius small" style="margin-right: 3px;">open lab book</span></div>
-  <p>
-    In June, I was invited to give a talk at the Web of Life meeting in Montpellier. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was working on our recent paper about the &beta;-diversity of interaction networks, where we show that species and their interactions are locally sorted through different mechanisms....
-  </p>
-<a class="readmore" href="/2012/10/29/species-interaction-networks/">Read more...</a>
+<div class='post postlist'>
+   <h1>A walk on the intertidal zone</h1>
+   <div class="postinfo">
+      July 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/intertidal/">intertidal</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/trophic complexity/">trophic complexity</a></span>
+   </div>
+      <p>I’m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this: What immediately came to my mind is: we don’t know anything. It’s one thing to look at species interaction networks, and...</p>
+      <a class="readmore" href="/2012/07/15/what-is-trophic-complexity/">Read more...</a>
+   <hr />
+</div>
+
+<div class='post postlist'>
+   <h1>Using Color Brewer schemes in LaTeX pgfplots</h1>
+   <div class="postinfo">
+      July  3, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+   </div>
+      <p>Color Brewer is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the RColorBrewer package. Last week, I started using pgfplots, a tikz extension for data visualization, to prepare slides for the upcoming Evolution2012 meeting in Ottawa. I thought it would be pretty cool to be able to use the Color Brewer...</p>
+      <a class="readmore" href="/2012/07/03/colorbrewer-in-pgfplots/">Read more...</a>
+   <hr />
 </div>
 
 
@@ -155,44 +199,19 @@
     <li><a href="/blog/page16">16</a></li>
     
     
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
-    
-    <li><a href="/blog/page19">19</a></li>
-    
-    
   </ul>
 
 </div>
 
 
-   </div>
-   <div class="large-3 small-2 columns">
-      <div class='header'>
-         <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-         <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
-   </div>
+   <div class='push'></div>
+</div>
 
-   <div class="row footer">
-         <div class="small-4 columns">
+<div class="row footer">
+   <div class="footercontent">
+      <div class="small-4 columns">
 <h5>Contact</h5>
 <ul class='no-bullet'>
    <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
@@ -201,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
-   
-   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>
@@ -233,12 +236,7 @@
 
 
    </div>
-
 </div>
-
-
-</div>
-
 </body>
 
 </html>

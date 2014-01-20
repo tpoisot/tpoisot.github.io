@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Animate networks with igraph</h1>
 
@@ -52,76 +77,82 @@
 
 <p>The <code>igraph</code> package in <code>R</code> is a good solution to manipulate networks. A
 few days ago, I had to produce an animated figure for a paper, and I really
-wanted to use <code>igraph</code> to do it. As it turns out, it&#39;s not overly complicated
+wanted to use <code>igraph</code> to do it. As it turns out, it’s not overly complicated
 (you need to have <code>imagemagick</code> installed, though.</p>
 
-<p>So as to provide a quick visualisation, let&#39;s start with a simple dynamical
+<p>So as to provide a quick visualisation, let’s start with a simple dynamical
 model of a diamond food web (one primary producer, two consumers, one top
-predator, classic stuff). The &ldquo;usual&rdquo; way to represent the dynamics of biomass
-is to have four time series. The &ldquo;captivating&rdquo; way (good for talks!) is to
+predator, classic stuff). The “usual” way to represent the dynamics of biomass
+is to have four time series. The “captivating” way (good for talks!) is to
 animate the network, with each node size being proportional to its biomass
 at any time.</p>
-<div class="highlight"><pre><code class="r language-r" data-lang="r">library<span class="p">(</span>igraph<span class="p">)</span>
-library<span class="p">(</span>simecol<span class="p">)</span>
 
-<span class="c1"># A simple LV diamond food web model</span>
-glv <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>time<span class="p">,</span> init<span class="p">,</span> parms<span class="p">)</span> <span class="p">{</span>
-    N <span class="o">&lt;-</span> init
-    with<span class="p">(</span>as.list<span class="p">(</span>parms<span class="p">),</span> <span class="p">{</span>
-        d1 <span class="o">=</span> N<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>rp <span class="o">-</span> <span class="p">(</span>a1p <span class="o">*</span> N<span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">+</span> a2p <span class="o">*</span> N<span class="p">[</span><span class="m">3</span><span class="p">]))</span>
-        d2 <span class="o">=</span> N<span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>rc <span class="o">+</span> a1p <span class="o">*</span> N<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">-</span> ap1 <span class="o">*</span> N<span class="p">[</span><span class="m">4</span><span class="p">])</span>
-        d3 <span class="o">=</span> N<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>rc <span class="o">+</span> a2p <span class="o">*</span> N<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">-</span> ap2 <span class="o">*</span> N<span class="p">[</span><span class="m">4</span><span class="p">])</span>
-        d4 <span class="o">=</span> N<span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>rt <span class="o">+</span> ap1 <span class="o">*</span> N<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">+</span> ap1 <span class="o">*</span> N<span class="p">[</span><span class="m">2</span><span class="p">])</span>
-        <span class="kr">return</span><span class="p">(</span>list<span class="p">(</span>c<span class="p">(</span>d1<span class="p">,</span> d2<span class="p">,</span> d3<span class="p">,</span> d4<span class="p">)))</span>
-    <span class="p">})</span>
-<span class="p">}</span>
+<pre><code class="language-r">library(igraph)
+library(simecol)
 
-<span class="c1"># Some default parameters</span>
-params <span class="o">&lt;-</span> c<span class="p">(</span>rp <span class="o">=</span> <span class="m">1.1</span><span class="p">,</span> rc <span class="o">=</span> <span class="m">-0.2</span><span class="p">,</span> rt <span class="o">=</span> <span class="m">-0.6</span><span class="p">,</span> a1p <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> a2p <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> ap1 <span class="o">=</span> <span class="m">0.21</span><span class="p">,</span> 
-    ap2 <span class="o">=</span> <span class="m">0.12</span><span class="p">)</span>
-init <span class="o">&lt;-</span> c<span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
-times <span class="o">&lt;-</span> seq<span class="p">(</span>from <span class="o">=</span> <span class="m">0</span><span class="p">,</span> to <span class="o">=</span> <span class="m">50</span><span class="p">,</span> length <span class="o">=</span> <span class="m">300</span><span class="p">)</span>
+# A simple LV diamond food web model
+glv &lt;- function(time, init, parms) {
+    N &lt;- init
+    with(as.list(parms), {
+        d1 = N[1] * (rp - (a1p * N[2] + a2p * N[3]))
+        d2 = N[2] * (rc + a1p * N[1] - ap1 * N[4])
+        d3 = N[3] * (rc + a2p * N[1] - ap2 * N[4])
+        d4 = N[4] * (rt + ap1 * N[3] + ap1 * N[2])
+        return(list(c(d1, d2, d3, d4)))
+    })
+}
 
-<span class="c1"># And the simulations...</span>
-output <span class="o">&lt;-</span> ode<span class="p">(</span>init<span class="p">,</span> times<span class="p">,</span> func <span class="o">=</span> glv<span class="p">,</span> parms <span class="o">=</span> params<span class="p">)</span>
-</code></pre></div>
-<p>Nevermind that the parameters aren&#39;t realistic at all, it&#39;s not what matters
+# Some default parameters
+params &lt;- c(rp = 1.1, rc = -0.2, rt = -0.6, a1p = 0.8, a2p = 0.4, ap1 = 0.21, 
+    ap2 = 0.12)
+init &lt;- c(10, 4, 3, 5)
+times &lt;- seq(from = 0, to = 50, length = 300)
+
+# And the simulations...
+output &lt;- ode(init, times, func = glv, parms = params)
+</code></pre>
+
+<p>Nevermind that the parameters aren’t realistic at all, it’s not what matters
 for this example. At this point, we have a simulation running for 50 timesteps,
-with a total of 300 points. Now, let&#39;s build a graph:</p>
-<div class="highlight"><pre><code class="r language-r" data-lang="r">adjacency <span class="o">&lt;-</span> matrix<span class="p">(</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
-diamond <span class="o">&lt;-</span> graph.adjacency<span class="p">(</span>adjacency<span class="p">)</span>
-layout <span class="o">&lt;-</span> layout.fruchterman.reingold<span class="p">(</span>diamond<span class="p">)</span>
-</code></pre></div>
+with a total of 300 points. Now, let’s build a graph:</p>
+
+<pre><code class="language-r">adjacency &lt;- matrix(c(0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0), 4, 4)
+diamond &lt;- graph.adjacency(adjacency)
+layout &lt;- layout.fruchterman.reingold(diamond)
+</code></pre>
+
 <p>We can start building a loop to create all networks for each time. The trick is
 that <code>igraph</code> accepts vectors for allmost all edges and vertex attributes. It
 can be used to change the color, size, label, etc. An important point is that,
 by default, the layout of each plot is scaled and center. But in our case,
-it&#39;s important that it&#39;s fixed for all plots, so we&#39;ll just need to add
+it’s important that it’s fixed for all plots, so we’ll just need to add
 <code>rescale = FALSE</code>, and give explicit <code>xlim</code> and <code>ylim</code>; this way, the center
 of each vertex is always at the same position.</p>
-<div class="highlight"><pre><code class="r language-r" data-lang="r"><span class="c1"># We&#39;ll make sure that the maximal biomass is not too big</span>
-MaxBio <span class="o">&lt;-</span> max<span class="p">(</span>output<span class="p">[,</span> <span class="m">-1</span><span class="p">])</span>
-png<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;biomass_%04d.png&quot;</span><span class="p">,</span> width <span class="o">=</span> <span class="m">300</span><span class="p">,</span> height <span class="o">=</span> <span class="m">300</span><span class="p">)</span>
 
-<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> c<span class="p">(</span><span class="m">1</span><span class="o">:</span>nrow<span class="p">(</span>output<span class="p">)))</span> <span class="p">{</span>
-    Biomass <span class="o">&lt;-</span> output<span class="p">[</span>i<span class="p">,</span> <span class="m">-1</span><span class="p">]</span>
-    plot<span class="p">(</span>diamond<span class="p">,</span> layout <span class="o">=</span> layout<span class="p">,</span> vertex.size <span class="o">=</span> <span class="m">10</span> <span class="o">*</span> Biomass<span class="p">,</span> rescale <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> 
-        xlim <span class="o">=</span> range<span class="p">(</span>layout<span class="p">[,</span> <span class="m">1</span><span class="p">]),</span> ylim <span class="o">=</span> range<span class="p">(</span>layout<span class="p">[,</span> <span class="m">2</span><span class="p">]))</span>
-<span class="p">}</span>
-dev.off<span class="p">()</span>
+<pre><code class="language-r"># We'll make sure that the maximal biomass is not too big
+MaxBio &lt;- max(output[, -1])
+png(file = "biomass_%04d.png", width = 300, height = 300)
 
-<span class="c1"># The we use ImageMagick to convert all images to a gif file</span>
-system<span class="p">(</span><span class="s">&quot;convert -delay 5 biomass_*.png animation_biomass.gif&quot;</span><span class="p">)</span>
-<span class="c1"># And remove the images</span>
-file.remove<span class="p">(</span>list.files<span class="p">(</span>pattern <span class="o">=</span> <span class="s">&quot;biomass_&quot;</span><span class="p">))</span>
-</code></pre></div>
+for (i in c(1:nrow(output))) {
+    Biomass &lt;- output[i, -1]
+    plot(diamond, layout = layout, vertex.size = 10 * Biomass, rescale = FALSE, 
+        xlim = range(layout[, 1]), ylim = range(layout[, 2]))
+}
+dev.off()
+
+# The we use ImageMagick to convert all images to a gif file
+system("convert -delay 5 biomass_*.png animation_biomass.gif")
+# And remove the images
+file.remove(list.files(pattern = "biomass_"))
+</code></pre>
+
 <p>And here is the result:</p>
 
-<p><img src="/rfig/animation_biomass.gif" alt="Animation"></p>
+<p><img src="/rfig/animation_biomass.gif" alt="Animation" /></p>
 
-<p>Clearly it&#39;s not extremely good looking, but it can help show the dynamics
+<p>Clearly it’s not extremely good looking, but it can help show the dynamics
 of networks. An interesting thing is that you can also <em>hide</em> some edges or
-vertices, so it&#39;s possible to show temporal dynamics.</p>
+vertices, so it’s possible to show temporal dynamics.</p>
 
 
 </div>
@@ -160,19 +191,6 @@ vertices, so it&#39;s possible to show temporal dynamics.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -188,22 +206,6 @@ vertices, so it&#39;s possible to show temporal dynamics.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

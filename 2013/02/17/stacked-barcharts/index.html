@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>An alternative to stacked bar charts</h1>
 
@@ -50,9 +75,9 @@
    </div>
 
 
-<p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It&#39;s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with.</p>
+<p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with.</p>
 
-<p>First let&#39;s load a few packages, and generate some random abundance data. Let&#39;s imagine that we have 10 sites, and we sample 20 species.</p>
+<p>First let’s load a few packages, and generate some random abundance data. Let’s imagine that we have 10 sites, and we sample 20 species.</p>
 
 <div class="highlight"><pre><code class="splus">library<span class="p">(</span>RColorBrewer<span class="p">)</span>
 
@@ -73,16 +98,16 @@ Y <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><spa
 image<span class="p">(</span>X<span class="p">,</span>Y<span class="p">,</span>Abund<span class="p">,</span>col<span class="o">=</span><span class="s">&#39;white&#39;</span><span class="p">,</span>axes<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>bty<span class="o">=</span><span class="s">&#39;n&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p><span class='margin'>It&#39;s easy to make it so that the width of each sub-plot is proportional to the relative abundance of each species.</span>Then, for each row/line (and I&#39;m aware this is not optimized at all), we will draw a vertical bar. Each taxon (<em>i.e.</em> each column in our graph) will have its own sub-plot. The size can be fixed, or equal. But this allows comparison of species abundances across dates.</p>
+<p><span class="margin">It’s easy to make it so that the width of each sub-plot is proportional to the relative abundance of each species.</span>Then, for each row/line (and I’m aware this is not optimized at all), we will draw a vertical bar. Each taxon (<em>i.e.</em> each column in our graph) will have its own sub-plot. The size can be fixed, or equal. But this allows comparison of species abundances across dates.</p>
 
 <div class="highlight"><pre><code class="splus"><span class="kr">for</span><span class="p">(</span>ro <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>nrow<span class="p">(</span>Abund<span class="p">)){</span>
-    <span class="kr">for</span><span class="p">(</span>co <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>ncol<span class="p">(</span>Abund<span class="p">)){</span>
-        rect<span class="p">(</span>ro<span class="m">-0.5</span><span class="p">,</span> co<span class="m">-0.4</span><span class="p">,</span> ro<span class="m">-0.5</span><span class="o">+</span>Abund<span class="p">[</span>ro<span class="p">,</span>co<span class="p">]</span><span class="o">*</span><span class="m">0.9</span><span class="p">,</span> co<span class="m">+0.4</span><span class="p">,</span>border<span class="o">=</span><span class="kc">NA</span><span class="p">,</span>col<span class="o">=</span>pal<span class="p">[</span>ro<span class="p">])</span>
-    <span class="p">}</span>
+	<span class="kr">for</span><span class="p">(</span>co <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>ncol<span class="p">(</span>Abund<span class="p">)){</span>
+		rect<span class="p">(</span>ro<span class="m">-0.5</span><span class="p">,</span> co<span class="m">-0.4</span><span class="p">,</span> ro<span class="m">-0.5</span><span class="o">+</span>Abund<span class="p">[</span>ro<span class="p">,</span>co<span class="p">]</span><span class="o">*</span><span class="m">0.9</span><span class="p">,</span> co<span class="m">+0.4</span><span class="p">,</span>border<span class="o">=</span><span class="kc">NA</span><span class="p">,</span>col<span class="o">=</span>pal<span class="p">[</span>ro<span class="p">])</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Finally, let&#39;s add reference lines for each species, and the site/species names on axes:</p>
+<p>Finally, let’s add reference lines for each species, and the site/species names on axes:</p>
 
 <div class="highlight"><pre><code class="splus">abline<span class="p">(</span>v<span class="o">=</span>X<span class="m">-0.5</span><span class="p">,</span>col<span class="o">=</span><span class="s">&#39;darkgrey&#39;</span><span class="p">,</span>lwd<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 axis<span class="p">(</span><span class="m">2</span><span class="p">,</span>at<span class="o">=</span>c<span class="p">(</span><span class="m">1</span><span class="o">:</span>ncol<span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span>colnames<span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
@@ -91,7 +116,7 @@ axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<s
 
 <p>This gives the final result:</p>
 
-<p><img src="/images/stackedbar.png" alt="Figure1 - grouped bar chart" title="bar chart"></p>
+<p><img src="/images/stackedbar.png" alt="Figure1 - grouped bar chart" /></p>
 
 <p>I find it much easier to eyeball the variation of species abundance across sites. And if instead of sites you have dates, then by reading each column, you can get and idea of the population dynamics (which is usually impossible to do for stacked bar charts, except for the bottom series). This is far from perfect, but that will do the job for exploratory work.</p>
 
@@ -132,19 +157,6 @@ axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<s
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -160,22 +172,6 @@ axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<s
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

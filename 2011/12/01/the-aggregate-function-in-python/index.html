@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>The aggregate function in Python</h1>
 
@@ -58,16 +83,16 @@
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>  
 
 <span class="k">def</span> <span class="nf">MSD</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vec</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">vec</span><span class="p">)]</span>  
+	<span class="k">return</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vec</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">vec</span><span class="p">)]</span>  
 <span class="k">def</span> <span class="nf">aggregate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">to</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">):</span>
-    <span class="n">Dat</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">Dat</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ColBy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">by</span><span class="p">]</span>
     <span class="n">ColTo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">to</span><span class="p">]</span>
     <span class="n">UniqueBy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">ColBy</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">ub</span> <span class="ow">in</span> <span class="n">UniqueBy</span><span class="p">:</span>
-        <span class="n">uTo</span> <span class="o">=</span> <span class="n">ColTo</span><span class="p">[</span><span class="n">ColBy</span><span class="o">==</span><span class="n">ub</span><span class="p">]</span>
-        <span class="n">Out</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">uTo</span><span class="p">)</span>
-        <span class="n">Dat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">ub</span><span class="p">],</span><span class="n">Out</span><span class="p">)))</span>
+    	<span class="n">uTo</span> <span class="o">=</span> <span class="n">ColTo</span><span class="p">[</span><span class="n">ColBy</span><span class="o">==</span><span class="n">ub</span><span class="p">]</span>
+    	<span class="n">Out</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">uTo</span><span class="p">)</span>
+    	<span class="n">Dat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">ub</span><span class="p">],</span><span class="n">Out</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">Dat</span>  
     
 <span class="n">test_df</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&#39;tes1-output.dat&#39;</span><span class="p">)</span>  
@@ -76,7 +101,7 @@
 <span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>  
 <span class="n">g</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">graphxy</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s">&quot;aggr.dat&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
-    <span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">symbol</span><span class="p">(),</span> <span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">errorbar</span><span class="p">()])</span>
+	<span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">symbol</span><span class="p">(),</span> <span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">errorbar</span><span class="p">()])</span>
 <span class="n">g</span><span class="o">.</span><span class="n">writePDFfile</span><span class="p">(</span><span class="s">&quot;errorbar&quot;</span><span class="p">)</span>
 </code></pre></div>
 
@@ -119,19 +144,6 @@
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -147,22 +159,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

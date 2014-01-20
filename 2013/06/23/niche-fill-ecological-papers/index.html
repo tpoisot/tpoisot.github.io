@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>A niche to fill in ecological publishing?</h1>
 
@@ -52,25 +77,26 @@
 
 <p>I have been wondering, over the past few weeks, about places to submit
 really short, methodological minded papers, in ecology. As far as I know,
-there is currently no journal for that. I&#39;m specifically talking
+there is currently no journal for that. I’m specifically talking
 about papers that are not groundbreaking, possibly extremely
 technical, but still hold value because they deal with arguments that
 happen often. As a good example, the reply of <a href="http://arxiv.org/abs/1301.3651">Rohr and
-colleagues</a> to the <a href="http://www.ncbi.nlm.nih.gov/pubmed/22722863">James and colleagues</a> paper is interesting, but technical. It&#39;s unlikely to stimulate a debate in the whole community, but for the people active on the topic, it&#39;s something to read and think of (regardless of who you side with on the issue discussed).</p>
+colleagues</a> to the <a href="http://www.ncbi.nlm.nih.gov/pubmed/22722863">James and colleagues</a> paper is interesting, but technical. It’s unlikely to stimulate a debate in the whole community, but for the people active on the topic, it’s something to read and think of (regardless of who you side with on the issue discussed).</p>
 
 <p>So where to publish this? <em><a href="http://www.methodsinecologyandevolution.org/view/0/authorGuidelines.html#Editorial%20Policy">Methods in Ecology and Evolution</a></em> seems to
 be <em>the</em> ideal place for that, but their guidelines do not offer the
 opportunity to submit this kind of papers. <em>F1000Research</em> and <em>PeerJ</em> are good
 places as well, but fairly expensive is you want to do a one-off thing. You
 always have the opportunity to publish things in your blog, but unless you are
-a big-name blogger, your result will go un-noticed (which is why I&#39;ll work on
+a big-name blogger, your result will go un-noticed (which is why I’ll work on
 turning <a href="http://timotheepoisot.fr/2013/06/19/notes-on-network-complexity/">this entry</a> into a short note somewhere.</p>
 
 <p><em>ArXiV</em> is another possibility, but the readership in biological sciences is
 <a href="http://www.plosbiology.org/article/metrics/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">too low at the moment</a>. So there is possibly a niche to fill for an
-adventurous journal. Let&#39;s give us a place to write short notes, so that the
+adventurous journal. Let’s give us a place to write short notes, so that the
 active debates are <em>documented</em>, no matter what the number of people debating
 is. What do you think?</p>
+
 
 
 </div>
@@ -109,19 +135,6 @@ is. What do you think?</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -137,22 +150,6 @@ is. What do you think?</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

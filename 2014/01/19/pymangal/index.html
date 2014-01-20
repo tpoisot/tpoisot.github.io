@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Python wrapper for mangal</title>
+    
+</head>
+
+<body>
+<a id="top"></a>
+
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
+<div class="row wrapper">
+   <div class = "copy">
+      <div class="large-12 small-12 columns maintext">
+         <div class='post'>
+<h1>Python wrapper for mangal</h1>
+
+   <div class="postinfo">
+      January 19, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/mangal/">mangal</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span>
+   </div>
+
+
+<p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share
+things with people, but it’s a little bit slower, and orders of magnitude
+quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the
+<code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with
+<code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
+
+<p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code>
+package (though the core abilities will be here). Rather, I wanted a tool that
+is “pythonic”, easy to use, and programmed extremely defensively so that it
+can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a>
+online, which will hopefully get better over time as I understand the
+<code>sphinx</code> markup.</p>
+
+<p>The syntax is relatively similar to that of the <code>rmangal</code> package. Everything starts by the instansiation of a <code>mangal()</code> class.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import pymangal as pm
+&gt;&gt;&gt; api = pm.mangal(url='http://localhost:8000')
+&gt;&gt;&gt; api.resources
+[u'interaction', u'network', u'reference', u'taxa', u'trait', u'dataset', u'environment', u'item', u'user', u'population']
+</code></pre>
+
+<p>The methods implemented by the <code>mangal</code> class are <code>List</code>, <code>Get</code>, and <code>Post</code>
+(<code>Patch</code> is coming soon, and <code>Post</code> support is sketchy at best). They work
+almost in the same way as their <code>R</code> counterparts. For example, getting a
+list of all networks can be done with:</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; all_net = api.List('network')
+&gt;&gt;&gt; len(all_net)
+17
+</code></pre>
+
+<p>The only significant difference is that, by default, the <code>python</code> version will only return the first 20 results. If you want more than 20  results, you need to use <code>autopage=True</code>:</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; twenty_taxa = api.List('taxa')
+&gt;&gt;&gt; len(twenty_taxa)
+20
+&gt;&gt;&gt; all_taxa = api.List('taxa', autopage=True)
+&gt;&gt;&gt; len(all_taxa)
+38
+</code></pre>
+
+<p>The <em>big</em> advantage of the <code>python</code> version is that, when uploading data, there
+is a validation of the way they are formatted. Internally, there is a function
+taking care of reading the API scheme, and returning it as a <code>json</code> schema,
+against which data are checked. It’s probably simpler with a demonstration…</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print json.dumps(api.schemes['trait'], indent=2)
+## I have cut some of the elements for the sake of brevity
+{
+   "$schema": "http://json-schema.org/draft-04/schema#", 
+   "required": [
+      "value", 
+      "owner", 
+      "name"
+   ], 
+   "type": "object", 
+   "properties": {
+      "name": {
+         "type": "string", 
+         "description": "The name of the measured trait"
+      }, 
+      "value": {
+         "type": "string", 
+         "description": "The value of the trait"
+      }, 
+      "units": {
+         "type": "string", 
+         "description": "Units in which the trait was measured"
+      }
+   }, 
+   "title": "Autogenerated JSON schema"
+}
+</code></pre>
+
+<p>The data are validated <em>automatically</em>, so you don’t have to bother about checking them yourself. For example, let’s try with a badly formatted, and with a correctly formatted, taxa <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; bad_taxa = {'name': 'Vulpes lagopus', 'vernacular': 'arctic fox', 'eol': 1053894, 'status': 'valid'}
+# "valid" is not an acceptable value for "status" ("confirmed" is)
+&gt;&gt;&gt; ok_taxa = {'name': 'Vulpes lagopus', 'vernacular': 'arctic fox', 'eol': 1053894, 'status': 'confirmed'}
+
+&gt;&gt;&gt; arctic_fox = 
+&gt;&gt;&gt; arctic_fox = api.Post('taxa', bad_taxa)
+# Skipping some lines...
+jsonschema.exceptions.ValidationError: 'valid' is not one of [u'confirmed', u'trophic species', u'morphospecies', u'nomen dubium', u'nomen oblitum', u'nomen nudum', u'nomen novum', u'nomen conservandum', u'species inquirenda']
+
+Failed validating 'enum' in schema['properties'][u'status']:
+{'description': u'The taxonomic status of the taxa.',
+   'enum': [u'confirmed',
+   u'trophic species',
+   u'morphospecies',
+   u'nomen dubium',
+   u'nomen oblitum',
+   u'nomen nudum',
+   u'nomen novum',
+   u'nomen conservandum',
+   u'species inquirenda'],
+'type': u'string'}
+
+On instance[u'status']:
+'valid'
+
+&gt;&gt;&gt; arctic_fox = api.Post('taxa', ok_taxa)
+&gt;&gt;&gt; arctic_fox['id']
+103
+</code></pre>
+
+<p>Note that the <code>validate</code> function of the <code>jsonschema</code> will tell you what is
+wrong with the data, and show you the relevant excerpt from the schema. This
+really helps finding out what it wrong with the data you try to upload.</p>
+
+<hr />
+
+<p>As a final note: I am using <em><a href="https://coveralls.io/r/mangal-wg/pymangal">Coveralls.io</a></em> for the first time,
+and I am extremely impressed. In short, <em>coveralls</em> will read the results
+of the <code>coverage</code> command, and tell you the proportion of your code with
+corresponding test cases. <em>Coveralls</em> is integrated with <em>TravisCI</em>, a
+continuous integration engine runnign the test suite each time I commit
+changes to the <em>GitHub</em> repository (so I have confirmation that the new
+versions pass  the tests). And finally, the documentation is auto-generated
+using <em>Read The Docs</em>, which extracts the informations directly from the
+code. These are really impressive tools to work with, and they kind of force
+good practices upon you – which is a good thing.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>As usual, posting and patching requires that you have a username and password. There will be a way to register through the <code>python</code> package in the future.<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+</div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="pager">
+
+
+<span class="previous">
+   <a href="/2014/01/14/filtering-in-mangal/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
+</span>
+
+
+
+<span class="next disabled">
+   Next post <i class="fa fa-fw fa-chevron-right"></i>
+</span>
+
+</div>
+
+
+      </div>
+   </div>
+   <div class='push'></div>
+</div>
+
+<div class="row footer">
+   <div class="footercontent">
+      <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
+</div>
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
+
+   </div>
+</div>
+</body>
+
+</html>

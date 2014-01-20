@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>The friends of my friends (are on twitter)</h1>
 
@@ -52,29 +77,29 @@
 
 <p>Twitter is cool for science, because it can <a href="http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/">help you spread your ideas</a>. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, <em>e.g.</em>, the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye.</p>
 
-<p>I&#39;m running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a paper by <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2148393&amp;tool=pmcentrez&amp;rendertype=abstract">Olesen and colleagues</a> about the modularity of mutualistics interactions. In a few words, you can measure, for each species, its contribution to its own module (<em>z</em>), and to other modules (<em>c</em>). The relative values of <em>c</em> and <em>z</em>  allows then to classify a node as &ldquo;peripherals&rdquo; (just hanging around), &ldquo;connectors&rdquo; (not really involved locally, but really involved in other groups), &ldquo;module hubs&rdquo; (highly involved locally, but not really involved globally), and &ldquo;network hubs&rdquo; (connected both within their group, and globally). Doing so requires to have cutoffs, the rationale for which is still not clear to me (but I&#39;ll go read the original paper). Nonetheless, high values of <em>c</em> indicate that a node is strongly connected outside its community, and high values of <em>z</em> indicates that it his highly connected within its community.</p>
+<p>I’m running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a paper by <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2148393&amp;tool=pmcentrez&amp;rendertype=abstract">Olesen and colleagues</a> about the modularity of mutualistics interactions. In a few words, you can measure, for each species, its contribution to its own module (<em>z</em>), and to other modules (<em>c</em>). The relative values of <em>c</em> and <em>z</em>  allows then to classify a node as “peripherals” (just hanging around), “connectors” (not really involved locally, but really involved in other groups), “module hubs” (highly involved locally, but not really involved globally), and “network hubs” (connected both within their group, and globally). Doing so requires to have cutoffs, the rationale for which is still not clear to me (but I’ll go read the original paper). Nonetheless, high values of <em>c</em> indicate that a node is strongly connected outside its community, and high values of <em>z</em> indicates that it his highly connected within its community.</p>
 
-<p>This is an ecological tool that I can understand, and it makes sense in a social perspective, so I decided to see what these values look like in a twitter network. The data I&#39;m working on are all of my followers, and all of my friends, and all of the interactions between them. Getting these data, with a bunch of <a href="https://github.com/bear/python-twitter">python programming</a>, is quite easy (although terribly long, because the number of requests per hour is limited). I ended up with 18505 edges, and 505 nodes. Not that high, but hey, still <a href="http://www.nceas.ucsb.edu/interactionweb/resources.html">larger than most food webs we know</a>!</p>
+<p>This is an ecological tool that I can understand, and it makes sense in a social perspective, so I decided to see what these values look like in a twitter network. The data I’m working on are all of my followers, and all of my friends, and all of the interactions between them. Getting these data, with a bunch of <a href="https://github.com/bear/python-twitter">python programming</a>, is quite easy (although terribly long, because the number of requests per hour is limited). I ended up with 18505 edges, and 505 nodes. Not that high, but hey, still <a href="http://www.nceas.ucsb.edu/interactionweb/resources.html">larger than most food webs we know</a>!</p>
 
-<p><img src="/images/twittzoom.png" alt="Figure1 - twitter zoom" title="Twitter network"></p>
+<p><img src="/images/twittzoom.png" alt="Figure1 - twitter zoom" /></p>
 
-<p>The first (striking) thing is that my network is less modular than I would have expected. You see a few cliques, the more remote (purple) one being my french contacts, and the green and red nodes are other people related to science and the environment in various ways. What about the <em>c</em> and <em>z</em> values? I&#39;m coming to it. The question I decided to play with is the following. On twitter, you can follow, and be followed. Assuming that information travels from the follower to the followee, this is a benefit for the later, who receives new informations. A mutualistic relationship is then defined as a bi-directional interaction (i.e. reciprocal following). So, who are the people with the most mutualistic behavior?</p>
+<p>The first (striking) thing is that my network is less modular than I would have expected. You see a few cliques, the more remote (purple) one being my french contacts, and the green and red nodes are other people related to science and the environment in various ways. What about the <em>c</em> and <em>z</em> values? I’m coming to it. The question I decided to play with is the following. On twitter, you can follow, and be followed. Assuming that information travels from the follower to the followee, this is a benefit for the later, who receives new informations. A mutualistic relationship is then defined as a bi-directional interaction (i.e. reciprocal following). So, who are the people with the most mutualistic behavior?</p>
 
-<p>To start, let&#39;s define a metric of cooperativeness, which would tell us how many of the people who follow me I follow back. Let&#39;s call <em>Di</em> the number of incoming links, and <em>Do</em> the number of outgoing links. Then we&#39;ll call <em>S</em> the number of outgoing links to someone with an incoming link to me. Let&#39;s finally call <em>U</em> the number of people who follow me, but who I don&#39;t follow. We want an expression of all these terms, which is close to 1 when <em>U</em> is close to 0, and close to 0 when <em>S</em> becomes smaller than <em>U</em>. It&#39;s not too difficult to find an expression, such as</p>
+<p>To start, let’s define a metric of cooperativeness, which would tell us how many of the people who follow me I follow back. Let’s call <em>Di</em> the number of incoming links, and <em>Do</em> the number of outgoing links. Then we’ll call <em>S</em> the number of outgoing links to someone with an incoming link to me. Let’s finally call <em>U</em> the number of people who follow me, but who I don’t follow. We want an expression of all these terms, which is close to 1 when <em>U</em> is close to 0, and close to 0 when <em>S</em> becomes smaller than <em>U</em>. It’s not too difficult to find an expression, such as</p>
 
-<p>$$R = \frac{S}{S+U}$$</p>
+<script type="math/tex; mode=display">R = \frac{S}{S+U}</script>
 
-<p>As we can express <em>U = Di - S</em>, I fixed the &ldquo;reciprocity coefficient&rdquo; as:</p>
+<p>As we can express <em>U = Di - S</em>, I fixed the “reciprocity coefficient” as:</p>
 
-<p>$$R = \frac{S}{D_i}$$</p>
+<script type="math/tex; mode=display">R = \frac{S}{D_i}</script>
 
 <p>And assumed that the higher it is, the more mutualistic people are. The two biggest correlates of <em>R</em> are the number of people you follow (<em>Do</em>, r = 0.49), and your contribution to your own module (<em>z</em>, r = 0.47). Surprizingly, there was no correlation between your ability to connect different modules (<em>c</em>) and your likelihood of friending people who friend you. At this point, note that, given that the network is directional, all the algorithms used account for this. A node with incoming links from all modules (<em>i.e.</em> getting information from all), but no outcoming link (<em>i.e.</em> giving information to none) has a low value of <em>c</em>.</p>
 
-<p>So there it is. People active in their community are more likely to return your friendship, and people active across all communities are less likely to do so. There are now a few things I would like to do with this network (more details about the modules, and things related to null models). One of the most exciting potential is to go through the second degree of separation, <em>i.e.</em> the friends of my friends, and all of their interactions. Last time I checked, it resulted in several <em>millions</em> nodes, and a lot more interactions. Scalability issues become key, and the only solution is to have a brutally huge amount of RAM to run things on (because network algorithms get dirty really fast). I do have that &ndash; though what I don&#39;t have is that time to implement new code.</p>
+<p>So there it is. People active in their community are more likely to return your friendship, and people active across all communities are less likely to do so. There are now a few things I would like to do with this network (more details about the modules, and things related to null models). One of the most exciting potential is to go through the second degree of separation, <em>i.e.</em> the friends of my friends, and all of their interactions. Last time I checked, it resulted in several <em>millions</em> nodes, and a lot more interactions. Scalability issues become key, and the only solution is to have a brutally huge amount of RAM to run things on (because network algorithms get dirty really fast). I do have that – though what I don’t have is that time to implement new code.</p>
 
-<p>Network ecologists should probably pay attention to what happens in social network analysis. It&#39;s becoming a science dealing with large amounts of data. This means that they are developping efficient data structures (you <a href="http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/">know where I stand on this point</a>), and efficient algorithms to deal with them. As we can safely expect that we&#39;ll have access to both more networks, and more species and interactions in these networks, we should not pass the opportunity to develop tools, and train ourelves to their use, on the data already out there. Complementarily, there are some questions which could definitely benefit from some ecological tools. Playing with this network, I understood what Newman mentionned in <em>Networks</em>: the problem of network analysis is that so many people use the tools for so many different things, that the methodology and the litterature are bound to form isolated clusters.</p>
+<p>Network ecologists should probably pay attention to what happens in social network analysis. It’s becoming a science dealing with large amounts of data. This means that they are developping efficient data structures (you <a href="http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/">know where I stand on this point</a>), and efficient algorithms to deal with them. As we can safely expect that we’ll have access to both more networks, and more species and interactions in these networks, we should not pass the opportunity to develop tools, and train ourelves to their use, on the data already out there. Complementarily, there are some questions which could definitely benefit from some ecological tools. Playing with this network, I understood what Newman mentionned in <em>Networks</em>: the problem of network analysis is that so many people use the tools for so many different things, that the methodology and the litterature are bound to form isolated clusters.</p>
 
-<p><strong>P.S.:</strong> For those interested, I used <a href="https://gephi.org/">gephi</a> and <a href="http://networkx.lanl.gov/">networkx</a> for all the analyses. <em>Gephi</em> is wonderful for plotting, and <em>networkx</em> is just wonderful. I&#39;ve also tried the R and Python version of the <em>igraph</em> library, but I prefer the syntax in <em>networkx</em>.</p>
+<p><strong>P.S.:</strong> For those interested, I used <a href="https://gephi.org/">gephi</a> and <a href="http://networkx.lanl.gov/">networkx</a> for all the analyses. <em>Gephi</em> is wonderful for plotting, and <em>networkx</em> is just wonderful. I’ve also tried the R and Python version of the <em>igraph</em> library, but I prefer the syntax in <em>networkx</em>.</p>
 
 
 </div>
@@ -113,19 +138,6 @@
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -141,22 +153,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

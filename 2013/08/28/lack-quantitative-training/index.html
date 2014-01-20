@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Teach more maths to the undergrads!</h1>
 
@@ -60,7 +85,7 @@ and both sides of the argument have really good arguments.</p>
 <em>ECOLOG-L</em>. Quoting directly from the abstract, this is what we found:</p>
 
 <blockquote>
-<p>We found a clear self-perceived lack of quantitative training: <strong>75% are not
+  <p>We found a clear self-perceived lack of quantitative training: <strong>75% are not
 satisfied with their understanding of mathematical models</strong>; 75% feel the level
 of mathematics was “too low” in their ecology classes; 90% wanted more
 mathematics classes for ecologists; and 95% more statistics classes.</p>
@@ -68,20 +93,21 @@ mathematics classes for ecologists; and 95% more statistics classes.</p>
 
 <p>There are a lot of number to process, but basically all point to the same
 message: with a few more years of experience after your undergraduate degree,
-you wish you have studied more maths (it&#39;s especially true for me). We
+you wish you have studied more maths (it’s especially true for me). We
 conclude the paper by exploring recommendations about how to (re)design
 curriculum using the results from this survey.</p>
 
 <p>I discussed this result with my B.Sc. class last fall. We had a fun exchange,
 and over time, the polarization between animal-watchers and number-crunchers
 (the 2 or 3 of them) decreased. But here is the fun thing. When I asked the
-students whether the found plausible that they&#39;ll wish for strong
+students whether the found plausible that they’ll wish for strong
 quantitative training in a few years, they said yes. Immediately afterwards,
 when I asked what they would do if we increased the part of quantitative
 training up to 30% of all classes, as survey respondent suggested. To a vast
 majority, they would not enroll.</p>
 
-<p>So, it seems like we&#39;ll need to sneakily teach quantitative skills&hellip;</p>
+<p>So, it seems like we’ll need to sneakily teach quantitative skills…</p>
+
 
 
 </div>
@@ -120,19 +146,6 @@ majority, they would not enroll.</p>
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -148,22 +161,6 @@ majority, they would not enroll.</p>
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

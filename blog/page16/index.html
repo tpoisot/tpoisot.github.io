@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -33,57 +36,88 @@
 
 <body>
 <a id="top"></a>
-<div id="main">
 
-<div class="row content">
-   <div class = "row copy">
-   <div class="large-9 small-10 columns maintext">
-   <!-- This loops through the paginated posts -->
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
+<div class="row wrapper">
+   <div class = "copy">
+      <div class="large-12 small-12 columns maintext">
+         <!-- This loops through the paginated posts -->
 
 
-<div class='post'>
-  <h1>Using networkx to simulate metapopulations in Python</h1>
-  <div class="postinfo">May 18, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">python</span><span class="label radius small" style="margin-right: 3px;">networkx</span><span class="label radius small" style="margin-right: 3px;">metapopulation</span></div>
-  <p>
-    Python progressively replaced R for most of my daily simulations needs, because it&#39;s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I&#39;ve been using networkx more and more. We&#39;ve been having discussions in the lab about spatial graphs, surrounding a recent paper by Gilarranz and Bascompte and some of our own projects, and I thought that it will be fun to use networkx to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through...
-  </p>
-<a class="readmore" href="/2012/05/18/networkx-metapopulations-python/">Read more...</a>
+<div class='post postlist'>
+   <h1>Get your lab on twitter!</h1>
+   <div class="postinfo">
+      November 19, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific communication/">scientific communication</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
+   </div>
+      <p>More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of a paper in Nature this week. I’ve read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I...</p>
+      <a class="readmore" href="/2011/11/19/get-your-lab-on-twitter/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>The ecological journal of the future</h1>
-  <div class="postinfo">May 11, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">scientific publishing</span><span class="label radius small" style="margin-right: 3px;">open access</span><span class="label radius small" style="margin-right: 3px;">next-gen science</span><span class="label radius small" style="margin-right: 3px;">peer-review</span></div>
-  <p>
-    I&#39;ve been reading Tim Gowers&#39;s fascinating blog following the call to boycott Elsevier, and stumbled upon a fascinating gedankenexperiment. What would the electronic journal of the future look like in the field of Mathematics? Naturally, I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis? I have been thinking about this for the last few months (the earliest draft of this text dates back to early in february), and got great feedback from INNGE folks. New ides piled up, and this is now a rather long text. Just...
-  </p>
-<a class="readmore" href="/2012/05/11/ecological-journal-of-the-future/">Read more...</a>
+<div class='post postlist'>
+   <h1>A model of population dynamics in Python</h1>
+   <div class="postinfo">
+      November 14, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scipy/">scipy</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/simecol/">simecol</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/simulations/">simulations</a></span>
+   </div>
+      <p>I’ve been using Python more and more to do various things. When compared to R (which I use a lot), Python is not more difficult to write, and a whole lot faster. I’ve started exploring tools to use Python for ecological simulations, and specifically the scipy library. In R, my usual tool is the simecol package, which implements a lot of numerical integrators, and most notably LSODA (which is awesome for many many reasons, including but...</p>
+      <a class="readmore" href="/2011/11/14/a-model-of-population-dynamics-in-python/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Phylogeny without a sequencer</h1>
-  <div class="postinfo">May  3, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">phylogeny</span></div>
-  <p>
-    In the last issue of Trends Ecol. Evol., Poole and colleagues talk about Ecosystomics, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of a recent paper by Nico Mouquet and colleagues about Ecophylogenetics. But I&#39;m not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions. At times, one would like to re-analyze old data and add the phylogeny. If you don&#39;t see why you would want to do this, go read the excellent paper in...
-  </p>
-<a class="readmore" href="/2012/05/03/phylogeny-without-sequencer/">Read more...</a>
+<div class='post postlist'>
+   <h1>Morphology and phylogeny in Lamellodiscus</h1>
+   <div class="postinfo">
+      October 12, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/evolution/">evolution</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/parasites/">parasites</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phylogeny/">phylogeny</a></span>
+   </div>
+      <p>The final paper of my master’s project was published online today in PLoS One. It’s about how species of a fish parasite, which were defined based on morphological features, may not be actual species, as they have no phylogenetic support. Lamellodiscus Johnston &amp; Tiegs 1922 (Monogenea, Diplectanidae) is a genus of common parasites on the gills of sparid fishes. Here we show that this genus is probably undergoing a fast molecular diversification, as reflected by the...</p>
+      <a class="readmore" href="/2011/10/12/morpho-phylo-lamellodiscus/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Ecology is not too collaborative</h1>
-  <div class="postinfo">April 30, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">ecology</span><span class="label radius small" style="margin-right: 3px;">research</span></div>
-  <p>
-    A few days ago, Jeremy Fox published on the Oikos blog, wondering if ecology was becoming too collaborative. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can&#39;t really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it&#39;s worth, here is my contribution to the debate. I&#39;m involved in a few short term collaborations, and I think they are awesome. One of the ideas...
-  </p>
-<a class="readmore" href="/2012/04/30/ecology-not-too-collaborative/">Read more...</a>
+<div class='post postlist'>
+   <h1>INNGE network : this is on!</h1>
+   <div class="postinfo">
+      July 18, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
+   </div>
+      <p>The INNGE network is now officially started, with a short Forum article in the INTECOL Bulletin (PDF attached at the end of this post). I’m obviously very glad to be part of this effort, which seeks to bring early career ecologists together from around the world, thereby strengthening international ties within a growing global community of ecologists. The Société Française d’Ecologie is supporting this initiative as well. If you want to know more about this...</p>
+      <a class="readmore" href="/2011/07/18/innge-network-this-is-on/">Read more...</a>
+   <hr />
 </div>
 
-<div class='post'>
-  <h1>Biblatex styles for ecology</h1>
-  <div class="postinfo">April 26, 2012 &nbsp;&nbsp;&nbsp;&nbsp; <span class="label radius small" style="margin-right: 3px;">LaTeX</span><span class="label radius small" style="margin-right: 3px;">biblatex</span><span class="label radius small" style="margin-right: 3px;">open source</span></div>
-  <p>
-    A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of natbib —, I started looking into biblatex. biblatex is essentially a re-implementation of LaTeX packages like cite, natbib, and others. And the more I used it, the more I realized two things. First, biblatex is awesome; it&#39;s to natbib what knitr is to Sweave. Including the fact that switching from one system to the other is virtually transparent, but you would miss a lot by not using the biblatex specific commands. Second, it&#39;s a pain to find citation styles for...
-  </p>
-<a class="readmore" href="/2012/04/26/biblatex-styles-ecology/">Read more...</a>
+<div class='post postlist'>
+   <h1>Models in Evolutionary Ecology, 2nd edition</h1>
+   <div class="postinfo">
+      July 17, 2011 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/conferences/">conferences</a></span>
+   </div>
+      <p>The videos of the talks given during the second edition of the Models in Evolutionary Ecology seminar, which I co-organized, are currently being put on-line. <a href="http://www.dailymotion.com/playlist/x1mv7l_mez_en_video_cefe- colloque">You can see them on Dailymotion (my own talk is not online yet). This seminar was organized by french PhD Students, in order to foster interactions between people working on experimental and theoretical aspects of the multiple fields that make evolutionary ecology. This year was our second attempt...</p>
+      <a class="readmore" href="/2011/07/17/models-in-evolutionary-ecology-2nd-edition/">Read more...</a>
+   <hr />
 </div>
 
 
@@ -155,44 +189,19 @@
     <li class="current">16</li>
     
     
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
-    
-    <li><a href="/blog/page19">19</a></li>
-    
-    
   </ul>
 
 </div>
 
 
-   </div>
-   <div class="large-3 small-2 columns">
-      <div class='header'>
-         <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-         <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-         <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
       </div>
    </div>
-   </div>
+   <div class='push'></div>
+</div>
 
-   <div class="row footer">
-         <div class="small-4 columns">
+<div class="row footer">
+   <div class="footercontent">
+      <div class="small-4 columns">
 <h5>Contact</h5>
 <ul class='no-bullet'>
    <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
@@ -201,22 +210,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   <li><span class='date'>07 Jan 2014</span> <a href="/2014/01/07/mangal-database-networks/">Introducing mangal, a database for ecological networks</a></li>
-   
-   <li><span class='date'>03 Jan 2014</span> <a href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>
@@ -233,12 +226,7 @@
 
 
    </div>
-
 </div>
-
-
-</div>
-
 </body>
 
 </html>

@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Fixes for the ManuscriptCentral PDF conversion problem</h1>
 
@@ -61,7 +86,7 @@ away.</p>
 <p>Only this time, I wanted to understand what was happening, and to fix it as much
 as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts
 PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions
-will generate 1.7 or 1.8, so it&#39;s obviously not going to work (but on the
+will generate 1.7 or 1.8, so it’s obviously not going to work (but on the
 up-side, it will give you one of the most depressing and amusing error
 message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
 
@@ -71,12 +96,12 @@ message ever: your PDF file cannot be converted in the correct PDF format). So t
 </code></pre></div>
 
 <p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained
-<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That&#39;s one additional command, which is not needed in most other situations, but that&#39;s one way to fix it.</p>
+<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That’s one additional command, which is not needed in most other situations, but that’s one way to fix it.</p>
 
 <p>There is a second workaround, which is to compile with <code>latex</code> instead of
-<code>pdflatex</code> (haven&#39;t tested this one, but it should work), then upload the whole
+<code>pdflatex</code> (haven’t tested this one, but it should work), then upload the whole
 dependencies when you submit. Note that your figures needs be <code>eps</code> for this to
-work, and you&#39;ll probably be limited by the packages installed on the remote
+work, and you’ll probably be limited by the packages installed on the remote
 server, the list of which is not known. The <em>Methods in Ecology and Evolution</em>
 staff was extremely quick in pointing that out after I raised the issue on
 Twitter, so a big thank you to them.</p>
@@ -93,13 +118,14 @@ it into a PDF 1.3 file, that can be uploaded with no problems. You can just add
 that to a <code>makefile</code>, by the way:</p>
 
 <div class="highlight"><pre><code class="make"><span class="nf">mc</span><span class="o">:</span> <span class="m">ms.pdf</span>
-    pdftops ms.pdf ms.ps
-    ps2pdf13 ms.ps ms_mc.pdf
-    rm ms.ps
+	pdftops ms.pdf ms.ps
+	ps2pdf13 ms.ps ms_mc.pdf
+	rm ms.ps
 </code></pre></div>
 
 <p>Once your paper is ready, a simple <code>make mc</code> will create a <code>ms_mc.pdf</code> file,
 which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.</p>
+
 
 
 </div>
@@ -138,19 +164,6 @@ which is suitable for upload. So here you go, happy upload to all of you, and ma
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -166,22 +179,6 @@ which is suitable for upload. So here you go, happy upload to all of you, and ma
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

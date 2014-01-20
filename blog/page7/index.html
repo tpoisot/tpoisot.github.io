@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,114 +37,96 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <!-- This loops through the paginated posts -->
 
 
 <div class='post postlist'>
-   <h1>INNGE announces EcoBloggers</h1>
+   <h1>A note on network complexity</h1>
    <div class="postinfo">
-      January  7, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific communication/">scientific communication</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span>
+      June 19, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/statistics/">statistics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological complexity/">ecological complexity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
    </div>
-      <p>It all started with a rather enigmatic tweet, two weeks ago: Any ecologist with a blog, can you send me a message? @inngecologist is starting a cool project!&mdash; Tim (@tpoi) December 14, 2012 Thanks to Naupaka Zimmerman today is an important day, as INNGE launches EcoBloggers, a new platform to aggregate blog posts written by ecologists. Just this morning, there&#39;s been some discussion at Dynamic Ecology that ecological blogs may be fading away. One of...</p>
-      <a class="readmore" href="/2013/01/07/ecobloggers/">Read more...</a>
+      <p>I have seen the word complexity used to mean approximately anything in ecological network litterature, and to be extremely honest, I’m entirely guilty of that myself. We can probably find as many uses for complexity in the network litterature as there are uses for paradigm in Thomas Kuhn’s The Structure of Scientific Revolutions (which is to say, probbaly way too much, and certainly enough to confuse people). It’s getting bad enough that some of us...</p>
+      <a class="readmore" href="/2013/06/19/notes-on-network-complexity/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Writing grant applications can be fun</h1>
+   <h1>The structure of natural bacteria-phage networks</h1>
    <div class="postinfo">
-      January  4, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/grants/">grants</a></span>
+      May 30, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteria/">bacteria</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteriophages/">bacteriophages</a></span>
    </div>
-      <p>Most of my summer, and a substantial part of whatever time in fall was left after teaching, went into applying to various grants and positions. It&#39;s a frustrating experience, because it&#39;s time not spent doing research. But as I had no other possibility than doing it, I tried to make the experience enjoyable, and I even found myself learning a few things along the way. I&#39;ve done my PhD in a French university, and it&#39;s...</p>
-      <a class="readmore" href="/2013/01/04/writing-grant-applications/">Read more...</a>
+      <p>Freedom! The final chapter of my thesis is now online on the website of Ecological Processes. We use data form a field isolated bacteria-phage system to have a network approach of the specialist-generalist coexistence problem. The main result is that, even when controlling for phylogenetic dispersal of hosts, it’s better to be a generalist. This signal is highly consistent across the five networks we studied, and goes in the way of recent results on coevolution:...</p>
+      <a class="readmore" href="/2013/05/30/bacteria-soil-networks/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Bacteria-phage networks</h1>
+   <h1>Measuring realized network modularity</h1>
    <div class="postinfo">
-      December 19, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phages/">phages</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteria/">bacteria</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span>
+      May 23, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span>
    </div>
-      <p>I&#39;m really glad to announce that the review paper we have been working on with Joshua Weitz, Justin Meyer, Cesar Flores, Sergi Valverde, Matthew Sullivan and Mike Hochberg is now online at Trends in Microbiology (PDF, as always, available by clicking Papers on the sidebar). It&#39;s a great and exciting paper, in which we propose that bacteria-phage interactions should be studied as networks, rather than just pairs of interactions. Because the goal of the paper...</p>
-      <a class="readmore" href="/2012/12/19/bacteria-phage-networks/">Read more...</a>
+      <p>A paper describing how to measure realized network modularity just appeared online at F1000 Research. It’s currently waiting for reviewers. This is a short methodological note, to “solve” a problem I had when presenting the ouput of modularity analyses. Most of the time, the values you get are between 0 and 1, but they are fairly difficult to make sense of. They’re not probabilities that the network is different. They’re statistics to some extent, but...</p>
+      <a class="readmore" href="/2013/05/23/realized-modularity/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>The friends of my friends (are on twitter)</h1>
+   <h1>Trophic complementarity and the BEF relationship in food webs</h1>
    <div class="postinfo">
-      December 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/igraph/">igraph</a></span>
+      May 22, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecosystem functioning/">ecosystem functioning</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological modeling/">ecological modeling</a></span>
    </div>
-      <p>Twitter is cool for science, because it can help you spread your ideas. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, e.g., the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye. I&#39;m running pilots for a cool...</p>
-      <a class="readmore" href="/2012/12/15/face-of-twitter/">Read more...</a>
+      <p>I’m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet and I), have a new paper in Ecology Letters, about the biodiversity-ecosystem functioning (BEF) relationship in food webs. In this paper, we show that trophic complementarity is a very good predictor of productivity in complex ecosystems. You can go get the paper. So what is trophic complementarity, and why is this result important? The strength of the BEF theory is that the...</p>
+      <a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>How to represent networks</h1>
+   <h1>Should code be reviewed?</h1>
    <div class="postinfo">
-      November 23, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data management/">data management</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
+      May 21, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer review/">peer review</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/software/">software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
    </div>
-      <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a &ldquo;good&rdquo; format, and it&#39;s not always an easy task. It implies looping through...</p>
-      <a class="readmore" href="/2012/11/23/how-to-represent-networks/">Read more...</a>
+      <p>Joppa and colleagues published a policy forum in Science, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations...</p>
+      <a class="readmore" href="/2013/05/21/should-code-reviewed/">Read more...</a>
    <hr />
 </div>
 
 <div class='post postlist'>
-   <h1>Data sharing and the bagel effect</h1>
+   <h1>Remove indels from blast output</h1>
    <div class="postinfo">
-      November  9, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data sharing/">data sharing</a></span>
+      May 20, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bioinformatics/">bioinformatics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biopython/">biopython</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pyrosequencing/">pyrosequencing</a></span>
    </div>
-      <p>I&#39;m starting to organize a collection of notes and ideas I&#39;ve had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I&#39;ll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would...</p>
-      <a class="readmore" href="/2012/11/09/data-sharing-and-the-bagel-effect/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Should we care about species interaction networks?</h1>
-   <div class="postinfo">
-      October 29, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological theory/">ecological theory</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scale of organization/">scale of organization</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
-   </div>
-      <p>In June, I was invited to give a talk at the Web of Life meeting in Montpellier. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was...</p>
-      <a class="readmore" href="/2012/10/29/species-interaction-networks/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Presenting the results of networks null models</h1>
-   <div class="postinfo">
-      October  9, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/null models/">null models</a></span>
-   </div>
-      <p>I&#39;m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, Cesar Flores and colleagues show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties,...</p>
-      <a class="readmore" href="/2012/10/09/null-models-presentations/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Can phage increase bacterial growth?</h1>
-   <div class="postinfo">
-      October  2, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phages/">phages</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bacteria/">bacteria</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/stress response/">stress response</a></span>
-   </div>
-      <p>In the early days of my PhD (I probably started a week or two before that), I attended the BRIDGES workshop in Blanes. The goal of this workshop was to bring together microbial ecologists and general ecologists. Back in Montpellier, Mike Hochberg, Tom Bell and I discussed the classical results of Daphnia changing their behavior when exposed to predators, and wondered if we can get this cool result with bacteria and phages. Why? Because we...</p>
-      <a class="readmore" href="/2012/10/02/bacterial-terminal-investment/">Read more...</a>
-   <hr />
-</div>
-
-<div class='post postlist'>
-   <h1>Measuring the beta-diversity of species interaction networks</h1>
-   <div class="postinfo">
-      September 24, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/beta-diversity/">beta-diversity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
-   </div>
-      <p>To reproduce the analyses presented in our latest paper, we wrote the betalink R package. This post is a walkthrough for most of the analyses. The help is not fully completed yet, and in any case, seeing examples is more informative than reading the manual. First thing first, go to the previous link, and download the package. Unzip it, open a terminal, and type R CMD INSTALL betalink If you open R, you can now...</p>
-      <a class="readmore" href="/2012/09/24/measuring-beta-diversity-networks/">Read more...</a>
+      <p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were indels rather than point mutations. It may not sound like it, but it’s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of blast. So to get a “reliable” estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps....</p>
+      <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Read more...</a>
    <hr />
 </div>
 
@@ -190,24 +175,35 @@
     <li><a href="/blog/page10">10</a></li>
     
     
+    
+    <li><a href="/blog/page11">11</a></li>
+    
+    
+    
+    <li><a href="/blog/page12">12</a></li>
+    
+    
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
+    
   </ul>
 
 </div>
 
 
-      </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
       </div>
    </div>
    <div class='push'></div>
@@ -224,22 +220,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

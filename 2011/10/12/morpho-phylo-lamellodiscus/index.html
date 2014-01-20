@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>Morphology and phylogeny in Lamellodiscus</h1>
 
@@ -50,10 +75,10 @@
    </div>
 
 
-<p>The final paper of my master&#39;s project was <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0026252">published online today in <em>PLoS One</em></a>. It&#39;s about how species of a fish parasite, which were defined based on morphological features, may not be actual species, as they have no phylogenetic support.</p>
+<p>The final paper of my master’s project was <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0026252">published online today in <em>PLoS One</em></a>. It’s about how species of a fish parasite, which were defined based on morphological features, may not be actual species, as they have no phylogenetic support.</p>
 
 <blockquote>
-<p><em>Lamellodiscus</em> Johnston &amp; Tiegs 1922 (Monogenea, Diplectanidae) is a genus of common parasites on the gills of sparid fishes. Here we show that this genus is probably undergoing a fast molecular diversification, as reflected by the important genetic variability observed within three molecular markers (partial nuclear 18S rDNA, Internal Transcribed Spacer 1, and mitonchondrial <em>Cytochrome Oxidase I</em>). Using an updated phylogeny of this genus, we show that molecular and morphological evolution are weakly correlated, and that most of the morphologically defined taxonomical units are not consistent with the molecular data. We suggest that <em>Lamellodiscus</em> morphology is probably constrained by strong environmental (host-induced) pressure, and discuss why this result can apply to other taxa. Genetic variability within nuclear 18S and mitochondrial <em>COI</em> genes are compared for several monogenean genera, as this measure may reflect the level of diversification within a genus. Overall our results suggest that cryptic speciation events may occur within <em>Lamellodiscus</em>, and discuss the links between morphological and molecular evolution.</p>
+  <p><em>Lamellodiscus</em> Johnston &amp; Tiegs 1922 (Monogenea, Diplectanidae) is a genus of common parasites on the gills of sparid fishes. Here we show that this genus is probably undergoing a fast molecular diversification, as reflected by the important genetic variability observed within three molecular markers (partial nuclear 18S rDNA, Internal Transcribed Spacer 1, and mitonchondrial <em>Cytochrome Oxidase I</em>). Using an updated phylogeny of this genus, we show that molecular and morphological evolution are weakly correlated, and that most of the morphologically defined taxonomical units are not consistent with the molecular data. We suggest that <em>Lamellodiscus</em> morphology is probably constrained by strong environmental (host-induced) pressure, and discuss why this result can apply to other taxa. Genetic variability within nuclear 18S and mitochondrial <em>COI</em> genes are compared for several monogenean genera, as this measure may reflect the level of diversification within a genus. Overall our results suggest that cryptic speciation events may occur within <em>Lamellodiscus</em>, and discuss the links between morphological and molecular evolution.</p>
 </blockquote>
 
 <p>Poisot T, Verneau O, Desdevises Y (2011) Morphological and Molecular Evolution Are Not Linked in <em>Lamellodiscus</em> (Plathyhelminthes, Monogenea). PLoS ONE 6(10): e26252. doi:10.1371/journal.pone.0026252</p>
@@ -95,19 +120,6 @@
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -123,22 +135,6 @@
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>

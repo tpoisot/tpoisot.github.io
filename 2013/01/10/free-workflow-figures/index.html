@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="/css/pygments.css" />
    <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
    <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
    <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
     
@@ -34,14 +37,36 @@
 <body>
 <a id="top"></a>
 
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
 <div class="row wrapper">
    <div class = "copy">
-      <div class="large-12 small-12 columns header">
-            <h1>Timothée Poisot</h1>
-<h2>Spatial ecology of species interactions</h2>
-
-      </div>
-      <div class="large-10 small-10 columns maintext">
+      <div class="large-12 small-12 columns maintext">
          <div class='post'>
 <h1>A quick way to get good figures for your web pages</h1>
 
@@ -50,15 +75,15 @@
    </div>
 
 
-<p>I&#39;m a huge fan of the <code>pgfplots</code> package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: <code>notes</code>, <code>MS</code>, and <code>code</code>. The results of what happens in <code>code</code> (usually a huge mess of R, C and Python) go directly into <code>MS</code> as tab-delimited files, and the <code>.tex</code> document has all the commands needed to transform this in figures. I&#39;ve notably used this workflow for the <code>beamer</code> slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons. </p>
+<p>I’m a huge fan of the <code>pgfplots</code> package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: <code>notes</code>, <code>MS</code>, and <code>code</code>. The results of what happens in <code>code</code> (usually a huge mess of R, C and Python) go directly into <code>MS</code> as tab-delimited files, and the <code>.tex</code> document has all the commands needed to transform this in figures. I’ve notably used this workflow for the <code>beamer</code> slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons. </p>
 
-<p>I&#39;m <em>really</em> happy with this setup, and <code>pgfplots</code> is a wonderful tool. It does look really <em>LaTeX-y</em> (<code>s/LaTeX-/ugl/</code>) by default, but you can get good results with minor tweakings. Given that I am familiar around this system, I was thinking about how I can use it to produce good graphics to put in blog posts, when needed. As it turned out, it&#39;s remarkably easy, and it requires almost no user input.</p>
+<p>I’m <em>really</em> happy with this setup, and <code>pgfplots</code> is a wonderful tool. It does look really <em>LaTeX-y</em> (<code>s/LaTeX-/ugl/</code>) by default, but you can get good results with minor tweakings. Given that I am familiar around this system, I was thinking about how I can use it to produce good graphics to put in blog posts, when needed. As it turned out, it’s remarkably easy, and it requires almost no user input.</p>
 
-<p>Doing so requires almost nothing, except an install of <a href="http://www.imagemagick.org/script/index.php"><code>imagemagick</code></a> should it not ship with your operating system. Of course you need LaTeX, and (relatively) up-to-date versions of the <code>tikz</code> and <code>pgfplots</code> packages installed. By the end of this walkthrough, you&#39;ll be able to generate figures like the one just below, with almost no effort.</p>
+<p>Doing so requires almost nothing, except an install of <a href="http://www.imagemagick.org/script/index.php"><code>imagemagick</code></a> should it not ship with your operating system. Of course you need LaTeX, and (relatively) up-to-date versions of the <code>tikz</code> and <code>pgfplots</code> packages installed. By the end of this walkthrough, you’ll be able to generate figures like the one just below, with almost no effort.</p>
 
-<p><img src="/images/ex-pgf-blog.png" alt="Figure1" title="An example of what can be done"></p>
+<p><img src="/images/ex-pgf-blog.png" alt="Figure1" /></p>
 
-<h1>Getting the figures from LaTeX</h1>
+<h1 id="getting-the-figures-from-latex">Getting the figures from LaTeX</h1>
 
 <p>To start, we need a <code>.tex</code> document, who will act as a template for all the figures we want to produce. A minimal preamble will be more than enough:</p>
 
@@ -95,37 +120,37 @@ convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</sp
 <span class="k">done</span>
 </code></pre></div>
 
-<p>The <code>-resize 1204x986</code> flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it&#39;s better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:</p>
+<p>The <code>-resize 1204x986</code> flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it’s better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:</p>
 
 <div class="highlight"><pre><code class="css"><span class="nc">.pbody</span> <span class="nt">img</span><span class="p">{</span>
-    <span class="k">background-color</span><span class="o">:</span> <span class="k">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="p">);</span>
-    <span class="k">border</span><span class="o">:</span> <span class="m">9px</span> <span class="k">solid</span> <span class="k">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="p">);</span>
-    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
-    <span class="k">max-width</span><span class="o">:</span> <span class="m">742px</span><span class="p">;</span>
-    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0px</span> <span class="k">auto</span><span class="p">;</span>
-    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+	<span class="k">background-color</span><span class="o">:</span> <span class="k">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="p">);</span>
+	<span class="k">border</span><span class="o">:</span> <span class="m">9px</span> <span class="k">solid</span> <span class="k">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="p">);</span>
+	<span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
+	<span class="k">padding</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
+	<span class="k">max-width</span><span class="o">:</span> <span class="m">742px</span><span class="p">;</span>
+	<span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+	<span class="k">margin</span><span class="o">:</span> <span class="m">0px</span> <span class="k">auto</span><span class="p">;</span>
+	<span class="k">margin-bottom</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<h1>OK, let&#39;s do it!</h1>
+<h1 id="ok-lets-do-it">OK, let’s do it!</h1>
 
 <p>In your LaTeX file, between the <code>\begin{document}</code> and <code>\end{document}</code> commands, just put the code for your figure (see the <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> website for details on the syntax, the <em>Gallery</em> page has a lot of examples).</p>
 
 <div class="highlight"><pre><code class="latex"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[xlabel=Time (weeks),ylabel=Individuals,
-            width=12cm,height=6cm
-            ]
-        <span class="k">\addplot</span> coordinates <span class="nb">{</span>(1,8) (2,9) (4,7) (5,13)
-        (6,12) (8,18) (9,17) (10,22) (11,41) (12,32)
-        (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="nb">}</span>;
-        <span class="k">\node</span><span class="na">[coordinate,pin={below:{Control}}]</span> at (axis cs:16,21.5) <span class="nb">{}</span>;
-        <span class="k">\addplot</span> coordinates <span class="nb">{</span>(1,4) (2,3) (4,5) (5,7)
-        (6,9) (7,8) (8,12) (9,23) (10,38) (11,34)
-        (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="nb">}</span>;
-        <span class="k">\node</span><span class="na">[coordinate,pin={above:{Treatment}}]</span> at (axis cs:21,24.4) <span class="nb">{}</span>;
-    <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
+	<span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[xlabel=Time (weeks),ylabel=Individuals,
+			width=12cm,height=6cm
+			]
+		<span class="k">\addplot</span> coordinates <span class="nb">{</span>(1,8) (2,9) (4,7) (5,13)
+		(6,12) (8,18) (9,17) (10,22) (11,41) (12,32)
+		(13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="nb">}</span>;
+		<span class="k">\node</span><span class="na">[coordinate,pin={below:{Control}}]</span> at (axis cs:16,21.5) <span class="nb">{}</span>;
+		<span class="k">\addplot</span> coordinates <span class="nb">{</span>(1,4) (2,3) (4,5) (5,7)
+		(6,9) (7,8) (8,12) (9,23) (10,38) (11,34)
+		(12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="nb">}</span>;
+		<span class="k">\node</span><span class="na">[coordinate,pin={above:{Treatment}}]</span> at (axis cs:21,24.4) <span class="nb">{}</span>;
+	<span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 </code></pre></div>
 
@@ -138,9 +163,9 @@ pgf-figure0.pdf
 
 <p>You will now have a PNG file, which looks like this:</p>
 
-<p><img src="/images/ex-pgf-default.png" alt="Figure2" title="The default PGFplots settings"></p>
+<p><img src="/images/ex-pgf-default.png" alt="Figure2" /></p>
 
-<p>It&#39;s cool, but I strongly encourage you to play around with the various opitons. Defining two colors in the preamble of your LaTeX file,</p>
+<p>It’s cool, but I strongly encourage you to play around with the various opitons. Defining two colors in the preamble of your LaTeX file,</p>
 
 <div class="highlight"><pre><code class="latex"><span class="k">\definecolor</span><span class="nb">{</span>GR<span class="nb">}{</span>RGB<span class="nb">}{</span>60,170,70<span class="nb">}</span>
 <span class="k">\definecolor</span><span class="nb">{</span>C1<span class="nb">}{</span>RGB<span class="nb">}{</span>170,70,60<span class="nb">}</span>
@@ -149,40 +174,40 @@ pgf-figure0.pdf
 <p>, and using them (along with other options) to make your figure less LaTeX-y, can make a substantial difference. For example, the first figure in this entry was produced with the following code:</p>
 
 <div class="highlight"><pre><code class="latex"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[xlabel=Time (weeks),ylabel=Individuals,
-            width=12cm,height=6cm, ymin = 0, ymax = 50,
-            xmin = -0.05, xmax=26.05,
-            ymajorgrids, ytick=<span class="nb">{</span>10,20,30,40<span class="nb">}</span>,
-            axis y line*=left, axis x line*=bottom,
-            tick align=outside,
-            axis background/.style=<span class="nb">{</span>shade,top color=GR!5!white,bottom color=white<span class="nb">}</span>,
-            y axis line style=<span class="nb">{</span>white, line width = 0.0001pt<span class="nb">}</span>,
-            x axis line style=<span class="nb">{</span>black!60!white<span class="nb">}</span>
-            ]
-        <span class="k">\addplot</span><span class="na">[color=GR,mark=none,ultra thick]</span> coordinates <span class="nb">{</span>(1,8) (2,9) (4,7) (5,13)
-        (6,12) (8,18) (9,17) (10,22) (11,41)
-        (12,32) (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="nb">}</span>;
-        <span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={GR,thick,densely dotted}]</span>
-            below:<span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>GR<span class="nb">}</span>Control<span class="nb">}}</span>]
-            at (axis cs:16,21.5) <span class="nb">{}</span>;
-        <span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={black,thick,densely dotted}]</span>
-            45:<span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>bloom<span class="nb">}}}</span>]
-            at (axis cs:11,41) <span class="nb">{}</span>;
-        <span class="k">\addplot</span><span class="na">[color=C1,mark=none,ultra thick]</span> coordinates <span class="nb">{</span>(1,4) (2,3) (4,5) (5,7) (6,9)
-        (7,8) (8,12) (9,23) (10,38)
-        (11,34) (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="nb">}</span>;
-        <span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={C1,thick,densely dotted}]</span>
-            above:<span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>C1<span class="nb">}</span>Treatment<span class="nb">}}</span>]
-            at (axis cs:21,24.4) <span class="nb">{}</span>;
-    <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
+	<span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[xlabel=Time (weeks),ylabel=Individuals,
+			width=12cm,height=6cm, ymin = 0, ymax = 50,
+			xmin = -0.05, xmax=26.05,
+			ymajorgrids, ytick=<span class="nb">{</span>10,20,30,40<span class="nb">}</span>,
+			axis y line*=left, axis x line*=bottom,
+			tick align=outside,
+			axis background/.style=<span class="nb">{</span>shade,top color=GR!5!white,bottom color=white<span class="nb">}</span>,
+			y axis line style=<span class="nb">{</span>white, line width = 0.0001pt<span class="nb">}</span>,
+			x axis line style=<span class="nb">{</span>black!60!white<span class="nb">}</span>
+			]
+		<span class="k">\addplot</span><span class="na">[color=GR,mark=none,ultra thick]</span> coordinates <span class="nb">{</span>(1,8) (2,9) (4,7) (5,13)
+		(6,12) (8,18) (9,17) (10,22) (11,41)
+		(12,32) (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="nb">}</span>;
+		<span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={GR,thick,densely dotted}]</span>
+			below:<span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>GR<span class="nb">}</span>Control<span class="nb">}}</span>]
+			at (axis cs:16,21.5) <span class="nb">{}</span>;
+		<span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={black,thick,densely dotted}]</span>
+			45:<span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>bloom<span class="nb">}}}</span>]
+			at (axis cs:11,41) <span class="nb">{}</span>;
+		<span class="k">\addplot</span><span class="na">[color=C1,mark=none,ultra thick]</span> coordinates <span class="nb">{</span>(1,4) (2,3) (4,5) (5,7) (6,9)
+		(7,8) (8,12) (9,23) (10,38)
+		(11,34) (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="nb">}</span>;
+		<span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={C1,thick,densely dotted}]</span>
+			above:<span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>C1<span class="nb">}</span>Treatment<span class="nb">}}</span>]
+			at (axis cs:21,24.4) <span class="nb">{}</span>;
+	<span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 </code></pre></div>
 
-<h1>In conclusion</h1>
+<h1 id="in-conclusion">In conclusion</h1>
 
-<p>It&#39;s remarkably easy, with this setup, to produce really good quality graphics to put on web pages, I originally wanted to learm something like <code>D3</code>, but realized I have no time to invest in this at the moment. Plus, the advantage of using a LaTeX-based system is that (in addition to the geek cred) you will be able to easily re-use material from different sources. For example, I can now easily tweak a figure I made for a paper, and put it online, just by changing the <code>axis</code> parameters. And given that everything is command-line based, you can really automate the whole process (just write a shell script taking care of LaTeX compilation, <code>imagemagick</code> conversion, and copying the figure at the appropriate place in your website folder).</p>
+<p>It’s remarkably easy, with this setup, to produce really good quality graphics to put on web pages, I originally wanted to learm something like <code>D3</code>, but realized I have no time to invest in this at the moment. Plus, the advantage of using a LaTeX-based system is that (in addition to the geek cred) you will be able to easily re-use material from different sources. For example, I can now easily tweak a figure I made for a paper, and put it online, just by changing the <code>axis</code> parameters. And given that everything is command-line based, you can really automate the whole process (just write a shell script taking care of LaTeX compilation, <code>imagemagick</code> conversion, and copying the figure at the appropriate place in your website folder).</p>
 
-<p>The inconveninent is that this system is not dynamics, <em>i.e.</em> if you want to re-draw a figure because the data changed, you have to do it by hand, where <code>D3</code> will automatically take care of it. But for now, I&#39;m happy enough with this system.</p>
+<p>The inconveninent is that this system is not dynamics, <em>i.e.</em> if you want to re-draw a figure because the data changed, you have to do it by hand, where <code>D3</code> will automatically take care of it. But for now, I’m happy enough with this system.</p>
 
 
 </div>
@@ -221,19 +246,6 @@ pgf-figure0.pdf
 
 
       </div>
-      <div class="large-2 small-2 columns">
-         <div class='header'>
-            <ul class="no-bullet main-nav">
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-</ul>
-
-            <a class='top' href="#top"><i class="fa fa-arrow-circle-up"></i></a>
-         </div>
-      </div>
    </div>
    <div class='push'></div>
 </div>
@@ -249,22 +261,6 @@ pgf-figure0.pdf
    <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
 </ul>
 </div>
-
-<div class="small-8 columns">
-   <h5>Most recent posts</h5>
-   <ul class='no-bullet'>
-   
-   <li><span class='date'>14 Jan 2014</span> <a href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></li>
-   
-   <li><span class='date'>11 Jan 2014</span> <a href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></li>
-   
-   <li><span class='date'>09 Jan 2014</span> <a href="/2014/01/09/mangal-in-action/">Examples of mangal in action</a></li>
-   
-   <li><span class='date'>08 Jan 2014</span> <a href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></li>
-   
-   </ul>
-</div>
-
 
 <div class="small-8 columns">
    <h5>Colophon</h5>
