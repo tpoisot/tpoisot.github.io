@@ -4,12 +4,76 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-19T20:49:25-05:00</updated>
+  <updated>2014-01-20T12:18:01-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Semantic versioning for scientific software</title>
+     <link href="http://timotheepoisot.fr/2014/01/20/semantic-versioning/"/>
+    <updated>2014-01-20T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;I have recently discovered the concept of &lt;a href=&quot;http://semver.org/&quot;&gt;semantic versioning&lt;/a&gt;,
+introduced by Tom Preston-Werner. In short, semantic versioning is a
+way to know whether two versions of a program will behave in the same
+way. A program conforming to this specification has a version number of
+&lt;code&gt;major&lt;/code&gt;.&lt;code&gt;minor&lt;/code&gt;.&lt;code&gt;patch&lt;/code&gt;, and comparing two version numbers will tell you
+exactly what to expect in terms of compatibility. Versions with different
+&lt;code&gt;major&lt;/code&gt; numbers are not supposed to be compatible. A version with a higher
+&lt;code&gt;minor&lt;/code&gt; number will have additional, backwards compatible functions. Different
+levels of &lt;code&gt;patch&lt;/code&gt; will correspond to issues solving and so forth.&lt;/p&gt;
+
+&lt;p&gt;Semantic versioning is intended for programs declaring a public API, as
+all &lt;code&gt;R&lt;/code&gt; packages do (the various functions and data formats). Any package,
+module, etc., declaring functions that will be used in user-written scripts
+are within the scope of semantic versioning. A script that you wrote using
+v. &lt;code&gt;1.2.3&lt;/code&gt; will work when &lt;code&gt;1.3.1&lt;/code&gt; or &lt;code&gt;1.2.4&lt;/code&gt; are released, but &lt;em&gt;not&lt;/em&gt; when
+&lt;code&gt;2.0.0&lt;/code&gt; is. An important point is that, unless &lt;code&gt;major&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;, the software
+is considered unstable: the API can change very rapidly, and so it should
+not be used for production.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://yihui.name/en/2013/06/r-package-versioning/&quot;&gt;Yihui Xie&lt;/a&gt; proposes a slightly different set of rules, specifically
+aimed at &lt;code&gt;R&lt;/code&gt; packages. When the &lt;code&gt;minor&lt;/code&gt; version increases, release the new
+version of your package to &lt;code&gt;CRAN&lt;/code&gt; (as &lt;code&gt;patch&lt;/code&gt; versions are not supposed to
+introduce new features anyway). People can just save time by referring to the
+&lt;code&gt;major&lt;/code&gt;.&lt;code&gt;minor&lt;/code&gt; version of the package. The way semantic versioning works,
+you will only submit &lt;code&gt;major&lt;/code&gt;.&lt;code&gt;minor&lt;/code&gt;.&lt;code&gt;0&lt;/code&gt; versions to &lt;code&gt;CRAN&lt;/code&gt; (because each
+time a number increases, all numbers to the right are set to &lt;code&gt;0&lt;/code&gt;). And so
+any version with &lt;code&gt;patch&lt;/code&gt; higher than &lt;code&gt;0&lt;/code&gt; is a &lt;em&gt;development&lt;/em&gt; version.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;What is the relevance of that for people not contributing to software
+development? I think using semantic versioning is useful if we &lt;em&gt;report&lt;/em&gt;
+version numbers in the papers in the same way. If you distribute supplementary
+files with your paper, such as &lt;code&gt;R&lt;/code&gt; scripts, don’t give the package name,
+but also the version of the package you used. This can be viewed using
+&lt;code&gt;sessionInfo()&lt;/code&gt;. If you use package &lt;code&gt;foo&lt;/code&gt;, v. &lt;code&gt;1.3.0&lt;/code&gt;, and the maintainer of
+package &lt;code&gt;foo&lt;/code&gt; uses semantic versioning, if someone tries to use your script
+a few years later with &lt;code&gt;foo&lt;/code&gt; v. &lt;code&gt;2.1.0&lt;/code&gt;, it is &lt;em&gt;possible&lt;/em&gt; that things will
+break. If you clearly state which packages versions are used, it will be easier
+for users to install the correct version of the packages to run your analyses.&lt;/p&gt;
+
+&lt;p&gt;Correct reporting of software versions is important (and I’ve been guilty of
+not using top-notch practices myself), but if an increasing number of people
+start using semantic versioning, it will &lt;em&gt;help&lt;/em&gt; re-use of code. In short,
+we should always give the full version number when mentioning a package
+or software.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;As a final note, this also require the those of us producing code adopt
+better development practices. In &lt;em&gt;GitHub&lt;/em&gt;, it is easy to tag releases,
+so that all different versions are available over time. And because the
+ultimate goal of semantic versioning is to ensure backwards compatibility,
+we need to be sure that new fixes or additions do not break it. This can
+be done by writing thorough test suites. Unless a new addition results in
+previously passing tests failing, it can be considered safe.&lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
      <title>Python wrapper for mangal</title>
@@ -3042,45 +3106,6 @@ like that.&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/airblade/vim-gitgutter&quot;&gt;vim-gitgutter&lt;/a&gt; to see how my local file differs from the git version&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/vim-pandoc/vim-pandoc&quot;&gt;vim-pandoc&lt;/a&gt; for a lot of pandoc-related stuff, including &lt;em&gt;bibtex reference auto-completion&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>F1000Research announces new Ecology section</title>
-     <link href="http://timotheepoisot.fr/2013/08/08/F1000R-ecology-section/"/>
-    <updated>2013-08-08T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;F1000Research just put up a &lt;a href=&quot;http://blog.f1000research.com/2013/08/08/ecologists-join-our-open-science-ecosystem/&quot;&gt;new blog post&lt;/a&gt; to announce that they
-will concentrate some of their efforts to increase the proportion of ecology
-papers they publish. We should all be excited about this. First, the article
-processing fees will be waived until 2014, so here goes a good opportunity to
-see for yourself how this journal works. Second, the publication model of
-F1000Research is extremely interesting. After initial checking, the paper is
-put on-line, and appears as a preprint. Reviews appear in real-time, and are
-not anonymous. Further changes to the paper are well documented.&lt;/p&gt;
-
-&lt;p&gt;As we discuss in &lt;a href=&quot;http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563&quot;&gt;Phil’s paper&lt;/a&gt; paper on preprints in biology, this
-immediate publication model is good, especially for early-career people. When
-you need to have something to show for your work in order to apply for
-a fellowship, it’s understandable that you don’t want to wait for up to a whole
-year for your paper to run the gauntlet of peer review. F1000Research also
-integrates tightly with figshare, and datasets are required to be open when the
-paper is submitted. That’s a really good practice, and it will further the
-integration between datasets and papers.&lt;/p&gt;
-
-&lt;p&gt;One of the coolest things for field ecologists (I’ve been informed that ecology
-is the study of populations, and not a branch of applied mathematics or
-computer sciences…?) is that F1000Research will now offer to publish
-&lt;em&gt;observation articles&lt;/em&gt;. People in the medical sciences have many case studies,
-that are extremely important to the field as a whole. In ecology, despite
-the recognition that general laws are elusive and not as general as they
-appear, there seems to be a shortage of places to publish interesting
-field/lab observations. I’m sure many people will be deligthed to learn that
-the modern publishing world still cares about the naturalist tradition of
-ecology.&lt;/p&gt;
-
-&lt;p&gt;So you can head to the &lt;a href=&quot;http://f1000research.com&quot;&gt;F1000Research&lt;/a&gt; website and
-see for yourself!&lt;/p&gt;
 
 </content>
   </entry>

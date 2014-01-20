@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/foundation.min.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Semantic versioning for scientific software</title>
+    
+</head>
+
+<body>
+<a id="top"></a>
+
+            <div class='contain-to-grid fixed'>
+<nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+       <h1><a href="#top">Timothée Poisot</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+     </ul>
+
+       <section class="top-bar-section">
+         <!-- Right Nav Section -->
+            <ul class="no-bullet main-nav right">
+               <li><a href="/">Home</a></li>
+               <li><a href="/papers/">Papers</a></li>
+               <li><a href="/software/">Software</a></li>
+               <li><a href="/research/">Research</a></li>
+               <li class="active"><a href="/blog/">Blog</a></li>
+            </ul>
+
+             <!-- Left Nav Section -->
+             <ul class="left">
+                <li><a>Spatial ecology of species interactions</a></li>
+             </ul>
+           </section>
+        </nav>
+     </div>
+
+<div class="row wrapper">
+   <div class = "copy">
+      <div class="large-12 small-12 columns maintext">
+         <div class='post'>
+<h1>Semantic versioning for scientific software</h1>
+
+   <div class="postinfo">
+      January 20, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/productivity/">productivity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/software/">software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span>
+   </div>
+
+
+<p>I have recently discovered the concept of <a href="http://semver.org/">semantic versioning</a>,
+introduced by Tom Preston-Werner. In short, semantic versioning is a
+way to know whether two versions of a program will behave in the same
+way. A program conforming to this specification has a version number of
+<code>major</code>.<code>minor</code>.<code>patch</code>, and comparing two version numbers will tell you
+exactly what to expect in terms of compatibility. Versions with different
+<code>major</code> numbers are not supposed to be compatible. A version with a higher
+<code>minor</code> number will have additional, backwards compatible functions. Different
+levels of <code>patch</code> will correspond to issues solving and so forth.</p>
+
+<p>Semantic versioning is intended for programs declaring a public API, as
+all <code>R</code> packages do (the various functions and data formats). Any package,
+module, etc., declaring functions that will be used in user-written scripts
+are within the scope of semantic versioning. A script that you wrote using
+v. <code>1.2.3</code> will work when <code>1.3.1</code> or <code>1.2.4</code> are released, but <em>not</em> when
+<code>2.0.0</code> is. An important point is that, unless <code>major</code> is <code>1</code>, the software
+is considered unstable: the API can change very rapidly, and so it should
+not be used for production.</p>
+
+<p><a href="http://yihui.name/en/2013/06/r-package-versioning/">Yihui Xie</a> proposes a slightly different set of rules, specifically
+aimed at <code>R</code> packages. When the <code>minor</code> version increases, release the new
+version of your package to <code>CRAN</code> (as <code>patch</code> versions are not supposed to
+introduce new features anyway). People can just save time by referring to the
+<code>major</code>.<code>minor</code> version of the package. The way semantic versioning works,
+you will only submit <code>major</code>.<code>minor</code>.<code>0</code> versions to <code>CRAN</code> (because each
+time a number increases, all numbers to the right are set to <code>0</code>). And so
+any version with <code>patch</code> higher than <code>0</code> is a <em>development</em> version.</p>
+
+<hr />
+
+<p>What is the relevance of that for people not contributing to software
+development? I think using semantic versioning is useful if we <em>report</em>
+version numbers in the papers in the same way. If you distribute supplementary
+files with your paper, such as <code>R</code> scripts, don’t give the package name,
+but also the version of the package you used. This can be viewed using
+<code>sessionInfo()</code>. If you use package <code>foo</code>, v. <code>1.3.0</code>, and the maintainer of
+package <code>foo</code> uses semantic versioning, if someone tries to use your script
+a few years later with <code>foo</code> v. <code>2.1.0</code>, it is <em>possible</em> that things will
+break. If you clearly state which packages versions are used, it will be easier
+for users to install the correct version of the packages to run your analyses.</p>
+
+<p>Correct reporting of software versions is important (and I’ve been guilty of
+not using top-notch practices myself), but if an increasing number of people
+start using semantic versioning, it will <em>help</em> re-use of code. In short,
+we should always give the full version number when mentioning a package
+or software.</p>
+
+<hr />
+
+<p>As a final note, this also require the those of us producing code adopt
+better development practices. In <em>GitHub</em>, it is easy to tag releases,
+so that all different versions are available over time. And because the
+ultimate goal of semantic versioning is to ensure backwards compatibility,
+we need to be sure that new fixes or additions do not break it. This can
+be done by writing thorough test suites. Unless a new addition results in
+previously passing tests failing, it can be considered safe.</p>
+
+
+
+</div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="pager">
+
+
+<span class="previous">
+   <a href="/2014/01/19/pymangal/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
+</span>
+
+
+
+<span class="next disabled">
+   Next post <i class="fa fa-fw fa-chevron-right"></i>
+</span>
+
+</div>
+
+
+      </div>
+   </div>
+   <div class='push'></div>
+</div>
+
+<div class="row footer">
+   <div class="footercontent">
+      <div class="small-4 columns">
+<h5>Contact</h5>
+<ul class='no-bullet'>
+   <li><i class="fa fa-fw fa-envelope"></i> <a href="mailto:t.poisot@gmail.com">E-mail</a></li>
+   <li><i class="fa fa-fw fa-twitter-square"></i> <code>@tpoi</code> on <a href="http://twitter.com/tpoi/">Twitter</a></li>
+   <li><i class="fa fa-fw fa-github-square"></i> <code>tpoisot</code> on <a href="http://github.com/tpoisot/">GitHub</a></li>
+   <li><i class="fa fa-fw fa-rss-square"></i> <a href="http://feeds.feedburner.com/timpoisot/">RSS feed for new posts</a></li>
+</ul>
+</div>
+
+<div class="small-8 columns">
+   <h5>Colophon</h5>
+   <p>
+	  This website uses <a href='http://foundation.zurb.com/'>Foundation
+	  5</a>, <a href='http://fortawesome.github.io/Font-Awesome/'>Font
+	  Awesome</a>, is built with <a
+	  href='https://github.com/mojombo/jekyll'>Jekyll</a>, and hosted by <a
+	  href='http://pages.github.com/'>GitHub pages</a>. Contents under the
+	  <a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'>CC
+	  BY-SA 3.0</a> licence.
+   </p>
+</div>
+
+
+   </div>
+</div>
+</body>
+
+</html>
