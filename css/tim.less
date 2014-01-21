@@ -1,15 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
-@import url(http://fonts.googleapis.com/css?family=Satisfy);
-@import url(http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,900italic,900,700italic);
-
-@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,900italic,900,700italic);
 
 @mono: 'Cousine';
-@sans: 'Signika';
-@serif: 'Noticia Text';
-@hand: 'Satisfy';
+@sans: 'Merriweather Sans';
+@serif: 'Merriweather';
 
 @bg: rgb(254, 254, 254);
 @struct: rgb(221, 221, 221);
@@ -54,7 +49,7 @@ a:hover{
 .contain-to-grid{
    background-color: @bg !important;
    border-bottom: 1px solid @struct;
-   box-shadow: 0px 0px 10px rgba(254, 254, 254, 0.8);
+   box-shadow: 0px 0px 10px rgba(234, 234, 234, 0.8);
 }
 
 .top-bar{
@@ -80,7 +75,7 @@ a:hover{
       background: @struct !important;
    }
    li a:hover{
-      background: @bg !important;
+      background: rgb(245, 245, 245) !important;
       color: @hl !important;
       text-shadow: none;
    }
@@ -88,9 +83,9 @@ a:hover{
 
 hr{
    margin: 4em 0px;
-   margin-left: 0px;
-   margin-right: 60%;
-   border-width: 3px 0 0;
+   margin-left: 40%;
+   margin-right: 40%;
+   border-width: 1px 0 0;
    color: @struct;
    border-color: @struct;
 }
@@ -128,7 +123,7 @@ blockquote{
 @tmar: 96px;
 
 .hljs{
-   border-left: 4px solid @struct;
+   border-left: 2px solid @struct;
    margin-left: -1em;
    padding: 0em !important;
    padding-left: 1em !important;
@@ -150,14 +145,6 @@ blockquote{
    padding-top: 0em;
    margin-top: 0em;
    text-align: right;
-   h1{
-      font-family: @hand !important;
-   }
-   h2{
-      font-weight: 400 !important;
-      color: rgb(155, 155, 155);
-      font-size: 0.75rem !important;
-   }
    ul{
       padding-top: 3em;
       li{
@@ -262,7 +249,7 @@ blockquote{
       text-align: right;
    }
    p{
-      font-size: 1.0rem;
+      font-size: 0.9rem;
       line-height: 1.85;
       font-weight: 400;
       a{
@@ -273,7 +260,7 @@ blockquote{
          font-weight: 700;
       }
       code{
-         font-size: 99%;
+         font-size: 101%;
          color: rgb(120, 80, 88);
       }
       .lead{
