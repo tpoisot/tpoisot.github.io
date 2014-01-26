@@ -1,10 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,900italic,900,700italic);
 @import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,900italic,900,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 
-@mono: 'Cousine';
-@sans: 'Merriweather Sans';
-@serif: 'Merriweather';
+@mono: 'Source Code Pro';
+@sans: 'Open Sans';
 
 @bg: rgb(254, 254, 254);
 @struct: rgb(221, 221, 221);
@@ -218,7 +218,7 @@ blockquote{
 
 .wrapper{
    margin: 0em auto -@ftheight;
-   font-family: @serif;
+   font-family: @sans;
    padding: 3em 0em;
    color: @txt;
    .maintext{
@@ -257,7 +257,7 @@ blockquote{
          border-bottom: 1px solid @struct;
       }
       b, strong{
-         font-weight: 700;
+         font-weight: 600;
       }
       code{
          font-size: 101%;

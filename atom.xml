@@ -4,12 +4,101 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-21T13:56:54-05:00</updated>
+  <updated>2014-01-25T21:52:31-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Responsibility and sensationalism in high-profile papers</title>
+     <link href="http://timotheepoisot.fr/2014/01/25/responsibility-high-impact/"/>
+    <updated>2014-01-25T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;Last week, we had an inter-lab journal club during which we discussed
+a very polemic paper in ecology. The discussion quickly turned into the
+responsibility of people at the various levels of the scientific publishing
+process, and the risks associated with counter-mainstream results appearing
+in high-profile journals. Most of what follows is my recollection of the
+different arguments we raised for and against self-censorship in scientific
+publishing. Which paper we discussed is not relevant for the rest of this
+post, so I’ll try to summarize the issue in extremely broad terms. There is a
+well-known relationship between concept &lt;em&gt;B&lt;/em&gt; and property &lt;em&gt;C&lt;/em&gt;. Changes in &lt;em&gt;B&lt;/em&gt;
+are expected, under some circumstances, to result in changes in &lt;em&gt;C&lt;/em&gt;. &lt;em&gt;B&lt;/em&gt;
+is a complex thing with several layers to it. A set of studies showed no
+variation of &lt;em&gt;A&lt;/em&gt;, which is a component of &lt;em&gt;B&lt;/em&gt;, and so it seems to question
+the relationship between &lt;em&gt;B&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For different reasons, whether there is (i) a change in &lt;em&gt;A&lt;/em&gt;, and (ii)
+a link between &lt;em&gt;B&lt;/em&gt; and &lt;em&gt;C&lt;/em&gt;, is a pretty big deal when it comes to policy
+making. “Proving” that the relationship is not general, or not important,
+or even wrong, is susceptible to have real-world consequences. In addition,
+it would be a big deal for theoretical science as well, because it will mean
+that what we thought (and still think) of an important concept in ecology,
+is wrong and need to be re-built. But it would also mean that, as far as
+policy makers are concerned, we can persist in several “business as usual”
+practices; after all, there are now data to back them up!&lt;/p&gt;
+
+&lt;p&gt;So, should we practice self-censorship? Absolutely not. The “cost” of making
+all information public has been particularly discussed in the context of
+bio-terrorism; understanding the risks requires results to be published, but
+publishing results can increase &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/books/NBK98397/&quot;&gt;the ease to produce bioweapons&lt;/a&gt;. Some
+argue that &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1353/hcr.2007.0046/abstract&quot;&gt;not all results should be published&lt;/a&gt;, but determining
+which should, and which should not, is a tricky issue. Some ecological results
+have very strong relevance for policy-making (and lobbies), and there is a
+risk that some will have a political reading of some papers.&lt;/p&gt;
+
+&lt;p&gt;The question is, therefore, who is responsible for “customer service”&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
+once a new result appears? First thing first, the authors. I have the
+feeling that a perverse effect of the publish-or-perish mentality is a
+quest for sensationalism (which seems to be confirmed by this &lt;a href=&quot;http://nsaunders.wordpress.com/2013/07/16/interestingly-the-sentence-adverbs-of-pubmed-central/&quot;&gt;analysis of
+adverbs used in PMC papers&lt;/a&gt;, where more abstracts emphasize interest,
+surprise, and novelty). And when we (scientists) read a paper making bold
+claims, we are able to rationalize them because it’s not the first paper we
+are reading. We are able to weigh one result against dozens of others. But
+my very personal and humble opinion is that, when the result we report is
+likely to make a splash, we have to consider whether the way we express it
+is likely to be mistaken by the public.&lt;/p&gt;
+
+&lt;p&gt;Second, editors have a role to play. There is a well documented relationship
+between &lt;a href=&quot;http://retractionwatch.com/2011/08/11/is-it-time-for-a-retraction-index/&quot;&gt;impact factor and likelihood of retractation&lt;/a&gt;, and a tendency
+for the media to cover &lt;a href=&quot;http://www.plosone.org/article/info:doi%2F10.1371%2Fjournal.pone.0085355&quot;&gt;not the best conducted studies&lt;/a&gt; (perhaps,
+has we hypothesized, because most science is normal, and normal science is
+very rarely cool for people outside the field). It would make sense that the
+boxes with comments from the editor, that seem to appear in more and more
+journals, be dedicated to putting sensational papers into the broader context.&lt;/p&gt;
+
+&lt;p&gt;And finally, science journalists. One of the things that never fails
+to amaze/annoy me is that, when a vastly mediatised paper ends up being
+retracted, there is almost never any indication of that in the media (our
+short attention span be damned). Which means that unless you specifically
+follow people discussing the issue, do you know that bacteria are still
+unable to use arsenic in their DNA? I get that saying “Nope, turned out
+we were pretty much right about how life works” is unlikely to make the
+headlines (unless you want to, you know, &lt;em&gt;inform&lt;/em&gt;). As this post &lt;a href=&quot;http://scienceblogs.com/notrocketscience/2009/07/04/does-science-journalism-falter-or-flourish-under-embargo/&quot;&gt;really
+clearly states&lt;/a&gt;, the ability to react &lt;em&gt;right now&lt;/em&gt; on a big story is
+important for the career of journalists. It lead to (in my mind) absurd
+situations in which journalists can prepare their copy before the majority
+of the scientific community knows the results.&lt;/p&gt;
+
+&lt;p&gt;As a final note, I have nothing against sensationalism. If anything (if
+it is backed by facts and sound interpretation), sensational ideas and
+results are a great way to make people interested in science. Telling
+a story about the population dynamics of an emblematic animal makes
+for better communication than the subtleties of a stochastic, spatially
+explicit generalized Lotka-Volterra model (somehow). But everything even
+remotely close to &lt;a href=&quot;http://en.wikipedia.org/wiki/Post-normal_science&quot;&gt;post-normal science&lt;/a&gt; should be written carefully,
+contextualized carefully, and reported on carefully.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;I forgot who came up with the “customer service of scientific results” idea, but I find it brilliant…&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Should we tell students that communities don't exist?</title>
@@ -3109,40 +3198,6 @@ parasites tend to occupy sites within the hosts that require less stringent
 adaptations. But the key message is still the same: when we lump different
 classes of organisms together in a single network, it’s important to quantify
 how much each contribute to the overall properties.&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>Complexity and connectance of ecological networks</title>
-     <link href="http://timotheepoisot.fr/2013/08/19/connectance-complexity/"/>
-    <updated>2013-08-19T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;So my &lt;a href=&quot;http://timotheepoisot.fr/2013/06/19/notes-on-network-complexity/&quot;&gt;blog post on ecological complexity in networks&lt;/a&gt; turned into
-a manuscript, now online as a preprint at &lt;a href=&quot;https://peerj.com/preprints/50/&quot;&gt;&lt;em&gt;PeerJ&lt;/em&gt;&lt;/a&gt;. We’ll send it up for
-review (at &lt;em&gt;PeerJ&lt;/em&gt; also) in a while, but feel free to read it and give us
-feedback using the &lt;a href=&quot;https://github.com/tpoisot/ms_connectance_complexity/issues&quot;&gt;github issues tracker&lt;/a&gt;. We’d like that very much,
-actually. And as the github repository is public, feel free to
-fork/edit/push modifications if you have something to contribute to
-the paper.&lt;/p&gt;
-
-&lt;p&gt;In a nutshell; we argue that connectance is still a central property of
-networks. For one thing, (i) it constrains how much different networks exists
-for a given species number, which was the point of the original post. But more
-importantly, (ii), because a given connectance implies a given number of
-interactions, connectance imposes structural constraints on networks
-properties. Or in other words, all important moments of the degree distribution
-vary with connectance. And it works quite well with Erdos-Renyi graphs, and
-with the famous “niche” model of food webs.&lt;/p&gt;
-
-&lt;p&gt;It’s kinda cool, because connectance is &lt;em&gt;simple&lt;/em&gt; to measure, and even people
-that no background in network analysis will get what it means. It also means
-that from a purely statistical point of view, any effect of the degree
-distribution must be controlled for an effect of connectance. &lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;P.S.&lt;/em&gt;: This is a good example of &lt;a href=&quot;http://timotheepoisot.fr/2013/08/05/codelust/&quot;&gt;Codelust&lt;/a&gt; in practice. The
-original script were written over a particularly greasy and disappointing club
-sandwich eaten alone in my office, so at least something productive came out of
-this particularly bleak view of the academic daily life…&lt;/p&gt;
 
 </content>
   </entry>
