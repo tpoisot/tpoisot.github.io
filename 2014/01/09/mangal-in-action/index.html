@@ -37,43 +37,33 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
-         <div class='post'>
-<h1>Examples of mangal in action</h1>
 
-   <div class="postinfo">
-      January  9, 2014 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/mangal/">mangal</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span>
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
    </div>
 
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <p class='post-date'>January  9, 2014 </p>
+      <h1 class='post-title'>Examples of mangal in action</h1>
+      
+         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/mangal/">mangal</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span>
+      
+   </div>
 
 <p>In the two previous posts (see <a href="http://timotheepoisot.fr/2014/01/07/mangal-database-networks/">Part 1</a> and <a href="http://timotheepoisot.fr/2014/01/08/mangal-add-data/">Part 2</a>), I’ve presented the basics of using <code>mangal</code> and the <code>rmangal</code> package to access, deposit, and edit data about ecological networks. The final post in the series is going to be slightly more fun: I’ll illustrate some use cases of things you can potentially do with the database. We will start from the representation of a network in space, then move on to measuring beta-diversity in the dataset, and end with some more classical species-links relationships.</p>
 
@@ -313,7 +303,6 @@ head(LS)
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -344,6 +333,7 @@ head(LS)
 
    </div>
 </div>
+
 </body>
 
 </html>

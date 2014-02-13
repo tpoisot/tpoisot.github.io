@@ -37,43 +37,33 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
-         <div class='post'>
-<h1>A quick way to parallelize</h1>
 
-   <div class="postinfo">
-      July  8, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/GNU/">GNU</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
    </div>
 
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <p class='post-date'>July  8, 2013 </p>
+      <h1 class='post-title'>A quick way to parallelize</h1>
+      
+         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/GNU/">GNU</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
+      
+   </div>
 
 <p>I’ ve often been confronted to the situation when I want to run a bunch of
 simulations, that will take long if I run them in batch, but long enough that
@@ -85,7 +75,7 @@ of black magic (<em>a.k.a.</em> data analysis).</p>
 little command-line program will just execute whatever you feed him on the
 different CPUs. For example, if I want to run all of the files in my <code>output/</code> folder into a python script, I can write something like:</p>
 
-<div class="highlight"><pre><code class="bash">ls output/*.dat | sort | parallel ./results.py --file output/<span class="o">{}</span>
+<div class="highlight"><pre><code class="bash">ls output/*.dat <span class="p">|</span> sort <span class="p">|</span> parallel ./results.py --file output/<span class="o">{}</span>
 </code></pre></div>
 
 <p>That will take the files, then output then one by one, and pass them to
@@ -139,7 +129,6 @@ learning…)..</p>
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -170,6 +159,7 @@ learning…)..</p>
 
    </div>
 </div>
+
 </body>
 
 </html>

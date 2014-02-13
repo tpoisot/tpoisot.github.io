@@ -37,43 +37,33 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
-         <div class='post'>
-<h1>An alternative to stacked bar charts</h1>
 
-   <div class="postinfo">
-      February 17, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
    </div>
 
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <p class='post-date'>February 17, 2013 </p>
+      <h1 class='post-title'>An alternative to stacked bar charts</h1>
+      
+         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+      
+   </div>
 
 <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with.</p>
 
@@ -158,7 +148,6 @@ axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<s
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -189,6 +178,7 @@ axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<s
 
    </div>
 </div>
+
 </body>
 
 </html>

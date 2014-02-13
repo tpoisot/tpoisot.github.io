@@ -4,7 +4,7 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-01-26T13:47:45-05:00</updated>
+  <updated>2014-02-12T19:33:32-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
@@ -93,7 +93,7 @@ contextualized carefully, and reported on carefully.&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;I forgot who came up with the “customer service of scientific results” idea, but I find it brilliant…&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;I forgot who came up with the “customer service of scientific results” idea, but I find it brilliant… &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -367,7 +367,7 @@ good practices upon you – which is a good thing.&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;As usual, posting and patching requires that you have a username and password. There will be a way to register through the &lt;code&gt;python&lt;/code&gt; package in the future.&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;As usual, posting and patching requires that you have a username and password. There will be a way to register through the &lt;code&gt;python&lt;/code&gt; package in the future. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -2170,7 +2170,7 @@ I had to code my way out of this one.&lt;/p&gt;
 &lt;p&gt;The good thing of using &lt;code&gt;pandoc&lt;/code&gt; is that the citation syntax is remarkably
 simple: &lt;code&gt;@key&lt;/code&gt;. It means that using a simple &lt;code&gt;grep&lt;/code&gt; command&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* ms.md -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never | sort  | uniq -u | sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* ms.md -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq -u &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;, I can generate &lt;code&gt;bib.keys&lt;/code&gt;, a list with all the keys encountered in
@@ -2220,7 +2220,7 @@ intend to use it.&lt;/p&gt;
    &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;python&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; extractbib.py bib.keys &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;library&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;refs&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
 
 bib.keys: 
-   grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;text&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never | sort  | uniq -u | sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
+   grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;text&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq -u &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I’m glad that I finally have a solution to this problem. Of course, a

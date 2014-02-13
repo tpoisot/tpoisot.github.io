@@ -37,39 +37,31 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
-         <div class='post'>
-<h1>A model of population dynamics in Python</h1>
 
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
+   </div>
+
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <p class='post-date'>November 14, 2011 </p>
+      <h1 class='post-title'>A model of population dynamics in Python</h1>
+      
+   </div>
 
 <p>I’ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I’ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
 
@@ -145,7 +137,6 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -176,6 +167,7 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 
    </div>
 </div>
+
 </body>
 
 </html>

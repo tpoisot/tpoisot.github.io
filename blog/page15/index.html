@@ -37,97 +37,98 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
+
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
+   </div>
+
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
          <!-- This loops through the paginated posts -->
 
 
-<div class='post postlist'>
-   <h1>Ecology is not too collaborative</h1>
-   <div class="postinfo">
-      April 30, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecology/">ecology</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/research/">research</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>April 30, 2012 </p>
+         <h1 class='post-title'>Ecology is not too collaborative</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecology/">ecology</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/research/">research</a></span>
+         
+      </div>
       <p>A few days ago, Jeremy Fox published on the Oikos blog, wondering if ecology was becoming too collaborative. The entry received a good number of comments, who mostly dealt with big, long terms collaborations. I can’t really talk for this kind of collaborations, having not been in the business of science for long enough. But I was surprized that small, one shot (or at least, short term) collaborations, were not mentionned. For what it’s worth,...</p>
       <a class="readmore" href="/2012/04/30/ecology-not-too-collaborative/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Biblatex styles for ecology</h1>
-   <div class="postinfo">
-      April 26, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biblatex/">biblatex</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>April 26, 2012 </p>
+         <h1 class='post-title'>Biblatex styles for ecology</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biblatex/">biblatex</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
+         
+      </div>
       <p>A few months ago — when finishing to write my thesis, as I grew increasingly disatisfied by the clumsiness of natbib —, I started looking into biblatex. biblatex is essentially a re-implementation of LaTeX packages like cite, natbib, and others. And the more I used it, the more I realized two things. First, biblatex is awesome; it’s to natbib what knitr is to Sweave. Including the fact that switching from one system to the other...</p>
       <a class="readmore" href="/2012/04/26/biblatex-styles-ecology/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Null models of bipartite networks in C</h1>
-   <div class="postinfo">
-      April 15, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/null models/">null models</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>April 15, 2012 </p>
+         <h1 class='post-title'>Null models of bipartite networks in C</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/null models/">null models</a></span>
+         
+      </div>
       <p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time… Python is not the right tool. I’m currently re-learning C, and I thought...</p>
       <a class="readmore" href="/2012/04/15/null-models-C/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>How to make the most out of peer-review?</h1>
-   <div class="postinfo">
-      January 29, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>January 29, 2012 </p>
+         <h1 class='post-title'>How to make the most out of peer-review?</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
+         
+      </div>
       <p>So it seems that the love/hate relationship between science and publishers has reached its tipping point following the RWA turmoil, with appeals to boycott major publishers, such as researchwithoutwalls and thecostofknowledge, and some of the most eminents members of the scientific blogosphere talking about it, and using creative metaphors to illustrate how big of a scam it is. Specifically, most scientists are publicly stating that they will not review papers anymore, at least in the...</p>
       <a class="readmore" href="/2012/01/29/sign-your-reviews/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Measuring ecological specificity</h1>
-   <div class="postinfo">
-      January 19, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/specificity/">specificity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>January 19, 2012 </p>
+         <h1 class='post-title'>Measuring ecological specificity</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/specificity/">specificity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span>
+         
+      </div>
       <p>Our paper about measurements of ecological specialization is now available online at the Methods in Ecology &amp; Evolution website. You can also download the associated R package from R-Forge. As a side note, it is during the conception and redaction of this paper that I started thinking more and more about networks, something which is now occupying a significant part of my time, so I have my co-authors to thank for that. Early during my...</p>
       <a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Science in the age of social coding</h1>
-   <div class="postinfo">
-      January  6, 2012 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/github/">github</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>January  6, 2012 </p>
+         <h1 class='post-title'>Science in the age of social coding</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/github/">github</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span>
+         
+      </div>
       <p>I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I’m wondering what...</p>
       <a class="readmore" href="/2012/01/06/science-age-social-coding/">Read more...</a>
-   <hr />
 </div>
 
 
@@ -210,7 +211,6 @@
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -241,6 +241,7 @@
 
    </div>
 </div>
+
 </body>
 
 </html>

@@ -37,43 +37,33 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
-         <div class='post'>
-<h1>Remove indels from blast output</h1>
 
-   <div class="postinfo">
-      May 20, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bioinformatics/">bioinformatics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biopython/">biopython</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pyrosequencing/">pyrosequencing</a></span>
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
    </div>
 
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <p class='post-date'>May 20, 2013 </p>
+      <h1 class='post-title'>Remove indels from blast output</h1>
+      
+         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bioinformatics/">bioinformatics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biopython/">biopython</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pyrosequencing/">pyrosequencing</a></span>
+      
+   </div>
 
 <p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it’s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a “reliable” estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
 
@@ -119,7 +109,6 @@
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -150,6 +139,7 @@
 
    </div>
 </div>
+
 </body>
 
 </html>

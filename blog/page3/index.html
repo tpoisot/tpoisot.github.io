@@ -37,97 +37,98 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
+
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
+   </div>
+
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
          <!-- This loops through the paginated posts -->
 
 
-<div class='post postlist'>
-   <h1>Software papers and open source licenses</h1>
-   <div class="postinfo">
-      December 19, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>December 19, 2013 </p>
+         <h1 class='post-title'>Software papers and open source licenses</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open source/">open source</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
+         
+      </div>
       <p>I have been reviewing a lot more software / methodological papers these days, which led me to think about open vs. closed software (even more than usual). By closed, I mean any software that would require me to pay to be able to reproduce the method, either directly, or through a licence costing money to the university. Think Mathematica, matlab, or any other commercial tools. Despite what some would have you believe, the way analyses...</p>
       <a class="readmore" href="/2013/12/19/reviewing-software-papers/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>What's hot on PeerJ?</h1>
-   <div class="postinfo">
-      December 17, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliometrics/">bibliometrics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open access/">open access</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/preprints/">preprints</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>December 17, 2013 </p>
+         <h1 class='post-title'>What's hot on PeerJ?</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliometrics/">bibliometrics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open access/">open access</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/preprints/">preprints</a></span>
+         
+      </div>
       <p>Lat week, I mentionned that ecology is the leading discipline on PeerJ preprints, as attested by the number of submissions. Which led me to wondering which topics were actually hot on the preprint server. PeerJ do not have an API, but there URL scheme is not too complicated, and most of the relevant informations are in the webpage body. So I wrote a very short python script to get the first 158 preprints, download them,...</p>
       <a class="readmore" href="/2013/12/17/what-peerj/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Data-sharing paper online</h1>
-   <div class="postinfo">
-      December  5, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open data/">open data</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>December  5, 2013 </p>
+         <h1 class='post-title'>Data-sharing paper online</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open data/">open data</a></span>
+         
+      </div>
       <p>Our paper Towards a sustainable ecological science is now online at Ideas in Ecology and Evolution. Thanks are due to Karthik Ram for the invitation. This is going to be a very exciting special issue. If you want to know more about the paper, the best thing to do is most likely to read it (it’s open access). But in short, we (I, Ross Mounce, and Dominique Gravel), try to make a point of all...</p>
       <a class="readmore" href="/2013/12/05/data-sharing-paper/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Why JSON is my go-to data format</h1>
-   <div class="postinfo">
-      December  2, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/JSON/">JSON</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data format/">data format</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>December  2, 2013 </p>
+         <h1 class='post-title'>Why JSON is my go-to data format</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/JSON/">JSON</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data format/">data format</a></span>
+         
+      </div>
       <p>Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in R. But I’ve been using JSON for a while now, and it makes...</p>
       <a class="readmore" href="/2013/12/02/json-goto-format/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>The pros and cons of using R packages for teaching</h1>
-   <div class="postinfo">
-      November 27, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/Teaching/">Teaching</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>November 27, 2013 </p>
+         <h1 class='post-title'>The pros and cons of using R packages for teaching</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/Teaching/">Teaching</a></span>
+         
+      </div>
       <p>R packages are one of the best tools we have. It’s a library of 1000s of functions ready to be used, all wrapped in a single common language, and it’s free. I wrote some, and used even more. When I review a paper, upon seeing “we used function x in the version 2.3 of package y”, I know a lot about what the authors have been doing (and I can check the help of this...</p>
       <a class="readmore" href="/2013/11/27/r-packages-teaching/">Read more...</a>
-   <hr />
 </div>
 
-<div class='post postlist'>
-   <h1>Spatially explicit metapopulation model in R</h1>
-   <div class="postinfo">
-      November 25, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/igraph/">igraph</a></span>
-   </div>
+   <div class='post postlist'>
+      <div class='postinfo'>
+         <p class='post-date'>November 25, 2013 </p>
+         <h1 class='post-title'>Spatially explicit metapopulation model in R</h1>
+         
+            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/R/">R</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/igraph/">igraph</a></span>
+         
+      </div>
       <p>One of my favorite tools to work with networks is the networkx python package (if only because lists comprehensions make so much sense when you work with graphs). But for teaching purposes (especially in ecology), having purely R-based tools is better. The students know the language (at least enough to get around most problems in a few hours, and so they can focus on the theory rather than the tedious details of implementation. So I...</p>
       <a class="readmore" href="/2013/11/25/metapopulation-model-r/">Read more...</a>
-   <hr />
 </div>
 
 
@@ -210,7 +211,6 @@
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -241,6 +241,7 @@
 
    </div>
 </div>
+
 </body>
 
 </html>

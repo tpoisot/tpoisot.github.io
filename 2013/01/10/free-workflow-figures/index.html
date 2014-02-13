@@ -37,43 +37,33 @@
 <body>
 <a id="top"></a>
 
-            <div class='contain-to-grid fixed'>
-<nav class="top-bar" data-topbar>
-     <ul class="title-area">
-       <li class="name">
-       <h1><a href="#top">Timothée Poisot</a></h1>
-       </li>
-       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-     </ul>
-
-       <section class="top-bar-section">
-         <!-- Right Nav Section -->
-            <ul class="no-bullet main-nav right">
-               <li><a href="/">Home</a></li>
-               <li><a href="/papers/">Papers</a></li>
-               <li><a href="/software/">Software</a></li>
-               <li><a href="/research/">Research</a></li>
-               <li class="active"><a href="/blog/">Blog</a></li>
-            </ul>
-
-             <!-- Left Nav Section -->
-             <ul class="left">
-                <li><a>Spatial ecology of species interactions</a></li>
-             </ul>
-           </section>
-        </nav>
-     </div>
-
 <div class="row wrapper">
-   <div class = "copy">
-      <div class="large-12 small-12 columns maintext">
-         <div class='post'>
-<h1>A quick way to get good figures for your web pages</h1>
 
-   <div class="postinfo">
-      January 10, 2013 &mdash; <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+   <div class="fixed contain-to-grid">
+         <nav class="top-bar" data-topbar>
+   <section class="top-bar-section">
+      <ul class="right">
+         <li><a href="/">Home</a></li>
+         <li><a href="/papers/">Papers</a></li>
+         <li><a href="/software/">Software</a></li>
+         <li><a href="/research/">Research</a></li>
+         <li class="active"><a href="/blog/">Blog</a></li>
+      </ul>
+   </section>
+</nav>
+
    </div>
 
+   <div class="large-12 small-12 columns copy">
+      <div class="maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <p class='post-date'>January 10, 2013 </p>
+      <h1 class='post-title'>A quick way to get good figures for your web pages</h1>
+      
+         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
+      
+   </div>
 
 <p>I’m a huge fan of the <code>pgfplots</code> package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: <code>notes</code>, <code>MS</code>, and <code>code</code>. The results of what happens in <code>code</code> (usually a huge mess of R, C and Python) go directly into <code>MS</code> as tab-delimited files, and the <code>.tex</code> document has all the commands needed to transform this in figures. I’ve notably used this workflow for the <code>beamer</code> slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons. </p>
 
@@ -114,9 +104,9 @@
 
 <p>Once you are happy with your figure, and have re-activated the <code>\tikzexternalize</code> command, the last step is to convert these PDF files in a format that you can put in a webpage, like PDF. This is where <code>imagemagick</code>, and specifically the <code>convert</code> utility, comes into play. I have this simple bash script in my working directory, to automate the process. You can read <a href="http://robfelty.com/2008/03/11/convert-pdf-to-png-with-imagemagick">here</a> about the options used.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="k">for </span>file in *figure*.pdf; <span class="k">do</span> <span class="se">\</span>
-<span class="nb">echo</span> <span class="nv">$file</span>;<span class="se">\</span>
-convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span>|cut -f1 -d<span class="s1">&#39;.&#39;</span><span class="sb">`</span>.png;<span class="se">\</span>
+<div class="highlight"><pre><code class="bash"><span class="k">for </span>file in *figure*.pdf<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+<span class="nb">echo</span> <span class="nv">$file</span><span class="p">;</span><span class="se">\</span>
+convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span><span class="p">|</span>cut -f1 -d<span class="s1">&#39;.&#39;</span><span class="sb">`</span>.png<span class="p">;</span><span class="se">\</span>
 <span class="k">done</span>
 </code></pre></div>
 
@@ -247,7 +237,6 @@ pgf-figure0.pdf
 
       </div>
    </div>
-   <div class='push'></div>
 </div>
 
 <div class="row footer">
@@ -278,6 +267,7 @@ pgf-figure0.pdf
 
    </div>
 </div>
+
 </body>
 
 </html>

@@ -1,9 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,900italic,800italic);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic);
 @import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
-@mono: 'Source Code Pro';
-@sans: 'Alegreya Sans';
+
+@mono: 'Inconsolata';
+@sans:  'Alegreya Sans';
 @title: 'Alegreya Sans SC';
+@serif: 'Alegreya Sans';
 
 @bg: rgb(254, 254, 254);
 @struct: rgb(221, 221, 221);
@@ -33,7 +36,6 @@ body{
    font-family: @sans !important;
    h1, h2, h3{
       font-family: @title;
-      text-transform: lowercase;
       font-weight: 500;
    }
 }
@@ -46,39 +48,50 @@ a:hover{
    text-shadow: 0px 0px 1px rgb(87, 83, 64, 0.8);
 }
 
+@tbar: #ffffff;
+
 .contain-to-grid{
-   background-color: @bg !important;
+   background: @tbar !important;
    border-bottom: 1px solid @struct;
-   box-shadow: 0px 0px 10px rgba(234, 234, 234, 0.8);
+   padding-top: 12px;
+   padding-bottom: 12px;
+}
+
+nav.top-bar{
+   text-align: center;
+}
+
+section.top-bar-section{
+   display: inline-block;
 }
 
 .top-bar{
+   background: @tbar !important;
    max-width: 800px !important;
-   background: none !important;
    color: @hl !important;
-   .name h1 a:hover{
+   .name h1 a:hover, .left li a:hover{
       text-shadow: none;
+      background: none;
    }
    .name h1 a{
-      color: @hl;
-      font-family: @title !important;
-      padding: 0px 0px !important;
+      color: @hl !important;
+      font-weight: 700;
    }
 }
 
 .top-bar-section
 {
    li a{
+      background: @tbar !important;
       font-family: @sans !important;
-      background: @bg !important;
       color: @txt !important;
    }
    li.active a{
-      background: @struct !important;
+      font-weight: 700 !important;
    }
    li a:hover{
-      background: rgb(245, 245, 245) !important;
       color: @hl !important;
+      font-weight: 500 !important;
       text-shadow: none;
    }
 }
@@ -136,37 +149,27 @@ blockquote{
 }
 
 .header{
-   .top{
-      position: fixed;
-      top: 50%;
-      padding-right: 2em;
-      text-transform: uppercase;
-      font-family: @sans;
-      color: rgb(140, 140, 140) !important;
+   padding-top: 6em;
+   h1{
+      font-size: 1.3rem;
    }
-   padding-top: 0em;
-   margin-top: 0em;
-   text-align: right;
+   h2{
+      font-size: 1.2rem;
+      font-weight: 400 !important;
+   }
    ul{
-      padding-top: 3em;
+      /*padding-top: 3em;*/
+      list-style: none;
       li{
          font-family: @sans;
-      }
-   }
-}
-
-.active{
-   font-weight: bold;
-   a{
-      color: rgb(120, 120, 120) !important;
-   }
-}
-
-.name{
-   h1{
-      a{
-         font-family: @sans;
-         font-weight: 700 !important;
+         text-align: center !important;
+         list-style: none;
+         display: inline-block;
+         background: none;
+         border-radius: 4px;
+         padding: 2px;
+         margin: 2px;
+         min-width: 80px;
       }
    }
 }
@@ -220,11 +223,11 @@ blockquote{
 
 .wrapper{
    margin: 0em auto -@ftheight;
-   font-family: @sans;
-   padding: 3em 0em;
+   font-family: @serif;
    color: @txt;
    .maintext{
-      padding: 6em 0em !important;
+      padding: 8em 0.5em !important;
+      background-color: rgba(255, 255, 255, 0.4);
    }
    h1{
       font-size: 1.4rem;
@@ -262,7 +265,7 @@ blockquote{
          font-weight: 600;
       }
       code{
-         font-size: 101%;
+         font-size: inherit;
          color: rgb(120, 80, 88);
       }
       .lead{
