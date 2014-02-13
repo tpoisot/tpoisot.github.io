@@ -1,14 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic);
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
 
 
 @mono: 'Inconsolata';
-@sans:  'Alegreya Sans';
-@title: 'Alegreya Sans SC';
-@serif: 'Alegreya Sans';
+@sans:  'Open Sans';
+@title: 'Open Sans Condensed';
+@serif: 'Crimson Text';
 
-@bg: rgb(254, 254, 254);
+@bg: rgb(255, 255, 255);
 @struct: rgb(221, 221, 221);
 @hl: rgb(87, 83, 74);
 @txt: rgb(67, 63, 54);
@@ -36,7 +37,7 @@ body{
    font-family: @sans !important;
    h1, h2, h3{
       font-family: @title;
-      font-weight: 500;
+      font-weight: 700;
    }
 }
 
@@ -52,9 +53,9 @@ a:hover{
 
 .contain-to-grid{
    background: @tbar !important;
-   border-bottom: 1px solid @struct;
-   padding-top: 12px;
-   padding-bottom: 12px;
+   border-bottom: 1px double @struct;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 
 nav.top-bar{
@@ -84,14 +85,16 @@ section.top-bar-section{
    li a{
       background: @tbar !important;
       font-family: @sans !important;
+      text-transform: uppercase;
       color: @txt !important;
+      font-size: 0.7rem !important;
    }
    li.active a{
-      font-weight: 700 !important;
+      font-weight: 800 !important;
    }
    li a:hover{
       color: @hl !important;
-      font-weight: 500 !important;
+      font-weight: 600 !important;
       text-shadow: none;
    }
 }
@@ -245,6 +248,9 @@ blockquote{
       font-weight: 300;
       color: rgb(120, 120, 120);
       margin-bottom: 3em;
+      .post-date{
+         font-family: @title;
+      }
    }
    img{
       display: block;
@@ -254,8 +260,8 @@ blockquote{
       text-align: right;
    }
    p{
-      font-size: 1.05rem;
-      line-height: 1.90;
+      font-size: 1.1rem;
+      line-height: 1.95;
       font-weight: 400;
       a{
          color: @hl;
@@ -269,8 +275,10 @@ blockquote{
          color: rgb(120, 80, 88);
       }
       .lead{
-         font-family: @sans;
+         font-family: @serif;
          font-weight: 600;
+         line-height: 1.6;
+         font-size: 100%;
       }
    }
 }
