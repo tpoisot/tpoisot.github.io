@@ -1,348 +1,143 @@
-@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
-@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
 
-
-@mono: 'Inconsolata';
-@sans:  'Open Sans';
-@title: 'Open Sans Condensed';
-@serif: 'Crimson Text';
-
-@bg: rgb(255, 255, 255);
-@struct: rgb(221, 221, 221);
-@hl: rgb(87, 83, 74);
-@txt: rgb(67, 63, 54);
-
-html, body{
-   height: 100% !important;
+body{
+   background: url('../img/bg_5.jpg') no-repeat center top fixed;
+   font-family: 'Source Sans Pro' !important;
 }
 
-.alert{
-   background-color: @struct;
-   font-family: @sans;
-   font-weight: 400;
-   padding: 1em;
-   margin: 2em 0em;
-   line-height: 1.2rem;
-   h4{
+
+.maintext{
+   background-color: rgb(255, 255, 255);
+   padding: 3em;
+   margin: 2.4em -15px;
+   h1, h2, h3, h4, h5{
+      font-family: 'Source Sans Pro';
+   }
+   h1{
+      font-weight: 900;
+      font-size: 1.6rem;
+      letter-spacing: -1px;
+   }
+   h2, h3, h4, h5{
       font-weight: 700;
-      display: inline;
-      font-size: 1rem;
+      font-size: 1.3rem;
+   }
+   code, pre{
+      font-family: 'Source Code Pro';
+      font-weight: 400 !important;
+      color: rgb(100, 100, 120);
+   }
+   p{
+      line-height: 2.0 !important;
+   }
+   p:last-child{
+      margin-bottom: 0px !important;
    }
 }
 
-body{
-   background-color: @bg;
-   font-family: @sans !important;
-   h1, h2, h3{
-      font-family: @title;
-      font-weight: 700;
+.hljs{
+   font-size: 90%;
+   margin-bottom: 20px;
+   line-height: 1.5;
+}
+
+#barspacer{
+   height: 2em !important;
+}
+
+.contain-to-grid{
+   background: rgb(254, 254, 254);
+   /*margin-top: 1em;*/
+   padding-top: 1em;
+   padding-bottom: 1em;
+   box-shadow: 0px 0px 3px rgb(200, 200, 200);
+}
+
+.top-bar{
+   background: inherit;
+   a{
+      color: rgb(50, 50, 50) !important;
+      text-transform: uppercase;
+      font-weight: bolder;
+   }
+}
+
+.top-bar-section{
+   ul{
+      background: inherit;
+   }
+   li{
+      a{
+         background: none !important;
+         font-family: 'Source Sans Pro' !important;
+      }
+      a:hover{
+         color: #27ae60 !important;
+      }
+   }
+   li.active{
+      a{
+         color: #27ae60 !important;
+      }
    }
 }
 
 a{
-   transition: text-shadow 1s;
+   color: #27ae60 !important;
 }
-
 a:hover{
-   text-shadow: 0px 0px 1px rgb(87, 83, 64, 0.8);
+   color: #2ecc71 !important;
 }
 
-@tbar: #ffffff;
-
-.contain-to-grid{
-   background: @tbar !important;
-   border-bottom: 1px double @struct;
-   padding-top: 10px;
-   padding-bottom: 10px;
-}
-
-nav.top-bar{
-   text-align: center;
-}
-
-section.top-bar-section{
-   display: inline-block;
-}
-
-.top-bar{
-   background: @tbar !important;
-   max-width: 800px !important;
-   color: @hl !important;
-   .name h1 a:hover, .left li a:hover{
-      text-shadow: none;
-      background: none;
-   }
-   .name h1 a{
-      color: @hl !important;
-      font-weight: 700;
-   }
-}
-
-.top-bar-section
-{
-   li a{
-      background: @tbar !important;
-      font-family: @sans !important;
-      text-transform: uppercase;
-      color: @txt !important;
-      font-size: 0.7rem !important;
-   }
-   li.active a{
-      font-weight: 800 !important;
-   }
-   li a:hover{
-      color: @hl !important;
-      font-weight: 600 !important;
-      text-shadow: none;
-   }
-}
-
-hr{
-   margin: 4em 0px;
-   margin-left: 40%;
-   margin-right: 40%;
-   border-width: 1px 0 0;
-   color: @struct;
-   border-color: @struct;
-}
-
-.pagination{
-   font-family: @sans;
-}
-
-.row{
-//   max-width: 55em !important;
-}
-
-code, pre{
-   font-family: @mono;
-   font-size: 0.9rem;
-   font-weight: 400;
-   color: #222;
-}
-
-blockquote{
-   border: 0px solid white;
-   p {
-      font-family: @sans;
-      font-size: 1.05rem;
-      padding-bottom: 0px;
-      margin-bottom: 0px;
-      font-weight: 300 !important;
-      b, strong{
-         font-weight: 400 !important;
-      }
-      color: @hl;
-   }
-}
-
-@tmar: 96px;
-
-.hljs{
-   border-left: 2px solid @struct;
-   margin-left: -1em;
-   padding: 0em !important;
-   padding-left: 1em !important;
-   margin-bottom: 2em;
-   margin-top: 2em;
-   font-size: 0.95em !important;
-   line-height: 1.3rem;
-}
-
-.header{
-   padding-top: 6em;
+.name{
    h1{
-      font-size: 1.3rem;
-   }
-   h2{
-      font-size: 1.2rem;
-      font-weight: 400 !important;
-   }
-   ul{
-      /*padding-top: 3em;*/
-      list-style: none;
-      li{
-         font-family: @sans;
-         text-align: center !important;
-         list-style: none;
-         display: inline-block;
-         background: none;
-         border-radius: 4px;
-         padding: 2px;
-         margin: 2px;
-         min-width: 80px;
-      }
-   }
-}
-
-@ftheight: 160px;
-
-.wrapper {
-   min-height: 100%;
-   height: auto !important;
-   height: 100%;
-   margin: 0 auto -@ftheight;
-   max-width: 800px;
-}
-
-
-.push{
-   height: @ftheight;
-   clear: both;
-}
-
-
-.footer{
-   max-width: 800px;
-   height: @ftheight !important;
-   color: @hl !important;
-   font-weight: 300 !important;
-   a{
-      color: @txt;
-   }
-   .date{
-      padding-right: 1em;
-   }
-   i, code{
-      color: rgb(80, 80, 80);
-   }
-   color: rgb(100, 100, 100);
-   p, li{
-      font-size: 0.8rem !important;
-      font-weight: 300 !important;
-   }
-   li{
-      padding-top: 0.3em;
-      margin-bottom: 0.3em;
-      height: 1.4em !important;
-   }
-   font-family: @sans;
-   .footercontent{
-      padding: 1.2em 0em;
-   }
-}
-
-.wrapper{
-   margin: 0em auto -@ftheight;
-   font-family: @serif;
-   color: @txt;
-   .maintext{
-      padding: 8em 0.5em !important;
-      background-color: rgba(255, 255, 255, 0.4);
-   }
-   h1{
-      font-size: 1.4rem;
-      color: @hl;
-   }
-   h2{
-    font-size: 1.1rem;
-    color: @hl;
-  }
-   .post{
-      margin-bottom: 5.2em;
-   }
-   .postinfo{
-      font-family: @sans;
-      font-weight: 300;
-      color: rgb(120, 120, 120);
-      margin-bottom: 3em;
-      .post-date{
-         font-family: @title;
-      }
-   }
-   img{
-      display: block;
-      margin-bottom: 1.5em;
-      margin-right: 0px;
-      margin-left: auto;
-      text-align: right;
-   }
-   p{
-      font-size: 1.1rem;
-      line-height: 1.95;
-      font-weight: 400;
+      font-weight: 900 !important;
+      font-family: 'Source Sans Pro' !important;
+      font-size: 1rem !important;
       a{
-         color: @hl;
-         border-bottom: 1px solid @struct;
+         font-weight: bolder !important;
       }
-      b, strong{
-         font-weight: 600;
-      }
-      code{
-         font-size: inherit;
-         color: rgb(120, 80, 88);
-      }
-      .lead{
-         font-family: @serif;
-         font-weight: 600;
-         line-height: 1.6;
-         font-size: 100%;
+      a:hover{
+         color: black !important;
       }
    }
 }
 
 .label{
-   margin-bottom: 0px;
-   vertical-align: middle;
+   margin-bottom: 0px !important;
 }
 
-.muted{
-   color: #666;
-   font-weight: 400;
-   text-align: center;
-   font-size: 0.9em;
-}
-
-.img-polaroid{
-   border-radius: 75px;
-   box-shadow: 0 0 3px rgba(0, 0, 0, .9);
+hr{
+   margin: 4em 40% !important;
 }
 
 .margin{
-   display: block;
    float: right;
-   font-family: @sans;
-   max-width: 13em;
-   font-size: 0.75rem;
-   line-height: 0.9rem;
-   margin: 0.8em 0em 0.8em 0.8em;
+   border: 1px solid rgb(230, 230, 230);
+   width: 150px;
+   font-size: 0.9rem;
+   margin: 1em;
    padding: 0.5em;
-   text-align: left;
-   background-color: rgb(220, 220, 220);
-   font-weight: 300 !important;
+   line-height: 1.0;
+   border-radius: 2px;
 }
 
-.MathJax_Display{
-   padding: 2em 0em;
+.postinfo{
+   margin-bottom: 2em;
 }
 
-.pager{
-   margin: 2em 0px;
-   padding: 0px 0px;
-   font-family: @sans;
-   .previous{
-      float: left;
-   }
-   .next{
-      float: right;
-   }
-   .disabled{
-      color: rgb(190, 190, 190);
-   }
+.post{
+   margin-bottom: 5em;
 }
 
-.footnotes{
-   margin-top: 2em;
-   font-size: 1.0rem;
-   font-weight: 300 !important;
-   p{
-      font-size: 1.0rem;
-      font-family: @sans;
-      font-weight: 300 !important;
-   }
-   .reversefootnote{
-      margin-left: 20px;
-   }
+
+.lead{
+   font-weight: 600 !important;
+}
+
+.alert{
+   margin: 1em -3em;
+   padding: 1em 3em;
+   background-color: rgb(245, 245, 245);
 }
