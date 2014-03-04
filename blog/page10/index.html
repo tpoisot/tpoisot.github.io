@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Blog</title>
+        <meta name="viewport" content="width=device-width">
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/foundation.min.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
+	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -30,118 +19,75 @@
 		})();
 	</script>
 	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: Blog</title>
-    
-</head>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-<body>
-<a id="top"></a>
-<div id="barspacer"></div>
-<div class='contain-to-grid sticky'>
-   <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-          <li class="name">
-          <h1><a href="/">Timothée Poisot <span class='navsep'>&mdash;<span> <span class='tagline'>Ecologist</span></a></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-   <section class="top-bar-section">
-      <ul class="left">
-         <li><a href="/">Home</a></li>
-         <li><a href="/papers/">Papers</a></li>
-         <li><a href="/software/">Software</a></li>
-         <li><a href="/research/">Research</a></li>
-         <li class="active"><a href="/blog/">Blog</a></li>
-      </ul>
-      <ul class="right">
-         <li><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
-         <li><a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a></li>
-         <li><a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a></li>
-         <li><a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-      </ul>
-   </section>
-</nav>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
 
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+             <h1 class="title"><a href="/">Timothée Poisot</a> | Ecologist</h1>
+            <a class="extra" href="/">home</a>
+            <a class="extra" href="/papers/">papers</a>
+            <a class="extra" href="/software/">software</a>
+            <a class="extra" href="/research/">research</a>
+            <a class="extra" href="/blog/">blog</a>
+          </div>
+
+          <div class="content">
+             <!-- This loops through the paginated posts -->
+
+
+<h2>Elsevier acquired Mendeley. It's not as bad as I thought.</h2>
+<p class="meta">09 Apr 2013</p>
+
+<div class="post">
+   <p>Mendeley was recently acquired by public enemy Elsevier in a puzzling move. Some of you may remember that I’ve announced that, should this acquisition happen, I’ll be out of here. Actually, I’ve switched to Zotero a while back and never ever looked back. But still. Mr. Will Gunn himself asked me to do a follow-up post, on the basis that it’s not as bad as I feared. And as much as I am pained to...<br />
+   <a class="readmore" href="/2013/04/09/mendelsevier/">Read more...</a></p>
 </div>
 
-<div class="row wrapper">
+<h2>Is E.O. Wilson wrong about maths?</h2>
+<p class="meta">07 Apr 2013</p>
 
-   <div class="large-12 small-12 columns">
-      <div class="maintext">
-         <!-- This loops through the paginated posts -->
-
-
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>February 17, 2013 </p>
-         <h1 class='post-title'>An alternative to stacked bar charts</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
-         
-      </div>
-      <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with....</p>
-      <a class="readmore" href="/2013/02/17/stacked-barcharts/">Read more...</a>
+<div class="post">
+   <p>E.O. Wilson recently published an editorial entitled “Great scientists don’t need math” in the Wall Street Journal. Jeremy Fox wrote a great rebuttal of it, which you should certainly read as well. In short, Wilson’s argument is that most of great science is the work of intuition. In Jean Cocteau’s words, science is the confirmation of instinct’s discoveries. And in this perspective, math literacy is not needed, because it’s only a boring formality, to confirm...<br />
+   <a class="readmore" href="/2013/04/07/wilson-maths/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>February 13, 2013 </p>
-         <h1 class='post-title'>Estimating edges contribution to network properties</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/modularity/">modularity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/D3.js/">D3.js</a></span>
-         
-      </div>
-      <p>I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I’ve learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do...</p>
-      <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Read more...</a>
+<h2>High-throughput sequencing and community ecology</h2>
+<p class="meta">12 Mar 2013</p>
+
+<div class="post">
+   <p>High-throughput sequencing (let’s abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I’m currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken...<br />
+   <a class="readmore" href="/2013/03/12/ngs-community-ecology/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>February 12, 2013 </p>
-         <h1 class='post-title'>Estimating node contribution to network properties</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/modularity/">modularity</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span>
-         
-      </div>
-      <p>I’m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I’ll just detail how it possible to get this information quickly using networkx. Warning! I'm just using this post to take notes on code I'm currently working on....</p>
-      <a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a>
+<h2>A d3.js alternative to stacked bar charts</h2>
+<p class="meta">18 Feb 2013</p>
+
+<div class="post">
+   <p>Following yesterday’s post on an alternative to barcharts, I decided to write an implementation of this graph in D3.js. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I’ll share the code as a gist. For this particular example, I assume that the data are in a matrix, in csv format, with sites as the first row, and species abundances in columns. I...<br />
+   <a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>February  8, 2013 </p>
-         <h1 class='post-title'>COinS metadata in Jekyll blogposts</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/jekyll/">jekyll</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bibliography/">bibliography</a></span>
-         
-      </div>
-      <p>COinS is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn blog posts into TREE papers, citing blog posts might...</p>
-      <a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">Read more...</a>
+<h2>An alternative to stacked bar charts</h2>
+<p class="meta">17 Feb 2013</p>
+
+<div class="post">
+   <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with....<br />
+   <a class="readmore" href="/2013/02/17/stacked-barcharts/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January 28, 2013 </p>
-         <h1 class='post-title'>Article introductions and the reinvention of the ecological wheel</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological theory/">ecological theory</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific literature/">scientific literature</a></span>
-         
-      </div>
-      <p>Caroline Tucker and Marc Cadotte recently had a great blog post discussing the reinvention of the ecological wheel, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with a lot of interest, for reasons that I will mention in a later post. The basic issue was that: Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence....</p>
-      <a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Read more...</a>
-</div>
+<h2>Estimating edges contribution to network properties</h2>
+<p class="meta">13 Feb 2013</p>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January 26, 2013 </p>
-         <h1 class='post-title'>Using forums to communicate with students</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/teaching/">teaching</a></span>
-         
-      </div>
-      <p>This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it’s a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it’s possible to do participative lectures, it’s hard; at...</p>
-      <a class="readmore" href="/2013/01/26/using-forums-communicate-students/">Read more...</a>
+<div class="post">
+   <p>I had so much fun writing the previous post about how it is possible to measure nodes contribution to network properties that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with D3.js, and I wanted to put what I’ve learnt in practice. What I want to do is remove each edge, and see how it affects modularity. This is, once again, really easy to do...<br />
+   <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Read more...</a></p>
 </div>
 
 
@@ -221,18 +167,24 @@
 
 </div>
 
+          </div>
 
-      </div>
-   </div>
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Timothée Poisot<br />
+                Ecologist<br />
+                t.poisot@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
+                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
 
-</div>
-
-<script type="text/javascript" src="/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/vendor/fastclick.js"></script>
-<script type="text/javascript" src="/js/foundation.min.js"></script>
-<script>
-   $(document).foundation();
-</script>
-</body>
-
+    </body>
 </html>

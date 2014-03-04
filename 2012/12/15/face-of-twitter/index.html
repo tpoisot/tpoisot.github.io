@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>The friends of my friends (are on twitter)</title>
+        <meta name="viewport" content="width=device-width">
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/foundation.min.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
+	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -30,54 +19,30 @@
 		})();
 	</script>
 	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: The friends of my friends (are on twitter)</title>
-    
-</head>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-<body>
-<a id="top"></a>
-<div id="barspacer"></div>
-<div class='contain-to-grid sticky'>
-   <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-          <li class="name">
-          <h1><a href="/">Timothée Poisot <span class='navsep'>&mdash;<span> <span class='tagline'>Ecologist</span></a></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-   <section class="top-bar-section">
-      <ul class="left">
-         <li><a href="/">Home</a></li>
-         <li><a href="/papers/">Papers</a></li>
-         <li><a href="/software/">Software</a></li>
-         <li><a href="/research/">Research</a></li>
-         <li class="active"><a href="/blog/">Blog</a></li>
-      </ul>
-      <ul class="right">
-         <li><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
-         <li><a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a></li>
-         <li><a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a></li>
-         <li><a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-      </ul>
-   </section>
-</nav>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
 
-</div>
+    </head>
+    <body>
 
-<div class="row wrapper">
+        <div class="site">
+          <div class="header">
+             <h1 class="title"><a href="/">Timothée Poisot</a> | Ecologist</h1>
+            <a class="extra" href="/">home</a>
+            <a class="extra" href="/papers/">papers</a>
+            <a class="extra" href="/software/">software</a>
+            <a class="extra" href="/research/">research</a>
+            <a class="extra" href="/blog/">blog</a>
+          </div>
 
-   <div class="large-12 small-12 columns">
-      <div class="maintext">
-         <div class='post'>
-   <div class="postinfo">
-      <p class='post-date'>December 15, 2012 </p>
-      <h1 class='post-title'>The friends of my friends (are on twitter)</h1>
-      
-         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/igraph/">igraph</a></span>
-      
-   </div>
+          <div class="content">
+             <h2>The friends of my friends (are on twitter)</h2>
+<p class="meta">15 Dec 2012</p>
 
+<div class="post">
 <p>Twitter is cool for science, because it can <a href="http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/">help you spread your ideas</a>. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, <em>e.g.</em>, the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye.</p>
 
 <p>I’m running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a paper by <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2148393&amp;tool=pmcentrez&amp;rendertype=abstract">Olesen and colleagues</a> about the modularity of mutualistics interactions. In a few words, you can measure, for each species, its contribution to its own module (<em>z</em>), and to other modules (<em>c</em>). The relative values of <em>c</em> and <em>z</em>  allows then to classify a node as “peripherals” (just hanging around), “connectors” (not really involved locally, but really involved in other groups), “module hubs” (highly involved locally, but not really involved globally), and “network hubs” (connected both within their group, and globally). Doing so requires to have cutoffs, the rationale for which is still not clear to me (but I’ll go read the original paper). Nonetheless, high values of <em>c</em> indicate that a node is strongly connected outside its community, and high values of <em>z</em> indicates that it his highly connected within its community.</p>
@@ -104,10 +69,7 @@
 
 <p><strong>P.S.:</strong> For those interested, I used <a href="https://gephi.org/">gephi</a> and <a href="http://networkx.lanl.gov/">networkx</a> for all the analyses. <em>Gephi</em> is wonderful for plotting, and <em>networkx</em> is just wonderful. I’ve also tried the R and Python version of the <em>igraph</em> library, but I prefer the syntax in <em>networkx</em>.</p>
 
-
 </div>
-
-
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -121,36 +83,25 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enab
+          </div>
 
-<div class="pager">
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Timothée Poisot<br />
+                Ecologist<br />
+                t.poisot@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
+                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
 
-
-<span class="previous">
-   <a href="/2012/11/23/how-to-represent-networks/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
-</span>
-
-
-
-<span class="next">
-<a href="/2012/12/19/bacteria-phage-networks/">Next post <i class="fa fa-fw fa-chevron-right"></i></a>
-</span>
-
-</div>
-
-
-      </div>
-   </div>
-
-</div>
-
-<script type="text/javascript" src="/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/vendor/fastclick.js"></script>
-<script type="text/javascript" src="/js/foundation.min.js"></script>
-<script>
-   $(document).foundation();
-</script>
-</body>
-
+    </body>
 </html>

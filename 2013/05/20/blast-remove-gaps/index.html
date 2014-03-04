@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Remove indels from blast output</title>
+        <meta name="viewport" content="width=device-width">
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/foundation.min.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
+	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -30,64 +19,37 @@
 		})();
 	</script>
 	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: Remove indels from blast output</title>
-    
-</head>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-<body>
-<a id="top"></a>
-<div id="barspacer"></div>
-<div class='contain-to-grid sticky'>
-   <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-          <li class="name">
-          <h1><a href="/">Timothée Poisot <span class='navsep'>&mdash;<span> <span class='tagline'>Ecologist</span></a></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-   <section class="top-bar-section">
-      <ul class="left">
-         <li><a href="/">Home</a></li>
-         <li><a href="/papers/">Papers</a></li>
-         <li><a href="/software/">Software</a></li>
-         <li><a href="/research/">Research</a></li>
-         <li class="active"><a href="/blog/">Blog</a></li>
-      </ul>
-      <ul class="right">
-         <li><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
-         <li><a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a></li>
-         <li><a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a></li>
-         <li><a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-      </ul>
-   </section>
-</nav>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
 
-</div>
+    </head>
+    <body>
 
-<div class="row wrapper">
+        <div class="site">
+          <div class="header">
+             <h1 class="title"><a href="/">Timothée Poisot</a> | Ecologist</h1>
+            <a class="extra" href="/">home</a>
+            <a class="extra" href="/papers/">papers</a>
+            <a class="extra" href="/software/">software</a>
+            <a class="extra" href="/research/">research</a>
+            <a class="extra" href="/blog/">blog</a>
+          </div>
 
-   <div class="large-12 small-12 columns">
-      <div class="maintext">
-         <div class='post'>
-   <div class="postinfo">
-      <p class='post-date'>May 20, 2013 </p>
-      <h1 class='post-title'>Remove indels from blast output</h1>
-      
-         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/bioinformatics/">bioinformatics</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/biopython/">biopython</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pyrosequencing/">pyrosequencing</a></span>
-      
-   </div>
+          <div class="content">
+             <h2>Remove indels from blast output</h2>
+<p class="meta">20 May 2013</p>
 
+<div class="post">
 <p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it’s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a “reliable” estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
 
 <p>As doing it by hand would be, let’s say, tedious, I started looking for a <code>biopython</code> way to do it. As it turns out, despite the fact that the <code>biopython</code> documentation is cryptic and baffling at some points, it turned out to be a great over-lunch coding project.</p>
 
 <p>I’ve put the code up as a <a href="https://gist.github.com/tpoisot/5613748">gist</a>. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it’s not that slow (a few seconds per sequence, most of which are actually spent blasting).</p>
 
-
 </div>
-
-
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -101,36 +63,25 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enab
+          </div>
 
-<div class="pager">
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Timothée Poisot<br />
+                Ecologist<br />
+                t.poisot@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
+                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
 
-
-<span class="previous">
-   <a href="/2013/05/18/make-pandoc/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
-</span>
-
-
-
-<span class="next">
-<a href="/2013/05/21/should-code-reviewed/">Next post <i class="fa fa-fw fa-chevron-right"></i></a>
-</span>
-
-</div>
-
-
-      </div>
-   </div>
-
-</div>
-
-<script type="text/javascript" src="/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/vendor/fastclick.js"></script>
-<script type="text/javascript" src="/js/foundation.min.js"></script>
-<script>
-   $(document).foundation();
-</script>
-</body>
-
+    </body>
 </html>

@@ -4,12 +4,165 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-02-14T17:11:42-05:00</updated>
+  <updated>2014-03-04T16:44:56-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Of the value of datasets and methods in open science</title>
+     <link href="http://timotheepoisot.fr/2014/03/04/open-data-packages/"/>
+    <updated>2014-03-04T16:44:22-05:00</updated>
+    <content type="html">&lt;p&gt;The interesting thing about predictions is that sometimes, they come true. Last
+week, I was discussing the need to do advocacy about open data; specifically,
+the need to do it fast, because one day, a big journal will release a new
+policy, and we are going to see the closest thing to mass hysteria that the
+academic world can do. If I was so good at predicting species interactions,
+I’d be a much happier ecologist.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PLoS&lt;/em&gt; journals &lt;a href=&quot;http://blogs.plos.org/everyone/2014/02/24/plos-new-data-policy-public-access-data/&quot;&gt;announced a new data release policy&lt;/a&gt;, which is now
+effective. People &lt;a href=&quot;http://rxnm.wordpress.com/2014/02/25/fan-fiction/&quot;&gt;freaked out&lt;/a&gt;. Some effectively stated that data sharing encourages scientific &lt;a href=&quot;http://smallpondscience.com/2014/03/03/i-own-my-data-until-i-dont/&quot;&gt;freeloading&lt;/a&gt;, and I only link to the later because there is an interesting point made in the comments:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I suspect that you’re fully aware that the sharing of R programming has
+some fundamental differences with the sharing of original scientific data. The
+existence of R itself is a medium for community sharing. It’s like the NEON
+or LTER but for data analysis, designed as a public resource. I didn’t design
+my experiments for their data to be a public resource, except for the findings.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;See, that’s where I lost it. I’m a methods developer. Some of my papers
+I like the most are built on the idea of finding the best way to measure
+something, or comparing and understanding different measures, and wrapping
+things up in a &lt;code&gt;R&lt;/code&gt; package or &lt;code&gt;python&lt;/code&gt; script, which are made public, and
+that I spend an insane amount of time troubleshooting through email because
+I care about enabling people to use what I do. Yet in two sentences, my work
+is robbed of all its meaning because, well, of course it ought to be public,
+it’s public service and people developing methods only do so to serve people
+generating data.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I agree with that&lt;/strong&gt;. The most enjoyable thing for me is to face an empirical
+problem that reveals a gap in our methodology, and then filling a notepad
+with sketches and equations until I come up with a new way of measuring old
+things. And I’m an ecologist. My interest is in understanding ecological
+systems, and I choose to do so with a heavy component of methodological
+development. I’m glad when people show interest in what I’ve done, which
+is why I spend time replying to emails on technical questions, writing code
+for people, and trying to understand why things behave the way they do.&lt;/p&gt;
+
+&lt;p&gt;Here’s what I don’t agree with: the sense of entitlement. The above excerpt
+(and most of the post it comes from) is, I think, the opinion of a minority,
+but it should be vocally opposed nonetheless. I don’t believe I am entitled
+to other peoples’ data. I don’t know anyone who does. Yet some people feel
+that they are entitled to new methods, because there are apparently on one
+side nerds with glasses and computers (I plead guilty), and on the other
+side “real” ecologists with muddy boots and field trips. And saying that
+methods are supposed to be given away for free, while data should be released
+whenever you damn well please send a very clear message about which side is
+the best one, about which side is privileged. So I don’t take lightly to my
+work being belittled as community service, because I would never say that
+all empiricists are good for is taking data for me to develop new methods with.&lt;/p&gt;
+
+&lt;p&gt;Not only is that attitude counterproductive, it’s re-inforcing the
+divide between theory and empiricism in biology at large, and ecology
+in particular. I think it’s high time that we recognize that datasets,
+methods, ideas, and what have you, are all ingredients in a research
+paper. Initiatives like &lt;em&gt;ImpactStory&lt;/em&gt; are helping in that direction. I’m
+convinced that dialogue between everyone, and meaningful collaborations
+between theoretical and empirical scientists are the way to go, and will
+produce better science. Ultimately, it will also help each of these aspects
+of doing research being recognized, as I discussed in my talk at the &lt;a href=&quot;http://figshare.com/articles/Open_science_Make_your_work_known_/877095&quot;&gt;QCBS
+panel on open ecology&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So in short: &lt;strong&gt;research would gain to be open&lt;/strong&gt;. I want to believe that no one
+is out there to &lt;em&gt;steal&lt;/em&gt; the work of others. Re-use is probably the highest form
+of recognition you can get, because it means that what you have &lt;em&gt;done&lt;/em&gt; (not
+what you have written about it) allowed other people to build something new. And we’re all doing different things, but also complementary things. As ecologists, we &lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1034/j.1600-0706.2000.910101.x/abstract&quot;&gt;ought to know that it should be beneficial for productivity&lt;/a&gt;…&lt;/p&gt;
+
+</content>
+  </entry>
+  
+  <entry>
+     <title>My worst experience as a teacher</title>
+     <link href="http://timotheepoisot.fr/2014/02/21/hardest-teaching-experience/"/>
+    <updated>2014-02-21T11:52:10-05:00</updated>
+    <content type="html">&lt;p&gt;The other day, I was part of a short discussion about our &lt;em&gt;worst&lt;/em&gt; teaching
+experiences. I was wondering between the time a first-year student set its
+bench and lab report on fire (albeit for a short time, for ethanol is a good
+combustible), and the time a second year student told me I should cut the
+class on classical population dynamics models, because what is the point of
+that for &lt;em&gt;ecologists&lt;/em&gt;? Then a few days later, I remembered another incident,
+which was much less likely to make people laugh; but also one that was much
+more difficult to handle.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I was a &lt;em&gt;moniteur&lt;/em&gt; during my &lt;em&gt;PhD&lt;/em&gt;. Being a &lt;em&gt;moniteur&lt;/em&gt; is much like being a
+teacher assistant, with almost no supervision, absolutely no formal training
+(though we did have an introductory class on &lt;em&gt;self expression&lt;/em&gt;, and I have
+a vague recollection of failing at my &lt;em&gt;Basic computer litteracy&lt;/em&gt; test, which
+ought to be called &lt;em&gt;Using Microsoft Word and PowerPoint&lt;/em&gt;). Your only duty as
+a &lt;em&gt;moniteur&lt;/em&gt; is to fill your quota of hours, 64 hours a year. But because you
+cannot do &lt;em&gt;less&lt;/em&gt; than 64 hours, and if classes come in 20 or 40 hours, unless
+you can find someone to give you very short teaching gigs to reach exactly 64
+hours, you’re in for (unpaid, did I need to mention) overtime. And for some
+reason, spending one &lt;em&gt;actual&lt;/em&gt; hour in front of a class may count for 30, 60,
+or 90 minutes of work, so if you are unlucky, or if your teaching mentor has
+no nice gigs to give you, you can expect to do over 100 hours of &lt;em&gt;effective&lt;/em&gt;
+teaching each year (not counting preparation, grading, and exam&lt;/p&gt;
+
+&lt;p&gt;But such is one (out of many) cost that comes with having a &lt;em&gt;great&lt;/em&gt; university
+system: one that allows anyone to enter regardless of income.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;It would be tempting to assume that Montpellier (the city, and the
+university), is a hotbed of soial &lt;em&gt;mixity&lt;/em&gt;. As in almost all old cities
+in France, there is a still present old bourgeoisie, and a new working and
+lower class peole making (approximately) 80% of the overall population. All
+of these people hang out in (almost) the same streets, and go to (almost)
+the same universities. But that is far from the truth; Montpellier is a
+great example of social &lt;em&gt;juxtaposition&lt;/em&gt;, where people from different classes
+co-occur but seldom interact.&lt;/p&gt;
+
+&lt;p&gt;The fascinating thing is that, especially in the school system, some try
+to fake it. It’s fashionable to adopt dressing codes and attitudes (or
+perceptions of the attitudes) of “the others”. Dressing though is a way not
+to be ostracized for the fact that you have more disposable income than 80%
+of your classmates, and dressing nice (loosely meaning, expensive), is a
+way not to project that you are in the lower 10%.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+</content>
+  </entry>
+  
+  <entry>
+     <title>Writing Data Specification</title>
+     <link href="http://timotheepoisot.fr/2014/02/20/writing-data-specification/"/>
+    <updated>2014-02-20T12:37:02-05:00</updated>
+    <content type="html">
+</content>
+  </entry>
+  
+  <entry>
+     <title>Be nice to students</title>
+     <link href="http://timotheepoisot.fr/2014/02/20/be-nice-students/"/>
+    <updated>2014-02-20T12:37:02-05:00</updated>
+    <content type="html">&lt;p&gt;&lt;em&gt;You will never do research. You may work as a lab tech, but being a researcher is out of the question for you. Trust me&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have been told this exact thing by a well known, well published, highly
+respected scientist (whose identity is not important) at the end of my
+Bachelor’s degree. I’m certainly glad I didn’t trust him. I’m glad I found
+people that gave me the opportunity (and training, because Oh boy is it
+not an innate ability) to do research. And of course, I enjoy the poetic
+justice there is in the fact that some of the research I produced is good
+enough that he cited it once or twice. &lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
      <title>Responsibility and sensationalism in high-profile papers</title>
@@ -2987,217 +3140,6 @@ effect of body size decrease through over-fishing, or the extinction of the
 larger species. There is still a bit of work to do to be able to predict the
 structure of other types of networks, but it was definitely comforting to see
 that, even with straightforward statistics, we were able to achieve it.&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>Is programming an acquired taste?</title>
-     <link href="http://timotheepoisot.fr/2013/09/11/programming-innate-acquired/"/>
-    <updated>2013-09-11T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;Two weeks ago, the whole lab headed up to a remote place in the Rimouski
-countryside for a summers school on &lt;em&gt;Ecological Modeling&lt;/em&gt;. It was a whole lot
-of fun, and a really good way to get back to some things I’ve always wanted to
-study more in depth. So far, so good. Most of the days were courses in the
-morning, and programming in the afternoon. There were also some pen-and-paper
-model solving, but I won’t talk much about these.&lt;/p&gt;
-
-&lt;p&gt;While the students were sweating on the programming problems, we discussed the
-fact that programming is maybe an innate skill. Not in the sense that some
-people are unable to learn how to code functional things, but in the sense that
-some people find it intuitive to express things in terms of &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;,
-&lt;code&gt;if&lt;/code&gt;, and so forth (so forth is &lt;em&gt;not&lt;/em&gt; a valid algorithmic structure). That
-may be true, that some people will find it easier to split up a large
-problem in a series of short instructions. If you can do that intuitively,
-then you’ll probably have no problem structuring your code.&lt;/p&gt;
-
-&lt;p&gt;But this particular skill can be trained, I think. One of the things I asked of
-the students was to code something implementing Williams &amp;amp; Martinez &lt;em&gt;niche
-model&lt;/em&gt; of food webs. The title of the assignment may be “Write a program
-implementing the NM in R”. I took the opportunity of turning that into an
-exercise about how to organize code. The whole problem can be easily
-sub-divided into a series of smaller problems. In this case, we first need to
-generate species, then to find out the interactions between them. The first
-step, of generating species, itself involves several sub-steps, that can each
-go into a function, or can be handled by logical tests.&lt;/p&gt;
-
-&lt;p&gt;Perhaps there will be a &lt;em&gt;happy few&lt;/em&gt; that will take this series of steps by
-themselves. Looking back on the first programs I wrote (I am unlucky enough to
-have kept some of my spaghetti code from my first year of Masters, …),
-I’m definitely not one of these people. As in most things, the key to
-developing a feeling of how to organize things will come with practice, and
-thinking about what you felt comfortable with. Which is why I always
-encourage people to &lt;a href=&quot;http://timotheepoisot.fr/2013/04/12/learn-code-ecology/&quot;&gt;write code when they want to learn&lt;/a&gt;. I seriously
-don’t think there is a better way to increase your skills.&lt;/p&gt;
-
-&lt;p&gt;So, is programming an acquired taste? Probably. It may seems frustrating at
-first to need to specify things clearly at a very small scale. Some people may
-call it intuitive, and be comfortable with the &lt;code&gt;if&lt;/code&gt;s and the &lt;code&gt;while&lt;/code&gt;s really
-quickly, but I don’t think these are majority. And that might explain why it’s
-not uncommon to hear students say that they aren’t able to code well (aside
-from the fact that, well, monkeys and typewriters…). Learning how to
-code is like learning a language with a different grammatical structure. On
-your first day, Python and &lt;a href=&quot;http://en.wikipedia.org/wiki/Brainfuck&quot;&gt;brainfuck&lt;/a&gt;
-look awfully similar. Things you conceptualize easily will not translate well
-in your editor because you need to use a different structure of thought to
-express them. The more you practice, the more natural it will seem. For this
-reason, I don’t really believe in programming classes (for biologists, I don’t
-know how it goes in other majors) in which you only need to write-down
-some code, press enter, and see that it does what your instructor says it does.
-Letting students experiment, and fail, and sort out their experiences of what
-worked, what did not, and what they felt comfortable with, could probably do
-a lot to improve coding literacy.&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>Teach more maths to the undergrads!</title>
-     <link href="http://timotheepoisot.fr/2013/08/28/lack-quantitative-training/"/>
-    <updated>2013-08-28T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;Fred Barraquand, a bunch of INNGE-and-friends-of-INNGE people, and I, just
-published a &lt;a href=&quot;https://peerj.com/preprints/53/&quot;&gt;preprint&lt;/a&gt; at &lt;em&gt;Peer J&lt;/em&gt; about quantitative training in
-early-career ecologists (or rather, the lack thereof). Talking about how much
-maths is needed during training is all the rage in the ecological community,
-and both sides of the argument have really good arguments.&lt;/p&gt;
-
-&lt;p&gt;So Fred decided to do a survey of early-career (and older) ecologists through
-&lt;em&gt;ECOLOG-L&lt;/em&gt;. Quoting directly from the abstract, this is what we found:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We found a clear self-perceived lack of quantitative training: &lt;strong&gt;75% are not
-satisfied with their understanding of mathematical models&lt;/strong&gt;; 75% feel the level
-of mathematics was “too low” in their ecology classes; 90% wanted more
-mathematics classes for ecologists; and 95% more statistics classes.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There are a lot of number to process, but basically all point to the same
-message: with a few more years of experience after your undergraduate degree,
-you wish you have studied more maths (it’s especially true for me). We
-conclude the paper by exploring recommendations about how to (re)design
-curriculum using the results from this survey.&lt;/p&gt;
-
-&lt;p&gt;I discussed this result with my B.Sc. class last fall. We had a fun exchange,
-and over time, the polarization between animal-watchers and number-crunchers
-(the 2 or 3 of them) decreased. But here is the fun thing. When I asked the
-students whether the found plausible that they’ll wish for strong
-quantitative training in a few years, they said yes. Immediately afterwards,
-when I asked what they would do if we increased the part of quantitative
-training up to 30% of all classes, as survey respondent suggested. To a vast
-majority, they would not enroll.&lt;/p&gt;
-
-&lt;p&gt;So, it seems like we’ll need to sneakily teach quantitative skills…&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>In defense of narrative reviews</title>
-     <link href="http://timotheepoisot.fr/2013/08/24/in-defense-narrative-reviews/"/>
-    <updated>2013-08-24T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;Early in July, Christopher Lortie published a really great preprint on &lt;em&gt;PeerJ&lt;/em&gt;,
-about the &lt;a href=&quot;https://peerj.com/preprints/39/&quot;&gt;opportunities of systematic reviews for ecology&lt;/a&gt;. It’s
-extremely insightful, and a good read. The abstract starts by &lt;em&gt;Narrative
-reviews are dead&lt;/em&gt;. No they’re not, nor shouldn’t they be! &lt;em&gt;Narrative&lt;/em&gt; reviews are those we are used to read now: a story built on the
-collection of some pieces of litterature. On the other hand, systematic reviews
-or meta-analyses are, well, systematic, and try to reach a consensus (at least
-a generalizable result) through the analysis of everything published on
-a particular topic (I abusively generalize, but go read the paper and you’ll
-get the idea).&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;There is something fascinating about science. One gets such wholesale returns of conjecture out of such a trifling investment of fact.&lt;/em&gt; &lt;br /&gt;
-Mark Twain&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I get the idea that narrative reviews are more likely to reflect the author(s)
-personal biases or interests, and in our quest for absolute impartiality, it
-would make sense to get rid of this. This is the whole point of Chris’s
-paper: as the goal of a review is to give an overview of the
-state-of-the-art in a particular field, then non-narrative reviews are the
-&lt;em&gt;better&lt;/em&gt; tool. Nonetheless, I think this is an over-simplification of the
-way people &lt;em&gt;use&lt;/em&gt; review papers.&lt;/p&gt;
-
-&lt;p&gt;As a Ph.D. candidate, &lt;em&gt;narrative&lt;/em&gt; reviews helped me a lot when I was trying to
-get an idea of the history of the field. Being able to understand how current
-ideas emerged from previous observations and results, and seeing which papers
-influenced which authors, was important when I had to develop my own research
-questions. I won’t spend time on the argument that narrative reviews are great
-teaching material, and that it’s a gentler introduction to a field to be walked
-through a concept rather than to read through tables of ANOVA. I enjoy these
-much more when I have an idea of the “story” behind.&lt;/p&gt;
-
-&lt;p&gt;Essentially, narrative reviews should not be discarded because they serve
-a different purpose from systematic reviews. Let’s take the example of the
-&lt;a href=&quot;http://en.wikipedia.org/wiki/Rare_biosphere&quot;&gt;&lt;em&gt;rare biosphere&lt;/em&gt;&lt;/a&gt; in environmental microbiology. For several
-historical reasons, it has been hypothesized that the distribution of
-biodiversity has a long-tail, with a lot of species being in extremely low
-abundances. Classical sampling and enumeration technique only described the tip
-of the iceberg. Fast forward a few years later, and the existence of the rare
-biosphere is well established, and people start questioning its impact in
-ecosystem processes, among other things. How we switched from “it probably
-exists” to “we need to understand what it’s doing” is best understood with
-a little bit of narration. Specifically, the development of molecular biology
-methods, and recently high-throughput sequencing, increased our detection
-ability by order of magnitudes. The emergence of new tools (which in the
-perspective of people like &lt;a href=&quot;http://www.scribd.com/doc/28780545/Gutting-Bachelard-s-Philosophy-of-Science-1987&quot;&gt;Bachelard, only reflects the emergence of new
-theories&lt;/a&gt; that progressively materialized) allowed a switch in the way
-people studied rare biosphere. A &lt;em&gt;narrative&lt;/em&gt; review of the question will likely
-put this element forward.&lt;/p&gt;
-
-&lt;p&gt;A systematic review will hold different informations. While the narrative
-review aks &lt;em&gt;How did we get there?&lt;/em&gt;, the systematic review asks &lt;em&gt;Where are we
-now?&lt;/em&gt;. They give different answers, but it’s hard to argue that one of these
-questions has more merit than the other. Interestingly, more and more reviews
-conclude by asking &lt;em&gt;Where to next?&lt;/em&gt;. Both narrative and systematic reviews can
-bring different elements, and thus will likely bring different responses. This
-multiplicity of points of views should not be so rapidly dismissed. Narrative
-reviews should be continued &lt;em&gt;because&lt;/em&gt; they are often not entirely impartial,
-reflects biases or personnal preferences, and because they tell
-stories. Once we are familiar with this story, and once we know the
-different interpretations that people make of the same data, it’s time
-to go read the systematic reviews, and the meta-analyses. I appreciate
-that people will enjoy one of these more than the other, or would
-prefer to read statistics before naration. But I think we should
-continue reading, and writing, narrative reviews.&lt;/p&gt;
-
-&lt;p&gt;As a final point, whatever you may think of the issue, go read the “companion”
-paper about the &lt;a href=&quot;https://peerj.com/preprints/38/&quot;&gt;&lt;em&gt;interpretation&lt;/em&gt;&lt;/a&gt; of meta-analyses in ecology. It’s
-a really good introduction.&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>Network structure of obligate and facultative parasites</title>
-     <link href="http://timotheepoisot.fr/2013/08/20/network-structure-obligate-facultative-parasites/"/>
-    <updated>2013-08-20T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;We have a new paper &lt;a href=&quot;http://dx.doi.org/10.1017/S0031182013000851&quot;&gt;online at &lt;em&gt;Parasitology&lt;/em&gt;&lt;/a&gt;, on the differences of
-the structure between rodents hosts, and their obligates of facultatives
-parasites. We had data from a really cool rodents-ectoparasites system, in
-which the same hosts have both facultative and obligate parasites. These data
-were also collected in different locations, and at different times.&lt;/p&gt;
-
-&lt;p&gt;There are two important things in the results. First, the networks of obligate
-and facultative parasites look &lt;em&gt;nothing&lt;/em&gt; alike. One (obligate) is highly
-modular and anti-nested, and the other (facultative) is highly nested but not
-particularly more or less modular. But when you look at all types of parasites
-together, the resulting networks are both more moudular &lt;em&gt;and&lt;/em&gt; more nested than
-expected by chance. The take-home of this particular result is: “parasitism” is
-a vague notion, and we should not be too surprized when lumping contrasted
-ecological strategies makes weird results emerge (also, we should focus on how
-different functional groups affect network properties).&lt;/p&gt;
-
-&lt;p&gt;The second part of the result is most likely more appealling to
-parasitologists: we show that the networks of obligate parasites vary less in
-space and time that the network of facultative ones. Not too suprising when you
-think about it long enough: facultative parasites are mostly opportunisitc, and
-thus they will probably pick their hosts more randomly (without less
-constraints) than obligate ones. There’s also the fact that facultative
-parasites tend to occupy sites within the hosts that require less stringent
-adaptations. But the key message is still the same: when we lump different
-classes of organisms together in a single network, it’s important to quantify
-how much each contribute to the overall properties.&lt;/p&gt;
 
 </content>
   </entry>

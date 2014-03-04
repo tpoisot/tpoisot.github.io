@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Blog</title>
+        <meta name="viewport" content="width=device-width">
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/foundation.min.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
+	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -30,118 +19,75 @@
 		})();
 	</script>
 	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: Blog</title>
-    
-</head>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-<body>
-<a id="top"></a>
-<div id="barspacer"></div>
-<div class='contain-to-grid sticky'>
-   <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-          <li class="name">
-          <h1><a href="/">Timothée Poisot <span class='navsep'>&mdash;<span> <span class='tagline'>Ecologist</span></a></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-   <section class="top-bar-section">
-      <ul class="left">
-         <li><a href="/">Home</a></li>
-         <li><a href="/papers/">Papers</a></li>
-         <li><a href="/software/">Software</a></li>
-         <li><a href="/research/">Research</a></li>
-         <li class="active"><a href="/blog/">Blog</a></li>
-      </ul>
-      <ul class="right">
-         <li><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
-         <li><a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a></li>
-         <li><a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a></li>
-         <li><a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-      </ul>
-   </section>
-</nav>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
 
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+             <h1 class="title"><a href="/">Timothée Poisot</a> | Ecologist</h1>
+            <a class="extra" href="/">home</a>
+            <a class="extra" href="/papers/">papers</a>
+            <a class="extra" href="/software/">software</a>
+            <a class="extra" href="/research/">research</a>
+            <a class="extra" href="/blog/">blog</a>
+          </div>
+
+          <div class="content">
+             <!-- This loops through the paginated posts -->
+
+
+<h2>The beta-diversity of species interaction networks</h2>
+<p class="meta">20 Sep 2012</p>
+
+<div class="post">
+   <p>Have you ever sampled interaction networks, and wished there were a good method to measure how dissimilar they are? Or have you ever thought about β-diversity of species interactions? Do you just love good science? If you answered yes to any of these questions, then you should read our Ecology Letters paper, now online. We propose a way to measure the β-diversity of networks (any kind of network, unipartite, bipartite, quantitative, …), and propose some...<br />
+   <a class="readmore" href="/2012/09/20/beta-diversity-networks/">Read more...</a></p>
 </div>
 
-<div class="row wrapper">
+<h2>Notes on learning how to use sympy</h2>
+<p class="meta">15 Aug 2012</p>
 
-   <div class="large-12 small-12 columns">
-      <div class="maintext">
-         <!-- This loops through the paginated posts -->
-
-
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>August  3, 2012 </p>
-         <h1 class='post-title'>My new linux setup</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/linux/">linux</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span>
-         
-      </div>
-      <p>I have a terrible confession to make. Two weeks ago, I installed Windows 7. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask? I made the switch from Mac to Linux, that’s why. I needed to install Windows...</p>
-      <a class="readmore" href="/2012/08/03/new-linux-setup/">Read more...</a>
+<div class="post">
+   <p>I’m trying to move to sympy for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I’m playing with a simple host-parasite model. I was reading the First steps with sympy section of the website when I was running my little tests, and it’s relatively helpul. So let’s assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous...<br />
+   <a class="readmore" href="/2012/08/15/notes-on-using-sympy/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>July 15, 2012 </p>
-         <h1 class='post-title'>A walk on the intertidal zone</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/intertidal/">intertidal</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/trophic complexity/">trophic complexity</a></span>
-         
-      </div>
-      <p>I’m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this: What immediately came to my mind is: we don’t know anything. It’s one thing to look at species interaction networks, and...</p>
-      <a class="readmore" href="/2012/07/15/what-is-trophic-complexity/">Read more...</a>
+<h2>Models are useless. Real ecologists should move on.</h2>
+<p class="meta">13 Aug 2012</p>
+
+<div class="post">
+   <p>I’m spending more and more of my time doing theory related thing. Data analysis, model, drawing conceptual figures to make it seem like I have deep ideas about nature, life, and everything. Yet I love ecology, biology, and the complexity of natural systems. At this point, I’m sure most of you are familiar with the recent paper by Fawcett &amp; Higginson in PNAS - they conclude that the more equations are in a biology paper,...<br />
+   <a class="readmore" href="/2012/08/13/models-are-useless/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>July  3, 2012 </p>
-         <h1 class='post-title'>Using Color Brewer schemes in LaTeX pgfplots</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
-         
-      </div>
-      <p>Color Brewer is an awesome project in which you can select color scales according to three kind of data you want to represent (diverging, sequential, qualitative). I use it in R all the time with the RColorBrewer package. Last week, I started using pgfplots, a tikz extension for data visualization, to prepare slides for the upcoming Evolution2012 meeting in Ottawa. I thought it would be pretty cool to be able to use the Color Brewer...</p>
-      <a class="readmore" href="/2012/07/03/colorbrewer-in-pgfplots/">Read more...</a>
+<h2>Are student-friendly conferences worth it?</h2>
+<p class="meta">05 Aug 2012</p>
+
+<div class="post">
+   <p>Two recent posts by Jeremy Fox and Zen Faulkes dealt with «students-friendly» conferences, and they do not seem too overtly enthusiastic about it, and prefer big meetings open to anyone. They have really valid points, which amount to the fact that there is no hierarchy in science, and anyone who wants to contribute a talk, or ask a question during a session, should feel free to do so. This is true. This is also not...<br />
+   <a class="readmore" href="/2012/08/05/student-friendly-meetings/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>May 18, 2012 </p>
-         <h1 class='post-title'>Using networkx to simulate metapopulations in Python</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/python/">python</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/networkx/">networkx</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/metapopulation/">metapopulation</a></span>
-         
-      </div>
-      <p>Python progressively replaced R for most of my daily simulations needs, because it’s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I’ve been using networkx more and more. We’ve been having discussions in the lab about spatial graphs, surrounding a recent paper by Gilarranz and Bascompte and some of our own projects, and I thought...</p>
-      <a class="readmore" href="/2012/05/18/networkx-metapopulations-python/">Read more...</a>
+<h2>My new linux setup</h2>
+<p class="meta">03 Aug 2012</p>
+
+<div class="post">
+   <p>I have a terrible confession to make. Two weeks ago, I installed Windows 7. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask? I made the switch from Mac to Linux, that’s why. I needed to install Windows...<br />
+   <a class="readmore" href="/2012/08/03/new-linux-setup/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>May 11, 2012 </p>
-         <h1 class='post-title'>The ecological journal of the future</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open access/">open access</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span>
-         
-      </div>
-      <p>I’ve been reading Tim Gowers’s fascinating blog following the call to boycott Elsevier, and stumbled upon a fascinating gedankenexperiment. What would the electronic journal of the future look like in the field of Mathematics? Naturally, I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis? I have been thinking about this for the last few months (the earliest draft of this text dates...</p>
-      <a class="readmore" href="/2012/05/11/ecological-journal-of-the-future/">Read more...</a>
-</div>
+<h2>A walk on the intertidal zone</h2>
+<p class="meta">15 Jul 2012</p>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>May  3, 2012 </p>
-         <h1 class='post-title'>Phylogeny without a sequencer</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/phylogeny/">phylogeny</a></span>
-         
-      </div>
-      <p>In the last issue of Trends Ecol. Evol., Poole and colleagues talk about Ecosystomics, or the use of molecular data in ecology. If the subject is interesting to you, I recommend the reading of a recent paper by Nico Mouquet and colleagues about Ecophylogenetics. But I’m not going to discuss the science in these papers. Rather, I would like to share some methodological / technical insights related to these questions. At times, one would like...</p>
-      <a class="readmore" href="/2012/05/03/phylogeny-without-sequencer/">Read more...</a>
+<div class="post">
+   <p>I’m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this: What immediately came to my mind is: we don’t know anything. It’s one thing to look at species interaction networks, and...<br />
+   <a class="readmore" href="/2012/07/15/what-is-trophic-complexity/">Read more...</a></p>
 </div>
 
 
@@ -221,18 +167,24 @@
 
 </div>
 
+          </div>
 
-      </div>
-   </div>
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Timothée Poisot<br />
+                Ecologist<br />
+                t.poisot@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
+                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
 
-</div>
-
-<script type="text/javascript" src="/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/vendor/fastclick.js"></script>
-<script type="text/javascript" src="/js/foundation.min.js"></script>
-<script>
-   $(document).foundation();
-</script>
-</body>
-
+    </body>
 </html>

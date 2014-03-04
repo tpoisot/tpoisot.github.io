@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to represent networks</title>
+        <meta name="viewport" content="width=device-width">
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/foundation.min.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
+	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -30,54 +19,30 @@
 		})();
 	</script>
 	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: How to represent networks</title>
-    
-</head>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-<body>
-<a id="top"></a>
-<div id="barspacer"></div>
-<div class='contain-to-grid sticky'>
-   <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-          <li class="name">
-          <h1><a href="/">Timothée Poisot <span class='navsep'>&mdash;<span> <span class='tagline'>Ecologist</span></a></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-   <section class="top-bar-section">
-      <ul class="left">
-         <li><a href="/">Home</a></li>
-         <li><a href="/papers/">Papers</a></li>
-         <li><a href="/software/">Software</a></li>
-         <li><a href="/research/">Research</a></li>
-         <li class="active"><a href="/blog/">Blog</a></li>
-      </ul>
-      <ul class="right">
-         <li><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
-         <li><a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a></li>
-         <li><a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a></li>
-         <li><a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-      </ul>
-   </section>
-</nav>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
 
-</div>
+    </head>
+    <body>
 
-<div class="row wrapper">
+        <div class="site">
+          <div class="header">
+             <h1 class="title"><a href="/">Timothée Poisot</a> | Ecologist</h1>
+            <a class="extra" href="/">home</a>
+            <a class="extra" href="/papers/">papers</a>
+            <a class="extra" href="/software/">software</a>
+            <a class="extra" href="/research/">research</a>
+            <a class="extra" href="/blog/">blog</a>
+          </div>
 
-   <div class="large-12 small-12 columns">
-      <div class="maintext">
-         <div class='post'>
-   <div class="postinfo">
-      <p class='post-date'>November 23, 2012 </p>
-      <h1 class='post-title'>How to represent networks</h1>
-      
-         <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/ecological networks/">ecological networks</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/species interactions/">species interactions</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data management/">data management</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open lab book/">open lab book</a></span>
-      
-   </div>
+          <div class="content">
+             <h2>How to represent networks</h2>
+<p class="meta">23 Nov 2012</p>
 
+<div class="post">
 <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
 
 <div class="alert alert-info">
@@ -180,10 +145,7 @@ b d
 
 <p>I’m still thinking about some other informations we need (bibliographic context, for example). I have a set of data from an almost-succesfull experiment, which I’ll probably release as a data paper. It will be the occasion to go the extra mile, and put together something useful. And in case anybody has suggestions, I’m happy to hear them.</p>
 
-
 </div>
-
-
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -197,36 +159,25 @@ b d
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enab
+          </div>
 
-<div class="pager">
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Timothée Poisot<br />
+                Ecologist<br />
+                t.poisot@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
+                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
 
-
-<span class="previous">
-   <a href="/2012/11/09/data-sharing-and-the-bagel-effect/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
-</span>
-
-
-
-<span class="next">
-<a href="/2012/12/15/face-of-twitter/">Next post <i class="fa fa-fw fa-chevron-right"></i></a>
-</span>
-
-</div>
-
-
-      </div>
-   </div>
-
-</div>
-
-<script type="text/javascript" src="/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/vendor/fastclick.js"></script>
-<script type="text/javascript" src="/js/foundation.min.js"></script>
-<script>
-   $(document).foundation();
-</script>
-</body>
-
+    </body>
 </html>

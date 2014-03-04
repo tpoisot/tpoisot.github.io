@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Blog</title>
+        <meta name="viewport" content="width=device-width">
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/foundation.min.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/tomorrow.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
+	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -30,118 +19,75 @@
 		})();
 	</script>
 	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: Blog</title>
-    
-</head>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-<body>
-<a id="top"></a>
-<div id="barspacer"></div>
-<div class='contain-to-grid sticky'>
-   <nav class="top-bar" data-topbar>
-   <ul class="title-area">
-          <li class="name">
-          <h1><a href="/">Timothée Poisot <span class='navsep'>&mdash;<span> <span class='tagline'>Ecologist</span></a></h1>
-          </li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-   <section class="top-bar-section">
-      <ul class="left">
-         <li><a href="/">Home</a></li>
-         <li><a href="/papers/">Papers</a></li>
-         <li><a href="/software/">Software</a></li>
-         <li><a href="/research/">Research</a></li>
-         <li class="active"><a href="/blog/">Blog</a></li>
-      </ul>
-      <ul class="right">
-         <li><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
-         <li><a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a></li>
-         <li><a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a></li>
-         <li><a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-      </ul>
-   </section>
-</nav>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
 
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+             <h1 class="title"><a href="/">Timothée Poisot</a> | Ecologist</h1>
+            <a class="extra" href="/">home</a>
+            <a class="extra" href="/papers/">papers</a>
+            <a class="extra" href="/software/">software</a>
+            <a class="extra" href="/research/">research</a>
+            <a class="extra" href="/blog/">blog</a>
+          </div>
+
+          <div class="content">
+             <!-- This loops through the paginated posts -->
+
+
+<h2>Estimating node contribution to network properties</h2>
+<p class="meta">12 Feb 2013</p>
+
+<div class="post">
+   <p>I’m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I’ll just detail how it possible to get this information quickly using networkx. Warning! I'm just using this post to take notes on code I'm currently working on....<br />
+   <a class="readmore" href="/2013/02/12/species-contribution-modularity/">Read more...</a></p>
 </div>
 
-<div class="row wrapper">
+<h2>COinS metadata in Jekyll blogposts</h2>
+<p class="meta">08 Feb 2013</p>
 
-   <div class="large-12 small-12 columns">
-      <div class="maintext">
-         <!-- This loops through the paginated posts -->
-
-
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January 24, 2013 </p>
-         <h1 class='post-title'>Where to submit your paper?</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/peer-review/">peer-review</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/research/">research</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific publishing/">scientific publishing</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span>
-         
-      </div>
-      <p>Jeremy Fox offers some advice about how to decide where to submit your paper. Also, read the response by Ethan White. There are possibly as many perspectives on this are there are researchers, which I’ll definitely take as an excuse to present mine. Aim as high as you reasonably can. Then submit a step higher than that. I’ve had really good surprizes with papers being accepted in journals I would have considered too high (speaking...</p>
-      <a class="readmore" href="/2013/01/24/where-to-submit/">Read more...</a>
+<div class="post">
+   <p>COinS is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn blog posts into TREE papers, citing blog posts might...<br />
+   <a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January 22, 2013 </p>
-         <h1 class='post-title'>A selection of Sublime Text 2 packages</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/software/">software</a></span>
-         
-      </div>
-      <p>Sublime Text 2 is an awesome multi-purpose text editor, working on all major platforms, and generally being vim with a nice GUI, and some emacs thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed Python packages for it, and I use a few of them almost daily. Following some discussions we’ve had on twitter, I figured I’d share...</p>
-      <a class="readmore" href="/2013/01/22/selection-sublime-plugins/">Read more...</a>
+<h2>Article introductions and the reinvention of the ecological wheel</h2>
+<p class="meta">28 Jan 2013</p>
+
+<div class="post">
+   <p>Caroline Tucker and Marc Cadotte recently had a great blog post discussing the reinvention of the ecological wheel, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with a lot of interest, for reasons that I will mention in a later post. The basic issue was that: Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence....<br />
+   <a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January 19, 2013 </p>
-         <h1 class='post-title'>If Elsevier acquires Mendeley, I'm out (and you should be too)</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/open science/">open science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span>
-         
-      </div>
-      <p>Two days ago, TechCrunch published an article saying that Elsevier was in “advanced talks” to acquire Mendeley. Why a company (Mendeley) whose goal is to help scientist work, and faciliate access to papers, would associate with a company so despised by so many researchers that they are actively and publicly boycotting it (Elsevier) makes absolutely no sense. Some people on the Mendeley advisors group wanted to know more, and here is the reply we got:...</p>
-      <a class="readmore" href="/2013/01/19/elsevier-mendeley-out/">Read more...</a>
+<h2>Using forums to communicate with students</h2>
+<p class="meta">26 Jan 2013</p>
+
+<div class="post">
+   <p>This fall, I gave a series of lectures in Population and Community Biology, for a group of 52 undergrads. I really love teaching, and having my own course to give all by myself is a blast. But it’s a lecture, and as a student, I was not a big fan of them. Not enough interaction. You learn more by interacting than by listening, and even though it’s possible to do participative lectures, it’s hard; at...<br />
+   <a class="readmore" href="/2013/01/26/using-forums-communicate-students/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January 10, 2013 </p>
-         <h1 class='post-title'>A quick way to get good figures for your web pages</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/LaTeX/">LaTeX</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/pgfplots/">pgfplots</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/free software/">free software</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/data visualization/">data visualization</a></span>
-         
-      </div>
-      <p>I’m a huge fan of the pgfplots package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: notes, MS, and code. The results of what happens in code (usually a huge mess of R, C and Python) go directly into MS as tab-delimited files, and the .tex document has...</p>
-      <a class="readmore" href="/2013/01/10/free-workflow-figures/">Read more...</a>
+<h2>Where to submit your paper?</h2>
+<p class="meta">24 Jan 2013</p>
+
+<div class="post">
+   <p>Jeremy Fox offers some advice about how to decide where to submit your paper. Also, read the response by Ethan White. There are possibly as many perspectives on this are there are researchers, which I’ll definitely take as an excuse to present mine. Aim as high as you reasonably can. Then submit a step higher than that. I’ve had really good surprizes with papers being accepted in journals I would have considered too high (speaking...<br />
+   <a class="readmore" href="/2013/01/24/where-to-submit/">Read more...</a></p>
 </div>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January  7, 2013 </p>
-         <h1 class='post-title'>INNGE announces EcoBloggers</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/next-gen science/">next-gen science</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/scientific communication/">scientific communication</a></span><span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/social networks/">social networks</a></span>
-         
-      </div>
-      <p>It all started with a rather enigmatic tweet, two weeks ago: Any ecologist with a blog, can you send me a message? @inngecologist is starting a cool project!&mdash; Tim (@tpoi) December 14, 2012 Thanks to Naupaka Zimmerman today is an important day, as INNGE launches EcoBloggers, a new platform to aggregate blog posts written by ecologists. Just this morning, there’s been some discussion at Dynamic Ecology that ecological blogs may be fading away. One of...</p>
-      <a class="readmore" href="/2013/01/07/ecobloggers/">Read more...</a>
-</div>
+<h2>A selection of Sublime Text 2 packages</h2>
+<p class="meta">22 Jan 2013</p>
 
-   <div class='post postlist'>
-      <div class='postinfo'>
-         <p class='post-date'>January  4, 2013 </p>
-         <h1 class='post-title'>Writing grant applications can be fun</h1>
-         
-            <span class="label radius small secondary" style="margin-right: 3px;"><a href="/tag/grants/">grants</a></span>
-         
-      </div>
-      <p>Most of my summer, and a substantial part of whatever time in fall was left after teaching, went into applying to various grants and positions. It’s a frustrating experience, because it’s time not spent doing research. But as I had no other possibility than doing it, I tried to make the experience enjoyable, and I even found myself learning a few things along the way. I’ve done my PhD in a French university, and it’s...</p>
-      <a class="readmore" href="/2013/01/04/writing-grant-applications/">Read more...</a>
+<div class="post">
+   <p>Sublime Text 2 is an awesome multi-purpose text editor, working on all major platforms, and generally being vim with a nice GUI, and some emacs thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed Python packages for it, and I use a few of them almost daily. Following some discussions we’ve had on twitter, I figured I’d share...<br />
+   <a class="readmore" href="/2013/01/22/selection-sublime-plugins/">Read more...</a></p>
 </div>
 
 
@@ -221,18 +167,24 @@
 
 </div>
 
+          </div>
 
-      </div>
-   </div>
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Timothée Poisot<br />
+                Ecologist<br />
+                t.poisot@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
+                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
 
-</div>
-
-<script type="text/javascript" src="/js/vendor/jquery.js"></script>
-<script type="text/javascript" src="/js/vendor/fastclick.js"></script>
-<script type="text/javascript" src="/js/foundation.min.js"></script>
-<script>
-   $(document).foundation();
-</script>
-</body>
-
+    </body>
 </html>
