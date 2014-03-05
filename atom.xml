@@ -4,12 +4,116 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-03-04T16:49:00-05:00</updated>
+  <updated>2014-03-05T10:29:12-05:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Ecologists needs to focus more on patterns</title>
+     <link href="http://timotheepoisot.fr/2014/03/05/ecology-needs-more-patterns/"/>
+    <updated>2014-03-05T00:00:00-05:00</updated>
+    <content type="html">&lt;p&gt;Ecology is the study, which is to say the identification, description, and
+reporting, of patterns. Patterns are simply defined as there being something
+rather than nothing, which is to say something that can represented as a
+histogram or a scatterplot, or even just called a pattern because this helps
+relate it to previously described patterns.&lt;/p&gt;
+
+&lt;p&gt;Sub-fields of ecology are primarily defined by which types of
+patterns they look for. Functional ecologists are interested in traits
+distribution patterns. Macroecologists look for species distribution
+patterns. Biogeographers do that too, but they focus on slightly
+different patterns of species distributions. Food web ecologists looks for
+network structure patterns. Community ecologists are interested in niche
+differentiation patterns. Some ecologists, allegedly, are into the study of
+mechanism; this is not as un-orthodox as it seems, for what are mechanisms,
+if not processes giving rise to patterns? Their study is therefore, if not
+entirely excusable, understandable as an interesting intellectual passtime
+for those unlucky enough not to have access to big databases.&lt;/p&gt;
+
+&lt;p class=&quot;left&quot;&gt;&lt;img src=&quot;/images/satyr.jpg&quot; alt=&quot;Satire&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But I digress. There is an issue we should collectively adress, and it relates
+to the search for meta-patterns. For example, several species distribution
+patterns are similar, and so we ought to recognize this observation for what
+it is: there is a pattern of species distribution patterns. The same holds for
+other types of patterns. The next breakthrough in ecology will probably come
+from the identification of these meta-patterns. My personnal opinion is that
+this breakthrough has been delayed because so many things that are patterns
+are called something else, thus preventing unification of the vocabulary.&lt;/p&gt;
+
+&lt;p&gt;I would even say that our remarkable self-restraint in using the p-word
+is bringing much technical confusion to the litterature. Although this is
+surely of interest to statisticians, most of us should not be too concerned
+by whether the reported pattern is a &lt;em&gt;distribution&lt;/em&gt;, a &lt;em&gt;relationship&lt;/em&gt;, or
+something else entirely. We would greatly simplify our writing by calling
+all of these by their proper denomination: &lt;em&gt;significant patterns&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This would, as I proposed above, bring conceptual unification to ecology
+by allowing us to gloss over the tedious mathematical details. For example,
+the search for patterns of species distributions patterns now becomes the much
+more ecologier search for significant patterns of significant species patterns
+patterns. And of course, as it is timely to dismiss the use of &lt;em&gt;p&lt;/em&gt;-values as
+an old tradition slowly going away, “significant” is always assumed because
+we are obviously above doing unsignificant research. No longer will one feel
+excluded because the precise nuance of each term is sometimes difficult to
+grasp. To some extent, we are about to prove Lawton wrong. Community ecology
+is not a mess. We made it a mess by refusing to recognize that everything
+is a pattern, and much like in the Tower of Babel analogy, we made our field
+tumble and fall because we used a meaningless variety of highly specific terms.&lt;/p&gt;
+
+&lt;p&gt;But conceptual unification of the field through the elimination of superfluous
+words (words such as, for instance, superfluous) serves a very limited purpose
+if it won’t allow to create bridges with other fields. Evolutionary ecology,
+because it studies the rise of patterns through evolution, can be re-branded
+as the study of the emergence of complex patterns. It is admitted that all
+patterns are complex, as if they were not, being smart people with diplomas,
+we would have found about them already.&lt;/p&gt;
+
+&lt;p&gt;So there it is; ecology is built upon patterns, and in the future, it should
+be patterns all the way down. The divide between theoreticians and empiricists
+can, at this point, only be bridged by having a common language, in which
+anything worth mentionning is refered to as a pattern. Some would call this
+language poorer. They would be wrong. Pauperisation is when each word only
+holds a small amount of meaning; this drives the division of ecology in
+obscure sub-fields unable to communicate. By refocusing our research efforts
+on patterns, and patterns of patterns, we will be able to re-unify our field.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;A final (and serious) note&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In case this was not obvious by the overall absurdity, and the picture
+of an eminently Rococo &lt;em&gt;Satyr&lt;/em&gt; (get it?), this is meant to be a satirical
+piece. In case you wonder, yes, it felt good to write it, I got rid of so much
+frustration. Now for the serious part. I have a feeling that the p-word is
+used to mean a &lt;em&gt;lot&lt;/em&gt; of things. I played a game at a meeting the other day:
+some of the speakers clocked in at over 1.5 ppm, which is to say “patterns
+per minute”. It would have been the most dangerous drinking game. Removing
+stop-words, &lt;em&gt;i.e.&lt;/em&gt; extremely frequent words regardless of the topic discussed,
+I’m sure &lt;em&gt;pattern&lt;/em&gt; was &lt;strong&gt;the&lt;/strong&gt; most frequently used term.&lt;/p&gt;
+
+&lt;p&gt;From my own observations, &lt;em&gt;pattern&lt;/em&gt; is used to mean either &lt;em&gt;distribution&lt;/em&gt;
+(in the statistical sense), &lt;em&gt;relationship&lt;/em&gt; (often statistical, sometimes
+mechanistic), and other times either to describe something that we can’t
+quite qualify. In some cases, &lt;em&gt;patterns&lt;/em&gt; is superfluous (also, I don’t think
+we should get rid of superfluous), and can be removed entirely without loss
+of meaning - I would argue that &lt;em&gt;species distribution pattern&lt;/em&gt; is a perfect
+example of the later. Actually, there is at least one valid sentence in
+my first paragraph: &lt;em&gt;pattern&lt;/em&gt; means something, rather than nothing; but it
+fails to provide any information about the &lt;em&gt;nature&lt;/em&gt; of this thing.&lt;/p&gt;
+
+&lt;p&gt;Mark Twain said that young writers should write &lt;em&gt;damn&lt;/em&gt; every time they would
+have written &lt;em&gt;very&lt;/em&gt;; the editor would then remove &lt;em&gt;damn&lt;/em&gt;, and the text will
+not be diminished. For a few months, I had a macro replacing &lt;em&gt;pattern&lt;/em&gt; by
+&lt;em&gt;stuff&lt;/em&gt;, which I think is equally informative. As a result, I stopped using
+&lt;em&gt;pattern&lt;/em&gt; (almost) entirely, and I think it improved my writing. Notably,
+it forced me to pick the right word, instead of letting the reader figure
+out what I meant as an exercise.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Of the value of datasets and methods in open science</title>
@@ -3160,83 +3264,6 @@ training up to 30% of all classes, as survey respondent suggested. To a vast
 majority, they would not enroll.&lt;/p&gt;
 
 &lt;p&gt;So, it seems like we’ll need to sneakily teach quantitative skills…&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>In defense of narrative reviews</title>
-     <link href="http://timotheepoisot.fr/2013/08/24/in-defense-narrative-reviews/"/>
-    <updated>2013-08-24T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;Early in July, Christopher Lortie published a really great preprint on &lt;em&gt;PeerJ&lt;/em&gt;,
-about the &lt;a href=&quot;https://peerj.com/preprints/39/&quot;&gt;opportunities of systematic reviews for ecology&lt;/a&gt;. It’s
-extremely insightful, and a good read. The abstract starts by &lt;em&gt;Narrative
-reviews are dead&lt;/em&gt;. No they’re not, nor shouldn’t they be! &lt;em&gt;Narrative&lt;/em&gt; reviews are those we are used to read now: a story built on the
-collection of some pieces of litterature. On the other hand, systematic reviews
-or meta-analyses are, well, systematic, and try to reach a consensus (at least
-a generalizable result) through the analysis of everything published on
-a particular topic (I abusively generalize, but go read the paper and you’ll
-get the idea).&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;There is something fascinating about science. One gets such wholesale returns of conjecture out of such a trifling investment of fact.&lt;/em&gt; &lt;br /&gt;
-Mark Twain&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I get the idea that narrative reviews are more likely to reflect the author(s)
-personal biases or interests, and in our quest for absolute impartiality, it
-would make sense to get rid of this. This is the whole point of Chris’s
-paper: as the goal of a review is to give an overview of the
-state-of-the-art in a particular field, then non-narrative reviews are the
-&lt;em&gt;better&lt;/em&gt; tool. Nonetheless, I think this is an over-simplification of the
-way people &lt;em&gt;use&lt;/em&gt; review papers.&lt;/p&gt;
-
-&lt;p&gt;As a Ph.D. candidate, &lt;em&gt;narrative&lt;/em&gt; reviews helped me a lot when I was trying to
-get an idea of the history of the field. Being able to understand how current
-ideas emerged from previous observations and results, and seeing which papers
-influenced which authors, was important when I had to develop my own research
-questions. I won’t spend time on the argument that narrative reviews are great
-teaching material, and that it’s a gentler introduction to a field to be walked
-through a concept rather than to read through tables of ANOVA. I enjoy these
-much more when I have an idea of the “story” behind.&lt;/p&gt;
-
-&lt;p&gt;Essentially, narrative reviews should not be discarded because they serve
-a different purpose from systematic reviews. Let’s take the example of the
-&lt;a href=&quot;http://en.wikipedia.org/wiki/Rare_biosphere&quot;&gt;&lt;em&gt;rare biosphere&lt;/em&gt;&lt;/a&gt; in environmental microbiology. For several
-historical reasons, it has been hypothesized that the distribution of
-biodiversity has a long-tail, with a lot of species being in extremely low
-abundances. Classical sampling and enumeration technique only described the tip
-of the iceberg. Fast forward a few years later, and the existence of the rare
-biosphere is well established, and people start questioning its impact in
-ecosystem processes, among other things. How we switched from “it probably
-exists” to “we need to understand what it’s doing” is best understood with
-a little bit of narration. Specifically, the development of molecular biology
-methods, and recently high-throughput sequencing, increased our detection
-ability by order of magnitudes. The emergence of new tools (which in the
-perspective of people like &lt;a href=&quot;http://www.scribd.com/doc/28780545/Gutting-Bachelard-s-Philosophy-of-Science-1987&quot;&gt;Bachelard, only reflects the emergence of new
-theories&lt;/a&gt; that progressively materialized) allowed a switch in the way
-people studied rare biosphere. A &lt;em&gt;narrative&lt;/em&gt; review of the question will likely
-put this element forward.&lt;/p&gt;
-
-&lt;p&gt;A systematic review will hold different informations. While the narrative
-review aks &lt;em&gt;How did we get there?&lt;/em&gt;, the systematic review asks &lt;em&gt;Where are we
-now?&lt;/em&gt;. They give different answers, but it’s hard to argue that one of these
-questions has more merit than the other. Interestingly, more and more reviews
-conclude by asking &lt;em&gt;Where to next?&lt;/em&gt;. Both narrative and systematic reviews can
-bring different elements, and thus will likely bring different responses. This
-multiplicity of points of views should not be so rapidly dismissed. Narrative
-reviews should be continued &lt;em&gt;because&lt;/em&gt; they are often not entirely impartial,
-reflects biases or personnal preferences, and because they tell
-stories. Once we are familiar with this story, and once we know the
-different interpretations that people make of the same data, it’s time
-to go read the systematic reviews, and the meta-analyses. I appreciate
-that people will enjoy one of these more than the other, or would
-prefer to read statistics before naration. But I think we should
-continue reading, and writing, narrative reviews.&lt;/p&gt;
-
-&lt;p&gt;As a final point, whatever you may think of the issue, go read the “companion”
-paper about the &lt;a href=&quot;https://peerj.com/preprints/38/&quot;&gt;&lt;em&gt;interpretation&lt;/em&gt;&lt;/a&gt; of meta-analyses in ecology. It’s
-a really good introduction.&lt;/p&gt;
 
 </content>
   </entry>
