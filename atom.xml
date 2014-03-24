@@ -4,12 +4,75 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-03-18T19:29:00-04:00</updated>
+  <updated>2014-03-24T13:38:19-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Don't be afraid of Open Access</title>
+     <link href="http://timotheepoisot.fr/2014/03/24/open-access-impact/"/>
+    <updated>2014-03-24T00:00:00-04:00</updated>
+    <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;This post is a copy of a response &lt;a href=&quot;http://nature.berkeley.edu/~kram/&quot;&gt;Karthik
+Ram&lt;/a&gt; and I wrote to a
+recent paper in &lt;em&gt;Trends in Plant Science&lt;/em&gt;, criticizing Open
+Access as being risky, especially to early career people. &lt;a href=&quot;http://www.cell.com/trends/plant-science/fulltext/S1360-1385%2814%2900060-0&quot;&gt;Stephen
+Curry&lt;/a&gt;
+wrote a great reply. Our paper never made it past the editor, so I reproduce
+it here.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In a recent Letter, Agrawal (2014) raises four points for which scientists
+should be skeptical of the Open Access (OA) movement, two of which we think
+are particularly mis-leading.&lt;span class=&quot;margin&quot;&gt;Agrawal (2014) &lt;em&gt;Trends in Plant Science&lt;/em&gt; &lt;a href=&quot;http://dx.doi.org/10.1016/j.tplants.2014.01.005&quot;&gt;DOI&lt;/a&gt;&lt;/span&gt; First, that the impact factor of OA journals
+is not higher than the impact factor of non-OA journals. Secondly, that it
+is tempting to use a journals impact factor as a proxy for the quality of a
+paper, and therefore, high quaility research published in a less prestigious
+OA journals runs the risk of being perceived less favorably.&lt;/p&gt;
+
+&lt;p&gt;First, the strong distinction beween OA and non OA journals is a false
+dichotomy. OA is a mode of diffusion of scientific literature in which the
+authors, or its home institution, buys back the rights of an article to the
+publisher, so that the article is free to access. Although some journals apply
+an OA licences to their entire content, an increasing number of publishers
+are adopting &lt;em&gt;per&lt;/em&gt; article OA options. Even though, the notion that pure-OA
+journals have a lower impact is challenged by some. James Pringle of Thomson
+ISI (i) recognizes that the relevance of journals when talking about OA is
+dubious and (ii) &lt;a href=&quot;http://www.nature.com/nature/focus/accessdebate/19.html&quot;&gt;“prospective authors should not fear publishing in these
+journals”&lt;/a&gt;. In
+addition, there are numerous studies showing a clear &lt;a href=&quot;http://www.istl.org/10-winter/article2.html&quot;&gt;&lt;em&gt;Open Access citation
+advantage&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Second, the fact that OA journals carry less prestige is not a problem with
+the OA movement. Measures of journal impact are known to be extremely biased
+by a few papers concentrating a few citations, and cannot possibly be used
+to estimate the quality of a paper, let alone its &lt;em&gt;likely impact&lt;/em&gt;. Simply
+put, the impact factor of a journal is not the expected number of citations
+a single paper will receive. If rigor is important to us, then it is not
+acceptable to think that a paper is bad because it was published in a less
+established journal, or that a paper is good because it was published in a
+highly selective journal; the same paper is just as good, and should be just
+as impactful, whether published in &lt;em&gt;PLoS One&lt;/em&gt; or &lt;em&gt;Nature&lt;/em&gt;. &lt;span class=&quot;margin&quot;&gt;Fenner (2013) &lt;em&gt;PLoS Biology&lt;/em&gt; &lt;a href=&quot;http://dx.doi.org/10.1371/journal.pbio.1001687&quot;&gt;DOI&lt;/a&gt;&lt;/span&gt; This point strikes
+us as a demonstration that the metrics used for evaluations are biased. The
+recent years say the development of &lt;em&gt;article-level&lt;/em&gt; metrics (Fenner, 2013),
+which provides a way to measure the impact of an article regardless of what
+journal it appeared in. We think that rather than pushing against the OA
+model, we should have a discussion about how these measures can be used to
+objectively evaluate research output.&lt;/p&gt;
+
+&lt;p&gt;Agrawal concludes his paper on the need to find &lt;em&gt;an alternative model
+of publishing that suits the primary goals of scientists&lt;/em&gt;. We would like to
+make the point that, particularly in ecology and environmental sciences, the
+primary goal of research should be to produce fundamental insights that can
+be mobilized to solve large scale problems. Making information flow freely
+between scientists, policy-makers, and stakeholders is paramount to this
+effort. What does not strikes us as a &lt;em&gt;primary&lt;/em&gt; goal, is the maximization
+of self-aggrandizing, not to mention arbitrary, measures of impact.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Teaching isoclines in the two-species competitive logistic model</title>
@@ -3438,47 +3501,6 @@ own. This would also shift the balance towards a system in which there is
 a strict one paper / one package relationship, which I think would
 considerably clarify the type of analyzes included in a package, in
 addition to matching these analyzes to the primary literature.&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>Inferring the structure of food webs</title>
-     <link href="http://timotheepoisot.fr/2013/09/21/predicting-network-structure/"/>
-    <updated>2013-09-21T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;We’ve just published a paper in &lt;em&gt;Methods in Ecology and Evolution&lt;/em&gt;, about the
-&lt;a href=&quot;http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract&quot;&gt;inference of food web structure based on species trait data&lt;/a&gt;. That’s
-a seriously cool result (we think). There is a serious challenge when you work
-with food webs: you need to know which species are interacting, and to do so,
-you need to observed interactions in the fields. It’s challenging, because
-it must be done extensively, so as not to miss interactions.&lt;/p&gt;
-
-&lt;p&gt;But on the other hand, there are well described relationships between traits of
-interacting species. In the particular case of food webs, notably, there is
-a log-log relationship between the body size of a predator and the body size of
-its prey. The existence of this relationship can be used to, given
-a distribution of body sizes, predict the interactions within a species
-assemblage.&lt;/p&gt;
-
-&lt;p&gt;So what we have been doing, is designing a statistical method to, given a list
-of species and body size, callibrate a model of food web structure, to predict
-the interactions. As we discuss in the paper, the more traits you put in your
-prediction, the better it will get. Using a dataset of fishes, we generated
-a convicing network using only body size and bathymetry.&lt;/p&gt;
-
-&lt;p&gt;We think this result is cool, because by opposition to the “observational”
-method of constructing food webs, you only need to know (well) a small number
-of interactions. As we show in the paper, whenever you have a high R² of the
-trait-trait-interaction relationship, the infered network is close to the
-observed one. These methods can therefore allow to generate rough estimates of network structure.&lt;/p&gt;
-
-&lt;p&gt;Interestingly, they will also help in the generation of predictions. As we
-illustrate in the paper, we can tweak the body size distribution, and see how
-much the network structure changes. For example, this can help simulate the
-effect of body size decrease through over-fishing, or the extinction of the
-larger species. There is still a bit of work to do to be able to predict the
-structure of other types of networks, but it was definitely comforting to see
-that, even with straightforward statistics, we were able to achieve it.&lt;/p&gt;
 
 </content>
   </entry>

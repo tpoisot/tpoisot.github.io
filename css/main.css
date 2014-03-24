@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
 h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
+p { margin: 1.2em 0; }
 
 .content p a         {text-decoration: none; color: inherit; border-bottom: 1px solid #ddd;}
 .content p a:hover   {text-decoration: none; color: inherit; border-bottom: 1px solid #000; background-color: #eee;}
@@ -68,8 +68,9 @@ p { margin: 1em 0; }
 
 .content p{
    font-family: 'Tinos';
-   font-size: 100%;
-   line-height: 170%;
+   font-size: 103%;
+   line-height: 172%;
+   text-align: left;
    color: #333;
 }
 
@@ -172,8 +173,9 @@ p { margin: 1em 0; }
   margin-top: 1.2em;
   margin-bottom: 1.2em;
   margin-left: 1.5em;
-  font-size: 90%;
-  line-height: 100%;
+  font-size: 80%;
+  line-height: 120%;
+  font-family: "Arimo";
 }
 
 .footer {
@@ -214,39 +216,9 @@ p { margin: 1em 0; }
    margin-bottom: 6em;
 }
 
-/* standard */
-.post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-}
-
 .post ul, .post ol {
   margin-left: 1.35em;
 }
-
-.post code {
-  font-family: 'Cousine';
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
-.post pre code {
-  border: none;
-}
-
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-}
-
-.post pre.terminal code {
-  background-color: #333;
-}
-
 
 .left{
    float: left;
@@ -309,4 +281,23 @@ hr{
    float: left;
    margin-left: -2.5em;
    text-align: right;
+}
+
+p code{
+   font-family: 'Cousine';
+   font-size: 80%;
+   font-weight: 400;
+   background-color: rgb(245, 245, 245);
+   padding: .3em .3em .3em .3em;
+   border-radius: 3px;
+}
+
+.hljs{
+   font-size: 100%;
+   display: block;
+   margin-left: -5.17em;
+   margin-right: -5.17em;
+   border-left: 1em solid rgb(230, 230, 230);
+   padding-left: 4.17em !important;
+   background-color: rgb(254, 254, 254) !important;
 }
