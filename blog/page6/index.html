@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Blog</title>
-        <meta name="viewport" content="width=device-width">
+<html lang="en">
 
-	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -19,83 +29,107 @@
 		})();
 	</script>
 	
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Blog</title>
+    
+</head>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+<body><div class='top'></div>
+<div class='head'>
+   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
 
-        <link rel="stylesheet" href="/css/styles/github.css">
-        <script src="/lib/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-             <h1 class="title"><a href="/">Timothée Poisot</a></h1>
-             <h2>Numerical and computational community ecologist</h2>
-            <span class='nav'>
-               <a class="extra" href="/papers/">papers</a>
-               <a class="extra" href="/software/">software</a>
-               <a class="extra" href="/research/">research</a>
-               <a class="extra" href="/blog/">blog</a>
-            </span>
-          </div>
-
-          <div class="content">
-             <!-- This loops through the paginated posts -->
-
-
-<h2>Inferring the structure of food webs</h2>
-<p class="meta">21 Sep 2013</p>
-
-<div class="post">
-   <p>We’ve just published a paper in Methods in Ecology and Evolution, about the inference of food web structure based on species trait data. That’s a seriously cool result (we think). There is a serious challenge when you work with food webs: you need to know which species are interacting, and to do so, you need to observed interactions in the fields. It’s challenging, because it must be done extensively, so as not to miss interactions....<br />
-   <a class="readmore" href="/2013/09/21/predicting-network-structure/">Read more...</a></p>
 </div>
 
-<h2>Is programming an acquired taste?</h2>
-<p class="meta">11 Sep 2013</p>
+<div class="grid">
 
-<div class="post">
-   <p>Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on Ecological Modeling. It was a whole lot of fun, and a really good way to get back to some things I’ve always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but...<br />
-   <a class="readmore" href="/2013/09/11/programming-innate-acquired/">Read more...</a></p>
-</div>
+      <div class="col c-2-16 navbar">
+         <ul style='position: fixed;'>
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
+</ul>
+&nbsp;
 
-<h2>Teach more maths to the undergrads!</h2>
-<p class="meta">28 Aug 2013</p>
 
-<div class="post">
-   <p>Fred Barraquand, a bunch of INNGE-and-friends-of-INNGE people, and I, just published a preprint at Peer J about quantitative training in early-career ecologists (or rather, the lack thereof). Talking about how much maths is needed during training is all the rage in the ecological community, and both sides of the argument have really good arguments. So Fred decided to do a survey of early-career (and older) ecologists through ECOLOG-L. Quoting directly from the abstract, this is...<br />
-   <a class="readmore" href="/2013/08/28/lack-quantitative-training/">Read more...</a></p>
-</div>
+      </div>
 
-<h2>In defense of narrative reviews</h2>
-<p class="meta">24 Aug 2013</p>
+      
+      <div class="col c-11-16 maintext">
+         <!-- This loops through the paginated posts -->
 
-<div class="post">
-   <p>Early in July, Christopher Lortie published a really great preprint on PeerJ, about the opportunities of systematic reviews for ecology. It’s extremely insightful, and a good read. The abstract starts by Narrative reviews are dead. No they’re not, nor shouldn’t they be! Narrative reviews are those we are used to read now: a story built on the collection of some pieces of litterature. On the other hand, systematic reviews or meta-analyses are, well, systematic, and...<br />
-   <a class="readmore" href="/2013/08/24/in-defense-narrative-reviews/">Read more...</a></p>
-</div>
 
-<h2>Network structure of obligate and facultative parasites</h2>
-<p class="meta">20 Aug 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>May 20, 2013 </span><br />
+         <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Remove indels from blast output</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>We have a new paper online at Parasitology, on the differences of the structure between rodents hosts, and their obligates of facultatives parasites. We had data from a really cool rodents-ectoparasites system, in which the same hosts have both facultative and obligate parasites. These data were also collected in different locations, and at different times. There are two important things in the results. First, the networks of obligate and facultative parasites look nothing alike. One...<br />
-   <a class="readmore" href="/2013/08/20/network-structure-obligate-facultative-parasites/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>May 18, 2013 </span><br />
+         <a class="readmore" href="/2013/05/18/make-pandoc/">Using make and pandoc for reproducible papers</a>
+      </p>
+   </div>
 
-<h2>Complexity and connectance of ecological networks</h2>
-<p class="meta">19 Aug 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>May 16, 2013 </span><br />
+         <a class="readmore" href="/2013/05/16/steal-my-paper/">Steal my paper! (seriously, please, don't)</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>So my blog post on ecological complexity in networks turned into a manuscript, now online as a preprint at PeerJ. We’ll send it up for review (at PeerJ also) in a while, but feel free to read it and give us feedback using the github issues tracker. We’d like that very much, actually. And as the github repository is public, feel free to fork/edit/push modifications if you have something to contribute to the paper. In...<br />
-   <a class="readmore" href="/2013/08/19/connectance-complexity/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>May  6, 2013 </span><br />
+         <a class="readmore" href="/2013/05/06/nicholson-bailey-c/">A C version of the Nicholson-Bailey model</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April 30, 2013 </span><br />
+         <a class="readmore" href="/2013/04/30/data-sharing-ecology/">Data sharing and preprints in ecology</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April 12, 2013 </span><br />
+         <a class="readmore" href="/2013/04/12/learn-code-ecology/">Learning how to code (in ecology)</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April  9, 2013 </span><br />
+         <a class="readmore" href="/2013/04/09/mendelsevier/">Elsevier acquired Mendeley. It's not as bad as I thought.</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April  7, 2013 </span><br />
+         <a class="readmore" href="/2013/04/07/wilson-maths/">Is E.O. Wilson wrong about maths?</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>March 12, 2013 </span><br />
+         <a class="readmore" href="/2013/03/12/ngs-community-ecology/">High-throughput sequencing and community ecology</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>February 18, 2013 </span><br />
+         <a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">A d3.js alternative to stacked bar charts</a>
+      </p>
+   </div>
 
 
 <div class="pagination-centered">
@@ -146,56 +180,21 @@
     <li><a href="/blog/page11">11</a></li>
     
     
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
-    
-    <li><a href="/blog/page14">14</a></li>
-    
-    
-    
-    <li><a href="/blog/page15">15</a></li>
-    
-    
-    
-    <li><a href="/blog/page16">16</a></li>
-    
-    
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
   </ul>
 
 </div>
 
-          </div>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Timothée Poisot<br />
-                Ecologist<br />
-                t.poisot@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
-                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+      </div>
 
-    </body>
+      <div class="col c-3-16">
+      </div>
+</div>
+
+<div class='footer'>
+   
+</div>
+
+</body>
+
 </html>

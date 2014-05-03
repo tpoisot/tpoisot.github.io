@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: A contribution policy for open manuscripts</title>
+    
+</head>
+
+<body><div class='top'></div>
+<div class='head'>
+   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
+
+</div>
+
+<div class="grid">
+
+      <div class="col c-2-16 navbar">
+         <ul style='position: fixed;'>
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
+</ul>
+&nbsp;
+
+
+      </div>
+
+      
+      <div class="col c-11-16 maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <h1 class='post-title'>A contribution policy for open manuscripts</h1>
+      <p class='post-date'> 2 May 2014 </p>
+   </div>
+
+<p>A few months ago, lab-mate and PhD candidate extraordinaire Philippe
+Desjardins-Proulx proposed <a href="http://phdp.github.io/posts/2013-07-22-scriptopia.html">scriptoria</a>, a system to track manuscripts that are
+being developed on <em>GitHub</em> (and other version control systems). It’s a cool
+project, because it will allow everyone to access in progress manuscripts,
+and allow people to give feedback <em>before</em> the papers reach the referees. In
+the true spirit of open source software collaborative development, it will
+also allow anyone to find projects (manuscripts) in which one can make a
+valid contribution, fork them, and contribute.</p>
+
+<p>The thing is, not anyone is OK with people proposing changes to their
+manuscript. And because <code>scriptoria</code> will rely on a set of meta-data, it
+is time to start thinking about how we can encode our willingness to see
+others contribute to our work. If you find an in-progress manuscript you
+might be able to contribute to, before you put any substantial effort in it,
+this will tell you the chance that the authors will accept your contribution.</p>
+
+<p>This scale will serve as a primitive social contract between the authors
+and other potential contributors. It will tell whether modifications are
+accepted, and how the authors will react if modifications are submitted
+and accepted. Note that in all cases, authors are entirely free to reject
+contributions they don’t like. Which brings me to the most central point
+about how to contribute to an open manuscript: <strong>do not fork it to write
+a slightly different paper</strong>. Seriously, that’s just bad form. And seeing
+that we are dealing with text, it’s straight up plagiarism. Be a good sport,
+and if your contribution is rejected, raise the issue (eventually) in a
+post-publication forum.</p>
+
+<p>Anyways. What I envision is a linear scale, ranging from <code>0</code> to <code>3</code>, with
+higher values indicating a less and less open attitude. Here is a brief
+summary of the different levels.</p>
+
+<p>The first degree (which I think should <em>not</em> be the default) is <code>0</code>. All
+contributions are welcome, and any substantial <em>addition</em> to the paper (text,
+analysis, figure) which is accepted will result in co-authorship. This is my
+personal default, but I appreciate that not everyone is comfortable working
+this way.</p>
+
+<p>The second degree (<code>1</code>) is what I think should be the default. Contributions
+are welcome <em>after consultation with the authors</em>. This can take the form
+of opening an issue. State the change you would like to make, how you
+plan to make it, and if you have in principle approval, go ahead with your
+contribution (fork the repository, then make a pull request). With this mode
+of contributions, authors retain a lot of control on their paper.</p>
+
+<p>The next degree (<code>2</code>) is where authors only welcome <em>minor</em>
+contributions. Typically, you will not claim co-authorship, because the authors
+will only accept small changes (typos, suggestions of better references,
+ways to make a paragraph clearer). Most of that can be done in Issues,
+rather than by forking the project. If you are writing a “Forum” or similar
+type of paper, or if you know excatly what you want to do with your results
+and are not open to changes, then this level of openness is good. You will
+still encourage users to help on the manuscript, just not in any major way.</p>
+
+<p>The final degree (<code>3</code>) is <em>Keep Off!</em>. The authors want their manuscript to be
+online for a variety of reasons (transparency, accountability, early exposure),
+but they are not welcome to contributions. This is a valid position. Consider
+that any manuscript with this level of openness is <em>read-only</em>.</p>
+
+<p>There you have it. I don’t know whether these suggestions will be in the
+released version of <code>scriptoria</code>, but I think these are issues we should
+be adressing now. The “tradition” for open-source projects is to have a
+file called <code>CONTRIBUTING</code> at the root of the project, in which the ways
+of suggesting changes and the “culture” of contribution for a particular
+project are outlined. Manuscripts are (hopefully) going to be shorter lived
+than most open source software (once the paper is accepted, the repository
+is only useful as an archive), so we can go for a simpler system. But being
+upfront about whether contributions are welcome is important, and so a
+standardized way of saying it would only help.</p>
+
+
+
+</div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="pager">
+
+
+<span class="previous">
+   <a href="/2014/03/24/open-access-impact/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
+</span>
+
+
+
+<span class="next disabled">
+   Next post <i class="fa fa-fw fa-chevron-right"></i>
+</span>
+
+</div>
+
+
+      </div>
+
+      <div class="col c-3-16">
+      </div>
+</div>
+
+<div class='footer'>
+   
+</div>
+
+</body>
+
+</html>

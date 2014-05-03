@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Blog</title>
-        <meta name="viewport" content="width=device-width">
+<html lang="en">
 
-	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -19,83 +29,107 @@
 		})();
 	</script>
 	
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Blog</title>
+    
+</head>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+<body><div class='top'></div>
+<div class='head'>
+   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
 
-        <link rel="stylesheet" href="/css/styles/github.css">
-        <script src="/lib/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-             <h1 class="title"><a href="/">Timothée Poisot</a></h1>
-             <h2>Numerical and computational community ecologist</h2>
-            <span class='nav'>
-               <a class="extra" href="/papers/">papers</a>
-               <a class="extra" href="/software/">software</a>
-               <a class="extra" href="/research/">research</a>
-               <a class="extra" href="/blog/">blog</a>
-            </span>
-          </div>
-
-          <div class="content">
-             <!-- This loops through the paginated posts -->
-
-
-<h2>Uploading data into mangal</h2>
-<p class="meta">08 Jan 2014</p>
-
-<div class="post">
-   <p>In the first part, I introduced mangal, the database and associated R package to interact with ecological networks. In the second part, I’ll give an overview of how to upload and curate your data. In the last part, we used functions starting with get and list. This time, we will use the add and patch functions, as they allow to change resouces on the server. There are a few important informations to have before we...<br />
-   <a class="readmore" href="/2014/01/08/mangal-add-data/">Read more...</a></p>
 </div>
 
-<h2>Introducing mangal, a database for ecological networks</h2>
-<p class="meta">07 Jan 2014</p>
+<div class="grid">
 
-<div class="post">
-   <p>Working with data on ecological networks is usually a huge mess. Most of the time, what you have is a series of matrices with 0 and 1, and in the best cases, another file with some associated metadata. The other issue is that, simply put, data on ecological networks are hard to get. The Interaction Web Database has some, but it’s not as actively maintained as it should, and the data are not standardized in...<br />
-   <a class="readmore" href="/2014/01/07/mangal-database-networks/">Read more...</a></p>
-</div>
+      <div class="col c-2-16 navbar">
+         <ul style='position: fixed;'>
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
+</ul>
+&nbsp;
 
-<h2>Understanding the variation of species interactions</h2>
-<p class="meta">03 Jan 2014</p>
 
-<div class="post">
-   <p>I spent most of the last two years thinking about why species interaction vary over time and space. The trouble is that, even though we have some methodological tools, and some interesting observations, we lack a solid framework to make sense of it all. So we (I, Daniel Stouffer and Dominique Gravel) started thinking about the mechanisms involved in the variation of species interactions. The paper is now available as a preprint on bioRxiV (the...<br />
-   <a class="readmore" href="/2014/01/03/variation-species-interactions/">Read more...</a></p>
-</div>
+      </div>
 
-<h2>Using git throughout your workflow</h2>
-<p class="meta">02 Jan 2014</p>
+      
+      <div class="col c-11-16 maintext">
+         <!-- This loops through the paginated posts -->
 
-<div class="post">
-   <p>There are good chances that I will give an introductory workshop to the many, many uses of git for scientists in the next weeks. What follows is a series of notes about the things I use git for, which I will cover. In a way, this post is a list of all the possible ways to introduce git into your workflow as a (computational) scientist. Some things are specific to git as a protocol, some...<br />
-   <a class="readmore" href="/2014/01/02/git-workflow/">Read more...</a></p>
-</div>
 
-<h2>Using Vim as a writing environment</h2>
-<p class="meta">01 Jan 2014</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>December  5, 2013 </span><br />
+         <a class="readmore" href="/2013/12/05/data-sharing-paper/">Data-sharing paper online</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>Happy new year, everyone! And to make sure it starts in a good way, let me bring you the gift of productivity! Or specifically, how to set-up Vim in a way that will transform it into an impressively efficient writing environment. Vim is a really good code editor, there is no questioning that. But writing code and writing prose are entirely different exercises, and some tools you need to efficiently write code are only getting...<br />
-   <a class="readmore" href="/2014/01/01/vim-writing-environment/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>December  2, 2013 </span><br />
+         <a class="readmore" href="/2013/12/02/json-goto-format/">Why JSON is my go-to data format</a>
+      </p>
+   </div>
 
-<h2>Software papers and open source licenses</h2>
-<p class="meta">19 Dec 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November 27, 2013 </span><br />
+         <a class="readmore" href="/2013/11/27/r-packages-teaching/">The pros and cons of using R packages for teaching</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>I have been reviewing a lot more software / methodological papers these days, which led me to think about open vs. closed software (even more than usual). By closed, I mean any software that would require me to pay to be able to reproduce the method, either directly, or through a licence costing money to the university. Think Mathematica, matlab, or any other commercial tools. Despite what some would have you believe, the way analyses...<br />
-   <a class="readmore" href="/2013/12/19/reviewing-software-papers/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November 25, 2013 </span><br />
+         <a class="readmore" href="/2013/11/25/metapopulation-model-r/">Spatially explicit metapopulation model in R</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November 10, 2013 </span><br />
+         <a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Collaborating with markdown and bibtex</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November  4, 2013 </span><br />
+         <a class="readmore" href="/2013/11/04/test-driven-python/">Notes on test-driven development (in Python)</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November  3, 2013 </span><br />
+         <a class="readmore" href="/2013/11/03/open-ecology/">Why should Ecology be open?</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November  2, 2013 </span><br />
+         <a class="readmore" href="/2013/11/02/my-science-work/">The (French) paradox of Closed Open Access</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>October 18, 2013 </span><br />
+         <a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Mapping ecological concepts using twitter</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>October 15, 2013 </span><br />
+         <a class="readmore" href="/2013/10/15/specificity-range-measures/">An additive partition of species-level specificity</a>
+      </p>
+   </div>
 
 
 <div class="pagination-centered">
@@ -146,56 +180,21 @@
     <li><a href="/blog/page11">11</a></li>
     
     
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
-    
-    <li><a href="/blog/page14">14</a></li>
-    
-    
-    
-    <li><a href="/blog/page15">15</a></li>
-    
-    
-    
-    <li><a href="/blog/page16">16</a></li>
-    
-    
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
   </ul>
 
 </div>
 
-          </div>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Timothée Poisot<br />
-                Ecologist<br />
-                t.poisot@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
-                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+      </div>
 
-    </body>
+      <div class="col c-3-16">
+      </div>
+</div>
+
+<div class='footer'>
+   
+</div>
+
+</body>
+
 </html>

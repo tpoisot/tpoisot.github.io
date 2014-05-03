@@ -4,12 +4,88 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-03-24T13:38:19-04:00</updated>
+  <updated>2014-05-02T20:49:49-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>A contribution policy for open manuscripts</title>
+     <link href="http://timotheepoisot.fr/2014/05/02/contribution-policy-open-ms/"/>
+    <updated>2014-05-02T00:00:00-04:00</updated>
+    <content type="html">&lt;p&gt;A few months ago, lab-mate and PhD candidate extraordinaire Philippe
+Desjardins-Proulx proposed &lt;a href=&quot;http://phdp.github.io/posts/2013-07-22-scriptopia.html&quot;&gt;scriptoria&lt;/a&gt;, a system to track manuscripts that are
+being developed on &lt;em&gt;GitHub&lt;/em&gt; (and other version control systems). It’s a cool
+project, because it will allow everyone to access in progress manuscripts,
+and allow people to give feedback &lt;em&gt;before&lt;/em&gt; the papers reach the referees. In
+the true spirit of open source software collaborative development, it will
+also allow anyone to find projects (manuscripts) in which one can make a
+valid contribution, fork them, and contribute.&lt;/p&gt;
+
+&lt;p&gt;The thing is, not anyone is OK with people proposing changes to their
+manuscript. And because &lt;code&gt;scriptoria&lt;/code&gt; will rely on a set of meta-data, it
+is time to start thinking about how we can encode our willingness to see
+others contribute to our work. If you find an in-progress manuscript you
+might be able to contribute to, before you put any substantial effort in it,
+this will tell you the chance that the authors will accept your contribution.&lt;/p&gt;
+
+&lt;p&gt;This scale will serve as a primitive social contract between the authors
+and other potential contributors. It will tell whether modifications are
+accepted, and how the authors will react if modifications are submitted
+and accepted. Note that in all cases, authors are entirely free to reject
+contributions they don’t like. Which brings me to the most central point
+about how to contribute to an open manuscript: &lt;strong&gt;do not fork it to write
+a slightly different paper&lt;/strong&gt;. Seriously, that’s just bad form. And seeing
+that we are dealing with text, it’s straight up plagiarism. Be a good sport,
+and if your contribution is rejected, raise the issue (eventually) in a
+post-publication forum.&lt;/p&gt;
+
+&lt;p&gt;Anyways. What I envision is a linear scale, ranging from &lt;code&gt;0&lt;/code&gt; to &lt;code&gt;3&lt;/code&gt;, with
+higher values indicating a less and less open attitude. Here is a brief
+summary of the different levels.&lt;/p&gt;
+
+&lt;p&gt;The first degree (which I think should &lt;em&gt;not&lt;/em&gt; be the default) is &lt;code&gt;0&lt;/code&gt;. All
+contributions are welcome, and any substantial &lt;em&gt;addition&lt;/em&gt; to the paper (text,
+analysis, figure) which is accepted will result in co-authorship. This is my
+personal default, but I appreciate that not everyone is comfortable working
+this way.&lt;/p&gt;
+
+&lt;p&gt;The second degree (&lt;code&gt;1&lt;/code&gt;) is what I think should be the default. Contributions
+are welcome &lt;em&gt;after consultation with the authors&lt;/em&gt;. This can take the form
+of opening an issue. State the change you would like to make, how you
+plan to make it, and if you have in principle approval, go ahead with your
+contribution (fork the repository, then make a pull request). With this mode
+of contributions, authors retain a lot of control on their paper.&lt;/p&gt;
+
+&lt;p&gt;The next degree (&lt;code&gt;2&lt;/code&gt;) is where authors only welcome &lt;em&gt;minor&lt;/em&gt;
+contributions. Typically, you will not claim co-authorship, because the authors
+will only accept small changes (typos, suggestions of better references,
+ways to make a paragraph clearer). Most of that can be done in Issues,
+rather than by forking the project. If you are writing a “Forum” or similar
+type of paper, or if you know excatly what you want to do with your results
+and are not open to changes, then this level of openness is good. You will
+still encourage users to help on the manuscript, just not in any major way.&lt;/p&gt;
+
+&lt;p&gt;The final degree (&lt;code&gt;3&lt;/code&gt;) is &lt;em&gt;Keep Off!&lt;/em&gt;. The authors want their manuscript to be
+online for a variety of reasons (transparency, accountability, early exposure),
+but they are not welcome to contributions. This is a valid position. Consider
+that any manuscript with this level of openness is &lt;em&gt;read-only&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;There you have it. I don’t know whether these suggestions will be in the
+released version of &lt;code&gt;scriptoria&lt;/code&gt;, but I think these are issues we should
+be adressing now. The “tradition” for open-source projects is to have a
+file called &lt;code&gt;CONTRIBUTING&lt;/code&gt; at the root of the project, in which the ways
+of suggesting changes and the “culture” of contribution for a particular
+project are outlined. Manuscripts are (hopefully) going to be shorter lived
+than most open source software (once the paper is accepted, the repository
+is only useful as an archive), so we can go for a simpler system. But being
+upfront about whether contributions are welcome is important, and so a
+standardized way of saying it would only help.&lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
      <title>Don't be afraid of Open Access</title>
@@ -3391,117 +3467,6 @@ on resource 3:&lt;/p&gt;
 almost zero, the &lt;em&gt;RR&lt;/em&gt; and &lt;em&gt;I&lt;/em&gt; components are almost as important to understand
 specificity (whereas it’s not the case in the first example, wherein you can
 assume that &lt;strong&gt;P&lt;/strong&gt;[2] = 1 without changing the big picture.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>R, priority effects, and the meta-package</title>
-     <link href="http://timotheepoisot.fr/2013/10/12/r-priority-responsibility/"/>
-    <updated>2013-10-12T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;R packages are a superb opportunity to use new methods, and if anything, we
-should only rejoice that there are so many of them in ecology. Yet, there is
-a point that occurred to me over recent experiences (reviewing code for a few
-papers recently, and reading the help page about &lt;a href=&quot;http://www.inside-r.org/packages/cran/bipartite/docs/PDI&quot;&gt;one of my own metrics
-in the &lt;code&gt;bipartite&lt;/code&gt; package&lt;/a&gt;), and that I think is rarely discussed.&lt;/p&gt;
-
-&lt;p&gt;When a R package presenting a series of measures becomes available, it will
-become the &lt;em&gt;gold standard&lt;/em&gt; of future analyzes in this field. This is an
-extremely strong effect. French students in ecology use the (French-developed)
-&lt;code&gt;ade4&lt;/code&gt; package, while people in Québec use the &lt;code&gt;vegan&lt;/code&gt; package (most likely
-because of its ties with the &lt;em&gt;Numerical Ecology&lt;/em&gt; book, as Gavin
-Simpson mentioned in the comments). There is a priority effect when
-a package is released, and metrics that are not implemented in this package,
-because they are more difficult to apply, will be less widely used. This is
-a central point for methodological research papers. Describing the method is
-a small fraction of the work. People are more likely to apply what is
-proposed if there is a tool to do it, and as a consequence, (&lt;em&gt;I assume
-that&lt;/em&gt;) methods are used more if there is an easy and well-known way to
-apply them.&lt;/p&gt;
-
-&lt;p&gt;This is especially true of large-scale packages, that aim to become your single
-interface with the metrics and analyzes in a domain. Ecologists are familiar
-with &lt;code&gt;bipartite&lt;/code&gt;, &lt;code&gt;vegan&lt;/code&gt;, &lt;code&gt;picante&lt;/code&gt;, &lt;code&gt;ape&lt;/code&gt;, for example. These “mega-packages”
-implement a lot of measures, and for this reason, some will look through the
-manual to see what kind of analyzes they can do. I most likely still do it
-myself, especially so for side-projects where I’m not entirely familiar with
-the methodological literature yet. So based on my experience, this is
-particularly problematic for newcomers to a field, because when you don’t know,
-you assume that the default values were chosen as defaults by
-someone knowing what he was doing. Then I remember the &lt;a href=&quot;http://www.python.org/dev/peps/pep-0020/&quot;&gt;&lt;em&gt;Zen of
-Python&lt;/em&gt;&lt;/a&gt;: &lt;em&gt;“In the face of ambiguity, refuse the temptation
-to guess.”&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;And as we all have different sensibilities, it shows in the way we think about
-code, and in the way we write it. The default options of a function, for
-example, can be a matter of choice, and especially so when this function
-becomes as broad as “measure diversity”. This partiality is not an issue when
-developing tools that you will use for your own research. But when developing
-tools intended for a broad audience, then this code becomes a service, and it
-is our duty as service providers that the defaults reflect our own biases the
-least, and the current consensus the most.&lt;/p&gt;
-
-&lt;p&gt;This is why extremely big packages &lt;em&gt;can&lt;/em&gt; be a problem under some circumstances:
-they break Doug McIlroy’s &lt;em&gt;Unix philosophy&lt;/em&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This is the Unix philosophy: &lt;em&gt;Write programs that do one thing&lt;/em&gt; and do it
-well. &lt;em&gt;Write programs to work together&lt;/em&gt;. Write programs to handle text
-streams, because that is a universal interface.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;When we, as users, rely on a big package to do our work, we assume that every
-component of this package is (i) well implemented, (ii) conform to the original
-paper, and (iii) up-to-date. Given the frequency of commits in the biggest
-ecological packages, I’m sure this is the case, but it’s worth keeping in mind.
-My personal preference goes to using a lot of packages doing a small number of
-things. For my two papers relying on heavily on the development of comparison
-of new methods, I started by writing the R package (well I started at the
-drawing board, but that part is not relevant), then used the package to
-perform the analyzes described in the paper. The idea is that whenever someone
-will (hopefully) read the paper, there will be a package doing &lt;em&gt;only&lt;/em&gt; what is
-described in the paper.&lt;/p&gt;
-
-&lt;p&gt;And I understand that some people would rather have one big package doing
-everything they need. There are arguments for that of course, namely the fact
-that with as many users, errors are most likely to be uncovered, and the
-quality of the package will increase (and the state of the R packages in
-ecology tends to confirm that). But on the other hand, when you increase
-the number of pieces, you increase the probability that one of them will behave
-in a way you would not have anticipated. With this regard, packages that
-require you to do a lot of small steps by hand have a great advantage, you know
-what is happening in real time (then again, I like C and doing every thing by
-hand, so perhaps I just enjoy hurting myself).&lt;/p&gt;
-
-&lt;p&gt;In any case, the “default” behavior of programs is something that should be
-held under intense scrutiny by the community, and improved code review will
-definitely help. This is also where big packages can somehow escape the system:
-even if they are reviewed formally (as opposed to being reviewed informally,
-which they are in real time as people use them), this will not happen for
-each release, and some new releases may introduce things that can be argued
-against. In short, my point is: R packages (or packages in other languages, but
-you get the idea) tend to rapidly represent the “canon” of the analyzes
-to perform, and for this reason, we should always keep a critical eye on them.
-Also, keep on writing open-source code, that will enrich the code base
-available to the community.&lt;/p&gt;
-
-&lt;p&gt;With that in mind, what would my &lt;em&gt;ideal&lt;/em&gt; super-big package be? Ideally, it
-would only be a wrapper around other packages, each doing a single task, &lt;em&gt;Unix
-philosophy&lt;/em&gt;-style. Proudly following the ecological tradition of sticking
-&lt;em&gt;meta&lt;/em&gt; to every non-meta thing, it would obviously be called a &lt;em&gt;meta-package&lt;/em&gt;.
-It would automate the process of taking data from one format to the other, and
-propose pipelines to do automated analysis, but with users checking each step
-of the process. As such a package would glue together other programs, there
-will be little development required. The role of the maintainers, however,
-would be to vet the new releases of the packages, find suitable additions,
-and so forth. This would be a good example of the community coming
-together to merge disparate tools. Social coding platforms allow to do
-this almost effortlessly, and it would have the benefit of showing &lt;em&gt;how
-the sausage is made&lt;/em&gt;, since each individual package would be usable on its
-own. This would also shift the balance towards a system in which there is
-a strict one paper / one package relationship, which I think would
-considerably clarify the type of analyzes included in a package, in
-addition to matching these analyzes to the primary literature.&lt;/p&gt;
-
 </content>
   </entry>
   

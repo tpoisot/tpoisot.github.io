@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11830706-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Estimating node contribution to network properties</title>
+    
+</head>
+
+<body><div class='top'></div>
+<div class='head'>
+   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
+
+</div>
+
+<div class="grid">
+
+      <div class="col c-2-16 navbar">
+         <ul style='position: fixed;'>
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
+</ul>
+&nbsp;
+
+
+      </div>
+
+      
+      <div class="col c-11-16 maintext">
+         <div class='post'>
+   <div class="postinfo">
+      <h1 class='post-title'>Estimating node contribution to network properties</h1>
+      <p class='post-date'> </p>
+   </div>
+
+<p>This is a network:</p>
+
+<div class="web"></div>
+
+<p>also let’s regenerate the file.</p>
+
+<p>This should be a lineplot:</p>
+
+<div class="lineplot"></div>
+
+<p>Is it working?</p>
+
+<p>This should finally be a scatterplot:</p>
+
+<div class="scatterplot"></div>
+
+<p>D3 is so awesome!</p>
+
+<script>
+
+var width = 600,
+    height = 200;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+    .charge(-200)
+    .linkDistance(20)
+    .size([width, height]);
+
+var Gsvg = d3.select(".web").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/data/sialia.json", function(error, graph) {
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  var link = Gsvg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return Math.sqrt(d.value); })
+      .style("stroke", '#ccc');
+
+  var node = Gsvg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", 5)
+      .style("fill", function(d) { return color(d.group); })
+      .call(force.drag);
+
+  node.append("title")
+      .text(function(d) { return d.name; });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  });
+});
+
+</script>
+
+<script>
+
+var margin = {top: 20, right: 80, bottom: 30, left: 50},
+    width = 600 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format("%Y%m%d%H%M%S").parse;
+// 2013-02-12 12:00:00
+
+var sx = d3.time.scale()
+    .range([0, width]);
+
+var sy = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var SxAxis = d3.svg.axis()
+    .scale(sx)
+    .orient("bottom");
+
+var SyAxis = d3.svg.axis()
+    .scale(sy)
+    .orient("left");
+
+var line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d) { return sx(d.date); })
+    .y(function(d) { return sy(d.temperature); });
+
+var svg = d3.select(".lineplot").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("/data/out.tsv", function(error, data) {
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+  });
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d.date, temperature: +d[name]};
+      })
+    };
+  });
+
+  sx.domain(d3.extent(data, function(d) { return d.date; }));
+
+  sy.domain([
+    d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
+    d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.temperature; }); })
+  ]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(SxAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(SyAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Modularity");
+
+  var city = svg.selectAll(".city")
+      .data(cities)
+    .enter().append("g")
+      .attr("class", "city");
+
+  city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+      .style("stroke", function(d) { return color(d.name); });
+
+  city.append("text")
+      .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+      .attr("transform", function(d) { return "translate(" + sx(d.value.date) + "," + sy(d.value.temperature) + ")"; })
+      .attr("x", 3)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.name; });
+});
+
+</script>
+
+<script>
+
+var margin = {top: 20, right: 80, bottom: 30, left: 50},
+    width = 600 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+    
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var Ssvg = d3.select(".scatterplot").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("/data/out.tsv", function(error, data) {
+  data.forEach(function(d) {
+    d.q = +d.q;
+    d.qr = +d.qr;
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.q; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.qr; })).nice();
+
+  Ssvg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Modularity");
+
+  Ssvg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Realized modularity")
+
+  Ssvg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", function(d) { return x(d.q); })
+      .attr("cy", function(d) { return y(d.qr); });
+
+});
+
+</script>
+
+
+
+</div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="pager">
+
+
+<span class="previous disabled">
+   <i class="fa fa-fw fa-chevron-left"></i> Previous post
+</span>
+
+
+
+<span class="next disabled">
+   Next post <i class="fa fa-fw fa-chevron-right"></i>
+</span>
+
+</div>
+
+
+      </div>
+
+      <div class="col c-3-16">
+      </div>
+</div>
+
+<div class='footer'>
+   
+</div>
+
+</body>
+
+</html>

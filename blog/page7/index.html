@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Blog</title>
-        <meta name="viewport" content="width=device-width">
+<html lang="en">
 
-	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -19,83 +29,107 @@
 		})();
 	</script>
 	
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Blog</title>
+    
+</head>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+<body><div class='top'></div>
+<div class='head'>
+   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
 
-        <link rel="stylesheet" href="/css/styles/github.css">
-        <script src="/lib/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-             <h1 class="title"><a href="/">Timothée Poisot</a></h1>
-             <h2>Numerical and computational community ecologist</h2>
-            <span class='nav'>
-               <a class="extra" href="/papers/">papers</a>
-               <a class="extra" href="/software/">software</a>
-               <a class="extra" href="/research/">research</a>
-               <a class="extra" href="/blog/">blog</a>
-            </span>
-          </div>
-
-          <div class="content">
-             <!-- This loops through the paginated posts -->
-
-
-<h2>Writing manuscripts in Linux (like a boss)</h2>
-<p class="meta">18 Aug 2013</p>
-
-<div class="post">
-   <p>Hey, it’s been a year since I switched to Linux. I’ve tried a few different distros, and finally settled on Arch Linux with OpenBox. It’s ligthweight, uncluttered, and I love. But that’s not what I’m going to talk about. I may have mentionned in the past that I used Sublime Text 2. During my quest for ever-increasing minimalism, I’ve made the switch to vim. And I now have a cool writing setup. Most of what...<br />
-   <a class="readmore" href="/2013/08/18/writing-linux-like-a-boss/">Read more...</a></p>
 </div>
 
-<h2>F1000Research announces new Ecology section</h2>
-<p class="meta">08 Aug 2013</p>
+<div class="grid">
 
-<div class="post">
-   <p>F1000Research just put up a new blog post to announce that they will concentrate some of their efforts to increase the proportion of ecology papers they publish. We should all be excited about this. First, the article processing fees will be waived until 2014, so here goes a good opportunity to see for yourself how this journal works. Second, the publication model of F1000Research is extremely interesting. After initial checking, the paper is put on-line,...<br />
-   <a class="readmore" href="/2013/08/08/F1000R-ecology-section/">Read more...</a></p>
-</div>
+      <div class="col c-2-16 navbar">
+         <ul style='position: fixed;'>
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
+</ul>
+&nbsp;
 
-<h2>Codelust</h2>
-<p class="meta">05 Aug 2013</p>
 
-<div class="post">
-   <p>Wanderlust (noun): a strong desire to travel. Codelust (noun): a strong desire to code rather than actually work, and how you can use it for good. I’m lucky. I have stacks of datasets on my laptop, and good ecological questions to ask, and (hopefully) that will result in a few papers. But that’s not fun. I know what I have to do, how I have to do it, and I’m mostly re-using existing tools. So...<br />
-   <a class="readmore" href="/2013/08/05/codelust/">Read more...</a></p>
-</div>
+      </div>
 
-<h2>Should we share reviews?</h2>
-<p class="meta">10 Jul 2013</p>
+      
+      <div class="col c-11-16 maintext">
+         <!-- This loops through the paginated posts -->
 
-<div class="post">
-   <p>Britt Koskella uploaded reviews, and her replies, for her recent Current Biology paper (which, by the way, is great). She also announced that she will do the same thing every time a paper is published. We’ve had a discussion in the lab over the few months, about whether or not we should do almost the same thing: we wanted to put online a very tongue-in-cheek Hall of fame of the “worse” comments we’ve received, for...<br />
-   <a class="readmore" href="/2013/07/10/sharing-reviews/">Read more...</a></p>
-</div>
 
-<h2>What do I read (according to Zotero)?</h2>
-<p class="meta">09 Jul 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>February 17, 2013 </span><br />
+         <a class="readmore" href="/2013/02/17/stacked-barcharts/">An alternative to stacked bar charts</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>I’ve been playing around a bit with Zotero these last few days. Zotero stores the data about your library in a sqlite3 database, called zotero.sqlite, and stored in your Zotero folder (~/Zotero/ in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in sqliteman to figure it out. But in the end, I was able to come...<br />
-   <a class="readmore" href="/2013/07/09/zotero-number-papers/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>February 13, 2013 </span><br />
+         <a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Estimating edges contribution to network properties</a>
+      </p>
+   </div>
 
-<h2>A quick way to parallelize</h2>
-<p class="meta">08 Jul 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>February 12, 2013 </span><br />
+         <a class="readmore" href="/2013/02/12/species-contribution-modularity/">Estimating node contribution to network properties</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>I’ ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (a.k.a. data analysis). While looking for a solution, I came across...<br />
-   <a class="readmore" href="/2013/07/08/parallel/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>February  8, 2013 </span><br />
+         <a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">COinS metadata in Jekyll blogposts</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 28, 2013 </span><br />
+         <a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Article introductions and the reinvention of the ecological wheel</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 26, 2013 </span><br />
+         <a class="readmore" href="/2013/01/26/using-forums-communicate-students/">Using forums to communicate with students</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 24, 2013 </span><br />
+         <a class="readmore" href="/2013/01/24/where-to-submit/">Where to submit your paper?</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 22, 2013 </span><br />
+         <a class="readmore" href="/2013/01/22/selection-sublime-plugins/">A selection of Sublime Text 2 packages</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 19, 2013 </span><br />
+         <a class="readmore" href="/2013/01/19/elsevier-mendeley-out/">If Elsevier acquires Mendeley, I'm out (and you should be too)</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 10, 2013 </span><br />
+         <a class="readmore" href="/2013/01/10/free-workflow-figures/">A quick way to get good figures for your web pages</a>
+      </p>
+   </div>
 
 
 <div class="pagination-centered">
@@ -146,56 +180,21 @@
     <li><a href="/blog/page11">11</a></li>
     
     
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
-    
-    <li><a href="/blog/page14">14</a></li>
-    
-    
-    
-    <li><a href="/blog/page15">15</a></li>
-    
-    
-    
-    <li><a href="/blog/page16">16</a></li>
-    
-    
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
   </ul>
 
 </div>
 
-          </div>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Timothée Poisot<br />
-                Ecologist<br />
-                t.poisot@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
-                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+      </div>
 
-    </body>
+      <div class="col c-3-16">
+      </div>
+</div>
+
+<div class='footer'>
+   
+</div>
+
+</body>
+
 </html>

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Blog</title>
-        <meta name="viewport" content="width=device-width">
+<html lang="en">
 
-	   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript">
+<head>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="/css/normalize.css">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="/css/d3.css" />
+	<link rel="stylesheet" href="/css/pygments.css" />
+   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
+   <script type="text/javascript" src="/lib/less.js"></script>
+   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
+   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
+    
+    <script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-11830706-1']);
 		_gaq.push(['_trackPageview']);
@@ -19,83 +29,107 @@
 		})();
 	</script>
 	
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+	<meta name="author" content="Tim Poisot" />
+   <title>Timothée Poisot :: Blog</title>
+    
+</head>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+<body><div class='top'></div>
+<div class='head'>
+   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
 
-        <link rel="stylesheet" href="/css/styles/github.css">
-        <script src="/lib/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-             <h1 class="title"><a href="/">Timothée Poisot</a></h1>
-             <h2>Numerical and computational community ecologist</h2>
-            <span class='nav'>
-               <a class="extra" href="/papers/">papers</a>
-               <a class="extra" href="/software/">software</a>
-               <a class="extra" href="/research/">research</a>
-               <a class="extra" href="/blog/">blog</a>
-            </span>
-          </div>
-
-          <div class="content">
-             <!-- This loops through the paginated posts -->
-
-
-<h2>Learning how to code (in ecology)</h2>
-<p class="meta">12 Apr 2013</p>
-
-<div class="post">
-   <p>A few days ago, I received an email asking about pointers on how to program in ecology. I’m not sure I’m the best person to ask, but writing the answer, I realized that there might be potential to share tips with other people. Now, a little bit of foreword. I come from a very empirical background. My undergrad studies are in genetics and immunology, and up until the end of my Masters, I have been...<br />
-   <a class="readmore" href="/2013/04/12/learn-code-ecology/">Read more...</a></p>
 </div>
 
-<h2>Elsevier acquired Mendeley. It's not as bad as I thought.</h2>
-<p class="meta">09 Apr 2013</p>
+<div class="grid">
 
-<div class="post">
-   <p>Mendeley was recently acquired by public enemy Elsevier in a puzzling move. Some of you may remember that I’ve announced that, should this acquisition happen, I’ll be out of here. Actually, I’ve switched to Zotero a while back and never ever looked back. But still. Mr. Will Gunn himself asked me to do a follow-up post, on the basis that it’s not as bad as I feared. And as much as I am pained to...<br />
-   <a class="readmore" href="/2013/04/09/mendelsevier/">Read more...</a></p>
-</div>
+      <div class="col c-2-16 navbar">
+         <ul style='position: fixed;'>
+   <li><a href="/">Home</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
+</ul>
+&nbsp;
 
-<h2>Is E.O. Wilson wrong about maths?</h2>
-<p class="meta">07 Apr 2013</p>
 
-<div class="post">
-   <p>E.O. Wilson recently published an editorial entitled “Great scientists don’t need math” in the Wall Street Journal. Jeremy Fox wrote a great rebuttal of it, which you should certainly read as well. In short, Wilson’s argument is that most of great science is the work of intuition. In Jean Cocteau’s words, science is the confirmation of instinct’s discoveries. And in this perspective, math literacy is not needed, because it’s only a boring formality, to confirm...<br />
-   <a class="readmore" href="/2013/04/07/wilson-maths/">Read more...</a></p>
-</div>
+      </div>
 
-<h2>High-throughput sequencing and community ecology</h2>
-<p class="meta">12 Mar 2013</p>
+      
+      <div class="col c-11-16 maintext">
+         <!-- This loops through the paginated posts -->
 
-<div class="post">
-   <p>High-throughput sequencing (let’s abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I’m currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken...<br />
-   <a class="readmore" href="/2013/03/12/ngs-community-ecology/">Read more...</a></p>
-</div>
 
-<h2>A d3.js alternative to stacked bar charts</h2>
-<p class="meta">18 Feb 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April 30, 2012 </span><br />
+         <a class="readmore" href="/2012/04/30/ecology-not-too-collaborative/">Ecology is not too collaborative</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>Following yesterday’s post on an alternative to barcharts, I decided to write an implementation of this graph in D3.js. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I’ll share the code as a gist. For this particular example, I assume that the data are in a matrix, in csv format, with sites as the first row, and species abundances in columns. I...<br />
-   <a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April 26, 2012 </span><br />
+         <a class="readmore" href="/2012/04/26/biblatex-styles-ecology/">Biblatex styles for ecology</a>
+      </p>
+   </div>
 
-<h2>An alternative to stacked bar charts</h2>
-<p class="meta">17 Feb 2013</p>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>April 15, 2012 </span><br />
+         <a class="readmore" href="/2012/04/15/null-models-C/">Null models of bipartite networks in C</a>
+      </p>
+   </div>
 
-<div class="post">
-   <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with....<br />
-   <a class="readmore" href="/2013/02/17/stacked-barcharts/">Read more...</a></p>
-</div>
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 29, 2012 </span><br />
+         <a class="readmore" href="/2012/01/29/sign-your-reviews/">How to make the most out of peer-review?</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January 19, 2012 </span><br />
+         <a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Measuring ecological specificity</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January  6, 2012 </span><br />
+         <a class="readmore" href="/2012/01/06/science-age-social-coding/">Science in the age of social coding</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January  5, 2012 </span><br />
+         <a class="readmore" href="/2012/01/05/a-python-class-for-phylogenies/">Simulated phylogenetic trees and community assembly</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>January  1, 2012 </span><br />
+         <a class="readmore" href="/2012/01/01/migration-to-jekyll/">Goodbye Wordpress, hello Jekyll!</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>December  1, 2011 </span><br />
+         <a class="readmore" href="/2011/12/01/the-aggregate-function-in-python/">The aggregate function in Python</a>
+      </p>
+   </div>
+
+   <div class='post postlist'>
+      <p>
+         <span class='post-date'>November 19, 2011 </span><br />
+         <a class="readmore" href="/2011/11/19/get-your-lab-on-twitter/">Get your lab on twitter!</a>
+      </p>
+   </div>
 
 
 <div class="pagination-centered">
@@ -146,56 +180,21 @@
     <li><a href="/blog/page11">11</a></li>
     
     
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
-    
-    <li><a href="/blog/page14">14</a></li>
-    
-    
-    
-    <li><a href="/blog/page15">15</a></li>
-    
-    
-    
-    <li><a href="/blog/page16">16</a></li>
-    
-    
-    
-    <li><a href="/blog/page17">17</a></li>
-    
-    
-    
-    <li><a href="/blog/page18">18</a></li>
-    
-    
   </ul>
 
 </div>
 
-          </div>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Timothée Poisot<br />
-                Ecologist<br />
-                t.poisot@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/tpoisot/">github.com/tpoisot/</a><br />
-                <a href="https://twitter.com/tpoi/">twitter.com/tpoi/</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+      </div>
 
-    </body>
+      <div class="col c-3-16">
+      </div>
+</div>
+
+<div class='footer'>
+   
+</div>
+
+</body>
+
 </html>
