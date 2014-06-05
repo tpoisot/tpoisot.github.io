@@ -1,70 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <title>Timothée Poisot | Notes on test-driven development (in Python)</title>
+		<meta name="description" content="Blueprint: Slide and Push Menus" />
+		<meta name="keywords" content="sliding menu, pushing menu, navigation, responsive, menu, css, jquery" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="/js/modernizr.custom.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-11830706-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: Notes on test-driven development (in Python)</title>
-    
-</head>
-
-<body><div class='top'></div>
-<div class='head'>
-   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
-
-</div>
-
-<div class="grid">
-
-      <div class="col c-2-16 navbar">
-         <ul style='position: fixed;'>
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-</ul>
-&nbsp;
-
-
-      </div>
-
-      
-      <div class="col c-11-16 maintext">
-         <div class='post'>
-   <div class="postinfo">
-      <h1 class='post-title'>Notes on test-driven development (in Python)</h1>
-      <p class='post-date'> 4 November 2013 </p>
-   </div>
-
-<p>I’m looking into the methodology of <em>test-driven development</em>, that is when
+	</head>
+	<body class="cbp-spmenu-push">
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
+			<a href="/research/">Research</a>
+			<a href="/software/">Software</a>
+			<a href="/blog/">Blog</a>
+			<a href="/papers/">Papers</a>
+			<a href="/">Home</a>
+		</nav>
+      <span class='menu'>
+			<a id="showLeft"><i class="fa fa-bars"></i></a>
+      </span>
+		<div class="container">
+			<header class="clearfix">
+            
+            <span>November  4, 2013</span>
+            <h1>Notes on test-driven development (in Python)</h1>
+            
+         </header>
+			<div class="main">
+            <span class="content">
+               <p>I’m looking into the methodology of <em>test-driven development</em>, that is when
 you write your tests <em>before</em> writing your code. The advertised benefit is
 that you know in advance the behavior of your code, and it will make it easier
 to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O’Reilly</a> is a good introduction
@@ -74,8 +49,7 @@ values, and divide them by their max, to get the equivalent series of values
 but in [0;1]. Let’s start with the basics:</p>
 
 <div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">unittest</span>     <span class="c"># for testing</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span>
-</code></pre></div>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span></code></pre></div>
 
 <p>The first function I’d like to write will be called <code>scale</code>, and it will take a
 (<code>numpy</code>) array of numerical values, and return the same array divided by its
@@ -86,8 +60,7 @@ as needed:</p>
    <span class="k">def</span> <span class="nf">testOnKnownResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="n">KnownInput</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
       <span class="n">Scaled</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">KnownInput</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">))</span>
-</code></pre></div>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">))</span></code></pre></div>
 
 <p>There are a number of stupid-proofing steps required. First, the function
 cannot work when all values in the array are 0, or if there are negative
@@ -99,8 +72,7 @@ values, so I’ll write a test for that. I want the function <code>scale</code> 
    <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithNeg</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">testNull</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="n">OnlyNull</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">OnlyNull</span><span class="p">)</span>
-</code></pre></div>
+   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">OnlyNull</span><span class="p">)</span></code></pre></div>
 
 <p>Now I have one test to check that the expected behavior is indeed obtained,
 and two tests to check that the input values are correct. Things are starting
@@ -110,8 +82,7 @@ not the case, the <code>scale</code> function will raise a <code>TypeError</code
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">testType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="n">WithChar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;0.0&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
-   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithCar</span><span class="p">)</span>
-</code></pre></div>
+   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithCar</span><span class="p">)</span></code></pre></div>
 
 <p>At this point, even though I haven’t yet wrote a single line of the <code>scale</code>
 function, I know quite well how it should work! Importantly, I know the
@@ -127,8 +98,7 @@ and return another array (the original one is not modified). Let’s write
 the simplest possible form of this function:</p>
 
 <div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</code></pre></div>
+   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
 
 <p>In most situations, I would have been happy writing the function this way. Let’s integrate it with the test suite, and see how it goes:</p>
 
@@ -145,8 +115,7 @@ the simplest possible form of this function:</p>
    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-   <span class="n">main</span><span class="p">()</span>
-</code></pre></div>
+   <span class="n">main</span><span class="p">()</span></code></pre></div>
 
 <p>Here is the output of running this file:</p>
 
@@ -166,8 +135,7 @@ self.assertRaises(ValueError, scale, WithNeg)
 AssertionError: ValueError not raised
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
-FAILED (failures=2)
-</code></pre></div>
+FAILED (failures=2)</code></pre></div>
 
 <p>There are <em>only</em> two failed tests. This is because <code>testOnKnownResult</code> is
 expected to succeed, and <code>testType</code> will catch the <code>TypeError</code> raised by
@@ -182,25 +150,20 @@ that the argument are not negative, or not only zeroes:</p>
    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Values of p cannot be all equal to 0&#39;</span><span class="p">)</span>
    <span class="c"># Finally we return the result</span>
-   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</code></pre></div>
+   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
 
 <p>With these two checks, we can now re-run the tests:</p>
 
 <div class="highlight"><pre><code class="text">....
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
-OK
-</code></pre></div>
+OK</code></pre></div>
 
 <p>Mission accomplished! It requires some discipline to work this way, but I
 actually enjoyed going through this example. I really like the fact that
 this approach forces to ask question about the structure of the code first,
 and write the actual code later.</p>
 
-
-
-</div>
 
 
 
@@ -219,32 +182,86 @@ and write the actual code later.</p>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-<div class="pager">
 
+            </span>
+				<section style="display:none;">
+					<h2>Slide Menus</h2>
+					<!-- Class "cbp-spmenu-open" gets applied to menu -->
+					<button id="showLeft">Show/Hide Left Slide Menu</button>
+					<button id="showRight">Show/Hide Right Slide Menu</button>
+					<button id="showTop">Show/Hide Top Slide Menu</button>
+					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
+				</section>
+			</div>
+		</div>
+		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+		<script src="/js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				showRight = document.getElementById( 'showRight' ),
+				showTop = document.getElementById( 'showTop' ),
+				showBottom = document.getElementById( 'showBottom' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
 
-<span class="previous">
-   <a href="/2013/11/03/open-ecology/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
-</span>
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			showRight.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRight' );
+			};
+			showTop.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuTop, 'cbp-spmenu-open' );
+				disableOther( 'showTop' );
+			};
+			showBottom.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuBottom, 'cbp-spmenu-open' );
+				disableOther( 'showBottom' );
+			};
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRightPush' );
+			};
 
-
-
-<span class="next">
-<a href="/2013/11/10/shared-bibtex-file-markdown/">Next post <i class="fa fa-fw fa-chevron-right"></i></a>
-</span>
-
-</div>
-
-
-      </div>
-
-      <div class="col c-3-16">
-      </div>
-</div>
-
-<div class='footer'>
-   
-</div>
-
-</body>
-
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+				if( button !== 'showRight' ) {
+					classie.toggle( showRight, 'disabled' );
+				}
+				if( button !== 'showTop' ) {
+					classie.toggle( showTop, 'disabled' );
+				}
+				if( button !== 'showBottom' ) {
+					classie.toggle( showBottom, 'disabled' );
+				}
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+		</script>
+	</body>
 </html>

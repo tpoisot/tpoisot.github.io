@@ -1,70 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <title>Timothée Poisot | How to represent networks</title>
+		<meta name="description" content="Blueprint: Slide and Push Menus" />
+		<meta name="keywords" content="sliding menu, pushing menu, navigation, responsive, menu, css, jquery" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="/js/modernizr.custom.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<head>
-	<meta charset="utf-8" />
-   <link rel="stylesheet" href="/css/normalize.css">
-   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<link rel="stylesheet" href="/css/d3.css" />
-	<link rel="stylesheet" href="/css/pygments.css" />
-   <link rel="stylesheet/less" type="text/css" href="/css/tim.less" />
-   <script type="text/javascript" src="/lib/less.js"></script>
-   <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-   <link rel="stylesheet" href="/lib/highlight/styles/github.css" />
-   <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
-   <script>hljs.initHighlightingOnLoad();</script>
-   <script src="http://d3js.org/d3.v3.min.js"></script>
-   <link rel="alternate" type="application/atom+xml" title="RSS Feed for Tim's blog" href="http://feeds.feedburner.com/timpoisot" />
-    
-    <script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-11830706-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-	
-	<meta name="author" content="Tim Poisot" />
-   <title>Timothée Poisot :: How to represent networks</title>
-    
-</head>
-
-<body><div class='top'></div>
-<div class='head'>
-   <h1>Timothée Poisot</h1> <h2>is an ecologist [citation needed]</h2>
-
-</div>
-
-<div class="grid">
-
-      <div class="col c-2-16 navbar">
-         <ul style='position: fixed;'>
-   <li><a href="/">Home</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li class='social'><a href="mailto:t.poisot@gmail.com"><i class="fa fa-fw fa-envelope"></i></a> <a href="http://twitter.com/tpoi/"><i class="fa fa-fw fa-twitter-square"></i></a> <a href="http://github.com/tpoisot/"><i class="fa fa-fw fa-github-square"></i></a> <a href="http://feeds.feedburner.com/timpoisot/"><i class="fa fa-fw fa-rss-square"></i></a></li>
-</ul>
-&nbsp;
-
-
-      </div>
-
-      
-      <div class="col c-11-16 maintext">
-         <div class='post'>
-   <div class="postinfo">
-      <h1 class='post-title'>How to represent networks</h1>
-      <p class='post-date'>23 November 2012 </p>
-   </div>
-
-<p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
+	</head>
+	<body class="cbp-spmenu-push">
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
+			<a href="/research/">Research</a>
+			<a href="/software/">Software</a>
+			<a href="/blog/">Blog</a>
+			<a href="/papers/">Papers</a>
+			<a href="/">Home</a>
+		</nav>
+      <span class='menu'>
+			<a id="showLeft"><i class="fa fa-bars"></i></a>
+      </span>
+		<div class="container">
+			<header class="clearfix">
+            
+            <span>November 23, 2012</span>
+            <h1>How to represent networks</h1>
+            
+         </header>
+			<div class="main">
+            <span class="content">
+               <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
 
 <div class="alert alert-info">
 <h4>Warning!</h4>
@@ -82,16 +57,14 @@ This is a long entry, with code, and geeky considerations about data format. It'
 <div class="highlight"><pre><code class="bash">0 1 1 0
 0 0 0 1
 0 0 0 1
-0 0 0 0
-</code></pre></div>
+0 0 0 0</code></pre></div>
 
 <p>Alternatively, we can write them as an edge list:</p>
 
 <div class="highlight"><pre><code class="bash">a b
 a c
 c d
-b d
-</code></pre></div>
+b d</code></pre></div>
 
 <p>Both notation represent the same “diamond” food web, and can also convey some information about link strength, species biomass, <em>etc</em>. But do they convey a lot of <em>ecological meaning</em>? I’m not really sure. So instead of having all the network at one big entity, let’s break it down in several smaller chunks. A network is a collection of interactions, so let’s start by representing an interaction.</p>
 
@@ -110,8 +83,7 @@ b d
 		<span class="p">},</span>
 	<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;predation&quot;</span><span class="p">,</span>
 	<span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is a simple <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> object, with three central informations: a unique indentifer (<code>ID</code>), two species (<code>from</code> and <code>to</code>), and a series of informations (<code>info</code>). Within <code>info</code>, you have two booleans; <code>binary</code> tells you if this is a presence/absence or quantitative measure, <code>directional</code> tells you if the interactions is, well, directional (in which case <code>from</code> and <code>to</code> are important), and <code>strength</code> is the interaction strength. Finally, the <code>type</code> property can tell which kind of interaction this is. Not rocket science so far.</p>
 
@@ -126,8 +98,7 @@ b d
 	<span class="nt">&quot;GPS&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;48_28_14_n&quot;</span><span class="p">,</span><span class="s2">&quot;68_31_17_o&quot;</span><span class="p">],</span>
 	<span class="nt">&quot;env_type&quot;</span><span class="p">:</span> <span class="s2">&quot;microcosm&quot;</span><span class="p">,</span>
 	<span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This should be relatively straigthforward. There is, again, an <code>ID</code>. The <code>links</code> component is a list of interactions, <em>i.e.</em> the list of <code>ID</code> of interactions. The other fields are a minimum set of informations, namely the time, place, and type of environment.</p>
 
@@ -155,8 +126,7 @@ b d
 		<span class="p">}</span>
 	<span class="p">],</span>
 	<span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is probably where most of the action will happen. The interesting property here is <code>tax</code>, which can be linked to another type of objects in the databse. Without going into more details, the <code>tax</code> field will tell you which species or group of organism this population belongs to. For example, you can use a <a href="http://bioportal.bioontology.org/ontologies/45846?p=terms&amp;conceptid=EDAM%3A0001179">NCBI Taxonomy ID</a>. This, in turn, will allow you to go dig into <a href="http://treebase.org/treebase-web/home.html">TreeBase</a>, using one of the <a href="http://ropensci.org/">ROpenSci packages</a> designed to do so.</p>
 
@@ -165,9 +135,6 @@ b d
 <p>I’m really interested in putting together a database to see how feasible this is. Having a robust data format, and access to all these data in a programmatic way, will greatly increase our ability to understand and compare networks. I don’t think there is any chance that we’ll be able to make important breakthrough, especially as far as biogeography is concerned, without a centralized database.</p>
 
 <p>I’m still thinking about some other informations we need (bibliographic context, for example). I have a set of data from an almost-succesfull experiment, which I’ll probably release as a data paper. It will be the occasion to go the extra mile, and put together something useful. And in case anybody has suggestions, I’m happy to hear them.</p>
-
-
-</div>
 
 
 
@@ -186,32 +153,86 @@ b d
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-<div class="pager">
 
+            </span>
+				<section style="display:none;">
+					<h2>Slide Menus</h2>
+					<!-- Class "cbp-spmenu-open" gets applied to menu -->
+					<button id="showLeft">Show/Hide Left Slide Menu</button>
+					<button id="showRight">Show/Hide Right Slide Menu</button>
+					<button id="showTop">Show/Hide Top Slide Menu</button>
+					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
+				</section>
+			</div>
+		</div>
+		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+		<script src="/js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				showRight = document.getElementById( 'showRight' ),
+				showTop = document.getElementById( 'showTop' ),
+				showBottom = document.getElementById( 'showBottom' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
 
-<span class="previous">
-   <a href="/2012/11/09/data-sharing-and-the-bagel-effect/"><i class="fa fa-fw fa-chevron-left"></i> Previous post</a>
-</span>
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			showRight.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRight' );
+			};
+			showTop.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuTop, 'cbp-spmenu-open' );
+				disableOther( 'showTop' );
+			};
+			showBottom.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuBottom, 'cbp-spmenu-open' );
+				disableOther( 'showBottom' );
+			};
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRightPush' );
+			};
 
-
-
-<span class="next">
-<a href="/2012/12/15/face-of-twitter/">Next post <i class="fa fa-fw fa-chevron-right"></i></a>
-</span>
-
-</div>
-
-
-      </div>
-
-      <div class="col c-3-16">
-      </div>
-</div>
-
-<div class='footer'>
-   
-</div>
-
-</body>
-
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+				if( button !== 'showRight' ) {
+					classie.toggle( showRight, 'disabled' );
+				}
+				if( button !== 'showTop' ) {
+					classie.toggle( showTop, 'disabled' );
+				}
+				if( button !== 'showBottom' ) {
+					classie.toggle( showBottom, 'disabled' );
+				}
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+		</script>
+	</body>
 </html>

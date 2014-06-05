@@ -4,12 +4,138 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-05-02T20:49:49-04:00</updated>
+  <updated>2014-06-05T19:36:19-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Open Scientific Software License</title>
+     <link href="http://timotheepoisot.fr/2014/06/05/ossl/"/>
+    <updated>2014-06-05T00:00:00-04:00</updated>
+    <content type="html">&lt;p&gt;I have been doing a bunch of reading on software licenses, because the
+question of which one to pick popped up in two projects I currently work
+on. There are tools like GitHub’s &lt;em&gt;&lt;a href=&quot;http://choosealicense.com/&quot;&gt;choose a license&lt;/a&gt;&lt;/em&gt;, that compare a
+fairly good selection of FOSS (Free and Open Source Software) licenses. And
+you can find a lot of (good) advice around the internet that will advise
+you to pick a license for your code. See &lt;em&gt;e.g.&lt;/em&gt; &lt;a href=&quot;http://www.software.ac.uk/resources/guides/choosing-open-source-licence&quot;&gt;sofwtare.ac.uk&lt;/a&gt;,
+a paper by &lt;a href=&quot;http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002598&quot;&gt;Andrew Morin and colleagues&lt;/a&gt;, and more &lt;a href=&quot;http://www.astrobetter.com/the-whys-and-hows-of-licensing-scientific-code/&quot;&gt;tutorial like
+documents&lt;/a&gt;. If you read all of that (and if you produce code,
+I think you should), you’ll most likely agree that licensing your work
+is important.&lt;/p&gt;
+
+&lt;p&gt;Yet &lt;a href=&quot;http://matt.might.net/articles/crapl/&quot;&gt;as Matt Might points out&lt;/a&gt;, FOSS licenses tailored specifically for
+academic use should have other requirements besides no liability and ensuring
+sharing of modified code. I spend a sometimes significant amount of my time
+writing code to perform various analyzes, or to reproduce results. I think that
+this is a research output equally important to publishing the paper (in that
+I see very little value in a great methodological paper with no code attached,
+for starters); which means that I think it should be credited somehow.&lt;/p&gt;
+
+&lt;p&gt;One thing I have noticed in various discussions over the last few months is
+that the fact that (good) software is hard to produce completely eludes some
+people. This is perfectly understandable. In part, because we (as computer
+users) are &lt;a href=&quot;http://linux.oneandoneis2.org/LNW.htm&quot;&gt;demanding software working intuitively out of the box&lt;/a&gt;. As a
+result, most mainstream operating systems (and I’m including several Linux
+distributions in that) are focusing on &lt;em&gt;user-friendliness&lt;/em&gt;, so that even
+complex things &lt;em&gt;appear&lt;/em&gt; really simple. Given that, really, how hard can
+programming a &lt;code&gt;R&lt;/code&gt; package that doesn’t even have a GUI be? Software is a
+given right, and (I have checked some of my papers and I must plead guilty
+to that too) citing some of the software that made a paper possible is still
+not automatic. And to really drive the point home: if someone publishes
+a paper using package &lt;code&gt;xyz&lt;/code&gt;, without citing the paper describing &lt;code&gt;xyz&lt;/code&gt;
+(or the software itself should there be no paper to cite), that person get
+credit while the software creator does not.&lt;/p&gt;
+
+&lt;p&gt;Even the very concept of a software license is focused on people with some
+computing experience. It tells things about the use of the code, in the
+sense that it tells you whether you can make money with it (not with the
+output), whether you can modify the code, and if so, which future licenses
+are acceptable. In short, the licensing issue is definitely an important
+one in science, but it does not speaks to the end users. Now before you
+preemptively burn be at the stake before I propose &lt;a href=&quot;http://xkcd.com/501/&quot;&gt;EULAs&lt;/a&gt; for all
+scientific software, hear me out. On a daily basis, what you do with my code
+matters to me far less than whether I get credit for having produced the code
+in the first place, especially when this code is actually used. I would be
+happy to release 90% of everything I write using the &lt;a href=&quot;http://www.wtfpl.net/about/&quot;&gt;WTFPL&lt;/a&gt; (just
+to see if I can managed to spell it out in a paper, mostly). So I think we
+need &lt;em&gt;some sort&lt;/em&gt; of license between the creator of the software and the users.&lt;/p&gt;
+
+&lt;p&gt;An additional complication (or nuance, rather) is that thanks to increased
+computer literacy, a lot of people will be able to either add to, or modify
+your software for their own needs. In a sense, software users will contribute
+to the improvement of it, &lt;em&gt;as long as they give back&lt;/em&gt; their modifications. It
+may not seem like a lot, but a function to read and convert a specific
+type of file to use with a particular package &lt;em&gt;is&lt;/em&gt; a potentially worthwhile
+addition to it. In this hypothetical scenario, if the “new” format is used
+by a lot of people in the field, then this can even improve the adoption
+of the software. So where to go from here? An ideal license for scientific
+software would (i) ensure that the creator gets credit for its work, (ii)
+facilitates the improvement of the software through community contributions,
+and (iii) build on existing FOSS licenses.&lt;/p&gt;
+
+&lt;p&gt;I think the modular design of the &lt;em&gt;Creative Commons&lt;/em&gt; licenses is a good
+inspiration. Basically, we could write an OSSL (Open Scientific Software
+License) with the four following clauses (purely as an intellectual
+exercise). Each people would then be free to use any combination (or all)
+of the clauses in their particular releases. Ideally, the software would be
+released under two different licenses. One of the mainstream FOSS ones for
+general code re-use, and the OSSL for use in research.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Open Scientific Software License (OSSL) 0.0.1
+
+This document presents the conditions for the use of, and contribution to,
+&quot;XXXX&quot;, hereafter &quot;the software&quot;, by you, hereafter &quot;the user&quot;.
+
+[insert usual warning about no liability]
+
+(AU) AUTHORSHIP -- Developpers of the software do not make any claim to
+authorship on projects using the software unless
+   
+   (1) explicitely invited by the user
+   (2) the user requests the software to be altered in any significant
+       way for the purpose of a project, in which case authorship for this
+       particular project must be negociated between the user and the creator
+
+(CR) CREDIT -- Any scientific production appearing in print (excluding posters
+and talks, including electronic only content) using the software must cite
+the following item[s]:
+
+   Ref. to the paper or the software itself
+   You are expected to keep it relatively short
+
+(DI) DISTRIBUTION -- Outside of academic/research projects, this code is
+dual-licensed under the terms XXX license, a copy of which is attached to
+this project under the COPYING file.
+
+(EN) ENHANCEMENT -- If the software is modified, expanded, or improved during
+the realisation of a study, the person in charge of the modifications is
+required to propose them for merging when the results obtained with the
+modified software are first published, or earlier.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you use code released under the &lt;code&gt;OSSL/AU-CR&lt;/code&gt;, for example, you can use
+the code and modify it without proposing your modifications for merging,
+and your only requirement is to cite it. The &lt;code&gt;AU&lt;/code&gt; clause is (in my opinion)
+important because it makes the conditions for authorship clear: if you
+don’t interact in any way with the software creator, then (of course) he or
+she should not be asking for authorship. But if you ask whether or not the
+creator could introduce a new functionality, or alter the functioning of the
+program in any way, then it’s fair to discuss whether or not this qualifies for
+authorship (I argue that it does; I’ve had a very good experience recently of
+inviting a co-author to help us figure out his package, and he made excellent
+contributions to the paper).&lt;/p&gt;
+
+&lt;p&gt;So in short (that was not short at all!), this is the current state of my
+thinking about finding a way to license (open) scientific software that would
+respect the right of software creators to get credit for their work. Whether
+or not I’ll add this as a license for my own projects is something I have
+not decided yet. That will depend in part of the feedback I get…&lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
      <title>A contribution policy for open manuscripts</title>
@@ -2225,8 +2351,7 @@ example, what happens after &lt;em&gt;adding&lt;/em&gt; a few lines of code:&lt;
  +  }
     # bring to long format
     x$rownames &amp;lt;- rownames(x)
-    df_m &amp;lt;- melt(x, id = &amp;#39;rownames&amp;#39;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    df_m &amp;lt;- melt(x, id = &amp;#39;rownames&amp;#39;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If a change in your code breaks it, you can track the lines that where
 modified, and start looking here for possible bugs.&lt;/p&gt;
@@ -2375,8 +2500,7 @@ will just walk you through the most important plugins. I manage them using
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;tpope/vim-markdown&amp;#39;&lt;/span&gt;
 Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;mikewest/vimroom&amp;#39;&lt;/span&gt;
 Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;vim-pandoc/vim-pandoc&amp;#39;&lt;/span&gt;
-Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;altercation/vim-colors-solarized&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;altercation/vim-colors-solarized&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;First, &lt;code&gt;vim-markdown&lt;/code&gt; and &lt;code&gt;vim-pandoc&lt;/code&gt; are extremely powerful extensions for
 (you guessed it), &lt;code&gt;markdown&lt;/code&gt; and &lt;code&gt;pandoc&lt;/code&gt;. As I used these for &lt;em&gt;everything&lt;/em&gt;
@@ -2522,8 +2646,7 @@ script to get the first 158 preprints, download them, and get the abstract.&lt;/
       &lt;span class=&quot;n&quot;&gt;Fulltext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;Corpus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fulltext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fulltext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;There is actually a one-liner version of this code, that exsist solely to
 show that you can do horrible twisted things with python. I’m not showing
@@ -2614,8 +2737,7 @@ use the &lt;code&gt;jsonschema&lt;/code&gt; python module to do that:&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Not valid&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Valid&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Valid&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And because a&lt;code&gt;JSON&lt;/code&gt; scheme has &lt;a href=&quot;http://json-schema.org/&quot;&gt;field for description of each element&lt;/a&gt;,
 your output is essentially self-described. Someone with no prior knowledge
@@ -2634,8 +2756,7 @@ truly shines when &lt;em&gt;reading&lt;/em&gt; the data. In the above example, i
 object contains a list of species, each having a body size called &lt;code&gt;bs&lt;/code&gt;,
 then we can get the mean body size with&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;m_bs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;m_bs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;bs&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sp&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; can also read &lt;code&gt;JSON&lt;/code&gt; well with the &lt;code&gt;rjson&lt;/code&gt; package. This returns a &lt;code&gt;list&lt;/code&gt;
 representation of the &lt;code&gt;JSON&lt;/code&gt; file, so it’s easy to manipulate &lt;code&gt;JSON&lt;/code&gt; objects
@@ -2801,8 +2922,7 @@ I had to code my way out of this one.&lt;/p&gt;
 &lt;p&gt;The good thing of using &lt;code&gt;pandoc&lt;/code&gt; is that the citation syntax is remarkably
 simple: &lt;code&gt;@key&lt;/code&gt;. It means that using a simple &lt;code&gt;grep&lt;/code&gt; command&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* ms.md -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq -u &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* ms.md -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq -u &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;, I can generate &lt;code&gt;bib.keys&lt;/code&gt;, a list with all the keys encountered in
 &lt;code&gt;ms.md&lt;/code&gt;. The keys will be present only once, and sorted. The first few lines
@@ -2813,8 +2933,7 @@ angilletta_temperature_2004
 araujo_using_2011
 baiser_geographic_2012
 baskerville_spatial_2011
-bluthgen_what_2008
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+bluthgen_what_2008&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, I need to take each of these keys, read my big &lt;code&gt;library.bib&lt;/code&gt; file, and
 extract only the entries that are cited in the document. So I installed a
@@ -2832,8 +2951,7 @@ thing is, this only takes four (interesting) lines:&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uk&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uk&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uk&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;used_refs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;## Step 5 - write the output file&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codecs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;utf-8-sig&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writelines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;refs_as_bib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writelines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;refs_as_bib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This code will print a list of all the keys in the &lt;code&gt;bib.keys&lt;/code&gt; that have
 &lt;em&gt;not&lt;/em&gt; been matched to an entry in the main library file. If all went well,
@@ -2851,8 +2969,7 @@ intend to use it.&lt;/p&gt;
    &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;python&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; extractbib.py bib.keys &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;library&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;refs&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
 
 bib.keys: 
-   grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;text&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq -u &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   grep @&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-:_a-zA-Z0-9&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;* &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;text&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; -oh --color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;never &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort  &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq -u &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/@//g&amp;#39;&lt;/span&gt; &amp;gt; bib.keys&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I’m glad that I finally have a solution to this problem. Of course, a
 multi-author version is not difficult to do (just have each author write
@@ -2878,8 +2995,7 @@ values, and divide them by their max, to get the equivalent series of values
 but in [0;1]. Let’s start with the basics:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;unittest&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;# for testing&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# for other things&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# for other things&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The first function I’d like to write will be called &lt;code&gt;scale&lt;/code&gt;, and it will take a
 (&lt;code&gt;numpy&lt;/code&gt;) array of numerical values, and return the same array divided by its
@@ -2890,8 +3006,7 @@ as needed:&lt;/p&gt;
    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testOnKnownResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;KnownInput&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;Scaled&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KnownInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scaled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scaled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scaled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scaled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;There are a number of stupid-proofing steps required. First, the function
 cannot work when all values in the array are 0, or if there are negative
@@ -2903,8 +3018,7 @@ values, so I’ll write a test for that. I want the function &lt;code&gt;scale&l
    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertRaises&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ne&quot;&gt;ValueError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WithNeg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
    &lt;span class=&quot;n&quot;&gt;OnlyNull&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-   &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertRaises&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ne&quot;&gt;ValueError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OnlyNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertRaises&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ne&quot;&gt;ValueError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OnlyNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now I have one test to check that the expected behavior is indeed obtained,
 and two tests to check that the input values are correct. Things are starting
@@ -2914,8 +3028,7 @@ not the case, the &lt;code&gt;scale&lt;/code&gt; function will raise a &lt;code&
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;testType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
    &lt;span class=&quot;n&quot;&gt;WithChar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;0.0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-   &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertRaises&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ne&quot;&gt;TypeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WithCar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertRaises&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ne&quot;&gt;TypeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WithCar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;At this point, even though I haven’t yet wrote a single line of the &lt;code&gt;scale&lt;/code&gt;
 function, I know quite well how it should work! Importantly, I know the
@@ -2931,8 +3044,7 @@ and return another array (the original one is not modified). Let’s write
 the simplest possible form of this function:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In most situations, I would have been happy writing the function this way. Let’s integrate it with the test suite, and see how it goes:&lt;/p&gt;
 
@@ -2949,8 +3061,7 @@ the simplest possible form of this function:&lt;/p&gt;
    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is the output of running this file:&lt;/p&gt;
 
@@ -2970,8 +3081,7 @@ self.assertRaises(ValueError, scale, WithNeg)
 AssertionError: ValueError not raised
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
-FAILED (failures=2)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+FAILED (failures=2)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;There are &lt;em&gt;only&lt;/em&gt; two failed tests. This is because &lt;code&gt;testOnKnownResult&lt;/code&gt; is
 expected to succeed, and &lt;code&gt;testType&lt;/code&gt; will catch the &lt;code&gt;TypeError&lt;/code&gt; raised by
@@ -2986,16 +3096,14 @@ that the argument are not negative, or not only zeroes:&lt;/p&gt;
    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;ValueError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Values of p cannot be all equal to 0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
    &lt;span class=&quot;c&quot;&gt;# Finally we return the result&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;With these two checks, we can now re-run the tests:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;....
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
-OK
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+OK&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Mission accomplished! It requires some discipline to work this way, but I
 actually enjoyed going through this example. I really like the fact that
@@ -3335,138 +3443,6 @@ by communicating in issues in which their is a broad interest. And I may end up
 doing a best-of of the undergrads complaining on Twitter about how &lt;em&gt;Ecology
 101&lt;/em&gt; is hard, that is fun too.&lt;/p&gt;
 
-</content>
-  </entry>
-  
-  <entry>
-     <title>An additive partition of species-level specificity</title>
-     <link href="http://timotheepoisot.fr/2013/10/15/specificity-range-measures/"/>
-    <updated>2013-10-15T00:00:00-04:00</updated>
-    <content type="html">&lt;p&gt;A while ago, we published a paper in &lt;em&gt;Methods in Ecology &amp;amp; Evolution&lt;/em&gt;,
-&lt;a href=&quot;http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/&quot;&gt;comparing different ways to estimate ecological
-specificity&lt;/a&gt;
-on binary (presence/absence) and quantitative data. All the measures we
-review, and the one we introduce, work in the same way: for an organism,
-species, population, you have an array &lt;strong&gt;P&lt;/strong&gt; of its performances across &lt;em&gt;R&lt;/em&gt;
-different environments, which is (1) sorted decreasingly, and (2) ranged so
-that &lt;strong&gt;P&lt;/strong&gt;[1] = 1. In this paper, we recommend to use either &lt;em&gt;RR&lt;/em&gt; (which is
-a modification of Schoener’s generality), and &lt;em&gt;PDI&lt;/em&gt; (which is first
-formally introduced in this paper), which measures how fast
-performance decreases when you move away from the optimal environment
-(the faster it decays, the more specialized you are).&lt;/p&gt;
-
-&lt;p&gt;The main advantage of &lt;em&gt;PDI&lt;/em&gt; is that it relates extremely well to the
-&lt;em&gt;definition&lt;/em&gt; of what specificity is: a rapid decay of performance on resources
-which are not your own optimum (regardless of the &lt;em&gt;absolute&lt;/em&gt; performance on
-this optimal resource, which is why we set &lt;strong&gt;P&lt;/strong&gt;[1] = 1). &lt;em&gt;PDI&lt;/em&gt; is
-nothing more that the sum of performance lost by not being on the optimal
-resource, divided by the number of non-optimal resources. Somewhere in the end
-of the paper, we write that when the data are binary, &lt;em&gt;RR&lt;/em&gt; and &lt;em&gt;PDI&lt;/em&gt; are
-equivalent. For some reason that still eludes me, the demonstration did not
-make its way in the final version of the paper. So let’s start with it. First,
-for an organism of which the performances are measured in &lt;em&gt;R&lt;/em&gt;
-environments, of which it has a performance higher than 0 in &lt;em&gt;r&lt;/em&gt;, we
-define &lt;em&gt;RR&lt;/em&gt; as&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; RR = \frac{R-r}{R-1} &lt;/script&gt;
-
-&lt;p&gt;and &lt;em&gt;PDI&lt;/em&gt; as&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; PDI = \frac{\sum_{i=2}(\mathbf{P}_1-\mathbf{P}_i)}{R-1} &lt;/script&gt;
-
-&lt;p&gt;It’s easy to prove that if all values of &lt;strong&gt;P&lt;/strong&gt; are either 0 or 1, then &lt;em&gt;PDI&lt;/em&gt;
-= &lt;em&gt;RR&lt;/em&gt;. In this situation, the species in question has &lt;em&gt;r&lt;/em&gt; times 1 in &lt;strong&gt;P&lt;/strong&gt;,
-and &lt;em&gt;R-r&lt;/em&gt; times 0 in &lt;strong&gt;P&lt;/strong&gt;. In other words, for the first &lt;em&gt;r&lt;/em&gt; elements of
-&lt;strong&gt;P&lt;/strong&gt;, &lt;strong&gt;P&lt;/strong&gt;[1]-&lt;strong&gt;P&lt;/strong&gt;[i] = 0, and for the remaining (&lt;em&gt;R-r&lt;/em&gt;) elements,
-&lt;strong&gt;P&lt;/strong&gt;[1]-&lt;strong&gt;P&lt;/strong&gt;[i] = 1. The numerator of &lt;em&gt;PDI&lt;/em&gt; is thus &lt;em&gt;R-r&lt;/em&gt;, so the
-expression of &lt;em&gt;PDI&lt;/em&gt; is the same as the expression of &lt;em&gt;RR&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Previously, we and others discussed the fact that specificity ought to be
-separated in its “interactions” and “impacts” components, &lt;em&gt;i.e.&lt;/em&gt; (i) how many
-resources do I exploit, and (ii) how are my performances distributed. With &lt;em&gt;RR&lt;/em&gt;
-and &lt;em&gt;PDI&lt;/em&gt;, it might seem that we have the adequate tool to measure both sides
-of the specificity. There’s more to do with these measures, though. Because
-&lt;em&gt;RR&lt;/em&gt; is included in &lt;em&gt;PDI&lt;/em&gt; (it’s easy to show that &lt;em&gt;PDI&lt;/em&gt; &amp;amp;geq; &lt;em&gt;RR&lt;/em&gt;), &lt;em&gt;PDI&lt;/em&gt; also
-measures an “association” component of specificity. But then again, the
-specificity of impact makes sense if you first consider the specificity of
-associations before. So we can start thinking of this problem as an additive
-partition of specificity:&lt;/p&gt;
-
-&lt;p&gt;Specificity = associations + impacts&lt;/p&gt;
-
-&lt;p&gt;Luckily, we know that &lt;em&gt;RR&lt;/em&gt; measures the specificity of associations, and the
-impacts are accounted for by &lt;em&gt;PDI&lt;/em&gt;, so in measurable terms, the above becomes&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;PDI&lt;/em&gt; = &lt;em&gt;RR&lt;/em&gt; + &lt;em&gt;I&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;This additive partition makes sense, because if you go back to the
-demonstration of &lt;em&gt;PDI = RR&lt;/em&gt;, it’s straightforward that whenever performances
-are different across resources, the first &lt;em&gt;r&lt;/em&gt; elements of &lt;strong&gt;P&lt;/strong&gt;[1]-&lt;strong&gt;P&lt;/strong&gt;[i]
-will be &lt;em&gt;greater&lt;/em&gt; than 0, so the numerator will be &lt;em&gt;greater&lt;/em&gt; than &lt;em&gt;R-r&lt;/em&gt;, so
-&lt;em&gt;PDI&lt;/em&gt; will be superior or equal to &lt;em&gt;RR&lt;/em&gt;. How much greater it will be is the
-importance of different performances on specificity. Or in other words, when
-you do not have informations to measure specificity of impacts, all of the
-specificity is because of associations.&lt;/p&gt;
-
-&lt;p&gt;Now what? Well, we can start measuring how much of the total specificity
-(&lt;em&gt;PDI&lt;/em&gt;) is due to specificity of associations only (&lt;em&gt;RR&lt;/em&gt;/&lt;em&gt;PDI&lt;/em&gt;), and how much
-                                                          is due to specificity
-                                                          of impacts only
-                                                          (&lt;em&gt;I&lt;/em&gt;/&lt;em&gt;PDI&lt;/em&gt;). As far
-                                                                as I can tell,
-                                                                the couple
-                                                               &lt;em&gt;PDI&lt;/em&gt;-&lt;em&gt;RR&lt;/em&gt; is
-                                                               the only pair of
-                                                               measures that
-                                                               allow to do that
-                                                               (though there
-                                                               are other
-                                                               approaches) in
-                                                               a context where
-                                                               you can show
-                                                               that one measure
-                                                               is a component
-                                                               of the other.
-                                                               Here is a &lt;code&gt;R&lt;/code&gt;
-                                                               function to do
-                                                               it using the
-                                                               &lt;code&gt;ESM&lt;/code&gt; package
-                                                               (&lt;a href=&quot;https://r-forge.r-project.org/R/?group_id=593&quot;&gt;from
-                                                               R-Forge&lt;/a&gt;).&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;library&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ESM&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-sap &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;P&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   Spe &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; pdi&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;P&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   Ass &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rr&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;P&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   Imp &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Spe &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; Ass
-   &lt;span class=&quot;kr&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;list&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-      specificity  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Spe&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      associations &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Ass&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      impacts      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Imp&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      assoc_rel    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Ass &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; Spe&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      impac_rel    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Imp &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; Spe
-      &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Let’s do some simple examples, and contrast to species with the same number of
-resources, but a very high performance on resource 2, or a very low performance
-on resource 3:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-  specificity associations      impacts    assoc_rel    impac_rel 
-  &lt;span class=&quot;m&quot;&gt;0.500500000&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.500000000&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.000500000&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.999000999&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;0.000999001&lt;/span&gt; 
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; unlist&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;sap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-  specificity associations      impacts    assoc_rel    impac_rel 
-  &lt;span class=&quot;m&quot;&gt;0.9995000&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.5000000&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.4995000&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.5002501&lt;/span&gt;    &lt;span class=&quot;m&quot;&gt;0.4997499&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;In the second example, because the performance on the second resource is much
-almost zero, the &lt;em&gt;RR&lt;/em&gt; and &lt;em&gt;I&lt;/em&gt; components are almost as important to understand
-specificity (whereas it’s not the case in the first example, wherein you can
-assume that &lt;strong&gt;P&lt;/strong&gt;[2] = 1 without changing the big picture.&lt;/p&gt;
 </content>
   </entry>
   
