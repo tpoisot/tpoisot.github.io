@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,86 +42,15 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>I have been reviewing a lot more software / methodological papers these
-days, which led me to think about open <em>vs.</em> closed software (even more
-than usual). By <em>closed</em>, I mean any software that would require me to pay
-to be able to reproduce the method, either directly, or through a licence
-costing money to the university. Think <em>Mathematica</em>, <em>matlab</em>, or any other
-commercial tools. Despite what <a href="http://www.quantumforest.com/2013/12/should-i-reject-a-manuscript-because-the-analyses-werent-done-using-open-source-software/">some</a> would have you believe, the way
-analyses are done in a “traditional” research paper (<q>Here is my experiment,
-here are the analyses I have been doing, and here are my conclusions</q>)
-is an entirely different piece of work. When I review such papers, I care
-very little about the software used to obtain the results. And of course,
-it’s difficult to reproduce a field survey or a large lab experiment, and
-no amount of free software will change that.</p>
+               <p>I have been reviewing a lot more software / methodological papers these days, which led me to think about open <em>vs.</em> closed software (even more than usual). By <em>closed</em>, I mean any software that would require me to pay to be able to reproduce the method, either directly, or through a licence costing money to the university. Think <em>Mathematica</em>, <em>matlab</em>, or any other commercial tools. Despite what <a href="http://www.quantumforest.com/2013/12/should-i-reject-a-manuscript-because-the-analyses-werent-done-using-open-source-software/">some</a> would have you believe, the way analyses are done in a “traditional” research paper (<q>Here is my experiment, here are the analyses I have been doing, and here are my conclusions</q>) is an entirely different piece of work. When I review such papers, I care very little about the software used to obtain the results. And of course, it’s difficult to reproduce a field survey or a large lab experiment, and no amount of free software will change that.</p>
+<p>But software papers, <em>i.e.</em> either papers presenting a new software, or relying heavily on computer code (<em>i.e.</em> most simulation studies), are defined largely by their computability. So let’s jump straight to the conclusion: would I reject such a paper because the code relies on closed software? <strong>No</strong>, for two reasons. The first reason is highly personal: I would not accept to review it in the first place. My condition to review a software paper is to be able to understand and evaluate the code, so if I can’t run the software or understand what it does, I won’t review the paper. The second reason is that, ultimately, the important thing in a software paper is the method described, and so as long as I can reproduce what the authors propose, and it is a useful addition to the methodological toolkit, there is no reason to reject the paper. An additional reason is that I am a co-author on at least two (<em>in prep.</em>) papers using closed software, and I won’t hold others to a higher standard than the one I hold myself to…</p>
+<p>That being said, there are extremely strong arguments to be made in favor of using Free and Open-Source Software (FOSS) whenever possible. For one thing, and although it’s easy to forget that coming from a <em>rich</em> university, not everyone can afford to pay a software license. Tools that are relevant for conservation may be unavailalbe to NGOs if they need to pay to use them. Even in the academic world, researchers from developing countries, may have a hard time justifying spending thousands of dollars on software when there are free alternatives available. My (highly personal) point of view is that using FOSS software is part of the collective responsibility to lower the access fee to science.</p>
+<p>Now that we know that <a href="https://peerj.com/articles/175/">open data</a> is associated with an increased citation rate, I wonder whether the same is true of FOSS-using papers. I can think a couple reasons for why it should be the case. Describing a new method is much like explaining a recipe. But I’m much less likely to cook true <em>crêpes</em> from Britanny, which require a bulky and expensive <em>billlig</em>, than I am to cook the regular version that I can do at home with my frying pan. Wow, that is a bad metaphor, it almost reads like FOSS is the cheap knock-off version of science. Never mind… In any case, offering users a way to apply an analysis at no cost is a good incentive to using your method. And now that almost anyone knows and uses R (especially students), you can reach ~100% of your field this way.</p>
+<p>But what should we do when no FOSS software can do the particular analysis one wants to do? This is a valid and difficult question. It’s obvious that what matters most is to have the most solid result one can get using the currently available tools. But on the other hand, contributing new software is an activity in itself, that is starting to be recognized as such. Porting a good method into FOSS is probably going to get you some recognition withing your community. <em>ImpactStory</em> let you track the impact of software releases through <em>e.g.</em> <em>GitHub</em>. For example, the <em>ImpactStory</em> page <a href="http://impactstory.org/timpoisot/product/puktfnm5rj97v383zwo6smlp">for the <code>digitize</code> package</a> I wrote in one afternoon because I wanted to know whether it (it: extracting data from published scatterplots) could be done, show that people found this package useful. While it’s true that writing useful code is not as appreciated as writing papers that get cited, the development of new metrics will probably make it increasingly rewarding. And the less people have to pay, the more likely they are to use your code.</p>
+<p>At the very least, if your code requires proprietary software to run, pick a <a href="http://choosealicense.com/">FOSS license</a>. There are tools (like <em>Choose a license</em>, linked just before) that will allow you to select licenses according to your needs. Even if people can’t <em>run</em> the software, they can see how it works, and translate it in another language it they need it. Starting in January, all <a href="http://www.britishecologicalsociety.org/publications/">BES journals</a> will require that <em>data</em> are available, free of charge and in a repository, when the paper is accepted - and the goal is clear: allow reprodubilityand re-use. Perhaps the same type of initiatives should be progressively introduced for code. And this is the part where, as referees, we can start making a small difference: by suggesting appropriate FOSS licenses if the authors have not done so. It will help software spread, and the most methods we have at our disposal, the most likely we have to find the right one to solve a problem.</p>
+<div class="references">
 
-<p>But software papers, <em>i.e.</em> either papers presenting a new software,
-or relying heavily on computer code (<em>i.e.</em> most simulation studies),
-are defined largely by their computability. So let’s jump straight to the
-conclusion: would I reject such a paper because the code relies on closed
-software? <strong>No</strong>, for two reasons. The first reason is highly personal:
-I would not accept to review it in the first place. My condition to review
-a software paper is to be able to understand and evaluate the code, so if
-I can’t run the software or understand what it does, I won’t review the
-paper. The second reason is that, ultimately, the important thing in a
-software paper is the method described, and so as long as I can reproduce
-what the authors propose, and it is a useful addition to the methodological
-toolkit, there is no reason to reject the paper. An additional reason is that
-I am a co-author on at least two (<em>in prep.</em>) papers using closed software,
-and I won’t hold others to a higher standard than the one I hold myself to…</p>
-
-<p>That being said, there are extremely strong arguments to be made in favor
-of using Free and Open-Source Software (FOSS) whenever possible. For one
-thing, and although it’s easy to forget that coming from a <em>rich</em> university,
-not everyone can afford to pay a software license. Tools that are relevant
-for conservation may be unavailalbe to NGOs if they need to pay to use
-them. Even in the academic world, researchers from developing countries,
-may have a hard time justifying spending thousands of dollars on software
-when there are free alternatives available. My (highly personal) point of
-view is that using FOSS software is part of the collective responsibility
-to lower the access fee to science.</p>
-
-<p>Now that we know that <a href="https://peerj.com/articles/175/">open data</a> is associated with an increased
-citation rate, I wonder whether the same is true of FOSS-using papers. I
-can think a couple reasons for why it should be the case. Describing a new
-method is much like explaining a recipe. But I’m much less likely to cook
-true <em>crêpes</em> from Britanny, which require a bulky and expensive <em>billlig</em>,
-than I am to cook the regular version that I can do at home with my frying
-pan. Wow, that is a bad metaphor, it almost reads like FOSS is the cheap
-knock-off version of science. Never mind… In any case, offering users
-a way to apply an analysis at no cost is a good incentive to using your
-method. And now that almost anyone knows and uses R (especially students),
-you can reach ~100% of your field this way.</p>
-
-<p>But what should we do when no FOSS software can do the particular analysis
-one wants to do? This is a valid and difficult question. It’s obvious
-that what matters most is to have the most solid result one can get using
-the currently available tools. But on the other hand, contributing new
-software is an activity in itself, that is starting to be recognized as
-such. Porting a good method into FOSS is probably going to get you some
-recognition withing your community. <em>ImpactStory</em> let you track the impact
-of software releases through <em>e.g.</em> <em>GitHub</em>. For example, the <em>ImpactStory</em>
-page <a href="http://impactstory.org/timpoisot/product/puktfnm5rj97v383zwo6smlp">for the <code>digitize</code> package</a> I wrote in one afternoon because I
-wanted to know whether it (it: extracting data from published scatterplots)
-could be done, show that people found this package useful. While it’s true that
-writing useful code is not as appreciated as writing papers that get cited, the
-development of new metrics will probably make it increasingly rewarding. And
-the less people have to pay, the more likely they are to use your code.</p>
-
-<p>At the very least, if your code requires proprietary software to run,
-pick a <a href="http://choosealicense.com/">FOSS license</a>. There are tools (like <em>Choose a license</em>,
-linked just before) that will allow you to select licenses according to your
-needs. Even if people can’t <em>run</em> the software, they can see how it works,
-and translate it in another language it they need it. Starting in January,
-all <a href="http://www.britishecologicalsociety.org/publications/">BES journals</a> will require that <em>data</em> are available, free of
-charge and in a repository, when the paper is accepted - and the goal is
-clear: allow reprodubilityand re-use. Perhaps the same type of initiatives
-should be progressively introduced for code. And this is the part where, as
-referees, we can start making a small difference: by suggesting appropriate
-FOSS licenses if the authors have not done so. It will help software spread,
-and the most methods we have at our disposal, the most likely we have to
-find the right one to solve a problem.</p>
-
+</div>
 
 
 
@@ -149,84 +71,7 @@ find the right one to solve a problem.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

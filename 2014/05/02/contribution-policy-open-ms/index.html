@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,75 +42,18 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>A few months ago, lab-mate and PhD candidate extraordinaire Philippe
-Desjardins-Proulx proposed <a href="http://phdp.github.io/posts/2013-07-22-scriptopia.html">scriptoria</a>, a system to track manuscripts that are
-being developed on <em>GitHub</em> (and other version control systems). It’s a cool
-project, because it will allow everyone to access in progress manuscripts,
-and allow people to give feedback <em>before</em> the papers reach the referees. In
-the true spirit of open source software collaborative development, it will
-also allow anyone to find projects (manuscripts) in which one can make a
-valid contribution, fork them, and contribute.</p>
+               <p>A few months ago, lab-mate and PhD candidate extraordinaire Philippe Desjardins-Proulx proposed <a href="http://phdp.github.io/posts/2013-07-22-scriptopia.html">scriptoria</a>, a system to track manuscripts that are being developed on <em>GitHub</em> (and other version control systems). It’s a cool project, because it will allow everyone to access in progress manuscripts, and allow people to give feedback <em>before</em> the papers reach the referees. In the true spirit of open source software collaborative development, it will also allow anyone to find projects (manuscripts) in which one can make a valid contribution, fork them, and contribute.</p>
+<p>The thing is, not anyone is OK with people proposing changes to their manuscript. And because <code>scriptoria</code> will rely on a set of meta-data, it is time to start thinking about how we can encode our willingness to see others contribute to our work. If you find an in-progress manuscript you might be able to contribute to, before you put any substantial effort in it, this will tell you the chance that the authors will accept your contribution.</p>
+<p>This scale will serve as a primitive social contract between the authors and other potential contributors. It will tell whether modifications are accepted, and how the authors will react if modifications are submitted and accepted. Note that in all cases, authors are entirely free to reject contributions they don’t like. Which brings me to the most central point about how to contribute to an open manuscript: <strong>do not fork it to write a slightly different paper</strong>. Seriously, that’s just bad form. And seeing that we are dealing with text, it’s straight up plagiarism. Be a good sport, and if your contribution is rejected, raise the issue (eventually) in a post-publication forum.</p>
+<p>Anyways. What I envision is a linear scale, ranging from <code>0</code> to <code>3</code>, with higher values indicating a less and less open attitude. Here is a brief summary of the different levels.</p>
+<p>The first degree (which I think should <em>not</em> be the default) is <code>0</code>. All contributions are welcome, and any substantial <em>addition</em> to the paper (text, analysis, figure) which is accepted will result in co-authorship. This is my personal default, but I appreciate that not everyone is comfortable working this way.</p>
+<p>The second degree (<code>1</code>) is what I think should be the default. Contributions are welcome <em>after consultation with the authors</em>. This can take the form of opening an issue. State the change you would like to make, how you plan to make it, and if you have in principle approval, go ahead with your contribution (fork the repository, then make a pull request). With this mode of contributions, authors retain a lot of control on their paper.</p>
+<p>The next degree (<code>2</code>) is where authors only welcome <em>minor</em> contributions. Typically, you will not claim co-authorship, because the authors will only accept small changes (typos, suggestions of better references, ways to make a paragraph clearer). Most of that can be done in Issues, rather than by forking the project. If you are writing a “Forum” or similar type of paper, or if you know excatly what you want to do with your results and are not open to changes, then this level of openness is good. You will still encourage users to help on the manuscript, just not in any major way.</p>
+<p>The final degree (<code>3</code>) is <em>Keep Off!</em>. The authors want their manuscript to be online for a variety of reasons (transparency, accountability, early exposure), but they are not welcome to contributions. This is a valid position. Consider that any manuscript with this level of openness is <em>read-only</em>.</p>
+<p>There you have it. I don’t know whether these suggestions will be in the released version of <code>scriptoria</code>, but I think these are issues we should be adressing now. The “tradition” for open-source projects is to have a file called <code>CONTRIBUTING</code> at the root of the project, in which the ways of suggesting changes and the “culture” of contribution for a particular project are outlined. Manuscripts are (hopefully) going to be shorter lived than most open source software (once the paper is accepted, the repository is only useful as an archive), so we can go for a simpler system. But being upfront about whether contributions are welcome is important, and so a standardized way of saying it would only help.</p>
+<div class="references">
 
-<p>The thing is, not anyone is OK with people proposing changes to their
-manuscript. And because <code>scriptoria</code> will rely on a set of meta-data, it
-is time to start thinking about how we can encode our willingness to see
-others contribute to our work. If you find an in-progress manuscript you
-might be able to contribute to, before you put any substantial effort in it,
-this will tell you the chance that the authors will accept your contribution.</p>
-
-<p>This scale will serve as a primitive social contract between the authors
-and other potential contributors. It will tell whether modifications are
-accepted, and how the authors will react if modifications are submitted
-and accepted. Note that in all cases, authors are entirely free to reject
-contributions they don’t like. Which brings me to the most central point
-about how to contribute to an open manuscript: <strong>do not fork it to write
-a slightly different paper</strong>. Seriously, that’s just bad form. And seeing
-that we are dealing with text, it’s straight up plagiarism. Be a good sport,
-and if your contribution is rejected, raise the issue (eventually) in a
-post-publication forum.</p>
-
-<p>Anyways. What I envision is a linear scale, ranging from <code>0</code> to <code>3</code>, with
-higher values indicating a less and less open attitude. Here is a brief
-summary of the different levels.</p>
-
-<p>The first degree (which I think should <em>not</em> be the default) is <code>0</code>. All
-contributions are welcome, and any substantial <em>addition</em> to the paper (text,
-analysis, figure) which is accepted will result in co-authorship. This is my
-personal default, but I appreciate that not everyone is comfortable working
-this way.</p>
-
-<p>The second degree (<code>1</code>) is what I think should be the default. Contributions
-are welcome <em>after consultation with the authors</em>. This can take the form
-of opening an issue. State the change you would like to make, how you
-plan to make it, and if you have in principle approval, go ahead with your
-contribution (fork the repository, then make a pull request). With this mode
-of contributions, authors retain a lot of control on their paper.</p>
-
-<p>The next degree (<code>2</code>) is where authors only welcome <em>minor</em>
-contributions. Typically, you will not claim co-authorship, because the authors
-will only accept small changes (typos, suggestions of better references,
-ways to make a paragraph clearer). Most of that can be done in Issues,
-rather than by forking the project. If you are writing a “Forum” or similar
-type of paper, or if you know excatly what you want to do with your results
-and are not open to changes, then this level of openness is good. You will
-still encourage users to help on the manuscript, just not in any major way.</p>
-
-<p>The final degree (<code>3</code>) is <em>Keep Off!</em>. The authors want their manuscript to be
-online for a variety of reasons (transparency, accountability, early exposure),
-but they are not welcome to contributions. This is a valid position. Consider
-that any manuscript with this level of openness is <em>read-only</em>.</p>
-
-<p>There you have it. I don’t know whether these suggestions will be in the
-released version of <code>scriptoria</code>, but I think these are issues we should
-be adressing now. The “tradition” for open-source projects is to have a
-file called <code>CONTRIBUTING</code> at the root of the project, in which the ways
-of suggesting changes and the “culture” of contribution for a particular
-project are outlined. Manuscripts are (hopefully) going to be shorter lived
-than most open source software (once the paper is accepted, the repository
-is only useful as an archive), so we can go for a simpler system. But being
-upfront about whether contributions are welcome is important, and so a
-standardized way of saying it would only help.</p>
-
+</div>
 
 
 
@@ -138,84 +74,7 @@ standardized way of saying it would only help.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

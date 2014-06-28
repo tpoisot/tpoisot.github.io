@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,28 +42,11 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>Since this summer, I work with models that generate massive amounts
-of output. This weekend batch of simulations resulted in 20+ Gig of raw
-data. This particular model outputs very variable data. The number of
-lines/columns (were I working in a tabular format) would be unpredictable,
-vary across simulations, and generally be a little bit too massive to work
-with (simply) in <code>R</code>. But I’ve been using <code>JSON</code> for a while now, and it
-makes working with these types of data (not the “several Gig” types, the
-“highly heterogeneous” type) easy.</p>
-
-<p>I love <code>JSON</code> because it can be validated. Running a command like <code>jsonlint
-file.json</code> will either return me the pretty-printed version of the file,
-or an error telling me where the file is not conforming to the <code>JSON</code>
-specification. Or in other words, when I read something in memory, I’m
-confident it is indeed a correctly formated file.</p>
-
-<p>But wait, there’s more! In <code>JSON</code>, you can define <em>schemes</em>, or a <code>JSON</code>
-file telling you (or a validator) what other <code>JSON</code> files should look
-like. Which means that it’s possible to check that a particular file is
-correctly formatted <em>with regard to a previously described data format</em>. I
-use the <code>jsonschema</code> python module to do that:</p>
-
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">json</span>
+               <p>Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in <code>R</code>. But I’ve been using <code>JSON</code> for a while now, and it makes working with these types of data (not the “several Gig” types, the “highly heterogeneous” type) easy.</p>
+<p>I love <code>JSON</code> because it can be validated. Running a command like <code>jsonlint file.json</code> will either return me the pretty-printed version of the file, or an error telling me where the file is not conforming to the <code>JSON</code> specification. Or in other words, when I read something in memory, I’m confident it is indeed a correctly formated file.</p>
+<p>But wait, there’s more! In <code>JSON</code>, you can define <em>schemes</em>, or a <code>JSON</code> file telling you (or a validator) what other <code>JSON</code> files should look like. Which means that it’s possible to check that a particular file is correctly formatted <em>with regard to a previously described data format</em>. I use the <code>jsonschema</code> python module to do that:</p>
+<div class="highlight">
+<pre><code class="python"><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">jsonschema</span> <span class="kn">import</span> <span class="n">validate</span>
 <span class="c"># Read the JSON scheme file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;scheme.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -84,48 +60,20 @@ use the <code>jsonschema</code> python module to do that:</p>
 <span class="k">except</span> <span class="p">:</span>
    <span class="k">print</span> <span class="s">&quot;Not valid&quot;</span>
 <span class="k">else</span> <span class="p">:</span>
-   <span class="k">print</span> <span class="s">&quot;Valid&quot;</span></code></pre></div>
+   <span class="k">print</span> <span class="s">&quot;Valid&quot;</span></code></pre>
+</div>
+<p>And because a<code>JSON</code> scheme has <a href="http://json-schema.org/">field for description of each element</a>, your output is essentially self-described. Someone with no prior knowledge of how you organized your data can take your results, check that they conform to the specification, and see what each element of the output file represents.</p>
+<p>Although I haven’t bothered to write a scheme (yet), you can see how <code>JSON</code> can contain a lot of heterogeneous informations in an easy to read format <a href="https://github.com/tpoisot/manna">on the <code>manna</code> index page</a>: the output files give informations about the species, and for each time steps, the number of individuals, and each individual interaction.</p>
+<p>While it’s true this information is not extremely complicated, it’s still simpler to have it in this form, rather than as a text file. But <code>JSON</code> truly shines when <em>reading</em> the data. In the above example, if the <code>op</code> object contains a list of species, each having a body size called <code>bs</code>, then we can get the mean body size with</p>
+<div class="highlight">
+<pre><code class="python"><span class="n">m_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">sp</span><span class="p">[</span><span class="s">&#39;bs&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="n">op</span><span class="p">])</span></code></pre>
+</div>
+<p><code>R</code> can also read <code>JSON</code> well with the <code>rjson</code> package. This returns a <code>list</code> representation of the <code>JSON</code> file, so it’s easy to manipulate <code>JSON</code> objects with <code>l*ply</code> functions in <code>plyr</code>. So now, most of my models work in the same way. I write one <code>JSON</code> file for each simulation (or variations thereof) into an <code>output</code> folder. Then I read through each file with <code>python</code> and/or <code>R</code>, and I have a great time doing it!</p>
+<p>The main drawback of <code>JSON</code> (<a href="http://www.alcides-mp.com/?p=1">as pointed out here</a> are that it must be read in memory entirely before it’s used (and it gets parsed at this time too). Or in other words, it can be slow. But it’s a good thing! I found out that it forces me to (i) aim for the most concise representation possible, and (ii) split the output in chunks when needed. These chunks can be read in parallel later, and re-assembled, so I don’t try to load files of a few hundreds Mb at times.</p>
+<p>So now, go try <code>JSON</code> for yourself. In the <code>manna</code> program linked above, there are examples with (admittedly badly written) <code>R</code> files to read and manipulate <code>JSON</code> outputs. And keep in mind that when you’ll be coming back to your output files in six months, you’ll be glad to have a verbose format and a scheme describing it to understand what is going on…!</p>
+<div class="references">
 
-<p>And because a<code>JSON</code> scheme has <a href="http://json-schema.org/">field for description of each element</a>,
-your output is essentially self-described. Someone with no prior knowledge
-of how you organized your data can take your results, check that they conform
-to the specification, and see what each element of the output file represents.</p>
-
-<p>Although I haven’t bothered to write a scheme (yet), you can see how <code>JSON</code>
-can contain a lot of heterogeneous informations in an easy to read format
-<a href="https://github.com/tpoisot/manna">on the <code>manna</code> index page</a>: the output files give informations about
-the species, and for each time steps, the number of individuals, and each
-individual interaction.</p>
-
-<p>While it’s true this information is not extremely complicated, it’s still
-simpler to have it in this form, rather than as a text file. But <code>JSON</code>
-truly shines when <em>reading</em> the data. In the above example, if the <code>op</code>
-object contains a list of species, each having a body size called <code>bs</code>,
-then we can get the mean body size with</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">m_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">sp</span><span class="p">[</span><span class="s">&#39;bs&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="n">op</span><span class="p">])</span></code></pre></div>
-
-<p><code>R</code> can also read <code>JSON</code> well with the <code>rjson</code> package. This returns a <code>list</code>
-representation of the <code>JSON</code> file, so it’s easy to manipulate <code>JSON</code> objects
-with <code>l*ply</code> functions in <code>plyr</code>. So now, most of my models work in the same
-way. I write one <code>JSON</code> file for each simulation (or variations thereof)
-into an <code>output</code> folder. Then I read through each file with <code>python</code> and/or
-<code>R</code>, and I have a great time doing it!</p>
-
-<p>The main drawback of <code>JSON</code> (<a href="http://www.alcides-mp.com/?p=1">as pointed out here</a> are that it must be
-read in memory entirely before it’s used (and it gets parsed at this time
-too). Or in other words, it can be slow. But it’s a good thing! I found out
-that it forces me to (i) aim for the most concise representation possible,
-and (ii) split the output in chunks when needed. These chunks can be read
-in parallel later, and re-assembled, so I don’t try to load files of a few
-hundreds Mb at times.</p>
-
-<p>So now, go try <code>JSON</code> for yourself. In the <code>manna</code> program linked above, there
-are examples with (admittedly badly written) <code>R</code> files to read and manipulate
-<code>JSON</code> outputs. And keep in mind that when you’ll be coming back to your
-output files in six months, you’ll be glad to have a verbose format and a
-scheme describing it to understand what is going on…!</p>
-
+</div>
 
 
 
@@ -146,84 +94,7 @@ scheme describing it to understand what is going on…!</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

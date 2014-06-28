@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -50,26 +43,26 @@
 			<div class="main">
             <span class="content">
                <p>Following yesterday’s post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I’ll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
-
 <p>For this particular example, I assume that the data are in a matrix, in <code>csv</code> format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is:</p>
-
-<div class="highlight"><pre><code class="text">site , spa  , spb  , spc  , spd , spe 
+<div class="highlight">
+<pre><code class="text">site , spa  , spb  , spc  , spd , spe 
 a    , 1    , 0.4  , 0.2  , 1.0 , 0.2 
 b    , 0.9  , 0.7  , 0.1  , 0.4 , 0.1 
 c    , 0.2  , 0.8  , 0.05 , 0.7 , 0.05
 d    , 0.1  , 0.81 , 0.07 , 0.1 , 0.12
 e    , 0.01 , 0.82 , 0.09 , 0.6 , 0.15
-f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
-
+f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre>
+</div>
 <p>The end result is as follows:</p>
+<div class="stackbardemo barplot d3">
 
-<div class="stackbardemo barplot d3"></div>
+</div>
 <!-- stackbardemo.csv -->
 <script type="text/javascript" src="/data/stackbardemo.js"></script>
 
 <p>Generating the small axes on the left was the most tricky part, and I used a probably sub-optimal way to do it:</p>
-
-<div class="highlight"><pre><code class="javascript"><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight">
+<pre><code class="javascript"><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
        <span class="kd">var</span> <span class="nx">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
       <span class="nx">d</span><span class="p">.</span><span class="nx">temp</span> <span class="o">=</span> <span class="nx">color</span><span class="p">.</span><span class="nx">domain</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
@@ -87,9 +80,12 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
       <span class="p">});</span>
     <span class="p">};</span>
-  <span class="p">});</span></code></pre></div>
-
+  <span class="p">});</span></code></pre>
+</div>
 <p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I’d be really interested in finding a way to do without the <code>forEach</code> part.</p>
+<div class="references">
+
+</div>
 
 
 
@@ -110,84 +106,7 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

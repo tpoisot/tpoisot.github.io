@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,91 +42,17 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>R packages are one of the best tools we have. It’s a library of 1000s
-of functions ready to be used, all wrapped in a single common language,
-and it’s free. I wrote some, and used even more. When I review a paper,
-upon seeing “we used function <code>x</code> in the version 2.3 of package <code>y</code>”,
-I know a lot about what the authors have been doing (and I can check the
-help of this function for references and additional details). And obviously,
-training students about which packages are widely used in a particular field
-is an important task, because it will ensure that they will speak the same
-language as other scientists in the field.</p>
+               <p>R packages are one of the best tools we have. It’s a library of 1000s of functions ready to be used, all wrapped in a single common language, and it’s free. I wrote some, and used even more. When I review a paper, upon seeing “we used function <code>x</code> in the version 2.3 of package <code>y</code>”, I know a lot about what the authors have been doing (and I can check the help of this function for references and additional details). And obviously, training students about which packages are widely used in a particular field is an important task, because it will ensure that they will speak the same language as other scientists in the field.</p>
+<p>Because packages (often) represent the <em>state of the art</em> in a particular field, or because they offer a unified interface to a lot of different methods (<code>simecol</code> is a good example of that), it’s important that students know how to use them (and most importantly, which packages to use). To some extent, packages are just another tool, like PCR or statistics. Knowing how to use them (properly) saves time, and opens new possibilities for analyses. And let’s just be realistic, everyone uses packages. All the time. So yes, of course, the students should be familiar with the most important in their field.</p>
+<p>An important point is that we also start to see the development of <em>package ecosystems</em>. The <a href="http://ropensci.org/packages/index.html"><em>rOpenSci</em></a> project is an example of that. They propose a lot of different packages whose common purpose is to interact with databases and API for science, but the real power is offered by the ability to integrate several of these packages <a href="http://ropensci.org/usecases/index.html">in a single analysis</a>. Want to get the list of species in a country, and check which are invasive, then plot that onto their phylogenetic tree? It can be done. Another well known example is the <code>plyr</code>/<code>reshape2</code>/<code>ggplot2</code> combo, which is (seriously) the only reason I still have to start <code>R</code> at least once a day.</p>
+<p>So on one hand, packages are really good, because they save time and allow to do an analysis which (hopefully) conforms with the current set of “best practices” in the field. On the other hand, when you start working <em>only</em> with what the packages have to offer, you can severely limit your creativity. There are questions that will require new code to be written, and you’ll most likely hit obstacles along the ways. That, too, should be something the students encounter during their training.</p>
+<p>And this is when the limits of <code>R</code> start to show. As John Cook said (<a href="http://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science">source</a>), “I find it more helpful to think of R as having a programming language than being a programming language”. I would never have put that so eloquently, and it is entirely ture. Over the last two months, I gave a graduate training class on <em>Algorithms and programming for environmental sciences</em>, in which I tried to discuss how to make “good” (robust, user-friendly, stupid-proof) programs. Regardless of what the students learned, I definitely realized that <code>R</code> is a <em>huge mess</em> when you try to work outside of packages, or do something else than statistics. Interestingly, even Hadley Whickam’s forthcoming <a href="http://adv-r.had.co.nz/"><em>Advanced R development</em></a> starts by saying that it will show how <em>what seems horrible is merely “not that bad”</em> (go read the book, by the way, it’s great). And so understanding <em>what</em> to do often comes second to understanding <em>how to do it</em>.</p>
+<p>The (many, many) quirks of <code>R</code> nonwithstanding, working with a package and doing something new are two different approaches. The former involves looking at the examples, and reading the documentatin to see what each function does. The later requires a working knowledge of the language, and some notions of algorithmic. Yet, judging from my observations, these two different exercices are often (and let’s not forget statistics) presented together, under the general denomination of <code>R</code>. And when, afterwards, students complain of “not getting <code>R</code>”, it’s hard to tell whether what they don’t get is what exactly a <code>while</code> loop does (which is not a <code>R</code>-specific issue), or why a <code>data.frame</code> is also a <code>list</code> and a <code>matrix</code> (which is a reasonable question, and quite specific to <code>R</code>); you may know how to do statistics with <code>R</code>, or use <code>vegan</code> or <code>picante</code>, but not know <code>R</code> (or the other way around).</p>
+<p>The point I’m slowly getting at is that you’ll most likely end up in a situation which is not covered by <em>any</em> package available. Or, as a student, you’ll have to modify a code for a group project, which means re-writing some functions, or changing the data structure. Part of the training should prepare students to do this kind of things. Rather than using a pre-made function to calculate a Shannon’s index, or even find the maximal value in an array, let’s walk students through the writing of this function.</p>
+<p>So, to conclude, while it’s clear that I have a love/hate relationship with <code>R</code>, I think it’s still an invaluable tool for teaching, especially in undergraduate courses. <code>python</code> might be as easy and more coherent, but less people use it (for now…), and <code>R</code> is still the <em>lingua franca</em>. And a part of the success of <code>R</code> is the diversity of available packages. But relying only on packages creates this weird black box situation, in which students will know what the function does, but not necessarily <em>how</em> it does it; and knowing how stuff works is key when you have to create your own stuff. So <strong>pros</strong>, packages are awesome because 90% of what you want to do is already programmed. <strong>Cons</strong>, the remaining 10% will be extremely hard for you to get if you don’t get your hands dirty once in a while, and write things from scratch.</p>
+<div class="references">
 
-<p>Because packages (often) represent the <em>state of the art</em> in a particular
-field, or because they offer a unified interface to a lot of different methods
-(<code>simecol</code> is a good example of that), it’s important that students know how
-to use them (and most importantly, which packages to use). To some extent,
-packages are just another tool, like PCR or statistics. Knowing how to use
-them (properly) saves time, and opens new possibilities for analyses. And
-let’s just be realistic, everyone uses packages. All the time. So yes, of
-course, the students should be familiar with the most important in their field.</p>
-
-<p>An important point is that we also start to see the development of <em>package
-ecosystems</em>. The <a href="http://ropensci.org/packages/index.html"><em>rOpenSci</em></a> project is an example of that. They propose a
-lot of different packages whose common purpose is to interact with databases
-and API for science, but the real power is offered by the ability to integrate
-several of these packages <a href="http://ropensci.org/usecases/index.html">in a single analysis</a>. Want to get the list of
-species in a country, and check which are invasive, then plot that onto
-their phylogenetic tree? It can be done. Another well known example is the
-<code>plyr</code>/<code>reshape2</code>/<code>ggplot2</code> combo, which is (seriously) the only reason I
-still have to start <code>R</code> at least once a day.</p>
-
-<p>So on one hand, packages are really good, because they save time and
-allow to do an analysis which (hopefully) conforms with the current set of
-“best practices” in the field. On the other hand, when you start working
-<em>only</em> with what the packages have to offer, you can severely limit your
-creativity. There are questions that will require new code to be written,
-and you’ll most likely hit obstacles along the ways. That, too, should be
-something the students encounter during their training.</p>
-
-<p>And this is when the limits of <code>R</code> start to show. As John Cook said (<a href="http://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science">source</a>),
-“I find it more helpful to think of R as having a programming language than
-being a programming language”. I would never have put that so eloquently,
-and it is entirely ture. Over the last two months, I gave a graduate training
-class on <em>Algorithms and programming for environmental sciences</em>, in which
-I tried to discuss how to make “good” (robust, user-friendly, stupid-proof)
-programs. Regardless of what the students learned, I definitely realized
-that <code>R</code> is a <em>huge mess</em> when you try to work outside of packages, or
-do something else than statistics. Interestingly, even Hadley Whickam’s
-forthcoming <a href="http://adv-r.had.co.nz/"><em>Advanced R development</em></a> starts by saying that it will
-show how <em>what seems horrible is merely “not that bad”</em> (go read the book,
-by the way, it’s great). And so understanding <em>what</em> to do often comes second
-to understanding <em>how to do it</em>.</p>
-
-<p>The (many, many) quirks of <code>R</code> nonwithstanding, working with a package
-and doing something new are two different approaches. The former involves
-looking at the examples, and reading the documentatin to see what each
-function does. The later requires a working knowledge of the language, and
-some notions of algorithmic. Yet, judging from my observations, these two
-different exercices are often (and let’s not forget statistics) presented
-together, under the general denomination of <code>R</code>. And when, afterwards, students
-complain of “not getting <code>R</code>”, it’s hard to tell whether what they don’t
-get is what exactly a <code>while</code> loop does (which is not a <code>R</code>-specific issue),
-or why a <code>data.frame</code> is also a <code>list</code> and a <code>matrix</code> (which is a reasonable
-question, and quite specific to <code>R</code>); you may know how to do statistics with
-<code>R</code>, or use <code>vegan</code> or <code>picante</code>, but not know <code>R</code> (or the other way around).</p>
-
-<p>The point I’m slowly getting at is that you’ll most likely end up in a
-situation which is not covered by <em>any</em> package available. Or, as a student,
-you’ll have to modify a code for a group project, which means re-writing
-some functions, or changing the data structure. Part of the training should
-prepare students to do this kind of things. Rather than using a pre-made
-function to calculate a Shannon’s index, or even find the maximal value in
-an array, let’s walk students through the writing of this function.</p>
-
-<p>So, to conclude, while it’s clear that I have a love/hate relationship
-with <code>R</code>, I think it’s still an invaluable tool for teaching, especially in
-undergraduate courses. <code>python</code> might be as easy and more coherent, but less
-people use it (for now…), and <code>R</code> is still the <em>lingua franca</em>. And a part
-of the success of <code>R</code> is the diversity of available packages. But relying
-only on packages creates this weird black box situation, in which students
-will know what the function does, but not necessarily <em>how</em> it does it; and
-knowing how stuff works is key when you have to create your own stuff. So
-<strong>pros</strong>, packages are awesome because 90% of what you want to do is already
-programmed. <strong>Cons</strong>, the remaining 10% will be extremely hard for you to
-get if you don’t get your hands dirty once in a while, and write things
-from scratch.</p>
-
+</div>
 
 
 
@@ -154,84 +73,7 @@ from scratch.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,72 +42,16 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>Literally one of the first things I told my students in the first lecture of
-the <em>Population and Community Dynamics</em> class I gave last winter was along the
-lines of <em>an ecological community is the pool of all species occuring at the
-same place and at the same time (and the interactions between them)</em>. This is
-more or a less a synthesis of what you can find in the first pages of Peter
-Morin’s textbook, for example; and so far, I was relatively satisfied by this
-definition.
-<span class="margin">Leaper <em>et al.</em> (2014) <em>Ecology</em> <a href="http://dx.doi.org/10.1890/13-0789.1">DOI</a> </span>
-Then a few weeks ago, I read the Leaper <em>et al.</em> paper in <em>Ecology</em>, which
-uses co-occurrence data from marine species to question the “classical”
-definition of a community. Their most important finding is that, when
-clustering species in a large spatial dataset, there are groups of highly
-correlated species. The interesting thing is that these groups are not unique
-to any particular location, and are not necessarily found together. Or in
-short, “communities” are a mix between the two definitions of “whatever is
-found locally” and “the most characteristic species of an assemblage”.</p>
-
-<p>As I was writing this post, <a href="http://evol-eco.blogspot.ca/2014/01/a-multiplicity-of-communities-for.html">Caroline Tucker</a> wrote a very interesting
-piece on the <em>multiplicity of ecological communities</em>. Which you should read,
-because it covers a lot of the ground I was planning on covering (and I had to
-delete a few paragraphs). Let’s just say I am glad that the first time I get
-scooped is for a blog post and not for a paper. So just go read Caroline’s
-piece, but then come back, because I will try to put another twist on the
-subject. Specifically, should we adapt our message when teaching?</p>
-
-<p>The end of Caroline’s piece is that we should not try to have a
-one-size-fits-none definition of what an ecological community is. I thought
-it was the only significant weakness of Mark Vellend’s otherwise excellent
-synthesis from a few years ago: a definition of a community which is as
-simple as the one I gave in the introduction of this post.
-<span class="margin"> Vellend (2010) <em>Quart Rev Biol</em> <a href="http://www.ncbi.nlm.nih.gov/pubmed/20565040">PubMed</a></span>
-Defining communities this way has one distinct advantage: it is straightforward
-to go from community to meta-communities (<em>a bunch of communities connected
-by the dispersal of at least one of their species</em>). But the important point
-is that the world is most likely not discrete, and the elegant framework of
-meta-everything is probably not going to hold in its entirety in continuous
-landscapes.</p>
-
-<p>So looking back, I am thinking that the nice tale we are telling students is
-(i) probably not relevant at the local scale, because it considers that the
-qaudrat we work on is a perfectly isolated island, and (ii) probably not
-relevant at the regional scale either, because it does not expands nicely to
-a continuous spatial context. What should we tell then? I think it would be
-an interesting discussion, to present the “simple” definition of a community
-to students, and get them to understand when it breaks. How do you define the
-area you consider to define a community? What if the environment is always
-moving (like lagoons, intertidal zones, …)? What if you started walking,
-from your sampling point, in the same direction; when do you leave the zone
-“defined” by your community?</p>
-
-<p>Another interesting approach would be to compare this definition to classical
-large scale experimental systems. Looking at the list of the <em>greatest</em>
-ecological experiments proposed by <a href="http://dynamicecology.wordpress.com/2014/01/13/whats-the-greatest-ecology-experiment-in-history/">Jeremy Fox and in the comments</a>,
-or just showing pictures of Huffaker’s oranges, or the Adirondack lakes, on
-any microcosm setup, should lead to the realization that most of these systems
-conform to the discrete theory (counterpoint: <em>Barro Colorado Island</em>). Coming
-back to the paper by Leaper <em>et al.</em>, it is actually hardly surprising that
-marine biologists are once more pushing the ideas that discrete communities
-may make very little sense: dispersion is cheap and easy in the oceans, and for
-some functional groups, it is entirely passive (McManus &amp; Woodson propose nice
-evidence that this mode of dispersal will “assemble” consistent communities).
-<span class="margin">McManus &amp; Woodson (2012) <em>J Exp Biol</em> <a href="http://www.ncbi.nlm.nih.gov/pubmed/22357594">PubMed</a></span>
-In short, there is a tremendous opportunity to engage with students on the
-relationship between <em>what</em> we study, <em>how</em> we study it, and how it can
-<em>shape</em> the theoretical background we develop to make sense of observations.</p>
-
+               <p>Literally one of the first things I told my students in the first lecture of the <em>Population and Community Dynamics</em> class I gave last winter was along the lines of <em>an ecological community is the pool of all species occuring at the same place and at the same time (and the interactions between them)</em>. This is more or a less a synthesis of what you can find in the first pages of Peter Morin’s textbook, for example; and so far, I was relatively satisfied by this definition. Then a few weeks ago, I read the <span class="citation" data-cites="lea14">Leaper et al. (2014)</span> paper in <em>Ecology</em>, which uses co-occurrence data from marine species to question the “classical” definition of a community. Their most important finding is that, when clustering species in a large spatial dataset, there are groups of highly correlated species. The interesting thing is that these groups are not unique to any particular location, and are not necessarily found together. Or in short, “communities” are a mix between the two definitions of “whatever is found locally” and “the most characteristic species of an assemblage”.</p>
+<p>As I was writing this post, <a href="http://evol-eco.blogspot.ca/2014/01/a-multiplicity-of-communities-for.html">Caroline Tucker</a> wrote a very interesting piece on the <em>multiplicity of ecological communities</em>. Which you should read, because it covers a lot of the ground I was planning on covering (and I had to delete a few paragraphs). Let’s just say I am glad that the first time I get scooped is for a blog post and not for a paper. So just go read Caroline’s piece, but then come back, because I will try to put another twist on the subject. Specifically, should we adapt our message when teaching?</p>
+<p>The end of Caroline’s piece is that we should not try to have a one-size-fits-none definition of what an ecological community is. I thought it was the only significant weakness of Mark Vellend’s otherwise excellent synthesis <span class="citation" data-cites="vel10">(Vellend 2010)</span> from a few years ago: a definition of a community which is as simple as the one I gave in the introduction of this post. Defining communities this way has one distinct advantage: it is straightforward to go from community to meta-communities (<em>a bunch of communities connected by the dispersal of at least one of their species</em>). But the important point is that the world is most likely not discrete, and the elegant framework of meta-everything is probably not going to hold in its entirety in continuous landscapes.</p>
+<p>So looking back, I am thinking that the nice tale we are telling students is (i) probably not relevant at the local scale, because it considers that the qaudrat we work on is a perfectly isolated island, and (ii) probably not relevant at the regional scale either, because it does not expands nicely to a continuous spatial context. What should we tell then? I think it would be an interesting discussion, to present the “simple” definition of a community to students, and get them to understand when it breaks. How do you define the area you consider to define a community? What if the environment is always moving (like lagoons, intertidal zones, …)? What if you started walking, from your sampling point, in the same direction; when do you leave the zone “defined” by your community?</p>
+<p>Another interesting approach would be to compare this definition to classical large scale experimental systems. Looking at the list of the <em>greatest</em> ecological experiments proposed by <a href="http://dynamicecology.wordpress.com/2014/01/13/whats-the-greatest-ecology-experiment-in-history/">Jeremy Fox and in the comments</a>, or just showing pictures of Huffaker’s oranges, or the Adirondack lakes, on any microcosm setup, should lead to the realization that most of these systems conform to the discrete theory (counterpoint: <em>Barro Colorado Island</em>). Coming back to the paper by Leaper <em>et al.</em>, it is actually hardly surprising that marine biologists are once more pushing the ideas that discrete communities may make very little sense: dispersion is cheap and easy in the oceans, and for some functional groups, it is entirely passive <span class="citation" data-cites="mcm12">(McManus and Woodson 2012 propose nice evidence that this mode of dispersal will “assemble” consistent communities)</span>. In short, there is a tremendous opportunity to engage with students on the relationship between <em>what</em> we study, <em>how</em> we study it, and how it can <em>shape</em> the theoretical background we develop to make sense of observations.</p>
+<div class="references">
+<p>Leaper, R. et al. 2014. Do communities exist? Complex patterns of overlapping marine species distributions. - Ecology in press.</p>
+<p>McManus, M. A. and Woodson, C. B. 2012. Plankton distribution and ocean dispersal. - The Journal of experimental biology 215: 1008–1016.</p>
+<p>Vellend, M. 2010. Conceptual synthesis in community ecology. - The Quarterly Review of Biology 85: 183–206.</p>
+</div>
 
 
 
@@ -135,84 +72,7 @@ relationship between <em>what</em> we study, <em>how</em> we study it, and how i
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

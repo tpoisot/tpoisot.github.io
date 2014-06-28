@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -50,80 +43,79 @@
 			<div class="main">
             <span class="content">
                <p>I’m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I’ll just detail how it possible to get this information quickly using <code>networkx</code>.</p>
-
 <div class="alert alert-info">
-<h4>Warning!</h4>
-I'm just using this post to take notes on code I'm currently working on.
+<h4>
+Warning!
+</h4>
+I’m just using this post to take notes on code I’m currently working on.
 </div>
-
 <p><span class="margin">Saavedra et al. <em>Nature</em> <strong>478</strong> <a href="http://dx.doi.org/10.1038/nature10433">DOI</a></span>Saavedra and colleagues proposed a method which is based on the randomization of the interactions of each species in the network. In a nutshell, to measure the contribution of a node to a network metric, you need to shuffle its interactions, and measure the difference between the original and shuffled network. This makes a whole lot of sense, and has the advantage of keeping size and connectance constant. But in my particular case, I’m more interested in measuring what happens when a node is lost, and how it affects the structure of the network. I’ll show how to do that in <code>python</code>.</p>
-
 <p>Let’s set up our environment. We need <code>networkx</code> and <code>numpy</code>, but let’s also load <code>matplotlib</code> for the visualization.</p>
-
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+<div class="highlight">
+<pre><code class="python"><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span></code></pre></div>
-
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span></code></pre>
+</div>
 <p><span class="margin">The Louvain method is used by <em>Gephi</em>. It’s extremely fast on large graphs, and give results comparable to simulated annealing methods.</span>I’ll use modularity as an example metric. For large graphs, the <a href="https://sites.google.com/site/findcommunities/"><em>Louvain</em> method</a> works well, and by chance there is <a href="http://perso.crans.org/aynaud/communities/">a <code>networkx</code> implementation of it</a>. So let’s download it and place it in the folder with the rest of the files, then load it with</p>
-
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">community</span></code></pre></div>
-
+<div class="highlight">
+<pre><code class="python"><span class="kn">import</span> <span class="nn">community</span></code></pre>
+</div>
 <p>The next step is to create a function which will remove each node in sequence, from the network, and return a copy of it. There is a <code>remove_nodes_from</code> method of graph objects, but it modifies the original copy. Fortunately we don’t need to be very elegant here, and so the basic function is:</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">removeNode</span><span class="p">(</span><span class="n">web</span><span class="p">,</span><span class="n">node</span><span class="p">):</span>
-	<span class="n">tempWeb</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-	<span class="n">tempWeb</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
-	<span class="n">tempWeb</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
-	<span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">([</span><span class="n">node</span><span class="p">])</span>
-	<span class="k">return</span> <span class="n">tempWeb</span></code></pre></div>
-
-<p>The hardest work is done! Now, we need to go through the following steps.   
-<strong>1.</strong> Get the original value of modularity   
-<strong>2.</strong> Loop through each node, and calculate the delta of modularity</p>
-
+<div class="highlight">
+<pre><code class="python"><span class="k">def</span> <span class="nf">removeNode</span><span class="p">(</span><span class="n">web</span><span class="p">,</span><span class="n">node</span><span class="p">):</span>
+    <span class="n">tempWeb</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+    <span class="n">tempWeb</span><span class="o">.</span><span class="n">remove_nodes_from</span><span class="p">([</span><span class="n">node</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">tempWeb</span></code></pre>
+</div>
+<p>The hardest work is done! Now, we need to go through the following steps.<br /><strong>1.</strong> Get the original value of modularity<br /><strong>2.</strong> Loop through each node, and calculate the delta of modularity</p>
 <p>So let’s write a function returning only the modularity value. The <code>community</code> package does more than that, of course, but for the purposes of this simple example, this will be enough.</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">getModularity</span><span class="p">(</span><span class="n">web</span><span class="p">):</span>
-	<span class="n">D</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
-	<span class="n">dendo</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">generate_dendogram</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-	<span class="n">partition</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">partition_at_level</span><span class="p">(</span><span class="n">dendo</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dendo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">community</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span></code></pre></div>
-
+<div class="highlight">
+<pre><code class="python"><span class="k">def</span> <span class="nf">getModularity</span><span class="p">(</span><span class="n">web</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+    <span class="n">dendo</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">generate_dendogram</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">partition</span> <span class="o">=</span> <span class="n">community</span><span class="o">.</span><span class="n">partition_at_level</span><span class="p">(</span><span class="n">dendo</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dendo</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">community</span><span class="o">.</span><span class="n">modularity</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span></code></pre>
+</div>
 <p>With that in hands, we can start the analysis. Assuming that we have an edgelist representation of our network, it’s easy to load it and get its modularity:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="s">&#39;network.txt&#39;</span><span class="p">)</span>
-<span class="n">orig_mod</span> <span class="o">=</span> <span class="n">getModularity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span></code></pre></div>
-
+<div class="highlight">
+<pre><code class="python"><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_edgelist</span><span class="p">(</span><span class="s">&#39;network.txt&#39;</span><span class="p">)</span>
+<span class="n">orig_mod</span> <span class="o">=</span> <span class="n">getModularity</span><span class="p">(</span><span class="n">G</span><span class="p">)</span></code></pre>
+</div>
 <p>The final step is to compare every possible network with one species removed to the original one. And this is why I love <code>python</code>, because as <code>networkx</code> objects are <a href="http://networkx.github.com/documentation/latest/reference/classes.digraph.html">iterable</a>, this is a one-liner:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeNode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">]</span></code></pre></div>
-
+<div class="highlight">
+<pre><code class="python"><span class="n">delta_mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">orig_mod</span><span class="o">-</span><span class="n">getModularity</span><span class="p">(</span><span class="n">removeNode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">]</span></code></pre>
+</div>
 <p><span class="margin">It’s just as easy to iterate on the <em>edges</em> rather than the <em>nodes</em>. Which actually makes more sense for modularity…</span>In clear, for each node called <code>n</code> in the network <code>G</code>, we substract the modularity of the network <code>G</code> with <code>n</code> removed from the original modularity. So what does it looks like?</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">delta_mod</span><span class="p">),</span><span class="s">&#39;ok&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
-
+<div class="highlight">
+<pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">delta_mod</span><span class="p">),</span><span class="s">&#39;ok&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre>
+</div>
 <p>This will generate the following output:</p>
-
-<p><img src="/images/nodcontr-s1.png" alt="Figure1" /></p>
-
+<figure>
+<img src="/images/nodcontr-s1.png" alt="Figure1" /><figcaption>Figure1</figcaption>
+</figure>
 <p>Nodes with a value of Δ lower than 0 <em>increase</em> modularity when remove. As you can see, in this particular example, all but 3 nodes <em>decrease</em> modularity when removed. As a final twist, let’s plot the network with the nodes color-coded according to the impact on modularity:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+<div class="highlight">
+<pre><code class="python"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.07</span><span class="p">)</span>
 <span class="n">nodes</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">delta_mod</span><span class="p">,</span>
-	<span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Spectral</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Spectral</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">sci</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
-
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code></pre>
+</div>
 <p>This provides a nice visualization:</p>
-
-<p><img src="/images/nodimpact-gr.png" alt="Figure2" /></p>
-
+<figure>
+<img src="/images/nodimpact-gr.png" alt="Figure2" /><figcaption>Figure2</figcaption>
+</figure>
 <p><span class="margin">The whole code is available as a <a href="https://gist.github.com/tpoisot/4942162">Gist</a></span>The redmost nodes are actually well connected to all modules, and it makes sense that removing them will reinforce modularity. In short, it’s easy to run this analysis with <code>networkx</code>, because the graph objects are iterable. And the other good news is that it’s fast (at least on reasonably sized networks), and in all cases faster than the permutation method I mentioned in the first paragraphs. Now to see how the two correlates (or not)…</p>
+<div class="references">
+
+</div>
 
 
 
@@ -144,84 +136,7 @@ I'm just using this post to take notes on code I'm currently working on.
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

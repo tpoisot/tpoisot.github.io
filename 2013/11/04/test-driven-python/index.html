@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,70 +42,43 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>I’m looking into the methodology of <em>test-driven development</em>, that is when
-you write your tests <em>before</em> writing your code. The advertised benefit is
-that you know in advance the behavior of your code, and it will make it easier
-to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O’Reilly</a> is a good introduction
-(although the exact functions of <code>unittest</code> it uses are now deprecated). To
-get started, I’ll work on a simple script that takes a series of numerical
-values, and divide them by their max, to get the equivalent series of values
-but in [0;1]. Let’s start with the basics:</p>
-
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">unittest</span>     <span class="c"># for testing</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span></code></pre></div>
-
-<p>The first function I’d like to write will be called <code>scale</code>, and it will take a
-(<code>numpy</code>) array of numerical values, and return the same array divided by its
-maximal value. So my first <em>unit test</em> will test that the function performs
-as needed:</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">class</span> <span class="nc">scaleTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TextCase</span><span class="p">):</span>
+               <p>I’m looking into the methodology of <em>test-driven development</em>, that is when you write your tests <em>before</em> writing your code. The advertised benefit is that you know in advance the behavior of your code, and it will make it easier to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O’Reilly</a> is a good introduction (although the exact functions of <code>unittest</code> it uses are now deprecated). To get started, I’ll work on a simple script that takes a series of numerical values, and divide them by their max, to get the equivalent series of values but in [0;1]. Let’s start with the basics:</p>
+<div class="highlight">
+<pre><code class="python"><span class="kn">import</span> <span class="nn">unittest</span>     <span class="c"># for testing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span></code></pre>
+</div>
+<p>The first function I’d like to write will be called <code>scale</code>, and it will take a (<code>numpy</code>) array of numerical values, and return the same array divided by its maximal value. So my first <em>unit test</em> will test that the function performs as needed:</p>
+<div class="highlight">
+<pre><code class="python"><span class="k">class</span> <span class="nc">scaleTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TextCase</span><span class="p">):</span>
    <span class="k">def</span> <span class="nf">testOnKnownResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="n">KnownInput</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
       <span class="n">Scaled</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">KnownInput</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">))</span></code></pre></div>
-
-<p>There are a number of stupid-proofing steps required. First, the function
-cannot work when all values in the array are 0, or if there are negative
-values, so I’ll write a test for that. I want the function <code>scale</code> to raise a
-<code>ValueError</code>.</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">testNegative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">))</span></code></pre>
+</div>
+<p>There are a number of stupid-proofing steps required. First, the function cannot work when all values in the array are 0, or if there are negative values, so I’ll write a test for that. I want the function <code>scale</code> to raise a <code>ValueError</code>.</p>
+<div class="highlight">
+<pre><code class="python"><span class="k">def</span> <span class="nf">testNegative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="n">WithNeg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithNeg</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">testNull</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="n">OnlyNull</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">OnlyNull</span><span class="p">)</span></code></pre></div>
-
-<p>Now I have one test to check that the expected behavior is indeed obtained,
-and two tests to check that the input values are correct. Things are starting
-to look good! The one final thing that I want to enforce is the type of
-inputs. Specifically, I want <code>numpy</code> arrays of numeric types. If this is
-not the case, the <code>scale</code> function will raise a <code>TypeError</code>.</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">testType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">OnlyNull</span><span class="p">)</span></code></pre>
+</div>
+<p>Now I have one test to check that the expected behavior is indeed obtained, and two tests to check that the input values are correct. Things are starting to look good! The one final thing that I want to enforce is the type of inputs. Specifically, I want <code>numpy</code> arrays of numeric types. If this is not the case, the <code>scale</code> function will raise a <code>TypeError</code>.</p>
+<div class="highlight">
+<pre><code class="python"><span class="k">def</span> <span class="nf">testType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="n">WithChar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;0.0&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
-   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithCar</span><span class="p">)</span></code></pre></div>
-
-<p>At this point, even though I haven’t yet wrote a single line of the <code>scale</code>
-function, I know quite well how it should work! Importantly, I know the
-type of data that will come in this function. This is something I like when
-writing code: I need to understand which data go where, and how they are
-formatted and transformed along the way. I try to make students think about
-this when giving courses. What kind of data go in? What kind of data come
-out? This approach forces to determine when and how the function will break,
-and it’s great to have a very clear idea of the data types.</p>
-
-<p>Now is the time to program the actual function. It will take one argument,
-and return another array (the original one is not modified). Let’s write
-the simplest possible form of this function:</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
-
+   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithCar</span><span class="p">)</span></code></pre>
+</div>
+<p>At this point, even though I haven’t yet wrote a single line of the <code>scale</code> function, I know quite well how it should work! Importantly, I know the type of data that will come in this function. This is something I like when writing code: I need to understand which data go where, and how they are formatted and transformed along the way. I try to make students think about this when giving courses. What kind of data go in? What kind of data come out? This approach forces to determine when and how the function will break, and it’s great to have a very clear idea of the data types.</p>
+<p>Now is the time to program the actual function. It will take one argument, and return another array (the original one is not modified). Let’s write the simplest possible form of this function:</p>
+<div class="highlight">
+<pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre>
+</div>
 <p>In most situations, I would have been happy writing the function this way. Let’s integrate it with the test suite, and see how it goes:</p>
-
-<div class="highlight"><pre><code class="python"><span class="c">#! /usr/bin/python2</span>
+<div class="highlight">
+<pre><code class="python"><span class="c">#! /usr/bin/python2</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -125,11 +91,11 @@ the simplest possible form of this function:</p>
    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-   <span class="n">main</span><span class="p">()</span></code></pre></div>
-
+   <span class="n">main</span><span class="p">()</span></code></pre>
+</div>
 <p>Here is the output of running this file:</p>
-
-<div class="highlight"><pre><code class="text">======================================================================
+<div class="highlight">
+<pre><code class="text">======================================================================
 FAIL: testNegative (__main__.scaleTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -145,14 +111,11 @@ self.assertRaises(ValueError, scale, WithNeg)
 AssertionError: ValueError not raised
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
-FAILED (failures=2)</code></pre></div>
-
-<p>There are <em>only</em> two failed tests. This is because <code>testOnKnownResult</code> is
-expected to succeed, and <code>testType</code> will catch the <code>TypeError</code> raised by
-<code>np.max</code> if there are arguments of the bad type. So now I just need to test
-that the argument are not negative, or not only zeroes:</p>
-
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+FAILED (failures=2)</code></pre>
+</div>
+<p>There are <em>only</em> two failed tests. This is because <code>testOnKnownResult</code> is expected to succeed, and <code>testType</code> will catch the <code>TypeError</code> raised by <code>np.max</code> if there are arguments of the bad type. So now I just need to test that the argument are not negative, or not only zeroes:</p>
+<div class="highlight">
+<pre><code class="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
    <span class="c"># We test that values are positive</span>
    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Values of p cannot be smaller than 0&#39;</span><span class="p">)</span>
@@ -160,20 +123,19 @@ that the argument are not negative, or not only zeroes:</p>
    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Values of p cannot be all equal to 0&#39;</span><span class="p">)</span>
    <span class="c"># Finally we return the result</span>
-   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
-
+   <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre>
+</div>
 <p>With these two checks, we can now re-run the tests:</p>
-
-<div class="highlight"><pre><code class="text">....
+<div class="highlight">
+<pre><code class="text">....
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
-OK</code></pre></div>
+OK</code></pre>
+</div>
+<p>Mission accomplished! It requires some discipline to work this way, but I actually enjoyed going through this example. I really like the fact that this approach forces to ask question about the structure of the code first, and write the actual code later.</p>
+<div class="references">
 
-<p>Mission accomplished! It requires some discipline to work this way, but I
-actually enjoyed going through this example. I really like the fact that
-this approach forces to ask question about the structure of the code first,
-and write the actual code later.</p>
-
+</div>
 
 
 
@@ -194,84 +156,7 @@ and write the actual code later.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

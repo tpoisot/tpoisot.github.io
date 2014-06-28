@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -50,26 +43,24 @@
 			<div class="main">
             <span class="content">
                <p>Have you ever sampled interaction networks, and wished there were a good method to measure how dissimilar they are? Or have you ever thought about β-diversity of species interactions? Do you just love good science? If you answered yes to any of these questions, then <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">you should read our <em>Ecology Letters</em> paper, now online</a>. We propose a way to measure the β-diversity of networks (any kind of network, unipartite, bipartite, quantitative, …), and propose some ideas about what we can learn from thinking about these networks in a biogeographical perspective.</p>
-
 <p>When you think about networks over space, it is important to make a distinction between what occurs at the regional and the local level. In short, what happens at the regional level is potential, and the local observation is realized. Species sorting is hardly a groundbreaking idea in ecology, but perhaps we should think more about interactions sorting. Not because two species that can interact co-occur at one site mean that they will interact at this site. In our paper, we propose that the regional pool of species and their interactions be called a <em>metaweb</em>, and what is effectively realized locally be called a <em>realization</em>. These are two key levels of interpretation to understand the β-diversity of networks.</p>
-
-<p><img src="/images/metaweb.png" alt="Figure1 - the metaweb" /></p>
-
+<figure>
+<img src="/images/metaweb.png" alt="Figure1 - the metaweb" /><figcaption>Figure1 - the metaweb</figcaption>
+</figure>
 <p>What we propose in our paper is two-fold. First, we lay out a methodological framework to measure how realizations differ between them. Second, we think about what we can learn from these methods, in terms of networks biogeography. I’ll go shortly over these two aspects in turn. There is an extensive litterature on β-diversity of species composition, which was begging to be adapted to networks. Formally, any set of interactions is a group of two objects, the nodes (species) and the edges (their interactions). Measuring species β-diversity is easy. Measuring β-diversity of interactions is not. The problem is that in order to have an interaction, you have to have two species present. So the β-diversity of interactions is really contingented by the species β-diversity.</p>
-
 <p>Let’s be naïve for a moment. We can simply treat each interaction as an item, which can be shared, or unique, across two sites (we propose a multi-site extension in the paper, but more on that later). This will give us a <em>whole-network dissimilarity</em>, β<sub>WN</sub>. This, obviously is positively correlated with the <em>species dissimilarity</em>, β<sub>S</sub>. But because interactions for which not all species co-occur cannot be compared, we can extract the “common denominator” for both networks, <em>i.e.</em> only the interactions between species present at both sites. We call this the <em>overlapping species dissimilarity</em>, β<sub>OS</sub>. If you want to measure this on your own data, go download the <a href="https://github.com/tpoisot/betalink"><code>betalink</code></a> package for R (see the wiki for a quickstart, and use the Issues page for help). But this paper is not a methods paper, so I’ll put another post online this week to explain how to do the analyses.</p>
-
 <p>The interesting point is that β<sub>S</sub> and β<sub>OS</sub> show no correlation. We can go into some details about what it means, but to be short: species and their interactions are locally sorted by different mechanisms. I will repeat the last slide of my <a href="http://www.confersense.ca/Evolution2012/">Evolution2012</a> presentation: because we can measure a β-diversity of interactions means that we <em>can</em> develop a biogeographic theory for their occurence; because the β-diversity of interactions is not the same that the β-diversity of species mean that we <em>should</em> develop this theory. So how much closer does this paper leaves us from this theory?</p>
-
-<p><img src="/images/IntSpSorting.png" alt="Figure2 - interactions and species sorting" /></p>
-
+<figure>
+<img src="/images/IntSpSorting.png" alt="Figure2 - interactions and species sorting" /><figcaption>Figure2 - interactions and species sorting</figcaption>
+</figure>
 <p>Quoting from the last paragraph:</p>
-
 <blockquote>
-  <p>[F]urther understanding of the processes acting on network structure through space is contingent upon our ability to gather sufficient high-quality data. While it is now easy, and tempting, to build on recent theoretical studies to speculate about what a biogeographical theory of species interaction would look like, it is our opinion that this reasoning would be better grounded in data. [G]athering enough networks to adequately describe the metaweb is a difficult task, and assuming that species co-occurence is enough for an interaction to happen is not a sufficient sampling strategy. For this reason, we think it is time for the community of ecologists interested in interaction networks to engage in a discussion about the best way to gather data from the field, as this will pave the way to a biogeographical theory of species interactions.</p>
+<p>[F]urther understanding of the processes acting on network structure through space is contingent upon our ability to gather sufficient high-quality data. While it is now easy, and tempting, to build on recent theoretical studies to speculate about what a biogeographical theory of species interaction would look like, it is our opinion that this reasoning would be better grounded in data. [G]athering enough networks to adequately describe the metaweb is a difficult task, and assuming that species co-occurence is enough for an interaction to happen is not a sufficient sampling strategy. For this reason, we think it is time for the community of ecologists interested in interaction networks to engage in a discussion about the best way to gather data from the field, as this will pave the way to a biogeographical theory of species interactions.</p>
 </blockquote>
-
 <p>In short, and this was (kind of) the conclusion of my Ottawa talk, we need more data. At this point, it’s easy to do models, and to further speculate on which mechanisms will act. But there are only few datasets on which we can <em>test</em> this speculation, making it a little bit vain. More importantly, we need <em>better</em> (more suited) data. Replication of the same metaweb in space, or time; rich information about the environmental conditions; actual measurement of wether populations locally interact or not; just to name a few. The excellent theoretical work that was done in the last few years is far from useless, but until we go back to the field (or design clever experiments in microcosms…), my impression is that it will not be as beneficial as it should be.</p>
+<div class="references">
+
+</div>
 
 
 
@@ -90,84 +81,7 @@
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,68 +42,26 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>Happy new year, everyone! And to make sure it starts in a good way, let me
-bring you the gift of productivity! Or specifically, how to set-up <code>Vim</code>
-in a way that will transform it into an impressively efficient writing
-environment. <code>Vim</code> is a really good code editor, there is no questioning
-that. But writing code and writing prose are entirely different exercises,
-and some tools you need to efficiently write code are only getting in the
-way when you write prose. But <code>Vim</code> can handle that, and I’m going to share
-my configuration with you.</p>
-
+               <p>Happy new year, everyone! And to make sure it starts in a good way, let me bring you the gift of productivity! Or specifically, how to set-up <code>Vim</code> in a way that will transform it into an impressively efficient writing environment. <code>Vim</code> is a really good code editor, there is no questioning that. But writing code and writing prose are entirely different exercises, and some tools you need to efficiently write code are only getting in the way when you write prose. But <code>Vim</code> can handle that, and I’m going to share my configuration with you.</p>
 <h2 id="the-font">The font</h2>
-
-<p>I care <em>way too much</em> about fonts and typography. And as I spend several
-hours each days looking at a terminal, picking a good font for writing is
-important. What makes a font good will vary from person to person, but there
-are a few common elements. I want glyphs that are easy to differentiate (<code>0</code>
-<em>vs.</em> <code>O</code>, <code>l </code> <em>vs.</em> <code>1</code>, for example), and a font with a good negative
-space, so that reading long paragraphs of texts is not eye-straining. When
-spending a few hours working on a paper, it can make all the difference in
-the world to have a good, easily legible font. I use the <a href="http://www.google.com/fonts/specimen/Cousine">Cousine</a> family,
-which can be freely downloaded. It works well as all sizes, and has a good
-inventory of glyphs.</p>
-
+<p>I care <em>way too much</em> about fonts and typography. And as I spend several hours each days looking at a terminal, picking a good font for writing is important. What makes a font good will vary from person to person, but there are a few common elements. I want glyphs that are easy to differentiate (<code>0</code> <em>vs.</em> <code>O</code>, <code>l</code> <em>vs.</em> <code>1</code>, for example), and a font with a good negative space, so that reading long paragraphs of texts is not eye-straining. When spending a few hours working on a paper, it can make all the difference in the world to have a good, easily legible font. I use the <a href="http://www.google.com/fonts/specimen/Cousine">Cousine</a> family, which can be freely downloaded. It works well as all sizes, and has a good inventory of glyphs.</p>
 <h2 id="the-color-scheme">The color scheme</h2>
-
-<p>No surprise, I use <a href="http://ethanschoonover.com/solarized">Solarized</a> (light). It has a good contrast, and because
-of the beige background, you don’t feel like you are staring at a light
-bulb. And the <code>solarized-vim</code> version comes with quite a very exhaustive
-syntax set, so everything (i) works and (ii) looks great out of the box.</p>
-
+<p>No surprise, I use <a href="http://ethanschoonover.com/solarized">Solarized</a> (light). It has a good contrast, and because of the beige background, you don’t feel like you are staring at a light bulb. And the <code>solarized-vim</code> version comes with quite a very exhaustive syntax set, so everything (i) works and (ii) looks great out of the box.</p>
 <h2 id="the-plugins">The plugins</h2>
-
-<p>Although you can get my entire <a href="https://github.com/tpoisot/dotfiles/blob/master/vimrc"><code>.vimrc</code> file</a> from <em>GitHub</em>, I
-will just walk you through the most important plugins. I manage them using
-<a href="https://github.com/gmarik/vundle">vundle</a>, and the ones I <em>absolutely need</em> to do some serious writing are:</p>
-
-<div class="highlight"><pre><code class="vim">Bundle <span class="s1">&#39;tpope/vim-markdown&#39;</span>
+<p>Although you can get my entire <a href="https://github.com/tpoisot/dotfiles/blob/master/vimrc"><code>.vimrc</code> file</a> from <em>GitHub</em>, I will just walk you through the most important plugins. I manage them using <a href="https://github.com/gmarik/vundle">vundle</a>, and the ones I <em>absolutely need</em> to do some serious writing are:</p>
+<div class="highlight">
+<pre><code class="vim">Bundle <span class="s1">&#39;tpope/vim-markdown&#39;</span>
 Bundle <span class="s1">&#39;mikewest/vimroom&#39;</span>
 Bundle <span class="s1">&#39;vim-pandoc/vim-pandoc&#39;</span>
-Bundle <span class="s1">&#39;altercation/vim-colors-solarized&#39;</span></code></pre></div>
-
-<p>First, <code>vim-markdown</code> and <code>vim-pandoc</code> are extremely powerful extensions for
-(you guessed it), <code>markdown</code> and <code>pandoc</code>. As I used these for <em>everything</em>
-these days, having good plugins is a requirement. They introduce things like
-autocompletion of citations from a <code>bibtex</code> file, and things like <em>replacing
-LaTeX greek letters by the actual greek letter</em>, which means that when you
-are looking at a paragraph, it shows no markup, but the formatting. It’s
-really, really amazing when you want to <em>read</em>.</p>
-
-<p>The most recent addition to this collection is <code>vimroom</code>. This plugins
-attempts to replicate the look and feel of <em>WriteRoom</em>, one of the many, many
-“distraction-free” writing softwares. When editing a document, <code>&lt;leader&gt;V</code>
-will center the text on the screen, with ample white-space on each sides,
-and remove every piece of clutter from the “interface”. It means that, if
-you have a large screen, you don’t need to turn your head all the way to
-the left to read what you are working on.</p>
-
+Bundle <span class="s1">&#39;altercation/vim-colors-solarized&#39;</span></code></pre>
+</div>
+<p>First, <code>vim-markdown</code> and <code>vim-pandoc</code> are extremely powerful extensions for (you guessed it), <code>markdown</code> and <code>pandoc</code>. As I used these for <em>everything</em> these days, having good plugins is a requirement. They introduce things like autocompletion of citations from a <code>bibtex</code> file, and things like <em>replacing LaTeX greek letters by the actual greek letter</em>, which means that when you are looking at a paragraph, it shows no markup, but the formatting. It’s really, really amazing when you want to <em>read</em>.</p>
+<p>The most recent addition to this collection is <code>vimroom</code>. This plugins attempts to replicate the look and feel of <em>WriteRoom</em>, one of the many, many “distraction-free” writing softwares. When editing a document, <code>&lt;leader&gt;V</code> will center the text on the screen, with ample white-space on each sides, and remove every piece of clutter from the “interface”. It means that, if you have a large screen, you don’t need to turn your head all the way to the left to read what you are working on.</p>
 <hr />
+<p>So that’s it! It’s not much work, and it makes for a really pleasant writing experience in <code>Vim</code>. And it’s effortless to switch from “code” to “prose” mode, making <code>Vim</code> a very versatile and productive tool.</p>
+<div class="references">
 
-<p>So that’s it! It’s not much work, and it makes for a really pleasant writing
-experience in <code>Vim</code>. And it’s effortless to switch from “code” to “prose”
-mode, making <code>Vim</code> a very versatile and productive tool.</p>
-
+</div>
 
 
 
@@ -131,84 +82,7 @@ mode, making <code>Vim</code> a very versatile and productive tool.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

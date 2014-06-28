@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,136 +42,92 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share
-things with people, but it’s a little bit slower, and orders of magnitude
-quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the
-<code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with
-<code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
-
-<p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code>
-package (though the core abilities will be here). Rather, I wanted a tool that
-is “pythonic”, easy to use, and programmed extremely defensively so that it
-can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a>
-online, which will hopefully get better over time as I understand the
-<code>sphinx</code> markup.</p>
-
+               <p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share things with people, but it’s a little bit slower, and orders of magnitude quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the <code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with <code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
+<p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code> package (though the core abilities will be here). Rather, I wanted a tool that is “pythonic”, easy to use, and programmed extremely defensively so that it can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a> online, which will hopefully get better over time as I understand the <code>sphinx</code> markup.</p>
 <p>The syntax is relatively similar to that of the <code>rmangal</code> package. Everything starts by the instansiation of a <code>mangal()</code> class.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import pymangal as pm
-&gt;&gt;&gt; api = pm.mangal(url='http://localhost:8000')
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> pymangal <span class="ch">as</span> pm
+&gt;&gt;&gt; api = pm.mangal(url=<span class="st">&#39;http://localhost:8000&#39;</span>)
 &gt;&gt;&gt; api.resources
-[u'interaction', u'network', u'reference', u'taxa', u'trait', u'dataset', u'environment', u'item', u'user', u'population']
-</code></pre>
-
-<p>The methods implemented by the <code>mangal</code> class are <code>List</code>, <code>Get</code>, and <code>Post</code>
-(<code>Patch</code> is coming soon, and <code>Post</code> support is sketchy at best). They work
-almost in the same way as their <code>R</code> counterparts. For example, getting a
-list of all networks can be done with:</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; all_net = api.List('network')
-&gt;&gt;&gt; len(all_net)
-17
-</code></pre>
-
-<p>The only significant difference is that, by default, the <code>python</code> version will only return the first 20 results. If you want more than 20  results, you need to use <code>autopage=True</code>:</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; twenty_taxa = api.List('taxa')
-&gt;&gt;&gt; len(twenty_taxa)
-20
-&gt;&gt;&gt; all_taxa = api.List('taxa', autopage=True)
-&gt;&gt;&gt; len(all_taxa)
-38
-</code></pre>
-
-<p>The <em>big</em> advantage of the <code>python</code> version is that, when uploading data, there
-is a validation of the way they are formatted. Internally, there is a function
-taking care of reading the API scheme, and returning it as a <code>json</code> schema,
-against which data are checked. It’s probably simpler with a demonstration…</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; print json.dumps(api.schemes['trait'], indent=2)
-## I have cut some of the elements for the sake of brevity
+[<span class="st">u&#39;interaction&#39;</span>, <span class="st">u&#39;network&#39;</span>, <span class="st">u&#39;reference&#39;</span>, <span class="st">u&#39;taxa&#39;</span>, <span class="st">u&#39;trait&#39;</span>, <span class="st">u&#39;dataset&#39;</span>, <span class="st">u&#39;environment&#39;</span>, <span class="st">u&#39;item&#39;</span>, <span class="st">u&#39;user&#39;</span>, <span class="st">u&#39;population&#39;</span>]</code></pre>
+<p>The methods implemented by the <code>mangal</code> class are <code>List</code>, <code>Get</code>, and <code>Post</code> (<code>Patch</code> is coming soon, and <code>Post</code> support is sketchy at best). They work almost in the same way as their <code>R</code> counterparts. For example, getting a list of all networks can be done with:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; all_net = api.List(<span class="st">&#39;network&#39;</span>)
+&gt;&gt;&gt; <span class="dt">len</span>(all_net)
+<span class="dv">17</span></code></pre>
+<p>The only significant difference is that, by default, the <code>python</code> version will only return the first 20 results. If you want more than 20 results, you need to use <code>autopage=True</code>:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; twenty_taxa = api.List(<span class="st">&#39;taxa&#39;</span>)
+&gt;&gt;&gt; <span class="dt">len</span>(twenty_taxa)
+<span class="dv">20</span>
+&gt;&gt;&gt; all_taxa = api.List(<span class="st">&#39;taxa&#39;</span>, autopage=<span class="ot">True</span>)
+&gt;&gt;&gt; <span class="dt">len</span>(all_taxa)
+<span class="dv">38</span></code></pre>
+<p>The <em>big</em> advantage of the <code>python</code> version is that, when uploading data, there is a validation of the way they are formatted. Internally, there is a function taking care of reading the API scheme, and returning it as a <code>json</code> schema, against which data are checked. It’s probably simpler with a demonstration…</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">print</span> json.dumps(api.schemes[<span class="st">&#39;trait&#39;</span>], indent=<span class="dv">2</span>)
+<span class="co">## I have cut some of the elements for the sake of brevity</span>
 {
-   "$schema": "http://json-schema.org/draft-04/schema#", 
-   "required": [
-      "value", 
-      "owner", 
-      "name"
+   <span class="st">&quot;$schema&quot;</span>: <span class="st">&quot;http://json-schema.org/draft-04/schema#&quot;</span>, 
+   <span class="co">&quot;required&quot;</span>: [
+      <span class="st">&quot;value&quot;</span>, 
+      <span class="co">&quot;owner&quot;</span>, 
+      <span class="co">&quot;name&quot;</span>
    ], 
-   "type": "object", 
-   "properties": {
-      "name": {
-         "type": "string", 
-         "description": "The name of the measured trait"
+   <span class="co">&quot;type&quot;</span>: <span class="st">&quot;object&quot;</span>, 
+   <span class="co">&quot;properties&quot;</span>: {
+      <span class="st">&quot;name&quot;</span>: {
+         <span class="st">&quot;type&quot;</span>: <span class="st">&quot;string&quot;</span>, 
+         <span class="co">&quot;description&quot;</span>: <span class="st">&quot;The name of the measured trait&quot;</span>
       }, 
-      "value": {
-         "type": "string", 
-         "description": "The value of the trait"
+      <span class="co">&quot;value&quot;</span>: {
+         <span class="st">&quot;type&quot;</span>: <span class="st">&quot;string&quot;</span>, 
+         <span class="co">&quot;description&quot;</span>: <span class="st">&quot;The value of the trait&quot;</span>
       }, 
-      "units": {
-         "type": "string", 
-         "description": "Units in which the trait was measured"
+      <span class="co">&quot;units&quot;</span>: {
+         <span class="st">&quot;type&quot;</span>: <span class="st">&quot;string&quot;</span>, 
+         <span class="co">&quot;description&quot;</span>: <span class="st">&quot;Units in which the trait was measured&quot;</span>
       }
    }, 
-   "title": "Autogenerated JSON schema"
-}
-</code></pre>
-
-<p>The data are validated <em>automatically</em>, so you don’t have to bother about checking them yourself. For example, let’s try with a badly formatted, and with a correctly formatted, taxa <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; bad_taxa = {'name': 'Vulpes lagopus', 'vernacular': 'arctic fox', 'eol': 1053894, 'status': 'valid'}
-# "valid" is not an acceptable value for "status" ("confirmed" is)
-&gt;&gt;&gt; ok_taxa = {'name': 'Vulpes lagopus', 'vernacular': 'arctic fox', 'eol': 1053894, 'status': 'confirmed'}
+   <span class="co">&quot;title&quot;</span>: <span class="st">&quot;Autogenerated JSON schema&quot;</span>
+}</code></pre>
+<p>The data are validated <em>automatically</em>, so you don’t have to bother about checking them yourself. For example, let’s try with a badly formatted, and with a correctly formatted, taxa:<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; bad_taxa = {<span class="st">&#39;name&#39;</span>: <span class="st">&#39;Vulpes lagopus&#39;</span>, <span class="st">&#39;vernacular&#39;</span>: <span class="st">&#39;arctic fox&#39;</span>, <span class="st">&#39;eol&#39;</span>: <span class="dv">1053894</span>, <span class="st">&#39;status&#39;</span>: <span class="st">&#39;valid&#39;</span>}
+<span class="co"># &quot;valid&quot; is not an acceptable value for &quot;status&quot; (&quot;confirmed&quot; is)</span>
+&gt;&gt;&gt; ok_taxa = {<span class="st">&#39;name&#39;</span>: <span class="st">&#39;Vulpes lagopus&#39;</span>, <span class="st">&#39;vernacular&#39;</span>: <span class="st">&#39;arctic fox&#39;</span>, <span class="st">&#39;eol&#39;</span>: <span class="dv">1053894</span>, <span class="st">&#39;status&#39;</span>: <span class="st">&#39;confirmed&#39;</span>}
 
 &gt;&gt;&gt; arctic_fox = 
-&gt;&gt;&gt; arctic_fox = api.Post('taxa', bad_taxa)
-# Skipping some lines...
-jsonschema.exceptions.ValidationError: 'valid' is not one of [u'confirmed', u'trophic species', u'morphospecies', u'nomen dubium', u'nomen oblitum', u'nomen nudum', u'nomen novum', u'nomen conservandum', u'species inquirenda']
+&gt;&gt;&gt; arctic_fox = api.Post(<span class="st">&#39;taxa&#39;</span>, bad_taxa)
+<span class="co"># Skipping some lines...</span>
+jsonschema.exceptions.ValidationError: <span class="st">&#39;valid&#39;</span> is not one of [<span class="st">u&#39;confirmed&#39;</span>, <span class="st">u&#39;trophic species&#39;</span>, <span class="st">u&#39;morphospecies&#39;</span>, <span class="st">u&#39;nomen dubium&#39;</span>, <span class="st">u&#39;nomen oblitum&#39;</span>, <span class="st">u&#39;nomen nudum&#39;</span>, <span class="st">u&#39;nomen novum&#39;</span>, <span class="st">u&#39;nomen conservandum&#39;</span>, <span class="st">u&#39;species inquirenda&#39;</span>]
 
-Failed validating 'enum' in schema['properties'][u'status']:
-{'description': u'The taxonomic status of the taxa.',
-   'enum': [u'confirmed',
-   u'trophic species',
-   u'morphospecies',
-   u'nomen dubium',
-   u'nomen oblitum',
-   u'nomen nudum',
-   u'nomen novum',
-   u'nomen conservandum',
-   u'species inquirenda'],
-'type': u'string'}
+Failed validating <span class="st">&#39;enum&#39;</span> in schema[<span class="st">&#39;properties&#39;</span>][<span class="st">u&#39;status&#39;</span>]:
+{<span class="st">&#39;description&#39;</span>: <span class="st">u&#39;The taxonomic status of the taxa.&#39;</span>,
+   <span class="co">&#39;enum&#39;</span>: [<span class="st">u&#39;confirmed&#39;</span>,
+   <span class="co">u&#39;trophic species&#39;</span>,
+   <span class="co">u&#39;morphospecies&#39;</span>,
+   <span class="co">u&#39;nomen dubium&#39;</span>,
+   <span class="co">u&#39;nomen oblitum&#39;</span>,
+   <span class="co">u&#39;nomen nudum&#39;</span>,
+   <span class="co">u&#39;nomen novum&#39;</span>,
+   <span class="co">u&#39;nomen conservandum&#39;</span>,
+   <span class="co">u&#39;species inquirenda&#39;</span>],
+<span class="co">&#39;type&#39;</span>: <span class="st">u&#39;string&#39;</span>}
 
-On instance[u'status']:
-'valid'
+On instance[<span class="st">u&#39;status&#39;</span>]:
+<span class="co">&#39;valid&#39;</span>
 
-&gt;&gt;&gt; arctic_fox = api.Post('taxa', ok_taxa)
-&gt;&gt;&gt; arctic_fox['id']
-103
-</code></pre>
-
-<p>Note that the <code>validate</code> function of the <code>jsonschema</code> will tell you what is
-wrong with the data, and show you the relevant excerpt from the schema. This
-really helps finding out what it wrong with the data you try to upload.</p>
-
+&gt;&gt;&gt; arctic_fox = api.Post(<span class="st">&#39;taxa&#39;</span>, ok_taxa)
+&gt;&gt;&gt; arctic_fox[<span class="st">&#39;id&#39;</span>]
+<span class="dv">103</span></code></pre>
+<p>Note that the <code>validate</code> function of the <code>jsonschema</code> will tell you what is wrong with the data, and show you the relevant excerpt from the schema. This really helps finding out what it wrong with the data you try to upload.</p>
 <hr />
+<p>As a final note: I am using <em><a href="https://coveralls.io/r/mangal-wg/pymangal">Coveralls.io</a></em> for the first time, and I am extremely impressed. In short, <em>coveralls</em> will read the results of the <code>coverage</code> command, and tell you the proportion of your code with corresponding test cases. <em>Coveralls</em> is integrated with <em>TravisCI</em>, a continuous integration engine runnign the test suite each time I commit changes to the <em>GitHub</em> repository (so I have confirmation that the new versions pass the tests). And finally, the documentation is auto-generated using <em>Read The Docs</em>, which extracts the informations directly from the code. These are really impressive tools to work with, and they kind of force good practices upon you – which is a good thing.</p>
+<div class="references">
 
-<p>As a final note: I am using <em><a href="https://coveralls.io/r/mangal-wg/pymangal">Coveralls.io</a></em> for the first time,
-and I am extremely impressed. In short, <em>coveralls</em> will read the results
-of the <code>coverage</code> command, and tell you the proportion of your code with
-corresponding test cases. <em>Coveralls</em> is integrated with <em>TravisCI</em>, a
-continuous integration engine runnign the test suite each time I commit
-changes to the <em>GitHub</em> repository (so I have confirmation that the new
-versions pass  the tests). And finally, the documentation is auto-generated
-using <em>Read The Docs</em>, which extracts the informations directly from the
-code. These are really impressive tools to work with, and they kind of force
-good practices upon you – which is a good thing.</p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p>As usual, posting and patching requires that you have a username and password. There will be a way to register through the <code>python</code> package in the future. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
 </div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>As usual, posting and patching requires that you have a username and password. There will be a way to register through the <code>python</code> package in the future.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
 
 
 
@@ -199,84 +148,7 @@ good practices upon you – which is a good thing.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -50,22 +43,18 @@
 			<div class="main">
             <span class="content">
                <p>I’m starting to organize a collection of notes and ideas I’ve had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I’ll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would be appealing to people.</p>
-
 <p>Let’s imagine that you go to your local coffee shop, and order a bagel. A tasty, garnished, bagel, with bacon, eggs, and all. You order it, you pay for it. The barista makes it, and it looks delicious. As you are already imagining yourself biting into the thing, the guy behind the counter calls you, and say “Hey, look, I made you a bagel!”. He then takes your money, put the bagel behind the counter, and walk away. Were this situation to happen, it’s likely that you’ll ask for you bagel, or your money back.</p>
-
 <p>But as far as papers go, we are living this situation (the <em>bagel effect</em>) every day. When you see a paper, when you read it, you have to take the author’s word for it. You can <em>see</em> the data, presented as figures, tables, and text, but you can’t <em>taste</em> them. You can’t reproduce the results, and you can’t certainly use these data to do <em>some more, new, exciting science</em>, because the data are not yours.</p>
-
 <p>This is the core of the problem: some people still feel like <em>their</em> data belong to <em>them</em>. Not so long ago I asked a bunch of people (whose identity do not matter at all) to give me their data, which were published 15 years ago. Their reply was that they would be really happy to do so, <em>if I list them as co-authors in the paper whether they contributed or not</em>. This was such an unrealistic expectation that I thought it was a clever joke. It was not. I didn’t used the data.</p>
-
-<p>I’m sure most people will have personal anecdotes like this to tell. I’ve also had really positive ones. Someone saved me a lot of energy early in my PhD by giving away a few thousand lines of computer codes. I’ve received an impressive dataset which resulted in a paper and a new collaboration (sadly I’m still to convince my co-authors to fully release the data). One of my papers was made possible only <em>because</em> the <a href="http://www.nceas.ucsb.edu/interactionweb/resources.html">IWDB</a> exists. This reminded me of a sentence Claude Bernard quoted in its Introduction to the Study of Experimental Medicine <em>way</em> back in the 1860s: </p>
-
+<p>I’m sure most people will have personal anecdotes like this to tell. I’ve also had really positive ones. Someone saved me a lot of energy early in my PhD by giving away a few thousand lines of computer codes. I’ve received an impressive dataset which resulted in a paper and a new collaboration (sadly I’m still to convince my co-authors to fully release the data). One of my papers was made possible only <em>because</em> the <a href="http://www.nceas.ucsb.edu/interactionweb/resources.html">IWDB</a> exists. This reminded me of a sentence Claude Bernard quoted in its Introduction to the Study of Experimental Medicine <em>way</em> back in the 1860s:</p>
 <blockquote>
-  <p>Art, is me; science, is us.</p>
+<p>Art, is me; science, is us.</p>
 </blockquote>
-
 <p>Anything less than a collaborative effort is an ego-trip, and if you refuse this collective effort to happen, then you are slowing down the scientific process. Because instead of looking at existing data, we are forced to invest time, money, and expertise into the collection of new ones. This is really wasteful process, and they are probably really good ideas that are left unexplored because some people hold on to their data so much.</p>
-
 <p>Now, the paper I’m drafting will have a far better arguments / anecdotes ratio (hopefully). Meanwhile I’d be happy to hear about how you would try to convince people to release their data, and if you had great success in doing so.</p>
+<div class="references">
+
+</div>
 
 
 
@@ -86,84 +75,7 @@
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

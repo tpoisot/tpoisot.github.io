@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,99 +42,22 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>A while ago, we published a paper in <em>Methods in Ecology &amp; Evolution</em>,
-<a href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/">comparing different ways to estimate ecological
-specificity</a>
-on binary (presence/absence) and quantitative data. All the measures we
-review, and the one we introduce, work in the same way: for an organism,
-species, population, you have an array <strong>P</strong> of its performances across <em>R</em>
-different environments, which is (1) sorted decreasingly, and (2) ranged so
-that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is
-a modification of Schoener’s generality), and <em>PDI</em> (which is first
-formally introduced in this paper), which measures how fast
-performance decreases when you move away from the optimal environment
-(the faster it decays, the more specialized you are).</p>
-
-<p>The main advantage of <em>PDI</em> is that it relates extremely well to the
-<em>definition</em> of what specificity is: a rapid decay of performance on resources
-which are not your own optimum (regardless of the <em>absolute</em> performance on
-this optimal resource, which is why we set <strong>P</strong>[1] = 1). <em>PDI</em> is
-nothing more that the sum of performance lost by not being on the optimal
-resource, divided by the number of non-optimal resources. Somewhere in the end
-of the paper, we write that when the data are binary, <em>RR</em> and <em>PDI</em> are
-equivalent. For some reason that still eludes me, the demonstration did not
-make its way in the final version of the paper. So let’s start with it. First,
-for an organism of which the performances are measured in <em>R</em>
-environments, of which it has a performance higher than 0 in <em>r</em>, we
-define <em>RR</em> as</p>
-
+               <p>A while ago, we published a paper in <em>Methods in Ecology &amp; Evolution</em>, <a href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/">comparing different ways to estimate ecological specificity</a> on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array <strong>P</strong> of its performances across <em>R</em> different environments, which is (1) sorted decreasingly, and (2) ranged so that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is a modification of Schoener’s generality), and <em>PDI</em> (which is first formally introduced in this paper), which measures how fast performance decreases when you move away from the optimal environment (the faster it decays, the more specialized you are).</p>
+<p>The main advantage of <em>PDI</em> is that it relates extremely well to the <em>definition</em> of what specificity is: a rapid decay of performance on resources which are not your own optimum (regardless of the <em>absolute</em> performance on this optimal resource, which is why we set <strong>P</strong>[1] = 1). <em>PDI</em> is nothing more that the sum of performance lost by not being on the optimal resource, divided by the number of non-optimal resources. Somewhere in the end of the paper, we write that when the data are binary, <em>RR</em> and <em>PDI</em> are equivalent. For some reason that still eludes me, the demonstration did not make its way in the final version of the paper. So let’s start with it. First, for an organism of which the performances are measured in <em>R</em> environments, of which it has a performance higher than 0 in <em>r</em>, we define <em>RR</em> as</p>
 <script type="math/tex; mode=display"> RR = \frac{R-r}{R-1} </script>
 
 <p>and <em>PDI</em> as</p>
-
 <script type="math/tex; mode=display"> PDI = \frac{\sum_{i=2}(\mathbf{P}_1-\mathbf{P}_i)}{R-1} </script>
 
-<p>It’s easy to prove that if all values of <strong>P</strong> are either 0 or 1, then <em>PDI</em>
-= <em>RR</em>. In this situation, the species in question has <em>r</em> times 1 in <strong>P</strong>,
-and <em>R-r</em> times 0 in <strong>P</strong>. In other words, for the first <em>r</em> elements of
-<strong>P</strong>, <strong>P</strong>[1]-<strong>P</strong>[i] = 0, and for the remaining (<em>R-r</em>) elements,
-<strong>P</strong>[1]-<strong>P</strong>[i] = 1. The numerator of <em>PDI</em> is thus <em>R-r</em>, so the
-expression of <em>PDI</em> is the same as the expression of <em>RR</em>.</p>
-
-<p>Previously, we and others discussed the fact that specificity ought to be
-separated in its “interactions” and “impacts” components, <em>i.e.</em> (i) how many
-resources do I exploit, and (ii) how are my performances distributed. With <em>RR</em>
-and <em>PDI</em>, it might seem that we have the adequate tool to measure both sides
-of the specificity. There’s more to do with these measures, though. Because
-<em>RR</em> is included in <em>PDI</em> (it’s easy to show that <em>PDI</em> &amp;geq; <em>RR</em>), <em>PDI</em> also
-measures an “association” component of specificity. But then again, the
-specificity of impact makes sense if you first consider the specificity of
-associations before. So we can start thinking of this problem as an additive
-partition of specificity:</p>
-
+<p>It’s easy to prove that if all values of <strong>P</strong> are either 0 or 1, then <em>PDI</em> = <em>RR</em>. In this situation, the species in question has <em>r</em> times 1 in <strong>P</strong>, and <em>R-r</em> times 0 in <strong>P</strong>. In other words, for the first <em>r</em> elements of <strong>P</strong>, <strong>P</strong>[1]-<strong>P</strong>[i] = 0, and for the remaining (<em>R-r</em>) elements, <strong>P</strong>[1]-<strong>P</strong>[i] = 1. The numerator of <em>PDI</em> is thus <em>R-r</em>, so the expression of <em>PDI</em> is the same as the expression of <em>RR</em>.</p>
+<p>Previously, we and others discussed the fact that specificity ought to be separated in its “interactions” and “impacts” components, <em>i.e.</em> (i) how many resources do I exploit, and (ii) how are my performances distributed. With <em>RR</em> and <em>PDI</em>, it might seem that we have the adequate tool to measure both sides of the specificity. There’s more to do with these measures, though. Because <em>RR</em> is included in <em>PDI</em> (it’s easy to show that <em>PDI</em> ≥ <em>RR</em>), <em>PDI</em> also measures an “association” component of specificity. But then again, the specificity of impact makes sense if you first consider the specificity of associations before. So we can start thinking of this problem as an additive partition of specificity:</p>
 <p>Specificity = associations + impacts</p>
-
-<p>Luckily, we know that <em>RR</em> measures the specificity of associations, and the
-impacts are accounted for by <em>PDI</em>, so in measurable terms, the above becomes</p>
-
+<p>Luckily, we know that <em>RR</em> measures the specificity of associations, and the impacts are accounted for by <em>PDI</em>, so in measurable terms, the above becomes</p>
 <p><em>PDI</em> = <em>RR</em> + <em>I</em></p>
-
-<p>This additive partition makes sense, because if you go back to the
-demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances
-are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i]
-will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so
-<em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the
-importance of different performances on specificity. Or in other words, when
-you do not have informations to measure specificity of impacts, all of the
-specificity is because of associations.</p>
-
-<p>Now what? Well, we can start measuring how much of the total specificity
-(<em>PDI</em>) is due to specificity of associations only (<em>RR</em>/<em>PDI</em>), and how much
-                                                          is due to specificity
-                                                          of impacts only
-                                                          (<em>I</em>/<em>PDI</em>). As far
-                                                                as I can tell,
-                                                                the couple
-                                                               <em>PDI</em>-<em>RR</em> is
-                                                               the only pair of
-                                                               measures that
-                                                               allow to do that
-                                                               (though there
-                                                               are other
-                                                               approaches) in
-                                                               a context where
-                                                               you can show
-                                                               that one measure
-                                                               is a component
-                                                               of the other.
-                                                               Here is a <code>R</code>
-                                                               function to do
-                                                               it using the
-                                                               <code>ESM</code> package
-                                                               (<a href="https://r-forge.r-project.org/R/?group_id=593">from
-                                                               R-Forge</a>).</p>
-
-<div class="highlight"><pre><code class="r">library<span class="p">(</span>ESM<span class="p">)</span>
+<p>This additive partition makes sense, because if you go back to the demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i] will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so <em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the importance of different performances on specificity. Or in other words, when you do not have informations to measure specificity of impacts, all of the specificity is because of associations.</p>
+<p>Now what? Well, we can start measuring how much of the total specificity (<em>PDI</em>) is due to specificity of associations only (<em>RR</em>/<em>PDI</em>), and how much is due to specificity of impacts only (<em>I</em>/<em>PDI</em>). As far as I can tell, the couple <em>PDI</em>-<em>RR</em> is the only pair of measures that allow to do that (though there are other approaches) in a context where you can show that one measure is a component of the other. Here is a <code>R</code> function to do it using the <code>ESM</code> package (<a href="https://r-forge.r-project.org/R/?group_id=593">from R-Forge</a>).</p>
+<div class="highlight">
+<pre><code class="r">library<span class="p">(</span>ESM<span class="p">)</span>
 
 sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>P<span class="p">)</span>
 <span class="p">{</span>
@@ -155,23 +71,21 @@ sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</
       assoc_rel    <span class="o">=</span> Ass <span class="o">/</span> Spe<span class="p">,</span>
       impac_rel    <span class="o">=</span> Imp <span class="o">/</span> Spe
       <span class="p">))</span>
-<span class="p">}</span></code></pre></div>
-
-<p>Let’s do some simple examples, and contrast to species with the same number of
-resources, but a very high performance on resource 2, or a very low performance
-on resource 3:</p>
-
-<div class="highlight"><pre><code class="r"><span class="o">&gt;</span> unlist<span class="p">(</span>sap<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.999</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
+<span class="p">}</span></code></pre>
+</div>
+<p>Let’s do some simple examples, and contrast to species with the same number of resources, but a very high performance on resource 2, or a very low performance on resource 3:</p>
+<div class="highlight">
+<pre><code class="r"><span class="o">&gt;</span> unlist<span class="p">(</span>sap<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.999</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
   specificity associations      impacts    assoc_rel    impac_rel 
   <span class="m">0.500500000</span>  <span class="m">0.500000000</span>  <span class="m">0.000500000</span>  <span class="m">0.999000999</span>  <span class="m">0.000999001</span> 
 <span class="o">&gt;</span> unlist<span class="p">(</span>sap<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.001</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
   specificity associations      impacts    assoc_rel    impac_rel 
-  <span class="m">0.9995000</span>    <span class="m">0.5000000</span>    <span class="m">0.4995000</span>    <span class="m">0.5002501</span>    <span class="m">0.4997499</span></code></pre></div>
+  <span class="m">0.9995000</span>    <span class="m">0.5000000</span>    <span class="m">0.4995000</span>    <span class="m">0.5002501</span>    <span class="m">0.4997499</span></code></pre>
+</div>
+<p>In the second example, because the performance on the second resource is much almost zero, the <em>RR</em> and <em>I</em> components are almost as important to understand specificity (whereas it’s not the case in the first example, wherein you can assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
+<div class="references">
 
-<p>In the second example, because the performance on the second resource is much
-almost zero, the <em>RR</em> and <em>I</em> components are almost as important to understand
-specificity (whereas it’s not the case in the first example, wherein you can
-assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
+</div>
 
 
 
@@ -192,84 +106,7 @@ assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

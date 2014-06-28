@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,16 +42,10 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>Lat week, I mentionned that ecology is the leading discipline on <a href="https://peerj.com/preprints/"><em>PeerJ</em>
-preprints</a>, as attested by the number of submissions. Which led me to
-wondering which topics were actually <em>hot</em> on the preprint server. <em>PeerJ</em> do
-not have an API, but there URL scheme is not too complicated, and most of the
-relevant informations are in the webpage body. So I wrote a very short python
-script to get the first 158 preprints, download them, and get the abstract.</p>
-
+               <p>Lat week, I mentionned that ecology is the leading discipline on <a href="https://peerj.com/preprints/"><em>PeerJ</em> preprints</a>, as attested by the number of submissions. Which led me to wondering which topics were actually <em>hot</em> on the preprint server. <em>PeerJ</em> do not have an API, but there URL scheme is not too complicated, and most of the relevant informations are in the webpage body. So I wrote a very short python script to get the first 158 preprints, download them, and get the abstract.</p>
 <p>The code goes like this:</p>
-
-<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight">
+<pre><code class="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 
 <span class="n">BaseURL</span> <span class="o">=</span> <span class="s">&quot;https://peerj.com/preprints/&quot;</span>
@@ -77,32 +64,20 @@ script to get the first 158 preprints, download them, and get the abstract.</p>
       <span class="n">Fulltext</span> <span class="o">+=</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">abstract</span>
       <span class="n">Corpus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abstract</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span></code></pre>
+</div>
+<p>There is actually a one-liner version of this code, that exsist solely to show that you can do horrible twisted things with python. I’m not showing it. But the point is: this code will return a list of all abstracts, pasted together in a single sentence. Which I copied, and used in <a href="http://www.wordle.net">wordle</a> to get the following graphic:</p>
+<figure>
+<img src="/images/w-peerj-abs.png" alt="With abstracts" /><figcaption>With abstracts</figcaption>
+</figure>
+<p>So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually whale sharks), but suriprisingly, there are no big ecological keywords that are very prominent - which goes well with the idea that <em>PeerJ</em> is multi-disciplinary. By changing the <code>BaseURL</code> variable in my code, it was easy to get the same picture but for the <em>articles</em>, <em>i.e.</em> the contributions that went through peer-review. According to the front page, Ecology and Biodiversity are still the leading disciplines there.</p>
+<figure>
+<img src="/images/w-peerj-pap.png" alt="With papers" /><figcaption>With papers</figcaption>
+</figure>
+<p>It seems to be the case, with <code>species</code> being the most important word, followed (still) by <code>data</code>. Interestingly, clinical and molecular keywords are more prominent in the published papers than in the preprints. But in any case, <em>PeerJ</em> is definitely ecology-friendly, which hopefully will mean that more and more people will submit there.</p>
+<div class="references">
 
-<p>There is actually a one-liner version of this code, that exsist solely to
-show that you can do horrible twisted things with python. I’m not showing
-it. But the point is: this code will return a list of all abstracts, pasted
-together in a single sentence. Which I copied, and used in <a href="http://www.wordle.net">wordle</a> to get
-the following graphic:</p>
-
-<p><img src="/images/w-peerj-abs.png" alt="With abstracts" /></p>
-
-<p>So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually
-whale sharks), but suriprisingly, there are no big ecological keywords
-that are very prominent - which goes well with the idea that <em>PeerJ</em>
-is multi-disciplinary. By changing the <code>BaseURL</code> variable in my code,
-it was easy to get the same picture but for the <em>articles</em>, <em>i.e.</em> the
-contributions that went through peer-review. According to the front page,
-Ecology and Biodiversity are still the leading disciplines there.</p>
-
-<p><img src="/images/w-peerj-pap.png" alt="With papers" /></p>
-
-<p>It seems to be the case, with <code>species</code> being the most important word, followed
-(still) by <code>data</code>. Interestingly, clinical and molecular keywords are more
-prominent in the published papers than in the preprints. But in any case,
-<em>PeerJ</em> is definitely ecology-friendly, which hopefully will mean that more
-and more people will submit there.</p>
-
+</div>
 
 
 
@@ -123,84 +98,7 @@ and more people will submit there.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

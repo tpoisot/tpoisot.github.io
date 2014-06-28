@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,35 +42,23 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>The single most annoying issue when using <code>pandoc</code> to work collaboratively on
-papers is that it might be difficult for other people to compile the paper if
-they do not use your bibtex file. And if there is ony thing I avoid like the
-plague, it’s having several bibtex files all over the place. And I’m can’t
-be bothered to keep “Collections” or separate folders in Zotero. So clearly,
-I had to code my way out of this one.</p>
-
-<p>The good thing of using <code>pandoc</code> is that the citation syntax is remarkably
-simple: <code>@key</code>. It means that using a simple <code>grep</code> command</p>
-
-<div class="highlight"><pre><code class="bash">grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* ms.md -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre></div>
-
-<p>, I can generate <code>bib.keys</code>, a list with all the keys encountered in
-<code>ms.md</code>. The keys will be present only once, and sorted. The first few lines
-of one such file are</p>
-
-<div class="highlight"><pre><code class="text">allesina_competitive_2011
+               <p>The single most annoying issue when using <code>pandoc</code> to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it’s having several bibtex files all over the place. And I’m can’t be bothered to keep “Collections” or separate folders in Zotero. So clearly, I had to code my way out of this one.</p>
+<p>The good thing of using <code>pandoc</code> is that the citation syntax is remarkably simple: <code>@key</code>. It means that using a simple <code>grep</code> command</p>
+<div class="highlight">
+<pre><code class="bash">grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* ms.md -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre>
+</div>
+<p>, I can generate <code>bib.keys</code>, a list with all the keys encountered in <code>ms.md</code>. The keys will be present only once, and sorted. The first few lines of one such file are</p>
+<div class="highlight">
+<pre><code class="text">allesina_competitive_2011
 angilletta_temperature_2004
 araujo_using_2011
 baiser_geographic_2012
 baskerville_spatial_2011
-bluthgen_what_2008</code></pre></div>
-
-<p>Now, I need to take each of these keys, read my big <code>library.bib</code> file, and
-extract only the entries that are cited in the document. So I installed a
-<a href="https://github.com/sciunto/python-bibtexparser">bibtex parser for python</a>, and started doing exactly that. The amazing
-thing is, this only takes four (interesting) lines:</p>
-
-<div class="highlight"><pre><code class="python"><span class="c">## Step 1 - read the key list</span>
+bluthgen_what_2008</code></pre>
+</div>
+<p>Now, I need to take each of these keys, read my big <code>library.bib</code> file, and extract only the entries that are cited in the document. So I installed a <a href="https://github.com/sciunto/python-bibtexparser">bibtex parser for python</a>, and started doing exactly that. The amazing thing is, this only takes four (interesting) lines:</p>
+<div class="highlight">
+<pre><code class="python"><span class="c">## Step 1 - read the key list</span>
 <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">kl</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&quot;:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">kl</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">key_list</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)]</span>
 <span class="c">## Step 2 - read the library file</span>
 <span class="n">refs</span> <span class="o">=</span> <span class="n">BibTexParser</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">bib_file</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">get_entry_dict</span><span class="p">()</span>
@@ -88,16 +69,12 @@ thing is, this only takes four (interesting) lines:</p>
 <span class="k">print</span> <span class="p">[</span><span class="n">uk</span> <span class="k">for</span> <span class="n">uk</span> <span class="ow">in</span> <span class="n">keys</span> <span class="k">if</span> <span class="n">uk</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">used_refs</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
 <span class="c">## Step 5 - write the output file</span>
 <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8-sig&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">of</span><span class="p">:</span>
-   <span class="n">of</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">refs_as_bib</span><span class="p">)</span></code></pre></div>
-
-<p>This code will print a list of all the keys in the <code>bib.keys</code> that have
-<em>not</em> been matched to an entry in the main library file. If all went well,
-this list should be empty. I’ve uploaded the whole file as a <a href="https://gist.github.com/tpoisot/7406955">gist</a>, if you
-intend to use it.</p>
-
+   <span class="n">of</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">refs_as_bib</span><span class="p">)</span></code></pre>
+</div>
+<p>This code will print a list of all the keys in the <code>bib.keys</code> that have <em>not</em> been matched to an entry in the main library file. If all went well, this list should be empty. I’ve uploaded the whole file as a <a href="https://gist.github.com/tpoisot/7406955">gist</a>, if you intend to use it.</p>
 <p>And of course, you can nicely wrap things up in a <code>makefile</code>:</p>
-
-<div class="highlight"><pre><code class="makefile"><span class="nv">python</span> <span class="o">=</span> python2
+<div class="highlight">
+<pre><code class="makefile"><span class="nv">python</span> <span class="o">=</span> python2
 <span class="nv">refs</span> <span class="o">=</span> refs.bib
 <span class="nv">text</span> <span class="o">=</span> ms.md
 <span class="nv">library</span> <span class="o">=</span> /path/to/main/bibtex/file.bib
@@ -106,15 +83,12 @@ intend to use it.</p>
    <span class="k">$(</span>python<span class="k">)</span> extractbib.py bib.keys <span class="k">$(</span>library<span class="k">)</span> <span class="k">$(</span>refs<span class="k">)</span>
 
 bib.keys: 
-   grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* <span class="k">$(</span>text<span class="k">)</span> -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre></div>
+   grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* <span class="k">$(</span>text<span class="k">)</span> -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre>
+</div>
+<p>I’m glad that I finally have a solution to this problem. Of course, a multi-author version is not difficult to do (just have each author write its own bibtex file, and put them all together before running <code>pandoc</code>). It also means that my <code>pandoc</code>-using papers are going to finally be entirely reproducible, as I’ll distribute the references list in the <em>github</em> repository.</p>
+<div class="references">
 
-<p>I’m glad that I finally have a solution to this problem. Of course, a
-multi-author version is not difficult to do (just have each author write
-its own bibtex file, and put them all together before running <code>pandoc</code>). It
-also means that my <code>pandoc</code>-using papers are going to finally be entirely
-reproducible, as I’ll distribute the references list in the <em>github</em>
-repository.</p>
-
+</div>
 
 
 
@@ -135,84 +109,7 @@ repository.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

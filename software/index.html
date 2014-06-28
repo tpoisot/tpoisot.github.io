@@ -9,239 +9,104 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/" class='active' title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
             <span>Timothée Poisot</span>
             <h1>Software</h1>
-				<nav>
-					
-					
-				</nav>
-      
+            
          </header>
 			<div class="main">
             <span class="content">
-               <p class="lead">This page is a non-exhaustive list of software I’ve released. Only the
-most significant/ambitious projects, or those in which I contributed a lot,
-are listed.</p>
-
-<p>I do <em>most</em> of my development using <code>R</code> (whether or not I like it is not
-really relevant seeing how it is the <em>lingua franca</em> of ecology). For most
-demaning projects, I use mostly <code>python</code> (which I’m progressively replacing
-by <code>Julia</code>), and <code>C</code> or <code>C++</code> for more computationally intensive tasks
-(the choice between the later two being made as a function of how I feel
-re. pointers on a particular day).</p>
-
+               <p>This page is a non-exhaustive list of software I’ve released. Only the most significant/ambitious projects, or those in which I contributed a lot, are listed. {:.lead}</p>
+<p>I do <em>most</em> of my development using <code>R</code> (whether or not I like it is not really relevant seeing how it is the <em>lingua franca</em> of ecology). For most demaning projects, I use mostly <code>python</code> (which I’m progressively replacing by <code>Julia</code>), and <code>C</code> or <code>C++</code> for more computationally intensive tasks (the choice between the later two being made as a function of how I feel re. pointers on a particular day).</p>
 <h1 id="full-featured-packages">Full-featured packages</h1>
-
 <h2 id="rmangal">rmangal</h2>
-
-<p>The <code>R</code> package <code>rmangal</code> offers programmatic access to ecological network
-data (<em>beta version</em>), including a rich interface for meta-data on species,
-traits, spatial position. It has built-in interfaces with <code>igraph</code>.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="https://github.com/mangal-wg/mangal">Open draft</a></li>
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/rmangal">GitHub repository</a> (source code)</li>
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/pymangal">GitHub repository</a> (python version)</li>
-  <li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("mangal-wg/rmangal")</code></li>
+<p>The <code>R</code> package <code>rmangal</code> offers programmatic access to ecological network data (<em>beta version</em>), including a rich interface for meta-data on species, traits, spatial position. It has built-in interfaces with <code>igraph</code>.</p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="https://github.com/mangal-wg/mangal">Open draft</a></li>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/rmangal">GitHub repository</a> (source code)</li>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/pymangal">GitHub repository</a> (python version)</li>
+<li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;mangal-wg/rmangal&quot;)</code> {:.fa-ul}</li>
 </ul>
-
 <h2 id="betalink">betalink</h2>
-
-<p>The <code>R</code> package <code>betalink</code> allows measuring the beta-diversity of (ecological)
-networks sharing some of their species. It is currently being rewritten to
-rely heavily on <code>igraph</code> for improved performance on large networks</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a>   </li>
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code)   </li>
-  <li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/betalink")</code></li>
+<p>The <code>R</code> package <code>betalink</code> allows measuring the beta-diversity of (ecological) networks sharing some of their species. It is currently being rewritten to rely heavily on <code>igraph</code> for improved performance on large networks</p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a><br /></li>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code)<br /></li>
+<li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;tpoisot/betalink&quot;)</code> {:.fa-ul}</li>
 </ul>
-
 <h2 id="esm">ESM</h2>
-
-<p>The <code>R</code> package <code>ESM</code> performs several measures of ecological specificity
-on binary and quantitative performance data. Some of its functions are
-duplicated in <code>bipartite</code>.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a>   </li>
-  <li><i class="fa fa-li fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code)   </li>
-  <li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>install.packages("ESM", repos="http://R-Forge.R-project.org")</code></li>
+<p>The <code>R</code> package <code>ESM</code> performs several measures of ecological specificity on binary and quantitative performance data. Some of its functions are duplicated in <code>bipartite</code>.</p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a><br /></li>
+<li><i class="fa fa-li fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code)<br /></li>
+<li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>install.packages(&quot;ESM&quot;, repos=&quot;http://R-Forge.R-project.org&quot;)</code> {:.fa-ul}</li>
 </ul>
-
 <h2 id="digitize">digitize</h2>
-
-<p>The <code>R</code> package <code>digitize</code> allows to point-and-click on image files to
-extract the data. It is particularly useful to get raw data from published
-figures. The newest revision accomodates skewed graphics.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a>   </li>
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code)   </li>
-  <li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/digitize")</code></li>
+<p>The <code>R</code> package <code>digitize</code> allows to point-and-click on image files to extract the data. It is particularly useful to get raw data from published figures. The newest revision accomodates skewed graphics.</p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a><br /></li>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code)<br /></li>
+<li><i class="fa fa-li fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;tpoisot/digitize&quot;)</code> {:.fa-ul}</li>
 </ul>
-
 <h2 id="biweb">biweb</h2>
-
-<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses
-for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/~cflores/">Cesar Flores</a>. The core
-software is written in <code>matlab</code>, and a subset of the functionalities are
-available as a <code>python</code> module.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-file-text-o"></i> Paper in preparation   </li>
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/biweb">GitHub repo</a> (dual <code>matlab</code>/<code>python</code> code) </li>
+<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/~cflores/">Cesar Flores</a>. The core software is written in <code>matlab</code>, and a subset of the functionalities are available as a <code>python</code> module.</p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-file-text-o"></i> Paper in preparation<br /></li>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/biweb">GitHub repo</a> (dual <code>matlab</code>/<code>python</code> code) {:.fa-ul}</li>
 </ul>
-
 <h1 id="other-software">Other software</h1>
-
 <h2 id="inference-of-food-web-structure">Inference of food-web structure</h2>
-
-<p>We propose a method to infer the structure of food-webs based on species
-body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and
-<a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a></p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a>   </li>
-  <li><i class="fa fa-li fa-fw fa-code"></i> <a href="http://figshare.com/articles/Code_and_example_data_to_calibrate_the_niche_model_of_food_webs_based_on_allometric_relationships/650228">Code and example data</a></li>
+<p>We propose a method to infer the structure of food-webs based on species body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and <a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a></p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a><br /></li>
+<li><i class="fa fa-li fa-fw fa-code"></i> <a href="http://figshare.com/articles/Code_and_example_data_to_calibrate_the_niche_model_of_food_webs_based_on_allometric_relationships/650228">Code and example data</a> {:.fa-ul}</li>
 </ul>
-
 <h2 id="other-possibly-useful-code">Other (possibly) useful code</h2>
-
-<p>Reasonably fast generation of null bipartite networks in <code>C</code> under different
-scenarios. Uses the <em>GNU Scientific Library</em>.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)   </li>
+<p>Reasonably fast generation of null bipartite networks in <code>C</code> under different scenarios. Uses the <em>GNU Scientific Library</em>.</p>
+<ul>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)<br />{:.fa-ul}</li>
 </ul>
-
 <p>Python class to track phylogenetic structure during simulations.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/PyCoPhy">GitHub repository</a> (source code)   </li>
+<ul>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/PyCoPhy">GitHub repository</a> (source code)<br />{:.fa-ul}</li>
 </ul>
-
 <p>Simulation of individual-based trophic communities under niche/neutral scenarios.</p>
-
-<ul class="fa-ul">
-  <li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/manna">GitHub repository</a> (source code)   </li>
+<ul>
+<li><i class="fa fa-li fa-fw fa-github"></i> <a href="https://github.com/tpoisot/manna">GitHub repository</a> (source code)<br />{:.fa-ul}</li>
 </ul>
+<div class="references">
 
+</div>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

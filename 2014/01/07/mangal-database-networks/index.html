@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,136 +42,47 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>Working with data on ecological networks is usually a huge mess. Most of the
-time, what you have is a series of matrices with <code>0</code> and <code>1</code>, and in the best
-cases, another file with some associated metadata. The other issue is that,
-simply put, data on ecological networks are hard to get. The <a href="http://www.nceas.ucsb.edu/interactionweb/"><em>Interaction Web
-Database</em></a> has some, but it’s not as actively maintained as it should,
-and the data are not standardized in any way. When you need to pull a lot
-of networks to compare them, it means that you need to go through a long,
-tedious, and error-prone process of cleaning and preparing the data. It
-should not be that way, and that is the particular problem I’ve been trying
-to solve since this spring.</p>
-
-<p>About a year ago, I discussed why <a href="http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/">we should have a common language</a>
-to represent interaction networks. So with this idea in mind, and with
-great feedback from colleagues, I assembled a series of <code>JSON</code> schemes to
-represent networks, in a way that will allow programmatic interaction with the
-data. And I’m now super glad to announce that I am looking for beta-testers,
-before I release the tool in a formal way. This post is the first part of a
-series of two or three posts, which will give informations about the project,
-how to interact with the database, and how to contribute data. I’ll probably
-try to write a few use-cases, but if reading these posts inspire you, feel
-free to suggest some!</p>
-
+               <p>Working with data on ecological networks is usually a huge mess. Most of the time, what you have is a series of matrices with <code>0</code> and <code>1</code>, and in the best cases, another file with some associated metadata. The other issue is that, simply put, data on ecological networks are hard to get. The <a href="http://www.nceas.ucsb.edu/interactionweb/"><em>Interaction Web Database</em></a> has some, but it’s not as actively maintained as it should, and the data are not standardized in any way. When you need to pull a lot of networks to compare them, it means that you need to go through a long, tedious, and error-prone process of cleaning and preparing the data. It should not be that way, and that is the particular problem I’ve been trying to solve since this spring.</p>
+<p>About a year ago, I discussed why <a href="http://timotheepoisot.fr/2012/11/23/how-to-represent-networks/">we should have a common language</a> to represent interaction networks. So with this idea in mind, and with great feedback from colleagues, I assembled a series of <code>JSON</code> schemes to represent networks, in a way that will allow programmatic interaction with the data. And I’m now super glad to announce that I am looking for beta-testers, before I release the tool in a formal way. This post is the first part of a series of two or three posts, which will give informations about the project, how to interact with the database, and how to contribute data. I’ll probably try to write a few use-cases, but if reading these posts inspire you, feel free to suggest some!</p>
 <h1 id="so-what-is-that-about">So what is that about?</h1>
-
-<p><code>mangal</code> (another word for a mangrove, and a type of barbecue) is a way to
-represent and interact with networks in a way that is (i) relatively easy and
-(ii) allows for powerful analyses. It’s built around a data format, <em>i.e.</em>
-a common language to represent ecological networks. You can have an overview
-of the data format <a href="http://mangal.uqar.ca/doc/spec/">on the website</a>. The data format was conceived with
-two ideas in mind. First, it must makes sense from an ecological point of
-view. Second, it must be easy to use to exchange data, send them to database,
-and get them through APIs. Going on a website to download a text file (or
-an Excel one) should be a thing of the past, and the data format is built
-around the idea that everything should be done in a programmatic way.</p>
-
-<p>Very importantly, the data specification explains how data should be formatted
-when they are <em>exchanged</em>, not when they are used. The <code>R</code> package, notably,
-uses <code>igraph</code> to manipulate networks. It means that anyone with a database
-of ecological networks can write an API to expose these data in the <code>mangal</code>
-format, and in turn, anyone can access the data with the URL of the API as
-the only information.</p>
-
-<p>Because everyone uses <code>R</code>, as I’ve mentionned above, we are also releasing
-a <code>R</code> package (unimaginatively titled <code>rmangal</code>). You can <a href="https://github.com/mangal-wg/rmangal">get it from
-<em>GitHub</em></a>, and we’ll see in a minute how to install it until it
-is released on CRAN. Most of these posts will deal with how to use the <code>R</code>
-package, and what can be done with it. Ideally, you won’t need to go on the
-website <em>at all</em> to interact with the data (but just to make sure you do, the
-website has some nice eye-candy, with clickable maps and animated networks).</p>
-
+<p><code>mangal</code> (another word for a mangrove, and a type of barbecue) is a way to represent and interact with networks in a way that is (i) relatively easy and (ii) allows for powerful analyses. It’s built around a data format, <em>i.e.</em> a common language to represent ecological networks. You can have an overview of the data format <a href="http://mangal.uqar.ca/doc/spec/">on the website</a>. The data format was conceived with two ideas in mind. First, it must makes sense from an ecological point of view. Second, it must be easy to use to exchange data, send them to database, and get them through APIs. Going on a website to download a text file (or an Excel one) should be a thing of the past, and the data format is built around the idea that everything should be done in a programmatic way.</p>
+<p>Very importantly, the data specification explains how data should be formatted when they are <em>exchanged</em>, not when they are used. The <code>R</code> package, notably, uses <code>igraph</code> to manipulate networks. It means that anyone with a database of ecological networks can write an API to expose these data in the <code>mangal</code> format, and in turn, anyone can access the data with the URL of the API as the only information.</p>
+<p>Because everyone uses <code>R</code>, as I’ve mentionned above, we are also releasing a <code>R</code> package (unimaginatively titled <code>rmangal</code>). You can <a href="https://github.com/mangal-wg/rmangal">get it from <em>GitHub</em></a>, and we’ll see in a minute how to install it until it is released on CRAN. Most of these posts will deal with how to use the <code>R</code> package, and what can be done with it. Ideally, you won’t need to go on the website <em>at all</em> to interact with the data (but just to make sure you do, the website has some nice eye-candy, with clickable maps and animated networks).</p>
 <h1 id="things-to-know-before-getting-started">Things to know before getting started</h1>
-
-<p>As I’ve mentionned above, I’m looking for people to give the database
-and package a test before I move on with the release. A <strong>very important
-point</strong> is that, because this is a testing period, the database will be
-emptied quiet frequently. So do not share what you put on the database at
-the moment. Basically, until the first version of the <code>rmangal</code> package hits
-CRAN, consider that all data may be wiped at any moment.</p>
-
+<p>As I’ve mentionned above, I’m looking for people to give the database and package a test before I move on with the release. A <strong>very important point</strong> is that, because this is a testing period, the database will be emptied quiet frequently. So do not share what you put on the database at the moment. Basically, until the first version of the <code>rmangal</code> package hits CRAN, consider that all data may be wiped at any moment.</p>
 <h2 id="the-necessary-r-packages">The necessary R packages</h2>
-
-<p>The <code>rmangal</code> package requires a few others things to work with (but if you
-are using any of the <a href="http://ropensci.org/">rOpenSci</a> packages, chances are you already
-have most of them. In any case, the installation will take care of getting
-any required dependencies, so install <code>devtools</code> if you don’t have it, and run:</p>
-
-<pre><code class="language-r">options(stringsAsFactors = FALSE)
-if (getOption("unzip") == "") options(unzip = "unzip")
-library(devtools)
-install_github("rmangal", "mangal-wg")
-library(rmangal)
-</code></pre>
-
-<p>This will pull the most recent version from the <em>GitHub</em> repository of the
-package, so it’s a good idea to run that at the beginning of each session.</p>
-
+<p>The <code>rmangal</code> package requires a few others things to work with (but if you are using any of the <a href="http://ropensci.org/">rOpenSci</a> packages, chances are you already have most of them. In any case, the installation will take care of getting any required dependencies, so install <code>devtools</code> if you don’t have it, and run:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+if (<span class="kw">getOption</span>(<span class="st">&quot;unzip&quot;</span>) ==<span class="st"> &quot;&quot;</span>) <span class="kw">options</span>(<span class="dt">unzip =</span> <span class="st">&quot;unzip&quot;</span>)
+<span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;rmangal&quot;</span>, <span class="st">&quot;mangal-wg&quot;</span>)
+<span class="kw">library</span>(rmangal)</code></pre>
+<p>This will pull the most recent version from the <em>GitHub</em> repository of the package, so it’s a good idea to run that at the beginning of each session.</p>
 <h2 id="how-to-report-problems-and-suggest-improvements">How to report problems and suggest improvements</h2>
-
-<p>The best place to report problems is the <a href="https://github.com/mangal-wg/rmangal/issues">Issues page</a> of the <code>rmangal</code>
-repository. Suggestions of improvements are particularly welcome. The code
-for the API is not open-sourced at the moment, because I have a fair amount
-of work to do to make it easy to install.</p>
-
+<p>The best place to report problems is the <a href="https://github.com/mangal-wg/rmangal/issues">Issues page</a> of the <code>rmangal</code> repository. Suggestions of improvements are particularly welcome. The code for the API is not open-sourced at the moment, because I have a fair amount of work to do to make it easy to install.</p>
 <h2 id="how-to-get-more-informations">How to get more informations?</h2>
-
-<p>In the <a href="https://github.com/mangal-wg/rmangal/tree/master/vignettes">repository of the package</a>, there is a series of (in progress)
-vignettes. They give a little bit more background on what is going on.</p>
-
+<p>In the <a href="https://github.com/mangal-wg/rmangal/tree/master/vignettes">repository of the package</a>, there is a series of (in progress) vignettes. They give a little bit more background on what is going on.</p>
 <h1 id="getting-data-from-r">Getting data from R</h1>
-
 <p>OK, let’s get started!</p>
-
-<p>The <em>first</em> thing you have to do is create a <code>R</code> object with
-the URL of the API you want to connect to. By default, this is
-<code>http://mangal.uqar.ca/api/v1/</code>. Note that there are arguments for username
-and password, but we’ll get to those in the second post.</p>
-
-<pre><code class="language-r">api &lt;- mangalapi()
-names(api)
-</code></pre>
-
-<pre><code>##  [1] "base"        "trail"       "dataset"     "environment" "interaction"
-##  [6] "item"        "network"     "population"  "reference"   "taxa"       
-## [11] "trait"       "user"
-</code></pre>
-
+<p>The <em>first</em> thing you have to do is create a <code>R</code> object with the URL of the API you want to connect to. By default, this is <code>http://mangal.uqar.ca/api/v1/</code>. Note that there are arguments for username and password, but we’ll get to those in the second post.</p>
+<pre class="sourceCode r"><code class="sourceCode r">api &lt;-<span class="st"> </span><span class="kw">mangalapi</span>()
+<span class="kw">names</span>(api)</code></pre>
+<pre><code>##  [1] &quot;base&quot;        &quot;trail&quot;       &quot;dataset&quot;     &quot;environment&quot; &quot;interaction&quot;
+##  [6] &quot;item&quot;        &quot;network&quot;     &quot;population&quot;  &quot;reference&quot;   &quot;taxa&quot;       
+## [11] &quot;trait&quot;       &quot;user&quot;</code></pre>
 <p>The <code>names</code> options is a list of all of the properties of the API. Aside from <code>base</code> and <code>trail</code> (and if you are logged-in, <code>me</code> and <code>auth</code>), they all resources you can interact with. For example</p>
-
-<pre><code class="language-r">api$taxa
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r">api$taxa</code></pre>
 <pre><code>## $url
-## [1] "http://mangal.uqar.ca/api/v1/taxa/"
+## [1] &quot;http://mangal.uqar.ca/api/v1/taxa/&quot;
 ## 
 ## $verbs
-## [1] "get"   "post"  "patch"
-</code></pre>
-
+## [1] &quot;get&quot;   &quot;post&quot;  &quot;patch&quot;</code></pre>
 <p>This gives you two informations. First, the URL to do anything related with taxa (<code>api$taxa$url</code>), and the versb you can use. Verbs are a way to represent actions when talking to a server. I’m not going to go into much details at this point, but here is the gist: <code>get</code> will retrieve information, <code>post</code> will add it, and <code>patch</code> will modify it. Butyou don’t have to know any of that to use the package.</p>
-
 <p>The functions to interact with the data in <code>rmangal</code> are all following a naming convention: first the action, then the type of object. The actions are <code>list</code> and <code>get</code> (and <code>add</code> and <code>patch</code>, which we’ll see in the next post), and the type of objects are what was returned by <code>names(api)</code>, with the first letter capitalized.</p>
-
 <h2 id="first-step---a-list-of-all-taxa">First step - a list of all taxa</h2>
-
 <p>So, if you want to have a list of all the taxa in the database, it’s as simple as doing the following (a bit of <code>plyr</code> magic to have a nice <code>data.frame</code>):</p>
-
-<pre><code class="language-r">all_taxa &lt;- listTaxa(api)
-head(data.frame(laply(all_taxa, function(x) x)), 3)
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r">all_taxa &lt;-<span class="st"> </span><span class="kw">listTaxa</span>(api)
+<span class="kw">head</span>(<span class="kw">data.frame</span>(<span class="kw">laply</span>(all_taxa, function(x) x)), <span class="dv">3</span>)</code></pre>
 <pre><code>##   bold description gbif id itis                    name ncbi   owner
 ## 1 NULL        NULL NULL  9 NULL Lamellodiscus ignoratus NULL tpoisot
 ## 2 NULL        NULL NULL 10 NULL   Lamellodiscus elegans NULL tpoisot
@@ -186,14 +90,9 @@ head(data.frame(laply(all_taxa, function(x) x)), 3)
 ##                vernacular
 ## 1 Lamellodiscus ignoratus
 ## 2   Lamellodiscus elegans
-## 3   Lamellodiscus ergensi
-</code></pre>
-
+## 3   Lamellodiscus ergensi</code></pre>
 <p>And let’s look at the first element of <code>all_taxa</code>:</p>
-
-<pre><code class="language-r">all_taxa[[1]]
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r">all_taxa[[<span class="dv">1</span>]]</code></pre>
 <pre><code>## $bold
 ## NULL
 ## 
@@ -204,29 +103,24 @@ head(data.frame(laply(all_taxa, function(x) x)), 3)
 ## NULL
 ## 
 ## $id
-## [1] "9"
+## [1] &quot;9&quot;
 ## 
 ## $itis
 ## NULL
 ## 
 ## $name
-## [1] "Lamellodiscus ignoratus"
+## [1] &quot;Lamellodiscus ignoratus&quot;
 ## 
 ## $ncbi
 ## NULL
 ## 
 ## $owner
-## [1] "tpoisot"
+## [1] &quot;tpoisot&quot;
 ## 
 ## $vernacular
-## [1] "Lamellodiscus ignoratus"
-</code></pre>
-
+## [1] &quot;Lamellodiscus ignoratus&quot;</code></pre>
 <p>So what are all these fields? There is a <code>whatIs</code> function in <code>rmangal</code>, whose purpose is to tell you everything you need to know about a type of object. Let’s do that with <code>taxa</code>:</p>
-
-<pre><code class="language-r">whatIs(api, "taxa")
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">whatIs</span>(api, <span class="st">&quot;taxa&quot;</span>)</code></pre>
 <pre><code>##         field                                        help    type  null
 ## 1        bold             The BOLD identifier of the taxa integer  TRUE
 ## 2 description             A short description of the taxa  string  TRUE
@@ -242,16 +136,10 @@ head(data.frame(laply(all_taxa, function(x) x)), 3)
 ## 5   TRUE       
 ## 6   TRUE       
 ## 7   TRUE       
-## 9  FALSE
-</code></pre>
-
+## 9  FALSE</code></pre>
 <p>The first column is the name of the field, the second is a description of the data, and the <code>type</code> column is the format of the field content. The <code>null</code> column will tell you whether the field can be <code>NULL</code> or not. The <code>unique</code> column will tell you whether two different objects can share a value for this field (in the example of <code>taxa</code>, we see that no two taxa can have the same indetifiers or latin name). Finally, the <code>values</code> column is set <em>only</em> when a field accepts a particular set of values.</p>
-
 <p>Another way to get the first <code>taxa</code> if we know its <code>id</code> is</p>
-
-<pre><code class="language-r">getTaxa(api, all_taxa[[1]]$id)
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getTaxa</span>(api, all_taxa[[<span class="dv">1</span>]]$id)</code></pre>
 <pre><code>## $bold
 ## NULL
 ## 
@@ -262,133 +150,104 @@ head(data.frame(laply(all_taxa, function(x) x)), 3)
 ## NULL
 ## 
 ## $id
-## [1] "9"
+## [1] &quot;9&quot;
 ## 
 ## $itis
 ## NULL
 ## 
 ## $name
-## [1] "Lamellodiscus ignoratus"
+## [1] &quot;Lamellodiscus ignoratus&quot;
 ## 
 ## $ncbi
 ## NULL
 ## 
 ## $owner
-## [1] "tpoisot"
+## [1] &quot;tpoisot&quot;
 ## 
 ## $vernacular
-## [1] "Lamellodiscus ignoratus"
-</code></pre>
-
+## [1] &quot;Lamellodiscus ignoratus&quot;</code></pre>
 <h2 id="getting-real-data">Getting real data</h2>
-
 <p>The most frequent use will be to look at <code>dataset</code>s, and get the data within. After looking at the data specification, you’ll reach the conclusion that a <code>dataset</code> is mostly a list of <code>network</code>s, which are themselves lists of <code>interactions</code>, which point to <code>taxa</code> objects (among other things - it’s explained in the vignettes).</p>
-
 <p>First thing first, let’s have a look at the datasets:</p>
-
-<pre><code class="language-r">(all_ds &lt;- ldply(listDataset(api), function(x) unlist(x)))
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r">(all_ds &lt;-<span class="st"> </span><span class="kw">ldply</span>(<span class="kw">listDataset</span>(api), function(x) <span class="kw">unlist</span>(x)))</code></pre>
 <pre><code>##   description id                                              name
 ## 1              1 Host-parasite interactions in marine environments
 ##   networks    owner
-## 1        2 poisti01
-</code></pre>
-
+## 1        2 poisti01</code></pre>
 <p>Note that you can also <a href="http://mangal.uqar.ca/data/">browse the data</a> from the website, where there are animated maps, and cool dynamical representations of the networks. But meanwhile, let’s get the first dataset:</p>
-
-<pre><code class="language-r">(ds &lt;- getDataset(api, all_ds$id[1]))
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r">(ds &lt;-<span class="st"> </span><span class="kw">getDataset</span>(api, all_ds$id[<span class="dv">1</span>]))</code></pre>
 <pre><code>## $data
 ## list()
 ## 
 ## $description
-## [1] ""
+## [1] &quot;&quot;
 ## 
 ## $id
-## [1] "1"
+## [1] &quot;1&quot;
 ## 
 ## $name
-## [1] "Host-parasite interactions in marine environments"
+## [1] &quot;Host-parasite interactions in marine environments&quot;
 ## 
 ## $networks
-## [1] "2"
+## [1] &quot;2&quot;
 ## 
 ## $owner
-## [1] "poisti01"
+## [1] &quot;poisti01&quot;
 ## 
 ## $papers
-## list()
-</code></pre>
-
+## list()</code></pre>
 <p>This dataset has a single network (of <code>id</code> 2), which looks like:</p>
-
-<pre><code class="language-r">getNetwork(api, ds$networks[1])
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getNetwork</span>(api, ds$networks[<span class="dv">1</span>])</code></pre>
 <pre><code>## $date
-## [1] "2007/04/05"
+## [1] &quot;2007/04/05&quot;
 ## 
 ## $description
-## [1] ""
+## [1] &quot;&quot;
 ## 
 ## $environment
 ## list()
 ## 
 ## $id
-## [1] "2"
+## [1] &quot;2&quot;
 ## 
 ## $interactions
-##  [1] "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10" "11" "12" "13" "14" "15" "16"
-## [15] "17"
+##  [1] &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot; &quot;16&quot;
+## [15] &quot;17&quot;
 ## 
 ## $latitude
-## [1] "42.482"
+## [1] &quot;42.482&quot;
 ## 
 ## $longitude
-## [1] "3.137"
+## [1] &quot;3.137&quot;
 ## 
 ## $metaweb
 ## [1] TRUE
 ## 
 ## $name
-## [1] "Lamellodiscus of sparids in the Banyuls Bay Area"
+## [1] &quot;Lamellodiscus of sparids in the Banyuls Bay Area&quot;
 ## 
 ## $owner
-## [1] "poisti01"
-</code></pre>
-
+## [1] &quot;poisti01&quot;</code></pre>
 <p>So the process of getting an entire network is calling <code>getInteraction</code> on each interaction, see which <code>taxa</code> it involves, then call <code>getTaxa</code> on each of those, and so forth. But as this is extremely boring, there is a <code>network_as_graph</code> function, which is doing exactly that:</p>
-
-<pre><code class="language-r">g &lt;- network_as_graph(api, ds$networks[1])
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r">g &lt;-<span class="st"> </span><span class="kw">network_as_graph</span>(api, ds$networks[<span class="dv">1</span>])</code></pre>
 <p>Because this function will have to go through (possibly) a lot of resources to find the whole network, and because getting each resource requires an interaction with the server, it can be long. The good strategy is, rather obviously, to decide which objects to store, and interact with them locally, rather than querying the database everytime you want to see what’s in a network. The <code>g</code> object created this way is an <code>igraph</code> graph, meaning that we can plot it:</p>
-
-<pre><code class="language-r">plot(g, edge.arrow.size = 0.5, vertex.size = 30, vertex.color = "white", vertex.frame.color = NA, 
-    vertex.label.family = "sans", vertex.label.color = "black", layout = layout.circle)
-</code></pre>
-
-<p><img src="/rfig/rmangal_first_network.png" alt="plot of chunk rmangal_first_network" /> </p>
-
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(g, <span class="dt">edge.arrow.size =</span> <span class="fl">0.5</span>, <span class="dt">vertex.size =</span> <span class="dv">30</span>, <span class="dt">vertex.color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">vertex.frame.color =</span> <span class="ot">NA</span>, 
+    <span class="dt">vertex.label.family =</span> <span class="st">&quot;sans&quot;</span>, <span class="dt">vertex.label.color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">layout =</span> layout.circle)</code></pre>
+<figure>
+<img src="/rfig/rmangal_first_network.png" alt="plot of chunk rmangal_first_network" /><figcaption>plot of chunk rmangal_first_network</figcaption>
+</figure>
 <p>Note also that because <code>g</code> in an <code>igraph</code> object, both the nodes and interactions have retained their attributes. So if you want to see what type of interactions (<code>whatIs</code> will tell you that this is the <code>ecotype</code> field of an <code>interaction</code>) are in this network, this is as simple as:</p>
-
-<pre><code class="language-r">E(g)$ecotype
-</code></pre>
-
-<pre><code>##  [1] "ectoparasitism" "ectoparasitism" "ectoparasitism" "ectoparasitism"
-##  [5] "ectoparasitism" "ectoparasitism" "ectoparasitism" "ectoparasitism"
-##  [9] "ectoparasitism" "ectoparasitism" "ectoparasitism" "ectoparasitism"
-## [13] "ectoparasitism" "ectoparasitism" "ectoparasitism"
-</code></pre>
-
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">E</span>(g)$ecotype</code></pre>
+<pre><code>##  [1] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+##  [5] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+##  [9] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;
+## [13] &quot;ectoparasitism&quot; &quot;ectoparasitism&quot; &quot;ectoparasitism&quot;</code></pre>
 <p>This is an important idea behind the data specification. The <em>right</em> way to store data and the <em>right</em> way to work with these data are most likely different. Although some people will want to manipulate the data directly using the <code>get</code> and <code>list</code> functions, it’s always nice to have functions to speed up the process. And if you use <code>network_as_graph</code>, and want to get a list of the NCBI identifiers of all the species, you don’t need to use <code>getTaxa</code>; writing <code>V(g)$ncbi</code> will do the trick.</p>
-
 <h1 id="so-now-what">So now what?</h1>
-
 <p>This is the end of the first part of this series of posts on <code>mangal</code>. Later this week, I will publish the next part, about how to <em>upload</em> your data in the database. This is where I’ll be looking for people to actually test how things work. Meanwhile, if you want to play with the package and report weird things, that’s cool!</p>
+<div class="references">
 
+</div>
 
 
 
@@ -409,84 +268,7 @@ head(data.frame(laply(all_taxa, function(x) x)), 3)
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

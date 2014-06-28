@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -50,36 +43,36 @@
 			<div class="main">
             <span class="content">
                <p>I’m working on a toy model of community assembly in Python, and I thought it would be cool to have an easy way to keep track of the phylogeny. To do so, I’ve conceived two classes for the easy handling of phylogenetic structure. They are available on GitHub in the <a href="https://github.com/tpoisot/PyCoPhy"><code>PyCoPhy</code> repository</a> (Python Community Phylogenetics), and check also the <a href="/code/">code page</a>.</p>
-
-<p>The general idea behind them is quite easy to understand. A phylogenetic tree is a list of branchings. A branching is the junction of two objects, which I called <code>left</code> and <code>right</code>. Each of these objects can be an identifier (i.e. a leaf of the tree), or a reference to another branching (i.e. a node). It’s as complicated as it gets.</p>
-
+<p>The general idea behind them is quite easy to understand. A phylogenetic tree is a list of branchings. A branching is the junction of two objects, which I called <code>left</code> and <code>right</code>. Each of these objects can be an identifier (i.e. a leaf of the tree), or a reference to another branching (i.e. a node). It’s as complicated as it gets.</p>
 <p>Once <code>PyCoPhy</code> is loaded, to create a new tree with a species called <code>ancestor</code>, just type:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;ancestor&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">iTree</span></code></pre></div>
-
+<div class="highlight">
+<pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;ancestor&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">iTree</span></code></pre>
+</div>
 <p>The output of this command should be <code>(root, ancestor)</code>. The <code>root</code> is created by default to ensure that the most basal node is a branching. The interesting thing is that it’s now relatively easy to add and remove species. The <code>PhyloTree</code> class has the <code>speciate</code> method, who takes two arguments: the name of the ancestor, and the name of the daughter species. Calling it will go through the tree, and replace the ancestor by the (ancestor, daughter species) branching. Let’s try with:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+<div class="highlight">
+<pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">speciate</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="s">&#39;0_0&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">iTree</span></code></pre></div>
-
+<span class="k">print</span> <span class="n">iTree</span></code></pre>
+</div>
 <p>which results in the following tree: <code>(root,(0,0_0))</code>. And I know this is not the way speciation works, so there is also a <code>split</code> method, which will replace one ancestral species by two new species:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+<div class="highlight">
+<pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">iTree</span></code></pre></div>
-
+<span class="k">print</span> <span class="n">iTree</span></code></pre>
+</div>
 <p>will result in <code>(root,(2,1))</code>. This is all made possible by the <code>extinct</code> method, by the way, which will remove from the tree the species whose name is given in argument:</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+<div class="highlight">
+<pre><code class="python"><span class="n">iTree</span> <span class="o">=</span> <span class="n">PhyloTree</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
 <span class="n">iTree</span><span class="o">.</span><span class="n">extinct</span><span class="p">(</span><span class="s">&#39;2&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">iTree</span></code></pre></div>
-
+<span class="k">print</span> <span class="n">iTree</span></code></pre>
+</div>
 <p>will result in <code>(root,1)</code>.</p>
-
 <p>Although these classes are really basic at the moment, they allow me to easily keep track of who is related to who in my simulations. I’ll most likely add a way to keep track of branch lenghts at some point in the near future.</p>
+<div class="references">
+
+</div>
 
 
 
@@ -100,84 +93,7 @@
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

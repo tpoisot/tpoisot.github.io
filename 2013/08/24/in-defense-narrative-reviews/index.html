@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,76 +42,18 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>Early in July, Christopher Lortie published a really great preprint on <em>PeerJ</em>,
-about the <a href="https://peerj.com/preprints/39/">opportunities of systematic reviews for ecology</a>. It’s
-extremely insightful, and a good read. The abstract starts by <em>Narrative
-reviews are dead</em>. No they’re not, nor shouldn’t they be! <em>Narrative</em> reviews are those we are used to read now: a story built on the
-collection of some pieces of litterature. On the other hand, systematic reviews
-or meta-analyses are, well, systematic, and try to reach a consensus (at least
-a generalizable result) through the analysis of everything published on
-a particular topic (I abusively generalize, but go read the paper and you’ll
-get the idea).</p>
-
+               <p>Early in July, Christopher Lortie published a really great preprint on <em>PeerJ</em>, about the <a href="https://peerj.com/preprints/39/">opportunities of systematic reviews for ecology</a>. It’s extremely insightful, and a good read. The abstract starts by <em>Narrative reviews are dead</em>. No they’re not, nor shouldn’t they be! <em>Narrative</em> reviews are those we are used to read now: a story built on the collection of some pieces of litterature. On the other hand, systematic reviews or meta-analyses are, well, systematic, and try to reach a consensus (at least a generalizable result) through the analysis of everything published on a particular topic (I abusively generalize, but go read the paper and you’ll get the idea).</p>
 <blockquote>
-  <p><em>There is something fascinating about science. One gets such wholesale returns of conjecture out of such a trifling investment of fact.</em>   
-Mark Twain</p>
+<p><em>There is something fascinating about science. One gets such wholesale returns of conjecture out of such a trifling investment of fact.</em><br />Mark Twain</p>
 </blockquote>
+<p>I get the idea that narrative reviews are more likely to reflect the author(s) personal biases or interests, and in our quest for absolute impartiality, it would make sense to get rid of this. This is the whole point of Chris’s paper: as the goal of a review is to give an overview of the state-of-the-art in a particular field, then non-narrative reviews are the <em>better</em> tool. Nonetheless, I think this is an over-simplification of the way people <em>use</em> review papers.</p>
+<p>As a Ph.D. candidate, <em>narrative</em> reviews helped me a lot when I was trying to get an idea of the history of the field. Being able to understand how current ideas emerged from previous observations and results, and seeing which papers influenced which authors, was important when I had to develop my own research questions. I won’t spend time on the argument that narrative reviews are great teaching material, and that it’s a gentler introduction to a field to be walked through a concept rather than to read through tables of ANOVA. I enjoy these much more when I have an idea of the “story” behind.</p>
+<p>Essentially, narrative reviews should not be discarded because they serve a different purpose from systematic reviews. Let’s take the example of the <a href="http://en.wikipedia.org/wiki/Rare_biosphere"><em>rare biosphere</em></a> in environmental microbiology. For several historical reasons, it has been hypothesized that the distribution of biodiversity has a long-tail, with a lot of species being in extremely low abundances. Classical sampling and enumeration technique only described the tip of the iceberg. Fast forward a few years later, and the existence of the rare biosphere is well established, and people start questioning its impact in ecosystem processes, among other things. How we switched from “it probably exists” to “we need to understand what it’s doing” is best understood with a little bit of narration. Specifically, the development of molecular biology methods, and recently high-throughput sequencing, increased our detection ability by order of magnitudes. The emergence of new tools (which in the perspective of people like <a href="http://www.scribd.com/doc/28780545/Gutting-Bachelard-s-Philosophy-of-Science-1987">Bachelard, only reflects the emergence of new theories</a> that progressively materialized) allowed a switch in the way people studied rare biosphere. A <em>narrative</em> review of the question will likely put this element forward.</p>
+<p>A systematic review will hold different informations. While the narrative review aks <em>How did we get there?</em>, the systematic review asks <em>Where are we now?</em>. They give different answers, but it’s hard to argue that one of these questions has more merit than the other. Interestingly, more and more reviews conclude by asking <em>Where to next?</em>. Both narrative and systematic reviews can bring different elements, and thus will likely bring different responses. This multiplicity of points of views should not be so rapidly dismissed. Narrative reviews should be continued <em>because</em> they are often not entirely impartial, reflects biases or personnal preferences, and because they tell stories. Once we are familiar with this story, and once we know the different interpretations that people make of the same data, it’s time to go read the systematic reviews, and the meta-analyses. I appreciate that people will enjoy one of these more than the other, or would prefer to read statistics before naration. But I think we should continue reading, and writing, narrative reviews.</p>
+<p>As a final point, whatever you may think of the issue, go read the “companion” paper about the <a href="https://peerj.com/preprints/38/"><em>interpretation</em></a> of meta-analyses in ecology. It’s a really good introduction.</p>
+<div class="references">
 
-<p>I get the idea that narrative reviews are more likely to reflect the author(s)
-personal biases or interests, and in our quest for absolute impartiality, it
-would make sense to get rid of this. This is the whole point of Chris’s
-paper: as the goal of a review is to give an overview of the
-state-of-the-art in a particular field, then non-narrative reviews are the
-<em>better</em> tool. Nonetheless, I think this is an over-simplification of the
-way people <em>use</em> review papers.</p>
-
-<p>As a Ph.D. candidate, <em>narrative</em> reviews helped me a lot when I was trying to
-get an idea of the history of the field. Being able to understand how current
-ideas emerged from previous observations and results, and seeing which papers
-influenced which authors, was important when I had to develop my own research
-questions. I won’t spend time on the argument that narrative reviews are great
-teaching material, and that it’s a gentler introduction to a field to be walked
-through a concept rather than to read through tables of ANOVA. I enjoy these
-much more when I have an idea of the “story” behind.</p>
-
-<p>Essentially, narrative reviews should not be discarded because they serve
-a different purpose from systematic reviews. Let’s take the example of the
-<a href="http://en.wikipedia.org/wiki/Rare_biosphere"><em>rare biosphere</em></a> in environmental microbiology. For several
-historical reasons, it has been hypothesized that the distribution of
-biodiversity has a long-tail, with a lot of species being in extremely low
-abundances. Classical sampling and enumeration technique only described the tip
-of the iceberg. Fast forward a few years later, and the existence of the rare
-biosphere is well established, and people start questioning its impact in
-ecosystem processes, among other things. How we switched from “it probably
-exists” to “we need to understand what it’s doing” is best understood with
-a little bit of narration. Specifically, the development of molecular biology
-methods, and recently high-throughput sequencing, increased our detection
-ability by order of magnitudes. The emergence of new tools (which in the
-perspective of people like <a href="http://www.scribd.com/doc/28780545/Gutting-Bachelard-s-Philosophy-of-Science-1987">Bachelard, only reflects the emergence of new
-theories</a> that progressively materialized) allowed a switch in the way
-people studied rare biosphere. A <em>narrative</em> review of the question will likely
-put this element forward.</p>
-
-<p>A systematic review will hold different informations. While the narrative
-review aks <em>How did we get there?</em>, the systematic review asks <em>Where are we
-now?</em>. They give different answers, but it’s hard to argue that one of these
-questions has more merit than the other. Interestingly, more and more reviews
-conclude by asking <em>Where to next?</em>. Both narrative and systematic reviews can
-bring different elements, and thus will likely bring different responses. This
-multiplicity of points of views should not be so rapidly dismissed. Narrative
-reviews should be continued <em>because</em> they are often not entirely impartial,
-reflects biases or personnal preferences, and because they tell
-stories. Once we are familiar with this story, and once we know the
-different interpretations that people make of the same data, it’s time
-to go read the systematic reviews, and the meta-analyses. I appreciate
-that people will enjoy one of these more than the other, or would
-prefer to read statistics before naration. But I think we should
-continue reading, and writing, narrative reviews.</p>
-
-<p>As a final point, whatever you may think of the issue, go read the “companion”
-paper about the <a href="https://peerj.com/preprints/38/"><em>interpretation</em></a> of meta-analyses in ecology. It’s
-a really good introduction.</p>
-
+</div>
 
 
 
@@ -139,84 +74,7 @@ a really good introduction.</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

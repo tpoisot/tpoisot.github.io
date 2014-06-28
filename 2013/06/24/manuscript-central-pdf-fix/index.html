@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,54 +42,31 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF
-conversion problem. It was not the first time it happenned, and always on
-journals using <em>manuscriptcentral</em> as an upload system, and always with
-<code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty
-tradition of the academic world, was to (1) import the PDF in google documents,
-(2) print it as a PDF, (3) upload the PDF and (4) drink the shame
-away.</p>
-
-<p>Only this time, I wanted to understand what was happening, and to fix it as much
-as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts
-PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions
-will generate 1.7 or 1.8, so it’s obviously not going to work (but on the
-up-side, it will give you one of the most depressing and amusing error
-message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
-
+               <p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using <em>manuscriptcentral</em> as an upload system, and always with <code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away.</p>
+<p>Only this time, I wanted to understand what was happening, and to fix it as much as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions will generate 1.7 or 1.8, so it’s obviously not going to work (but on the up-side, it will give you one of the most depressing and amusing error message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
 <p>First, you can add</p>
-
-<div class="highlight"><pre><code class="latex"><span class="k">\pdfminorversion</span>=4</code></pre></div>
-
-<p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained
-<a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That’s one additional command, which is not needed in most other situations, but that’s one way to fix it.</p>
-
-<p>There is a second workaround, which is to compile with <code>latex</code> instead of
-<code>pdflatex</code> (haven’t tested this one, but it should work), then upload the whole
-dependencies when you submit. Note that your figures needs be <code>eps</code> for this to
-work, and you’ll probably be limited by the packages installed on the remote
-server, the list of which is not known. The <em>Methods in Ecology and Evolution</em>
-staff was extremely quick in pointing that out after I raised the issue on
-Twitter, so a big thank you to them.</p>
-
+<div class="highlight">
+<pre><code class="latex"><span class="k">\pdfminorversion</span>=4</code></pre>
+</div>
+<p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained <a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That’s one additional command, which is not needed in most other situations, but that’s one way to fix it.</p>
+<p>There is a second workaround, which is to compile with <code>latex</code> instead of <code>pdflatex</code> (haven’t tested this one, but it should work), then upload the whole dependencies when you submit. Note that your figures needs be <code>eps</code> for this to work, and you’ll probably be limited by the packages installed on the remote server, the list of which is not known. The <em>Methods in Ecology and Evolution</em> staff was extremely quick in pointing that out after I raised the issue on Twitter, so a big thank you to them.</p>
 <p>The solution I found this morning is the following:</p>
-
-<div class="highlight"><pre><code class="bash">pdftops ms.pdf ms.ps
+<div class="highlight">
+<pre><code class="bash">pdftops ms.pdf ms.ps
 ps2pdf13 ms.ps ps.pdf
-rm ms.ps</code></pre></div>
+rm ms.ps</code></pre>
+</div>
+<p>Very simply put, that will convert your pdf into a postscript file, then convert it into a PDF 1.3 file, that can be uploaded with no problems. You can just add that to a <code>makefile</code>, by the way:</p>
+<div class="highlight">
+<pre><code class="make"><span class="nf">mc</span><span class="o">:</span> <span class="m">ms.pdf</span>
+    pdftops ms.pdf ms.ps
+    ps2pdf13 ms.ps ms_mc.pdf
+    rm ms.ps</code></pre>
+</div>
+<p>Once your paper is ready, a simple <code>make mc</code> will create a <code>ms_mc.pdf</code> file, which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.</p>
+<div class="references">
 
-<p>Very simply put, that will convert your pdf into a postscript file, then convert
-it into a PDF 1.3 file, that can be uploaded with no problems. You can just add
-that to a <code>makefile</code>, by the way:</p>
-
-<div class="highlight"><pre><code class="make"><span class="nf">mc</span><span class="o">:</span> <span class="m">ms.pdf</span>
-	pdftops ms.pdf ms.ps
-	ps2pdf13 ms.ps ms_mc.pdf
-	rm ms.ps</code></pre></div>
-
-<p>Once your paper is ready, a simple <code>make mc</code> will create a <code>ms_mc.pdf</code> file,
-which is suitable for upload. So here you go, happy upload to all of you, and may the editorial decisions ever be in your favor.</p>
-
+</div>
 
 
 
@@ -117,84 +87,7 @@ which is suitable for upload. So here you go, happy upload to all of you, and ma
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

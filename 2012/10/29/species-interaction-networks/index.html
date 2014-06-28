@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -50,33 +43,28 @@
 			<div class="main">
             <span class="content">
                <p>In June, I was invited to give a talk at the <a href="http://www.weblife.univ-montp2.fr/"><em>Web of Life</em> meeting in Montpellier</a>. It was a really exciting event, where we discussed recent results on species interaction networks, and how we can use these networks to address the impact of global changes on communities and ecosystems. I presented some (still unpublished) results about how co-evolution and meta-community processes can lead to networks having a really complex structure. In parallel, I was working on <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/">our recent paper about the β-diversity of interaction networks</a>, where we show that species and their interactions are locally sorted through different mechanisms.</p>
-
 <div class="alert alert-info">
-<h4>Warning!</h4>
-This post is inspired by the introduction of an opinion/forum paper I'm currently writing. Your impressions and comments are thus very welcome. The post is also quite probably boring if you're not into ecological networks.
+<h4>
+Warning!
+</h4>
+This post is inspired by the introduction of an opinion/forum paper I’m currently writing. Your impressions and comments are thus very welcome. The post is also quite probably boring if you’re not into ecological networks.
 </div>
-
 <p>I’ve been discussing these results with a few people, and one of the questions that kept coming back is «but did you expect species and interactions to be sorted by the same mechanisms?». I did not. But perhaps we often imply this when working with species interaction networks, and perhaps this assumption leads us to study some processes at the wrong scale. A network (<em>e.g.</em> food web) gives you, for a list of species, their interactions. To put this another way, it tells you that species <em>B</em>, but not species <em>C</em> is within the potential niche of species <em>A</em>. In short, and especially if you infer the structure of this network from traits, or expert knowledge, you will describe interactions among species, which are <em>potential</em> interactions. When you go in the field, and record interactions between populations of these species, you will sample the <em>realized</em> interactions.</p>
-
 <p>Not making a difference between <em>species</em>-level and <em>populations</em>-level is what you can call an <a href="http://en.wikipedia.org/wiki/Gaston_Bachelard">epistemological obstacle</a>. My opinion is that it’s important to separate the two levels of organization, as they give us different informations. Let’s start with the obvious: I’ll quote straight from the introduction of <a href="http://www.oup.com/us/catalog/general/subject/LifeSciences/EvolutionaryBiology/?view=usa&amp;sf=toc&amp;ci=9780195188165"><em>Ecological networks: linking structure to dynamics in food webs</em></a>:</p>
-
 <blockquote>
-  <p>The interactions between species on different trophic (feeding) levels underlie the flow of energy and biomass in ecosystems […] (p. 3)</p>
+<p>The interactions between species on different trophic (feeding) levels underlie the flow of energy and biomass in ecosystems […] (p. 3)</p>
 </blockquote>
-
 <p>It’s hard to argue with this, and it should be noted that it’s the basic idea behind papers linking food web structure to ecosystem functioning. And with a few minor alterations, this assertion also holds for other types of interactions. Let’s put it another way: interactions between species affect their growth and persistance. I could have found something more precise, but you get the idea. And so, what is the problem? If you know that species <em>A</em> consumes species <em>B</em>, and you go in the field at site <em>1</em>, observe populations <em>A1</em> and <em>B1</em>, what can you tell? Well, not much. What affects the <em>local</em> flow of biomass, or growth, or whatever, is the <em>realized</em> interaction between two <em>populations</em>. The <em>potential</em> interaction between two <em>species</em> only tells you that this interaction can happen. See the epistemological obstacle right here? Because we know two species <em>can</em> interact, do not mean they <em>will</em>.</p>
-
 <p>The point is, if we use networks to assess the robustness, stability, etc, of ecosystems, which information is required? Is it the potential network, or is the realized one? In the terms of our previous paper, do we care about the <em>metaweb</em> or its <em>realizations</em>? I have no answer to this question, but let’s move on. In a perfect world, we would not care, because everything which is potential will become realized. In short, there will be no need to make a difference between species and population level networks, because interactions would be highly consistent. How perfect is the world? If you look at the data we presented in our β-link paper, not a lot. It was really rare to find a realization in which all potential interactions were found (the one for which it occured were of really small size). This really strongly implies that species and their interactions respond to different environmental filters.</p>
-
 <p>But is that a problem? Yes – or rather, the fact that we don’t know if it is a problem, is a problem in itself. Most of the data available (in terms of spatially replicated interaction networks) do not allow us to answer this question. Look at the Adirondack metaweb compiled by <a href="http://www.sciencemag.org/content/257/5073/1107">Karl Havens</a>, for example. In this dataset, you have the potential interactions across all species, and a list of species for 50 lakes. In short, it describes a regional web, and we can extract the potential local webs. Not the realized ones, which would require much more sampling and direct observations, rather than litterature surveys. Can this affect the conclusions? Let’s look at the final sentence of the abstract:</p>
-
 <blockquote>
-  <p>In contrast, the number of links per species increased fourfold over the range of species number, suggesting that the link-species scaling law, defined on the basis of aggregated webs, does not reflect a real ecological trend.</p>
+<p>In contrast, the number of links per species increased fourfold over the range of species number, suggesting that the link-species scaling law, defined on the basis of aggregated webs, does not reflect a real ecological trend.</p>
 </blockquote>
-
 <p>Well… What if not all potential links are realized? What if there is a cap on the number of partners, <em>i.e.</em> a maximum number of species you can interact with <em>locally</em>? What if the number of effective prey items is inferior to the number of potential preys found localy? If each predator has a maximal number of prey items, at each site, then the result that the link-species scaling law is not a real trend may not hold. And for this reason, studies of networks looking only at the presence/absence of species, and infering links from previous knowledge, rather than sampling at each studied site, risk to be severaly misleading.</p>
-
 <p><a href="http://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read">TL;DR</a>: I’m starting to develop the opinion that looking at <em>species</em> interaction networks is risky when your interest is to explain local properties of the community. Switching from species to population level will require much more sampling effort, and will probably slow down the accumulation of data a bit, but on the other hand, it comes with several advantages. First, it will improve our ability to better understand network variation from place to place (or from time to time). Second, it will help making <em>explicit</em> links between (local) interaction structure and (local) ecosystem properties. And last but not least, it’s probably the only path to a biogeography of species interactions anyway…</p>
+<div class="references">
+
+</div>
 
 
 
@@ -97,84 +85,7 @@ This post is inspired by the introduction of an opinion/forum paper I'm currentl
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>

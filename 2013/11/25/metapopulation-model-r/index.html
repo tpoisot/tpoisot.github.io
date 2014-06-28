@@ -9,37 +9,30 @@
 		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
 		<meta name="author" content="Timothée Poisot" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/styles/default.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/component.css" />
+      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-		<script src="/js/modernizr.custom.js"></script>
+      
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-    ga('send', 'pageview');
-
+         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+         ga('send', 'pageview');
       </script>
 
 	</head>
-	<body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-         <p>Timothée Poisot is a numerical and computational ecologist interested in developing predictive approaches to the structure of ecological communities. He uses tools from graph theory and network analysis in addition to more classical ecological approaches.</p>
-			<a href="/research/">Research</a>
-			<a href="/software/">Software</a>
-			<a href="/blog/">Blog</a>
-			<a href="/papers/">Papers</a>
-			<a href="/">Home</a>
-		</nav>
-      <span class='menu'>
-			<a id="showLeft"><i class="fa fa-bars"></i></a>
-      </span>
+	<body>
+   <nav class="menu">
+   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
+   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
+   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
+   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
+   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
+   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
+</nav>
+
 		<div class="container">
 			<header class="clearfix">
             
@@ -49,33 +42,16 @@
          </header>
 			<div class="main">
             <span class="content">
-               <p>One of my favorite tools to work with networks is <a href="http://networkx.github.io/">the <code>networkx</code> python
-package</a> (if only because lists comprehensions make so much sense when you
-work with graphs). But for teaching purposes (especially in ecology), having
-purely <code>R</code>-based tools is better. The students know the language (at least
-enough to get around most problems in a few hours, and so they can focus on
-the theory rather than the tedious details of implementation. So I started
-looking for good graph analysis tools in R.</p>
+               <p>One of my favorite tools to work with networks is <a href="http://networkx.github.io/">the <code>networkx</code> python package</a> (if only because lists comprehensions make so much sense when you work with graphs). But for teaching purposes (especially in ecology), having purely <code>R</code>-based tools is better. The students know the language (at least enough to get around most problems in a few hours, and so they can focus on the theory rather than the tedious details of implementation. So I started looking for good graph analysis tools in R.</p>
+<p>I’ve read good thing (well, <a href="http://assemblingnetwork.wordpress.com/tutorials/network-basics/">good-looking code</a>, actually) about the <code>igraph</code> package, so I decided to try it (good surprise: there are both <code>R</code>, <code>python</code> and <code>C</code> implementations. My first two projects when I’m doing graph things are (i) how fast can I implement Williams &amp; Martinez <em>niche model</em>, and (ii) how fast can I implement a spatially explicit metapopulation model. I have folders in my computers with various versions of both in various languages.</p>
+<p>So I decided to work on the later project. The idea is to use <code>igraph</code> to generate a random geometric graph, and use that as the landscape over which the metapopulation is simulated. The code is <a href="https://gist.github.com/tpoisot/7547954">available as a gist</a>. Coming from <code>networkx</code>, it took some time getting used to the different approach. But overall, <code>igraph</code> convinced me, and I’ll most definitely use it when teaching about networks in the future.</p>
+<figure>
+<img src="/images/rmetapop.png" alt="Metapopulation mode" /><figcaption>Metapopulation mode</figcaption>
+</figure>
+<p>As a side note, the code allows to generate 3D spatial graphs. It’s entirely useless, but it’s kinda cool!</p>
+<div class="references">
 
-<p>I’ve read good thing (well, <a href="http://assemblingnetwork.wordpress.com/tutorials/network-basics/">good-looking code</a>, actually) about the
-<code>igraph</code> package, so I decided to try it (good surprise: there are both <code>R</code>,
-<code>python</code> and <code>C</code> implementations. My first two projects when I’m doing graph
-things are (i) how fast can I implement Williams &amp; Martinez <em>niche model</em>, and
-(ii) how fast can I implement a spatially explicit metapopulation model. I have
-folders in my computers with various versions of both in various languages.</p>
-
-<p>So I decided to work on the later project. The idea is to use <code>igraph</code> to
-generate a random geometric graph, and use that as the landscape over which the
-metapopulation is simulated. The code is <a href="https://gist.github.com/tpoisot/7547954">available as a gist</a>. Coming
-from <code>networkx</code>, it took some time getting used to the different approach. But
-overall, <code>igraph</code> convinced me, and I’ll most definitely use it when teaching
-about networks in the future.</p>
-
-<p><img src="/images/rmetapop.png" alt="Metapopulation mode" /></p>
-
-<p>As a side note, the code allows to generate 3D spatial graphs. It’s entirely
-useless, but it’s kinda cool!</p>
-
+</div>
 
 
 
@@ -96,84 +72,7 @@ useless, but it’s kinda cool!</p>
 
 
             </span>
-				<section style="display:none;">
-					<h2>Slide Menus</h2>
-					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
-					<button id="showTop">Show/Hide Top Slide Menu</button>
-					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
-				</section>
 			</div>
 		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showTop = document.getElementById( 'showTop' ),
-				showBottom = document.getElementById( 'showBottom' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
-
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRight' );
-			};
-			showTop.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuTop, 'cbp-spmenu-open' );
-				disableOther( 'showTop' );
-			};
-			showBottom.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuBottom, 'cbp-spmenu-open' );
-				disableOther( 'showBottom' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( menuRight, 'cbp-spmenu-open' );
-				disableOther( 'showRightPush' );
-			};
-
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showTop' ) {
-					classie.toggle( showTop, 'disabled' );
-				}
-				if( button !== 'showBottom' ) {
-					classie.toggle( showBottom, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
 	</body>
 </html>
