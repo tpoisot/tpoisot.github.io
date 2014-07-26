@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Tim Poisot :: Updates</title>
+  <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
+  <link href="http://timotheepoisot.fr/"/>
+  <updated>2014-07-26T16:08:44-04:00</updated>
+  <id>Tim Poisot</id>
+  <author>
+    <name>Tim Poisot</name>
+    <email></email>
+ </author>
+ 
+  
+     
+        <entry>
+           <title>Estimating SIR model parameters with ABC</title>
+           <link href="http://timotheepoisot.fr/2014/07/25/sir-abc/"/>
+          <updated>2014-07-25T00:00:00-04:00</updated>
+          <content type="html">&lt;p&gt;I am currently working with Approximate Bayesian Computation for a project. As always when learning a new method, I like to revisit examples i already know about, to see how it compares. So I decided to look at classical data about a flu epidemics in an English Boarding School. It’s a good dataset to estimate SIR parameters, because (1) Influenza transmits in a flu-like way, (2) boarding schools are a closed system from a demographic point of view, and (3) there was no mortality event during the epidemics. Also, it is likely that there was a single individual responsible for the epidemics at the beginning (but this is something I’ll look into).&lt;/p&gt;
+&lt;p&gt;Approximate Bayesian Computing (ABC hereafter) is a way to estimate a distribution of parameter values when there is no analytical expression of the likelihood function. Just to give a very short overview: knowing data (the number of cases every day), I want to estimate the parameters of the SIR model that represents the epidemics. The SIR model is a compartmental model, in which individuals start as susceptible, become infectious, then finally recover. Formally, it is expressed as a set of ordinary differential equations, &lt;span class=&quot;math&quot;&gt;\(\dot S = -\beta I S\)&lt;/span&gt;, &lt;span class=&quot;math&quot;&gt;\(\dot I = \beta I S - \nu I\)&lt;/span&gt;, and &lt;span class=&quot;math&quot;&gt;\(\dot R = \nu I\)&lt;/span&gt;. There are two parameters of the model itself (the transmission rate &lt;span class=&quot;math&quot;&gt;\(\beta\)&lt;/span&gt; and recovery rate &lt;span class=&quot;math&quot;&gt;\(\nu\)&lt;/span&gt;), to which one should add the initial state &lt;span class=&quot;math&quot;&gt;\(S, I, R = {S_0, I_0, R_0}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;There are a few noteworthy things about this model. First, at any time &lt;span class=&quot;math&quot;&gt;\(t\)&lt;/span&gt;, &lt;span class=&quot;math&quot;&gt;\(S_t+I_t+R_t=N\)&lt;/span&gt;, where &lt;span class=&quot;math&quot;&gt;\(N\)&lt;/span&gt; is the total population size – this assumes no demography, but this is a very reasonable assumption for diseases with a short course and low/no mortality. The other noteworthy things are not really relevant to what I’m about to do, so I’ll skip them. The important information is the value of &lt;span class=&quot;math&quot;&gt;\(R_0\)&lt;/span&gt;, which gives the expected number of infections from a single infected case in an otherwise entirely susceptible population. In the SIR model, &lt;span class=&quot;math&quot;&gt;\(R_0 = N\beta/\nu\)&lt;/span&gt;. The &lt;span class=&quot;math&quot;&gt;\(R_0\)&lt;/span&gt; of influenza viruses is usually in the &lt;span class=&quot;math&quot;&gt;\([1.3-1.9]\)&lt;/span&gt; range. Values of &lt;span class=&quot;math&quot;&gt;\(R_0 &amp;gt; 1\)&lt;/span&gt; imply that epidemic progression will likely happen.&lt;/p&gt;
+&lt;p&gt;What I want to do is use ABC to estimate the distribution of &lt;span class=&quot;math&quot;&gt;\(\beta\)&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;\(\nu\)&lt;/span&gt;, as well as &lt;span class=&quot;math&quot;&gt;\(I_0\)&lt;/span&gt;, and thus estimate the &lt;span class=&quot;math&quot;&gt;\(R_0\)&lt;/span&gt; of this particular epidemics. Here is the basic approach. I will first establish the prior distribution of my three parameters. I will assume that there are no way to guesstimate values of &lt;span class=&quot;math&quot;&gt;\(\beta\)&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;\(\nu\)&lt;/span&gt;, so I will sample a uniform &lt;span class=&quot;math&quot;&gt;\([0;1]\)&lt;/span&gt; distribution for &lt;span class=&quot;math&quot;&gt;\(\nu\)&lt;/span&gt;, and 10 to the power of random numbers in &lt;span class=&quot;math&quot;&gt;\([-4; 0]\)&lt;/span&gt; for &lt;span class=&quot;math&quot;&gt;\(\beta\)&lt;/span&gt; (these are reasonable estimates in my experience). The only thing I know about &lt;span class=&quot;math&quot;&gt;\(I_0\)&lt;/span&gt; is that it is most likely 1, so I will use a Poisson distribution with &lt;span class=&quot;math&quot;&gt;\(\lambda = 1\)&lt;/span&gt; and add 1, which will make &lt;span class=&quot;math&quot;&gt;\(I_0 = 1\)&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;\(I_0 = 2\)&lt;/span&gt; equally likely.&lt;/p&gt;
+&lt;p&gt;With these random parameters, I will simulate a SIR epidemics, and measure &lt;span class=&quot;math&quot;&gt;\(\rho(I_t,\hat I_t)\)&lt;/span&gt;, which is to say the distance between the empirical time series, and the simulated one. If this distance is lower than an arbitrary treshold &lt;span class=&quot;math&quot;&gt;\(\epsilon\)&lt;/span&gt;, I will keep the random set of parameters as &lt;em&gt;likely&lt;/em&gt; – by replicating this process enough times, I should hopefully end up with a posterior distribution of all three parameters.&lt;/p&gt;
+&lt;p&gt;Oh, and also I will do this in &lt;code&gt;julia&lt;/code&gt;. Let’s go!&lt;/p&gt;
+&lt;h1 id=&quot;writing-the-code&quot;&gt;Writing the code&lt;/h1&gt;
+&lt;p&gt;First, let’s load a bunch of packages needed to do the processing and output:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;using Distances
+using Distributions
+using DataFrames
+using Gadfly&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once this is done, we need a function &lt;code&gt;sir&lt;/code&gt; to run the simulations. I will use an extremely simple one with Euler integration, because using a sophisticated numerical integration scheme is &lt;em&gt;not&lt;/em&gt; the point.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; sir(N, I0, beta, nu, t)
+   &lt;span class=&quot;co&quot;&gt;# SIR model&lt;/span&gt;
+   &lt;span class=&quot;co&quot;&gt;# N     - total population size&lt;/span&gt;
+   &lt;span class=&quot;co&quot;&gt;# I0    - number of infected cases at t = 0&lt;/span&gt;
+   &lt;span class=&quot;co&quot;&gt;# beta  - transmission&lt;/span&gt;
+   &lt;span class=&quot;co&quot;&gt;# nu    - recovery&lt;/span&gt;
+   &lt;span class=&quot;co&quot;&gt;# t     - number of timesteps&lt;/span&gt;
+   s = zeros(t)
+   i = zeros(t)
+   r = zeros(t)
+   s[&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;] = N-I0
+   i[&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;] = I0
+   &lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; step &lt;span class=&quot;kw&quot;&gt;in&lt;/span&gt; [&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;:(t-&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;)]
+      ds = -beta*s[step]*i[step]
+      di =  beta*s[step]*i[step] - nu*i[step]
+      dr =  nu*i[step]
+      s[step+&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;] = s[step] + ds
+      i[step+&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;] = i[step] + di
+      r[step+&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;] = r[step] + dr
+   &lt;span class=&quot;kw&quot;&gt;end&lt;/span&gt;
+   &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; (s, i, r)
+&lt;span class=&quot;kw&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This function will return a tuple of time series, for the S, I, and R values. The next step is to define a bunch of arrays, parameters, etc etc.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;number_samples = &lt;span class=&quot;fl&quot;&gt;10000&lt;/span&gt;
+
+beta_prior = &lt;span class=&quot;fl&quot;&gt;10&lt;/span&gt;.^rand(Uniform(-&lt;span class=&quot;fl&quot;&gt;4&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;2&lt;/span&gt;), number_samples)
+nu_prior   =     rand(Uniform(&lt;span class=&quot;fl&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;), number_samples)
+i0_prior   =     rand(Poisson(&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;), number_samples).+&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;
+
+param_N = &lt;span class=&quot;fl&quot;&gt;763&lt;/span&gt;   &lt;span class=&quot;co&quot;&gt;# We know the total number of students&lt;/span&gt;
+param_t = &lt;span class=&quot;fl&quot;&gt;15&lt;/span&gt;    &lt;span class=&quot;co&quot;&gt;# The data cover 15 days&lt;/span&gt;
+param_d = &lt;span class=&quot;fl&quot;&gt;200&lt;/span&gt;   &lt;span class=&quot;co&quot;&gt;# This is my arbitraty treshold, feel free  to experiment&lt;/span&gt;
+
+beta_posterior = &lt;span class=&quot;dt&quot;&gt;Float64&lt;/span&gt;[]
+nu_posterior = &lt;span class=&quot;dt&quot;&gt;Float64&lt;/span&gt;[]
+i0_posterior = &lt;span class=&quot;dt&quot;&gt;Int64&lt;/span&gt;[]
+fit_posterior = &lt;span class=&quot;dt&quot;&gt;Float64&lt;/span&gt;[]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, we can load the data which are stored in a file called &lt;code&gt;data.csv&lt;/code&gt;, &lt;a href=&quot;https://gist.github.com/9dd174a411b0ae5f0fa7&quot;&gt;available as a gist here&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;observed_cases = convert(&lt;span class=&quot;dt&quot;&gt;Array&lt;/span&gt;{&lt;span class=&quot;dt&quot;&gt;Float64&lt;/span&gt;}, readtable(&lt;span class=&quot;st&quot;&gt;&amp;quot;data.csv&amp;quot;&lt;/span&gt;,separator=&lt;span class=&quot;ch&quot;&gt;&amp;#39;;&amp;#39;&lt;/span&gt;, header=true)[:I])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now, we need to loop through all sets of parameters, and measure the distance. Each iteration of this loop will run a simulation of the SIR model, then measure the Euclidean distance between the observed and simulated time series, and finally if this distance is lower than a treshold, consider that the parameter set can be kept:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;&lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; run &lt;span class=&quot;kw&quot;&gt;in&lt;/span&gt; [&lt;span class=&quot;fl&quot;&gt;1&lt;/span&gt;:number_samples]
+   simulated_timeseries = sir(
+         param_N, 
+         i0_prior[run],
+         beta_prior[run],
+         nu_prior[run],
+         param_t)
+   distance = evaluate(Euclidean(), observed_cases, simulated_timeseries[&lt;span class=&quot;fl&quot;&gt;2&lt;/span&gt;])
+   &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; distance &amp;lt;= param_d
+      push!(beta_posterior, beta_prior[run])
+      push!(nu_posterior, nu_prior[run])
+      push!(i0_posterior, i0_prior[run])
+      push!(fit_posterior, distance)
+   &lt;span class=&quot;kw&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To make plotting faster, we will wrap up the results in a &lt;code&gt;DataFrame&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;posteriors = DataFrame(beta = beta_posterior, nu = nu_posterior, i0 = i0_posterior)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By the way, I ran the following figures with 10&lt;sup&gt;6&lt;/sup&gt; prior samples – in under 2 seconds.&lt;/p&gt;
+&lt;h1 id=&quot;the-results&quot;&gt;The results&lt;/h1&gt;
+&lt;p&gt;Because this dataset is well-known, there are estimates of the parameters using &lt;span class=&quot;math&quot;&gt;\(I_0 = 1\)&lt;/span&gt;. They are, respectively, &lt;span class=&quot;math&quot;&gt;\(\beta \approx 2.18\times 10^{-3}\)&lt;/span&gt;, and &lt;span class=&quot;math&quot;&gt;\(\nu \approx 4.41\times 10^{-1}\)&lt;/span&gt;. &lt;strong&gt;So&lt;/strong&gt;, what does the fitting says?&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;julia&amp;gt; mean(posteriors[:beta])
+   &lt;span class=&quot;fl&quot;&gt;0.0023823647134406517&lt;/span&gt;
+
+julia&amp;gt; mean(posteriors[:nu])
+   &lt;span class=&quot;fl&quot;&gt;0.5571488709952898&lt;/span&gt;
+
+julia&amp;gt; mean(posteriors[:i0])
+   &lt;span class=&quot;fl&quot;&gt;2.8266301035953685&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;First, although &lt;span class=&quot;math&quot;&gt;\(\beta\)&lt;/span&gt; estimated this way is quite close to the proposed estimate, the value of &lt;span class=&quot;math&quot;&gt;\(\nu\)&lt;/span&gt; differs. Specifically, I predict an easier remission than the original estimation (the recovery time is &lt;span class=&quot;math&quot;&gt;\(1/\nu\)&lt;/span&gt; days, &lt;em&gt;i.e.&lt;/em&gt; 2.27 in the original model, and 1.7 in my estimate). Why? Simply because I decided not to trust the assumption that &lt;span class=&quot;math&quot;&gt;\(I_0 = 1\)&lt;/span&gt;. The original &lt;span class=&quot;math&quot;&gt;\(I_0\)&lt;/span&gt; is based on the fact that there was a single student admitted for flu-like symptoms on day 0, so it can be that by day 0, there were already infected (but asymptomatic) individuals. My estimation tends to predict that there were between two and three infected students.&lt;/p&gt;
+&lt;p&gt;With this information, we can easily plot the predicted timecourse of the epidemics:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;pred = sir(&lt;span class=&quot;fl&quot;&gt;763&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.00238&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.5571&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;15&lt;/span&gt;)
+draw(
+      PNG(&lt;span class=&quot;st&quot;&gt;&amp;quot;infected.png&amp;quot;&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;12&lt;/span&gt;cm, &lt;span class=&quot;fl&quot;&gt;8&lt;/span&gt;cm),
+      plot(
+         layer(x=[&lt;span class=&quot;fl&quot;&gt;0&lt;/span&gt;:&lt;span class=&quot;fl&quot;&gt;14&lt;/span&gt;], y=pred[&lt;span class=&quot;fl&quot;&gt;2&lt;/span&gt;], Geom.point),
+         layer(dat, x=&lt;span class=&quot;st&quot;&gt;&amp;quot;day&amp;quot;&lt;/span&gt;, y=&lt;span class=&quot;st&quot;&gt;&amp;quot;I&amp;quot;&lt;/span&gt;, Geom.line)
+         )
+    )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This yields the following figure:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/images/infected.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;The data are the continuous line, and the predictions are the dots. It’s not a perfect fit, but it reproduces the main features of the epidemics quite well. When compared to the original parameters, notably, it predicts the correct date at which no more cases are observed, but it slightly over-estimates the number of cases during the peak.&lt;/p&gt;
+&lt;p&gt;We can also have a look at the distribution of &lt;span class=&quot;math&quot;&gt;\(\beta\)&lt;/span&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/images/dist_beta.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;and &lt;span class=&quot;math&quot;&gt;\(\nu\)&lt;/span&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/images/dist_nu.png&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;In both figures, the vertical lines indicate the previous estimations of the parameters. While they are well within the posterior distribution, it seems that (i) using a different method for fitting and (ii) estimating the value of &lt;span class=&quot;math&quot;&gt;\(I_0\)&lt;/span&gt; gives different estimates.&lt;/p&gt;
+&lt;p&gt;Finally, what about the distribution of &lt;span class=&quot;math&quot;&gt;\(R_0\)&lt;/span&gt;? The original &lt;span class=&quot;math&quot;&gt;\(R0\)&lt;/span&gt; was estimated to 3.76. Using the result of the ABC, I found&lt;/p&gt;
+&lt;pre class=&quot;sourceCode julia&quot;&gt;&lt;code class=&quot;sourceCode julia&quot;&gt;julia&amp;gt; mean(&lt;span class=&quot;fl&quot;&gt;763&lt;/span&gt;.*(posteriors[:beta]./posteriors[:nu]))
+   &lt;span class=&quot;fl&quot;&gt;3.292957996735042&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which is not &lt;em&gt;all&lt;/em&gt; that different from the original prediction. Note that a consistent result is that the epidemic parameters estimated through ABC make the epidemic &lt;em&gt;less&lt;/em&gt; aggresive than the original one. The recovery rate is higher, the &lt;span class=&quot;math&quot;&gt;\(R_0\)&lt;/span&gt; is lower, but the transmission rate is higher.&lt;/p&gt;
+&lt;h1 id=&quot;as-a-brief-wrap-up&quot;&gt;As a brief wrap-up…&lt;/h1&gt;
+&lt;p&gt;I love &lt;code&gt;julia&lt;/code&gt;. I haven’t even thought about possible optimizations and it’s fast already. Also, it’s simple to write. Clearly sliced bread was the best thing until &lt;code&gt;julia&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;ABC – at least as long as a simple rejection scheme is used – is not that hard. This gives me a bunch of ideas.&lt;/p&gt;
+&lt;p&gt;I love epidemiology. For some reason, I just find it fascinating. This is the reason why I switched from immunology to parasitology to ecology. I love it.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+        </entry>
+        
+      
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+     
+  
+</feed>
