@@ -10,4 +10,7 @@ data/library.json: bib.keys
 	python jsonlib.py
 	mv default.json data/library.json
 
-all: data/library.json
+data/gadfly.js:
+	cp /home/tp/.julia/v0.3/Gadfly/src/gadfly.js data/gadfly.js
+
+all: data/library.json data/gadfly.js
