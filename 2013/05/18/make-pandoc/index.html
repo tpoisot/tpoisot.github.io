@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-      <title>Timothée Poisot | Using make and pandoc for reproducible papers</title>
-		<meta name="description" content="Timothée Poisot" />
-		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
-		<meta name="author" content="Timothée Poisot" />
-		<link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-      <script src="/data/gadfly.js" charset="utf-8"></script>
-      <script>
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-         ga('send', 'pageview');
-      </script>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timothée Poisot | Using make and pandoc for reproducible papers</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="//use.typekit.net/aqw8qpu.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	</head>
-	<body>
-   <nav class="menu">
+  </head>
+<body>
+
+
+   <div class="contain-to-grid sticky">
+   <nav class="top-bar" data-topbar data-options="sticky_on: large">
+      <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="middle">
+      <li class="active"><a href="/">Home</a></li>
+      <li class="active"><a href="/software/">Software</a></li>
+      <li class="active"><a href="/research/">Research</a></li>
+      <li class="active"><a href="/blog/">Blog</a></li>
+      <li class="active"><a href="/papers/">Papers</a></li>
+      <li class="active"><a href="/colophon/">Colophon</a></li>
+      </ul>
+   </nav>
+</div>
+
+
+<nav class="menu">
    <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
    <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
    <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
@@ -35,16 +49,31 @@
    <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
 </nav>
 
-		<div class="container">
-			<header class="clearfix">
-            
-            <span>May 18, 2013</span>
-            <h1>Using make and pandoc for reproducible papers</h1>
-            
-         </header>
-			<div class="main">
-            <span class="content">
-               <p>I tend to use <a href="http://johnmacfarlane.net/pandoc/"><code>pandoc</code></a> more and more to write my papers. The syntax of markdown is ligthweight, doesn’t get in the way of my writing, and it’s easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It’s quite important if you want to tweak som simulation parameters, for instance. Using <code>pgfplots</code> from within <code>pandoc</code> can be done, but the heavy syntax seems rather clumsy.</p>
+   <section id="title">
+<div class="row">
+   <div class="small-7 small-centered columns">
+      <h1>
+         
+            Timothée Poisot
+         
+      </h1>
+   </div>
+</div>
+<div class="row">
+   <div class="small-9 small-centered columns">
+      <h2>
+         
+            Using make and pandoc for reproducible papers
+         
+      </h2>
+   </div>
+</div>
+</section>
+
+   <section id="content">
+      <div class="row">
+   <div class="small-12 columns">
+      <p>I tend to use <a href="http://johnmacfarlane.net/pandoc/"><code>pandoc</code></a> more and more to write my papers. The syntax of markdown is ligthweight, doesn’t get in the way of my writing, and it’s easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It’s quite important if you want to tweak som simulation parameters, for instance. Using <code>pgfplots</code> from within <code>pandoc</code> can be done, but the heavy syntax seems rather clumsy.</p>
 <p>So I started looking at what <code>gnuplot</code> can do, and as it turns out, <code>gnuplot</code> can do <em>a lot</em>. Look at the <a href="http://gnuplot.sourceforge.net/demo_cvs/">demo gallery</a> or the excellent <a href="http://www.gnuplotting.org/">gnuplotting</a> if you want to see more. So anyway, I started looking for a way to make the whole process or generating data, getting them in figures, and then keeping the paper updated, as seemless as it <em>should</em> be (because awesome technology should make our lives awesomely simple). Then I discovered <code>makefiles</code>, and I think there’s no coming back from that. The extremely impressive <a href="http://bost.ocks.org/mike/make/">Mike Bostock</a> (if you are into data visualization, check his stuff out), gives good arguments about why you should use them. I spent a few minutes setting up an example, and I’m deeply in love with the concept.</p>
 <p>Here it goes. Assume that you have a file for your paper, called <code>paper.md</code>. You need to get it into <code>paper.pdf</code>. This <code>paper.md</code> file needs a <code>fig1.png</code> figure to compile. <code>fig1.png</code> is produced by <code>fig1.plt</code>, a <code>gnuplot</code> script, who will read <code>data.txt</code>, itself generated by <code>script.py</code>.</p>
 <p>A pre-<code>make</code> workflow would look like this:</p>
@@ -90,9 +119,15 @@ pandoc paper1.md -o paper1.pdf</code></pre>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
+   </div>
+</div>
 
-            </span>
-			</div>
-		</div>
-	</body>
+   </section>
+
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/foundation.min.js"></script>
+<script>
+$(document).foundation();
+</script>
+</body>
 </html>

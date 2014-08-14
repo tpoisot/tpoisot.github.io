@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-      <title>Timothée Poisot | Should we tell students that communities don't exist?</title>
-		<meta name="description" content="Timothée Poisot" />
-		<meta name="keywords" content="ecology, community ecology, ecological networks, graph theory, computational ecology, open science" />
-		<meta name="author" content="Timothée Poisot" />
-		<link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="/lib/font-awesome-4.1.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/styles/style.css" />
-      
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-      <script src="/data/gadfly.js" charset="utf-8"></script>
-      <script>
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-         ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-         ga('send', 'pageview');
-      </script>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timothée Poisot | Should we tell students that communities don't exist?</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="//use.typekit.net/aqw8qpu.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	</head>
-	<body>
-   <nav class="menu">
+  </head>
+<body>
+
+
+   <div class="contain-to-grid sticky">
+   <nav class="top-bar" data-topbar data-options="sticky_on: large">
+      <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="middle">
+      <li class="active"><a href="/">Home</a></li>
+      <li class="active"><a href="/software/">Software</a></li>
+      <li class="active"><a href="/research/">Research</a></li>
+      <li class="active"><a href="/blog/">Blog</a></li>
+      <li class="active"><a href="/papers/">Papers</a></li>
+      <li class="active"><a href="/colophon/">Colophon</a></li>
+      </ul>
+   </nav>
+</div>
+
+
+<nav class="menu">
    <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
    <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
    <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
@@ -35,16 +49,31 @@
    <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
 </nav>
 
-		<div class="container">
-			<header class="clearfix">
-            
-            <span>January 21, 2014</span>
-            <h1>Should we tell students that communities don't exist?</h1>
-            
-         </header>
-			<div class="main">
-            <span class="content">
-               <p>Literally one of the first things I told my students in the first lecture of the <em>Population and Community Dynamics</em> class I gave last winter was along the lines of <em>an ecological community is the pool of all species occuring at the same place and at the same time (and the interactions between them)</em>. This is more or a less a synthesis of what you can find in the first pages of Peter Morin’s textbook, for example; and so far, I was relatively satisfied by this definition. Then a few weeks ago, I read the <span class="citation" data-cites="lea14">Leaper et al. (2014)</span> paper in <em>Ecology</em>, which uses co-occurrence data from marine species to question the “classical” definition of a community. Their most important finding is that, when clustering species in a large spatial dataset, there are groups of highly correlated species. The interesting thing is that these groups are not unique to any particular location, and are not necessarily found together. Or in short, “communities” are a mix between the two definitions of “whatever is found locally” and “the most characteristic species of an assemblage”.</p>
+   <section id="title">
+<div class="row">
+   <div class="small-7 small-centered columns">
+      <h1>
+         
+            Timothée Poisot
+         
+      </h1>
+   </div>
+</div>
+<div class="row">
+   <div class="small-9 small-centered columns">
+      <h2>
+         
+            Should we tell students that communities don't exist?
+         
+      </h2>
+   </div>
+</div>
+</section>
+
+   <section id="content">
+      <div class="row">
+   <div class="small-12 columns">
+      <p>Literally one of the first things I told my students in the first lecture of the <em>Population and Community Dynamics</em> class I gave last winter was along the lines of <em>an ecological community is the pool of all species occuring at the same place and at the same time (and the interactions between them)</em>. This is more or a less a synthesis of what you can find in the first pages of Peter Morin’s textbook, for example; and so far, I was relatively satisfied by this definition. Then a few weeks ago, I read the <span class="citation" data-cites="lea14">Leaper et al. (2014)</span> paper in <em>Ecology</em>, which uses co-occurrence data from marine species to question the “classical” definition of a community. Their most important finding is that, when clustering species in a large spatial dataset, there are groups of highly correlated species. The interesting thing is that these groups are not unique to any particular location, and are not necessarily found together. Or in short, “communities” are a mix between the two definitions of “whatever is found locally” and “the most characteristic species of an assemblage”.</p>
 <p>As I was writing this post, <a href="http://evol-eco.blogspot.ca/2014/01/a-multiplicity-of-communities-for.html">Caroline Tucker</a> wrote a very interesting piece on the <em>multiplicity of ecological communities</em>. Which you should read, because it covers a lot of the ground I was planning on covering (and I had to delete a few paragraphs). Let’s just say I am glad that the first time I get scooped is for a blog post and not for a paper. So just go read Caroline’s piece, but then come back, because I will try to put another twist on the subject. Specifically, should we adapt our message when teaching?</p>
 <p>The end of Caroline’s piece is that we should not try to have a one-size-fits-none definition of what an ecological community is. I thought it was the only significant weakness of Mark Vellend’s otherwise excellent synthesis <span class="citation" data-cites="vel10">(Vellend 2010)</span> from a few years ago: a definition of a community which is as simple as the one I gave in the introduction of this post. Defining communities this way has one distinct advantage: it is straightforward to go from community to meta-communities (<em>a bunch of communities connected by the dispersal of at least one of their species</em>). But the important point is that the world is most likely not discrete, and the elegant framework of meta-everything is probably not going to hold in its entirety in continuous landscapes.</p>
 <p>So looking back, I am thinking that the nice tale we are telling students is (i) probably not relevant at the local scale, because it considers that the qaudrat we work on is a perfectly isolated island, and (ii) probably not relevant at the regional scale either, because it does not expands nicely to a continuous spatial context. What should we tell then? I think it would be an interesting discussion, to present the “simple” definition of a community to students, and get them to understand when it breaks. How do you define the area you consider to define a community? What if the environment is always moving (like lagoons, intertidal zones, …)? What if you started walking, from your sampling point, in the same direction; when do you leave the zone “defined” by your community?</p>
@@ -72,9 +101,15 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
+   </div>
+</div>
 
-            </span>
-			</div>
-		</div>
-	</body>
+   </section>
+
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/foundation.min.js"></script>
+<script>
+$(document).foundation();
+</script>
+</body>
 </html>
