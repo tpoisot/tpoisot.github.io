@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Blog</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,125 +24,99 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Blog
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
       <!-- This loops through the paginated posts -->
 
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>December 15, 2012 </span><br />
-         <a class="readmore" href="/2012/12/15/face-of-twitter/">The friends of my friends (are on twitter)</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>December 15, 2012 </span> <a class="readmore" href="/2012/12/15/face-of-twitter/">The friends of my friends (are on twitter)</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November 23, 2012 </span><br />
-         <a class="readmore" href="/2012/11/23/how-to-represent-networks/">How to represent networks</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November 23, 2012 </span> <a class="readmore" href="/2012/11/23/how-to-represent-networks/">How to represent networks</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November  9, 2012 </span><br />
-         <a class="readmore" href="/2012/11/09/data-sharing-and-the-bagel-effect/">Data sharing and the bagel effect</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November  9, 2012 </span> <a class="readmore" href="/2012/11/09/data-sharing-and-the-bagel-effect/">Data sharing and the bagel effect</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>October 29, 2012 </span><br />
-         <a class="readmore" href="/2012/10/29/species-interaction-networks/">Should we care about species interaction networks?</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>October 29, 2012 </span> <a class="readmore" href="/2012/10/29/species-interaction-networks/">Should we care about species interaction networks?</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>October  9, 2012 </span><br />
-         <a class="readmore" href="/2012/10/09/null-models-presentations/">Presenting the results of networks null models</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>October  9, 2012 </span> <a class="readmore" href="/2012/10/09/null-models-presentations/">Presenting the results of networks null models</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>October  2, 2012 </span><br />
-         <a class="readmore" href="/2012/10/02/bacterial-terminal-investment/">Can phage increase bacterial growth?</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>October  2, 2012 </span> <a class="readmore" href="/2012/10/02/bacterial-terminal-investment/">Can phage increase bacterial growth?</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>September 24, 2012 </span><br />
-         <a class="readmore" href="/2012/09/24/measuring-beta-diversity-networks/">Measuring the beta-diversity of species interaction networks</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>September 24, 2012 </span> <a class="readmore" href="/2012/09/24/measuring-beta-diversity-networks/">Measuring the beta-diversity of species interaction networks</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>September 20, 2012 </span><br />
-         <a class="readmore" href="/2012/09/20/beta-diversity-networks/">The beta-diversity of species interaction networks</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>September 20, 2012 </span> <a class="readmore" href="/2012/09/20/beta-diversity-networks/">The beta-diversity of species interaction networks</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>August 15, 2012 </span><br />
-         <a class="readmore" href="/2012/08/15/notes-on-using-sympy/">Notes on learning how to use sympy</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>August 15, 2012 </span> <a class="readmore" href="/2012/08/15/notes-on-using-sympy/">Notes on learning how to use sympy</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>August 13, 2012 </span><br />
-         <a class="readmore" href="/2012/08/13/models-are-useless/">Models are useless. Real ecologists should move on.</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>August 13, 2012 </span> <a class="readmore" href="/2012/08/13/models-are-useless/">Models are useless. Real ecologists should move on.</a>
+         
       </p>
    </div>
 
@@ -201,15 +177,11 @@ ga('send', 'pageview');
 
 </div>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

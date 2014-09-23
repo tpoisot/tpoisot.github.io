@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Data sharing and the bagel effect</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Data sharing and the bagel effect
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I’m starting to organize a collection of notes and ideas I’ve had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I’ll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would be appealing to people.</p>
+      <div class="post">
+   <h1 class="title"> Data sharing and the bagel effect</h1>
+   <p>I’m starting to organize a collection of notes and ideas I’ve had over the last year into an opinion paper about data sharing in ecology. In a word, we should share our data, and we should do it in a technically sound way - I’ll tell more about these points later on. I was trying to illustrate the point that not sharing data is an absurdity, and to do so in a way that would be appealing to people.</p>
 <p>Let’s imagine that you go to your local coffee shop, and order a bagel. A tasty, garnished, bagel, with bacon, eggs, and all. You order it, you pay for it. The barista makes it, and it looks delicious. As you are already imagining yourself biting into the thing, the guy behind the counter calls you, and say “Hey, look, I made you a bagel!”. He then takes your money, put the bagel behind the counter, and walk away. Were this situation to happen, it’s likely that you’ll ask for you bagel, or your money back.</p>
 <p>But as far as papers go, we are living this situation (the <em>bagel effect</em>) every day. When you see a paper, when you read it, you have to take the author’s word for it. You can <em>see</em> the data, presented as figures, tables, and text, but you can’t <em>taste</em> them. You can’t reproduce the results, and you can’t certainly use these data to do <em>some more, new, exciting science</em>, because the data are not yours.</p>
 <p>This is the core of the problem: some people still feel like <em>their</em> data belong to <em>them</em>. Not so long ago I asked a bunch of people (whose identity do not matter at all) to give me their data, which were published 15 years ago. Their reply was that they would be really happy to do so, <em>if I list them as co-authors in the paper whether they contributed or not</em>. This was such an unrealistic expectation that I thought it was a clever joke. It was not. I didn’t used the data.</p>
@@ -85,7 +63,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -102,15 +80,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

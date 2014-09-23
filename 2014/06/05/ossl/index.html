@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Open Scientific Software License</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Open Scientific Software License
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I have been doing a bunch of reading on software licenses, because the question of which one to pick popped up in two projects I currently work on. There are tools like GitHub’s <em><a href="http://choosealicense.com/">choose a license</a></em>, that compare a fairly good selection of FOSS (Free and Open Source Software) licenses. And you can find a lot of (good) advice around the internet that will advise you to pick a license for your code. See <em>e.g.</em> <a href="http://www.software.ac.uk/resources/guides/choosing-open-source-licence">sofwtare.ac.uk</a>, a paper by <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002598">Andrew Morin and colleagues</a>, and more <a href="http://www.astrobetter.com/the-whys-and-hows-of-licensing-scientific-code/">tutorial like documents</a>. If you read all of that (and if you produce code, I think you should), you’ll most likely agree that licensing your work is important.</p>
+      <div class="post">
+   <h1 class="title"> Open Scientific Software License</h1>
+   <p>I have been doing a bunch of reading on software licenses, because the question of which one to pick popped up in two projects I currently work on. There are tools like GitHub’s <em><a href="http://choosealicense.com/">choose a license</a></em>, that compare a fairly good selection of FOSS (Free and Open Source Software) licenses. And you can find a lot of (good) advice around the internet that will advise you to pick a license for your code. See <em>e.g.</em> <a href="http://www.software.ac.uk/resources/guides/choosing-open-source-licence">sofwtare.ac.uk</a>, a paper by <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002598">Andrew Morin and colleagues</a>, and more <a href="http://www.astrobetter.com/the-whys-and-hows-of-licensing-scientific-code/">tutorial like documents</a>. If you read all of that (and if you produce code, I think you should), you’ll most likely agree that licensing your work is important.</p>
 <p>Yet <a href="http://matt.might.net/articles/crapl/">as Matt Might points out</a>, FOSS licenses tailored specifically for academic use should have other requirements besides no liability and ensuring sharing of modified code. I spend a sometimes significant amount of my time writing code to perform various analyzes, or to reproduce results. I think that this is a research output equally important to publishing the paper (in that I see very little value in a great methodological paper with no code attached, for starters); which means that I think it should be credited somehow.</p>
 <p>One thing I have noticed in various discussions over the last few months is that the fact that (good) software is hard to produce completely eludes some people. This is perfectly understandable. In part, because we (as computer users) are <a href="http://linux.oneandoneis2.org/LNW.htm">demanding software working intuitively out of the box</a>. As a result, most mainstream operating systems (and I’m including several Linux distributions in that) are focusing on <em>user-friendliness</em>, so that even complex things <em>appear</em> really simple. Given that, really, how hard can programming a <code>R</code> package that doesn’t even have a GUI be? Software is a given right, and (I have checked some of my papers and I must plead guilty to that too) citing some of the software that made a paper possible is still not automatic. And to really drive the point home: if someone publishes a paper using package <code>xyz</code>, without citing the paper describing <code>xyz</code> (or the software itself should there be no paper to cite), that person get credit while the software creator does not.</p>
 <p>Even the very concept of a software license is focused on people with some computing experience. It tells things about the use of the code, in the sense that it tells you whether you can make money with it (not with the output), whether you can modify the code, and if so, which future licenses are acceptable. In short, the licensing issue is definitely an important one in science, but it does not speaks to the end users. Now before you preemptively burn be at the stake before I propose <a href="http://xkcd.com/501/">EULAs</a> for all scientific software, hear me out. On a daily basis, what you do with my code matters to me far less than whether I get credit for having produced the code in the first place, especially when this code is actually used. I would be happy to release 90% of everything I write using the <a href="http://www.wtfpl.net/about/">WTFPL</a> (just to see if I can managed to spell it out in a paper, mostly). So I think we need <em>some sort</em> of license between the creator of the software and the users.</p>
@@ -113,7 +91,7 @@ modified software are first published, or earlier.</code></pre>
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -130,15 +108,11 @@ modified software are first published, or earlier.</code></pre>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

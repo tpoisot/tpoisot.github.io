@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Blog</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,125 +24,99 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Blog
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
       <!-- This loops through the paginated posts -->
 
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>June 24, 2013 </span><br />
-         <a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Fixes for the ManuscriptCentral PDF conversion problem</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>June 24, 2013 </span> <a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Fixes for the ManuscriptCentral PDF conversion problem</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>June 23, 2013 </span><br />
-         <a class="readmore" href="/2013/06/23/niche-fill-ecological-papers/">A niche to fill in ecological publishing?</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>June 23, 2013 </span> <a class="readmore" href="/2013/06/23/niche-fill-ecological-papers/">A niche to fill in ecological publishing?</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>June 19, 2013 </span><br />
-         <a class="readmore" href="/2013/06/19/notes-on-network-complexity/">A note on network complexity</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>June 19, 2013 </span> <a class="readmore" href="/2013/06/19/notes-on-network-complexity/">A note on network complexity</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 30, 2013 </span><br />
-         <a class="readmore" href="/2013/05/30/bacteria-soil-networks/">The structure of natural bacteria-phage networks</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 30, 2013 </span> <a class="readmore" href="/2013/05/30/bacteria-soil-networks/">The structure of natural bacteria-phage networks</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 23, 2013 </span><br />
-         <a class="readmore" href="/2013/05/23/realized-modularity/">Measuring realized network modularity</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 23, 2013 </span> <a class="readmore" href="/2013/05/23/realized-modularity/">Measuring realized network modularity</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 22, 2013 </span><br />
-         <a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Trophic complementarity and the BEF relationship in food webs</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 22, 2013 </span> <a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Trophic complementarity and the BEF relationship in food webs</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 21, 2013 </span><br />
-         <a class="readmore" href="/2013/05/21/should-code-reviewed/">Should code be reviewed?</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 21, 2013 </span> <a class="readmore" href="/2013/05/21/should-code-reviewed/">Should code be reviewed?</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 20, 2013 </span><br />
-         <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Remove indels from blast output</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 20, 2013 </span> <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Remove indels from blast output</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 18, 2013 </span><br />
-         <a class="readmore" href="/2013/05/18/make-pandoc/">Using make and pandoc for reproducible papers</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 18, 2013 </span> <a class="readmore" href="/2013/05/18/make-pandoc/">Using make and pandoc for reproducible papers</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>May 16, 2013 </span><br />
-         <a class="readmore" href="/2013/05/16/steal-my-paper/">Steal my paper! (seriously, please, don't)</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>May 16, 2013 </span> <a class="readmore" href="/2013/05/16/steal-my-paper/">Steal my paper! (seriously, please, don't)</a>
+         
       </p>
    </div>
 
@@ -201,15 +177,11 @@ ga('send', 'pageview');
 
 </div>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

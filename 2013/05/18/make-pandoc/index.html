@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Using make and pandoc for reproducible papers</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,75 +24,51 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Using make and pandoc for reproducible papers
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I tend to use <a href="http://johnmacfarlane.net/pandoc/"><code>pandoc</code></a> more and more to write my papers. The syntax of markdown is ligthweight, doesn’t get in the way of my writing, and it’s easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It’s quite important if you want to tweak som simulation parameters, for instance. Using <code>pgfplots</code> from within <code>pandoc</code> can be done, but the heavy syntax seems rather clumsy.</p>
+      <div class="post">
+   <h1 class="title"> Using make and pandoc for reproducible papers</h1>
+   <p>I tend to use <a href="http://johnmacfarlane.net/pandoc/"><code>pandoc</code></a> more and more to write my papers. The syntax of markdown is ligthweight, doesn’t get in the way of my writing, and it’s easy to export the text to almost any format you can name afterward. The only issue I ran in is that I also like <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> a lot for graphics, because they come with the ability to update themselves at each compilation, when the data are re-generated. It’s quite important if you want to tweak som simulation parameters, for instance. Using <code>pgfplots</code> from within <code>pandoc</code> can be done, but the heavy syntax seems rather clumsy.</p>
 <p>So I started looking at what <code>gnuplot</code> can do, and as it turns out, <code>gnuplot</code> can do <em>a lot</em>. Look at the <a href="http://gnuplot.sourceforge.net/demo_cvs/">demo gallery</a> or the excellent <a href="http://www.gnuplotting.org/">gnuplotting</a> if you want to see more. So anyway, I started looking for a way to make the whole process or generating data, getting them in figures, and then keeping the paper updated, as seemless as it <em>should</em> be (because awesome technology should make our lives awesomely simple). Then I discovered <code>makefiles</code>, and I think there’s no coming back from that. The extremely impressive <a href="http://bost.ocks.org/mike/make/">Mike Bostock</a> (if you are into data visualization, check his stuff out), gives good arguments about why you should use them. I spent a few minutes setting up an example, and I’m deeply in love with the concept.</p>
 <p>Here it goes. Assume that you have a file for your paper, called <code>paper.md</code>. You need to get it into <code>paper.pdf</code>. This <code>paper.md</code> file needs a <code>fig1.png</code> figure to compile. <code>fig1.png</code> is produced by <code>fig1.plt</code>, a <code>gnuplot</code> script, who will read <code>data.txt</code>, itself generated by <code>script.py</code>.</p>
 <p>A pre-<code>make</code> workflow would look like this:</p>
 <div class="highlight">
-<pre><code class="bash">python script.py &gt; data.txt
+<pre><code class="language-bash" data-lang="bash">python script.py &gt; data.txt
 gnuplot fig1.plt
 pandoc paper1.md -o paper1.pdf</code></pre>
 </div>
 <p>Incidentally, I used this type of files, usually called some variation of <code>compile.sh</code>, all the time. But as I discovered, you can make the whole process <em>painless</em>. and time saving, since you can only compile the parts that are needed. How, you ask? Using a <code>makefile</code>. For this simple example, the <code>Makefile</code> looks like this:</p>
 <div class="highlight">
-<pre><code class="makefile"><span class="nf">all</span><span class="o">:</span> <span class="m">paper.pdf</span>
+<pre><code class="language-makefile" data-lang="makefile"><span class="nf">all</span><span class="o">:</span> <span class="n">paper</span>.<span class="n">pdf</span>
 
-<span class="nf">paper.pdf</span><span class="o">:</span> <span class="m">paper.md fig1.png script.py</span>
+<span class="nf">paper.pdf</span><span class="o">:</span> <span class="n">paper</span>.<span class="n">md</span> <span class="n">fig</span>1.<span class="n">png</span> <span class="n">script</span>.<span class="n">py</span>
   pandoc paper.md -o paper.pdf
 
-<span class="nf">fig1.png</span><span class="o">:</span> <span class="m">data.txt fig1.plt</span>
+<span class="nf">fig1.png</span><span class="o">:</span> <span class="n">data</span>.<span class="n">txt</span> <span class="n">fig</span>1.<span class="n">plt</span>
   gnuplot fig1.plt
 
-<span class="nf">data.txt</span><span class="o">:</span> <span class="m">script.py</span>
+<span class="nf">data.txt</span><span class="o">:</span> <span class="n">script</span>.<span class="n">py</span>
   python script.py &gt; data.txt</code></pre>
 </div>
 <p>All <code>Makefile</code>s look the same: on the first line, there is a <em>target</em>, followed by its <em>dependencies</em>. Then, on the line below, are the <em>commands</em>. Everytime a dependency is also a target, then if the dependencies of this target have changed, the dependency is rebuilt. OK that’s not clear at all. If you change <code>script.py</code>, the next time you build <code>fig1.png</code>, the files that <code>fig1.png</code> depend on that have <code>script.py</code> as a dependency will be rebuilt. But see it the other way around. If you just modified the text of your <code>paper.md</code> file, then there is no reason to re-build any of the figures or dataset. See? That’s the greatness of <code>make</code>.</p>
@@ -100,7 +78,7 @@ pandoc paper1.md -o paper1.pdf</code></pre>
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -117,15 +95,11 @@ pandoc paper1.md -o paper1.pdf</code></pre>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

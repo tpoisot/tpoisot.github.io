@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Mapping ecological concepts using twitter</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Mapping ecological concepts using twitter
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I’ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological Society</a>, and while we currently use it as a tool to relay the various informations we want to share, it’s also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the “general public” as far as ecology is concerned, so I had to look for another solution.</p>
+      <div class="post">
+   <h1 class="title"> Mapping ecological concepts using twitter</h1>
+   <p>I’ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological Society</a>, and while we currently use it as a tool to relay the various informations we want to share, it’s also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the “general public” as far as ecology is concerned, so I had to look for another solution.</p>
 <p>Twitter offers a series of <em>Streaming API</em>, which allows to “listen” to the conversation, by tracking some keywords, or users, or geographic location. So I downloaded the excellent <a href="https://github.com/geduldig/TwitterAPI"><code>TwitterAPI</code></a> module for <code>python</code>, and tracked a series of keywords. After some trial and error, I settled on <code>biodiversity</code>, <code>biological diversity</code>, <code>ecology</code>, <code>species richness</code>, <code>ecosystem services</code>, <code>ecosystem functioning</code>, and <code>ecological</code>. I left out <code>conservation</code> and <code>ecosystem</code>, because they had a really high rate of false positives (in engineering and software, respectively).</p>
 <p>The streaming API, in a nutshell, will return a new line everytime a tweet that matches the search parameters is posted. Not all tweets are sampled, but it’s approximately a random sampling, so more than good enough for a side-project. I left the script running for a few hours at a time, which gave me a database of over 1000 tweets, about 600 of which were retained. I’ve removed all tweets using a alphabet that is not latin, and there were quite a bit of these.</p>
 <p>Once this was done, I just read each line in <code>python</code> (the Twitter API have the good taste of returning everything as <code>json</code> strings), selected the text, and cleaned it. I simple (i) converted everything to lower case, (ii) removed every non-ascii characters, (iii) removed punctuations, and (iv) removed the hasthag (<code>#</code>) symbol. Then I extracted all of the unique words in each tweet, and let the fun begin!</p>
@@ -140,7 +118,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -157,15 +135,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

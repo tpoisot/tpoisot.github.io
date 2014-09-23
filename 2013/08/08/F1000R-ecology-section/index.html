@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | F1000Research announces new Ecology section</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            F1000Research announces new Ecology section
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>F1000Research just put up a <a href="http://blog.f1000research.com/2013/08/08/ecologists-join-our-open-science-ecosystem/">new blog post</a> to announce that they will concentrate some of their efforts to increase the proportion of ecology papers they publish. We should all be excited about this. First, the article processing fees will be waived until 2014, so here goes a good opportunity to see for yourself how this journal works. Second, the publication model of F1000Research is extremely interesting. After initial checking, the paper is put on-line, and appears as a preprint. Reviews appear in real-time, and are not anonymous. Further changes to the paper are well documented.</p>
+      <div class="post">
+   <h1 class="title"> F1000Research announces new Ecology section</h1>
+   <p>F1000Research just put up a <a href="http://blog.f1000research.com/2013/08/08/ecologists-join-our-open-science-ecosystem/">new blog post</a> to announce that they will concentrate some of their efforts to increase the proportion of ecology papers they publish. We should all be excited about this. First, the article processing fees will be waived until 2014, so here goes a good opportunity to see for yourself how this journal works. Second, the publication model of F1000Research is extremely interesting. After initial checking, the paper is put on-line, and appears as a preprint. Reviews appear in real-time, and are not anonymous. Further changes to the paper are well documented.</p>
 <p>As we discuss in <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">Phil’s paper</a> paper on preprints in biology, this immediate publication model is good, especially for early-career people. When you need to have something to show for your work in order to apply for a fellowship, it’s understandable that you don’t want to wait for up to a whole year for your paper to run the gauntlet of peer review. F1000Research also integrates tightly with figshare, and datasets are required to be open when the paper is submitted. That’s a really good practice, and it will further the integration between datasets and papers.</p>
 <p>One of the coolest things for field ecologists (I’ve been informed that ecology is the study of populations, and not a branch of applied mathematics or computer sciences…?) is that F1000Research will now offer to publish <em>observation articles</em>. People in the medical sciences have many case studies, that are extremely important to the field as a whole. In ecology, despite the recognition that general laws are elusive and not as general as they appear, there seems to be a shortage of places to publish interesting field/lab observations. I’m sure many people will be deligthed to learn that the modern publishing world still cares about the naturalist tradition of ecology.</p>
 <p>So you can head to the <a href="http://f1000research.com">F1000Research</a> website and see for yourself!</p>
@@ -79,7 +57,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -96,15 +74,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

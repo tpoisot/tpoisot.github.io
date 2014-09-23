@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | An additive partition of species-level specificity</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            An additive partition of species-level specificity
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>A while ago, we published a paper in <em>Methods in Ecology &amp; Evolution</em>, <a href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/">comparing different ways to estimate ecological specificity</a> on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array <strong>P</strong> of its performances across <em>R</em> different environments, which is (1) sorted decreasingly, and (2) ranged so that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is a modification of Schoener’s generality), and <em>PDI</em> (which is first formally introduced in this paper), which measures how fast performance decreases when you move away from the optimal environment (the faster it decays, the more specialized you are).</p>
+      <div class="post">
+   <h1 class="title"> An additive partition of species-level specificity</h1>
+   <p>A while ago, we published a paper in <em>Methods in Ecology &amp; Evolution</em>, <a href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/">comparing different ways to estimate ecological specificity</a> on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array <strong>P</strong> of its performances across <em>R</em> different environments, which is (1) sorted decreasingly, and (2) ranged so that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is a modification of Schoener’s generality), and <em>PDI</em> (which is first formally introduced in this paper), which measures how fast performance decreases when you move away from the optimal environment (the faster it decays, the more specialized you are).</p>
 <p>The main advantage of <em>PDI</em> is that it relates extremely well to the <em>definition</em> of what specificity is: a rapid decay of performance on resources which are not your own optimum (regardless of the <em>absolute</em> performance on this optimal resource, which is why we set <strong>P</strong>[1] = 1). <em>PDI</em> is nothing more that the sum of performance lost by not being on the optimal resource, divided by the number of non-optimal resources. Somewhere in the end of the paper, we write that when the data are binary, <em>RR</em> and <em>PDI</em> are equivalent. For some reason that still eludes me, the demonstration did not make its way in the final version of the paper. So let’s start with it. First, for an organism of which the performances are measured in <em>R</em> environments, of which it has a performance higher than 0 in <em>r</em>, we define <em>RR</em> as</p>
 <script type="math/tex; mode=display"> RR = \frac{R-r}{R-1} </script>
 
@@ -86,14 +64,14 @@ ga('send', 'pageview');
 <p>This additive partition makes sense, because if you go back to the demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i] will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so <em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the importance of different performances on specificity. Or in other words, when you do not have informations to measure specificity of impacts, all of the specificity is because of associations.</p>
 <p>Now what? Well, we can start measuring how much of the total specificity (<em>PDI</em>) is due to specificity of associations only (<em>RR</em>/<em>PDI</em>), and how much is due to specificity of impacts only (<em>I</em>/<em>PDI</em>). As far as I can tell, the couple <em>PDI</em>-<em>RR</em> is the only pair of measures that allow to do that (though there are other approaches) in a context where you can show that one measure is a component of the other. Here is a <code>R</code> function to do it using the <code>ESM</code> package (<a href="https://r-forge.r-project.org/R/?group_id=593">from R-Forge</a>).</p>
 <div class="highlight">
-<pre><code class="r">library<span class="p">(</span>ESM<span class="p">)</span>
+<pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>ESM<span class="p">)</span>
 
 sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>P<span class="p">)</span>
 <span class="p">{</span>
    Spe <span class="o">=</span> pdi<span class="p">(</span>P<span class="p">)</span>
    Ass <span class="o">=</span> rr<span class="p">(</span>P<span class="p">)</span>
    Imp <span class="o">=</span> Spe <span class="o">-</span> Ass
-   <span class="kr">return</span><span class="p">(</span>list<span class="p">(</span>
+   <span class="kr">return</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>
       specificity  <span class="o">=</span> Spe<span class="p">,</span>
       associations <span class="o">=</span> Ass<span class="p">,</span>
       impacts      <span class="o">=</span> Imp<span class="p">,</span>
@@ -104,10 +82,10 @@ sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</
 </div>
 <p>Let’s do some simple examples, and contrast to species with the same number of resources, but a very high performance on resource 2, or a very low performance on resource 3:</p>
 <div class="highlight">
-<pre><code class="r"><span class="o">&gt;</span> unlist<span class="p">(</span>sap<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.999</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
+<pre><code class="language-r" data-lang="r"><span class="o">&gt;</span> <span class="kp">unlist</span><span class="p">(</span>sap<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.999</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
   specificity associations      impacts    assoc_rel    impac_rel 
   <span class="m">0.500500000</span>  <span class="m">0.500000000</span>  <span class="m">0.000500000</span>  <span class="m">0.999000999</span>  <span class="m">0.000999001</span> 
-<span class="o">&gt;</span> unlist<span class="p">(</span>sap<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.001</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
+<span class="o">&gt;</span> <span class="kp">unlist</span><span class="p">(</span>sap<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.001</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
   specificity associations      impacts    assoc_rel    impac_rel 
   <span class="m">0.9995000</span>    <span class="m">0.5000000</span>    <span class="m">0.4995000</span>    <span class="m">0.5002501</span>    <span class="m">0.4997499</span></code></pre>
 </div>
@@ -116,7 +94,7 @@ sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -133,15 +111,11 @@ sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

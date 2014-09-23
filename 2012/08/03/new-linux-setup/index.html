@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | My new linux setup</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            My new linux setup
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I have a terrible confession to make. Two weeks ago, I installed <a href="http://xkcd.com/528/">Windows 7</a>. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask?</p>
+      <div class="post">
+   <h1 class="title"> My new linux setup</h1>
+   <p>I have a terrible confession to make. Two weeks ago, I installed <a href="http://xkcd.com/528/">Windows 7</a>. Nobody was holding me at gunpoint. No member of my family was taken hostage by the IT people which were fed-up by our Mac rebellion. I took the rational, informed decision to install Windows 7 on a brand new machine. Why, oh why, do you ask?</p>
 <p>I made the switch from Mac to Linux, that’s why. I needed to install Windows on my new machine before wiping it up and replacing it by Ubuntu (needless to say, I derived a great amount of pleasure in the process). I’m really happy with it. The reason of the switch is quite simple. Over the last months, I’ve been trying to use software that is as simple as possible, but not simpler. No more saying «Cool, I’ve been working with Word for two hours, and it only crashed once!». I’ve progressively moved all my text-editing duties to <a href="http://www.latex-project.org/">LaTeX</a>, including using <a href="https://bitbucket.org/rivanvx/beamer/wiki/Home">beamer</a> for slides and <a href="http://ctan.org/pkg/biblatex">biblatex</a>/<a href="http://www.mendeley.com/">Mendeley</a> for bibliography.</p>
 <p>I’ve also discovered <a href="http://sourceforge.net/projects/pgfplots/">pgfplots</a>, which is <em>incredibly</em> powerful, and is perfectly integrated to LaTeX. Throw in some <a href="http://www.texample.net/tikz/examples/">PGF and Tikz</a> for other graphics, and you have yourself a full-featured monster to produce any kind of science you want. While I still use R a lot, I’m progressively moving to <a href="http://www.python.org/">Python</a>, because of the amazing <a href="http://networkx.lanl.gov/">networkx</a> package, which I’ve already mentionned <a href="http://timotheepoisot.fr/2012/05/18/networkx-metapopulations-python/">a few times</a>.</p>
 <p>And of course, all of this is kept <a href="http://timotheepoisot.fr/2012/01/06/science-age-social-coding/">updated using git</a>, which I’m lucky to be able to use, thanks to my colleagues being huge nerds. By the way, the people at <a href="https://github.com/">GitHub</a> are really nice, and if you send them an email saying you work in the academia, they’ll give you free private repositories. You can set up a lab account, and be the happiest scientist ever.</p>
@@ -83,7 +61,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -100,15 +78,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

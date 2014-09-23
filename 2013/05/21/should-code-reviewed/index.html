@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Should code be reviewed?</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Should code be reviewed?
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>Joppa and colleagues published a <a href="http://www.sciencemag.org/content/340/6134/814">policy forum</a> in <em>Science</em>, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do an outdated analysis because “everyone else is doing this analysis” - way to go).</p>
+      <div class="post">
+   <h1 class="title"> Should code be reviewed?</h1>
+   <p>Joppa and colleagues published a <a href="http://www.sciencemag.org/content/340/6134/814">policy forum</a> in <em>Science</em>, dealing with problems in the use of adoption of scientific software. Their paper quite nicely summarizes that the intrinsic quality of a software is not a deciding factor in its use, and that the community of scientists will be more influenced by who the early adopters are, and how well they are connected. In short, using a particular software quickly becomes a tradition, with few considerations for its merit, and worse, few consideration for the merit of following software (it happened to me once, that two referees asked me to do an outdated analysis because “everyone else is doing this analysis” - way to go).</p>
 <p>As Joppa and colleagues say quite early in the paper, “the software code used to do the science has not been formally reviewed”. This is, indeed, one of the main recommandations that Joppa and colleagues make: code should be reviewed, just as the paper it is attached to. And it is obvious, but just saying that referees will read the code, and all the problems will go away, is wishful thinking. Should code be reviewed? Yes. Can it? Not quite yet, I think.</p>
 <p>I’ve talked to five different people this morning about computer stuff. We mentionned approximately ten different languages. Of these, I knew four well (enough to write functional code in a reasonable amount of time), two approximately (I can guess what a code does by reading it, most of the time), and the others not at all. Sure, <code>R</code> has become a <em>lingua franca</em> for ecologists and many other fields, but there are still other languages out there. Think you can review my <code>python</code> code? I wouldn’t even do it myself! What about very verbose languages (<code>C</code>), or things that should have gone extinct a long time ago but for some reason are still around (<code>delphi</code>)? We are collectively using a multitude of languages. Now think about it in a review perspective. How likely is it that you’ll be able to (i) understand, (ii) evalute, and (iii) assess the quality of a random piece of code? If you’re not in the top 90% programers in your field, then you’re not likely to review the code properly.</p>
 <p>Joppa and colleagues also call for more widespread unit tests. Some languages have really easy way to write them (<code>python</code>, for example). I’m guilty of not using them, just as a lot of other people. And the reason is simple: ain’t nobody got time for that! <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Nick Barnes</a> encouraged us to publish our computer code because it was “good enough”, and most of the time, our code is just that. Good <em>enough</em> for the project we are currently working on. When I write a model of whatever ecological process to look at how it affects the relationship between two variables, I mostly don’t think that people can use it to do something else. I write it as well as I can, and stupid-test it (does it behave the way my calculations tell me it should in some important yet simple cases?). Then I’m done with it. But I don’t write unit tests, and I don’t adhere to any good practices of code quality. This is bad, we are (to a vast majority), bad people.</p>
@@ -82,7 +60,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -99,15 +77,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | How to make the most out of peer-review?</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            How to make the most out of peer-review?
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>So it seems that the love/hate relationship between science and publishers has <a href="http://innge.net/?q=node/99">reached its tipping point following the RWA turmoil</a>, with appeals to boycott major publishers, such as <a href="http://www.researchwithoutwalls.org/"><em>researchwithoutwalls</em></a> and <a href="http://thecostofknowledge.com/"><em>thecostofknowledge</em></a>, and <a href="http://cscs.umich.edu/~crshalizi/weblog/864.html">some of the most eminents members of the scientific blogosphere talking about it</a>, and using creative metaphors to illustrate <a href="http://www.academicproductivity.com/2012/when-your-users-tell-you-you-are-not-adding-value-boycott-against-elsevier/">how big of a scam it is</a>. Specifically, most scientists are publicly stating that <a href="http://jabberwocky.weecology.org/2012/01/27/why-i-will-no-longer-review-for-your-journal/">they will not review papers anymore</a>, at least in the case of for-profit editors. Most of the problem lies in the fact that reviewing papers does not grant you any money, yet publishers make <a href="http://michaelnielsen.org/blog/on-elsevier/">insane profits</a> based on this use of your government-funded time.</p>
+      <div class="post">
+   <h1 class="title"> How to make the most out of peer-review?</h1>
+   <p>So it seems that the love/hate relationship between science and publishers has <a href="http://innge.net/?q=node/99">reached its tipping point following the RWA turmoil</a>, with appeals to boycott major publishers, such as <a href="http://www.researchwithoutwalls.org/"><em>researchwithoutwalls</em></a> and <a href="http://thecostofknowledge.com/"><em>thecostofknowledge</em></a>, and <a href="http://cscs.umich.edu/~crshalizi/weblog/864.html">some of the most eminents members of the scientific blogosphere talking about it</a>, and using creative metaphors to illustrate <a href="http://www.academicproductivity.com/2012/when-your-users-tell-you-you-are-not-adding-value-boycott-against-elsevier/">how big of a scam it is</a>. Specifically, most scientists are publicly stating that <a href="http://jabberwocky.weecology.org/2012/01/27/why-i-will-no-longer-review-for-your-journal/">they will not review papers anymore</a>, at least in the case of for-profit editors. Most of the problem lies in the fact that reviewing papers does not grant you any money, yet publishers make <a href="http://michaelnielsen.org/blog/on-elsevier/">insane profits</a> based on this use of your government-funded time.</p>
 <p>Scientists feel they are being ripped off by the editors, who are making a lot of money for nothing, and are starting to be vocal about it. As a lot of really smart people have been going into the details of why boycott is a good solution (see the links in the first paragraph), so there is not much value to add to this debate by a young and enthusiastic post-doc (that would be me). I’m still doing reviews, but I figured that there is no reason why it should not serve me as well as the authors. How do I do this? I sign them.</p>
 <p>I don’t like the asymetry of the review process, in which your papers are under scrutiny (sometimes attack) of people you don’t know. You can’t tell if they have a reason to hate you. You can’t tell if they are really competent in the domain of your paper, or if they have an undisclosed conflict of interest. And worse, when they finally helped you improve your paper to the point where it gets published, you still don’t know who they are.</p>
 <p>So I now sign my reviews. I invest time in them, I try to be constructive, thorough, comprehensive, and because I take pride in my work, I think it deserves to be recognized. By signing your reviews, if you do them well, you’ll get recognition from this work. You’ll get some kudos from your peers, and this might prove usefull later on. This will not give you more money or more time for your research, or put the big publishers on the right path again, but at least you will build a small amount of reputation out of it, and <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002108">this is really important</a>. By the way, out of the 10 rules for building a good reputation in the linked <em>PLoS Comp Biol</em> paper, the number 8 is stating my point somewhat more eloquently:</p>
@@ -82,7 +60,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -99,15 +77,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

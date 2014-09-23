@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Science in the age of social coding</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Science in the age of social coding
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I’m wondering what I would do without it.</p>
+      <div class="post">
+   <h1 class="title"> Science in the age of social coding</h1>
+   <p>I started using version control a little more than 6 months ago, when working on my dissertation. Not only it allowed me to have a backup of my chapters somewhere else than on my hard drive, but I could also revert back to a previous version of some paragraphs I liked better. Sometime during the summer, I discovered GitHub, and thought that I can give it a try. A few months later, I’m wondering what I would do without it.</p>
 <p>The idea of GitHub is simple: <a href="http://radar.oreilly.com/2009/01/github-making-code-more-social.html"><em>social coding</em></a>. As in, everyone can work on your code, and contribute some new things to it. This blog is powered by Jekyll, many features of which originate from the community. In a way, social coding is open source logic pushed to its maximum: everyone can copy (fork) your code, work on it, and give you back the features they added, or the bugs they fixed, or whatever you can think of. Scientists would gain a lot by getting to know these tools.</p>
 <h1 id="it-will-make-us-better-coders">It will make us better coders</h1>
 <p>During the last few weeks, I’ve been taking a very informal programming course. And I’ve realized something: most of the code I write is horrible. It does the job, but it’s not written the way it should be. I don’t think it is a problem, given any code doing what I want it to do is good enough for me. But sometime, knowing how things actually work can make your program run faster, or do more advanced things. So there is a positive correlation between the time you will spend hacking around, and what you will be able to achieve. The only question is to maximize your benefit for every hour spent working on your programming skills. I found that social coding and version control helped me a great deal in this matter.</p>
@@ -88,7 +66,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -105,15 +83,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

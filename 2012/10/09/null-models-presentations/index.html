@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Presenting the results of networks null models</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Presenting the results of networks null models
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I’m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
+      <div class="post">
+   <h1 class="title"> Presenting the results of networks null models</h1>
+   <p>I’m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
 <p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It’s a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>
 <figure>
 <img src="/images/nullmodels.png" alt="Figure1 - heatmap" /><figcaption>Figure1 - heatmap</figcaption>
@@ -79,7 +57,7 @@ ga('send', 'pageview');
 <p>The number within each quadrant represent how many networks have this property (<em>e.g.</em> for the leftmost dataset, 72 networks are both more nested and more modular than expected), and the shading is a measure of the proportion of networks falling within each quadrant. I quite like this method, because as illustrated above, you can easily compare different datasets at a glance, even when the number of networks differ. And you also get a sense of some interesting phenomenon: in the middle dataset, networks are clearly more nested, but equally less or more modular than expected.</p>
 <p>The figures were made in <code>tikz</code>, and the code is really nothing complicated. If some of you are interested, it looks like this:</p>
 <div class="highlight">
-<pre><code class="latex"><span class="k">\tikzstyle</span><span class="nb">{</span>val<span class="nb">}</span> = [minimum size=1cm, inner sep = 0pt, draw=black, thick]
+<pre><code class="language-latex" data-lang="latex"><span class="k">\tikzstyle</span><span class="nb">{</span>val<span class="nb">}</span> = [minimum size=1cm, inner sep = 0pt, draw=black, thick]
 <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
     <span class="k">\node</span><span class="na">[val, fill=black!9]</span> (mpnn) at (0, 0) <span class="nb">{</span>12<span class="nb">}</span>;
     <span class="k">\node</span><span class="na">[val, fill=black!2, right of=mpnn]</span> (mpne) <span class="nb">{</span>8<span class="nb">}</span>;
@@ -106,7 +84,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -123,15 +101,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

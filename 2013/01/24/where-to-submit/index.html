@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Where to submit your paper?</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Where to submit your paper?
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>Jeremy Fox offers some advice about <a href="http://dynamicecology.wordpress.com/2013/01/24/advice-how-to-decide-where-to-submit-your-paper/"><em>how to decide where to submit your paper</em></a>. Also, read the response by <a href="http://jabberwocky.weecology.org/2013/01/24/some-alternative-advice-on-how-to-decide-where-to-submit-your-paper/">Ethan White</a>. There are possibly as many perspectives on this are there are researchers, which I’ll definitely take as an excuse to present mine.</p>
+      <div class="post">
+   <h1 class="title"> Where to submit your paper?</h1>
+   <p>Jeremy Fox offers some advice about <a href="http://dynamicecology.wordpress.com/2013/01/24/advice-how-to-decide-where-to-submit-your-paper/"><em>how to decide where to submit your paper</em></a>. Also, read the response by <a href="http://jabberwocky.weecology.org/2013/01/24/some-alternative-advice-on-how-to-decide-where-to-submit-your-paper/">Ethan White</a>. There are possibly as many perspectives on this are there are researchers, which I’ll definitely take as an excuse to present mine.</p>
 <p><strong>Aim as high as you reasonably can.</strong> Then submit a step higher than that. I’ve had really good surprizes with papers being accepted in journals I would have considered <em>too high</em> (speaking purely in term of impact factor). The worth you risk is being rejected (which is short, so you don’t lose anything), or going into review. Which means receving comments, which will better your paper.</p>
 <p><strong>Don’t just go by journal prestige; consider “fit”.</strong> I don’t really believe in this one. As I’ve mentionned before, I believe <a href="http://timotheepoisot.fr/2012/05/11/ecological-journal-of-the-future/">much more in <em>papers</em> than in <em>journals</em></a>. Being published in a <em>good</em> journal does not makes your paper good. Being published in a <em>bad</em> journal does not decrease the worth of your paper. I also think that the way we survey the literature changed a lot, with social networks and RSS; perhaps I’m wrong on this point, but I think that (at least for the younger generation) our view of the litterature focuses much more on papers than journals. In this perspective, the “fit” of the journal do not really matter. Elaborating a little bit more, initiatives like <em>F1000Research</em> or <em>eLife</em> are designed to be paper repositories. Where <em>fit</em> do not matter. Then, it’s your job to advertize your paper, and make sure people are aware of it.</p>
 <p><strong>How much will it cost?</strong> I’m sure that most of the time, people are happy to pay the costs associated to a publication. And waivers are relatively easy to obtain.</p>
@@ -90,7 +68,7 @@ Rohr &amp; Martin (2012) <em>Tr Ecol Evol</em> 27(4)
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -107,15 +85,11 @@ Rohr &amp; Martin (2012) <em>Tr Ecol Evol</em> 27(4)
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

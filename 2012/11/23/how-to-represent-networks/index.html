@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | How to represent networks</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            How to represent networks
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
+      <div class="post">
+   <h1 class="title"> How to represent networks</h1>
+   <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
 <div class="alert alert-info">
 <h4>
 Warning!
@@ -83,14 +61,14 @@ This is a long entry, with code, and geeky considerations about data format. It�
 <p>Keep in mind that <em>IWDB</em> is the only resource for people wanting to download networks to, <em>e.g.</em> test algorithms, or check the distribution of some properties. And it involved a lot of groundwork before you even get to do the basic stuff. This is frustrating, and this should not be. Which brings me to a question that has been floating in my mind for a few months now: how should interaction networks be coded, from a data management point of view? This is an important question, because our ability to develop networks as a predictive tool will be as good as our ability to do data-mining on these networks. And in 2012, looking through text files is not the solution (it should not even be considered <em>a</em> solution). And yes, I’m ashamed to be part of the problem, because when I recently released data about <a href="http://figshare.com/articles/Bacteria-phage_adjacency_matrix_along_an_environmental_gradient/97583">bacteria-phage interactions</a>, I put three text files in a zip archive, and called it a day. Then, while I was thinking about why <a href="http://timotheepoisot.fr/2012/10/29/species-interaction-networks/">populations matter more than species</a> in the context of networks, I started to develop a feeling about a data structure.</p>
 <p>It starts with a simple question: <em>what’s in a network</em>? One way networks are usually represented is as a matrix (the <em>IWDB</em> will give informations this way):</p>
 <div class="highlight">
-<pre><code class="bash">0 1 1 0
-0 0 0 1
-0 0 0 1
-0 0 0 0</code></pre>
+<pre><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">1</span> <span class="m">1</span> 0
+<span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 1
+<span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 1
+<span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 0</code></pre>
 </div>
 <p>Alternatively, we can write them as an edge list:</p>
 <div class="highlight">
-<pre><code class="bash">a b
+<pre><code class="language-bash" data-lang="bash">a b
 a c
 c d
 b d</code></pre>
@@ -99,7 +77,7 @@ b d</code></pre>
 <h1 id="a-solution">A solution?</h1>
 <p>In the most basic sense, an interaction is the union of two populations. This should be the building bloc of our network database:</p>
 <div class="highlight">
-<pre><code class="json"><span class="p">{</span>
+<pre><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_I_00001&quot;</span><span class="p">,</span>
     <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00001&quot;</span><span class="p">,</span>
     <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00002&quot;</span><span class="p">,</span>
@@ -116,7 +94,7 @@ b d</code></pre>
 <p>Note that the identifier for species and interactions I used have some structure to them: name of the database, type of object, object identifier. This ensure that every group can maintain its own database (<em>e.g.</em> my test one on the university servers can use the prefix <code>uqar_</code>), and if you choose to clone databases from other people, then you still know where the information come from. The second part is <code>I</code> if the object is an interaction, and <code>P</code> if it is a population. The last part is a unique identifier. All of this can be automatically filed when interactions are deposited into the database.</p>
 <p>Poincarré said that you make a science with facts as you make a house with bricks, but a pile of facts is not a science anymore than a pile of bricks is a house. Just like a collection of interactions is not a network. The first thing we need to do is to define another object, for networks. It’s not really complicated. The edge list I’ve mentionned above is interesting because it sortes informations quite efficiently (there are much more non-interactions than they are interactions, so a matrix is a waste of space). Let’s have our network be a list of interactions:</p>
 <div class="highlight">
-<pre><code class="json"><span class="p">{</span>
+<pre><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_N_0001&quot;</span><span class="p">,</span>
     <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">&#39;MyDB_I_</span><span class="mi">00001</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;MyDB_I_</span><span class="mi">00002</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;MyDB_I_</span><span class="mi">00003</span><span class="err">&#39;</span><span class="p">],</span>
     <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2012_14_11&quot;</span><span class="p">,</span>
@@ -128,7 +106,7 @@ b d</code></pre>
 <p>This should be relatively straigthforward. There is, again, an <code>ID</code>. The <code>links</code> component is a list of interactions, <em>i.e.</em> the list of <code>ID</code> of interactions. The other fields are a minimum set of informations, namely the time, place, and type of environment.</p>
 <p>This may seem like a lot of brackets for basically the same result as the edge list. But the interesting point is that, by having an object for populations, we can start adding <em>a lot</em> of ecological context to these data. As an example:</p>
 <div class="highlight">
-<pre><code class="json"><span class="p">{</span>
+<pre><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00001&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tax&quot;</span><span class="p">:</span> <span class="s2">&quot;MyBD_S_00001&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pop&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -160,7 +138,7 @@ b d</code></pre>
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -177,15 +155,11 @@ b d</code></pre>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Blog</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,125 +24,99 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Blog
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
       <!-- This loops through the paginated posts -->
 
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November 25, 2013 </span><br />
-         <a class="readmore" href="/2013/11/25/metapopulation-model-r/">Spatially explicit metapopulation model in R</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November 25, 2013 </span> <a class="readmore" href="/2013/11/25/metapopulation-model-r/">Spatially explicit metapopulation model in R</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November 10, 2013 </span><br />
-         <a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Collaborating with markdown and bibtex</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November 10, 2013 </span> <a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Collaborating with markdown and bibtex</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November  4, 2013 </span><br />
-         <a class="readmore" href="/2013/11/04/test-driven-python/">Notes on test-driven development (in Python)</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November  4, 2013 </span> <a class="readmore" href="/2013/11/04/test-driven-python/">Notes on test-driven development (in Python)</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November  3, 2013 </span><br />
-         <a class="readmore" href="/2013/11/03/open-ecology/">Why should Ecology be open?</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November  3, 2013 </span> <a class="readmore" href="/2013/11/03/open-ecology/">Why should Ecology be open?</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>November  2, 2013 </span><br />
-         <a class="readmore" href="/2013/11/02/my-science-work/">The (French) paradox of Closed Open Access</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>November  2, 2013 </span> <a class="readmore" href="/2013/11/02/my-science-work/">The (French) paradox of Closed Open Access</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>October 18, 2013 </span><br />
-         <a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Mapping ecological concepts using twitter</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>October 18, 2013 </span> <a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Mapping ecological concepts using twitter</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>October 15, 2013 </span><br />
-         <a class="readmore" href="/2013/10/15/specificity-range-measures/">An additive partition of species-level specificity</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>October 15, 2013 </span> <a class="readmore" href="/2013/10/15/specificity-range-measures/">An additive partition of species-level specificity</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>October 12, 2013 </span><br />
-         <a class="readmore" href="/2013/10/12/r-priority-responsibility/">R, priority effects, and the meta-package</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>October 12, 2013 </span> <a class="readmore" href="/2013/10/12/r-priority-responsibility/">R, priority effects, and the meta-package</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>September 21, 2013 </span><br />
-         <a class="readmore" href="/2013/09/21/predicting-network-structure/">Inferring the structure of food webs</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>September 21, 2013 </span> <a class="readmore" href="/2013/09/21/predicting-network-structure/">Inferring the structure of food webs</a>
+         
       </p>
    </div>
 
-   <div class='post postlist'>
-      <p>
-         <span class='post-date'>September 11, 2013 </span><br />
-         <a class="readmore" href="/2013/09/11/programming-innate-acquired/">Is programming an acquired taste?</a>
+   <div class='postlist'>
+      <p class="entry">
+         <span class='post-date'>September 11, 2013 </span> <a class="readmore" href="/2013/09/11/programming-innate-acquired/">Is programming an acquired taste?</a>
+         
       </p>
    </div>
 
@@ -201,15 +177,11 @@ ga('send', 'pageview');
 
 </div>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | The pros and cons of using R packages for teaching</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            The pros and cons of using R packages for teaching
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>R packages are one of the best tools we have. It’s a library of 1000s of functions ready to be used, all wrapped in a single common language, and it’s free. I wrote some, and used even more. When I review a paper, upon seeing “we used function <code>x</code> in the version 2.3 of package <code>y</code>”, I know a lot about what the authors have been doing (and I can check the help of this function for references and additional details). And obviously, training students about which packages are widely used in a particular field is an important task, because it will ensure that they will speak the same language as other scientists in the field.</p>
+      <div class="post">
+   <h1 class="title"> The pros and cons of using R packages for teaching</h1>
+   <p>R packages are one of the best tools we have. It’s a library of 1000s of functions ready to be used, all wrapped in a single common language, and it’s free. I wrote some, and used even more. When I review a paper, upon seeing “we used function <code>x</code> in the version 2.3 of package <code>y</code>”, I know a lot about what the authors have been doing (and I can check the help of this function for references and additional details). And obviously, training students about which packages are widely used in a particular field is an important task, because it will ensure that they will speak the same language as other scientists in the field.</p>
 <p>Because packages (often) represent the <em>state of the art</em> in a particular field, or because they offer a unified interface to a lot of different methods (<code>simecol</code> is a good example of that), it’s important that students know how to use them (and most importantly, which packages to use). To some extent, packages are just another tool, like PCR or statistics. Knowing how to use them (properly) saves time, and opens new possibilities for analyses. And let’s just be realistic, everyone uses packages. All the time. So yes, of course, the students should be familiar with the most important in their field.</p>
 <p>An important point is that we also start to see the development of <em>package ecosystems</em>. The <a href="http://ropensci.org/packages/index.html"><em>rOpenSci</em></a> project is an example of that. They propose a lot of different packages whose common purpose is to interact with databases and API for science, but the real power is offered by the ability to integrate several of these packages <a href="http://ropensci.org/usecases/index.html">in a single analysis</a>. Want to get the list of species in a country, and check which are invasive, then plot that onto their phylogenetic tree? It can be done. Another well known example is the <code>plyr</code>/<code>reshape2</code>/<code>ggplot2</code> combo, which is (seriously) the only reason I still have to start <code>R</code> at least once a day.</p>
 <p>So on one hand, packages are really good, because they save time and allow to do an analysis which (hopefully) conforms with the current set of “best practices” in the field. On the other hand, when you start working <em>only</em> with what the packages have to offer, you can severely limit your creativity. There are questions that will require new code to be written, and you’ll most likely hit obstacles along the ways. That, too, should be something the students encounter during their training.</p>
@@ -83,7 +61,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -100,15 +78,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

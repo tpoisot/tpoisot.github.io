@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | A C version of the Nicholson-Bailey model</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,59 +24,35 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            A C version of the Nicholson-Bailey model
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>The Nicholson-Bailey model is a <a href="http://en.wikipedia.org/wiki/Nicholson%E2%80%93Bailey_model">well known</a> model of host and parasitoid population dynamics. It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it’s brutal like that. There are a few fun things with this model. It’s light in parameters (the single-patch version requires only three parameters), it’s in discrete time (so it’s easy to program), and it’s classical put on a lattice (so it’s a good way to program these kind of things).</p>
+      <div class="post">
+   <h1 class="title"> A C version of the Nicholson-Bailey model</h1>
+   <p>The Nicholson-Bailey model is a <a href="http://en.wikipedia.org/wiki/Nicholson%E2%80%93Bailey_model">well known</a> model of host and parasitoid population dynamics. It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it’s brutal like that. There are a few fun things with this model. It’s light in parameters (the single-patch version requires only three parameters), it’s in discrete time (so it’s easy to program), and it’s classical put on a lattice (so it’s a good way to program these kind of things).</p>
 <p>I wanted to test a few things, so I had to re-implement this model in space. My <a href="https://gist.github.com/tpoisot/5528745">first version</a> uses python, but it’s remarkably slow. So I decided to write the <a href="">model in C</a>. Either the model is really easy to program, or I’m getting good (I vote for the other solution, because I’m sure my code is full of horrible things), but it was relatively easy to do. <a href="https://gist.github.com/tpoisot/5528759">Go get it</a> and play around. The <code>GSL</code> is required. To get it to run, you’ll need to:</p>
 <div class="highlight">
-<pre><code class="bash">mkdir grids
+<pre><code class="language-bash" data-lang="bash">mkdir grids
 mkdir png
 clang nb.c -o nb -lgsl -lgslcblas -O3 -DHAVE_INLINE
 chmod +x nb
@@ -83,7 +61,7 @@ chmod +x nb
 <p>The parameter names are relatively easy to understand. <code>Lh</code> and <code>Lp</code> are the rate of increase of the host and parasite, <code>a</code> is the proportion of space searched, and <code>dh</code> and <code>dp</code> are the dispersal rates. <span class="margin">I’ve never quite understood the relevance of reflective boundaries for lattices of small sizes, unless you model what happens in your garden…</span>Note, by the way, that the world is spherical, so if you reach the edge of the lattice, you emerge on the other side. Other than that, dispersal is strictly local: you disperse to your 8 neighboring cells, and you receive migrants from them as well, with equal probability for each neighboring cell. There is no long-range dispersal either.</p>
 <p>The <code>png</code> folder is used by another script, reproduced below, whose job it is to (i) read the output files, and (ii) do a plot using <code>matplotlib</code>.</p>
 <div class="highlight">
-<pre><code class="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -147,10 +125,10 @@ chmod +x nb
 </figure>
 <p>But the fun part is that, with a few extra steps, you can have cool looking videos. I used <code>ffmpeg</code> to do it. It’s as simple as getting all of the files in the <code>png</code> folder, and putting them together to have an animated, step-by-step output of the model:</p>
 <div class="highlight">
-<pre><code class="bash"><span class="c">#!/bin/bash</span>
-ffmpeg -qscale 5 -r 20 -b 9600 -i png/h_%05d.png host.mp4
-ffmpeg -qscale 5 -r 20 -b 9600 -i png/p_%05d.png para.mp4
-ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4</code></pre>
+<pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+ffmpeg -qscale <span class="m">5</span> -r <span class="m">20</span> -b <span class="m">9600</span> -i png/h_%05d.png host.mp4
+ffmpeg -qscale <span class="m">5</span> -r <span class="m">20</span> -b <span class="m">9600</span> -i png/p_%05d.png para.mp4
+ffmpeg -qscale <span class="m">5</span> -r <span class="m">20</span> -b <span class="m">9600</span> -i png/prev_%05d.png prev.mp4</code></pre>
 </div>
 <p>The C program is quite fast (500 steps with a 100x100 lattice can be done in just a few seconds), but the script to convert the text files in images is really slow. I’m talking tens of minutes slow, so go make yourself a coffee. It’s also extremely hungry in terms of memory, and as with all things Python, will eat up a whole CPU. But it’s worth it! I’ve uploaded an <a href="http://www.youtube.com/embed/wE3x5QABBug">example video</a> if you want to see.</p>
 <p>And now… Back to doing whatever I had in mind with this model!</p>
@@ -158,7 +136,7 @@ ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4</code></pre>
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -175,15 +153,11 @@ ffmpeg -qscale 5 -r 20 -b 9600 -i png/prev_%05d.png prev.mp4</code></pre>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

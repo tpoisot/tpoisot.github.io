@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Python wrapper for mangal</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Python wrapper for mangal
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share things with people, but it’s a little bit slower, and orders of magnitude quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the <code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with <code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
+      <div class="post">
+   <h1 class="title"> Python wrapper for mangal</h1>
+   <p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share things with people, but it’s a little bit slower, and orders of magnitude quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the <code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with <code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
 <p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code> package (though the core abilities will be here). Rather, I wanted a tool that is “pythonic”, easy to use, and programmed extremely defensively so that it can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a> online, which will hopefully get better over time as I understand the <code>sphinx</code> markup.</p>
 <p>The syntax is relatively similar to that of the <code>rmangal</code> package. Everything starts by the instansiation of a <code>mangal()</code> class.</p>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> pymangal <span class="ch">as</span> pm
@@ -158,7 +136,7 @@ On instance[<span class="st">u&#39;status&#39;</span>]:
 </ol>
 </section>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -175,15 +153,11 @@ On instance[<span class="st">u&#39;status&#39;</span>]:
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Get your lab on twitter!</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Get your lab on twitter!
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of <a href="http://www.nature.com/naturejobs/science/articles/10.1038/nj7371-141a">a paper in <em>Nature</em> this week</a>. I’ve read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I was left wondering, if I were not already using twitter and other similar things (partly) for scientific purposes, would this article have changed my habits? Maybe not.</p>
+      <div class="post">
+   <h1 class="title"> Get your lab on twitter!</h1>
+   <p>More and more scientists are taking advantage of social networking tools to talk about their research. This trend was even deemed worthy of <a href="http://www.nature.com/naturejobs/science/articles/10.1038/nj7371-141a">a paper in <em>Nature</em> this week</a>. I’ve read this paper, and I had mixed feelings about it. On one hand, it was good to see the use of social medias showcased in such a prestigious journal. On the other hand, I felt it came out of nowhere, and was too descriptive. I was left wondering, if I were not already using twitter and other similar things (partly) for scientific purposes, would this article have changed my habits? Maybe not.</p>
 <p>However, there are a number of different reasons for which getting involved in social networks is a wise decision for a researcher or a lab, and I will highlight those who seem the most relevant. Obviously, social media presence goes beyond having a twitter account. This is why, at <a href="http://twitter.com/#!/INNGEcologist">INNGE</a> and the <a href="http://www.sfecologie.org/">French Ecological Society</a>, we have a facebook page. This is why my former group has a blog to talk about the new papers, and this is also why I have a blog. Taken all together, these tools offer an incredible potential for scientists to engage in the discussion, and we should all work actively to use them.</p>
 <h1 id="cut-the-middle-man">Cut the middle man</h1>
 <p>It’s often tempting to complain about the fact that Science (not the journal, the discipline) is hard to spread from within the community to a broader audience. Short of some really stunning results, which may or may not be stunning science but are appealing in terms of communication, the general public is left relatively uninformed about what happens in the labs. The reason is simple: channel through which we can communicate scientific informations are relatively few, and it can be tedious to write a press release. Or to talk with journalists, which <a href="http://cscs.umich.edu/~crshalizi/weblog/838.html">may be tempted to slightly arrange your sayings</a>, due to a mis-understanding of the subject, or the necessity to fit some editorial format.</p>
@@ -94,7 +72,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -111,15 +89,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

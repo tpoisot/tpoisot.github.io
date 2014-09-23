@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Fixes for the ManuscriptCentral PDF conversion problem</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,72 +24,48 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Fixes for the ManuscriptCentral PDF conversion problem
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using <em>manuscriptcentral</em> as an upload system, and always with <code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away.</p>
+      <div class="post">
+   <h1 class="title"> Fixes for the ManuscriptCentral PDF conversion problem</h1>
+   <p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using <em>manuscriptcentral</em> as an upload system, and always with <code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away.</p>
 <p>Only this time, I wanted to understand what was happening, and to fix it as much as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions will generate 1.7 or 1.8, so it’s obviously not going to work (but on the up-side, it will give you one of the most depressing and amusing error message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
 <p>First, you can add</p>
 <div class="highlight">
-<pre><code class="latex"><span class="k">\pdfminorversion</span>=4</code></pre>
+<pre><code class="language-latex" data-lang="latex"><span class="k">\pdfminorversion</span>=4</code></pre>
 </div>
 <p>to your <code>LaTeX</code> preamble, if compiling with <code>pdflatex</code>, as explained <a href="http://www.jakubkonka.com/2012/11/07/latex-manuscript-central.html">here</a>. That’s one additional command, which is not needed in most other situations, but that’s one way to fix it.</p>
 <p>There is a second workaround, which is to compile with <code>latex</code> instead of <code>pdflatex</code> (haven’t tested this one, but it should work), then upload the whole dependencies when you submit. Note that your figures needs be <code>eps</code> for this to work, and you’ll probably be limited by the packages installed on the remote server, the list of which is not known. The <em>Methods in Ecology and Evolution</em> staff was extremely quick in pointing that out after I raised the issue on Twitter, so a big thank you to them.</p>
 <p>The solution I found this morning is the following:</p>
 <div class="highlight">
-<pre><code class="bash">pdftops ms.pdf ms.ps
+<pre><code class="language-bash" data-lang="bash">pdftops ms.pdf ms.ps
 ps2pdf13 ms.ps ps.pdf
 rm ms.ps</code></pre>
 </div>
 <p>Very simply put, that will convert your pdf into a postscript file, then convert it into a PDF 1.3 file, that can be uploaded with no problems. You can just add that to a <code>makefile</code>, by the way:</p>
 <div class="highlight">
-<pre><code class="make"><span class="nf">mc</span><span class="o">:</span> <span class="m">ms.pdf</span>
+<pre><code class="language-make" data-lang="make"><span class="nf">mc</span><span class="o">:</span> <span class="n">ms</span>.<span class="n">pdf</span>
     pdftops ms.pdf ms.ps
     ps2pdf13 ms.ps ms_mc.pdf
     rm ms.ps</code></pre>
@@ -97,7 +75,7 @@ rm ms.ps</code></pre>
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -114,15 +92,11 @@ rm ms.ps</code></pre>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

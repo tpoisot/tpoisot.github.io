@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Elsevier acquired Mendeley. It's not as bad as I thought.</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Elsevier acquired Mendeley. It's not as bad as I thought.
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>Mendeley was <a href="http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/">recently acquired by public enemy Elsevier</a> in a puzzling move. Some of you may remember that I’ve announced that, <a href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/">should this acquisition happen, I’ll be out of here</a>. Actually, I’ve switched to Zotero a while back and never ever looked back. But still. <a href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/#comment-857798908">Mr. Will Gunn himself</a> asked me to do a follow-up post, on the basis that it’s not as bad as I feared. And as much as I am pained to admit it, that is entirely correct. The acquisition of Mendeley by Elsevier is not as bad as I thought.</p>
+      <div class="post">
+   <h1 class="title"> Elsevier acquired Mendeley. It's not as bad as I thought.</h1>
+   <p>Mendeley was <a href="http://blog.mendeley.com/start-up-life/team-mendeley-is-joining-elsevier/">recently acquired by public enemy Elsevier</a> in a puzzling move. Some of you may remember that I’ve announced that, <a href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/">should this acquisition happen, I’ll be out of here</a>. Actually, I’ve switched to Zotero a while back and never ever looked back. But still. <a href="http://timotheepoisot.fr/2013/01/19/elsevier-mendeley-out/#comment-857798908">Mr. Will Gunn himself</a> asked me to do a follow-up post, on the basis that it’s not as bad as I feared. And as much as I am pained to admit it, that is entirely correct. The acquisition of Mendeley by Elsevier is not as bad as I thought.</p>
 <p><strong>It’s way worse</strong>. Hey Mendeley, do you seriously expect that we are going to take the sale of our usage data to Elsevier with a smile, because of some PR speak, and an attempt to mitigate the reactions on twitter? Do you think <em>anyone</em> will be fooled by the same usual litany of “But we are bringing value to the user”? Let’s face it, if you sold out to Elsevier, you are also going to turn a profit on the user data. It takes a lot of nerve to go on twitter and the blogs, and say that everything is fine, after that.</p>
 <p>I stand by my initial reaction on twitter:</p>
 <blockquote class="twitter-tweet"><p>
@@ -87,7 +65,7 @@ Oh fuck you! Fuck you! <a href="http://t.co/ewGmbYp3yG" title="http://blog.mende
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -104,15 +82,11 @@ Oh fuck you! Fuck you! <a href="http://t.co/ewGmbYp3yG" title="http://blog.mende
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

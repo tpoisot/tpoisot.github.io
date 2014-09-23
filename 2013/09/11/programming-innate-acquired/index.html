@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Is programming an acquired taste?</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Is programming an acquired taste?
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on <em>Ecological Modeling</em>. It was a whole lot of fun, and a really good way to get back to some things I’ve always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but I won’t talk much about these.</p>
+      <div class="post">
+   <h1 class="title"> Is programming an acquired taste?</h1>
+   <p>Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on <em>Ecological Modeling</em>. It was a whole lot of fun, and a really good way to get back to some things I’ve always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but I won’t talk much about these.</p>
 <p>While the students were sweating on the programming problems, we discussed the fact that programming is maybe an innate skill. Not in the sense that some people are unable to learn how to code functional things, but in the sense that some people find it intuitive to express things in terms of <code>for</code>, <code>while</code>, <code>if</code>, and so forth (so forth is <em>not</em> a valid algorithmic structure). That may be true, that some people will find it easier to split up a large problem in a series of short instructions. If you can do that intuitively, then you’ll probably have no problem structuring your code.</p>
 <p>But this particular skill can be trained, I think. One of the things I asked of the students was to code something implementing Williams &amp; Martinez <em>niche model</em> of food webs. The title of the assignment may be “Write a program implementing the NM in R”. I took the opportunity of turning that into an exercise about how to organize code. The whole problem can be easily sub-divided into a series of smaller problems. In this case, we first need to generate species, then to find out the interactions between them. The first step, of generating species, itself involves several sub-steps, that can each go into a function, or can be handled by logical tests.</p>
 <p>Perhaps there will be a <em>happy few</em> that will take this series of steps by themselves. Looking back on the first programs I wrote (I am unlucky enough to have kept some of my spaghetti code from my first year of Masters, …), I’m definitely not one of these people. As in most things, the key to developing a feeling of how to organize things will come with practice, and thinking about what you felt comfortable with. Which is why I always encourage people to <a href="http://timotheepoisot.fr/2013/04/12/learn-code-ecology/">write code when they want to learn</a>. I seriously don’t think there is a better way to increase your skills.</p>
@@ -80,7 +58,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -97,15 +75,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

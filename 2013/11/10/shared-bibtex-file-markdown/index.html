@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Collaborating with markdown and bibtex</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,63 +24,39 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Collaborating with markdown and bibtex
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>The single most annoying issue when using <code>pandoc</code> to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it’s having several bibtex files all over the place. And I’m can’t be bothered to keep “Collections” or separate folders in Zotero. So clearly, I had to code my way out of this one.</p>
+      <div class="post">
+   <h1 class="title"> Collaborating with markdown and bibtex</h1>
+   <p>The single most annoying issue when using <code>pandoc</code> to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it’s having several bibtex files all over the place. And I’m can’t be bothered to keep “Collections” or separate folders in Zotero. So clearly, I had to code my way out of this one.</p>
 <p>The good thing of using <code>pandoc</code> is that the citation syntax is remarkably simple: <code>@key</code>. It means that using a simple <code>grep</code> command</p>
 <div class="highlight">
-<pre><code class="bash">grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* ms.md -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre>
+<pre><code class="language-bash" data-lang="bash">grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* ms.md -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre>
 </div>
 <p>, I can generate <code>bib.keys</code>, a list with all the keys encountered in <code>ms.md</code>. The keys will be present only once, and sorted. The first few lines of one such file are</p>
 <div class="highlight">
-<pre><code class="text">allesina_competitive_2011
+<pre><code class="language-text" data-lang="text">allesina_competitive_2011
 angilletta_temperature_2004
 araujo_using_2011
 baiser_geographic_2012
@@ -87,7 +65,7 @@ bluthgen_what_2008</code></pre>
 </div>
 <p>Now, I need to take each of these keys, read my big <code>library.bib</code> file, and extract only the entries that are cited in the document. So I installed a <a href="https://github.com/sciunto/python-bibtexparser">bibtex parser for python</a>, and started doing exactly that. The amazing thing is, this only takes four (interesting) lines:</p>
 <div class="highlight">
-<pre><code class="python"><span class="c">## Step 1 - read the key list</span>
+<pre><code class="language-python" data-lang="python"><span class="c">## Step 1 - read the key list</span>
 <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">kl</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&quot;:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">kl</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">key_list</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)]</span>
 <span class="c">## Step 2 - read the library file</span>
 <span class="n">refs</span> <span class="o">=</span> <span class="n">BibTexParser</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">bib_file</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">get_entry_dict</span><span class="p">()</span>
@@ -103,15 +81,15 @@ bluthgen_what_2008</code></pre>
 <p>This code will print a list of all the keys in the <code>bib.keys</code> that have <em>not</em> been matched to an entry in the main library file. If all went well, this list should be empty. I’ve uploaded the whole file as a <a href="https://gist.github.com/tpoisot/7406955">gist</a>, if you intend to use it.</p>
 <p>And of course, you can nicely wrap things up in a <code>makefile</code>:</p>
 <div class="highlight">
-<pre><code class="makefile"><span class="nv">python</span> <span class="o">=</span> python2
+<pre><code class="language-makefile" data-lang="makefile"><span class="nv">python</span> <span class="o">=</span> python2
 <span class="nv">refs</span> <span class="o">=</span> refs.bib
 <span class="nv">text</span> <span class="o">=</span> ms.md
 <span class="nv">library</span> <span class="o">=</span> /path/to/main/bibtex/file.bib
 
-<span class="k">$(</span>refs<span class="k">)</span>: bib.keys
+<span class="nf">$(refs)</span><span class="o">:</span> <span class="n">bib</span>.<span class="n">keys</span>
    <span class="k">$(</span>python<span class="k">)</span> extractbib.py bib.keys <span class="k">$(</span>library<span class="k">)</span> <span class="k">$(</span>refs<span class="k">)</span>
 
-bib.keys: 
+<span class="nf">bib.keys</span><span class="o">:</span> 
    grep @<span class="o">[</span>-:_a-zA-Z0-9<span class="o">]</span>* <span class="k">$(</span>text<span class="k">)</span> -oh --color<span class="o">=</span>never <span class="p">|</span> sort  <span class="p">|</span> uniq -u <span class="p">|</span> sed <span class="s1">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre>
 </div>
 <p>I’m glad that I finally have a solution to this problem. Of course, a multi-author version is not difficult to do (just have each author write its own bibtex file, and put them all together before running <code>pandoc</code>). It also means that my <code>pandoc</code>-using papers are going to finally be entirely reproducible, as I’ll distribute the references list in the <em>github</em> repository.</p>
@@ -119,7 +97,7 @@ bib.keys:
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -136,15 +114,11 @@ bib.keys:
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

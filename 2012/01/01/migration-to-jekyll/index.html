@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Goodbye Wordpress, hello Jekyll!</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,70 +24,46 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Goodbye Wordpress, hello Jekyll!
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>A few weeks ago, I discovered <a href="https://github.com/mojombo/jekyll">Jekyll</a>. In a nutshell, Jekyll is a static site generator who promised me I’ll be able to <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blog like a hacker</a>. This site is now hosted on GitHub, and <a href="https://github.com/tpoisot/tpoisot.github.com">both the template and the content can be forked</a>, so everything is basically open source.</p>
+      <div class="post">
+   <h1 class="title"> Goodbye Wordpress, hello Jekyll!</h1>
+   <p>A few weeks ago, I discovered <a href="https://github.com/mojombo/jekyll">Jekyll</a>. In a nutshell, Jekyll is a static site generator who promised me I’ll be able to <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blog like a hacker</a>. This site is now hosted on GitHub, and <a href="https://github.com/tpoisot/tpoisot.github.com">both the template and the content can be forked</a>, so everything is basically open source.</p>
 <p>Jekyll is a lot of fun to use, especially because all of the content reside in <em>static text files</em> instead of a database. It’s also fully compatible with the <a href="http://daringfireball.net/projects/markdown/">markdown</a> format, which is a lot easier to write than html. For example, writing a simple text in bold in markdown is done through</p>
 <div class="highlight">
-<pre><code class="bash">**text in bold**</code></pre>
+<pre><code class="language-bash" data-lang="bash">**text in bold**</code></pre>
 </div>
 <p>rather than the equivalent html</p>
 <div class="highlight">
-<pre><code class="html"><span class="nt">&lt;strong&gt;</span>text in bold<span class="nt">&lt;/strong&gt;</span></code></pre>
+<pre><code class="language-html" data-lang="html"><span class="nt">&lt;strong&gt;</span>text in bold<span class="nt">&lt;/strong&gt;</span></code></pre>
 </div>
 <p>So a less lot keys to press (especially on my new QWERTY keyboard). The fact that Jekyll uses the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> templating language also make the overall design process <em>fun</em>. In addition, the whole system is working on GitHub, so I have complete version control on everything. This is so awesome!</p>
 <div class="references">
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -102,15 +80,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

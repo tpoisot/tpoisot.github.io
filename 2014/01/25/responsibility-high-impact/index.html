@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Responsibility and sensationalism in high-profile papers</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Responsibility and sensationalism in high-profile papers
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>Last week, we had an inter-lab journal club during which we discussed a very polemic paper in ecology. The discussion quickly turned into the responsibility of people at the various levels of the scientific publishing process, and the risks associated with counter-mainstream results appearing in high-profile journals. Most of what follows is my recollection of the different arguments we raised for and against self-censorship in scientific publishing. Which paper we discussed is not relevant for the rest of this post, so I’ll try to summarize the issue in extremely broad terms. There is a well-known relationship between concept <em>B</em> and property <em>C</em>. Changes in <em>B</em> are expected, under some circumstances, to result in changes in <em>C</em>. <em>B</em> is a complex thing with several layers to it. A set of studies showed no variation of <em>A</em>, which is a component of <em>B</em>, and so it seems to question the relationship between <em>B</em> and <em>C</em>.</p>
+      <div class="post">
+   <h1 class="title"> Responsibility and sensationalism in high-profile papers</h1>
+   <p>Last week, we had an inter-lab journal club during which we discussed a very polemic paper in ecology. The discussion quickly turned into the responsibility of people at the various levels of the scientific publishing process, and the risks associated with counter-mainstream results appearing in high-profile journals. Most of what follows is my recollection of the different arguments we raised for and against self-censorship in scientific publishing. Which paper we discussed is not relevant for the rest of this post, so I’ll try to summarize the issue in extremely broad terms. There is a well-known relationship between concept <em>B</em> and property <em>C</em>. Changes in <em>B</em> are expected, under some circumstances, to result in changes in <em>C</em>. <em>B</em> is a complex thing with several layers to it. A set of studies showed no variation of <em>A</em>, which is a component of <em>B</em>, and so it seems to question the relationship between <em>B</em> and <em>C</em>.</p>
 <p>For different reasons, whether there is (i) a change in <em>A</em>, and (ii) a link between <em>B</em> and <em>C</em>, is a pretty big deal when it comes to policy making. “Proving” that the relationship is not general, or not important, or even wrong, is susceptible to have real-world consequences. In addition, it would be a big deal for theoretical science as well, because it will mean that what we thought (and still think) of an important concept in ecology, is wrong and need to be re-built. But it would also mean that, as far as policy makers are concerned, we can persist in several “business as usual” practices; after all, there are now data to back them up!</p>
 <p>So, should we practice self-censorship? Absolutely not. The “cost” of making all information public has been particularly discussed in the context of bio-terrorism; understanding the risks requires results to be published, but publishing results can increase <a href="http://www.ncbi.nlm.nih.gov/books/NBK98397/">the ease to produce bioweapons</a>. Some argue that <a href="http://onlinelibrary.wiley.com/doi/10.1353/hcr.2007.0046/abstract">not all results should be published</a>, but determining which should, and which should not, is a tricky issue. Some ecological results have very strong relevance for policy-making (and lobbies), and there is a risk that some will have a political reading of some papers.</p>
 <p>The question is, therefore, who is responsible for “customer service”<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> once a new result appears? First thing first, the authors. I have the feeling that a perverse effect of the publish-or-perish mentality is a quest for sensationalism (which seems to be confirmed by this <a href="http://nsaunders.wordpress.com/2013/07/16/interestingly-the-sentence-adverbs-of-pubmed-central/">analysis of adverbs used in PMC papers</a>, where more abstracts emphasize interest, surprise, and novelty). And when we (scientists) read a paper making bold claims, we are able to rationalize them because it’s not the first paper we are reading. We are able to weigh one result against dozens of others. But my very personal and humble opinion is that, when the result we report is likely to make a splash, we have to consider whether the way we express it is likely to be mistaken by the public.</p>
@@ -88,7 +66,7 @@ ga('send', 'pageview');
 </ol>
 </section>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -105,15 +83,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

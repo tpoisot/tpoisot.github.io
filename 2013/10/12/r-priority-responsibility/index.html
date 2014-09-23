@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | R, priority effects, and the meta-package</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            R, priority effects, and the meta-package
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about <a href="http://www.inside-r.org/packages/cran/bipartite/docs/PDI">one of my own metrics in the <code>bipartite</code> package</a>), and that I think is rarely discussed.</p>
+      <div class="post">
+   <h1 class="title"> R, priority effects, and the meta-package</h1>
+   <p>R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about <a href="http://www.inside-r.org/packages/cran/bipartite/docs/PDI">one of my own metrics in the <code>bipartite</code> package</a>), and that I think is rarely discussed.</p>
 <p>When a R package presenting a series of measures becomes available, it will become the <em>gold standard</em> of future analyzes in this field. This is an extremely strong effect. French students in ecology use the (French-developed) <code>ade4</code> package, while people in Québec use the <code>vegan</code> package (most likely because of its ties with the <em>Numerical Ecology</em> book, as Gavin Simpson mentioned in the comments). There is a priority effect when a package is released, and metrics that are not implemented in this package, because they are more difficult to apply, will be less widely used. This is a central point for methodological research papers. Describing the method is a small fraction of the work. People are more likely to apply what is proposed if there is a tool to do it, and as a consequence, (<em>I assume that</em>) methods are used more if there is an easy and well-known way to apply them.</p>
 <p>This is especially true of large-scale packages, that aim to become your single interface with the metrics and analyzes in a domain. Ecologists are familiar with <code>bipartite</code>, <code>vegan</code>, <code>picante</code>, <code>ape</code>, for example. These “mega-packages” implement a lot of measures, and for this reason, some will look through the manual to see what kind of analyzes they can do. I most likely still do it myself, especially so for side-projects where I’m not entirely familiar with the methodological literature yet. So based on my experience, this is particularly problematic for newcomers to a field, because when you don’t know, you assume that the default values were chosen as defaults by someone knowing what he was doing. Then I remember the <a href="http://www.python.org/dev/peps/pep-0020/"><em>Zen of Python</em></a>: <em>“In the face of ambiguity, refuse the temptation to guess.”</em></p>
 <p>And as we all have different sensibilities, it shows in the way we think about code, and in the way we write it. The default options of a function, for example, can be a matter of choice, and especially so when this function becomes as broad as “measure diversity”. This partiality is not an issue when developing tools that you will use for your own research. But when developing tools intended for a broad audience, then this code becomes a service, and it is our duty as service providers that the defaults reflect our own biases the least, and the current consensus the most.</p>
@@ -87,7 +65,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -104,15 +82,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

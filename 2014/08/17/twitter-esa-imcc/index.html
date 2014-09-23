@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | The use of Twitter at ESA and IMCC</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            The use of Twitter at ESA and IMCC
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Some notes on the online social dynamics of scientific meetings
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>August is conference season. But for the last few years, not being able to attend does not mean that you can’t partake in the global discussion, as more and more scientific meetings have been using twitter hashtags to keep the discussion going online. Being both a fervent twitter user, and interested in all things networks, I decided to explore the assembly of the graph of interactions among scientists over time. A bunch of us are doing a more formal analysis of the <em>Ecological Society of America</em> 2014 meeting, but here I will present a brief comparison of <code>#ESA2014</code> with <code>#IMCC3</code>, the <em>International Marine Conservation Congress</em>.</p>
+      <div class="post">
+   <h1 class="title"> The use of Twitter at ESA and IMCC</h1>
+   <p>August is conference season. But for the last few years, not being able to attend does not mean that you can’t partake in the global discussion, as more and more scientific meetings have been using twitter hashtags to keep the discussion going online. Being both a fervent twitter user, and interested in all things networks, I decided to explore the assembly of the graph of interactions among scientists over time. A bunch of us are doing a more formal analysis of the <em>Ecological Society of America</em> 2014 meeting, but here I will present a brief comparison of <code>#ESA2014</code> with <code>#IMCC3</code>, the <em>International Marine Conservation Congress</em>.</p>
 <p>Both meetings took place almost at the same time, were massively using their respective hashtag, and are within the same broad field of environmental sciences. I won’t go into the details, but here is what I’ve been doing. I used the Twitter API to pull all tweets containing either <code>#ESA2014</code> or <code>#IMCC3</code>. For all of these tweets, I looked at who wrote it, and who was mentioned in it. If a tweet written by <code>@bob</code> mentionned <code>@alice</code>, I recorded one interaction from <code>@bob</code> to <code>@alice</code>, along with the time, and the meeting in which it occured. Because the use of twitter was <em>massive</em>, this resulted in a little more than 3500 people, mentionning each other over 20000 times.</p>
 <p>I was mostly interested in how using Twitter can help bring people together over time, which in a network perspective is akin to measuring modularity, and how it decreases.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&#39;../data/twitter_meetings.Rdata&#39;</span>)
@@ -124,7 +102,7 @@ opts_knit$<span class="kw">set</span>(<span class="dt">base.dir =</span> <span c
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -141,15 +119,11 @@ opts_knit$<span class="kw">set</span>(<span class="dt">base.dir =</span> <span c
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

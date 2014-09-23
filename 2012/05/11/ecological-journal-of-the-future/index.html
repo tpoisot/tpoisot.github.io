@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | The ecological journal of the future</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            The ecological journal of the future
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>I’ve been reading <a href="http://gowers.wordpress.com/2012/01/29/whats-wrong-with-electronic-journals/">Tim Gowers’s fascinating blog</a> following the call to boycott Elsevier, and stumbled upon a fascinating <em>gedankenexperiment</em>. What would the electronic journal of the future look like in the field of Mathematics? Naturally, I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis?</p>
+      <div class="post">
+   <h1 class="title"> The ecological journal of the future</h1>
+   <p>I’ve been reading <a href="http://gowers.wordpress.com/2012/01/29/whats-wrong-with-electronic-journals/">Tim Gowers’s fascinating blog</a> following the call to boycott Elsevier, and stumbled upon a fascinating <em>gedankenexperiment</em>. What would the electronic journal of the future look like in the field of Mathematics? Naturally, I found myself wondering, what would this next-generation journal look like in ecology, and how would it function on a daily basis?</p>
 <p>I have been thinking about this for the last few months (the earliest draft of this text dates back to early in february), and got great feedback from <a href="http://www.innge.net/">INNGE</a> folks. New ides piled up, and this is now a rather long text. Just for the sake of clarity, I am not saying that this new hypothetical journal <em>should</em> exist. I’m trying to imagine how I would do it in a perfect world, or in more ecological terms, what would be its «ideal free distribution».</p>
 <h1 id="whats-in-a-name">What’s in a name?</h1>
 <p>If you want your journal to reflect a new paradigm, it should start with the way it’s named. Phytologists have the <em>New Phytologist</em>. A lot of disciplines have <em>Advances in a lot of disciplines</em>. <em>Trends Ecol Evol</em> and <em>Frontiers Ecol Env</em> apart, the ecological journals are rather conservative in their naming. We have <em>Ecology</em> declined in as many languages as possible, followed by, or following some variation of <em>Letters</em>, <em>Journal of [prefix]</em>, <em>Research</em>, and so on. No <em>New</em>, no <em>Advances</em>. I’m absolutely not saying that ecological research is opposed to progress, it’s clearly a field being moved forward by people with ten new ideas a day. But the names of the journals do not reflect that. The two publications who do (<em>TREE</em> and <em>FEE</em>) have such a specific editorial line that they can’t possibly contain all of the new, exciting stuff.</p>
@@ -105,7 +83,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -122,15 +100,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>

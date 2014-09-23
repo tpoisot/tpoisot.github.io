@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timothée Poisot | Steal my paper! (seriously, please, don't)</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/skeleton.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/style.css" />
-    <script src="/js/vendor/modernizr.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
@@ -22,56 +24,32 @@ ga('send', 'pageview');
 <body>
 
 
-   <div class="contain-to-grid sticky">
-   <nav class="top-bar" data-topbar data-options="sticky_on: large">
-      <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="middle">
-      <li class="active"><a href="/">Home</a></li>
-      <li class="active"><a href="/software/">Software</a></li>
-      <li class="active"><a href="/research/">Research</a></li>
-      <li class="active"><a href="/blog/">Blog</a></li>
-      <li class="active"><a href="/papers/">Papers</a></li>
-      <li class="active"><a href="/colophon/">Colophon</a></li>
-      </ul>
-   </nav>
-</div>
+   <div class="container">
 
-
-<nav class="menu">
-   <a href="/"  title="Home"><i class="fa fa-fw fa-2x fa-home"></i></a>
-   <a href="/research/"  title="Research"><i class="fa fa-fw fa-2x fa-flask"></i></a>
-   <a href="/software/"  title="Software"><i class="fa fa-fw fa-2x fa-code"></i></a>
-   <a href="/blog/" class='active'title="Blog"><i class="fa fa-fw fa-2x fa-paragraph"></i></a>
-   <a href="/papers/"  title="Papers"><i class="fa fa-fw fa-2x fa-file"></i></a>
-   <a href="/colophon/"  title="Colophon"><i class="fa fa-fw fa-2x fa-info"></i></a>
-</nav>
-
+   <div class="three columns sidebar">
    <section id="title">
-<div class="row">
-   <div class="small-7 small-centered columns">
-      <h1>
-         
-            Timothée Poisot
-         
-      </h1>
-   </div>
-</div>
-<div class="row">
-   <div class="small-9 small-centered columns">
-      <h2>
-         
-            Steal my paper! (seriously, please, don't)
-         
-      </h2>
-   </div>
-</div>
+   <h1>Timothée Poisot</h1>
+   <h2>Computational Ecologist</h2>
 </section>
 
+   <nav>
+   <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+   </div>
+
+   <div class="twelve columns offset-by-three">
    <section id="content">
-      <div class="row">
-   <div class="small-12 columns">
-      <p>With Phil’s <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">paper</a> on preprints out, and the idea that writing manuscripts in the open <a href="http://www.scfbm.org/content/8/1/7/">introduced</a> by Karthik Ram, it’s almost not completely crazy to write research papers in an entirely open space, like <em>github</em> or <em>Google Docs</em>. I’m currently <a href="https://github.com/tpoisot/">doing it</a> (everything with <code>paper</code> or <code>ms</code> in the title of the repository is something not yet published), and so are a few other people. And it’s a good thing. It might actually be the better way to disseminate research fast. Not to mention that version controlling will help people studying scientists a great deal: you can now have a real-time analysis of how a paper is made. It also increases accountability, but see Karthik’s paper for that.</p>
+      <div class="post">
+   <h1 class="title"> Steal my paper! (seriously, please, don't)</h1>
+   <p>With Phil’s <a href="http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001563">paper</a> on preprints out, and the idea that writing manuscripts in the open <a href="http://www.scfbm.org/content/8/1/7/">introduced</a> by Karthik Ram, it’s almost not completely crazy to write research papers in an entirely open space, like <em>github</em> or <em>Google Docs</em>. I’m currently <a href="https://github.com/tpoisot/">doing it</a> (everything with <code>paper</code> or <code>ms</code> in the title of the repository is something not yet published), and so are a few other people. And it’s a good thing. It might actually be the better way to disseminate research fast. Not to mention that version controlling will help people studying scientists a great deal: you can now have a real-time analysis of how a paper is made. It also increases accountability, but see Karthik’s paper for that.</p>
 <p>There is another benefit which has not been highlighted quite enough in my opinion. Putting your papers in the open is a good way to attract comments, and possibly collaborators. People can see what you are working on, and they’ll be able to assist if they feel like they will make a contribution. This has been a major strength of the whole open source software movement, and there is no reason that it will have opposite consequences in science (that’s, again, my sligthly idealistic opinion). Clearly I don’t expect that any paper I put out there will result in new, surprizing collaborations, with people I had no previous connexions with (though it happened exactly this way for our <a href="https://github.com/tpoisot/DataSharingPaper">data sharing MS</a>. But the point is that it <em>can</em> happen, and that would be really great.</p>
 <p>When I brought that up to some people, I’ve had a common question in return: what about cheaters? That’s a legitimate question, and I hadn’t thought much about it before. There are two ways people could try to abuse this new, more open system. The first one is outright theft. I fork your repository, remove your name from the author list, put it in the acknowledgements, and submit the paper somewhere. I’m not sure how strongly it would be breaking the terms of the <code>CC-BY</code> licence. But it would break almost all of the unwritten conventions of the academic word, and I don’t think anyone will be foolish enough to destroy its carreer in such a specatcular way. I’m not sure that editors would appreciate the move, either.</p>
 <p>Another form of cheating is more indirect: what if some people try to get themselves involved in a majority of open papers, to inflate their publication list? What if some poeple contribute to open papers, but keep their own papers closed? Well, again, I’m sure these people will be promtply identified, and everyone will just ignore them. So clearly, I’m not too worried about people gaming the system (please don’t prove me wrong). Will some people try? Probably. Will they risk being alienated by the rest of their field for doing so? Almost certainly. Does the risk of people cheating outweighs the benefits of more openness? I don’t think so. Plus, we barely have enough time to work on our own papers anyway…</p>
@@ -80,7 +58,7 @@ ga('send', 'pageview');
 
 </div>
 
-
+</div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -97,15 +75,11 @@ ga('send', 'pageview');
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-   </div>
-</div>
 
    </section>
+   </div>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-$(document).foundation();
-</script>
+   </div>
+
 </body>
 </html>
