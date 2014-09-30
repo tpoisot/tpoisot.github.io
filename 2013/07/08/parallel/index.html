@@ -49,13 +49,11 @@ ga('send', 'pageview');
    <section id="content">
       <div class="post">
    <h1 class="title"> A quick way to parallelize</h1>
-   <p>I’ ve often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (<em>a.k.a.</em> data analysis).</p>
+   <p>I have often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (<em>a.k.a.</em> data analysis).</p>
 <p>While looking for a solution, I came across <a href="http://www.gnu.org/software/parallel/">GNU <code>parallel</code></a>. This little command-line program will just execute whatever you feed him on the different CPUs. For example, if I want to run all of the files in my <code>output/</code> folder into a python script, I can write something like:</p>
-<div class="highlight">
-<pre><code class="language-bash" data-lang="bash">ls output/*.dat <span class="p">|</span> sort <span class="p">|</span> parallel ./results.py --file output/<span class="o">{}</span></code></pre>
-</div>
+<pre class="sh"><code>ls output/*.dat | sort | parallel ./results.py --file output/{}</code></pre>
 <p>That will take the files, then output then one by one, and pass them to <code>parallel</code>. When I run that, all of my CPU start working on the task, so I can cut the treatment time in four (more than what I could achieve with code optimization!). It’s definitely poor man parallelization, but it works, and it’s faster then setting up a bunch of simulations on a cluster.</p>
-<p>That’s one of the (many many) nice sides of working only with GNU/Linux now. I’m learning a lot of nifty little tricks, and it’s starting to really pay off in terms of how fast I can throw command lines instructions at a problem until it disappears (or until I accidentaly delete the files, look, I’m still learning…)..</p>
+<p>That’s one of the (many many) nice sides of working only with GNU/Linux now. I’m learning a lot of nifty little tricks, and it’s starting to really pay off in terms of how fast I can throw command lines instructions at a problem until it disappears (or until I accidentally delete the files, look, I’m still learning…).</p>
 <div class="references">
 
 </div>

@@ -4,12 +4,29 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-09-25T22:28:43+12:00</updated>
+  <updated>2014-09-30T17:04:13+13:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Busy is no myth</title>
+     <link href="http://timotheepoisot.fr/2014/09/30/busy-no-myth/"/>
+    <updated>2014-09-30T00:00:00+13:00</updated>
+    <content type="html">&lt;p&gt;I have seen a few blog posts recently about &lt;em&gt;the myth of busy&lt;/em&gt; in PhD students and other academics. In short, it seems that everyone is incredibly busy, all the time, and that how much time you &lt;em&gt;don’t&lt;/em&gt; have is a proxy of your academic credentials. I disagree.&lt;/p&gt;
+&lt;p&gt;Not with the premise – we are busy. All of us. We have plenty of things to do, and plenty of pressure to do them fast, so that we can do some more things fast and show our leadership and competitiveness and all of these things that look good on your grant applications. That, I agree with.&lt;/p&gt;
+&lt;p&gt;What I disagree with is that being busy is a choice. I was struck by how incredibly condescending it was to tell graduate students &lt;em&gt;make the choice to stop being so busy&lt;/em&gt;. But on the other hand, I understand some of the reasons.&lt;/p&gt;
+&lt;p&gt;When I started my masters, I was amused by undergraduates running around being overworked; they were, after all, far less busy than I was. When I was a PhD candidate, I always thought that masters students where complaining too much about how much they had to do. At some points during my post-doc, I was kindly looking back to my PhD years – how less busy I would be if I was expected to produce three papers in four years! Last year, I was talking to a far more senior colleague, and told him that I have been keeping busy lately; he told me &lt;em&gt;Tim, you have no idea what busy feels like&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;But taking a step back, no one seems particularly more overworked. First years BSc students seems to chasing after deadlines as often and with as much despair as I do. So I wanted to come up with an explanation. Here it is: the raw volume of things we have to do increases over time; so does our productivity, but with a delay. We are essentially in a Red-Queen dynamics with ourselves: more work to do means that we have to develop a new coping strategy, in the form of more productive habits. Then when we feel comfortable, we take on more work, and become overworked again.&lt;/p&gt;
+&lt;p&gt;Busy is no myth, busy is a statistical effect. It’s the difference between our workload and our productivity, and we implement time-saving measures &lt;em&gt;because&lt;/em&gt; we need them &lt;em&gt;because&lt;/em&gt; we have too much work to do at the moment. If you have very little to do, but waste a lot of time, you are as busy as someone doing a lot but with a good productivity.&lt;/p&gt;
+&lt;p&gt;And asking of graduate students to stop looking so damn busy is futile; what we need is share out time-effectiveness habits, early. If they seem like overkill, good! It means that they are buying us some time. I wish good working habits have been touched upon &lt;em&gt;more&lt;/em&gt; during my training. And unless we agree to do it, and show students how to organise, we have no right to dismiss their business as a myth.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+  </entry>
   
   <entry>
      <title>How to write a paper</title>
@@ -1665,18 +1682,6 @@ Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;altercation/vim-colors-solarize
 &lt;img src=&quot;/images/w-peerj-pap.png&quot; alt=&quot;With papers&quot; /&gt;&lt;figcaption&gt;With papers&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;It seems to be the case, with &lt;code&gt;species&lt;/code&gt; being the most important word, followed (still) by &lt;code&gt;data&lt;/code&gt;. Interestingly, clinical and molecular keywords are more prominent in the published papers than in the preprints. But in any case, &lt;em&gt;PeerJ&lt;/em&gt; is definitely ecology-friendly, which hopefully will mean that more and more people will submit there.&lt;/p&gt;
-&lt;div class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>Data-sharing paper online</title>
-     <link href="http://timotheepoisot.fr/2013/12/05/data-sharing-paper/"/>
-    <updated>2013-12-05T00:00:00+13:00</updated>
-    <content type="html">&lt;p&gt;Our &lt;a href=&quot;http://library.queensu.ca/ojs/index.php/IEE/article/view/4632&quot;&gt;paper&lt;/a&gt; &lt;em&gt;Towards a sustainable ecological science&lt;/em&gt; is now online at &lt;em&gt;Ideas in Ecology and Evolution&lt;/em&gt;. Thanks are due to Karthik Ram for the invitation. This is going to be a very exciting special issue. If you want to know more about the paper, the best thing to do is most likely to read it (it’s open access). But in short, we (I, Ross Mounce, and Dominique Gravel), try to make a point of all the benefits of sharing data in ecology. There are some parts about licenses, and some parts about &lt;code&gt;JSON&lt;/code&gt; (because of course there are).&lt;/p&gt;
-&lt;p&gt;But besides the content of the paper (that made me think &lt;em&gt;a lot&lt;/em&gt; about data sharing), the way we wrote it was extremely fun. Everything was &lt;a href=&quot;https://github.com/tpoisot/DataSharingPaper/network&quot;&gt;done on &lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;, in &lt;em&gt;mardkwon&lt;/em&gt;,and we’ve used Issues and all the tricks in the book to keep track of what needed to be done. It’s also the first paper in which my twitter handle is listed in the contacts, and I’ll probably do that for every paper now.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
 &lt;/div&gt;

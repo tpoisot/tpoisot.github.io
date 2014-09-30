@@ -50,27 +50,21 @@ ga('send', 'pageview');
       <div class="post">
    <h1 class="title"> Notes on test-driven development (in Python)</h1>
    <p>I’m looking into the methodology of <em>test-driven development</em>, that is when you write your tests <em>before</em> writing your code. The advertised benefit is that you know in advance the behavior of your code, and it will make it easier to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O’Reilly</a> is a good introduction (although the exact functions of <code>unittest</code> it uses are now deprecated). To get started, I’ll work on a simple script that takes a series of numerical values, and divide them by their max, to get the equivalent series of values but in [0;1]. Let’s start with the basics:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">unittest</span>     <span class="c"># for testing</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>  <span class="c"># for other things</span></code></pre>
-</div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> unittest     <span class="co"># for testing</span>
+<span class="ch">import</span> numpy <span class="ch">as</span> np  <span class="co"># for other things</span></code></pre>
 <p>The first function I’d like to write will be called <code>scale</code>, and it will take a (<code>numpy</code>) array of numerical values, and return the same array divided by its maximal value. So my first <em>unit test</em> will test that the function performs as needed:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">scaleTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TextCase</span><span class="p">):</span>
-   <span class="k">def</span> <span class="nf">testOnKnownResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="n">KnownInput</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-      <span class="n">Scaled</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">KnownInput</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Scaled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">))</span></code></pre>
-</div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> scaleTest(unittest.TextCase):
+   <span class="kw">def</span> testOnKnownResult(<span class="ot">self</span>):
+      KnownInput = np.array([<span class="fl">2.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>])
+      Scaled = scale(KnownInput)
+      <span class="ot">self</span>.assertTrue((Scaled[<span class="dv">0</span>] == <span class="fl">1.0</span>) and (Scaled[<span class="dv">1</span>] == <span class="fl">0.5</span>))</code></pre>
 <p>There are a number of stupid-proofing steps required. First, the function cannot work when all values in the array are 0, or if there are negative values, so I’ll write a test for that. I want the function <code>scale</code> to raise a <code>ValueError</code>.</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">testNegative</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-   <span class="n">WithNeg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">WithNeg</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">testNull</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-   <span class="n">OnlyNull</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-   <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">OnlyNull</span><span class="p">)</span></code></pre>
-</div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> testNegative(<span class="ot">self</span>):
+   WithNeg = np.array([-<span class="fl">1.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>])
+   <span class="ot">self</span>.assertRaises(<span class="ot">ValueError</span>, scale, WithNeg)
+<span class="kw">def</span> testNull(<span class="ot">self</span>):
+   OnlyNull = np.array([<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>])
+   <span class="ot">self</span>.assertRaises(<span class="ot">ValueError</span>, scale, OnlyNull)</code></pre>
 <p>Now I have one test to check that the expected behavior is indeed obtained, and two tests to check that the input values are correct. Things are starting to look good! The one final thing that I want to enforce is the type of inputs. Specifically, I want <code>numpy</code> arrays of numeric types. If this is not the case, the <code>scale</code> function will raise a <code>TypeError</code>.</p>
 <div class="highlight">
 <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">testType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -84,25 +78,22 @@ ga('send', 'pageview');
    <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre>
 </div>
 <p>In most situations, I would have been happy writing the function this way. Let’s integrate it with the test suite, and see how it goes:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="c">#! /usr/bin/python2</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#! /usr/bin/python2</span>
 
-<span class="kn">import</span> <span class="nn">unittest</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="ch">import</span> unittest
+<span class="ch">import</span> numpy <span class="ch">as</span> np
 
-<span class="c">## scaleTest goes here</span>
+<span class="co">## scaleTest goes here</span>
 
-<span class="c">## scale goes here</span>
+<span class="co">## scale goes here</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-   <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<span class="kw">def</span> main():
+   unittest.main()
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-   <span class="n">main</span><span class="p">()</span></code></pre>
-</div>
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
+   main()</code></pre>
 <p>Here is the output of running this file:</p>
-<div class="highlight">
-<pre><code class="language-text" data-lang="text">======================================================================
+<pre><code>======================================================================
 FAIL: testNegative (__main__.scaleTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
@@ -119,7 +110,6 @@ AssertionError: ValueError not raised
 ----------------------------------------------------------------------
 Ran 4 tests in 0.001s
 FAILED (failures=2)</code></pre>
-</div>
 <p>There are <em>only</em> two failed tests. This is because <code>testOnKnownResult</code> is expected to succeed, and <code>testType</code> will catch the <code>TypeError</code> raised by <code>np.max</code> if there are arguments of the bad type. So now I just need to test that the argument are not negative, or not only zeroes:</p>
 <div class="highlight">
 <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>

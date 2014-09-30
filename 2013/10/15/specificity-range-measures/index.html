@@ -63,32 +63,23 @@ ga('send', 'pageview');
 <p><em>PDI</em> = <em>RR</em> + <em>I</em></p>
 <p>This additive partition makes sense, because if you go back to the demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i] will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so <em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the importance of different performances on specificity. Or in other words, when you do not have informations to measure specificity of impacts, all of the specificity is because of associations.</p>
 <p>Now what? Well, we can start measuring how much of the total specificity (<em>PDI</em>) is due to specificity of associations only (<em>RR</em>/<em>PDI</em>), and how much is due to specificity of impacts only (<em>I</em>/<em>PDI</em>). As far as I can tell, the couple <em>PDI</em>-<em>RR</em> is the only pair of measures that allow to do that (though there are other approaches) in a context where you can show that one measure is a component of the other. Here is a <code>R</code> function to do it using the <code>ESM</code> package (<a href="https://r-forge.r-project.org/R/?group_id=593">from R-Forge</a>).</p>
-<div class="highlight">
-<pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>ESM<span class="p">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ESM)
 
-sap <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>P<span class="p">)</span>
-<span class="p">{</span>
-   Spe <span class="o">=</span> pdi<span class="p">(</span>P<span class="p">)</span>
-   Ass <span class="o">=</span> rr<span class="p">(</span>P<span class="p">)</span>
-   Imp <span class="o">=</span> Spe <span class="o">-</span> Ass
-   <span class="kr">return</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>
-      specificity  <span class="o">=</span> Spe<span class="p">,</span>
-      associations <span class="o">=</span> Ass<span class="p">,</span>
-      impacts      <span class="o">=</span> Imp<span class="p">,</span>
-      assoc_rel    <span class="o">=</span> Ass <span class="o">/</span> Spe<span class="p">,</span>
-      impac_rel    <span class="o">=</span> Imp <span class="o">/</span> Spe
-      <span class="p">))</span>
-<span class="p">}</span></code></pre>
-</div>
+sap =<span class="st"> </span>function(P)
+{
+   Spe =<span class="st"> </span><span class="kw">pdi</span>(P)
+   Ass =<span class="st"> </span><span class="kw">rr</span>(P)
+   Imp =<span class="st"> </span>Spe -<span class="st"> </span>Ass
+   <span class="kw">return</span>(<span class="kw">list</span>(
+      <span class="dt">specificity  =</span> Spe,
+      <span class="dt">associations =</span> Ass,
+      <span class="dt">impacts      =</span> Imp,
+      <span class="dt">assoc_rel    =</span> Ass /<span class="st"> </span>Spe,
+      <span class="dt">impac_rel    =</span> Imp /<span class="st"> </span>Spe
+      ))
+}</code></pre>
 <p>Let’s do some simple examples, and contrast to species with the same number of resources, but a very high performance on resource 2, or a very low performance on resource 3:</p>
-<div class="highlight">
-<pre><code class="language-r" data-lang="r"><span class="o">&gt;</span> <span class="kp">unlist</span><span class="p">(</span>sap<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.999</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
-  specificity associations      impacts    assoc_rel    impac_rel 
-  <span class="m">0.500500000</span>  <span class="m">0.500000000</span>  <span class="m">0.000500000</span>  <span class="m">0.999000999</span>  <span class="m">0.000999001</span> 
-<span class="o">&gt;</span> <span class="kp">unlist</span><span class="p">(</span>sap<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0.001</span><span class="p">,</span><span class="m">0</span><span class="p">)))</span>
-  specificity associations      impacts    assoc_rel    impac_rel 
-  <span class="m">0.9995000</span>    <span class="m">0.5000000</span>    <span class="m">0.4995000</span>    <span class="m">0.5002501</span>    <span class="m">0.4997499</span></code></pre>
-</div>
+<p><sub><del> r &gt; unlist(sap(c(1,0.999,0))) specificity associations impacts assoc_rel impac_rel 0.500500000 0.500000000 0.000500000 0.999000999 0.000999001 &gt; unlist(sap(c(1,0.001,0))) specificity associations impacts assoc_rel impac_rel 0.9995000 0.5000000 0.4995000 0.5002501 0.4997499</del></sub></p>
 <p>In the second example, because the performance on the second resource is much almost zero, the <em>RR</em> and <em>I</em> components are almost as important to understand specificity (whereas it’s not the case in the first example, wherein you can assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
 <div class="references">
 
