@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | A model of population dynamics in Python</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | A model of population dynamics in Python</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> A model of population dynamics in Python</h1>
-   <p>I’ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I’ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>November 14, 2011 </div>
+<div class='post-title'><a class="readmore" href="/2011/11/14/a-model-of-population-dynamics-in-python/">A model of population dynamics in Python</a></div>
+<p>I’ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I’ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
 <p>In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I’ve become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a> in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.</p>
 <p>To write a simulation of population dynamics (I’ll use logistic growth as an example), we first import the relevant parts of the scipy library.</p>
 <div class="highlight">
@@ -98,10 +101,9 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

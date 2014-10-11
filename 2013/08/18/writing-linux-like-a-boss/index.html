@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | Writing manuscripts in Linux (like a boss)</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | Writing manuscripts in Linux (like a boss)</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> Writing manuscripts in Linux (like a boss)</h1>
-   <p>Hey, it’s been a year since I <a href="http://timotheepoisot.fr/2012/08/03/new-linux-setup/">switched to Linux</a>. I’ve tried a few different distros, and finally settled on <a href="https://www.archlinux.org/">Arch Linux</a> with <a href="http://openbox.org/">OpenBox</a>. It’s ligthweight, uncluttered, and I love. But that’s not what I’m going to talk about.</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>August 18, 2013 </div>
+<div class='post-title'><a class="readmore" href="/2013/08/18/writing-linux-like-a-boss/">Writing manuscripts in Linux (like a boss)</a></div>
+<p>Hey, it’s been a year since I <a href="http://timotheepoisot.fr/2012/08/03/new-linux-setup/">switched to Linux</a>. I’ve tried a few different distros, and finally settled on <a href="https://www.archlinux.org/">Arch Linux</a> with <a href="http://openbox.org/">OpenBox</a>. It’s ligthweight, uncluttered, and I love. But that’s not what I’m going to talk about.</p>
 <p>I may have mentionned in the past that I used <em>Sublime Text 2</em>. During my quest for ever-increasing minimalism, I’ve made the switch to <code>vim</code>. And I now have a <em>cool</em> writing setup. Most of what I do is writing markdown files, and using makefiles to use pandoc to convert them to PDF (read more about it <a href="http://timotheepoisot.fr/2013/05/18/make-pandoc/">here</a>). The only thing that missed was a lightweight PDF reader, able to auto-refresh things. I have now found <a href="http://pwmt.org/projects/zathura/"><em>zathura</em></a>. I am supper happy.</p>
 <p><em>zathura</em> is command-line based, and uses keyboard for interaction. So whenever I am working on a document in a terminal (<code>rxvt-unicode</code>, in case you wonder, with the <em>excellent</em> font <a href="http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released">Envy Code R</a>), I just need to do a quick <code>zathura my-doc.pdf</code>, and I can see the output. Because <em>zathura</em> auto-refreshes things, whenever I <code>make pdf</code>, the output is up to date. Just like that.</p>
 <p>And the point is: the productivity boost is amazing. I do everything from within the terminal (or rather, terminals, I have a few of them open at any time). And it’s fast, ligthweight, and <em>responsive</em>.</p>
@@ -81,10 +84,9 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | R, priority effects, and the meta-package</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | R, priority effects, and the meta-package</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> R, priority effects, and the meta-package</h1>
-   <p>R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about <a href="http://www.inside-r.org/packages/cran/bipartite/docs/PDI">one of my own metrics in the <code>bipartite</code> package</a>), and that I think is rarely discussed.</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>October 12, 2013 </div>
+<div class='post-title'><a class="readmore" href="/2013/10/12/r-priority-responsibility/">R, priority effects, and the meta-package</a></div>
+<p>R packages are a superb opportunity to use new methods, and if anything, we should only rejoice that there are so many of them in ecology. Yet, there is a point that occurred to me over recent experiences (reviewing code for a few papers recently, and reading the help page about <a href="http://www.inside-r.org/packages/cran/bipartite/docs/PDI">one of my own metrics in the <code>bipartite</code> package</a>), and that I think is rarely discussed.</p>
 <p>When a R package presenting a series of measures becomes available, it will become the <em>gold standard</em> of future analyzes in this field. This is an extremely strong effect. French students in ecology use the (French-developed) <code>ade4</code> package, while people in Québec use the <code>vegan</code> package (most likely because of its ties with the <em>Numerical Ecology</em> book, as Gavin Simpson mentioned in the comments). There is a priority effect when a package is released, and metrics that are not implemented in this package, because they are more difficult to apply, will be less widely used. This is a central point for methodological research papers. Describing the method is a small fraction of the work. People are more likely to apply what is proposed if there is a tool to do it, and as a consequence, (<em>I assume that</em>) methods are used more if there is an easy and well-known way to apply them.</p>
 <p>This is especially true of large-scale packages, that aim to become your single interface with the metrics and analyzes in a domain. Ecologists are familiar with <code>bipartite</code>, <code>vegan</code>, <code>picante</code>, <code>ape</code>, for example. These “mega-packages” implement a lot of measures, and for this reason, some will look through the manual to see what kind of analyzes they can do. I most likely still do it myself, especially so for side-projects where I’m not entirely familiar with the methodological literature yet. So based on my experience, this is particularly problematic for newcomers to a field, because when you don’t know, you assume that the default values were chosen as defaults by someone knowing what he was doing. Then I remember the <a href="http://www.python.org/dev/peps/pep-0020/"><em>Zen of Python</em></a>: <em>“In the face of ambiguity, refuse the temptation to guess.”</em></p>
 <p>And as we all have different sensibilities, it shows in the way we think about code, and in the way we write it. The default options of a function, for example, can be a matter of choice, and especially so when this function becomes as broad as “measure diversity”. This partiality is not an issue when developing tools that you will use for your own research. But when developing tools intended for a broad audience, then this code becomes a service, and it is our duty as service providers that the defaults reflect our own biases the least, and the current consensus the most.</p>
@@ -83,10 +86,9 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

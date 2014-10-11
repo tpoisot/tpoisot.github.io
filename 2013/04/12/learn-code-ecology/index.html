@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | Learning how to code (in ecology)</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | Learning how to code (in ecology)</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> Learning how to code (in ecology)</h1>
-   <p>A few days ago, I received an email asking about pointers on how to program in ecology. I’m not sure I’m the best person to ask, but writing the answer, I realized that there might be potential to share tips with other people. Now, a little bit of foreword. I come from a very empirical background. My undergrad studies are in genetics and immunology, and up until the end of my Masters, I have been spending time either in the field or in the lab. So learning how to program came rather late in my studies. It all started when my PhD advisor gave me a PDF of a paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/15976021">Weitz and colleagues</a>, and asked me to reprogram the model to use as a basis for <a href="http://rspb.royalsocietypublishing.org/content/early/2011/06/02/rspb.2011.0826.full">a future paper</a>. All of a sudden, I had no choice but to learn how to program. Prior to that point, my experience with R was mostly limited to doing statistical analysis and figures. I had a little bit of experience with PERL and bioinformatics, but no knowledge relatable to programming in ecology. I was, all in all, fairly illiterate (idem for maths, but that will be left to another post eventually). So a few years down the road, there are a few pieces of advice I can share with those wanting to start programming.</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>April 12, 2013 </div>
+<div class='post-title'><a class="readmore" href="/2013/04/12/learn-code-ecology/">Learning how to code (in ecology)</a></div>
+<p>A few days ago, I received an email asking about pointers on how to program in ecology. I’m not sure I’m the best person to ask, but writing the answer, I realized that there might be potential to share tips with other people. Now, a little bit of foreword. I come from a very empirical background. My undergrad studies are in genetics and immunology, and up until the end of my Masters, I have been spending time either in the field or in the lab. So learning how to program came rather late in my studies. It all started when my PhD advisor gave me a PDF of a paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/15976021">Weitz and colleagues</a>, and asked me to reprogram the model to use as a basis for <a href="http://rspb.royalsocietypublishing.org/content/early/2011/06/02/rspb.2011.0826.full">a future paper</a>. All of a sudden, I had no choice but to learn how to program. Prior to that point, my experience with R was mostly limited to doing statistical analysis and figures. I had a little bit of experience with PERL and bioinformatics, but no knowledge relatable to programming in ecology. I was, all in all, fairly illiterate (idem for maths, but that will be left to another post eventually). So a few years down the road, there are a few pieces of advice I can share with those wanting to start programming.</p>
 <h1 id="practice">Practice</h1>
 <p>Whenever I have (or want) to learn a new language, I always try to start writing. As when learning a new language (the kind people, not machines, use to communicate), immersion is probably the best way to go. As an ecologist, Lotka-Volterra models are my favorite. I also try to do some spatial things, like metacommunities. The good thing with these models are that you know the results. So you can check whether your code is giving you the expected results. And you’ll learn the bases as you go.</p>
 <p><span class="margin">Maynard Smith, J. <a href="http://linkinghub.elsevier.com/retrieve/pii/S0169534702025545">Evolutionary Genetics</a>. Oxford University Press, 2002.</span>A <em>really</em> good book to do this is <em>Evolutionary genetics</em> by John Maynard-Smith. Not only is it a good introductory book for evolutionary biology, but each chapter comes with a variety of problems that you can solve by hand and through programming. I used these to learn R, Python, and C. I plan to go back at them whenever I have to learn a new language (also because it’s a good excuse to re-read through the book!). Of course any book with problems will work in the same way.</p>
@@ -87,10 +90,9 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

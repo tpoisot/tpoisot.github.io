@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | Blog</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | Blog</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,82 +46,41 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <!-- This loops through the paginated posts -->
 
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <!-- This loops through the paginated posts -->
 
-
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>May 20, 2013 </span> <a class="readmore" href="/2013/05/20/blast-remove-gaps/">Remove indels from blast output</a>
+      <div class="entry">
+      <div class='post-date'>December  5, 2013 </div>
+      <div class='post-title'><a class="readmore" href="/2013/12/05/data-sharing-paper/">Data-sharing paper online</a></div>
          
-      </p>
-   </div>
+      </div>
 
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>May 18, 2013 </span> <a class="readmore" href="/2013/05/18/make-pandoc/">Using make and pandoc for reproducible papers</a>
+      <div class="entry">
+      <div class='post-date'>December  2, 2013 </div>
+      <div class='post-title'><a class="readmore" href="/2013/12/02/json-goto-format/">Why JSON is my go-to data format</a></div>
          
-      </p>
-   </div>
+      </div>
 
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>May 16, 2013 </span> <a class="readmore" href="/2013/05/16/steal-my-paper/">Steal my paper! (seriously, please, don't)</a>
+      <div class="entry">
+      <div class='post-date'>November 27, 2013 </div>
+      <div class='post-title'><a class="readmore" href="/2013/11/27/r-packages-teaching/">The pros and cons of using R packages for teaching</a></div>
          
-      </p>
-   </div>
+      </div>
 
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>May  6, 2013 </span> <a class="readmore" href="/2013/05/06/nicholson-bailey-c/">A C version of the Nicholson-Bailey model</a>
+      <div class="entry">
+      <div class='post-date'>November 25, 2013 </div>
+      <div class='post-title'><a class="readmore" href="/2013/11/25/metapopulation-model-r/">Spatially explicit metapopulation model in R</a></div>
          
-      </p>
-   </div>
+      </div>
 
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>April 30, 2013 </span> <a class="readmore" href="/2013/04/30/data-sharing-ecology/">Data sharing and preprints in ecology</a>
+      <div class="entry">
+      <div class='post-date'>November 10, 2013 </div>
+      <div class='post-title'><a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Collaborating with markdown and bibtex</a></div>
          
-      </p>
-   </div>
-
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>April 12, 2013 </span> <a class="readmore" href="/2013/04/12/learn-code-ecology/">Learning how to code (in ecology)</a>
-         
-      </p>
-   </div>
-
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>April  9, 2013 </span> <a class="readmore" href="/2013/04/09/mendelsevier/">Elsevier acquired Mendeley. It's not as bad as I thought.</a>
-         
-      </p>
-   </div>
-
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>April  7, 2013 </span> <a class="readmore" href="/2013/04/07/wilson-maths/">Is E.O. Wilson wrong about maths?</a>
-         
-      </p>
-   </div>
-
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>March 12, 2013 </span> <a class="readmore" href="/2013/03/12/ngs-community-ecology/">High-throughput sequencing and community ecology</a>
-         
-      </p>
-   </div>
-
-   <div class='postlist'>
-      <p class="entry">
-         <span class='post-date'>February 18, 2013 </span> <a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">A d3.js alternative to stacked bar charts</a>
-         
-      </p>
-   </div>
+      </div>
 
 
 <div class="pagination-centered">
@@ -173,15 +135,58 @@ ga('send', 'pageview');
     <li><a href="/blog/page12">12</a></li>
     
     
+    
+    <li><a href="/blog/page13">13</a></li>
+    
+    
+    
+    <li><a href="/blog/page14">14</a></li>
+    
+    
+    
+    <li><a href="/blog/page15">15</a></li>
+    
+    
+    
+    <li><a href="/blog/page16">16</a></li>
+    
+    
+    
+    <li><a href="/blog/page17">17</a></li>
+    
+    
+    
+    <li><a href="/blog/page18">18</a></li>
+    
+    
+    
+    <li><a href="/blog/page19">19</a></li>
+    
+    
+    
+    <li><a href="/blog/page20">20</a></li>
+    
+    
+    
+    <li><a href="/blog/page21">21</a></li>
+    
+    
+    
+    <li><a href="/blog/page22">22</a></li>
+    
+    
+    
+    <li><a href="/blog/page23">23</a></li>
+    
+    
   </ul>
 
 </div>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

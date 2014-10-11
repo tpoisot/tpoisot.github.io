@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | Remove indels from blast output</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | Remove indels from blast output</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> Remove indels from blast output</h1>
-   <p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it’s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a “reliable” estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>May 20, 2013 </div>
+<div class='post-title'><a class="readmore" href="/2013/05/20/blast-remove-gaps/">Remove indels from blast output</a></div>
+<p>My wife recently mentionned to me that most of the errors introduced during 454 pyrosequencing were <a href="http://www.retrovirology.com/content/10/1/18/abstract">indels rather than point mutations</a>. It may not sound like it, but it’s kind of a big deal when measuring similarity between sequences, most likely when you try to do taxonomic identification by comparing to the best match of <code>blast</code>. So to get a “reliable” estimate of the dissimilarity, a reliable strategy is most likely to remove the gaps.</p>
 <p>As doing it by hand would be, let’s say, tedious, I started looking for a <code>biopython</code> way to do it. As it turns out, despite the fact that the <code>biopython</code> documentation is cryptic and baffling at some points, it turned out to be a great over-lunch coding project.</p>
 <p>I’ve put the code up as a <a href="https://gist.github.com/tpoisot/5613748">gist</a>. It would definitely benefit from being run in parallel (especially with millions of sequences), but if you want to quickly check out a few samples, it’s not that slow (a few seconds per sequence, most of which are actually spent blasting).</p>
 <div class="references">
@@ -74,10 +77,9 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

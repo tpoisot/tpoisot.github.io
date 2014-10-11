@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | A selection of Sublime Text 2 packages</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | A selection of Sublime Text 2 packages</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> A selection of Sublime Text 2 packages</h1>
-   <p><a href="http://www.sublimetext.com/2"><em>Sublime Text 2</em></a> is an awesome multi-purpose text editor, working on all major platforms, and generally being <code>vim</code> with a nice GUI, and some <code>emacs</code> thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed <em>Python</em> packages for it, and I use a few of them almost daily. Following some discussions we’ve had on twitter, I figured I’d share them with everyone. The first one to install is <a href="http://wbond.net/sublime_packages/package_control"><em>Sublime Package Control</em></a>. It allows you to open the command palette, and manage your packages. Notably, you can use the <code>Install packages</code> command to get a drop-down list of <em>all</em> possible packages available. They are also listed <a href="http://wbond.net/sublime_packages/community">here</a>.</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>January 22, 2013 </div>
+<div class='post-title'><a class="readmore" href="/2013/01/22/selection-sublime-plugins/">A selection of Sublime Text 2 packages</a></div>
+<p><a href="http://www.sublimetext.com/2"><em>Sublime Text 2</em></a> is an awesome multi-purpose text editor, working on all major platforms, and generally being <code>vim</code> with a nice GUI, and some <code>emacs</code> thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed <em>Python</em> packages for it, and I use a few of them almost daily. Following some discussions we’ve had on twitter, I figured I’d share them with everyone. The first one to install is <a href="http://wbond.net/sublime_packages/package_control"><em>Sublime Package Control</em></a>. It allows you to open the command palette, and manage your packages. Notably, you can use the <code>Install packages</code> command to get a drop-down list of <em>all</em> possible packages available. They are also listed <a href="http://wbond.net/sublime_packages/community">here</a>.</p>
 <p>So which packages do I use? I made a list of those I find the more useful, ranked by use frequency.</p>
 <p>The first one is <strong>LaTeX Tools</strong>. It’s plain awesome. You work on a LaTeX document, hit <code>Ctrl-B</code>, and it uses <code>latexmk</code> to take care of <em>all</em> the necessary compilation steps for you. And it implements <code>synctex</code> as well, so you can use <code>Ctrl-L J</code> to jump to the PDF, and right click on the PDF to jump to the text. Add a few other <a href="https://github.com/SublimeText/LaTeXTools">great shortcuts</a> (transform a word in an environment with <code>Ctrl-L E</code>, or in a command with <code>Ctrl-L C</code>, for example), a very extensive auto-completion, and you have one of the best LaTeX editors available. Also, when using this package, do not forget that pressing <code>alt-q</code> anywhere in a line will hard wrap the paragraph. It’s almost impossible to live without this function when you use git.</p>
 <p>A really good companion to the above package is <strong>WordCount</strong>. It does what the name says: add a word and character count in the status bar. It updates the word count in real time, and when you mostly write using <em>Markdown</em> or plain text, it’s extremely useful. To write in <em>Markdown</em>, which includes this blog, and most of the drafts of my papers, all the replies to referees, my meeting notes, and general note taking, I rely on <strong>MarkdownBuild</strong>, which allows to <a href="https://github.com/erinata/SublimeMarkdownBuild">quickly visualize</a> the content of the file. A simple <code>Ctrl-B</code> brings up a browser windows with a HTML/CSS rendition of my file. When the documents are ready, I use <code>pandoc</code> to compile them. There are two packages for this, <strong>Pandoc</strong>, which provides a lot of output formats, and <strong>Pandoc Academic</strong>, which provides less formats, but is reachable in less keystrokes. Both also have some complementary snippets, so I keep both.</p>
@@ -93,10 +96,9 @@ abc  dd  e   456</code></pre>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>

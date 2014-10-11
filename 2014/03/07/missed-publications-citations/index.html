@@ -2,15 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothée Poisot | Is a citation a missed publication?</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/skeleton.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="//use.typekit.net/kvz6lyh.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,20 +19,24 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+<title>Timothée Poisot | Is a citation a missed publication?</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
   </head>
 <body>
 
-
-   <div class="container">
-
-   <div class="three columns sidebar">
-   <section id="title">
-   <h1>Timothée Poisot</h1>
-   <h2>Computational Ecologist</h2>
-</section>
-
-   <nav>
-   <ul>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Timothée Poisot</h1>
+            <h2 class="brand-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
    <li><a href="/">Home</a></li>
    <li><a href="/software/">Software</a></li>
    <li><a href="/research/">Research</a></li>
@@ -43,13 +46,13 @@ ga('send', 'pageview');
    </ul>
 </nav>
 
-   </div>
-
-   <div class="twelve columns offset-by-three">
-   <section id="content">
-      <div class="post">
-   <h1 class="title"> Is a citation a missed publication?</h1>
-   <p>I had a very interesting discussion/argument on twitter this afternoon, about (basically) why data sharing is evil. Or to put it in a more balanced way, why sharing data is a net loss of potential papers for people. Because 140 characters are not enough to make a coherent argument, I will summarize my position here. The key disagreement with coercive data sharing policies is that journals are requiring people to give away their data, and that any one can use these datasets to publish papers without putting in the effort of collecting data, so that is a loss of potential publications for the data creators. It’s probably one of my most despicable qualities, but I don’t mind having heated arguments over <em>ideas</em>. Which most definely happened this afternoon…</p>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+       <div class="entry">
+<div class='post-date'>March  7, 2014 </div>
+<div class='post-title'><a class="readmore" href="/2014/03/07/missed-publications-citations/">Is a citation a missed publication?</a></div>
+<p>I had a very interesting discussion/argument on twitter this afternoon, about (basically) why data sharing is evil. Or to put it in a more balanced way, why sharing data is a net loss of potential papers for people. Because 140 characters are not enough to make a coherent argument, I will summarize my position here. The key disagreement with coercive data sharing policies is that journals are requiring people to give away their data, and that any one can use these datasets to publish papers without putting in the effort of collecting data, so that is a loss of potential publications for the data creators. It’s probably one of my most despicable qualities, but I don’t mind having heated arguments over <em>ideas</em>. Which most definely happened this afternoon…</p>
 <p>The point is, creating data <em>is</em> hard work. I know that because, well, I generated some on my own, through either field (my left buttock still bears the scar of the time I sat on a sea urchin), and lab work. I know how many hours go into making a dataset. All of these datasets are publicly available.</p>
 <p>These last years, I’ve been moving towards (mostly) numerical/computational research. One important output of my research (other than results and papers) is software. I know how many hours go into making good software. Coming up with the <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">measure of ecological networks beta-diversity</a> was a solid year worth of my time. Reviewing measures of ecological specificity, and coming up with one that <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">behave the way we felt it had to</a> was approximately the same amount of time.</p>
 <p>That’s by no mean an optimal comparison, but it will serve: it takes an equivalent effort to put together a dataset and a software package. Keep also in mind that, just as some datasets keep on growing from year to year, most high-profile pieces of ecological software are permanently being developped and expanded. Terry McGlynn rightly pointed out that spending a summer in the field carries a personnal cost (as in, not seeing your family), and that doesn’t happen in software developments (though it’s often best to avoid being in the general vincinity of anyone <em>debugging</em> a program).</p>
@@ -88,10 +91,9 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-   </section>
-   </div>
+    </div>
+</div>
 
-   </div>
 
 </body>
 </html>
