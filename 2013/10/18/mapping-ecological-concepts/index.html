@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>October 18, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Mapping ecological concepts using twitter</a></div>
+<div class='post-date'>On October 18, 2013 &middot; 
+   Tim
+</div>
 <p>I’ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological Society</a>, and while we currently use it as a tool to relay the various informations we want to share, it’s also a great way to engage with people. So the question that immediately came to mind is: what kind of topics are associated with ecology on twitter? My own twitter list is a poor indicator of the “general public” as far as ecology is concerned, so I had to look for another solution.</p>
 <p>Twitter offers a series of <em>Streaming API</em>, which allows to “listen” to the conversation, by tracking some keywords, or users, or geographic location. So I downloaded the excellent <a href="https://github.com/geduldig/TwitterAPI"><code>TwitterAPI</code></a> module for <code>python</code>, and tracked a series of keywords. After some trial and error, I settled on <code>biodiversity</code>, <code>biological diversity</code>, <code>ecology</code>, <code>species richness</code>, <code>ecosystem services</code>, <code>ecosystem functioning</code>, and <code>ecological</code>. I left out <code>conservation</code> and <code>ecosystem</code>, because they had a really high rate of false positives (in engineering and software, respectively).</p>
 <p>The streaming API, in a nutshell, will return a new line everytime a tweet that matches the search parameters is posted. Not all tweets are sampled, but it’s approximately a random sampling, so more than good enough for a side-project. I left the script running for a few hours at a time, which gave me a database of over 1000 tweets, about 600 of which were retained. I’ve removed all tweets using a alphabet that is not latin, and there were quite a bit of these.</p>

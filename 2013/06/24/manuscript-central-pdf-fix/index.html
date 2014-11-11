@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>June 24, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/06/24/manuscript-central-pdf-fix/">Fixes for the ManuscriptCentral PDF conversion problem</a></div>
+<div class='post-date'>On June 24, 2013 &middot; 
+   Tim
+</div>
 <p>While submitting a MS to <em>Methods in Ecology and Evolution</em>, I ran into a PDF conversion problem. It was not the first time it happenned, and always on journals using <em>manuscriptcentral</em> as an upload system, and always with <code>LaTeX</code>-generated PDF. My previous fix for this, in the proud quick-and-dirty tradition of the academic world, was to (1) import the PDF in google documents, (2) print it as a PDF, (3) upload the PDF and (4) drink the shame away.</p>
 <p>Only this time, I wanted to understand what was happening, and to fix it as much as I could. Well, as it turns out, the <em>manuscriptcentral</em> system only accepts PDF up to version 1.5 of the standard. Reasonably recent <code>LaTeX</code> distributions will generate 1.7 or 1.8, so it’s obviously not going to work (but on the up-side, it will give you one of the most depressing and amusing error message ever: your PDF file cannot be converted in the correct PDF format). So to fix it, there are a number of workarounds.</p>
 <p>First, you can add</p>

@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>July  9, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/07/09/zotero-number-papers/">What do I read (according to Zotero)?</a></div>
+<div class='post-date'>On July  9, 2013 &middot; 
+   Tim
+</div>
 <p>I’ve been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days. Zotero stores the data about your library in a <code>sqlite3</code> database, called <code>zotero.sqlite</code>, and stored in your Zotero folder (<code>~/Zotero/</code> in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in <code>sqliteman</code> to figure it out. But in the end, I was able to come up with a solution to count the number of papers in each journal, stored in my library.</p>
 <p>The <code>python</code> script is <a href="https://gist.github.com/tpoisot/5958933">available as a gist</a>. When you run it (assuming you’ve made a copy of the <code>zotero.sqlite</code> in the folder where the script is, you will end up with a <code>journals.tsv</code> file, in which the two columns are, respectively, the number of papers, and the journal title.</p>
 <p>Because despite the feature being <em>in progress</em> for a few years now there is still no bacth edit of journal titles (that I know of), it took me a bit of cleaning-up in open office to check for duplicates, especially since my current database is following me since the first year of my masters (so 2006). So, what do I read? Here is the top 15:</p>

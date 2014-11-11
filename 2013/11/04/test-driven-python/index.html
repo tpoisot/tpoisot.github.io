@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>November  4, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/11/04/test-driven-python/">Notes on test-driven development (in Python)</a></div>
+<div class='post-date'>On November  4, 2013 &middot; 
+   Tim
+</div>
 <p>I’m looking into the methodology of <em>test-driven development</em>, that is when you write your tests <em>before</em> writing your code. The advertised benefit is that you know in advance the behavior of your code, and it will make it easier to implement and debug. This <a href="http://www.onlamp.com/pub/a/python/2004/12/02/tdd_pyunit.html">paper at O’Reilly</a> is a good introduction (although the exact functions of <code>unittest</code> it uses are now deprecated). To get started, I’ll work on a simple script that takes a series of numerical values, and divide them by their max, to get the equivalent series of values but in [0;1]. Let’s start with the basics:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> unittest     <span class="co"># for testing</span>
 <span class="ch">import</span> numpy <span class="ch">as</span> np  <span class="co"># for other things</span></code></pre>

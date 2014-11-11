@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>January 10, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/01/10/free-workflow-figures/">A quick way to get good figures for your web pages</a></div>
+<div class='post-date'>On January 10, 2013 &middot; 
+   Tim
+</div>
 <p>I’m a huge fan of the <code>pgfplots</code> package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: <code>notes</code>, <code>MS</code>, and <code>code</code>. The results of what happens in <code>code</code> (usually a huge mess of R, C and Python) go directly into <code>MS</code> as tab-delimited files, and the <code>.tex</code> document has all the commands needed to transform this in figures. I’ve notably used this workflow for the <code>beamer</code> slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons.</p>
 <p>I’m <em>really</em> happy with this setup, and <code>pgfplots</code> is a wonderful tool. It does look really <em>LaTeX-y</em> (<code>s/LaTeX-/ugl/</code>) by default, but you can get good results with minor tweakings. Given that I am familiar around this system, I was thinking about how I can use it to produce good graphics to put in blog posts, when needed. As it turned out, it’s remarkably easy, and it requires almost no user input.</p>
 <p>Doing so requires almost nothing, except an install of <a href="http://www.imagemagick.org/script/index.php"><code>imagemagick</code></a> should it not ship with your operating system. Of course you need LaTeX, and (relatively) up-to-date versions of the <code>tikz</code> and <code>pgfplots</code> packages installed. By the end of this walkthrough, you’ll be able to generate figures like the one just below, with almost no effort.</p>

@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>January 11, 2014 </div>
 <div class='post-title'><a class="readmore" href="/2014/01/11/animate-networks-with-igraph/">Animate networks with igraph</a></div>
+<div class='post-date'>On January 11, 2014 &middot; 
+   Tim
+</div>
 <p>The <code>igraph</code> package in <code>R</code> is a good solution to manipulate networks. A few days ago, I had to produce an animated figure for a paper, and I really wanted to use <code>igraph</code> to do it. As it turns out, it’s not overly complicated (you need to have <code>imagemagick</code> installed, though.</p>
 <p>So as to provide a quick visualisation, let’s start with a simple dynamical model of a diamond food web (one primary producer, two consumers, one top predator, classic stuff). The “usual” way to represent the dynamics of biomass is to have four time series. The “captivating” way (good for talks!) is to animate the network, with each node size being proportional to its biomass at any time.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(igraph)

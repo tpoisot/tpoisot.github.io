@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>January 14, 2014 </div>
 <div class='post-title'><a class="readmore" href="/2014/01/14/filtering-in-mangal/">These aren't the networks you're looking for</a></div>
+<div class='post-date'>On January 14, 2014 &middot; 
+   Tim
+</div>
 <p>The development of the <code>rmangal</code> package is making good progress. I just finised implementing a way to filter results, which will be extremely useful when the number of taxa and networks will start growing. Before we get into how filtering is done, I’d like to take the opportunity to bore everyone with technical details. <code>mangal</code> (the API) relies on <code>tastypie</code>, which is a <code>django</code> plugin to use the data models as API resources (bored yet?). The <code>tastypie</code> developers had the good taste to allow <code>django</code>’s ORM filter as URL parameters to filter results. Or in short, there is a filtering solution working out of the box.</p>
 <p>The filtering is realtively easy to do, as it follows the common pattern:</p>
 <pre><code>?field__relation=target</code></pre>

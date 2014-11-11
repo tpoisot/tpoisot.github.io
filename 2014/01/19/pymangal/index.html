@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>January 19, 2014 </div>
 <div class='post-title'><a class="readmore" href="/2014/01/19/pymangal/">Python wrapper for mangal</a></div>
+<div class='post-date'>On January 19, 2014 &middot; 
+   Tim
+</div>
 <p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share things with people, but it’s a little bit slower, and orders of magnitude quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the <code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with <code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
 <p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code> package (though the core abilities will be here). Rather, I wanted a tool that is “pythonic”, easy to use, and programmed extremely defensively so that it can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a> online, which will hopefully get better over time as I understand the <code>sphinx</code> markup.</p>
 <p>The syntax is relatively similar to that of the <code>rmangal</code> package. Everything starts by the instansiation of a <code>mangal()</code> class.</p>

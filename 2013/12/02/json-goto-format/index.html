@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>December  2, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/12/02/json-goto-format/">Why JSON is my go-to data format</a></div>
+<div class='post-date'>On December  2, 2013 &middot; 
+   Tim
+</div>
 <p>Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in <code>R</code>. But I’ve been using <code>JSON</code> for a while now, and it makes working with these types of data (not the “several Gig” types, the “highly heterogeneous” type) easy.</p>
 <p>I love <code>JSON</code> because it can be validated. Running a command like <code>jsonlint file.json</code> will either return me the pretty-printed version of the file, or an error telling me where the file is not conforming to the <code>JSON</code> specification. Or in other words, when I read something in memory, I’m confident it is indeed a correctly formated file.</p>
 <p>But wait, there’s more! In <code>JSON</code>, you can define <em>schemes</em>, or a <code>JSON</code> file telling you (or a validator) what other <code>JSON</code> files should look like. Which means that it’s possible to check that a particular file is correctly formatted <em>with regard to a previously described data format</em>. I use the <code>jsonschema</code> python module to do that:</p>

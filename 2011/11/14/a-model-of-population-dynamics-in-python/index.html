@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>November 14, 2011 </div>
 <div class='post-title'><a class="readmore" href="/2011/11/14/a-model-of-population-dynamics-in-python/">A model of population dynamics in Python</a></div>
+<div class='post-date'>On November 14, 2011 &middot; 
+   tpoisot
+</div>
 <p>I’ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I’ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
 <p>In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I’ve become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a> in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.</p>
 <p>To write a simulation of population dynamics (I’ll use logistic growth as an example), we first import the relevant parts of the scipy library.</p>

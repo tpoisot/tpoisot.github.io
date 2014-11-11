@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>February 13, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Estimating edges contribution to network properties</a></div>
+<div class='post-date'>On February 13, 2013 &middot; 
+   Tim
+</div>
 <p>I had so much fun writing the previous post about how it is possible to measure <a href="2013/02/12/species-contribution-modularity/">nodes contribution to network properties</a> that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with <a href="http://d3js.org/"><code>D3.js</code></a>, and I wanted to put what I’ve learnt in practice.</p>
 <p>What I want to do is remove each <em>edge</em>, and see how it affects modularity. This is, once again, really easy to do in <code>networkx</code>. We’ll just write a function similar to <code>removeNode</code>, and add the possibility to keep the nodes with no links, or to remove them. By default, I’ll consider that any node with no remaining edge is removed.</p>
 <div class="highlight">

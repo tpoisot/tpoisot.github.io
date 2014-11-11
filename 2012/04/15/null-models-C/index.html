@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>April 15, 2012 </div>
 <div class='post-title'><a class="readmore" href="/2012/04/15/null-models-C/">Null models of bipartite networks in C</a></div>
+<div class='post-date'>On April 15, 2012 &middot; 
+   Tim
+</div>
 <p>I am currently revising a paper, and I need to run a lot of networks through two null models. And I need to do it a lot of time. I have a Python solution, for a dataset of this size (175 networks, some of them up to 100 x 100 in size), and with the need to have 1000 replicates each time… Python is not the right tool. I’m currently re-learning C, and I thought it would be a cool exercise to generate these random networks in C.</p>
 <p>The code is on <a href="https://github.com/tpoisot/CNullModels">GitHub</a> if you are interested. It’s super fast. You need to have the <a href="http://www.gnu.org/software/gsl/">GSL</a> installed to make it run. On a mac, to install it, after dezipping the archive, just</p>
 <div class="highlight">

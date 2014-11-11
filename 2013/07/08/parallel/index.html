@@ -50,8 +50,10 @@ ga('send', 'pageview');
     </div>
     <div class="content pure-u-1 pure-u-md-3-4">
        <div class="entry">
-<div class='post-date'>July  8, 2013 </div>
 <div class='post-title'><a class="readmore" href="/2013/07/08/parallel/">A quick way to parallelize</a></div>
+<div class='post-date'>On July  8, 2013 &middot; 
+   Tim
+</div>
 <p>I have often been confronted to the situation when I want to run a bunch of simulations, that will take long if I run them in batch, but long enough that I want to put them on the lab cluster. A fairly common situation is when I want to feed some sequentially numbered output files to a script performing all kind of black magic (<em>a.k.a.</em> data analysis).</p>
 <p>While looking for a solution, I came across <a href="http://www.gnu.org/software/parallel/">GNU <code>parallel</code></a>. This little command-line program will just execute whatever you feed him on the different CPUs. For example, if I want to run all of the files in my <code>output/</code> folder into a python script, I can write something like:</p>
 <pre class="sh"><code>ls output/*.dat | sort | parallel ./results.py --file output/{}</code></pre>
