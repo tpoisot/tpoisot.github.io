@@ -4,12 +4,32 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-11-11T16:15:18+13:00</updated>
+  <updated>2014-11-13T17:25:23+13:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Hey Matt</title>
+     <link href="http://timotheepoisot.fr/2014/11/13/hey-matt/"/>
+    <updated>2014-11-13T00:00:00+13:00</updated>
+    <content type="html">&lt;p&gt;Hey &lt;a href=&quot;http://rosetta.jpl.nasa.gov/matt-taylor&quot;&gt;Matt&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;Hi. I’m Tim. I do some science. Some is good. Today, I managed to screw up one calculation, but I compensated by writing a paragraph for a paper that I think makes a nice compelling argument for some thing that may interest a few of my colleagues. This does not amount to much, since you contributed to landing a robot on a comet. But in terms of scientific achievement, I still come up way ahead today; and so do many, many other scientists over the world.&lt;/p&gt;
+&lt;p&gt;Want to know why? How is that possible? Simple. We managed not to alienate and objectify our female colleagues today.&lt;/p&gt;
+&lt;p&gt;I know, that’s crazy, right? Want to know how? We woke up this morning, and thought, &lt;em&gt;Hey, perhaps I should &lt;a href=&quot;http://www.businessinsider.com.au/rosetta-scientist-matt-taylor-wore-sexist-shirt-for-philae-launch-2014-11&quot;&gt;dress like an asshole today&lt;/a&gt;&lt;/em&gt;. Then we realized that it would be ridiculous, and that no one in their right mind would do so.&lt;/p&gt;
+&lt;p&gt;See, there are these people called &lt;em&gt;women&lt;/em&gt;. Look on your shirt – they’re like that, but dressed. They do science, too. In fact they do most things as well as most of us. And they deserve every bit of our admiration, because boy are we giving them a hard time. We might not even realize it; that’s the way being a white middle-class 30-something-or-so male works. The academic life is though with them. You know how though academia is for all of us? Well that’s one of the point where women are not like us: for them, it’s worse.&lt;/p&gt;
+&lt;p&gt;So anyway, that shirt. It sends a message. &lt;em&gt;Hi, I’m Matt Taylor, and I like my women naked&lt;/em&gt;. This is the message you chose for your day under the limelight. Or did you got women and potted plants confused? Distasteful shirts the world over have plants patterns, and these are usually naked in that clothes on a plant makes no sense. It’s OK to objectify potted plants. If you have some sort of impairment that results in you mixing up shapes, I apologize.&lt;/p&gt;
+&lt;p&gt;Seriously, that shirt. It costed, what, 25 bucks? Do you realize that a 25$ piece of clothing made &lt;em&gt;scientists&lt;/em&gt; are getting angry enough to talk about it more about the fact that you contributed to landing a spacecraft on, holly shit, a comet? There is no prefix in the international system to measure how hard you have to screw up to &lt;em&gt;make scientists care less about one of the biggest achievements of science than about the clothes you wear&lt;/em&gt;. I humbly suggest the Taylor: a measure of how much your douchebaggery prevents people from appreciating your scientific achievements.&lt;/p&gt;
+&lt;p&gt;But I ought to thank you. Yeah! Because your shirt allowed to reveal something important and positive about scientists. We don’t tolerate this shit. A lot of us, a majority perhaps, are working everyday to make science a welcoming place, where everyone is allowed to be different, and no one is allowed to discriminate or objectify. This involves a lot of positive things. Hiring more women, more minorities. Being sensitive to cultural differences, and the fact that the system is inherently harder on some. Giving equal opportunity to all. Judging people by what they bring to the field, not by whether or not you’d “hit that”. Not being an all-around terrible person. Easy things. But as you’ve discovered, there is a dark side too. If you screw up, and if you unmake all of the work that we do day by day, you’ll take shit. We’ll make sure that people hear that we disagree with that.&lt;/p&gt;
+&lt;p&gt;That shirt. It’s so bad that instead of saying &lt;em&gt;how cool is it that we landed a spacecraft on a comet&lt;/em&gt;, we’re saying to our female colleagues &lt;em&gt;I’m sorry you have to deal with sexist assholes like Matt Taylor all the time, how can I help&lt;/em&gt;. You’re supposed to make science &lt;em&gt;sexy&lt;/em&gt;, not &lt;em&gt;sexist&lt;/em&gt;. You though that would not be rocket science – that’s apparently way harder.&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br /&gt;Tim&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Tales from the job search II - The Crossing of the Desert</title>
@@ -1653,33 +1673,6 @@ P(i \rightarrow j) \propto \mathcal{T}(i,j) \times \mathcal{N}(i, j) + \epsilon
 &lt;p&gt;One thing for which social coding platforms are &lt;em&gt;not&lt;/em&gt; so good is showcasing your work. This is why I now have a &lt;a href=&quot;http://timotheepoisot.fr/software/&quot;&gt;software&lt;/a&gt; page on this website. If you use &lt;em&gt;GitHub&lt;/em&gt; to track of lot of things (and I do), what is important can often be buried beneath a pile of your active-but-not-yet-useful projects. And because the listing of your repositories is just the project name and a one-line description, it’s not obvious what is important. So my recommendation if your want to give people a broad overview of what you have been up to, is to have a webpage with your projects, instead of just giving the URL to your &lt;em&gt;GitHub&lt;/em&gt; account.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;And that’s the way I use &lt;code&gt;git&lt;/code&gt; in my everyday workflow. There is a bit of a learning curve, but you can learn (most of) &lt;code&gt;git&lt;/code&gt; &lt;a href=&quot;http://try.github.io/levels/1/challenges/1&quot;&gt;in 15 minutes&lt;/a&gt;. And it saves time in the long run, both because it simplifies some tedious tasks, and because it gives you a single formalism in which you can inscribe your daily activities.&lt;/p&gt;
-&lt;div class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>Using Vim as a writing environment</title>
-     <link href="http://timotheepoisot.fr/2014/01/01/vim-writing-environment/"/>
-    <updated>2014-01-01T00:00:00+13:00</updated>
-    <content type="html">&lt;p&gt;Happy new year, everyone! And to make sure it starts in a good way, let me bring you the gift of productivity! Or specifically, how to set-up &lt;code&gt;Vim&lt;/code&gt; in a way that will transform it into an impressively efficient writing environment. &lt;code&gt;Vim&lt;/code&gt; is a really good code editor, there is no questioning that. But writing code and writing prose are entirely different exercises, and some tools you need to efficiently write code are only getting in the way when you write prose. But &lt;code&gt;Vim&lt;/code&gt; can handle that, and I’m going to share my configuration with you.&lt;/p&gt;
-&lt;h2 id=&quot;the-font&quot;&gt;The font&lt;/h2&gt;
-&lt;p&gt;I care &lt;em&gt;way too much&lt;/em&gt; about fonts and typography. And as I spend several hours each days looking at a terminal, picking a good font for writing is important. What makes a font good will vary from person to person, but there are a few common elements. I want glyphs that are easy to differentiate (&lt;code&gt;0&lt;/code&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;code&gt;O&lt;/code&gt;, &lt;code&gt;l&lt;/code&gt; &lt;em&gt;vs.&lt;/em&gt; &lt;code&gt;1&lt;/code&gt;, for example), and a font with a good negative space, so that reading long paragraphs of texts is not eye-straining. When spending a few hours working on a paper, it can make all the difference in the world to have a good, easily legible font. I use the &lt;a href=&quot;http://www.google.com/fonts/specimen/Cousine&quot;&gt;Cousine&lt;/a&gt; family, which can be freely downloaded. It works well as all sizes, and has a good inventory of glyphs.&lt;/p&gt;
-&lt;h2 id=&quot;the-color-scheme&quot;&gt;The color scheme&lt;/h2&gt;
-&lt;p&gt;No surprise, I use &lt;a href=&quot;http://ethanschoonover.com/solarized&quot;&gt;Solarized&lt;/a&gt; (light). It has a good contrast, and because of the beige background, you don’t feel like you are staring at a light bulb. And the &lt;code&gt;solarized-vim&lt;/code&gt; version comes with quite a very exhaustive syntax set, so everything (i) works and (ii) looks great out of the box.&lt;/p&gt;
-&lt;h2 id=&quot;the-plugins&quot;&gt;The plugins&lt;/h2&gt;
-&lt;p&gt;Although you can get my entire &lt;a href=&quot;https://github.com/tpoisot/dotfiles/blob/master/vimrc&quot;&gt;&lt;code&gt;.vimrc&lt;/code&gt; file&lt;/a&gt; from &lt;em&gt;GitHub&lt;/em&gt;, I will just walk you through the most important plugins. I manage them using &lt;a href=&quot;https://github.com/gmarik/vundle&quot;&gt;vundle&lt;/a&gt;, and the ones I &lt;em&gt;absolutely need&lt;/em&gt; to do some serious writing are:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;
-&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;tpope/vim-markdown&amp;#39;&lt;/span&gt;
-Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;mikewest/vimroom&amp;#39;&lt;/span&gt;
-Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;vim-pandoc/vim-pandoc&amp;#39;&lt;/span&gt;
-Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;altercation/vim-colors-solarized&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;First, &lt;code&gt;vim-markdown&lt;/code&gt; and &lt;code&gt;vim-pandoc&lt;/code&gt; are extremely powerful extensions for (you guessed it), &lt;code&gt;markdown&lt;/code&gt; and &lt;code&gt;pandoc&lt;/code&gt;. As I used these for &lt;em&gt;everything&lt;/em&gt; these days, having good plugins is a requirement. They introduce things like autocompletion of citations from a &lt;code&gt;bibtex&lt;/code&gt; file, and things like &lt;em&gt;replacing LaTeX greek letters by the actual greek letter&lt;/em&gt;, which means that when you are looking at a paragraph, it shows no markup, but the formatting. It’s really, really amazing when you want to &lt;em&gt;read&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;The most recent addition to this collection is &lt;code&gt;vimroom&lt;/code&gt;. This plugins attempts to replicate the look and feel of &lt;em&gt;WriteRoom&lt;/em&gt;, one of the many, many “distraction-free” writing softwares. When editing a document, &lt;code&gt;&amp;lt;leader&amp;gt;V&lt;/code&gt; will center the text on the screen, with ample white-space on each sides, and remove every piece of clutter from the “interface”. It means that, if you have a large screen, you don’t need to turn your head all the way to the left to read what you are working on.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;So that’s it! It’s not much work, and it makes for a really pleasant writing experience in &lt;code&gt;Vim&lt;/code&gt;. And it’s effortless to switch from “code” to “prose” mode, making &lt;code&gt;Vim&lt;/code&gt; a very versatile and productive tool.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
 &lt;/div&gt;
