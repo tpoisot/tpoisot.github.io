@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Research</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,22 +45,73 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
-       <p><span class="lead">I work at the interfaces between (evolutionary) community ecology and biogegraphy, and use network analysis to adress broad questions in these disciplines.</span></p>
-<p>Graph theory offers a compact, consistent, and mathematically tractable way to represent and analyze large and diverse ecological systems. It has been applied widely in landscape ecology, epidemiology, and in the descriptive analysis of mutualistic and trophic interaction networks. This approach offers a framework that can be used for analytical or computational work, with strong roots in linear algebra. I use networks as a representation of species interactions, and below are some of my research directions.</p>
-<h1 id="spatial-ecology-of-species-interactions">Spatial ecology of species interactions</h1>
-<p>In stark contrast to decades of research on species beta-diversity, community ecology is currently doing a very poor job of describing and understanding the fact that species interactions vary over space and time. I focus on (i) proving mechanistic understandings of <em>why</em> networks can vary through space and time, and (ii) determining <em>how predictible</em> this variation is. Ultimately, because this will force us to understand why two populations interact, I expect that this work will also help <em>predicting</em> species interactions.</p>
-<h1 id="evolutionary-dynamics-and-phylogeny-in-networks">Evolutionary dynamics and phylogeny in networks</h1>
-<p>Using mostly bipartite networks (<em>e.g.</em> plants and pollinators, hosts and parasites), I look at how coevolutionary dynamics influence the structure of interactions, and how much information on the history of the system is available in its (co)phylogenetic structure. I also develop highly phenomenological models of bipartite networks co-evolution, so as to generate hypotheses about the macro-evolutionary dynamics of such associations.</p>
-<h1 id="probabilistic-interaction-networks">Probabilistic interaction networks</h1>
-<p>Predicting interactions between species will be increasingly important, given that large-scale environmental changes will result in the emergence of novel communities. I develop statistical approaches to integrate various mechanisms (related to species local abundances, local trait distributions, phylogenetic history), to derive a <em>local probability</em> that species will interact. Doing so also requires to understand the mechanisms of species interactions, and will give better insights on the variation of species interactions. This also requires to re-analyze the performance of measures of network structure under the new probabilistic framework.</p>
-<h1 id="functional-relevance-of-network-structure">Functional relevance of network structure</h1>
-<p><img src="/images/network-prop.png" class="left" />One of my research goal is to understand the consequences of network structure (and of its variability) on ecosystem properties (mostly related to functioning), and on evolutionary dynamics. This is mostly done through analysis and simulations of simple models, although I work with microbial communities of the <a href="http://en.wikipedia.org/wiki/Sarracenia_purpurea">purple pitcher plant <em>Sarracenia purpurea</em></a> as well. I’m interested in the idea that the structure of network can be selected (through ecological or evolutionary pressure) to maximize useful emerging properties. Through collaborations, I work on similar issues on non-ecological (social networks and cultural transmission, spatial networks and disease spread) networks.</p>
-<h1 id="open-ecology">Open ecology</h1>
-<p>The paradox that ecology produces so many data, and require so many data, yet has no proper tradition of efficient and open data sharing never ceases to amaze me. I advocate data sharing, the use of preprints, and more broadly, the use of the rich ecosystem of open-science applications and software in ecological research. Although some of this advocacy resulted in publications, this topic is mostly discussed in my blog.</p>
-<div class="references">
+    <div class="content">
+       <p><span class="lead">I work at the interfaces between (evolutionary) community
+ecology and biogegraphy, and use network analysis to adress broad questions
+in these disciplines.</span></p>
 
-</div>
+<p>Graph theory offers a compact, consistent, and mathematically tractable way
+to represent and analyze large and diverse ecological systems. It has been
+applied widely in landscape ecology, epidemiology, and in the descriptive
+analysis of mutualistic and trophic interaction networks. This approach
+offers a framework that can be used for analytical or computational work,
+with strong roots in linear algebra. I use networks as a representation of
+species interactions, and below are some of my research directions.</p>
+
+<h1 id="spatial-ecology-of-species-interactions">Spatial ecology of species interactions</h1>
+
+<p>In stark contrast to decades of research on species beta-diversity, community
+ecology is currently doing a very poor job of describing and understanding
+the fact that species interactions vary over space and time. I focus on (i)
+proving mechanistic understandings of <em>why</em> networks can vary through space and
+time, and (ii) determining <em>how predictible</em> this variation is.  Ultimately,
+because this will force us to understand why two populations interact,
+I expect that this work will also help <em>predicting</em> species interactions.</p>
+
+<h1 id="evolutionary-dynamics-and-phylogeny-in-networks">Evolutionary dynamics and phylogeny in networks</h1>
+
+<p>Using mostly bipartite networks (<em>e.g.</em> plants and pollinators, hosts and
+parasites), I look at how coevolutionary dynamics influence the structure
+of interactions, and how much information on the history of the system
+is available in its (co)phylogenetic structure. I also develop highly
+phenomenological models of bipartite networks co-evolution, so as to generate
+hypotheses about the macro-evolutionary dynamics of such associations.</p>
+
+<h1 id="probabilistic-interaction-networks">Probabilistic interaction networks</h1>
+
+<p>Predicting interactions between species will be increasingly important,
+given that large-scale environmental changes will result in the emergence
+of novel communities. I develop statistical approaches to integrate various
+mechanisms (related to species local abundances, local trait distributions,
+phylogenetic history), to derive a <em>local probability</em> that species will
+interact. Doing so also requires to understand the mechanisms of species
+interactions, and will give better insights on the variation of species
+interactions. This also requires to re-analyze the performance of measures
+of network structure under the new probabilistic framework.</p>
+
+<h1 id="functional-relevance-of-network-structure">Functional relevance of network structure</h1>
+
+<p><img src="/images/network-prop.png" class="left" />One of my
+research goal is to understand the consequences of network structure
+(and of its variability) on ecosystem properties (mostly related
+to functioning), and on evolutionary dynamics. This is mostly done
+through analysis and simulations of simple models, although I work
+with microbial communities of the <a href="http://en.wikipedia.org/wiki/Sarracenia_purpurea">purple pitcher plant <em>Sarracenia
+purpurea</em></a> as well. I’m
+interested in the idea that the structure of network can be selected
+(through ecological or evolutionary pressure) to maximize useful emerging
+properties. Through collaborations, I work on similar issues on non-ecological
+(social networks and cultural transmission, spatial networks and disease
+spread) networks.</p>
+
+<h1 id="open-ecology">Open ecology</h1>
+
+<p>The paradox that ecology produces so many data, and require so many data, yet
+has no proper tradition of efficient and open data sharing never ceases to
+amaze me. I advocate data sharing, the use of preprints, and more broadly, the
+use of the rich ecosystem of open-science applications and software in
+ecological research. Although some of this advocacy resulted in publications,
+this topic is mostly discussed in my blog.</p>
 
 
     </div>

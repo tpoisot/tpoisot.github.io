@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Understanding the variation of species interactions</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,27 +45,72 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></div>
 <div class='post-date'>On January  3, 2014 &middot; 
    Tim
 </div>
-<p>I spent most of the last two years thinking about <em>why</em> species interaction vary over time and space. The trouble is that, even though we have some methodological tools, and some interesting observations, we lack a solid framework to make sense of it all. So we (I, <a href="http://www.stoufferlab.org/people/stouffer/">Daniel Stouffer</a> and <a href="http://chaire-eec.uqar.ca/">Dominique Gravel</a>) started thinking about the mechanisms involved in the variation of species interactions. The paper is now available <a href="http://biorxiv.org/content/early/2014/01/03/001677">as a preprint</a> on <em>bioRxiV</em> (the upload process is really smooth, by the way), and will be submitted shortly.</p>
-<p>Interestingly, understanding why species interactions vary require that we focus on <em>populations</em>, rather than <em>species</em>. Most of our argument is that interactions vary because (i) local abundances change, and (ii) there is local variation in traits distributions. <span class="margin">Gravel <em>et al.</em> (2013) Methods Ecol Evol <a href="http://dx.doi.org/10.1111/2041-210X.12103">DOI</a></span>And so inferences at the level of the species (such as we made using body size in food webs) will give you an idea of what <em>can</em> happen (regionally), but the observed interactions (locally) will likely be different. The important point is that, assuming we want to predict ecosystem properties from network structure, it’s not really wise to <em>assume</em> that interactions happen, because whether they will happen or not depends, again, on local conditions.</p>
-<p>So whereas the “current” view of interaction networks is <em>a matrix of 0s and 1s telling whether two species interact</em>, it would make sense that we think about these networks in terms of probability that the interaction will happen. The interesting thing is that once everything is put together, we are left with something that is close to a predictive framework:</p>
+<p>I spent most of the last two years thinking about <em>why</em> species interaction
+vary over time and space. The trouble is that, even though we have some
+methodological tools, and some interesting observations, we lack a solid
+framework to make sense of it all. So we (I, <a href="http://www.stoufferlab.org/people/stouffer/">Daniel Stouffer</a> and
+<a href="http://chaire-eec.uqar.ca/">Dominique Gravel</a>) started thinking about the mechanisms involved
+in the variation of species interactions. The paper is now available <a href="http://biorxiv.org/content/early/2014/01/03/001677">as
+a preprint</a> on <em>bioRxiV</em> (the upload process is really smooth,
+by the way), and will be submitted shortly.</p>
+
+<p>Interestingly, understanding why species interactions vary require that we
+focus on <em>populations</em>, rather than <em>species</em>. Most of our argument is that
+interactions vary because (i) local abundances change, and (ii) there is local
+variation in traits distributions. <span class="margin">Gravel <em>et al.</em> (2013)
+Methods Ecol Evol <a href="http://dx.doi.org/10.1111/2041-210X.12103">DOI</a></span>And so inferences
+at the level of the species (such as we made using body size in food webs)
+will give you an idea of what <em>can</em> happen (regionally), but the observed
+interactions (locally) will likely be different. The important point is that,
+assuming we want to predict ecosystem properties from network structure,
+it’s not really wise to <em>assume</em> that interactions happen, because whether
+they will happen or not depends, again, on local conditions.</p>
+
+<p>So whereas the “current” view of interaction networks is <em>a matrix of 0s
+and 1s telling whether two species interact</em>, it would make sense that we
+think about these networks in terms of probability that the interaction
+will happen. The interesting thing is that once everything is put together,
+we are left with something that is close to a predictive framework:</p>
+
 <script type="math/tex; mode=display">
 P(i \rightarrow j) \propto \mathcal{T}(i,j) \times \mathcal{N}(i, j) + \epsilon
 </script>
 
-<p>, or in other words, the probability that <em>i</em> and <em>j</em> interact depends on their traits (<em>T</em>) and local abundances (<em>N</em>). With a good assumption about the shape of the <em>T</em> and <em>N</em> functions, which can be informed by some observations in the field, then it should be possible to extrapolate the probability than any pair of species will interact.</p>
-<p>As we discuss at length in the paper, this has some nice implications for a very active line of research in biogeography, which seeks to integrate species interactions into predictive models of species distribution. So if you want to read more, here is the abstract, and the <a href="http://biorxiv.org/content/early/2014/01/03/001677">full text</a> is available online:</p>
-<blockquote>
-<p>Community ecology is tasked with the considerable challenge of predicting the structure, and properties, of emerging ecosystems. It requires the ability to understand how and why species interact, as this will allow the development of mechanism-based predictive models, and as such to better characterize how ecological mechanisms act locally on the existence of inter-specific interactions. Here we argue that the current conceptualization of species interaction networks is ill-suited for this task. Instead, we propose that future research must start to account for the intrinsic variability of interaction networks. This can be accomplished simply by recognizing that there exists intra-specific variability, in traits or properties related to the establishment of species interactions. By shifting the scale towards population-based processes, we show that this new approach will improve our predictive ability and mechanistic understanding of how species interact over biogeographical scales.</p>
-</blockquote>
-<div class="references">
+<p>, or in other words, the probability that <em>i</em> and <em>j</em> interact depends
+on their traits (<em>T</em>) and local abundances (<em>N</em>). With a good assumption
+about the shape of the <em>T</em> and <em>N</em> functions, which can be informed by some
+observations in the field, then it should be possible to extrapolate the
+probability than any pair of species will interact.</p>
 
-</div>
+<p>As we discuss at length in the paper, this has some nice implications for
+a very active line of research in biogeography, which seeks to integrate
+species interactions into predictive models of species distribution. So if
+you want to read more, here is the abstract, and the <a href="http://biorxiv.org/content/early/2014/01/03/001677">full text</a>
+is available online:</p>
+
+<blockquote>
+  <p>Community ecology is tasked with the considerable challenge of predicting the
+structure, and properties, of emerging ecosystems. It requires the ability to
+understand how and why species interact, as this will allow the development
+of mechanism-based predictive models, and as such to better characterize
+how ecological mechanisms act locally on the existence of inter-specific
+interactions. Here we argue that the current conceptualization of species
+interaction networks is ill-suited for this task. Instead, we propose that
+future research must start to account for the intrinsic variability of
+interaction networks. This can be accomplished simply by recognizing that
+there exists intra-specific variability, in traits or properties related
+to the establishment of species interactions. By shifting the scale towards
+population-based processes, we show that this new approach will improve our
+predictive ability and mechanistic understanding of how species interact
+over biogeographical scales.</p>
+</blockquote>
+
 
 </div>
 

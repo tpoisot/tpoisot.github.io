@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | An alternative to stacked bar charts</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,16 +45,17 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/02/17/stacked-barcharts/">An alternative to stacked bar charts</a></div>
 <div class='post-date'>On February 17, 2013 &middot; 
    Tim
 </div>
 <p>I hate stacked bar charts. I see them in so many papers, using the awful Excel default options, and I hate them. I feel them visually unappealing, confusing, and extremely inefficient at displaying information. It’s almost impossible to compare the size of two bars without measuring them, which means that they carry less information than a good old table. So I was looking for alternatives to them. Here is the code I ended up with.</p>
+
 <p>First let’s load a few packages, and generate some random abundance data. Let’s imagine that we have 10 sites, and we sample 20 species.</p>
-<div class="highlight">
-<pre><code class="language-splus" data-lang="splus"><span class="kn">library</span><span class="p">(</span>RColorBrewer<span class="p">)</span>
+
+<div class="highlight"><pre><code class="language-splus" data-lang="splus"><span class="kn">library</span><span class="p">(</span>RColorBrewer<span class="p">)</span>
 
 Abund <span class="o">=</span> <span class="kp">round</span><span class="p">(</span><span class="kt">matrix</span><span class="p">(</span>runif<span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span>nc<span class="o">=</span><span class="m">10</span><span class="p">),</span><span class="m">2</span><span class="p">)</span>
 Abund <span class="o">=</span> Abund<span class="o">/</span><span class="kp">max</span><span class="p">(</span>Abund<span class="p">)</span>
@@ -65,37 +63,34 @@ Abund <span class="o">=</span> Abund<span class="o">/</span><span class="kp">max
 <span class="kp">rownames</span><span class="p">(</span>Abund<span class="p">)</span> <span class="o">=</span> <span class="kc">LETTERS</span><span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">))]</span>
 <span class="kp">colnames</span><span class="p">(</span>Abund<span class="p">)</span> <span class="o">=</span> <span class="kc">letters</span><span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span>Abund<span class="p">))]</span>
 
-pal <span class="o">=</span> colorRampPalette<span class="p">(</span>brewer.pal<span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s">&#39;Paired&#39;</span><span class="p">))(</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">))</span></code></pre>
-</div>
+pal <span class="o">=</span> colorRampPalette<span class="p">(</span>brewer.pal<span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s">&#39;Paired&#39;</span><span class="p">))(</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">))</span></code></pre></div>
+
 <p>This will give us a site/abundance matrix. The next step is to create a plot with nothing in it:</p>
-<div class="highlight">
-<pre><code class="language-splus" data-lang="splus">par<span class="p">(</span>las<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">par<span class="p">(</span>las<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 X <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">))</span>
 Y <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span>Abund<span class="p">))</span>
-image<span class="p">(</span>X<span class="p">,</span>Y<span class="p">,</span>Abund<span class="p">,</span>col<span class="o">=</span><span class="s">&#39;white&#39;</span><span class="p">,</span>axes<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>bty<span class="o">=</span><span class="s">&#39;n&#39;</span><span class="p">)</span></code></pre>
-</div>
-<p><span class="margin">It’s easy to make it so that the width of each sub-plot is proportional to the relative abundance of each species.</span>Then, for each row/line (and I’m aware this is not optimized at all), we will draw a vertical bar. Each taxon (<em>i.e.</em> each column in our graph) will have its own sub-plot. The size can be fixed, or equal. But this allows comparison of species abundances across dates.</p>
-<div class="highlight">
-<pre><code class="language-splus" data-lang="splus"><span class="kr">for</span><span class="p">(</span>ro <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">)){</span>
-    <span class="kr">for</span><span class="p">(</span>co <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span>Abund<span class="p">)){</span>
-        rect<span class="p">(</span>ro<span class="m">-0.5</span><span class="p">,</span> co<span class="m">-0.4</span><span class="p">,</span> ro<span class="m">-0.5</span><span class="o">+</span>Abund<span class="p">[</span>ro<span class="p">,</span>co<span class="p">]</span><span class="o">*</span><span class="m">0.9</span><span class="p">,</span> co<span class="m">+0.4</span><span class="p">,</span>border<span class="o">=</span><span class="kc">NA</span><span class="p">,</span>col<span class="o">=</span>pal<span class="p">[</span>ro<span class="p">])</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre>
-</div>
-<p>Finally, let’s add reference lines for each species, and the site/species names on axes:</p>
-<div class="highlight">
-<pre><code class="language-splus" data-lang="splus">abline<span class="p">(</span>v<span class="o">=</span>X<span class="m">-0.5</span><span class="p">,</span>col<span class="o">=</span><span class="s">&#39;darkgrey&#39;</span><span class="p">,</span>lwd<span class="o">=</span><span class="m">2</span><span class="p">)</span>
-axis<span class="p">(</span><span class="m">2</span><span class="p">,</span>at<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span><span class="kp">colnames</span><span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
-axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span><span class="kp">rownames</span><span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span></code></pre>
-</div>
-<p>This gives the final result:</p>
-<figure>
-<img src="/images/stackedbar.png" alt="Figure1 - grouped bar chart" /><figcaption>Figure1 - grouped bar chart</figcaption>
-</figure>
-<p>I find it much easier to eyeball the variation of species abundance across sites. And if instead of sites you have dates, then by reading each column, you can get and idea of the population dynamics (which is usually impossible to do for stacked bar charts, except for the bottom series). This is far from perfect, but that will do the job for exploratory work.</p>
-<div class="references">
+image<span class="p">(</span>X<span class="p">,</span>Y<span class="p">,</span>Abund<span class="p">,</span>col<span class="o">=</span><span class="s">&#39;white&#39;</span><span class="p">,</span>axes<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>bty<span class="o">=</span><span class="s">&#39;n&#39;</span><span class="p">)</span></code></pre></div>
 
-</div>
+<p><span class="margin">It’s easy to make it so that the width of each sub-plot is proportional to the relative abundance of each species.</span>Then, for each row/line (and I’m aware this is not optimized at all), we will draw a vertical bar. Each taxon (<em>i.e.</em> each column in our graph) will have its own sub-plot. The size can be fixed, or equal. But this allows comparison of species abundances across dates.</p>
+
+<div class="highlight"><pre><code class="language-splus" data-lang="splus"><span class="kr">for</span><span class="p">(</span>ro <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">)){</span>
+	<span class="kr">for</span><span class="p">(</span>co <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span>Abund<span class="p">)){</span>
+		rect<span class="p">(</span>ro<span class="m">-0.5</span><span class="p">,</span> co<span class="m">-0.4</span><span class="p">,</span> ro<span class="m">-0.5</span><span class="o">+</span>Abund<span class="p">[</span>ro<span class="p">,</span>co<span class="p">]</span><span class="o">*</span><span class="m">0.9</span><span class="p">,</span> co<span class="m">+0.4</span><span class="p">,</span>border<span class="o">=</span><span class="kc">NA</span><span class="p">,</span>col<span class="o">=</span>pal<span class="p">[</span>ro<span class="p">])</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Finally, let’s add reference lines for each species, and the site/species names on axes:</p>
+
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">abline<span class="p">(</span>v<span class="o">=</span>X<span class="m">-0.5</span><span class="p">,</span>col<span class="o">=</span><span class="s">&#39;darkgrey&#39;</span><span class="p">,</span>lwd<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+axis<span class="p">(</span><span class="m">2</span><span class="p">,</span>at<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span><span class="kp">colnames</span><span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
+axis<span class="p">(</span><span class="m">1</span><span class="p">,</span>at<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>Abund<span class="p">)),</span>labels<span class="o">=</span><span class="kp">rownames</span><span class="p">(</span>Abund<span class="p">),</span>col<span class="o">=</span><span class="kc">NA</span><span class="p">)</span></code></pre></div>
+
+<p>This gives the final result:</p>
+
+<p><img src="/images/stackedbar.png" alt="Figure1 - grouped bar chart" /></p>
+
+<p>I find it much easier to eyeball the variation of species abundance across sites. And if instead of sites you have dates, then by reading each column, you can get and idea of the population dynamics (which is usually impossible to do for stacked bar charts, except for the bottom series). This is far from perfect, but that will do the job for exploratory work.</p>
 
 </div>
 

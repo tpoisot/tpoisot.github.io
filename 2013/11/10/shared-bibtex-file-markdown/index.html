@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Collaborating with markdown and bibtex</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,80 +45,112 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/11/10/shared-bibtex-file-markdown/">Collaborating with markdown and bibtex</a></div>
 <div class='post-date'>On November 10, 2013 &middot; 
    Tim
 </div>
-<p>The single most annoying issue when using <code>pandoc</code> to work collaboratively on papers is that it might be difficult for other people to compile the paper if they do not use your bibtex file. And if there is ony thing I avoid like the plague, it’s having several bibtex files all over the place. And I’m can’t be bothered to keep “Collections” or separate folders in Zotero. So clearly, I had to code my way out of this one.</p>
+<p>The single most annoying issue when using <code>pandoc</code> to work collaboratively on
+papers is that it might be difficult for other people to compile the paper if
+they do not use your bibtex file. And if there is ony thing I avoid like the
+plague, it’s having several bibtex files all over the place. And I’m can’t
+be bothered to keep “Collections” or separate folders in Zotero. So clearly,
+I had to code my way out of this one.</p>
+
 <blockquote>
-<p>Sept. 24, 2014 - I have updated the code to reflect changes in the <code>bibtexparser</code> module</p>
+  <p>Sept. 24, 2014 - I have updated the code to reflect changes in the
+<code>bibtexparser</code> module</p>
 </blockquote>
-<p>The good thing of using <code>pandoc</code> is that the citation syntax is remarkably simple: <code>@key</code>. It means that using a simple <code>grep</code> command</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grep</span> @[-:_a-zA-Z0-9]* ms.md -oh --color=never <span class="kw">|</span> <span class="kw">sort</span>  <span class="kw">|</span> <span class="kw">uniq</span> -u <span class="kw">|</span> <span class="kw">sed</span> <span class="st">&#39;s/@//g&#39;</span> <span class="kw">&gt;</span> bib.keys</code></pre>
-<p>, I can generate <code>bib.keys</code>, a list with all the keys encountered in <code>ms.md</code>. The keys will be present only once, and sorted. The first few lines of one such file are</p>
+
+<p>The good thing of using <code>pandoc</code> is that the citation syntax is remarkably
+simple: <code>@key</code>. It means that using a simple <code>grep</code> command</p>
+
+<pre><code class="language-bash">grep @[-:_a-zA-Z0-9]* ms.md -oh --color=never | sort  | uniq -u | sed 's/@//g' &gt; bib.keys
+</code></pre>
+
+<p>, I can generate <code>bib.keys</code>, a list with all the keys encountered in
+<code>ms.md</code>. The keys will be present only once, and sorted. The first few lines
+of one such file are</p>
+
 <pre><code>allesina_competitive_2011
 angilletta_temperature_2004
 araujo_using_2011
 baiser_geographic_2012
 baskerville_spatial_2011
-bluthgen_what_2008</code></pre>
-<p>Now, I need to take each of these keys, read my big <code>library.bib</code> file, and extract only the entries that are cited in the document. So I installed a <a href="https://github.com/sciunto/python-bibtexparser">bibtex parser for python</a>, and started doing exactly that. The amazing thing is, this only takes four (interesting) lines:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#! /usr/bin/python2</span>
+bluthgen_what_2008
+</code></pre>
 
-<span class="ch">import</span> sys
-<span class="ch">import</span> codecs
-<span class="ch">import</span> bibtexparser
+<p>Now, I need to take each of these keys, read my big <code>library.bib</code> file, and
+extract only the entries that are cited in the document. So I installed a
+<a href="https://github.com/sciunto/python-bibtexparser">bibtex parser for python</a>, and started doing exactly that. The amazing
+thing is, this only takes four (interesting) lines:</p>
 
-<span class="kw">def</span> di2bib(di):
-    b = <span class="st">&quot;@&quot;</span>+di[<span class="st">&#39;type&#39;</span>].upper()+<span class="st">&quot;{&quot;</span>+di[<span class="st">&#39;id&#39;</span>]+<span class="st">&quot;,&quot;</span>
-    <span class="kw">for</span> (k, v) in di.iteritems():
-        <span class="kw">if</span> k not in [<span class="st">&#39;type&#39;</span>, <span class="st">&#39;id&#39;</span>, <span class="st">&#39;abstract&#39;</span>, <span class="st">&#39;doi&#39;</span>, <span class="st">&#39;keywords&#39;</span>]:
-            b += k+<span class="st">&#39; = {&#39;</span>+v+<span class="st">&#39;},</span><span class="ch">\n</span><span class="st">&#39;</span>
-    b += <span class="st">&#39;}</span><span class="ch">\n</span><span class="st">&#39;</span>
-    <span class="kw">return</span> b
+<pre><code class="language-python">#! /usr/bin/python2
 
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&quot;__main__&quot;</span>:
-    <span class="co">## Check the number of arguments</span>
-    <span class="kw">if</span> <span class="dt">len</span>(sys.argv) != <span class="dv">4</span>:
-        <span class="kw">raise</span> <span class="ot">ValueError</span>(<span class="st">&quot;Wrong number of arguments&quot;</span>)
-    <span class="kw">else</span> :
-        key_list = sys.argv[<span class="dv">1</span>]
-        bib_file = sys.argv[<span class="dv">2</span>]
-        out_file = sys.argv[<span class="dv">3</span>]
-    <span class="co">## The three arguments should be strings</span>
-    <span class="kw">if</span> not <span class="dt">isinstance</span>(key_list, <span class="dt">str</span>):
-        <span class="kw">raise</span> <span class="ot">TypeError</span>(<span class="st">&quot;The path to the list of keys should be a string&quot;</span>)
-    <span class="kw">if</span> not <span class="dt">isinstance</span>(bib_file, <span class="dt">str</span>):
-        <span class="kw">raise</span> <span class="ot">TypeError</span>(<span class="st">&quot;The path to the bibtex library should be a string&quot;</span>)
-    <span class="kw">if</span> not <span class="dt">isinstance</span>(out_file, <span class="dt">str</span>):
-        <span class="kw">raise</span> <span class="ot">TypeError</span>(<span class="st">&quot;The path to the output bibtex file should be a string&quot;</span>)
-    <span class="dt">open</span>(out_file, <span class="st">&#39;w&#39;</span>).close()
-    keys = [kl.rstrip(<span class="st">&quot;:</span><span class="ch">\n</span><span class="st">&quot;</span>) <span class="kw">for</span> kl in <span class="dt">open</span>(key_list, <span class="st">&#39;r&#39;</span>)]
-    <span class="kw">with</span> <span class="dt">open</span>(bib_file, <span class="st">&#39;r&#39;</span>) <span class="ch">as</span> bfile:
+import sys
+import codecs
+import bibtexparser
+
+def di2bib(di):
+    b = "@"+di['type'].upper()+"{"+di['id']+","
+    for (k, v) in di.iteritems():
+        if k not in ['type', 'id', 'abstract', 'doi', 'keywords']:
+            b += k+' = {'+v+'},\n'
+    b += '}\n'
+    return b
+
+if __name__ == "__main__":
+    ## Check the number of arguments
+    if len(sys.argv) != 4:
+        raise ValueError("Wrong number of arguments")
+    else :
+        key_list = sys.argv[1]
+        bib_file = sys.argv[2]
+        out_file = sys.argv[3]
+    ## The three arguments should be strings
+    if not isinstance(key_list, str):
+        raise TypeError("The path to the list of keys should be a string")
+    if not isinstance(bib_file, str):
+        raise TypeError("The path to the bibtex library should be a string")
+    if not isinstance(out_file, str):
+        raise TypeError("The path to the output bibtex file should be a string")
+    open(out_file, 'w').close()
+    keys = [kl.rstrip(":\n") for kl in open(key_list, 'r')]
+    with open(bib_file, 'r') as bfile:
         refs = bibtexparser.load(bfile)
-    used_entries = <span class="dt">dict</span>()
-    <span class="kw">with</span> codecs.<span class="dt">open</span>(out_file, encoding=<span class="st">&#39;utf-8&#39;</span>, mode=<span class="st">&#39;a&#39;</span>) <span class="ch">as</span> ofile:
-        <span class="kw">for</span> e in refs.entries:
-            <span class="kw">if</span> e[<span class="st">&#39;id&#39;</span>] in keys:
-                ofile.write(di2bib(e))</code></pre>
-<p>This code will print a list of all the keys in the <code>bib.keys</code> that have <em>not</em> been matched to an entry in the main library file. If all went well, this list should be empty.</p>
+    used_entries = dict()
+    with codecs.open(out_file, encoding='utf-8', mode='a') as ofile:
+        for e in refs.entries:
+            if e['id'] in keys:
+                ofile.write(di2bib(e))
+</code></pre>
+
+<p>This code will print a list of all the keys in the <code>bib.keys</code> that have
+<em>not</em> been matched to an entry in the main library file. If all went well,
+this list should be empty.</p>
+
 <p>And of course, you can nicely wrap things up in a <code>makefile</code>:</p>
-<pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dt">python </span><span class="ch">=</span><span class="st"> python2</span>
-<span class="dt">refs </span><span class="ch">=</span><span class="st"> refs.bib</span>
-<span class="dt">text </span><span class="ch">=</span><span class="st"> ms.md</span>
-<span class="dt">library </span><span class="ch">=</span><span class="st"> /path/to/main/bibtex/file.bib</span>
 
-<span class="dv">$(refs):</span><span class="dt"> bib.keys</span>
-   <span class="ch">$(</span><span class="dt">python</span><span class="ch">)</span> extractbib.py bib.keys <span class="ch">$(</span><span class="dt">library</span><span class="ch">)</span> <span class="ch">$(</span><span class="dt">refs</span><span class="ch">)</span>
+<pre><code class="language-makefile">python = python2
+refs = refs.bib
+text = ms.md
+library = /path/to/main/bibtex/file.bib
 
-<span class="dv">bib.keys:</span><span class="dt"> </span>
-   grep @[-:_a-zA-Z0-9]* <span class="ch">$(</span><span class="dt">text</span><span class="ch">)</span> -oh --color=never | sort  | uniq -u | sed <span class="st">&#39;s/@//g&#39;</span> &gt; bib.keys</code></pre>
-<p>I’m glad that I finally have a solution to this problem. Of course, a multi-author version is not difficult to do (just have each author write its own bibtex file, and put them all together before running <code>pandoc</code>). It also means that my <code>pandoc</code>-using papers are going to finally be entirely reproducible, as I’ll distribute the references list in the <em>github</em> repository.</p>
-<div class="references">
+$(refs): bib.keys
+   $(python) extractbib.py bib.keys $(library) $(refs)
 
-</div>
+bib.keys: 
+   grep @[-:_a-zA-Z0-9]* $(text) -oh --color=never | sort  | uniq -u | sed 's/@//g' &gt; bib.keys
+</code></pre>
+
+<p>I’m glad that I finally have a solution to this problem. Of course, a
+multi-author version is not difficult to do (just have each author write
+its own bibtex file, and put them all together before running <code>pandoc</code>). It
+also means that my <code>pandoc</code>-using papers are going to finally be entirely
+reproducible, as I’ll distribute the references list in the <em>github</em>
+repository.</p>
+
 
 </div>
 

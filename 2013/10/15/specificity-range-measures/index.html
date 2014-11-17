@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | An additive partition of species-level specificity</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,47 +45,120 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/10/15/specificity-range-measures/">An additive partition of species-level specificity</a></div>
 <div class='post-date'>On October 15, 2013 &middot; 
    Tim
 </div>
-<p>A while ago, we published a paper in <em>Methods in Ecology &amp; Evolution</em>, <a href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/">comparing different ways to estimate ecological specificity</a> on binary (presence/absence) and quantitative data. All the measures we review, and the one we introduce, work in the same way: for an organism, species, population, you have an array <strong>P</strong> of its performances across <em>R</em> different environments, which is (1) sorted decreasingly, and (2) ranged so that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is a modification of Schoener’s generality), and <em>PDI</em> (which is first formally introduced in this paper), which measures how fast performance decreases when you move away from the optimal environment (the faster it decays, the more specialized you are).</p>
-<p>The main advantage of <em>PDI</em> is that it relates extremely well to the <em>definition</em> of what specificity is: a rapid decay of performance on resources which are not your own optimum (regardless of the <em>absolute</em> performance on this optimal resource, which is why we set <strong>P</strong>[1] = 1). <em>PDI</em> is nothing more that the sum of performance lost by not being on the optimal resource, divided by the number of non-optimal resources. Somewhere in the end of the paper, we write that when the data are binary, <em>RR</em> and <em>PDI</em> are equivalent. For some reason that still eludes me, the demonstration did not make its way in the final version of the paper. So let’s start with it. First, for an organism of which the performances are measured in <em>R</em> environments, of which it has a performance higher than 0 in <em>r</em>, we define <em>RR</em> as</p>
+<p>A while ago, we published a paper in <em>Methods in Ecology &amp; Evolution</em>,
+<a href="http://timotheepoisot.fr/2012/01/19/measuring-ecological-specificity/">comparing different ways to estimate ecological
+specificity</a>
+on binary (presence/absence) and quantitative data. All the measures we
+review, and the one we introduce, work in the same way: for an organism,
+species, population, you have an array <strong>P</strong> of its performances across <em>R</em>
+different environments, which is (1) sorted decreasingly, and (2) ranged so
+that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is
+a modification of Schoener’s generality), and <em>PDI</em> (which is first
+formally introduced in this paper), which measures how fast
+performance decreases when you move away from the optimal environment
+(the faster it decays, the more specialized you are).</p>
+
+<p>The main advantage of <em>PDI</em> is that it relates extremely well to the
+<em>definition</em> of what specificity is: a rapid decay of performance on resources
+which are not your own optimum (regardless of the <em>absolute</em> performance on
+this optimal resource, which is why we set <strong>P</strong>[1] = 1). <em>PDI</em> is
+nothing more that the sum of performance lost by not being on the optimal
+resource, divided by the number of non-optimal resources. Somewhere in the end
+of the paper, we write that when the data are binary, <em>RR</em> and <em>PDI</em> are
+equivalent. For some reason that still eludes me, the demonstration did not
+make its way in the final version of the paper. So let’s start with it. First,
+for an organism of which the performances are measured in <em>R</em>
+environments, of which it has a performance higher than 0 in <em>r</em>, we
+define <em>RR</em> as</p>
+
 <script type="math/tex; mode=display"> RR = \frac{R-r}{R-1} </script>
 
 <p>and <em>PDI</em> as</p>
+
 <script type="math/tex; mode=display"> PDI = \frac{\sum_{i=2}(\mathbf{P}_1-\mathbf{P}_i)}{R-1} </script>
 
-<p>It’s easy to prove that if all values of <strong>P</strong> are either 0 or 1, then <em>PDI</em> = <em>RR</em>. In this situation, the species in question has <em>r</em> times 1 in <strong>P</strong>, and <em>R-r</em> times 0 in <strong>P</strong>. In other words, for the first <em>r</em> elements of <strong>P</strong>, <strong>P</strong>[1]-<strong>P</strong>[i] = 0, and for the remaining (<em>R-r</em>) elements, <strong>P</strong>[1]-<strong>P</strong>[i] = 1. The numerator of <em>PDI</em> is thus <em>R-r</em>, so the expression of <em>PDI</em> is the same as the expression of <em>RR</em>.</p>
-<p>Previously, we and others discussed the fact that specificity ought to be separated in its “interactions” and “impacts” components, <em>i.e.</em> (i) how many resources do I exploit, and (ii) how are my performances distributed. With <em>RR</em> and <em>PDI</em>, it might seem that we have the adequate tool to measure both sides of the specificity. There’s more to do with these measures, though. Because <em>RR</em> is included in <em>PDI</em> (it’s easy to show that <em>PDI</em> ≥ <em>RR</em>), <em>PDI</em> also measures an “association” component of specificity. But then again, the specificity of impact makes sense if you first consider the specificity of associations before. So we can start thinking of this problem as an additive partition of specificity:</p>
+<p>It’s easy to prove that if all values of <strong>P</strong> are either 0 or 1, then <em>PDI</em>
+= <em>RR</em>. In this situation, the species in question has <em>r</em> times 1 in <strong>P</strong>,
+and <em>R-r</em> times 0 in <strong>P</strong>. In other words, for the first <em>r</em> elements of
+<strong>P</strong>, <strong>P</strong>[1]-<strong>P</strong>[i] = 0, and for the remaining (<em>R-r</em>) elements,
+<strong>P</strong>[1]-<strong>P</strong>[i] = 1. The numerator of <em>PDI</em> is thus <em>R-r</em>, so the
+expression of <em>PDI</em> is the same as the expression of <em>RR</em>.</p>
+
+<p>Previously, we and others discussed the fact that specificity ought to be
+separated in its “interactions” and “impacts” components, <em>i.e.</em> (i) how many
+resources do I exploit, and (ii) how are my performances distributed. With <em>RR</em>
+and <em>PDI</em>, it might seem that we have the adequate tool to measure both sides
+of the specificity. There’s more to do with these measures, though. Because
+<em>RR</em> is included in <em>PDI</em> (it’s easy to show that <em>PDI</em> &amp;geq; <em>RR</em>), <em>PDI</em>
+also measures an “association” component of specificity. But then again, the
+specificity of impact makes sense if you first consider the specificity of
+associations before. So we can start thinking of this problem as an additive
+partition of specificity:</p>
+
 <p>Specificity = associations + impacts</p>
-<p>Luckily, we know that <em>RR</em> measures the specificity of associations, and the impacts are accounted for by <em>PDI</em>, so in measurable terms, the above becomes</p>
+
+<p>Luckily, we know that <em>RR</em> measures the specificity of associations, and the
+impacts are accounted for by <em>PDI</em>, so in measurable terms, the above becomes</p>
+
 <p><em>PDI</em> = <em>RR</em> + <em>I</em></p>
-<p>This additive partition makes sense, because if you go back to the demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i] will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so <em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the importance of different performances on specificity. Or in other words, when you do not have informations to measure specificity of impacts, all of the specificity is because of associations.</p>
-<p>Now what? Well, we can start measuring how much of the total specificity (<em>PDI</em>) is due to specificity of associations only (<em>RR</em>/<em>PDI</em>), and how much is due to specificity of impacts only (<em>I</em>/<em>PDI</em>). As far as I can tell, the couple <em>PDI</em>-<em>RR</em> is the only pair of measures that allow to do that (though there are other approaches) in a context where you can show that one measure is a component of the other. Here is a <code>R</code> function to do it using the <code>ESM</code> package (<a href="https://r-forge.r-project.org/R/?group_id=593">from R-Forge</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ESM)
 
-sap =<span class="st"> </span>function(P)
+<p>This additive partition makes sense, because if you go back to the
+demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances
+are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i]
+will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so
+<em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the
+importance of different performances on specificity. Or in other words, when
+you do not have informations to measure specificity of impacts, all of the
+specificity is because of associations.</p>
+
+<p>Now what? Well, we can start measuring how much of the total specificity
+(<em>PDI</em>) is due to specificity of associations only (<em>RR</em>/<em>PDI</em>), and how much
+is due to specificity of impacts only (<em>I</em>/<em>PDI</em>). As far as I can tell,
+the couple <em>PDI</em>-<em>RR</em> is the only pair of measures that allow to do that
+(though there are other approaches) in a context where you can show that one
+measure is a component of the other.  Here is a <code>R</code> function to do it using the
+<code>ESM</code> package (<a href="https://r-forge.r-project.org/R/?group_id=593">from R-Forge</a>).</p>
+
+<pre><code class="language-r">library(ESM)
+
+sap = function(P)
 {
-   Spe =<span class="st"> </span><span class="kw">pdi</span>(P)
-   Ass =<span class="st"> </span><span class="kw">rr</span>(P)
-   Imp =<span class="st"> </span>Spe -<span class="st"> </span>Ass
-   <span class="kw">return</span>(<span class="kw">list</span>(
-      <span class="dt">specificity  =</span> Spe,
-      <span class="dt">associations =</span> Ass,
-      <span class="dt">impacts      =</span> Imp,
-      <span class="dt">assoc_rel    =</span> Ass /<span class="st"> </span>Spe,
-      <span class="dt">impac_rel    =</span> Imp /<span class="st"> </span>Spe
+   Spe = pdi(P)
+   Ass = rr(P)
+   Imp = Spe - Ass
+   return(list(
+      specificity  = Spe,
+      associations = Ass,
+      impacts      = Imp,
+      assoc_rel    = Ass / Spe,
+      impac_rel    = Imp / Spe
       ))
-}</code></pre>
-<p>Let’s do some simple examples, and contrast to species with the same number of resources, but a very high performance on resource 2, or a very low performance on resource 3:</p>
-<p><sub><del> r &gt; unlist(sap(c(1,0.999,0))) specificity associations impacts assoc_rel impac_rel 0.500500000 0.500000000 0.000500000 0.999000999 0.000999001 &gt; unlist(sap(c(1,0.001,0))) specificity associations impacts assoc_rel impac_rel 0.9995000 0.5000000 0.4995000 0.5002501 0.4997499</del></sub></p>
-<p>In the second example, because the performance on the second resource is much almost zero, the <em>RR</em> and <em>I</em> components are almost as important to understand specificity (whereas it’s not the case in the first example, wherein you can assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
-<div class="references">
+}
+</code></pre>
 
-</div>
+<p>Let’s do some simple examples, and contrast to species with the same number of
+resources, but a very high performance on resource 2, or a very low performance
+on resource 3:</p>
+
+<p>~~~ r
+&gt; unlist(sap(c(1,0.999,0)))
+  specificity associations      impacts    assoc_rel    impac_rel 
+  0.500500000  0.500000000  0.000500000  0.999000999  0.000999001 
+&gt; unlist(sap(c(1,0.001,0)))
+  specificity associations      impacts    assoc_rel    impac_rel 
+  0.9995000    0.5000000    0.4995000    0.5002501    0.4997499 
+~~~</p>
+
+<p>In the second example, because the performance on the second resource is much
+almost zero, the <em>RR</em> and <em>I</em> components are almost as important to understand
+specificity (whereas it’s not the case in the first example, wherein you can
+assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
 
 </div>
 

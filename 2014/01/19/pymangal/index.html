@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Python wrapper for mangal</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,98 +45,142 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/19/pymangal/">Python wrapper for mangal</a></div>
 <div class='post-date'>On January 19, 2014 &middot; 
    Tim
 </div>
-<p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share things with people, but it’s a little bit slower, and orders of magnitude quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the <code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with <code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
-<p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code> package (though the core abilities will be here). Rather, I wanted a tool that is “pythonic”, easy to use, and programmed extremely defensively so that it can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a> online, which will hopefully get better over time as I understand the <code>sphinx</code> markup.</p>
+<p>I use <code>python</code> more than I use <code>R</code> for my own job. <code>R</code> is good to share
+things with people, but it’s a little bit slower, and orders of magnitude
+quirkier, than <code>python</code>. So I decided to write a <code>python</code> wrapper for the
+<code>mangal</code> API, which you can <a href="https://github.com/mangal-wg/pymangal">find on <em>GitHub</em></a>. It works with
+<code>python</code> 2.6 and 2.7 (at least the test suite passes on these two versions).</p>
+
+<p>The goal is <em>not</em> to release something as full-featured as the <code>rmangal</code>
+package (though the core abilities will be here). Rather, I wanted a tool that
+is “pythonic”, easy to use, and programmed extremely defensively so that it
+can be used for automated analyses. There is a minimal <a href="http://pymangal.readthedocs.org/en/latest/">documentation</a>
+online, which will hopefully get better over time as I understand the
+<code>sphinx</code> markup.</p>
+
 <p>The syntax is relatively similar to that of the <code>rmangal</code> package. Everything starts by the instansiation of a <code>mangal()</code> class.</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">import</span> pymangal <span class="ch">as</span> pm
-&gt;&gt;&gt; api = pm.mangal(url=<span class="st">&#39;http://localhost:8000&#39;</span>)
+
+<pre><code class="language-python">&gt;&gt;&gt; import pymangal as pm
+&gt;&gt;&gt; api = pm.mangal(url='http://localhost:8000')
 &gt;&gt;&gt; api.resources
-[<span class="st">u&#39;interaction&#39;</span>, <span class="st">u&#39;network&#39;</span>, <span class="st">u&#39;reference&#39;</span>, <span class="st">u&#39;taxa&#39;</span>, <span class="st">u&#39;trait&#39;</span>, <span class="st">u&#39;dataset&#39;</span>, <span class="st">u&#39;environment&#39;</span>, <span class="st">u&#39;item&#39;</span>, <span class="st">u&#39;user&#39;</span>, <span class="st">u&#39;population&#39;</span>]</code></pre>
-<p>The methods implemented by the <code>mangal</code> class are <code>List</code>, <code>Get</code>, and <code>Post</code> (<code>Patch</code> is coming soon, and <code>Post</code> support is sketchy at best). They work almost in the same way as their <code>R</code> counterparts. For example, getting a list of all networks can be done with:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; all_net = api.List(<span class="st">&#39;network&#39;</span>)
-&gt;&gt;&gt; <span class="dt">len</span>(all_net)
-<span class="dv">17</span></code></pre>
-<p>The only significant difference is that, by default, the <code>python</code> version will only return the first 20 results. If you want more than 20 results, you need to use <code>autopage=True</code>:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; twenty_taxa = api.List(<span class="st">&#39;taxa&#39;</span>)
-&gt;&gt;&gt; <span class="dt">len</span>(twenty_taxa)
-<span class="dv">20</span>
-&gt;&gt;&gt; all_taxa = api.List(<span class="st">&#39;taxa&#39;</span>, autopage=<span class="ot">True</span>)
-&gt;&gt;&gt; <span class="dt">len</span>(all_taxa)
-<span class="dv">38</span></code></pre>
-<p>The <em>big</em> advantage of the <code>python</code> version is that, when uploading data, there is a validation of the way they are formatted. Internally, there is a function taking care of reading the API scheme, and returning it as a <code>json</code> schema, against which data are checked. It’s probably simpler with a demonstration…</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">print</span> json.dumps(api.schemes[<span class="st">&#39;trait&#39;</span>], indent=<span class="dv">2</span>)
-<span class="co">## I have cut some of the elements for the sake of brevity</span>
+[u'interaction', u'network', u'reference', u'taxa', u'trait', u'dataset', u'environment', u'item', u'user', u'population']
+</code></pre>
+
+<p>The methods implemented by the <code>mangal</code> class are <code>List</code>, <code>Get</code>, and <code>Post</code>
+(<code>Patch</code> is coming soon, and <code>Post</code> support is sketchy at best). They work
+almost in the same way as their <code>R</code> counterparts. For example, getting a
+list of all networks can be done with:</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; all_net = api.List('network')
+&gt;&gt;&gt; len(all_net)
+17
+</code></pre>
+
+<p>The only significant difference is that, by default, the <code>python</code> version will only return the first 20 results. If you want more than 20  results, you need to use <code>autopage=True</code>:</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; twenty_taxa = api.List('taxa')
+&gt;&gt;&gt; len(twenty_taxa)
+20
+&gt;&gt;&gt; all_taxa = api.List('taxa', autopage=True)
+&gt;&gt;&gt; len(all_taxa)
+38
+</code></pre>
+
+<p>The <em>big</em> advantage of the <code>python</code> version is that, when uploading data, there
+is a validation of the way they are formatted. Internally, there is a function
+taking care of reading the API scheme, and returning it as a <code>json</code> schema,
+against which data are checked. It’s probably simpler with a demonstration…</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print json.dumps(api.schemes['trait'], indent=2)
+## I have cut some of the elements for the sake of brevity
 {
-   <span class="st">&quot;$schema&quot;</span>: <span class="st">&quot;http://json-schema.org/draft-04/schema#&quot;</span>, 
-   <span class="co">&quot;required&quot;</span>: [
-      <span class="st">&quot;value&quot;</span>, 
-      <span class="co">&quot;owner&quot;</span>, 
-      <span class="co">&quot;name&quot;</span>
+   "$schema": "http://json-schema.org/draft-04/schema#", 
+   "required": [
+      "value", 
+      "owner", 
+      "name"
    ], 
-   <span class="co">&quot;type&quot;</span>: <span class="st">&quot;object&quot;</span>, 
-   <span class="co">&quot;properties&quot;</span>: {
-      <span class="st">&quot;name&quot;</span>: {
-         <span class="st">&quot;type&quot;</span>: <span class="st">&quot;string&quot;</span>, 
-         <span class="co">&quot;description&quot;</span>: <span class="st">&quot;The name of the measured trait&quot;</span>
+   "type": "object", 
+   "properties": {
+      "name": {
+         "type": "string", 
+         "description": "The name of the measured trait"
       }, 
-      <span class="co">&quot;value&quot;</span>: {
-         <span class="st">&quot;type&quot;</span>: <span class="st">&quot;string&quot;</span>, 
-         <span class="co">&quot;description&quot;</span>: <span class="st">&quot;The value of the trait&quot;</span>
+      "value": {
+         "type": "string", 
+         "description": "The value of the trait"
       }, 
-      <span class="co">&quot;units&quot;</span>: {
-         <span class="st">&quot;type&quot;</span>: <span class="st">&quot;string&quot;</span>, 
-         <span class="co">&quot;description&quot;</span>: <span class="st">&quot;Units in which the trait was measured&quot;</span>
+      "units": {
+         "type": "string", 
+         "description": "Units in which the trait was measured"
       }
    }, 
-   <span class="co">&quot;title&quot;</span>: <span class="st">&quot;Autogenerated JSON schema&quot;</span>
-}</code></pre>
-<p>The data are validated <em>automatically</em>, so you don’t have to bother about checking them yourself. For example, let’s try with a badly formatted, and with a correctly formatted, taxa:<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; bad_taxa = {<span class="st">&#39;name&#39;</span>: <span class="st">&#39;Vulpes lagopus&#39;</span>, <span class="st">&#39;vernacular&#39;</span>: <span class="st">&#39;arctic fox&#39;</span>, <span class="st">&#39;eol&#39;</span>: <span class="dv">1053894</span>, <span class="st">&#39;status&#39;</span>: <span class="st">&#39;valid&#39;</span>}
-<span class="co"># &quot;valid&quot; is not an acceptable value for &quot;status&quot; (&quot;confirmed&quot; is)</span>
-&gt;&gt;&gt; ok_taxa = {<span class="st">&#39;name&#39;</span>: <span class="st">&#39;Vulpes lagopus&#39;</span>, <span class="st">&#39;vernacular&#39;</span>: <span class="st">&#39;arctic fox&#39;</span>, <span class="st">&#39;eol&#39;</span>: <span class="dv">1053894</span>, <span class="st">&#39;status&#39;</span>: <span class="st">&#39;confirmed&#39;</span>}
+   "title": "Autogenerated JSON schema"
+}
+</code></pre>
+
+<p>The data are validated <em>automatically</em>, so you don’t have to bother about checking them yourself. For example, let’s try with a badly formatted, and with a correctly formatted, taxa <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; bad_taxa = {'name': 'Vulpes lagopus', 'vernacular': 'arctic fox', 'eol': 1053894, 'status': 'valid'}
+# "valid" is not an acceptable value for "status" ("confirmed" is)
+&gt;&gt;&gt; ok_taxa = {'name': 'Vulpes lagopus', 'vernacular': 'arctic fox', 'eol': 1053894, 'status': 'confirmed'}
 
 &gt;&gt;&gt; arctic_fox = 
-&gt;&gt;&gt; arctic_fox = api.Post(<span class="st">&#39;taxa&#39;</span>, bad_taxa)
-<span class="co"># Skipping some lines...</span>
-jsonschema.exceptions.ValidationError: <span class="st">&#39;valid&#39;</span> is not one of [<span class="st">u&#39;confirmed&#39;</span>, <span class="st">u&#39;trophic species&#39;</span>, <span class="st">u&#39;morphospecies&#39;</span>, <span class="st">u&#39;nomen dubium&#39;</span>, <span class="st">u&#39;nomen oblitum&#39;</span>, <span class="st">u&#39;nomen nudum&#39;</span>, <span class="st">u&#39;nomen novum&#39;</span>, <span class="st">u&#39;nomen conservandum&#39;</span>, <span class="st">u&#39;species inquirenda&#39;</span>]
+&gt;&gt;&gt; arctic_fox = api.Post('taxa', bad_taxa)
+# Skipping some lines...
+jsonschema.exceptions.ValidationError: 'valid' is not one of [u'confirmed', u'trophic species', u'morphospecies', u'nomen dubium', u'nomen oblitum', u'nomen nudum', u'nomen novum', u'nomen conservandum', u'species inquirenda']
 
-Failed validating <span class="st">&#39;enum&#39;</span> in schema[<span class="st">&#39;properties&#39;</span>][<span class="st">u&#39;status&#39;</span>]:
-{<span class="st">&#39;description&#39;</span>: <span class="st">u&#39;The taxonomic status of the taxa.&#39;</span>,
-   <span class="co">&#39;enum&#39;</span>: [<span class="st">u&#39;confirmed&#39;</span>,
-   <span class="co">u&#39;trophic species&#39;</span>,
-   <span class="co">u&#39;morphospecies&#39;</span>,
-   <span class="co">u&#39;nomen dubium&#39;</span>,
-   <span class="co">u&#39;nomen oblitum&#39;</span>,
-   <span class="co">u&#39;nomen nudum&#39;</span>,
-   <span class="co">u&#39;nomen novum&#39;</span>,
-   <span class="co">u&#39;nomen conservandum&#39;</span>,
-   <span class="co">u&#39;species inquirenda&#39;</span>],
-<span class="co">&#39;type&#39;</span>: <span class="st">u&#39;string&#39;</span>}
+Failed validating 'enum' in schema['properties'][u'status']:
+{'description': u'The taxonomic status of the taxa.',
+   'enum': [u'confirmed',
+   u'trophic species',
+   u'morphospecies',
+   u'nomen dubium',
+   u'nomen oblitum',
+   u'nomen nudum',
+   u'nomen novum',
+   u'nomen conservandum',
+   u'species inquirenda'],
+'type': u'string'}
 
-On instance[<span class="st">u&#39;status&#39;</span>]:
-<span class="co">&#39;valid&#39;</span>
+On instance[u'status']:
+'valid'
 
-&gt;&gt;&gt; arctic_fox = api.Post(<span class="st">&#39;taxa&#39;</span>, ok_taxa)
-&gt;&gt;&gt; arctic_fox[<span class="st">&#39;id&#39;</span>]
-<span class="dv">103</span></code></pre>
-<p>Note that the <code>validate</code> function of the <code>jsonschema</code> will tell you what is wrong with the data, and show you the relevant excerpt from the schema. This really helps finding out what it wrong with the data you try to upload.</p>
+&gt;&gt;&gt; arctic_fox = api.Post('taxa', ok_taxa)
+&gt;&gt;&gt; arctic_fox['id']
+103
+</code></pre>
+
+<p>Note that the <code>validate</code> function of the <code>jsonschema</code> will tell you what is
+wrong with the data, and show you the relevant excerpt from the schema. This
+really helps finding out what it wrong with the data you try to upload.</p>
+
 <hr />
-<p>As a final note: I am using <em><a href="https://coveralls.io/r/mangal-wg/pymangal">Coveralls.io</a></em> for the first time, and I am extremely impressed. In short, <em>coveralls</em> will read the results of the <code>coverage</code> command, and tell you the proportion of your code with corresponding test cases. <em>Coveralls</em> is integrated with <em>TravisCI</em>, a continuous integration engine runnign the test suite each time I commit changes to the <em>GitHub</em> repository (so I have confirmation that the new versions pass the tests). And finally, the documentation is auto-generated using <em>Read The Docs</em>, which extracts the informations directly from the code. These are really impressive tools to work with, and they kind of force good practices upon you – which is a good thing.</p>
-<div class="references">
 
+<p>As a final note: I am using <em><a href="https://coveralls.io/r/mangal-wg/pymangal">Coveralls.io</a></em> for the first time,
+and I am extremely impressed. In short, <em>coveralls</em> will read the results
+of the <code>coverage</code> command, and tell you the proportion of your code with
+corresponding test cases. <em>Coveralls</em> is integrated with <em>TravisCI</em>, a
+continuous integration engine runnign the test suite each time I commit
+changes to the <em>GitHub</em> repository (so I have confirmation that the new
+versions pass  the tests). And finally, the documentation is auto-generated
+using <em>Read The Docs</em>, which extracts the informations directly from the
+code. These are really impressive tools to work with, and they kind of force
+good practices upon you – which is a good thing.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>As usual, posting and patching requires that you have a username and password. There will be a way to register through the <code>python</code> package in the future. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
 </div>
-<section class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>As usual, posting and patching requires that you have a username and password. There will be a way to register through the <code>python</code> package in the future.<a href="#fnref1">↩</a></p></li>
-</ol>
-</section>
 
 </div>
 

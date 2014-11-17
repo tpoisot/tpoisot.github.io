@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | What's hot on PeerJ?</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,16 +45,22 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/12/17/what-peerj/">What's hot on PeerJ?</a></div>
 <div class='post-date'>On December 17, 2013 &middot; 
    Tim
 </div>
-<p>Lat week, I mentionned that ecology is the leading discipline on <a href="https://peerj.com/preprints/"><em>PeerJ</em> preprints</a>, as attested by the number of submissions. Which led me to wondering which topics were actually <em>hot</em> on the preprint server. <em>PeerJ</em> do not have an API, but there URL scheme is not too complicated, and most of the relevant informations are in the webpage body. So I wrote a very short python script to get the first 158 preprints, download them, and get the abstract.</p>
+<p>Lat week, I mentionned that ecology is the leading discipline on <a href="https://peerj.com/preprints/"><em>PeerJ</em>
+preprints</a>, as attested by the number of submissions. Which led me to
+wondering which topics were actually <em>hot</em> on the preprint server. <em>PeerJ</em> do
+not have an API, but there URL scheme is not too complicated, and most of the
+relevant informations are in the webpage body. So I wrote a very short python
+script to get the first 158 preprints, download them, and get the abstract.</p>
+
 <p>The code goes like this:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 
 <span class="n">BaseURL</span> <span class="o">=</span> <span class="s">&quot;https://peerj.com/preprints/&quot;</span>
@@ -76,20 +79,32 @@ ga('send', 'pageview');
       <span class="n">Fulltext</span> <span class="o">+=</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">abstract</span>
       <span class="n">Corpus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abstract</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span></code></pre>
-</div>
-<p>There is actually a one-liner version of this code, that exsist solely to show that you can do horrible twisted things with python. I’m not showing it. But the point is: this code will return a list of all abstracts, pasted together in a single sentence. Which I copied, and used in <a href="http://www.wordle.net">wordle</a> to get the following graphic:</p>
-<figure>
-<img src="/images/w-peerj-abs.png" alt="With abstracts" /><figcaption>With abstracts</figcaption>
-</figure>
-<p>So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually whale sharks), but suriprisingly, there are no big ecological keywords that are very prominent - which goes well with the idea that <em>PeerJ</em> is multi-disciplinary. By changing the <code>BaseURL</code> variable in my code, it was easy to get the same picture but for the <em>articles</em>, <em>i.e.</em> the contributions that went through peer-review. According to the front page, Ecology and Biodiversity are still the leading disciplines there.</p>
-<figure>
-<img src="/images/w-peerj-pap.png" alt="With papers" /><figcaption>With papers</figcaption>
-</figure>
-<p>It seems to be the case, with <code>species</code> being the most important word, followed (still) by <code>data</code>. Interestingly, clinical and molecular keywords are more prominent in the published papers than in the preprints. But in any case, <em>PeerJ</em> is definitely ecology-friendly, which hopefully will mean that more and more people will submit there.</p>
-<div class="references">
+<span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span></code></pre></div>
 
-</div>
+<p>There is actually a one-liner version of this code, that exsist solely to
+show that you can do horrible twisted things with python. I’m not showing
+it. But the point is: this code will return a list of all abstracts, pasted
+together in a single sentence. Which I copied, and used in <a href="http://www.wordle.net">wordle</a> to get
+the following graphic:</p>
+
+<p><img src="/images/w-peerj-abs.png" alt="With abstracts" /></p>
+
+<p>So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually
+whale sharks), but suriprisingly, there are no big ecological keywords
+that are very prominent - which goes well with the idea that <em>PeerJ</em>
+is multi-disciplinary. By changing the <code>BaseURL</code> variable in my code,
+it was easy to get the same picture but for the <em>articles</em>, <em>i.e.</em> the
+contributions that went through peer-review. According to the front page,
+Ecology and Biodiversity are still the leading disciplines there.</p>
+
+<p><img src="/images/w-peerj-pap.png" alt="With papers" /></p>
+
+<p>It seems to be the case, with <code>species</code> being the most important word, followed
+(still) by <code>data</code>. Interestingly, clinical and molecular keywords are more
+prominent in the published papers than in the preprints. But in any case,
+<em>PeerJ</em> is definitely ecology-friendly, which hopefully will mean that more
+and more people will submit there.</p>
+
 
 </div>
 

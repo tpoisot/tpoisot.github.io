@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | How to represent networks</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,100 +45,108 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/11/23/how-to-represent-networks/">How to represent networks</a></div>
 <div class='post-date'>On November 23, 2012 &middot; 
    Tim
 </div>
 <p>One big problem to people working with ecological networks is that most of the time, the data are not easy to get. Collections of food webs or mutualistic networks are passed from researcher to researcher, and it can be difficult to get your hands on a large database. Even if you have the data, you still have to put them in a “good” format, and it’s not always an easy task. It implies looping through text files, putting the webs in good shape, looking for species names, and so forth.</p>
+
 <div class="alert alert-info">
-<h4>
-Warning!
-</h4>
-This is a long entry, with code, and geeky considerations about data format. It’s mostly for my personnal reference, so you may want to find <a href='http://www.theuselessweb.com/'>a better way to waste your time</a>.
+<h4>Warning!</h4>
+This is a long entry, with code, and geeky considerations about data format. It's mostly for my personnal reference, so you may want to find <a href="http://www.theuselessweb.com/">a better way to waste your time</a>.
 </div>
+
 <h1 id="the-problem">The problem</h1>
+
 <p>As an example, look at what is available on the <a href="http://www.nceas.ucsb.edu/interactionweb/">InteractionWeb Database</a>. For our <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract"><em>Methods in Ecology &amp; Evolution</em> paper</a> on estimators of species specificity, I had to fetch all of the networks, then look on the main page the number of top and bottom level species, then check that they were always in the same configuration. To make a long story short: they were not. It did not took me this long to get it right, but it was frustrating. I had to open an Excel file, with the network “code”, the text file path, the number of top and bottom level species, and finally the type of interaction. Difficult? No. Boring? Yes.</p>
+
 <p>Keep in mind that <em>IWDB</em> is the only resource for people wanting to download networks to, <em>e.g.</em> test algorithms, or check the distribution of some properties. And it involved a lot of groundwork before you even get to do the basic stuff. This is frustrating, and this should not be. Which brings me to a question that has been floating in my mind for a few months now: how should interaction networks be coded, from a data management point of view? This is an important question, because our ability to develop networks as a predictive tool will be as good as our ability to do data-mining on these networks. And in 2012, looking through text files is not the solution (it should not even be considered <em>a</em> solution). And yes, I’m ashamed to be part of the problem, because when I recently released data about <a href="http://figshare.com/articles/Bacteria-phage_adjacency_matrix_along_an_environmental_gradient/97583">bacteria-phage interactions</a>, I put three text files in a zip archive, and called it a day. Then, while I was thinking about why <a href="http://timotheepoisot.fr/2012/10/29/species-interaction-networks/">populations matter more than species</a> in the context of networks, I started to develop a feeling about a data structure.</p>
+
 <p>It starts with a simple question: <em>what’s in a network</em>? One way networks are usually represented is as a matrix (the <em>IWDB</em> will give informations this way):</p>
-<div class="highlight">
-<pre><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">1</span> <span class="m">1</span> 0
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">1</span> <span class="m">1</span> 0
 <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 1
 <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 1
-<span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 0</code></pre>
-</div>
+<span class="m">0</span> <span class="m">0</span> <span class="m">0</span> 0</code></pre></div>
+
 <p>Alternatively, we can write them as an edge list:</p>
-<div class="highlight">
-<pre><code class="language-bash" data-lang="bash">a b
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">a b
 a c
 c d
-b d</code></pre>
-</div>
-<p>Both notation represent the same “diamond” food web, and can also convey some information about link strength, species biomass, <em>etc</em>. But do they convey a lot of <em>ecological meaning</em>? I’m not really sure. So instead of having all the network at one big entity, let’s break it down in several smaller chunks. A network is a collection of interactions, so let’s start by representing an interaction.</p>
-<h1 id="a-solution">A solution?</h1>
-<p>In the most basic sense, an interaction is the union of two populations. This should be the building bloc of our network database:</p>
-<div class="highlight">
-<pre><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_I_00001&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00001&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00002&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;binary&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nt">&quot;directional&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nt">&quot;strength&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;predation&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
-<span class="p">}</span></code></pre>
-</div>
-<p>This is a simple <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> object, with three central informations: a unique indentifer (<code>ID</code>), two species (<code>from</code> and <code>to</code>), and a series of informations (<code>info</code>). Within <code>info</code>, you have two booleans; <code>binary</code> tells you if this is a presence/absence or quantitative measure, <code>directional</code> tells you if the interactions is, well, directional (in which case <code>from</code> and <code>to</code> are important), and <code>strength</code> is the interaction strength. Finally, the <code>type</code> property can tell which kind of interaction this is. Not rocket science so far.</p>
-<p>Note that the identifier for species and interactions I used have some structure to them: name of the database, type of object, object identifier. This ensure that every group can maintain its own database (<em>e.g.</em> my test one on the university servers can use the prefix <code>uqar_</code>), and if you choose to clone databases from other people, then you still know where the information come from. The second part is <code>I</code> if the object is an interaction, and <code>P</code> if it is a population. The last part is a unique identifier. All of this can be automatically filed when interactions are deposited into the database.</p>
-<p>Poincarré said that you make a science with facts as you make a house with bricks, but a pile of facts is not a science anymore than a pile of bricks is a house. Just like a collection of interactions is not a network. The first thing we need to do is to define another object, for networks. It’s not really complicated. The edge list I’ve mentionned above is interesting because it sortes informations quite efficiently (there are much more non-interactions than they are interactions, so a matrix is a waste of space). Let’s have our network be a list of interactions:</p>
-<div class="highlight">
-<pre><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_N_0001&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">&#39;MyDB_I_</span><span class="mi">00001</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;MyDB_I_</span><span class="mi">00002</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;MyDB_I_</span><span class="mi">00003</span><span class="err">&#39;</span><span class="p">],</span>
-    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2012_14_11&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;GPS&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;48_28_14_n&quot;</span><span class="p">,</span><span class="s2">&quot;68_31_17_o&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;env_type&quot;</span><span class="p">:</span> <span class="s2">&quot;microcosm&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
-<span class="p">}</span></code></pre>
-</div>
-<p>This should be relatively straigthforward. There is, again, an <code>ID</code>. The <code>links</code> component is a list of interactions, <em>i.e.</em> the list of <code>ID</code> of interactions. The other fields are a minimum set of informations, namely the time, place, and type of environment.</p>
-<p>This may seem like a lot of brackets for basically the same result as the edge list. But the interesting point is that, by having an object for populations, we can start adding <em>a lot</em> of ecological context to these data. As an example:</p>
-<div class="highlight">
-<pre><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00001&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;tax&quot;</span><span class="p">:</span> <span class="s2">&quot;MyBD_S_00001&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;pop&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;individuals&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">42</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;traits&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;body_size&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;measure&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">12.1</span><span class="p">,</span>
-            <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;body_mass&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;measure&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">362.7</span><span class="p">,</span>
-            <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
-<span class="p">}</span></code></pre>
-</div>
-<p>This is probably where most of the action will happen. The interesting property here is <code>tax</code>, which can be linked to another type of objects in the databse. Without going into more details, the <code>tax</code> field will tell you which species or group of organism this population belongs to. For example, you can use a <a href="http://bioportal.bioontology.org/ontologies/45846?p=terms&amp;conceptid=EDAM%3A0001179">NCBI Taxonomy ID</a>. This, in turn, will allow you to go dig into <a href="http://treebase.org/treebase-web/home.html">TreeBase</a>, using one of the <a href="http://ropensci.org/">ROpenSci packages</a> designed to do so.</p>
-<h1 id="what-next">What next?</h1>
-<p>I’m really interested in putting together a database to see how feasible this is. Having a robust data format, and access to all these data in a programmatic way, will greatly increase our ability to understand and compare networks. I don’t think there is any chance that we’ll be able to make important breakthrough, especially as far as biogeography is concerned, without a centralized database.</p>
-<p>I’m still thinking about some other informations we need (bibliographic context, for example). I have a set of data from an almost-succesfull experiment, which I’ll probably release as a data paper. It will be the occasion to go the extra mile, and put together something useful. And in case anybody has suggestions, I’m happy to hear them.</p>
-<div class="references">
+b d</code></pre></div>
 
-</div>
+<p>Both notation represent the same “diamond” food web, and can also convey some information about link strength, species biomass, <em>etc</em>. But do they convey a lot of <em>ecological meaning</em>? I’m not really sure. So instead of having all the network at one big entity, let’s break it down in several smaller chunks. A network is a collection of interactions, so let’s start by representing an interaction.</p>
+
+<h1 id="a-solution">A solution?</h1>
+
+<p>In the most basic sense, an interaction is the union of two populations. This should be the building bloc of our network database:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+	<span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_I_00001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00002&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;binary&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+		<span class="nt">&quot;directional&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="nt">&quot;strength&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+		<span class="p">},</span>
+	<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;predation&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This is a simple <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> object, with three central informations: a unique indentifer (<code>ID</code>), two species (<code>from</code> and <code>to</code>), and a series of informations (<code>info</code>). Within <code>info</code>, you have two booleans; <code>binary</code> tells you if this is a presence/absence or quantitative measure, <code>directional</code> tells you if the interactions is, well, directional (in which case <code>from</code> and <code>to</code> are important), and <code>strength</code> is the interaction strength. Finally, the <code>type</code> property can tell which kind of interaction this is. Not rocket science so far.</p>
+
+<p>Note that the identifier for species and interactions I used have some structure to them: name of the database, type of object, object identifier. This ensure that every group can maintain its own database (<em>e.g.</em> my test one on the university servers can use the prefix <code>uqar_</code>), and if you choose to clone databases from other people, then you still know where the information come from. The second part is <code>I</code> if the object is an interaction, and <code>P</code> if it is a population. The last part is a unique identifier. All of this can be automatically filed when interactions are deposited into the database.</p>
+
+<p>Poincarré said that you make a science with facts as you make a house with bricks, but a pile of facts is not a science anymore than a pile of bricks is a house. Just like a collection of interactions is not a network. The first thing we need to do is to define another object, for networks. It’s not really complicated. The edge list I’ve mentionned above is interesting because it sortes informations quite efficiently (there are much more non-interactions than they are interactions, so a matrix is a waste of space). Let’s have our network be a list of interactions:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+	<span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_N_0001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">&#39;MyDB_I_</span><span class="mi">00001</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;MyDB_I_</span><span class="mi">00002</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;MyDB_I_</span><span class="mi">00003</span><span class="err">&#39;</span><span class="p">],</span>
+	<span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2012_14_11&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;GPS&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;48_28_14_n&quot;</span><span class="p">,</span><span class="s2">&quot;68_31_17_o&quot;</span><span class="p">],</span>
+	<span class="nt">&quot;env_type&quot;</span><span class="p">:</span> <span class="s2">&quot;microcosm&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This should be relatively straigthforward. There is, again, an <code>ID</code>. The <code>links</code> component is a list of interactions, <em>i.e.</em> the list of <code>ID</code> of interactions. The other fields are a minimum set of informations, namely the time, place, and type of environment.</p>
+
+<p>This may seem like a lot of brackets for basically the same result as the edge list. But the interesting point is that, by having an object for populations, we can start adding <em>a lot</em> of ecological context to these data. As an example:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+	<span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;MyDB_P_00001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;tax&quot;</span><span class="p">:</span> <span class="s2">&quot;MyBD_S_00001&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;pop&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;individuals&quot;</span><span class="p">,</span>
+		<span class="nt">&quot;n&quot;</span><span class="p">:</span> <span class="mi">42</span>
+	<span class="p">},</span>
+	<span class="nt">&quot;traits&quot;</span><span class="p">:</span> <span class="p">[</span>
+		<span class="p">{</span>
+			<span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;body_size&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;measure&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">12.1</span><span class="p">,</span>
+			<span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;body_mass&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;measure&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">362.7</span><span class="p">,</span>
+			<span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span>
+		<span class="p">}</span>
+	<span class="p">],</span>
+	<span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This is probably where most of the action will happen. The interesting property here is <code>tax</code>, which can be linked to another type of objects in the databse. Without going into more details, the <code>tax</code> field will tell you which species or group of organism this population belongs to. For example, you can use a <a href="http://bioportal.bioontology.org/ontologies/45846?p=terms&amp;conceptid=EDAM%3A0001179">NCBI Taxonomy ID</a>. This, in turn, will allow you to go dig into <a href="http://treebase.org/treebase-web/home.html">TreeBase</a>, using one of the <a href="http://ropensci.org/">ROpenSci packages</a> designed to do so.</p>
+
+<h1 id="what-next">What next?</h1>
+
+<p>I’m really interested in putting together a database to see how feasible this is. Having a robust data format, and access to all these data in a programmatic way, will greatly increase our ability to understand and compare networks. I don’t think there is any chance that we’ll be able to make important breakthrough, especially as far as biogeography is concerned, without a centralized database.</p>
+
+<p>I’m still thinking about some other informations we need (bibliographic context, for example). I have a set of data from an almost-succesfull experiment, which I’ll probably release as a data paper. It will be the occasion to go the extra mile, and put together something useful. And in case anybody has suggestions, I’m happy to hear them.</p>
 
 </div>
 

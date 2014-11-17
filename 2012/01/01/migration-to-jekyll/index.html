@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Goodbye Wordpress, hello Jekyll!</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,25 +45,23 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/01/01/migration-to-jekyll/">Goodbye Wordpress, hello Jekyll!</a></div>
 <div class='post-date'>On January  1, 2012 &middot; 
    Tim
 </div>
 <p>A few weeks ago, I discovered <a href="https://github.com/mojombo/jekyll">Jekyll</a>. In a nutshell, Jekyll is a static site generator who promised me I’ll be able to <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blog like a hacker</a>. This site is now hosted on GitHub, and <a href="https://github.com/tpoisot/tpoisot.github.com">both the template and the content can be forked</a>, so everything is basically open source.</p>
-<p>Jekyll is a lot of fun to use, especially because all of the content reside in <em>static text files</em> instead of a database. It’s also fully compatible with the <a href="http://daringfireball.net/projects/markdown/">markdown</a> format, which is a lot easier to write than html. For example, writing a simple text in bold in markdown is done through</p>
-<div class="highlight">
-<pre><code class="language-bash" data-lang="bash">**text in bold**</code></pre>
-</div>
-<p>rather than the equivalent html</p>
-<div class="highlight">
-<pre><code class="language-html" data-lang="html"><span class="nt">&lt;strong&gt;</span>text in bold<span class="nt">&lt;/strong&gt;</span></code></pre>
-</div>
-<p>So a less lot keys to press (especially on my new QWERTY keyboard). The fact that Jekyll uses the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> templating language also make the overall design process <em>fun</em>. In addition, the whole system is working on GitHub, so I have complete version control on everything. This is so awesome!</p>
-<div class="references">
 
-</div>
+<p>Jekyll is a lot of fun to use, especially because all of the content reside in <em>static text files</em> instead of a database. It’s also fully compatible with the <a href="http://daringfireball.net/projects/markdown/">markdown</a> format, which is a lot easier to write than html. For example, writing a simple text in bold in markdown is done through</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">**text in bold**</code></pre></div>
+
+<p>rather than the equivalent html</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;strong&gt;</span>text in bold<span class="nt">&lt;/strong&gt;</span></code></pre></div>
+
+<p>So a less lot keys to press (especially on my new QWERTY keyboard). The fact that Jekyll uses the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> templating language also make the overall design process <em>fun</em>. In addition, the whole system is working on GitHub, so I have complete version control on everything. This is so awesome!</p>
 
 </div>
 

@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Is programming an acquired taste?</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,20 +45,65 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/09/11/programming-innate-acquired/">Is programming an acquired taste?</a></div>
 <div class='post-date'>On September 11, 2013 &middot; 
    Tim
 </div>
-<p>Two weeks ago, the whole lab headed up to a remote place in the Rimouski countryside for a summers school on <em>Ecological Modeling</em>. It was a whole lot of fun, and a really good way to get back to some things I’ve always wanted to study more in depth. So far, so good. Most of the days were courses in the morning, and programming in the afternoon. There were also some pen-and-paper model solving, but I won’t talk much about these.</p>
-<p>While the students were sweating on the programming problems, we discussed the fact that programming is maybe an innate skill. Not in the sense that some people are unable to learn how to code functional things, but in the sense that some people find it intuitive to express things in terms of <code>for</code>, <code>while</code>, <code>if</code>, and so forth (so forth is <em>not</em> a valid algorithmic structure). That may be true, that some people will find it easier to split up a large problem in a series of short instructions. If you can do that intuitively, then you’ll probably have no problem structuring your code.</p>
-<p>But this particular skill can be trained, I think. One of the things I asked of the students was to code something implementing Williams &amp; Martinez <em>niche model</em> of food webs. The title of the assignment may be “Write a program implementing the NM in R”. I took the opportunity of turning that into an exercise about how to organize code. The whole problem can be easily sub-divided into a series of smaller problems. In this case, we first need to generate species, then to find out the interactions between them. The first step, of generating species, itself involves several sub-steps, that can each go into a function, or can be handled by logical tests.</p>
-<p>Perhaps there will be a <em>happy few</em> that will take this series of steps by themselves. Looking back on the first programs I wrote (I am unlucky enough to have kept some of my spaghetti code from my first year of Masters, …), I’m definitely not one of these people. As in most things, the key to developing a feeling of how to organize things will come with practice, and thinking about what you felt comfortable with. Which is why I always encourage people to <a href="http://timotheepoisot.fr/2013/04/12/learn-code-ecology/">write code when they want to learn</a>. I seriously don’t think there is a better way to increase your skills.</p>
-<p>So, is programming an acquired taste? Probably. It may seems frustrating at first to need to specify things clearly at a very small scale. Some people may call it intuitive, and be comfortable with the <code>if</code>s and the <code>while</code>s really quickly, but I don’t think these are majority. And that might explain why it’s not uncommon to hear students say that they aren’t able to code well (aside from the fact that, well, monkeys and typewriters…). Learning how to code is like learning a language with a different grammatical structure. On your first day, Python and <a href="http://en.wikipedia.org/wiki/Brainfuck">brainfuck</a> look awfully similar. Things you conceptualize easily will not translate well in your editor because you need to use a different structure of thought to express them. The more you practice, the more natural it will seem. For this reason, I don’t really believe in programming classes (for biologists, I don’t know how it goes in other majors) in which you only need to write-down some code, press enter, and see that it does what your instructor says it does. Letting students experiment, and fail, and sort out their experiences of what worked, what did not, and what they felt comfortable with, could probably do a lot to improve coding literacy.</p>
-<div class="references">
+<p>Two weeks ago, the whole lab headed up to a remote place in the Rimouski
+countryside for a summers school on <em>Ecological Modeling</em>. It was a whole lot
+of fun, and a really good way to get back to some things I’ve always wanted to
+study more in depth. So far, so good. Most of the days were courses in the
+morning, and programming in the afternoon. There were also some pen-and-paper
+model solving, but I won’t talk much about these.</p>
 
-</div>
+<p>While the students were sweating on the programming problems, we discussed the
+fact that programming is maybe an innate skill. Not in the sense that some
+people are unable to learn how to code functional things, but in the sense that
+some people find it intuitive to express things in terms of <code>for</code>, <code>while</code>,
+<code>if</code>, and so forth (so forth is <em>not</em> a valid algorithmic structure). That
+may be true, that some people will find it easier to split up a large
+problem in a series of short instructions. If you can do that intuitively,
+then you’ll probably have no problem structuring your code.</p>
+
+<p>But this particular skill can be trained, I think. One of the things I asked of
+the students was to code something implementing Williams &amp; Martinez <em>niche
+model</em> of food webs. The title of the assignment may be “Write a program
+implementing the NM in R”. I took the opportunity of turning that into an
+exercise about how to organize code. The whole problem can be easily
+sub-divided into a series of smaller problems. In this case, we first need to
+generate species, then to find out the interactions between them. The first
+step, of generating species, itself involves several sub-steps, that can each
+go into a function, or can be handled by logical tests.</p>
+
+<p>Perhaps there will be a <em>happy few</em> that will take this series of steps by
+themselves. Looking back on the first programs I wrote (I am unlucky enough to
+have kept some of my spaghetti code from my first year of Masters, …),
+I’m definitely not one of these people. As in most things, the key to
+developing a feeling of how to organize things will come with practice, and
+thinking about what you felt comfortable with. Which is why I always
+encourage people to <a href="http://timotheepoisot.fr/2013/04/12/learn-code-ecology/">write code when they want to learn</a>. I seriously
+don’t think there is a better way to increase your skills.</p>
+
+<p>So, is programming an acquired taste? Probably. It may seems frustrating at
+first to need to specify things clearly at a very small scale. Some people may
+call it intuitive, and be comfortable with the <code>if</code>s and the <code>while</code>s really
+quickly, but I don’t think these are majority. And that might explain why it’s
+not uncommon to hear students say that they aren’t able to code well (aside
+from the fact that, well, monkeys and typewriters…). Learning how to
+code is like learning a language with a different grammatical structure. On
+your first day, Python and <a href="http://en.wikipedia.org/wiki/Brainfuck">brainfuck</a>
+look awfully similar. Things you conceptualize easily will not translate well
+in your editor because you need to use a different structure of thought to
+express them. The more you practice, the more natural it will seem. For this
+reason, I don’t really believe in programming classes (for biologists, I don’t
+know how it goes in other majors) in which you only need to write-down
+some code, press enter, and see that it does what your instructor says it does.
+Letting students experiment, and fail, and sort out their experiences of what
+worked, what did not, and what they felt comfortable with, could probably do
+a lot to improve coding literacy.</p>
+
 
 </div>
 

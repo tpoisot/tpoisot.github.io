@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Simulated phylogenetic trees and community assembly</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,35 +45,49 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/01/05/a-python-class-for-phylogenies/">Simulated phylogenetic trees and community assembly</a></div>
 <div class='post-date'>On January  5, 2012 &middot; 
    Tim
 </div>
 <p>I’m working on a toy model of community assembly in Python, and I thought it would be cool to have an easy way to keep track of the phylogeny. To do so, I’ve conceived two classes for the easy handling of phylogenetic structure. They are available on GitHub in the <a href="https://github.com/tpoisot/PyCoPhy"><code>PyCoPhy</code> repository</a> (Python Community Phylogenetics), and check also the <a href="/code/">code page</a>.</p>
-<p>The general idea behind them is quite easy to understand. A phylogenetic tree is a list of branchings. A branching is the junction of two objects, which I called <code>left</code> and <code>right</code>. Each of these objects can be an identifier (i.e. a leaf of the tree), or a reference to another branching (i.e. a node). It’s as complicated as it gets.</p>
-<p>Once <code>PyCoPhy</code> is loaded, to create a new tree with a species called <code>ancestor</code>, just type:</p>
-<pre class="sourceCode python"><code class="sourceCode python">iTree = PhyloTree(<span class="st">&#39;ancestor&#39;</span>)
-<span class="dt">print</span> iTree</code></pre>
-<p>The output of this command should be <code>(root, ancestor)</code>. The <code>root</code> is created by default to ensure that the most basal node is a branching. The interesting thing is that it’s now relatively easy to add and remove species. The <code>PhyloTree</code> class has the <code>speciate</code> method, who takes two arguments: the name of the ancestor, and the name of the daughter species. Calling it will go through the tree, and replace the ancestor by the (ancestor, daughter species) branching. Let’s try with:</p>
-<pre class="sourceCode python"><code class="sourceCode python">iTree = PhyloTree(<span class="st">&#39;0&#39;</span>)
-iTree.speciate(<span class="st">&#39;0&#39;</span>,<span class="st">&#39;0_0&#39;</span>)
-<span class="dt">print</span> iTree</code></pre>
-<p>which results in the following tree: <code>(root,(0,0_0))</code>. And I know this is not the way speciation works, so there is also a <code>split</code> method, which will replace one ancestral species by two new species:</p>
-<pre class="sourceCode python"><code class="sourceCode python">iTree = PhyloTree(<span class="st">&#39;0&#39;</span>)
-iTree.split(<span class="st">&#39;0&#39;</span>,<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>)
-<span class="dt">print</span> iTree</code></pre>
-<p>will result in <code>(root,(2,1))</code>. This is all made possible by the <code>extinct</code> method, by the way, which will remove from the tree the species whose name is given in argument:</p>
-<pre class="sourceCode python"><code class="sourceCode python">iTree = PhyloTree(<span class="st">&#39;0&#39;</span>)
-iTree.split(<span class="st">&#39;0&#39;</span>,<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>)
-iTree.extinct(<span class="st">&#39;2&#39;</span>)
-<span class="dt">print</span> iTree</code></pre>
-<p>will result in <code>(root,1)</code>.</p>
-<p>Although these classes are really basic at the moment, they allow me to easily keep track of who is related to who in my simulations. I’ll most likely add a way to keep track of branch lengths at some point in the near future.</p>
-<div class="references">
 
-</div>
+<p>The general idea behind them is quite easy to understand. A phylogenetic tree is a list of branchings. A branching is the junction of two objects, which I called <code>left</code> and <code>right</code>. Each of these objects can be an identifier (i.e. a leaf of the tree), or a reference to another branching (i.e. a node). It’s as complicated as it gets.</p>
+
+<p>Once <code>PyCoPhy</code> is loaded, to create a new tree with a species called <code>ancestor</code>, just type:</p>
+
+<pre><code class="language-python">iTree = PhyloTree('ancestor')
+print iTree
+</code></pre>
+
+<p>The output of this command should be <code>(root, ancestor)</code>. The <code>root</code> is created by default to ensure that the most basal node is a branching. The interesting thing is that it’s now relatively easy to add and remove species. The <code>PhyloTree</code> class has the <code>speciate</code> method, who takes two arguments: the name of the ancestor, and the name of the daughter species. Calling it will go through the tree, and replace the ancestor by the (ancestor, daughter species) branching. Let’s try with:</p>
+
+<pre><code class="language-python">iTree = PhyloTree('0')
+iTree.speciate('0','0_0')
+print iTree
+</code></pre>
+
+<p>which results in the following tree: <code>(root,(0,0_0))</code>. And I know this is not the way speciation works, so there is also a <code>split</code> method, which will replace one ancestral species by two new species:</p>
+
+<pre><code class="language-python">iTree = PhyloTree('0')
+iTree.split('0','1','2')
+print iTree
+</code></pre>
+
+<p>will result in <code>(root,(2,1))</code>. This is all made possible by the <code>extinct</code> method, by the way, which will remove from the tree the species whose name is given in argument:</p>
+
+<pre><code class="language-python">iTree = PhyloTree('0')
+iTree.split('0','1','2')
+iTree.extinct('2')
+print iTree
+</code></pre>
+
+<p>will result in <code>(root,1)</code>.</p>
+
+<p>Although these classes are really basic at the moment, they allow me to easily
+keep track of who is related to who in my simulations. I’ll most likely add
+a way to keep track of branch lengths at some point in the near future.</p>
 
 </div>
 

@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Uploading data into mangal</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,80 +45,115 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/08/mangal-add-data/">Uploading data into mangal</a></div>
 <div class='post-date'>On January  8, 2014 &middot; 
    Tim
 </div>
 <p>In the first part, I introduced <code>mangal</code>, the database and associated <code>R</code> package to interact with ecological networks. In the second part, I’ll give an overview of how to upload and curate your data. In the last part, we used functions starting with <code>get</code> and <code>list</code>. This time, we will use the <code>add</code> and <code>patch</code> functions, as they allow to change resouces on the server. There are a few important informations to have before we start.</p>
+
 <p>First, working on the server is <em>for real</em>, so please be careful. But take the opportunity of the testing phase to try to break the database in new, innovative ways! Second, the licence under which the data are released is the <em>CC-0</em> waiver. In short, when data are uploaded in the database, they are frelly available, for all to see and use. Almost all data sharing services use this license for data. Finally, the database is <em>add-only</em>, which means that you can’t remove data (but I can, in case things go exceptionally wrong).</p>
-<p>In this post, we’ll see (i) how to create an account on the database, (ii) how to create and populate a dataset, and (iii) how to modify the interactions after sending them. You are of coure invited to try similar things. Note that the database won’t accept objects with duplicated names, so if you try to re-upload some of the taxa in this example, it most likely won’t work.</p>
+
+<p>In this post, we’ll see (i) how to create an account on the database, (ii)
+how to create and populate a dataset, and (iii) how to modify the interactions
+after sending them. You are of coure invited to try similar things. Note
+that the database won’t accept objects with duplicated names, so if you try
+to re-upload some of the taxa in this example, it most likely won’t work.</p>
+
 <h1 id="setting-things-up">Setting things up</h1>
+
 <p>As always, we’ll start by getting the latest release of <code>rmangal</code>. And we’ll also get the latest release of <code>taxize</code>, because there is a really neat trick I want to show you (in short: automated curation).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
-if (<span class="kw">getOption</span>(<span class="st">&quot;unzip&quot;</span>) ==<span class="st"> &quot;&quot;</span>) <span class="kw">options</span>(<span class="dt">unzip =</span> <span class="st">&quot;unzip&quot;</span>)
-<span class="kw">library</span>(devtools)
-<span class="kw">install_github</span>(<span class="st">&quot;rmangal&quot;</span>, <span class="st">&quot;mangal-wg&quot;</span>)
-<span class="kw">library</span>(rmangal)
-<span class="kw">install_github</span>(<span class="st">&quot;taxize&quot;</span>, <span class="st">&quot;ropensci&quot;</span>)
-<span class="kw">library</span>(taxize)</code></pre>
+
+<pre><code class="language-r">options(stringsAsFactors = FALSE)
+if (getOption("unzip") == "") options(unzip = "unzip")
+library(devtools)
+install_github("rmangal", "mangal-wg")
+library(rmangal)
+install_github("taxize", "ropensci")
+library(taxize)
+</code></pre>
+
 <h1 id="signing-up">Signing-up</h1>
-<p>Uploading and curating data require that you are logged in. The reason is simple: each object in the database has an <code>owner</code> property, and this owner becomes you every time you modify an object. Signing up can be done directly from <code>R</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">api &lt;-<span class="st"> </span><span class="kw">mangalapi</span>()
-me &lt;-<span class="st"> </span><span class="kw">signUp</span>(api, <span class="st">&quot;my_user_name&quot;</span>, <span class="st">&quot;my_password&quot;</span>)
-<span class="co"># This line will log you with your newly acquired identifiers!</span>
-api &lt;-<span class="st"> </span><span class="kw">mangalapi</span>(<span class="dt">usr =</span> me$username, <span class="dt">pwd =</span> me$password)
-me</code></pre>
+
+<p>Uploading and curating data require that you are logged in. The reason is simple: each object in the database has an <code>owner</code> property, and this owner becomes you every time you modify an object. Signing up can be done directly from <code>R</code>: </p>
+
+<pre><code class="language-r">api &lt;- mangalapi()
+me &lt;- signUp(api, "my_user_name", "my_password")
+# This line will log you with your newly acquired identifiers!
+api &lt;- mangalapi(usr = me$username, pwd = me$password)
+me
+</code></pre>
+
 <pre><code>## $email
-## [1] &quot;&quot;
+## [1] ""
 ## 
 ## $first_name
-## [1] &quot;&quot;
+## [1] ""
 ## 
 ## $id
 ## [1] 3
 ## 
 ## $last_name
-## [1] &quot;&quot;
+## [1] ""
 ## 
 ## $password
-## [1] &quot;my_password&quot;
+## [1] "my_password"
 ## 
 ## $username
-## [1] &quot;my_user_name&quot;</code></pre>
+## [1] "my_user_name"
+</code></pre>
+
 <p>Before we start, let’s add some personal informations to your profile:</p>
-<pre class="sourceCode r"><code class="sourceCode r">me$first_name &lt;-<span class="st"> &quot;Fake&quot;</span>
-me$last_name &lt;-<span class="st"> &quot;People&quot;</span>
-me$email &lt;-<span class="st"> &quot;me@fake.people&quot;</span></code></pre>
+
+<pre><code class="language-r">me$first_name &lt;- "Fake"
+me$last_name &lt;- "People"
+me$email &lt;- "me@fake.people"
+</code></pre>
+
 <p>Now we just need to update this information on the server:</p>
-<pre class="sourceCode r"><code class="sourceCode r">me &lt;-<span class="st"> </span><span class="kw">patchUser</span>(api, me)
-me</code></pre>
+
+<pre><code class="language-r">me &lt;- patchUser(api, me)
+me
+</code></pre>
+
 <pre><code>## $email
-## [1] &quot;me@fake.people&quot;
+## [1] "me@fake.people"
 ## 
 ## $first_name
-## [1] &quot;Fake&quot;
+## [1] "Fake"
 ## 
 ## $id
 ## [1] 3
 ## 
 ## $last_name
-## [1] &quot;People&quot;
+## [1] "People"
 ## 
 ## $password
-## [1] &quot;my_password&quot;
+## [1] "my_password"
 ## 
 ## $username
-## [1] &quot;my_user_name&quot;</code></pre>
+## [1] "my_user_name"
+</code></pre>
+
 <p>Next time you want to work on data, you’ll just need to start your session by</p>
-<pre class="sourceCode r"><code class="sourceCode r">api &lt;-<span class="st"> </span><span class="kw">mangalapi</span>(URL, <span class="dt">usr =</span> <span class="st">&quot;my_username&quot;</span>, <span class="dt">pwd =</span> <span class="st">&quot;my_password&quot;</span>)</code></pre>
+
+<pre><code class="language-r">api &lt;- mangalapi(URL, usr = "my_username", pwd = "my_password")
+</code></pre>
+
 <h1 id="putting-data-on-the-database">Putting data on the database</h1>
+
 <p>In the previous part, I may have mentionned that the usual way to get a network is to start at the <code>dataset</code> level, then go all the way down to the <code>taxa</code>. When uploading data, you need to follow the opposite direction. Let’s say that we want to send data about what (probably) happens in the <em>Isle Royale National Park</em>: wolves eat mooses, mooses eat balsam fir.</p>
+
 <p>As for <code>get</code> and <code>list</code>, the functions to modify data follow a single naming convention: either <code>patch</code> or <code>add</code>, and the name of the resource with its first letter capitalized.</p>
+
 <h2 id="creating-taxa">Creating taxa</h2>
+
 <p>The first thing we need to do is create a few <code>taxa</code> objects. In case you don’t remember how a <code>taxa</code> is formatted, you can call</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">whatIs</span>(api, <span class="st">&quot;taxa&quot;</span>)</code></pre>
+
+<pre><code class="language-r">whatIs(api, "taxa")
+</code></pre>
+
 <pre><code>##         field                                        help    type  null
 ## 1        bold             The BOLD identifier of the taxa integer  TRUE
 ## 2 description             A short description of the taxa  string  TRUE
@@ -137,17 +169,28 @@ me</code></pre>
 ## 5   TRUE       
 ## 6   TRUE       
 ## 7   TRUE       
-## 9  FALSE</code></pre>
+## 9  FALSE
+</code></pre>
+
 <p>So we’ll want to create three taxa:</p>
-<pre class="sourceCode r"><code class="sourceCode r">moose &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Alces americanus&quot;</span>, <span class="dt">vernacular =</span> <span class="st">&quot;American moose&quot;</span>)
-wolf &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Canis lupus&quot;</span>, <span class="dt">vernacular =</span> <span class="st">&quot;Gray wolf&quot;</span>)
-balsam &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Abies balsamea&quot;</span>, <span class="dt">vernacular =</span> <span class="st">&quot;Balsam fir&quot;</span>)</code></pre>
+
+<pre><code class="language-r">moose &lt;- list(name = "Alces americanus", vernacular = "American moose")
+wolf &lt;- list(name = "Canis lupus", vernacular = "Gray wolf")
+balsam &lt;- list(name = "Abies balsamea", vernacular = "Balsam fir")
+</code></pre>
+
 <p>Now, let’s put them in the database:</p>
-<pre class="sourceCode r"><code class="sourceCode r">wolf &lt;-<span class="st"> </span><span class="kw">addTaxa</span>(api, wolf)
-moose &lt;-<span class="st"> </span><span class="kw">addTaxa</span>(api, moose)
-balsam &lt;-<span class="st"> </span><span class="kw">addTaxa</span>(api, balsam)</code></pre>
+
+<pre><code class="language-r">wolf &lt;- addTaxa(api, wolf)
+moose &lt;- addTaxa(api, moose)
+balsam &lt;- addTaxa(api, balsam)
+</code></pre>
+
 <p>We can check that our taxa are indeed in the database with</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getTaxa</span>(api, wolf$id)</code></pre>
+
+<pre><code class="language-r">getTaxa(api, wolf$id)
+</code></pre>
+
 <pre><code>## $bold
 ## NULL
 ## 
@@ -158,98 +201,136 @@ balsam &lt;-<span class="st"> </span><span class="kw">addTaxa</span>(api, balsam
 ## NULL
 ## 
 ## $id
-## [1] &quot;20&quot;
+## [1] "20"
 ## 
 ## $itis
 ## NULL
 ## 
 ## $name
-## [1] &quot;Canis lupus&quot;
+## [1] "Canis lupus"
 ## 
 ## $ncbi
 ## NULL
 ## 
 ## $owner
-## [1] &quot;my_user_name&quot;
+## [1] "my_user_name"
 ## 
 ## $vernacular
-## [1] &quot;Gray wolf&quot;</code></pre>
+## [1] "Gray wolf"
+</code></pre>
+
 <h2 id="creating-interactions">Creating interactions</h2>
+
 <p>We will now create interactions between these taxa. Once more, have a look at <code>whatIs(api, 'interaction')</code>, and in particular pay attention to the <code>values</code> column of the <code>ecotype</code> field. It tells you that <code>ecotype</code> (the type of ecological interaction betwee two organisms), can only be one of:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">strsplit</span>(<span class="kw">subset</span>(<span class="kw">whatIs</span>(api, <span class="st">&quot;interaction&quot;</span>), field ==<span class="st"> &quot;ecotype&quot;</span>)$values, <span class="st">&quot;, &quot;</span>)[[<span class="dv">1</span>]]</code></pre>
-<pre><code>##  [1] &quot;predation&quot;                 &quot;ectoparasitism&quot;           
-##  [3] &quot;endoparasitism&quot;            &quot;intra-cellular parasitism&quot;
-##  [5] &quot;parasitoidism&quot;             &quot;mycoheterotrophy&quot;         
-##  [7] &quot;antixenosis&quot;               &quot;teletoxy&quot;                 
-##  [9] &quot;amensalism&quot;                &quot;antibiosis&quot;               
-## [11] &quot;allelopathy&quot;               &quot;competition&quot;              
-## [13] &quot;facilitation&quot;              &quot;refuge creation&quot;          
-## [15] &quot;inquilinism&quot;               &quot;phoresis&quot;                 
-## [17] &quot;epibiosis&quot;                 &quot;pollination&quot;              
-## [19] &quot;mutualistic symbiosis&quot;     &quot;zoochory&quot;                 
-## [21] &quot;mutual protection&quot;</code></pre>
+
+<pre><code class="language-r">strsplit(subset(whatIs(api, "interaction"), field == "ecotype")$values, ", ")[[1]]
+</code></pre>
+
+<pre><code>##  [1] "predation"                 "ectoparasitism"           
+##  [3] "endoparasitism"            "intra-cellular parasitism"
+##  [5] "parasitoidism"             "mycoheterotrophy"         
+##  [7] "antixenosis"               "teletoxy"                 
+##  [9] "amensalism"                "antibiosis"               
+## [11] "allelopathy"               "competition"              
+## [13] "facilitation"              "refuge creation"          
+## [15] "inquilinism"               "phoresis"                 
+## [17] "epibiosis"                 "pollination"              
+## [19] "mutualistic symbiosis"     "zoochory"                 
+## [21] "mutual protection"
+</code></pre>
+
 <p>Note that this list of terms will probably increase in the future. In any case, we have enough informations to start writing our interactions:</p>
-<pre class="sourceCode r"><code class="sourceCode r">w_e_m &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">taxa_from =</span> wolf, <span class="dt">taxa_to =</span> moose, <span class="dt">ecotype =</span> <span class="st">&quot;predation&quot;</span>)
-m_e_b &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">taxa_from =</span> moose, <span class="dt">taxa_to =</span> balsam, <span class="dt">ecotype =</span> <span class="st">&quot;herbivory&quot;</span>)
-w_e_m &lt;-<span class="st"> </span><span class="kw">addInteraction</span>(api, w_e_m)
-m_e_b &lt;-<span class="st"> </span><span class="kw">addInteraction</span>(api, m_e_b)</code></pre>
+
+<pre><code class="language-r">w_e_m &lt;- list(taxa_from = wolf, taxa_to = moose, ecotype = "predation")
+m_e_b &lt;- list(taxa_from = moose, taxa_to = balsam, ecotype = "herbivory")
+w_e_m &lt;- addInteraction(api, w_e_m)
+m_e_b &lt;- addInteraction(api, m_e_b)
+</code></pre>
+
 <p>Congratulations! Note that within the <code>R</code> package, it’s perfectly acceptable to pass the whole <code>taxa</code> object (but if you want to interact with the API, you need to pass only the URI, and if you want to interact directly with the API, chances are you knew that already…).</p>
+
 <h2 id="wrapping-things-up">Wrapping things up</h2>
+
 <p>At this point, we’re almost done. We simply need to wrap our interactions in a <code>network</code> object:</p>
-<pre class="sourceCode r"><code class="sourceCode r">isle_royale &lt;-<span class="st"> </span><span class="kw">addNetwork</span>(api, <span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;Isle Royale National Park&quot;</span>, <span class="dt">description =</span> <span class="st">&quot;Or at least a simplified version of it&quot;</span>, 
-    <span class="dt">interactions =</span> <span class="kw">list</span>(w_e_m, m_e_b), <span class="dt">metaweb =</span> <span class="ot">TRUE</span>))</code></pre>
+
+<pre><code class="language-r">isle_royale &lt;- addNetwork(api, list(name = "Isle Royale National Park", description = "Or at least a simplified version of it", 
+    interactions = list(w_e_m, m_e_b), metaweb = TRUE))
+</code></pre>
+
 <p>The <code>metaweb</code> attribute comes from our <a href="http://www.ncbi.nlm.nih.gov/pubmed/22994257">paper on network beta-diversity</a>. If you are reporting regionally observed or infered interactions, then it is <code>TRUE</code>. if you have been sitting in the field looking at stuff, then it’s <code>FALSE</code>.</p>
+
 <p>And finally, even if we only have one network, we will publish it as a dataset:</p>
-<pre class="sourceCode r"><code class="sourceCode r">ir_dataset &lt;-<span class="st"> </span><span class="kw">addDataset</span>(api, <span class="kw">list</span>(<span class="dt">name =</span> <span class="st">&quot;North-American Terrestrial food webs&quot;</span>, 
-    <span class="dt">networks =</span> <span class="kw">list</span>(isle_royale)))</code></pre>
+
+<pre><code class="language-r">ir_dataset &lt;- addDataset(api, list(name = "North-American Terrestrial food webs", 
+    networks = list(isle_royale)))
+</code></pre>
+
 <p>And we’re done!</p>
+
 <h1 id="modifying-data">Modifying data</h1>
+
 <p>In this part, we will go through the different ways to alter data already in the database.</p>
+
 <h2 id="adding-some-attributes">Adding some attributes</h2>
+
 <p>Now, let’s add some informations to our data. First, we have told almost nothing about where our network is in space. We’ll pull it from the database, and add the <code>latitude</code> and <code>longitude</code> attribute:</p>
-<pre class="sourceCode r"><code class="sourceCode r">isle_royale &lt;-<span class="st"> </span><span class="kw">getNetwork</span>(api, isle_royale$id)
-isle_royale$latitude &lt;-<span class="st"> </span><span class="fl">48.015</span>
-isle_royale$longitude &lt;-<span class="st"> </span>-<span class="fl">88.831</span>
-isle_royale &lt;-<span class="st"> </span><span class="kw">patchNetwork</span>(api, isle_royale)
-isle_royale</code></pre>
+
+<pre><code class="language-r">isle_royale &lt;- getNetwork(api, isle_royale$id)
+isle_royale$latitude &lt;- 48.015
+isle_royale$longitude &lt;- -88.831
+isle_royale &lt;- patchNetwork(api, isle_royale)
+isle_royale
+</code></pre>
+
 <pre><code>## $date
 ## NULL
 ## 
 ## $description
-## [1] &quot;Or at least a simplified version of it&quot;
+## [1] "Or at least a simplified version of it"
 ## 
 ## $environment
 ## list()
 ## 
 ## $id
-## [1] &quot;3&quot;
+## [1] "3"
 ## 
 ## $interactions
-## [1] &quot;18&quot; &quot;19&quot;
+## [1] "18" "19"
 ## 
 ## $latitude
-## [1] &quot;48.015&quot;
+## [1] "48.015"
 ## 
 ## $longitude
-## [1] &quot;-88.831&quot;
+## [1] "-88.831"
 ## 
 ## $metaweb
 ## [1] TRUE
 ## 
 ## $name
-## [1] &quot;Isle Royale National Park&quot;
+## [1] "Isle Royale National Park"
 ## 
 ## $owner
-## [1] &quot;my_user_name&quot;</code></pre>
+## [1] "my_user_name"
+</code></pre>
+
 <p>Because the <code>ir_dataset</code> dataset contains a <em>reference</em> to the object we just modified, there is no need to alter it in any way.</p>
+
 <p>At this point, you can have a look at <code>http://mangal.uqar.ca/data/</code>, and on the map, there should be a little dot somewhere between Ontario and Wisconsin, representing the network.</p>
+
 <h2 id="adding-new-relations">Adding new relations</h2>
-<p>Let’s say that we want to provide a short bibliography along with the data. An important paper on this system is <em>The Rise and Fall of Isle Royale Wolves</em>, by Peterson &amp; Page. We know the DOI of this article (<code>10.2307/1381751</code>), so we’ll just add a reference to the dataset. Datasets have <code>papers</code> and <code>data</code> fields, that point to <code>reference</code> objects. First, we will create a reference (again, look at <code>whatIs(api, 'reference')</code> to see the possible field (and beware, there is a typo, the <code>jstorid</code> field is called <code>jsonid</code>, I will fix that really soon).</p>
-<pre class="sourceCode r"><code class="sourceCode r">peterson_n_page &lt;-<span class="st"> </span><span class="kw">addReference</span>(api, <span class="kw">list</span>(<span class="dt">doi =</span> <span class="st">&quot;10.2307/1381751&quot;</span>))</code></pre>
+
+<p>Let’s say that we want to provide a short bibliography along with the data. An important paper on this system is <em>The Rise and Fall of Isle Royale Wolves</em>, by Peterson &amp; Page. We know the DOI of this article (<code>10.2307/1381751</code>), so we’ll just add a reference to the dataset. Datasets have <code>papers</code> and <code>data</code> fields, that point to <code>reference</code> objects. First, we will create a reference (again, look at <code>whatIs(api, 'reference')</code> to see the possible field (and beware, there is a typo, the <code>jstorid</code> field is called <code>jsonid</code>, I will fix that really soon). </p>
+
+<pre><code class="language-r">peterson_n_page &lt;- addReference(api, list(doi = "10.2307/1381751"))
+</code></pre>
+
 <p>Now, we need to add the reference to the <code>papers</code> field of the <code>dataset</code> object:</p>
-<pre class="sourceCode r"><code class="sourceCode r">ir_dataset$papers &lt;-<span class="st"> </span><span class="kw">list</span>(peterson_n_page)
-ir_dataset &lt;-<span class="st"> </span><span class="kw">patchDataset</span>(api, ir_dataset)
-ir_dataset</code></pre>
+
+<pre><code class="language-r">ir_dataset$papers &lt;- list(peterson_n_page)
+ir_dataset &lt;- patchDataset(api, ir_dataset)
+ir_dataset
+</code></pre>
+
 <pre><code>## $data
 ## list()
 ## 
@@ -257,49 +338,69 @@ ir_dataset</code></pre>
 ## NULL
 ## 
 ## $id
-## [1] &quot;2&quot;
+## [1] "2"
 ## 
 ## $name
-## [1] &quot;North-American Terrestrial food webs&quot;
+## [1] "North-American Terrestrial food webs"
 ## 
 ## $networks
-## [1] &quot;3&quot;
+## [1] "3"
 ## 
 ## $owner
-## [1] &quot;my_user_name&quot;
+## [1] "my_user_name"
 ## 
 ## $papers
-## [1] &quot;1&quot;</code></pre>
+## [1] "1"
+</code></pre>
+
 <p>And if you go to <code>http://mangal.uqar.ca/data/dataset/&lt;id&gt;/</code> (where <code>&lt;id&gt;</code> is whatever number is in the <code>id</code> field of the dataset), you will see a list of the references.</p>
+
 <h2 id="using-the-power-of-open-science-for-good">Using the power of open science for good</h2>
+
 <p>When describing the taxa, we only gave the latin and vernacular names. It’s good, but if we want to really take advantage of all the great tools we have, we will need a little more. One solution is to do a bit of googling, and just copy/paste the taxonomic identifiers and patch the taxa this way. Another solution is to use <code>taxize</code>. <code>taxize</code> has a function to get the NCBI identifiers from the latin name, which is perfect for our case:</p>
-<pre class="sourceCode r"><code class="sourceCode r">for (tax in <span class="kw">list</span>(wolf, moose, balsam)) {
-    if (<span class="kw">is.null</span>(tax$ncbi)) {
-        identifier &lt;-<span class="st"> </span><span class="kw">get_uid</span>(tax$name, <span class="dt">ask =</span> <span class="ot">FALSE</span>)
-        if (!<span class="kw">is.na</span>(identifier)) {
-            tax$ncbi &lt;-<span class="st"> </span>identifier[<span class="dv">1</span>]
-            <span class="kw">patchTaxa</span>(api, tax)
+
+<pre><code class="language-r">for (tax in list(wolf, moose, balsam)) {
+    if (is.null(tax$ncbi)) {
+        identifier &lt;- get_uid(tax$name, ask = FALSE)
+        if (!is.na(identifier)) {
+            tax$ncbi &lt;- identifier[1]
+            patchTaxa(api, tax)
         }
     }
-}</code></pre>
-<pre><code>## 
-## Retrieving data for taxon &#39;Canis lupus&#39;
-## 
-## 
-## Retrieving data for taxon &#39;Alces americanus&#39;
-## 
-## 
-## Retrieving data for taxon &#39;Abies balsamea&#39;</code></pre>
-<p>Let’s get the whole network and see that the NCBI identifiers have been added:</p>
-<pre class="sourceCode r"><code class="sourceCode r">g &lt;-<span class="st"> </span><span class="kw">network_as_graph</span>(api, isle_royale$id)
-<span class="kw">unlist</span>(<span class="kw">V</span>(g)$ncbi)</code></pre>
-<pre><code>## [1] 999462  90345   9612</code></pre>
-<p>There is probably more and more we can do using combination of packages, I’ll try to show some possibilities in use-cases.</p>
-<h1 id="what-now">What now?</h1>
-<p>As before, keep in mind that the test database will be periodically wiped clean, so don’t use it to do some actual data deposition (yet). But it would be really cool for you to try writing scripts to upload/modify your datasets, and tell me if anything goes wrong. Meanwhile, I’m working on preparing use cases (including one to automatically upload your data on <em>figshare</em> and returning the DOI), which I’ll publish (hopefully) later this week, or early next week. As always, use the <a href="https://github.com/mangal-wg/rmangal/issues?state=open">GitHub page</a> to report issues.</p>
-<div class="references">
+}
+</code></pre>
 
-</div>
+<pre><code>## 
+## Retrieving data for taxon 'Canis lupus'
+## 
+## 
+## Retrieving data for taxon 'Alces americanus'
+## 
+## 
+## Retrieving data for taxon 'Abies balsamea'
+</code></pre>
+
+<p>Let’s get the whole network and see that the NCBI identifiers have been added:</p>
+
+<pre><code class="language-r">g &lt;- network_as_graph(api, isle_royale$id)
+unlist(V(g)$ncbi)
+</code></pre>
+
+<pre><code>## [1] 999462  90345   9612
+</code></pre>
+
+<p>There is probably more and more we can do using combination of packages, I’ll try to show some possibilities in use-cases.</p>
+
+<h1 id="what-now">What now?</h1>
+
+<p>As before, keep in mind that the test database will be periodically wiped
+clean, so don’t use it to do some actual data deposition (yet). But it would
+be really cool for you to try writing scripts to upload/modify your datasets,
+and tell me if anything goes wrong. Meanwhile, I’m working on preparing
+use cases (including one to automatically upload your data on <em>figshare</em>
+and returning the DOI), which I’ll publish (hopefully) later this week,
+or early next week. As always, use the <a href="https://github.com/mangal-wg/rmangal/issues?state=open">GitHub page</a> to report issues.</p>
+
 
 </div>
 

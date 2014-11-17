@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Estimating SIR model parameters with ABC</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,128 +45,244 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/07/25/sir-abc/">Estimating SIR model parameters with ABC</a></div>
 <div class='post-date'>On July 25, 2014 &middot; 
    Tim
 </div>
-<p>I am currently working with Approximate Bayesian Computation for a project. As always when learning a new method, I like to revisit examples i already know about, to see how it compares. So I decided to look at classical data about a flu epidemics in an English Boarding School. It’s a good dataset to estimate SIR parameters, because (1) Influenza transmits in a flu-like way, (2) boarding schools are a closed system from a demographic point of view, and (3) there was no mortality event during the epidemics. Also, it is likely that there was a single individual responsible for the epidemics at the beginning (but this is something I’ll look into).</p>
-<p>:x distribution of parameter values when there is no analytical expression of the likelihood function. Just to give a very short overview: knowing data (the number of cases every day), I want to estimate the parameters of the SIR model that represents the epidemics. The SIR model is a compartmental model, in which individuals start as susceptible, become infectious, then finally recover. Formally, it is expressed as a set of ordinary differential equations, <span class="math">\(\dot S = -\beta I S\)</span>, <span class="math">\(\dot I = \beta I S - \nu I\)</span>, and <span class="math">\(\dot R = \nu I\)</span>. There are two parameters of the model itself (the transmission rate <span class="math">\(\beta\)</span> and recovery rate <span class="math">\(\nu\)</span>), to which one should add the initial state <span class="math">\(S, I, R = {S_0, I_0, R_0}\)</span>.</p>
-<p>There are a few noteworthy things about this model. First, at any time <span class="math">\(t\)</span>, <span class="math">\(S_t+I_t+R_t=N\)</span>, where <span class="math">\(N\)</span> is the total population size – this assumes no demography, but this is a very reasonable assumption for diseases with a short course and low/no mortality. The other noteworthy things are not really relevant to what I’m about to do, so I’ll skip them. The important information is the value of <span class="math">\(R_0\)</span>, which gives the expected number of infections from a single infected case in an otherwise entirely susceptible population. In the SIR model, <span class="math">\(R_0 = N\beta/\nu\)</span>. The <span class="math">\(R_0\)</span> of influenza viruses is usually in the <span class="math">\([1.3-1.9]\)</span> range. Values of <span class="math">\(R_0 &gt; 1\)</span> imply that epidemic progression will likely happen.</p>
-<p>What I want to do is use ABC to estimate the distribution of <span class="math">\(\beta\)</span> and <span class="math">\(\nu\)</span>, as well as <span class="math">\(I_0\)</span>, and thus estimate the <span class="math">\(R_0\)</span> of this particular epidemics. Here is the basic approach. I will first establish the prior distribution of my three parameters. I will assume that there are no way to guesstimate values of <span class="math">\(\beta\)</span> and <span class="math">\(\nu\)</span>, so I will sample a uniform <span class="math">\([0;1]\)</span> distribution for <span class="math">\(\nu\)</span>, and 10 to the power of random numbers in <span class="math">\([-4; 0]\)</span> for <span class="math">\(\beta\)</span> (these are reasonable estimates in my experience). The only thing I know about <span class="math">\(I_0\)</span> is that it is most likely 1, so I will use a Poisson distribution with <span class="math">\(\lambda = 1\)</span> and add 1, which will make <span class="math">\(I_0 = 1\)</span> and <span class="math">\(I_0 = 2\)</span> equally likely.</p>
-<p>With these random parameters, I will simulate a SIR epidemics, and measure <span class="math">\(\rho(I_t,\hat I_t)\)</span>, which is to say the distance between the empirical time series, and the simulated one. If this distance is lower than an arbitrary treshold <span class="math">\(\epsilon\)</span>, I will keep the random set of parameters as <em>likely</em> – by replicating this process enough times, I should hopefully end up with a posterior distribution of all three parameters.</p>
+<p>I am currently working with Approximate Bayesian Computation for a project. As
+always when learning a new method, I like to revisit examples i already
+know about, to see how it compares. So I decided to look at classical data
+about a flu epidemics in an English Boarding School. It’s a good dataset to
+estimate SIR parameters, because (1) Influenza transmits in a flu-like way,
+(2) boarding schools are a closed system from a demographic point of view, and
+(3) there was no mortality event during the epidemics. Also, it is likely that
+there was a single individual responsible for the epidemics at the beginning
+(but this is something I’ll look into).</p>
+
+<p>:x
+distribution of parameter values when there is no analytical expression of
+the likelihood function. Just to give a very short overview: knowing data
+(the number of cases every day), I want to estimate the parameters of the
+SIR model that represents the epidemics. The SIR model is a compartmental
+model, in which individuals start as susceptible, become infectious, then
+finally recover. Formally, it is expressed as a set of ordinary differential
+equations, $\dot S = -\beta I S$, $\dot I = \beta I S - \nu I$, and $\dot R =
+\nu I$. There are two parameters of the model itself (the transmission rate
+$\beta$ and recovery rate $\nu$), to which one should add the initial state
+$S, I, R = {S_0, I_0, R_0}$.</p>
+
+<p>There are a few noteworthy things about this model. First, at any time $t$,
+$S_t+I_t+R_t=N$, where $N$ is the total population size – this assumes no
+demography, but this is a very reasonable assumption for diseases with a
+short course and low/no mortality. The other noteworthy things are not really
+relevant to what I’m about to do, so I’ll skip them. The important information
+is the value of $R_0$, which gives the expected number of infections from a
+single infected case in an otherwise entirely susceptible population. In the
+SIR model, $R_0 = N\beta/\nu$. The $R_0$ of influenza viruses is usually in
+the $[1.3-1.9]$ range. Values of $R_0 &gt; 1$ imply that epidemic progression
+will likely happen.</p>
+
+<p>What I want to do is use ABC to estimate the distribution of $\beta$ and
+$\nu$, as well as $I_0$, and thus estimate the $R_0$ of this particular
+epidemics. Here is the basic approach. I will first establish the prior
+distribution of my three parameters. I will assume that there are no way to
+guesstimate values of $\beta$ and $\nu$, so I will sample a uniform $[0;1]$
+distribution for $\nu$, and 10 to the power of random numbers in $[-4;
+0]$ for $\beta$ (these are reasonable estimates in my experience). The
+only thing I know about $I_0$ is that it is most likely 1, so I will use a
+Poisson distribution with $\lambda = 1$ and add 1, which will make $I_0 =
+1$ and $I_0 = 2$ equally likely.</p>
+
+<p>With these random parameters, I will simulate a SIR epidemics, and measure
+$\rho(I_t,\hat I_t)$, which is to say the distance between the empirical time
+series, and the simulated one. If this distance is lower than an arbitrary
+treshold $\epsilon$, I will keep the random set of parameters as <em>likely</em>
+– by replicating this process enough times, I should hopefully end up with
+a posterior distribution of all three parameters.</p>
+
 <p>Oh, and also I will do this in <code>julia</code>. Let’s go!</p>
+
 <h1 id="writing-the-code">Writing the code</h1>
+
 <p>First, let’s load a bunch of packages needed to do the processing and output:</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">using Distances
+
+<pre><code class="language-julia">using Distances
 using Distributions
 using DataFrames
-using Gadfly</code></pre>
-<p>Once this is done, we need a function <code>sir</code> to run the simulations. I will use an extremely simple one with Euler integration, because using a sophisticated numerical integration scheme is <em>not</em> the point.</p>
-<pre class="sourceCode julia"><code class="sourceCode julia"><span class="kw">function</span> sir(N, I0, beta, nu, t)
-   <span class="co"># SIR model</span>
-   <span class="co"># N     - total population size</span>
-   <span class="co"># I0    - number of infected cases at t = 0</span>
-   <span class="co"># beta  - transmission</span>
-   <span class="co"># nu    - recovery</span>
-   <span class="co"># t     - number of timesteps</span>
+using Gadfly
+</code></pre>
+
+<p>Once this is done, we need a function <code>sir</code> to run the simulations. I will use
+an extremely simple one with Euler integration, because using a sophisticated
+numerical integration scheme is <em>not</em> the point.</p>
+
+<pre><code class="language-julia">function sir(N, I0, beta, nu, t)
+   # SIR model
+   # N     - total population size
+   # I0    - number of infected cases at t = 0
+   # beta  - transmission
+   # nu    - recovery
+   # t     - number of timesteps
    s = zeros(t)
    i = zeros(t)
    r = zeros(t)
-   s[<span class="fl">1</span>] = N-I0
-   i[<span class="fl">1</span>] = I0
-   <span class="kw">for</span> step <span class="kw">in</span> [<span class="fl">1</span>:(t-<span class="fl">1</span>)]
+   s[1] = N-I0
+   i[1] = I0
+   for step in [1:(t-1)]
       ds = -beta*s[step]*i[step]
       di =  beta*s[step]*i[step] - nu*i[step]
       dr =  nu*i[step]
-      s[step+<span class="fl">1</span>] = s[step] + ds
-      i[step+<span class="fl">1</span>] = i[step] + di
-      r[step+<span class="fl">1</span>] = r[step] + dr
-   <span class="kw">end</span>
-   <span class="kw">return</span> (s, i, r)
-<span class="kw">end</span></code></pre>
-<p>This function will return a tuple of time series, for the S, I, and R values. The next step is to define a bunch of arrays, parameters, etc etc.</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">number_samples = <span class="fl">10000</span>
+      s[step+1] = s[step] + ds
+      i[step+1] = i[step] + di
+      r[step+1] = r[step] + dr
+   end
+   return (s, i, r)
+end
+</code></pre>
 
-beta_prior = <span class="fl">10</span>.^rand(Uniform(-<span class="fl">4</span>, -<span class="fl">2</span>), number_samples)
-nu_prior   =     rand(Uniform(<span class="fl">0</span>, <span class="fl">1</span>), number_samples)
-i0_prior   =     rand(Poisson(<span class="fl">1</span>), number_samples).+<span class="fl">1</span>
+<p>This function will return a tuple of time series, for the S, I, and R
+values. The next step is to define a bunch of arrays, parameters, etc etc.</p>
 
-param_N = <span class="fl">763</span>   <span class="co"># We know the total number of students</span>
-param_t = <span class="fl">15</span>    <span class="co"># The data cover 15 days</span>
-param_d = <span class="fl">200</span>   <span class="co"># This is my arbitraty treshold, feel free  to experiment</span>
+<pre><code class="language-julia">number_samples = 10000
 
-beta_posterior = <span class="dt">Float64</span>[]
-nu_posterior = <span class="dt">Float64</span>[]
-i0_posterior = <span class="dt">Int64</span>[]
-fit_posterior = <span class="dt">Float64</span>[]</code></pre>
-<p>Then, we can load the data which are stored in a file called <code>data.csv</code>, <a href="https://gist.github.com/9dd174a411b0ae5f0fa7">available as a gist here</a>:</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">observed_cases = convert(<span class="dt">Array</span>{<span class="dt">Float64</span>}, readtable(<span class="st">&quot;data.csv&quot;</span>,separator=<span class="ch">&#39;;&#39;</span>, header=true)[:I])</code></pre>
-<p>And now, we need to loop through all sets of parameters, and measure the distance. Each iteration of this loop will run a simulation of the SIR model, then measure the Euclidean distance between the observed and simulated time series, and finally if this distance is lower than a treshold, consider that the parameter set can be kept:</p>
-<pre class="sourceCode julia"><code class="sourceCode julia"><span class="kw">for</span> run <span class="kw">in</span> [<span class="fl">1</span>:number_samples]
+beta_prior = 10.^rand(Uniform(-4, -2), number_samples)
+nu_prior   =     rand(Uniform(0, 1), number_samples)
+i0_prior   =     rand(Poisson(1), number_samples).+1
+
+param_N = 763   # We know the total number of students
+param_t = 15    # The data cover 15 days
+param_d = 200   # This is my arbitraty treshold, feel free  to experiment
+
+beta_posterior = Float64[]
+nu_posterior = Float64[]
+i0_posterior = Int64[]
+fit_posterior = Float64[]
+</code></pre>
+
+<p>Then, we can load the data which are stored in a file called <code>data.csv</code>,
+<a href="https://gist.github.com/9dd174a411b0ae5f0fa7">available as a gist here</a>:</p>
+
+<pre><code class="language-julia">observed_cases = convert(Array{Float64}, readtable("data.csv",separator=';', header=true)[:I])
+</code></pre>
+
+<p>And now, we need to loop through all sets of parameters, and measure the
+distance. Each iteration of this loop will run a simulation of the SIR model,
+then measure the Euclidean distance between the observed and simulated time
+series, and finally if this distance is lower than a treshold, consider that
+the parameter set can be kept:</p>
+
+<pre><code class="language-julia">for run in [1:number_samples]
    simulated_timeseries = sir(
          param_N, 
          i0_prior[run],
          beta_prior[run],
          nu_prior[run],
          param_t)
-   distance = evaluate(Euclidean(), observed_cases, simulated_timeseries[<span class="fl">2</span>])
-   <span class="kw">if</span> distance &lt;= param_d
+   distance = evaluate(Euclidean(), observed_cases, simulated_timeseries[2])
+   if distance &lt;= param_d
       push!(beta_posterior, beta_prior[run])
       push!(nu_posterior, nu_prior[run])
       push!(i0_posterior, i0_prior[run])
       push!(fit_posterior, distance)
-   <span class="kw">end</span>
-<span class="kw">end</span></code></pre>
+   end
+end
+</code></pre>
+
 <p>To make plotting faster, we will wrap up the results in a <code>DataFrame</code>:</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">posteriors = DataFrame(beta = beta_posterior, nu = nu_posterior, i0 = i0_posterior)</code></pre>
-<p>By the way, I ran the following figures with 10<sup>6</sup> prior samples – in under 2 seconds.</p>
+
+<pre><code class="language-julia">posteriors = DataFrame(beta = beta_posterior, nu = nu_posterior, i0 = i0_posterior)
+</code></pre>
+
+<p>By the way, I ran the following figures with 10^6^ prior samples – in under 2 seconds. </p>
+
 <h1 id="the-results">The results</h1>
-<p>Because this dataset is well-known, there are estimates of the parameters using <span class="math">\(I_0 = 1\)</span>. They are, respectively, <span class="math">\(\beta \approx 2.18\times 10^{-3}\)</span>, and <span class="math">\(\nu \approx 4.41\times 10^{-1}\)</span>. <strong>So</strong>, what does the fitting says?</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">julia&gt; mean(posteriors[:beta])
-   <span class="fl">0.0023823647134406517</span>
+
+<p>Because this dataset is well-known, there are estimates of the parameters
+using $I_0 = 1$. They are, respectively, $\beta \approx 2.18\times 10^{-3}$,
+and $\nu \approx 4.41\times 10^{-1}$. <strong>So</strong>, what does the fitting says?</p>
+
+<pre><code class="language-julia">julia&gt; mean(posteriors[:beta])
+   0.0023823647134406517
 
 julia&gt; mean(posteriors[:nu])
-   <span class="fl">0.5571488709952898</span>
+   0.5571488709952898
 
 julia&gt; mean(posteriors[:i0])
-   <span class="fl">2.8266301035953685</span></code></pre>
-<p>First, although <span class="math">\(\beta\)</span> estimated this way is quite close to the proposed estimate, the value of <span class="math">\(\nu\)</span> differs. Specifically, I predict an easier remission than the original estimation (the recovery time is <span class="math">\(1/\nu\)</span> days, <em>i.e.</em> 2.27 in the original model, and 1.7 in my estimate). Why? Simply because I decided not to trust the assumption that <span class="math">\(I_0 = 1\)</span>. The original <span class="math">\(I_0\)</span> is based on the fact that there was a single student admitted for flu-like symptoms on day 0, so it can be that by day 0, there were already infected (but asymptomatic) individuals. My estimation tends to predict that there were between two and three infected students.</p>
-<p>With this information, we can easily plot the predicted timecourse of the epidemics:</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">pred = sir(<span class="fl">763</span>, <span class="fl">3</span>, <span class="fl">0.00238</span>, <span class="fl">0.5571</span>, <span class="fl">15</span>)
-draw(
-      PNG(<span class="st">&quot;infected.png&quot;</span>, <span class="fl">12</span>cm, <span class="fl">8</span>cm),
-      plot(
-         layer(x=[<span class="fl">0</span>:<span class="fl">14</span>], y=pred[<span class="fl">2</span>], Geom.point),
-         layer(dat, x=<span class="st">&quot;day&quot;</span>, y=<span class="st">&quot;I&quot;</span>, Geom.line)
-         )
-    )</code></pre>
-<p>This yields the following figure:</p>
-<figure>
-<img src="/images/infected.png" />
-</figure>
-<p>The data are the continuous line, and the predictions are the dots. It’s not a perfect fit, but it reproduces the main features of the epidemics quite well. When compared to the original parameters, notably, it predicts the correct date at which no more cases are observed, but it slightly over-estimates the number of cases during the peak.</p>
-<p>We can also have a look at the distribution of <span class="math">\(\beta\)</span></p>
-<figure>
-<img src="/images/dist_beta.png" />
-</figure>
-<p>and <span class="math">\(\nu\)</span></p>
-<figure>
-<img src="/images/dist_nu.png" />
-</figure>
-<p>In both figures, the vertical lines indicate the previous estimations of the parameters. While they are well within the posterior distribution, it seems that (i) using a different method for fitting and (ii) estimating the value of <span class="math">\(I_0\)</span> gives different estimates.</p>
-<p>Finally, what about the distribution of <span class="math">\(R_0\)</span>? The original <span class="math">\(R0\)</span> was estimated to 3.76. Using the result of the ABC, I found</p>
-<pre class="sourceCode julia"><code class="sourceCode julia">julia&gt; mean(<span class="fl">763</span>.*(posteriors[:beta]./posteriors[:nu]))
-   <span class="fl">3.292957996735042</span></code></pre>
-<p>Which is not <em>all</em> that different from the original prediction. Note that a consistent result is that the epidemic parameters estimated through ABC make the epidemic <em>less</em> aggresive than the original one. The recovery rate is higher, the <span class="math">\(R_0\)</span> is lower, but the transmission rate is higher.</p>
-<h1 id="as-a-brief-wrap-up">As a brief wrap-up…</h1>
-<p>I love <code>julia</code>. I haven’t even thought about possible optimizations and it’s fast already. Also, it’s simple to write. Clearly sliced bread was the best thing until <code>julia</code>.</p>
-<p>ABC – at least as long as a simple rejection scheme is used – is not that hard. This gives me a bunch of ideas.</p>
-<p>I love epidemiology. For some reason, I just find it fascinating. This is the reason why I switched from immunology to parasitology to ecology. I love it.</p>
-<div class="references">
+   2.8266301035953685
+</code></pre>
 
-</div>
+<p>First, although $\beta$ estimated this way is quite close to the proposed
+estimate, the value of $\nu$ differs. Specifically, I predict an easier
+remission than the original estimation (the recovery time is $1/\nu$ days,
+<em>i.e.</em> 2.27 in the original model, and 1.7 in my estimate). Why? Simply because
+I decided not to trust the assumption that $I_0 = 1$. The original $I_0$
+is based on the fact that there was a single student admitted for flu-like
+symptoms on day 0, so it can be that by day 0, there were already infected
+(but asymptomatic) individuals. My estimation tends to predict that there
+were between two and three infected students.</p>
+
+<p>With this information, we can easily plot the predicted timecourse of the
+epidemics:</p>
+
+<pre><code class="language-julia">pred = sir(763, 3, 0.00238, 0.5571, 15)
+draw(
+      PNG("infected.png", 12cm, 8cm),
+      plot(
+         layer(x=[0:14], y=pred[2], Geom.point),
+         layer(dat, x="day", y="I", Geom.line)
+         )
+    )
+</code></pre>
+
+<p>This yields the following figure:</p>
+
+<p><img src="/images/infected.png" alt="" /></p>
+
+<p>The data are the continuous line, and the predictions are the dots. It’s
+not a perfect fit, but it reproduces the main features of the epidemics
+quite well. When compared to the original parameters, notably, it predicts
+the correct date at which no more cases are observed, but it slightly
+over-estimates the number of cases during the peak.</p>
+
+<p>We can also have a look at the distribution of $\beta$</p>
+
+<p><img src="/images/dist_beta.png" alt="" /></p>
+
+<p>and $\nu$</p>
+
+<p><img src="/images/dist_nu.png" alt="" /></p>
+
+<p>In both figures, the vertical lines indicate the previous estimations of the
+parameters. While they are well within the posterior distribution, it seems
+that (i) using a different method for fitting and (ii) estimating the value
+of $I_0$ gives different estimates.</p>
+
+<p>Finally, what about the distribution of $R_0$? The original $R0$ was estimated
+to 3.76. Using the result of the ABC, I found</p>
+
+<pre><code class="language-julia">julia&gt; mean(763.*(posteriors[:beta]./posteriors[:nu]))
+   3.292957996735042
+</code></pre>
+
+<p>Which is not <em>all</em> that different from the original prediction. Note that
+a consistent result is that the epidemic parameters estimated through ABC
+make the epidemic <em>less</em> aggresive than the original one. The recovery rate
+is higher, the $R_0$ is lower, but the transmission rate is higher.</p>
+
+<h1 id="as-a-brief-wrap-up">As a brief wrap-up…</h1>
+
+<p>I love <code>julia</code>. I haven’t even thought about possible optimizations and it’s
+fast already. Also, it’s simple to write. Clearly sliced bread was the best
+thing until <code>julia</code>.</p>
+
+<p>ABC – at least as long as a simple rejection scheme is used – is not that
+hard. This gives me a bunch of ideas.</p>
+
+<p>I love epidemiology. For some reason, I just find it fascinating. This is the
+reason why I switched from immunology to parasitology to ecology. I love it.</p>
+
 
 </div>
 

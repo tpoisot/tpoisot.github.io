@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Software</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,74 +45,126 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
-       <p>This page is a non-exhaustive list of software I’ve released. Only the most significant/ambitious projects, or those in which I contributed a lot, are listed.</p>
-<p>I do <em>most</em> of my development using <code>R</code> (whether or not I like it is not really relevant seeing how it is the <em>lingua franca</em> of ecology). For most demanding projects, I use mostly <code>python</code> (which I’m progressively replacing by <code>Julia</code>), and <code>C</code> or <code>C++</code> for more computationally intensive tasks (the choice between the later two being made as a function of how I feel re. pointers on a particular day).</p>
-<h1 id="full-featured-packages">Full-featured packages</h1>
-<h2 id="paco">paco</h2>
-<p>The <code>R</code> package <code>paco</code> performs the procrustes test of cophylogeny for bipartite interaction networks. It is not fully stable yet, but reproduces all of the analyses from the original publication.</p>
-<ul>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://gtihub.com/PoisotLab/paco">GitHub repository</a> (source code)</li>
-<li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;PoisotLab/paco&quot;)</code></li>
-</ul>
-<h2 id="rmangal">rmangal</h2>
-<p>The <code>R</code> package <code>rmangal</code> offers programmatic access to ecological network data (<em>beta version</em>), including a rich interface for meta-data on species, traits, spatial position. It has built-in interfaces with <code>igraph</code>.</p>
-<ul>
-<li><i class="fa fa-fw fa-file-text-o"></i> <a href="https://github.com/mangal-wg/mangal">Open draft</a></li>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/rmangal">GitHub repository</a> (source code)</li>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/pymangal">GitHub repository</a> (python version)</li>
-<li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;mangal-wg/rmangal&quot;)</code></li>
-</ul>
-<h2 id="betalink">betalink</h2>
-<p>The <code>R</code> package <code>betalink</code> allows measuring the beta-diversity of (ecological) networks sharing some of their species. It is currently being rewritten to rely heavily on <code>igraph</code> for improved performance on large networks</p>
-<ul>
-<li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a><br /></li>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code)<br /></li>
-<li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;tpoisot/betalink&quot;)</code></li>
-</ul>
-<h2 id="esm">ESM</h2>
-<p>The <code>R</code> package <code>ESM</code> performs several measures of ecological specificity on binary and quantitative performance data. Some of its functions are duplicated in <code>bipartite</code>.</p>
-<ul>
-<li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a><br /></li>
-<li><i class="fa fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code)<br /></li>
-<li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>install.packages(&quot;ESM&quot;, repos=&quot;http://R-Forge.R-project.org&quot;)</code></li>
-</ul>
-<h2 id="digitize">digitize</h2>
-<p>The <code>R</code> package <code>digitize</code> allows to point-and-click on image files to extract the data. It is particularly useful to get raw data from published figures. The newest revision accomodates skewed graphics.</p>
-<ul>
-<li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a><br /></li>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code)<br /></li>
-<li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github(&quot;tpoisot/digitize&quot;)</code></li>
-</ul>
-<h2 id="biweb">biweb</h2>
-<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/~cflores/">Cesar Flores</a>. The core software is written in <code>matlab</code>, and a subset of the functionalities are available as a <code>python</code> module.</p>
-<ul>
-<li><i class="fa fa-fw fa-file-text-o"></i> Paper in preparation<br /></li>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/biweb">GitHub repo</a> (dual <code>matlab</code>/<code>python</code> code)</li>
-</ul>
-<h1 id="other-software">Other software</h1>
-<h2 id="inference-of-food-web-structure">Inference of food-web structure</h2>
-<p>We propose a method to infer the structure of food-webs based on species body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and <a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a></p>
-<ul>
-<li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a><br /></li>
-<li><i class="fa fa-fw fa-code"></i> <a href="http://figshare.com/articles/Code_and_example_data_to_calibrate_the_niche_model_of_food_webs_based_on_allometric_relationships/650228">Code and example data</a></li>
-</ul>
-<h2 id="other-possibly-useful-code">Other (possibly) useful code</h2>
-<p>Reasonably fast generation of null bipartite networks in <code>C</code> under different scenarios. Uses the <em>GNU Scientific Library</em>.</p>
-<ul>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)</li>
-</ul>
-<p>Python class to track phylogenetic structure during simulations.</p>
-<ul>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/PyCoPhy">GitHub repository</a> (source code)</li>
-</ul>
-<p>Simulation of individual-based trophic communities under niche/neutral scenarios.</p>
-<ul>
-<li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/manna">GitHub repository</a> (source code)</li>
-</ul>
-<div class="references">
+    <div class="content">
+       <p>This page is a non-exhaustive list of software I’ve released. Only the
+most significant/ambitious projects, or those in which I contributed a lot,
+are listed.</p>
 
-</div>
+<p>I do <em>most</em> of my development using <code>R</code> (whether or not I like it is not
+really relevant seeing how it is the <em>lingua franca</em> of ecology). For most
+demanding projects, I use mostly <code>python</code> (which I’m progressively replacing
+by <code>Julia</code>), and <code>C</code> or <code>C++</code> for more computationally intensive tasks
+(the choice between the later two being made as a function of how I feel
+re. pointers on a particular day).</p>
+
+<h1 id="full-featured-packages">Full-featured packages</h1>
+
+<h2 id="paco">paco</h2>
+
+<p>The <code>R</code> package <code>paco</code> performs the procrustes test of cophylogeny for
+bipartite interaction networks. It is not fully stable yet, but reproduces
+all of the analyses from the original publication.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://gtihub.com/PoisotLab/paco">GitHub repository</a> (source code)</li>
+  <li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("PoisotLab/paco")</code></li>
+</ul>
+
+<h2 id="rmangal">rmangal</h2>
+
+<p>The <code>R</code> package <code>rmangal</code> offers programmatic access to ecological network
+data (<em>beta version</em>), including a rich interface for meta-data on species,
+traits, spatial position. It has built-in interfaces with <code>igraph</code>.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-file-text-o"></i> <a href="https://github.com/mangal-wg/mangal">Open draft</a></li>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/rmangal">GitHub repository</a> (source code)</li>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/mangal-wg/pymangal">GitHub repository</a> (python version)</li>
+  <li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("mangal-wg/rmangal")</code></li>
+</ul>
+
+<h2 id="betalink">betalink</h2>
+
+<p>The <code>R</code> package <code>betalink</code> allows measuring the beta-diversity of (ecological)
+networks sharing some of their species. It is currently being rewritten to
+rely heavily on <code>igraph</code> for improved performance on large networks</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12002/abstract">Original paper</a>   </li>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/betalink">GitHub repository</a> (source code)   </li>
+  <li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/betalink")</code></li>
+</ul>
+
+<h2 id="esm">ESM</h2>
+
+<p>The <code>R</code> package <code>ESM</code> performs several measures of ecological specificity
+on binary and quantitative performance data. Some of its functions are
+duplicated in <code>bipartite</code>.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2011.00174.x/abstract">Original paper</a>   </li>
+  <li><i class="fa fa-fw fa-code"></i> <a href="https://r-forge.r-project.org/R/?group_id=593">R-Forge project</a> (source code)   </li>
+  <li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>install.packages("ESM", repos="http://R-Forge.R-project.org")</code></li>
+</ul>
+
+<h2 id="digitize">digitize</h2>
+
+<p>The <code>R</code> package <code>digitize</code> allows to point-and-click on image files to
+extract the data. It is particularly useful to get raw data from published
+figures. The newest revision accomodates skewed graphics.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://journal.r-project.org/archive/2011-1/">Original paper</a>   </li>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/digitize">GitHub repository</a> (source code)   </li>
+  <li><i class="fa fa-fw fa-terminal"></i> Easy install: <code>library(devtools); install_github("tpoisot/digitize")</code></li>
+</ul>
+
+<h2 id="biweb">biweb</h2>
+
+<p>The <code>biweb</code> suite of algorithms implements the most common descriptive analyses
+for bipartite ecological networks - with <a href="http://ecotheory.biology.gatech.edu/~cflores/">Cesar Flores</a>. The core
+software is written in <code>matlab</code>, and a subset of the functionalities are
+available as a <code>python</code> module.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-file-text-o"></i> Paper in preparation   </li>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/biweb">GitHub repo</a> (dual <code>matlab</code>/<code>python</code> code) </li>
+</ul>
+
+<h1 id="other-software">Other software</h1>
+
+<h2 id="inference-of-food-web-structure">Inference of food-web structure</h2>
+
+<p>We propose a method to infer the structure of food-webs based on species
+body-size and allometric relationships - with <a href="http://albouycamille.free.fr/index.php">Camille Albouy</a> and
+<a href="http://chaire-eec.uqar.ca/home.php">Dominique Gravel</a></p>
+
+<ul>
+  <li><i class="fa fa-fw fa-file-text-o"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">Original paper</a>   </li>
+  <li><i class="fa fa-fw fa-code"></i> <a href="http://figshare.com/articles/Code_and_example_data_to_calibrate_the_niche_model_of_food_webs_based_on_allometric_relationships/650228">Code and example data</a></li>
+</ul>
+
+<h2 id="other-possibly-useful-code">Other (possibly) useful code</h2>
+
+<p>Reasonably fast generation of null bipartite networks in <code>C</code> under different
+scenarios. Uses the <em>GNU Scientific Library</em>.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/CNullModels">GitHub repository</a> (source code)   </li>
+</ul>
+
+<p>Python class to track phylogenetic structure during simulations.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/PyCoPhy">GitHub repository</a> (source code)   </li>
+</ul>
+
+<p>Simulation of individual-based trophic communities under niche/neutral scenarios.</p>
+
+<ul>
+  <li><i class="fa fa-fw fa-github"></i> <a href="https://github.com/tpoisot/manna">GitHub repository</a> (source code)   </li>
+</ul>
+
 
 
     </div>

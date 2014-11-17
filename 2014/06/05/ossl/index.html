@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Open Scientific Software License</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,22 +45,85 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/06/05/ossl/">Open Scientific Software License</a></div>
 <div class='post-date'>On June  5, 2014 &middot; 
    Tim
 </div>
-<p>I have been doing a bunch of reading on software licenses, because the question of which one to pick popped up in two projects I currently work on. There are tools like GitHub’s <em><a href="http://choosealicense.com/">choose a license</a></em>, that compare a fairly good selection of FOSS (Free and Open Source Software) licenses. And you can find a lot of (good) advice around the internet that will advise you to pick a license for your code. See <em>e.g.</em> <a href="http://www.software.ac.uk/resources/guides/choosing-open-source-licence">sofwtare.ac.uk</a>, a paper by <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002598">Andrew Morin and colleagues</a>, and more <a href="http://www.astrobetter.com/the-whys-and-hows-of-licensing-scientific-code/">tutorial like documents</a>. If you read all of that (and if you produce code, I think you should), you’ll most likely agree that licensing your work is important.</p>
-<p>Yet <a href="http://matt.might.net/articles/crapl/">as Matt Might points out</a>, FOSS licenses tailored specifically for academic use should have other requirements besides no liability and ensuring sharing of modified code. I spend a sometimes significant amount of my time writing code to perform various analyzes, or to reproduce results. I think that this is a research output equally important to publishing the paper (in that I see very little value in a great methodological paper with no code attached, for starters); which means that I think it should be credited somehow.</p>
-<p>One thing I have noticed in various discussions over the last few months is that the fact that (good) software is hard to produce completely eludes some people. This is perfectly understandable. In part, because we (as computer users) are <a href="http://linux.oneandoneis2.org/LNW.htm">demanding software working intuitively out of the box</a>. As a result, most mainstream operating systems (and I’m including several Linux distributions in that) are focusing on <em>user-friendliness</em>, so that even complex things <em>appear</em> really simple. Given that, really, how hard can programming a <code>R</code> package that doesn’t even have a GUI be? Software is a given right, and (I have checked some of my papers and I must plead guilty to that too) citing some of the software that made a paper possible is still not automatic. And to really drive the point home: if someone publishes a paper using package <code>xyz</code>, without citing the paper describing <code>xyz</code> (or the software itself should there be no paper to cite), that person get credit while the software creator does not.</p>
-<p>Even the very concept of a software license is focused on people with some computing experience. It tells things about the use of the code, in the sense that it tells you whether you can make money with it (not with the output), whether you can modify the code, and if so, which future licenses are acceptable. In short, the licensing issue is definitely an important one in science, but it does not speaks to the end users. Now before you preemptively burn be at the stake before I propose <a href="http://xkcd.com/501/">EULAs</a> for all scientific software, hear me out. On a daily basis, what you do with my code matters to me far less than whether I get credit for having produced the code in the first place, especially when this code is actually used. I would be happy to release 90% of everything I write using the <a href="http://www.wtfpl.net/about/">WTFPL</a> (just to see if I can managed to spell it out in a paper, mostly). So I think we need <em>some sort</em> of license between the creator of the software and the users.</p>
-<p>An additional complication (or nuance, rather) is that thanks to increased computer literacy, a lot of people will be able to either add to, or modify your software for their own needs. In a sense, software users will contribute to the improvement of it, <em>as long as they give back</em> their modifications. It may not seem like a lot, but a function to read and convert a specific type of file to use with a particular package <em>is</em> a potentially worthwhile addition to it. In this hypothetical scenario, if the “new” format is used by a lot of people in the field, then this can even improve the adoption of the software. So where to go from here? An ideal license for scientific software would (i) ensure that the creator gets credit for its work, (ii) facilitates the improvement of the software through community contributions, and (iii) build on existing FOSS licenses.</p>
-<p>I think the modular design of the <em>Creative Commons</em> licenses is a good inspiration. Basically, we could write an OSSL (Open Scientific Software License) with the four following clauses (purely as an intellectual exercise). Each people would then be free to use any combination (or all) of the clauses in their particular releases. Ideally, the software would be released under two different licenses. One of the mainstream FOSS ones for general code re-use, and the OSSL for use in research.</p>
+<p>I have been doing a bunch of reading on software licenses, because the
+question of which one to pick popped up in two projects I currently work
+on. There are tools like GitHub’s <em><a href="http://choosealicense.com/">choose a license</a></em>, that compare a
+fairly good selection of FOSS (Free and Open Source Software) licenses. And
+you can find a lot of (good) advice around the internet that will advise
+you to pick a license for your code. See <em>e.g.</em> <a href="http://www.software.ac.uk/resources/guides/choosing-open-source-licence">sofwtare.ac.uk</a>,
+a paper by <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002598">Andrew Morin and colleagues</a>, and more <a href="http://www.astrobetter.com/the-whys-and-hows-of-licensing-scientific-code/">tutorial like
+documents</a>. If you read all of that (and if you produce code,
+I think you should), you’ll most likely agree that licensing your work
+is important.</p>
+
+<p>Yet <a href="http://matt.might.net/articles/crapl/">as Matt Might points out</a>, FOSS licenses tailored specifically for
+academic use should have other requirements besides no liability and ensuring
+sharing of modified code. I spend a sometimes significant amount of my time
+writing code to perform various analyzes, or to reproduce results. I think that
+this is a research output equally important to publishing the paper (in that
+I see very little value in a great methodological paper with no code attached,
+for starters); which means that I think it should be credited somehow.</p>
+
+<p>One thing I have noticed in various discussions over the last few months is
+that the fact that (good) software is hard to produce completely eludes some
+people. This is perfectly understandable. In part, because we (as computer
+users) are <a href="http://linux.oneandoneis2.org/LNW.htm">demanding software working intuitively out of the box</a>. As a
+result, most mainstream operating systems (and I’m including several Linux
+distributions in that) are focusing on <em>user-friendliness</em>, so that even
+complex things <em>appear</em> really simple. Given that, really, how hard can
+programming a <code>R</code> package that doesn’t even have a GUI be? Software is a
+given right, and (I have checked some of my papers and I must plead guilty
+to that too) citing some of the software that made a paper possible is still
+not automatic. And to really drive the point home: if someone publishes
+a paper using package <code>xyz</code>, without citing the paper describing <code>xyz</code>
+(or the software itself should there be no paper to cite), that person get
+credit while the software creator does not.</p>
+
+<p>Even the very concept of a software license is focused on people with some
+computing experience. It tells things about the use of the code, in the
+sense that it tells you whether you can make money with it (not with the
+output), whether you can modify the code, and if so, which future licenses
+are acceptable. In short, the licensing issue is definitely an important
+one in science, but it does not speaks to the end users. Now before you
+preemptively burn be at the stake before I propose <a href="http://xkcd.com/501/">EULAs</a> for all
+scientific software, hear me out. On a daily basis, what you do with my code
+matters to me far less than whether I get credit for having produced the code
+in the first place, especially when this code is actually used. I would be
+happy to release 90% of everything I write using the <a href="http://www.wtfpl.net/about/">WTFPL</a> (just
+to see if I can managed to spell it out in a paper, mostly). So I think we
+need <em>some sort</em> of license between the creator of the software and the users.</p>
+
+<p>An additional complication (or nuance, rather) is that thanks to increased
+computer literacy, a lot of people will be able to either add to, or modify
+your software for their own needs. In a sense, software users will contribute
+to the improvement of it, <em>as long as they give back</em> their modifications. It
+may not seem like a lot, but a function to read and convert a specific
+type of file to use with a particular package <em>is</em> a potentially worthwhile
+addition to it. In this hypothetical scenario, if the “new” format is used
+by a lot of people in the field, then this can even improve the adoption
+of the software. So where to go from here? An ideal license for scientific
+software would (i) ensure that the creator gets credit for its work, (ii)
+facilitates the improvement of the software through community contributions,
+and (iii) build on existing FOSS licenses.</p>
+
+<p>I think the modular design of the <em>Creative Commons</em> licenses is a good
+inspiration. Basically, we could write an OSSL (Open Scientific Software
+License) with the four following clauses (purely as an intellectual
+exercise). Each people would then be free to use any combination (or all)
+of the clauses in their particular releases. Ideally, the software would be
+released under two different licenses. One of the mainstream FOSS ones for
+general code re-use, and the OSSL for use in research.</p>
+
 <pre><code>Open Scientific Software License (OSSL) 0.0.1
 
 This document presents the conditions for the use of, and contribution to,
-&quot;XXXX&quot;, hereafter &quot;the software&quot;, by you, hereafter &quot;the user&quot;.
+"XXXX", hereafter "the software", by you, hereafter "the user".
 
 [insert usual warning about no liability]
 
@@ -89,12 +149,27 @@ this project under the COPYING file.
 (EN) ENHANCEMENT -- If the software is modified, expanded, or improved during
 the realisation of a study, the person in charge of the modifications is
 required to propose them for merging when the results obtained with the
-modified software are first published, or earlier.</code></pre>
-<p>If you use code released under the <code>OSSL/AU-CR</code>, for example, you can use the code and modify it without proposing your modifications for merging, and your only requirement is to cite it. The <code>AU</code> clause is (in my opinion) important because it makes the conditions for authorship clear: if you don’t interact in any way with the software creator, then (of course) he or she should not be asking for authorship. But if you ask whether or not the creator could introduce a new functionality, or alter the functioning of the program in any way, then it’s fair to discuss whether or not this qualifies for authorship (I argue that it does; I’ve had a very good experience recently of inviting a co-author to help us figure out his package, and he made excellent contributions to the paper).</p>
-<p>So in short (that was not short at all!), this is the current state of my thinking about finding a way to license (open) scientific software that would respect the right of software creators to get credit for their work. Whether or not I’ll add this as a license for my own projects is something I have not decided yet. That will depend in part of the feedback I get…</p>
-<div class="references">
+modified software are first published, or earlier.
+</code></pre>
 
-</div>
+<p>If you use code released under the <code>OSSL/AU-CR</code>, for example, you can use
+the code and modify it without proposing your modifications for merging,
+and your only requirement is to cite it. The <code>AU</code> clause is (in my opinion)
+important because it makes the conditions for authorship clear: if you
+don’t interact in any way with the software creator, then (of course) he or
+she should not be asking for authorship. But if you ask whether or not the
+creator could introduce a new functionality, or alter the functioning of the
+program in any way, then it’s fair to discuss whether or not this qualifies for
+authorship (I argue that it does; I’ve had a very good experience recently of
+inviting a co-author to help us figure out his package, and he made excellent
+contributions to the paper).</p>
+
+<p>So in short (that was not short at all!), this is the current state of my
+thinking about finding a way to license (open) scientific software that would
+respect the right of software creators to get credit for their work. Whether
+or not I’ll add this as a license for my own projects is something I have
+not decided yet. That will depend in part of the feedback I get…</p>
+
 
 </div>
 

@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | COinS metadata in Jekyll blogposts</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,36 +45,34 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/02/08/coins-metadata-blogposts/">COinS metadata in Jekyll blogposts</a></div>
 <div class='post-date'>On February  8, 2013 &middot; 
    Tim
 </div>
 <p><a href="http://ocoins.info/">COinS</a> is a specification to embed metadata in web pages. In short, when these data are present, most bibliography software are able to add the resource to your library. Having these data in blog posts can be good, because you can keep track of blog posts with your other references, but you can also formally cite blog posts in your papers (if some people can turn <a href="http://dynamicecology.wordpress.com/2011/06/17/zombie-ideas-in-ecology/">blog posts into <em>TREE</em> papers</a>, citing blog posts might not be so far away).</p>
-<p>Adding <code>COinS</code> data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in to generate these data for blogs running <code>jekyll</code>. Having 5 minutes to lose, I decided to just go ahead and write one. Here it goes:</p>
-<div class="highlight">
-<pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span>
-    <span class="na">class=</span><span class="s">&quot;Z3988&quot;</span> 
-    <span class="na">title=</span><span class="s">&quot;ctx_ver=Z39.88-2004</span>
-<span class="s">    &amp;amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc</span>
-<span class="s">    &amp;amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator</span>
-<span class="s">    &amp;amp;rft.title={{ page.title}}</span>
-<span class="s">    &amp;amp;rft.creator={{site.author.name}}</span>
-<span class="s">    &amp;amp;rft.date={{ page.date | date: &quot;</span><span class="err">%</span><span class="na">Y-</span><span class="err">%</span><span class="na">m-</span><span class="err">%</span><span class="na">d</span><span class="err">&quot;</span> <span class="err">}}</span>
-    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">language=</span><span class="s">EN</span>
-    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">rights=</span><span class="s">CC-BY-SA</span>
-    <span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft_id=</span><span class="s">{{site.production_url}}{{page.url}}&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/span&gt;</span></code></pre>
-</div>
-<p>As usual, if you want to use it (and there might be some tweaking to do, if you don’t use <em>Jekyll bootstrap</em>), just place it in the <code>_includes</code> directory, and somewhere in your blog layout</p>
-<div class="highlight">
-<pre><code class="language-html" data-lang="html">{% include coins.html %}</code></pre>
-</div>
-<p>So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect <code>COinS</code> data, and so might be other programs.</p>
-<div class="references">
 
-</div>
+<p>Adding <code>COinS</code> data to your blog is usually done through plug-ins. A short googling revealed that there is no plug-in to generate these data for blogs running <code>jekyll</code>. Having 5 minutes to lose, I decided to just go ahead and write one. Here it goes:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span>
+	<span class="na">class=</span><span class="s">&quot;Z3988&quot;</span> 
+	<span class="na">title=</span><span class="s">&quot;ctx_ver=Z39.88-2004</span>
+<span class="s">	&amp;amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc</span>
+<span class="s">	&amp;amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator</span>
+<span class="s">	&amp;amp;rft.title={{ page.title}}</span>
+<span class="s">	&amp;amp;rft.creator={{site.author.name}}</span>
+<span class="s">	&amp;amp;rft.date={{ page.date | date: &quot;</span><span class="err">%</span><span class="na">Y-</span><span class="err">%</span><span class="na">m-</span><span class="err">%</span><span class="na">d</span><span class="err">&quot;</span> <span class="err">}}</span>
+	<span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">language=</span><span class="s">EN</span>
+	<span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft</span><span class="err">.</span><span class="na">rights=</span><span class="s">CC-BY-SA</span>
+	<span class="err">&amp;</span><span class="na">amp</span><span class="err">;</span><span class="na">rft_id=</span><span class="s">{{site.production_url}}{{page.url}}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/span&gt;</span></code></pre></div>
+
+<p>As usual, if you want to use it (and there might be some tweaking to do, if you don’t use <em>Jekyll bootstrap</em>), just place it in the <code>_includes</code> directory, and somewhere in your blog layout</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">{% include coins.html %}</code></pre></div>
+
+<p>So right now, if you are using Zotero, you might see a little reference icon in your address bar. Mendeley is also able to detect <code>COinS</code> data, and so might be other programs.</p>
 
 </div>
 

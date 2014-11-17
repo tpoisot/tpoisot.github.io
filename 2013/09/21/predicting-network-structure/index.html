@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Inferring the structure of food webs</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,20 +45,46 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/09/21/predicting-network-structure/">Inferring the structure of food webs</a></div>
 <div class='post-date'>On September 21, 2013 &middot; 
    Tim
 </div>
-<p>We’ve just published a paper in <em>Methods in Ecology and Evolution</em>, about the <a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">inference of food web structure based on species trait data</a>. That’s a seriously cool result (we think). There is a serious challenge when you work with food webs: you need to know which species are interacting, and to do so, you need to observed interactions in the fields. It’s challenging, because it must be done extensively, so as not to miss interactions.</p>
-<p>But on the other hand, there are well described relationships between traits of interacting species. In the particular case of food webs, notably, there is a log-log relationship between the body size of a predator and the body size of its prey. The existence of this relationship can be used to, given a distribution of body sizes, predict the interactions within a species assemblage.</p>
-<p>So what we have been doing, is designing a statistical method to, given a list of species and body size, callibrate a model of food web structure, to predict the interactions. As we discuss in the paper, the more traits you put in your prediction, the better it will get. Using a dataset of fishes, we generated a convicing network using only body size and bathymetry.</p>
-<p>We think this result is cool, because by opposition to the “observational” method of constructing food webs, you only need to know (well) a small number of interactions. As we show in the paper, whenever you have a high R² of the trait-trait-interaction relationship, the infered network is close to the observed one. These methods can therefore allow to generate rough estimates of network structure.</p>
-<p>Interestingly, they will also help in the generation of predictions. As we illustrate in the paper, we can tweak the body size distribution, and see how much the network structure changes. For example, this can help simulate the effect of body size decrease through over-fishing, or the extinction of the larger species. There is still a bit of work to do to be able to predict the structure of other types of networks, but it was definitely comforting to see that, even with straightforward statistics, we were able to achieve it.</p>
-<div class="references">
+<p>We’ve just published a paper in <em>Methods in Ecology and Evolution</em>, about the
+<a href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12103/abstract">inference of food web structure based on species trait data</a>. That’s
+a seriously cool result (we think). There is a serious challenge when you work
+with food webs: you need to know which species are interacting, and to do so,
+you need to observed interactions in the fields. It’s challenging, because
+it must be done extensively, so as not to miss interactions.</p>
 
-</div>
+<p>But on the other hand, there are well described relationships between traits of
+interacting species. In the particular case of food webs, notably, there is
+a log-log relationship between the body size of a predator and the body size of
+its prey. The existence of this relationship can be used to, given
+a distribution of body sizes, predict the interactions within a species
+assemblage.</p>
+
+<p>So what we have been doing, is designing a statistical method to, given a list
+of species and body size, callibrate a model of food web structure, to predict
+the interactions. As we discuss in the paper, the more traits you put in your
+prediction, the better it will get. Using a dataset of fishes, we generated
+a convicing network using only body size and bathymetry.</p>
+
+<p>We think this result is cool, because by opposition to the “observational”
+method of constructing food webs, you only need to know (well) a small number
+of interactions. As we show in the paper, whenever you have a high R² of the
+trait-trait-interaction relationship, the infered network is close to the
+observed one. These methods can therefore allow to generate rough estimates of network structure.</p>
+
+<p>Interestingly, they will also help in the generation of predictions. As we
+illustrate in the paper, we can tweak the body size distribution, and see how
+much the network structure changes. For example, this can help simulate the
+effect of body size decrease through over-fishing, or the extinction of the
+larger species. There is still a bit of work to do to be able to predict the
+structure of other types of networks, but it was definitely comforting to see
+that, even with straightforward statistics, we were able to achieve it.</p>
+
 
 </div>
 

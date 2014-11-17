@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | A selection of Sublime Text 2 packages</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,37 +45,43 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/01/22/selection-sublime-plugins/">A selection of Sublime Text 2 packages</a></div>
 <div class='post-date'>On January 22, 2013 &middot; 
    Tim
 </div>
 <p><a href="http://www.sublimetext.com/2"><em>Sublime Text 2</em></a> is an awesome multi-purpose text editor, working on all major platforms, and generally being <code>vim</code> with a nice GUI, and some <code>emacs</code> thrown in for good measure. Over the last year, it has become my daily weapon of choice. As it offers a complete API, many people developed <em>Python</em> packages for it, and I use a few of them almost daily. Following some discussions we’ve had on twitter, I figured I’d share them with everyone. The first one to install is <a href="http://wbond.net/sublime_packages/package_control"><em>Sublime Package Control</em></a>. It allows you to open the command palette, and manage your packages. Notably, you can use the <code>Install packages</code> command to get a drop-down list of <em>all</em> possible packages available. They are also listed <a href="http://wbond.net/sublime_packages/community">here</a>.</p>
-<p>So which packages do I use? I made a list of those I find the more useful, ranked by use frequency.</p>
-<p>The first one is <strong>LaTeX Tools</strong>. It’s plain awesome. You work on a LaTeX document, hit <code>Ctrl-B</code>, and it uses <code>latexmk</code> to take care of <em>all</em> the necessary compilation steps for you. And it implements <code>synctex</code> as well, so you can use <code>Ctrl-L J</code> to jump to the PDF, and right click on the PDF to jump to the text. Add a few other <a href="https://github.com/SublimeText/LaTeXTools">great shortcuts</a> (transform a word in an environment with <code>Ctrl-L E</code>, or in a command with <code>Ctrl-L C</code>, for example), a very extensive auto-completion, and you have one of the best LaTeX editors available. Also, when using this package, do not forget that pressing <code>alt-q</code> anywhere in a line will hard wrap the paragraph. It’s almost impossible to live without this function when you use git.</p>
-<p>A really good companion to the above package is <strong>WordCount</strong>. It does what the name says: add a word and character count in the status bar. It updates the word count in real time, and when you mostly write using <em>Markdown</em> or plain text, it’s extremely useful. To write in <em>Markdown</em>, which includes this blog, and most of the drafts of my papers, all the replies to referees, my meeting notes, and general note taking, I rely on <strong>MarkdownBuild</strong>, which allows to <a href="https://github.com/erinata/SublimeMarkdownBuild">quickly visualize</a> the content of the file. A simple <code>Ctrl-B</code> brings up a browser windows with a HTML/CSS rendition of my file. When the documents are ready, I use <code>pandoc</code> to compile them. There are two packages for this, <strong>Pandoc</strong>, which provides a lot of output formats, and <strong>Pandoc Academic</strong>, which provides less formats, but is reachable in less keystrokes. Both also have some complementary snippets, so I keep both.</p>
-<p>There are some plugins for <code>git</code>, but I don’t use them, as I do my commits from the command line. Speaking of command line, though, the <strong>Sublime REPL</strong> package is difficult to avoid. It allows you to <a href="https://github.com/wuub/SublimeREPL">run a variety of shells from within a tab in Sublime Text 2</a>. Among the included languages are Python (including iPython), R, and a few others. You can also run a system shell, which I use to do my commits.</p>
-<p>I also like <strong>Align Tab</strong> a lot. If you write in LaTeX, or use <code>csv</code> data, you know what this one is doing. Select a block of text, open the command palette and choose <code>Align tabular</code>, give the separator string, and <em>bam!</em>, a perfectly aligned table.</p>
-<p>Going from this</p>
-<div class="highlight">
-<pre><code class="language-text" data-lang="text">a b c d
-1 2 21 3
-abc dd e 456</code></pre>
-</div>
-<p>to this</p>
-<div class="highlight">
-<pre><code class="language-text" data-lang="text">a    b   c   d 
-1    2   21  3  
-abc  dd  e   456</code></pre>
-</div>
-<p>means a whole lot in terms of readability.</p>
-<p>And while we’re at readability, let’s talk about color schemes. The defaults are good, but not impressive. My favorites are by far from <a href="https://github.com/chriskempson/base16">the <strong>base16</strong> project</a>. I’m fond of <code>Tomorrow Light</code> and <code>Railscasts Dark</code>, but many, many others are impressive as well.</p>
-<p>When coding, I use <strong>AndyPython</strong> and <strong>SublimeCodeIntel</strong>. They provide some good auto-completion, and code intelligence. So it means that I don’t need to remember the methods I put in my classes! And any technology allowing me to get progressively lazier is good (probably, I’d check it, but it would involve some efforts). All jokes aside, when working with large python libraries (<code>networkx</code> or <code>scipy</code> come to mind), it’s almost impossible to do without these packages.</p>
-<p>So be sure to check <em>Sublime Text 2</em> out. It’s not free (but not too expensive either), and even if you don’t pay, you can use the full feature set (and it is really, really impressive). Think of it as a <em>Photoshop</em> of text editing. After a year of using it, I realize I am probably exploiting less than 10% of its potential. It’s one of the best pieces of software I’ve came across! And if you want to know more, <a href="http://nature.berkeley.edu/~kram/">Karthik Ram</a> has a list of <a href="http://pinboard.in/u:karthik/t:sublimetext">bookmarks</a> about it, which I encourage you to browse.</p>
-<div class="references">
 
-</div>
+<p>So which packages do I use? I made a list of those I find the more useful, ranked by use frequency.</p>
+
+<p>The first one is <strong>LaTeX Tools</strong>. It’s plain awesome. You work on a LaTeX document, hit <code>Ctrl-B</code>, and it uses <code>latexmk</code> to take care of <em>all</em> the necessary compilation steps for you. And it implements <code>synctex</code> as well, so you can use <code>Ctrl-L J</code> to jump to the PDF, and right click on the PDF to jump to the text. Add a few other <a href="https://github.com/SublimeText/LaTeXTools">great shortcuts</a> (transform a word in an environment with <code>Ctrl-L E</code>, or in a command with <code>Ctrl-L C</code>, for example), a very extensive auto-completion, and you have one of the best LaTeX editors available. Also, when using this package, do not forget that pressing <code>alt-q</code> anywhere in a line will hard wrap the paragraph. It’s almost impossible to live without this function when you use git.</p>
+
+<p>A really good companion to the above package is <strong>WordCount</strong>. It does what the name says: add a word and character count in the status bar. It updates the word count in real time, and when you mostly write using <em>Markdown</em> or plain text, it’s extremely useful. To write in <em>Markdown</em>, which includes this blog, and most of the drafts of my papers, all the replies to referees, my meeting notes, and general note taking, I rely on <strong>MarkdownBuild</strong>, which allows to <a href="https://github.com/erinata/SublimeMarkdownBuild">quickly visualize</a> the content of the file. A simple <code>Ctrl-B</code> brings up a browser windows with a HTML/CSS rendition of my file. When the documents are ready, I use <code>pandoc</code> to compile them. There are two packages for this, <strong>Pandoc</strong>, which provides a lot of output formats, and <strong>Pandoc Academic</strong>, which provides less formats, but is reachable in less keystrokes. Both also have some complementary snippets, so I keep both.</p>
+
+<p>There are some plugins for <code>git</code>, but I don’t use them, as I do my commits from the command line. Speaking of command line, though, the <strong>Sublime REPL</strong> package is difficult to avoid. It allows you to <a href="https://github.com/wuub/SublimeREPL">run a variety of shells from within a tab in Sublime Text 2</a>. Among the included languages are Python (including iPython), R, and a few others. You can also run a system shell, which I use to do my commits.</p>
+
+<p>I also like <strong>Align Tab</strong> a lot. If you write in LaTeX, or use <code>csv</code> data, you know what this one is doing. Select a block of text, open the command palette and choose <code>Align tabular</code>, give the separator string, and <em>bam!</em>, a perfectly aligned table.</p>
+
+<p>Going from this</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">a b c d
+1 2 21 3
+abc dd e 456</code></pre></div>
+
+<p>to this</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">a    b   c   d 
+1    2   21  3  
+abc  dd  e   456</code></pre></div>
+
+<p>means a whole lot in terms of readability. </p>
+
+<p>And while we’re at readability, let’s talk about color schemes. The defaults are good, but not impressive. My favorites are by far from <a href="https://github.com/chriskempson/base16">the <strong>base16</strong> project</a>. I’m fond of <code>Tomorrow Light</code> and <code>Railscasts Dark</code>, but many, many others are impressive as well.</p>
+
+<p>When coding, I use <strong>AndyPython</strong> and <strong>SublimeCodeIntel</strong>. They provide some good auto-completion, and code intelligence. So it means that I don’t need to remember the methods I put in my classes! And any technology allowing me to get progressively lazier is good (probably, I’d check it, but it would involve some efforts). All jokes aside, when working with large python libraries (<code>networkx</code> or <code>scipy</code> come to mind), it’s almost impossible to do without these packages.</p>
+
+<p>So be sure to check <em>Sublime Text 2</em> out. It’s not free (but not too expensive either), and even if you don’t pay, you can use the full feature set (and it is really, really impressive). Think of it as a <em>Photoshop</em> of text editing. After a year of using it, I realize I am probably exploiting less than 10% of its potential. It’s one of the best pieces of software I’ve came across! And if you want to know more, <a href="http://nature.berkeley.edu/~kram/">Karthik Ram</a> has a list of <a href="http://pinboard.in/u:karthik/t:sublimetext">bookmarks</a> about it, which I encourage you to browse.</p>
 
 </div>
 

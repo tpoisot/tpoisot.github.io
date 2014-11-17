@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | High-throughput sequencing and community ecology</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,27 +45,30 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/03/12/ngs-community-ecology/">High-throughput sequencing and community ecology</a></div>
 <div class='post-date'>On March 12, 2013 &middot; 
    Tim
 </div>
-<p>High-throughput sequencing (let’s abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I’m currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken by the fact that there is a huge gap between what HTS <em>could</em> do, and what it’s used for.</p>
-<p>These methods are massively used in microbial ecology, but surprisingly they have been confined to very broad topics, like <em>biodiversity</em> or <em>ecology</em>. Indeed, a quick bibliometric analysis using different fields of ecological research, in association with 454 pyrosequencing, gave interesting results:</p>
-<figure>
-<img src="/images/hts-bibliometrics.png" title="Bibliometric analysis" alt="Figure1" /><figcaption>Figure1</figcaption>
-</figure>
-<p>Clearly, there is some potential to look at exciting research questions in community ecology and biogeography, but except for <em>biodiversity</em> and <em>ecology</em>, most ecological subjects seem to be relatively confidential in the HTS literature. At the same time, we were discussing various papers related to the subject, about how we can increase our knowledge of diversity with various molecular methods. So it seems that there is an interest in ecologists using these methods, but we can’t still feel it in the literature. Why?</p>
-<p>Well, the environmental microbiology literature can be difficult to get into if you’re not familiar with the field. In part because it’s really technical, and in part because some things are called differently by different peoples. On the other hand, most of the ecological theory was not developped with microbes in mind. And there’s <a href="http://oikosjournal.wordpress.com/2011/06/10/objections-to-microcosms-in-ecology-and-their-answers/">still a stigma about doing ecology with anything smaller than a <em>Daphnia</em></a>. So in short, there is a communication problem between two fields. And that’s too bad, because in the overlap between these fields, there is some truely exciting science to be done.</p>
-<p>So we (meaning me, my beloved wife and my boss) set our minds on writing a paper, whose goal was to present high-throughput sequencing in a way that would be appealing to ecologists. <a href="http://onlinelibrary.wiley.com/doi/10.1002/ece3.508/abstract">It is now online at <em>Ecology &amp; Evolution</em></a>. The structure of it, and to some extent the tone, was greatly inspired by <a href="http://doi.wiley.com/10.1111/j.1600-0706.2009.17557.x">an earlier paper by Jerald Johnson</a>, berating molecular ecologists for their lack of attention to ecological ideas. Not that we think that blame should be attributed to anyone in the fact that HTS is not widely used by ecologists, but the structure of the paper was brilliant: let’s present <em>ecological questions</em>, and then discuss how the method brings us closer to an asnwer.</p>
-<p>I think we did a good job of this. Rather than focusing on the methodological details, we provide a <em>conceptual</em> approach to the use of HTS in community ecology and biogeography. This paper is intended to be a gentle introduction to the field. If you are familiar with the litterature, then you probably won’t learn anything new. But if you are interested by the methods, and want to use them, then there might be things for you in the paper. Here is the abstract:</p>
-<blockquote>
-<p>High-throughput sequencing is becoming increasingly important in microbial ecology, yet it is surprisingly under-used to generate or test biogeographical hypotheses. In this contribution, we highlight how adding these methods to the ecologist toolbox will allow the detection of new patterns, and will help our understanding of the structure and dynamics of diversity. Starting with a review of ecological questions that can be addressed, we move on to the technical and analytical issues that will benefit from an increased collaboration between different disciplines.</p>
-</blockquote>
-<div class="references">
+<p>High-throughput sequencing (let’s abbreviate it as HTS), the ability to generate millions of sequences for a relatively low cost and effort, can make a huge difference in community ecology and biogeography. Think about it this way: for a few days of work, you can get a really exhaustive sampling of the diversity, with measures of relative abundance. I’m currently using 454 pyrosequencing in a project, and when I started reviewing the literature, I was stricken by the fact that there is a huge gap between what HTS <em>could</em> do, and what it’s used for. </p>
 
-</div>
+<p>These methods are massively used in microbial ecology, but surprisingly they have been confined to very broad topics, like <em>biodiversity</em> or <em>ecology</em>. Indeed, a quick bibliometric analysis using different fields of ecological research, in association with 454 pyrosequencing, gave interesting results:</p>
+
+<p><img src="/images/hts-bibliometrics.png" alt="Figure1" title="Bibliometric analysis" /></p>
+
+<p>Clearly, there is some potential to look at exciting research questions in community ecology and biogeography, but except for <em>biodiversity</em> and <em>ecology</em>, most ecological subjects seem to be relatively confidential in the HTS literature. At the same time, we were discussing various papers related to the subject, about how we can increase our knowledge of diversity with various molecular methods. So it seems that there is an interest in ecologists using these methods, but we can’t still feel it in the literature. Why?</p>
+
+<p>Well, the environmental microbiology literature can be difficult to get into if you’re not familiar with the field. In part because it’s really technical, and in part because some things are called differently by different peoples. On the other hand, most of the ecological theory was not developped with microbes in mind. And there’s <a href="http://oikosjournal.wordpress.com/2011/06/10/objections-to-microcosms-in-ecology-and-their-answers/">still a stigma about doing ecology with anything smaller than a <em>Daphnia</em></a>. So in short, there is a communication problem between two fields. And that’s too bad, because in the overlap between these fields, there is some truely exciting science to be done.</p>
+
+<p>So we (meaning me, my beloved wife and my boss) set our minds on writing a paper, whose goal was to present high-throughput sequencing in a way that would be appealing to ecologists. <a href="http://onlinelibrary.wiley.com/doi/10.1002/ece3.508/abstract">It is now online at <em>Ecology &amp; Evolution</em></a>. The structure of it, and to some extent the tone, was greatly inspired by <a href="http://doi.wiley.com/10.1111/j.1600-0706.2009.17557.x">an earlier paper by Jerald Johnson</a>, berating molecular ecologists for their lack of attention to ecological ideas. Not that we think that blame should be attributed to anyone in the fact that HTS is not widely used by ecologists, but the structure of the paper was brilliant: let’s present <em>ecological questions</em>, and then discuss how the method brings us closer to an asnwer.</p>
+
+<p>I think we did a good job of this. Rather than focusing on the methodological details, we provide a <em>conceptual</em> approach to the use of HTS in community ecology and biogeography. This paper is intended to be a gentle introduction to the field. If you are familiar with the litterature, then you probably won’t learn anything new. But if you are interested by the methods, and want to use them, then there might be things for you in the paper. Here is the abstract:</p>
+
+<blockquote>
+  <p>High-throughput sequencing is becoming increasingly important in microbial ecology, yet it is surprisingly under-used to generate or test biogeographical hypotheses. In this contribution, we highlight how adding these methods to the ecologist toolbox will allow the detection of new patterns, and will help our understanding of the structure and dynamics of diversity. Starting with a review of ecological questions that can be addressed, we move on to the technical and analytical issues that will benefit from an increased collaboration between different disciplines.</p>
+</blockquote>
+
 
 </div>
 

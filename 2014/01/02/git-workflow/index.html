@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Using git throughout your workflow</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,18 +45,36 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/02/git-workflow/">Using git throughout your workflow</a></div>
 <div class='post-date'>On January  2, 2014 &middot; 
    Tim
 </div>
-<p>There are good chances that I will give an introductory workshop to the many, many uses of <code>git</code> for scientists in the next weeks. What follows is a series of notes about the things <em>I</em> use <code>git</code> for, which I will cover. In a way, this post is a list of all the possible ways to introduce <code>git</code> into your workflow as a (computational) scientist. Some things are specific to <code>git</code> as a protocol, some others to <em>GitHub</em> as a platform. I will try to make the distinction clear.</p>
+<p>There are good chances that I will give an introductory workshop to the many,
+many uses of <code>git</code> for scientists in the next weeks. What follows is a series
+of notes about the things <em>I</em> use <code>git</code> for, which I will cover. In a way,
+this post is a list of all the possible ways to introduce <code>git</code> into your
+workflow as a (computational) scientist. Some things are specific to <code>git</code>
+as a protocol, some others to <em>GitHub</em> as a platform. I will try to make
+the distinction clear.</p>
+
 <h1 id="tracking-your-code">Tracking your code</h1>
-<p>It would be tempting to discard this one if you are not mainly a computational scientist. Please don’t. Even the simplest piece of code you write, the most basic <code>R</code> function is a <em>central</em> step in your workflow if it is responsible for transforming raw data into something you can show around (a figure, or a table). In the most fundamental way, <code>git</code> is a way for you to track what you changed, and when. And you can <em>revert</em> back to the previous state of your code if you want.</p>
-<p>The most important feature of <code>git</code> (in my opinion), and one that is shared with most versioning systems, is the ability to (i) give the reasons of a particular change, and (ii) see exactly what has been changed. See, for example, what happens after <em>adding</em> a few lines of code:</p>
-<div class="highlight">
-<pre><code class="language-diff" data-lang="diff"><span class="gu">@@ -50,6 +50,11 @@</span>
+
+<p>It would be tempting to discard this one if you are not mainly a computational
+scientist. Please don’t. Even the simplest piece of code you write, the most
+basic <code>R</code> function is a <em>central</em> step in your workflow if it is responsible
+for transforming raw data into something you can show around (a figure,
+or a table). In the most fundamental way, <code>git</code> is a way for you to track
+what you changed, and when. And you can <em>revert</em> back to the previous state
+of your code if you want.</p>
+
+<p>The most important feature of <code>git</code> (in my opinion), and one that is shared
+with most versioning systems, is the ability to (i) give the reasons of
+a particular change, and (ii) see exactly what has been changed. See, for
+example, what happens after <em>adding</em> a few lines of code:</p>
+
+<div class="highlight"><pre><code class="language-diff" data-lang="diff"><span class="gu">@@ -50,6 +50,11 @@</span>
   #&#39; }
   tax_agg &lt;- function(x, rank, db = &#39;ncbi&#39;, ...) 
   {
@@ -70,29 +85,110 @@ ga('send', 'pageview');
  +  }
     # bring to long format
     x$rownames &lt;- rownames(x)
-    df_m &lt;- melt(x, id = &#39;rownames&#39;)</code></pre>
-</div>
-<p>If a change in your code breaks it, you can track the lines that where modified, and start looking here for possible bugs.</p>
-<h1 id="collaborative-manuscript-writing">Collaborative manuscript writing</h1>
-<p><a href="http://www.scfbm.org/content/8/1/7">Karthik Ram</a> went over this point at large in its paper, so I will keep this point short. If you dread exchanging multiple versions of a paper over email, and fear the day where you will have to handle conflicting edits, or Word and OpenOffice will ruin your formatting, then look into <code>git</code>. Although it requires that you use <em>different</em> formats to write (<code>markdown</code> or <code>LaTeX</code>), the advantages are numerous (and yes, I count <em>not using Word</em> as a <em>huge</em> advantage). You will have the same opportunity to track precisely what is going on with a clear summary of the changes. And because <code>git</code> handles several people working concurrently just fine, you can have a lot happening:</p>
-<p>[Figure1][fig1] [fig1]: /images/gitnetwork.png “Figure 1”</p>
-<h1 id="make-replying-to-reviewers-easy">Make replying to reviewers <em>easy</em></h1>
-<p><a href="http://carlboettiger.info/2013/06/10/mansucript-reviews-on-github.html">Carl Boettiger</a> and <a href="https://github.com/trvrb/flux/issues?page=1&amp;state=closed">Trevor Bedford</a> (and I, for some papers) use <em>Issues</em> as a way to handle reviewers comments. Issues are a paradigm taken straight from software development, where a problem in your code needs to be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil’s <em>in prep</em> paper</a> on the <code>scriptoria</code> project. In short, you can attribute each point raised by a referee to an Issue. You can then assign Issues to people working on the manuscript, and track the progression of the replies. Because most issues tracking systems come with a <em>Milestones</em> ability, you can assign all issues to the <em>Milestone</em> “First revision”, and set a deadline at which all the issues have to be fixed.</p>
-<p>As <em>GitHub</em> allows you to reference <em>commits</em> (<em>i.e.</em> changes made to your code/paper), it is really easy to say, in the reply to each point, what you did to address it, and give a link to the <code>diff</code> (<em>i.e.</em> the list of all changes). Instead of replying things like “<em>We replaced the sentence P.4 L.24-25 by a short statement (now P.6 L.14-21)</em>”, you can say “<em>We changed the text in the following way, …, see commit <code>e30b8e</code></em>”. <em>GitHub</em> will take care of putting a link in place, and the reviewer can then see exactly which changes were made. As a final note on this point: it’s obviously good practice to <em>ask</em> the editor if s/he agrees with the reviews being put on <em>GitHub</em>.</p>
-<h1 id="give-support-to-users">Give support to users</h1>
-<p>The <em>Issues</em> system works, obviously, for code. People using your code can suggest improvements, or report bug. It is also possible to contribute new code (through the <em>fork</em>/<em>pull</em> mechanism).</p>
-<p>One of the things I enjoy in the <em>Issues</em> system is that it can (when the people actually use it…) unclutter your mailbox. Instead of sending an email to report a bug, people can submit an issue. You will have a clear list of what to do, and then again, the ability to indicate exactly how you solved it.</p>
-<h1 id="release-versions-for-publications">Release versions for publications</h1>
-<p><em>GitHub</em> (and probably other platforms) comes with a <em>release</em> mechanism. You can select one <em>commit</em> and label it as something special (for example, the version of a code you used to do the analysis presented in a paper). In the context of manuscript writing, I use releases to identify major steps in the life of a paper: first preprint, update to the preprint, revised version, final revision, etc etc. You can see <a href="https://github.com/tpoisot/ms_connectance_complexity/releases">an example here</a>. Reading through a large number of commits can be a bore, but quickly browsing a list of releases can give you a sense of when the important things happened. The release mechanism is also, of course, useful for code.</p>
-<h1 id="get-confident-in-your-code">Get confident in your code</h1>
-<p>This is one of the features of <em>GitHub</em> (and related tools) I hope to use more and more in the future. I started looking into <a href="https://travis-ci.org/">TravisCI</a> a month or so ago, and I love it. In short, TravisCI is a <em>continuous integration</em> system: each time you commit a change to your code, it will run a pre-specified series of steps to <code>build</code> it, and tell you (and other people) whether it was a success or not. The list of instructions to build your project can be whatever you want (compiling the <code>LaTeX</code> document, running the test suite, …). But the central point is that you will know, in real time, if your changes <em>still allow your code to run</em> or not. Another related service is <a href="https://coveralls.io/">coveralls</a> - it gives you an overview of which proportion of your code is covered by tests. These two services (TravisCI and coveralls) are automated, so you have nothing to do to make sure that you code run, and that it is covered by tests (except that coding well, and writing tests…). Both services will allow you to display little badges on your project page, so your <em>users</em> can have some confidence in your code.</p>
-<h1 id="a-terrible-way-to-showcase-your-work">A terrible way to showcase your work</h1>
-<p>One thing for which social coding platforms are <em>not</em> so good is showcasing your work. This is why I now have a <a href="http://timotheepoisot.fr/software/">software</a> page on this website. If you use <em>GitHub</em> to track of lot of things (and I do), what is important can often be buried beneath a pile of your active-but-not-yet-useful projects. And because the listing of your repositories is just the project name and a one-line description, it’s not obvious what is important. So my recommendation if your want to give people a broad overview of what you have been up to, is to have a webpage with your projects, instead of just giving the URL to your <em>GitHub</em> account.</p>
-<hr />
-<p>And that’s the way I use <code>git</code> in my everyday workflow. There is a bit of a learning curve, but you can learn (most of) <code>git</code> <a href="http://try.github.io/levels/1/challenges/1">in 15 minutes</a>. And it saves time in the long run, both because it simplifies some tedious tasks, and because it gives you a single formalism in which you can inscribe your daily activities.</p>
-<div class="references">
+    df_m &lt;- melt(x, id = &#39;rownames&#39;)</code></pre></div>
 
-</div>
+<p>If a change in your code breaks it, you can track the lines that where
+modified, and start looking here for possible bugs.</p>
+
+<h1 id="collaborative-manuscript-writing">Collaborative manuscript writing</h1>
+
+<p><a href="http://www.scfbm.org/content/8/1/7">Karthik Ram</a> went over this point at large in its paper, so I will keep
+this point short. If you dread exchanging multiple versions of a paper over
+email, and fear the day where you will have to handle conflicting edits, or
+Word and OpenOffice will ruin your formatting, then look into <code>git</code>. Although
+it requires that you use <em>different</em> formats to write (<code>markdown</code> or <code>LaTeX</code>),
+the advantages are numerous (and yes, I count <em>not using Word</em> as a <em>huge</em>
+advantage). You will have the same opportunity to track precisely what is
+going on with a clear summary of the changes. And because <code>git</code> handles
+several people working concurrently just fine, you can have a lot happening:</p>
+
+<p>![Figure1][fig1]
+[fig1]: /images/gitnetwork.png  “Figure 1”</p>
+
+<h1 id="make-replying-to-reviewers-easy">Make replying to reviewers <em>easy</em></h1>
+
+<p><a href="http://carlboettiger.info/2013/06/10/mansucript-reviews-on-github.html">Carl Boettiger</a> and <a href="https://github.com/trvrb/flux/issues?page=1&amp;state=closed">Trevor Bedford</a> (and I, for some papers) use
+<em>Issues</em> as a way to handle reviewers comments. Issues are a paradigm taken
+straight from software development, where a problem in your code needs to
+be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil’s
+<em>in prep</em> paper</a> on the <code>scriptoria</code> project. In short, you can
+attribute each point raised by a referee to an Issue. You can then assign
+Issues to people working on the manuscript, and track the progression of
+the replies. Because most issues tracking systems come with a <em>Milestones</em>
+ability, you can assign all issues to the <em>Milestone</em> “First revision”,
+and set a deadline at which all the issues have to be fixed.</p>
+
+<p>As <em>GitHub</em> allows you to reference <em>commits</em> (<em>i.e.</em> changes made to your
+code/paper), it is really easy to say, in the reply to each point, what you
+did to address it, and give a link to the <code>diff</code> (<em>i.e.</em> the list of all
+changes). Instead of replying things like “<em>We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)</em>”, you can say “<em>We changed
+the text in the following way, …, see commit <code>e30b8e</code></em>”. <em>GitHub</em> will take
+care of putting a link in place, and the reviewer can then see exactly which
+changes were made. As a final note on this point: it’s obviously good practice
+to <em>ask</em> the editor if s/he agrees with the reviews being put on <em>GitHub</em>.</p>
+
+<h1 id="give-support-to-users">Give support to users</h1>
+
+<p>The <em>Issues</em> system works, obviously, for code. People using your code can
+suggest improvements, or report bug. It is also possible to contribute new
+code (through the <em>fork</em>/<em>pull</em> mechanism).</p>
+
+<p>One of the things I enjoy in the <em>Issues</em> system is that it can (when the
+people actually use it…) unclutter your mailbox. Instead of sending an email
+to report a bug, people can submit an issue. You will have a clear list of
+what to do, and then again, the ability to indicate exactly how you solved it.</p>
+
+<h1 id="release-versions-for-publications">Release versions for publications</h1>
+
+<p><em>GitHub</em> (and probably other platforms) comes with a <em>release</em> mechanism. You
+can select one <em>commit</em> and label it as something special (for example,
+the version of a code you used to do the analysis presented in a paper). In
+the context of manuscript writing, I use releases to identify major steps in
+the life of a paper: first preprint, update to the preprint, revised version,
+final revision, etc etc. You can see <a href="https://github.com/tpoisot/ms_connectance_complexity/releases">an example here</a>. Reading through
+a large number of commits can be a bore, but quickly browsing a list of
+releases can give you a sense of when the important things happened. The
+release mechanism is also, of course, useful for code.</p>
+
+<h1 id="get-confident-in-your-code">Get confident in your code</h1>
+
+<p>This is one of the features of <em>GitHub</em> (and related tools) I hope to use more
+and more in the future. I started looking into <a href="https://travis-ci.org/">TravisCI</a> a month
+or so ago, and I love it. In short, TravisCI is a <em>continuous integration</em>
+system: each time you commit a change to your code, it will run a pre-specified
+series of steps to <code>build</code> it, and tell you (and other people) whether it
+was a success or not. The list of instructions to build your project can be
+whatever you want (compiling the <code>LaTeX</code> document, running the test suite,
+…). But the central point is that you will know, in real time, if your
+changes <em>still allow your code to run</em> or not. Another related service is
+<a href="https://coveralls.io/">coveralls</a> - it gives you an overview of which proportion of your code is
+covered by tests. These two services (TravisCI and coveralls) are automated,
+so you have nothing to do to make sure that you code run, and that it is
+covered by tests (except that coding well, and writing tests…). Both
+services will allow you to display little badges on your project page,
+so your <em>users</em> can have some confidence in your code.</p>
+
+<h1 id="a-terrible-way-to-showcase-your-work">A terrible way to showcase your work</h1>
+
+<p>One thing for which social coding platforms are <em>not</em> so good is showcasing
+your work. This is why I now have a <a href="http://timotheepoisot.fr/software/">software</a> page on this website. If you use
+<em>GitHub</em> to track of lot of things (and I do), what is important can often be
+buried beneath a pile of your active-but-not-yet-useful projects. And because
+the listing of your repositories is just the project name and a one-line
+description, it’s not obvious what is important. So my recommendation if
+your want to give people a broad overview of what you have been up to,
+is to have a webpage with your projects, instead of just giving the URL to
+your <em>GitHub</em> account.</p>
+
+<hr />
+
+<p>And that’s the way I use <code>git</code> in my everyday workflow. There is a bit of a
+learning curve, but you can learn (most of) <code>git</code> <a href="http://try.github.io/levels/1/challenges/1">in 15 minutes</a>. And
+it saves time in the long run, both because it simplifies some tedious tasks,
+and because it gives you a single formalism in which you can inscribe your
+daily activities.</p>
+
 
 </div>
 

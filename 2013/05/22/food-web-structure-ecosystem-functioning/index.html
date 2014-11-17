@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Trophic complementarity and the BEF relationship in food webs</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,21 +45,44 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Trophic complementarity and the BEF relationship in food webs</a></div>
 <div class='post-date'>On May 22, 2013 &middot; 
    Tim
 </div>
-<p>I’m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet and I), have a new paper in <em>Ecology Letters</em>, about the biodiversity-ecosystem functioning (BEF) relationship in food webs. In this paper, we show that <em>trophic complementarity</em> is a very good predictor of productivity in complex ecosystems. You can <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12118/abstract">go get the paper</a>. So what is trophic complementarity, and why is this result important?</p>
-<p>The strength of the BEF theory is that the core mechanisms are intuitive and elegant. You have the sampling effet, and functional complementarity. It boils down to something extremely simple: if each species has a set of unique functions, the more species you have, the more productive your ecosystem will be, because the niche space is entirely filled. This theoretical framework is extremely strong, and gave really good predictions in <em>competitive</em> systems. More complex (here meaning trophic) systems are an entirely different story.</p>
-<p>Previous models have been over-simplifying the structure of food webs, by focusing only on extreme cases (low connectance/high connectance, specialists/generalists). The situation of most empirical systems is slightly more complicated (or slightly more continuous, anyway), and a new approach was needed. Our core hypothesis was that the complementarity effect can be expressed quite simply in food webs (and possibly other types of networks), by just measuring the functional originality of the different species. In simple terms, you can be different either because you have different resources (that is the competitve BEF), or because different predators eat you.</p>
-<p>In the paper, we try to measure this (which we call trophic complementarity) at differents level of complexity. The simple model, which was first used by <a href="http://www.nature.com/nature/journal/v456/n7219/full/nature07248.html">Chesson &amp; Kuang</a>, works extremely well with previous solutions for the competitive BEF published by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2004.12685.x/full">Michel Loreau</a>. We’ve been <em>so</em> very lucky that two important results from two different bodies of litterature were in agreement…</p>
-<p>The interesting part is also that in more complex systems, trophic complementarity is easy to approximate with measures of nestedness. This is (I think) an important results for empirical studies. It offers the possibility to have a rough expectation of how productive a system can be based on the knowledge of presence/absence interactions. There are good opportunities to explore in re-analysing the results of empirical BEF studies in which trophic interactions were not accounted for.</p>
-<p>As an amusing sidenote, when we were working on the revisions, Marc Cadotte and Caroline Tucker, at <em>EEB &amp; Flow</em>, wondered if most BEF discoveries were simply a <a href="http://evol-eco.blogspot.ca/2013/01/reinventing-ecological-wheel-why-do-we.html">reinvention of the wheel</a>, which is (roughly verbatim) a comment made by one referee on the first version of our paper (it also prompted me to write <a href="http://timotheepoisot.fr/2013/01/28/introductions-reinventing-ecological-wheel/">this post</a>).</p>
-<div class="references">
+<p>I’m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet
+and I), have a new paper in <em>Ecology Letters</em>, about the biodiversity-ecosystem
+functioning (BEF) relationship in food webs. In this paper, we show that
+<em>trophic complementarity</em> is a very good predictor of productivity in complex
+ecosystems. You can <a href="http://onlinelibrary.wiley.com/doi/10.1111/ele.12118/abstract">go get the paper</a>.
+So what is trophic complementarity, and why is this result
+important?</p>
 
-</div>
+<p>The strength of the BEF theory is that the core mechanisms are intuitive and
+elegant. You have the sampling effet, and functional complementarity. It boils
+down to something extremely simple: if each species has a set of unique
+functions, the more species you have, the more productive your ecosystem will
+be, because the niche space is entirely filled. This theoretical framework is
+extremely strong, and gave really good predictions in <em>competitive</em> systems.
+More complex (here meaning trophic) systems are an entirely different story.</p>
+
+<p>Previous models have been over-simplifying the structure of food webs, by
+focusing only on extreme cases (low connectance/high connectance,
+specialists/generalists). The situation of most empirical systems is
+slightly more complicated (or slightly more continuous, anyway), and a new
+approach was needed. Our core hypothesis was that the complementarity effect can
+be expressed quite simply in food webs (and possibly other types of networks),
+by just measuring the functional originality of the different species. In
+simple terms, you can be different either because you have different
+resources (that is the competitve BEF), or because different predators eat
+you.</p>
+
+<p>In the paper, we try to measure this (which we call trophic complementarity) at differents level of complexity. The simple model, which was first used by <a href="http://www.nature.com/nature/journal/v456/n7219/full/nature07248.html">Chesson &amp; Kuang</a>, works extremely well with previous solutions for the competitive BEF published by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2004.12685.x/full">Michel Loreau</a>. We’ve been <em>so</em> very lucky that two important results from two different bodies of litterature were in agreement…</p>
+
+<p>The interesting part is also that in more complex systems, trophic complementarity is easy to approximate with measures of nestedness. This is (I think) an important results for empirical studies. It offers the possibility to have a rough expectation of how productive a system can be based on the knowledge of presence/absence interactions. There are good opportunities to explore in re-analysing the results of empirical BEF studies in which trophic interactions were not accounted for.</p>
+
+<p>As an amusing sidenote, when we were working on the revisions, Marc Cadotte and Caroline Tucker, at <em>EEB &amp; Flow</em>, wondered if most BEF discoveries were simply a <a href="http://evol-eco.blogspot.ca/2013/01/reinventing-ecological-wheel-why-do-we.html">reinvention of the wheel</a>, which is (roughly verbatim) a comment made by one referee on the first version of our paper (it also prompted me to write <a href="http://timotheepoisot.fr/2013/01/28/introductions-reinventing-ecological-wheel/">this post</a>). </p>
 
 </div>
 

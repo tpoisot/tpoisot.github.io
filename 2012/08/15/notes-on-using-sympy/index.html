@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Notes on learning how to use sympy</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,59 +45,65 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/08/15/notes-on-using-sympy/">Notes on learning how to use sympy</a></div>
 <div class='post-date'>On August 15, 2012 &middot; 
    Tim
 </div>
 <p>I’m trying to move to <code>sympy</code> for all my symbolic calculations. This post is just some notes taken during my first attempt, in which I’m playing with a simple host-parasite model. I was reading the <a href="http://docs.sympy.org/0.7.1/tutorial.html#first-steps-with-sympy"><em>First steps with sympy</em></a> section of the website when I was running my little tests, and it’s relatively helpul.</p>
+
 <p>So let’s assume we have a classical host-parasite duo, with intra-specific host competition, and intrinsic mortality in the parasite. Its instantaneous dynamics can be written as</p>
+
 <script type="math/tex; mode=display">\frac{dH}{dt} = H \times \left( r - q\times H - \beta \times P \right)</script>
+
 <script type="math/tex; mode=display">\frac{dP}{dt} = P \times \left( \alpha \times H - \delta \right)</script>
 
 <p>The first step to get this into <code>sympy</code> is to load the package (obviously), then declare parameters and population sizes as <em>symbols</em>, and the equations as <em>Functions</em>.</p>
+
 <p>You can do so this way:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c"># Population densities</span>
 <span class="n">H</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;H P&#39;</span><span class="p">)</span>
 <span class="c"># Model parameters</span>
 <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;r q b a d&#39;</span><span class="p">)</span>
 <span class="c"># Functions</span>
-<span class="n">dH</span><span class="p">,</span> <span class="n">dP</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;dH dP&#39;</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span></code></pre>
-</div>
-<p>Once this is done, you can write up the equations</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="n">dH</span> <span class="o">=</span> <span class="n">H</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">H</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">P</span> <span class="p">)</span>
-<span class="n">dP</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">H</span> <span class="o">-</span> <span class="n">d</span> <span class="p">)</span></code></pre>
-</div>
-<p>And solve with a <em>Mathematica</em>-like syntax:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span></code></pre>
-</div>
-<p>At this point, you should get a list of tuples as the output:</p>
-<pre><code>[(0, 0), (d/a, -(-a*r + d*q)/(a*b)), (r/q, 0)]</code></pre>
-The three possible outcomes were identified: either everything crashes, the parasite goes extinct (
-<script type="math/tex">H* = r/q</script>
-<p>), or the two populations persist and reach their equilibrium.</p>
-<p>At this point, let’s assign these solutions to an object, and focus on the coexistence case:</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="n">equil</span> <span class="o">=</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>
-<span class="n">coex</span> <span class="o">=</span> <span class="n">equil</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span> <span class="n">coex</span></code></pre>
-</div>
-<p>I naturally tried do find which sets of parameters allow the system to coexist <em>with positive densities</em>, so I used</p>
-<div class="highlight">
-<pre><code class="language-python" data-lang="python"><span class="n">solve</span><span class="p">(</span><span class="n">coex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span></code></pre>
-</div>
-<p>Which gave the following error message:</p>
-<pre><code>NotImplementedError: only univariate inequalities are supported</code></pre>
-<p>Well, so that does it for today. I’ll be exploring <em>Maxima</em> in the next weeks, because if <code>sympy</code> is stuck on this common problem, there is no way you can use it to do some decent analysis. Oh, and in case you wonder: the maths are rendered with the <a href="http://www.mathjax.org/"><em>MathJax</em></a> library.</p>
-<div class="references">
+<span class="n">dH</span><span class="p">,</span> <span class="n">dP</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&#39;dH dP&#39;</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span></code></pre></div>
 
-</div>
+<p>Once this is done, you can write up the equations</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">dH</span> <span class="o">=</span> <span class="n">H</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r</span> <span class="o">-</span> <span class="n">q</span><span class="o">*</span><span class="n">H</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">P</span> <span class="p">)</span>
+<span class="n">dP</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">H</span> <span class="o">-</span> <span class="n">d</span> <span class="p">)</span></code></pre></div>
+
+<p>And solve with a <em>Mathematica</em>-like syntax:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span></code></pre></div>
+
+<p>At this point, you should get a list of tuples as the output:</p>
+
+<pre><code>[(0, 0), (d/a, -(-a*r + d*q)/(a*b)), (r/q, 0)]
+</code></pre>
+
+<p>The three possible outcomes were identified: either everything crashes, the parasite goes extinct (<script type="math/tex">H* = r/q</script>), or the two populations persist and reach their equilibrium.</p>
+
+<p>At this point, let’s assign these solutions to an object, and focus on the coexistence case:</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">equil</span> <span class="o">=</span> <span class="n">solve</span><span class="p">([</span><span class="n">dH</span><span class="p">,</span> <span class="n">dP</span><span class="p">],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">P</span><span class="p">])</span>
+<span class="n">coex</span> <span class="o">=</span> <span class="n">equil</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">coex</span></code></pre></div>
+
+<p>I naturally tried do find which sets of parameters allow the system to coexist <em>with positive densities</em>, so I used</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">solve</span><span class="p">(</span><span class="n">coex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span></code></pre></div>
+
+<p>Which gave the following error message:</p>
+
+<pre><code>NotImplementedError: only univariate inequalities are supported
+</code></pre>
+
+<p>Well, so that does it for today. I’ll be exploring <em>Maxima</em> in the next weeks, because if <code>sympy</code> is stuck on this common problem, there is no way you can use it to do some decent analysis. Oh, and in case you wonder: the maths are rendered with the <a href="http://www.mathjax.org/"><em>MathJax</em></a> library.</p>
 
 </div>
 

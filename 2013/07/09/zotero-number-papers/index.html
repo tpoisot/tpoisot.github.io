@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | What do I read (according to Zotero)?</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,96 +45,128 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/07/09/zotero-number-papers/">What do I read (according to Zotero)?</a></div>
 <div class='post-date'>On July  9, 2013 &middot; 
    Tim
 </div>
-<p>I’ve been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days. Zotero stores the data about your library in a <code>sqlite3</code> database, called <code>zotero.sqlite</code>, and stored in your Zotero folder (<code>~/Zotero/</code> in my case, but most likely something else in yours). The internal structure of the database is very weird, and it took my a bit of poking around in <code>sqliteman</code> to figure it out. But in the end, I was able to come up with a solution to count the number of papers in each journal, stored in my library.</p>
-<p>The <code>python</code> script is <a href="https://gist.github.com/tpoisot/5958933">available as a gist</a>. When you run it (assuming you’ve made a copy of the <code>zotero.sqlite</code> in the folder where the script is, you will end up with a <code>journals.tsv</code> file, in which the two columns are, respectively, the number of papers, and the journal title.</p>
-<p>Because despite the feature being <em>in progress</em> for a few years now there is still no bacth edit of journal titles (that I know of), it took me a bit of cleaning-up in open office to check for duplicates, especially since my current database is following me since the first year of my masters (so 2006). So, what do I read? Here is the top 15:</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Journal</th>
-<th style="text-align: left;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ecology Letters</td>
-<td style="text-align: left;">202</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ecology</td>
-<td style="text-align: left;">198</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">PLoS One</td>
-<td style="text-align: left;">196</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">American Naturalist</td>
-<td style="text-align: left;">181</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">PNAS</td>
-<td style="text-align: left;">156</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oikos</td>
-<td style="text-align: left;">135</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Trends Ecol Evol</td>
-<td style="text-align: left;">132</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Procs R Soc B</td>
-<td style="text-align: left;">123</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Evolution</td>
-<td style="text-align: left;">120</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nature</td>
-<td style="text-align: left;">119</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Science</td>
-<td style="text-align: left;">108</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">J Evol Biol</td>
-<td style="text-align: left;">101</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">J Anim Ecol</td>
-<td style="text-align: left;">71</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">J Biogeogr</td>
-<td style="text-align: left;">46</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Phil Trans B</td>
-<td style="text-align: left;">45</td>
-</tr>
-</tbody>
-</table>
-<p>So, what to make of this information? Note that by the time we reach number 12 or so in that list, the paper count decreases extremely sharply. Also, the top five is not reallu surprising. I was expecting to see <em>Nature</em> and <em>Science</em> rank higher on the list. There is still some inertia, as well, with <em>J Evol Biol</em> and <em>Evolution</em> occupying high positions because I’ve read these some much during my PhD and Masters. So I guess that (i) I’m definitely an ecologist (also, <em>J Theor Biol</em> and <em>Theor Pop Biol</em> are lurking not far below), and (ii) despite this having a very very long tail, I mostly read things coming up in a few journals.</p>
-<p>Now, the really pressing issue… How does it relates to their <em>Impact Factor</em>? A quick survey of the table above shows that some high scoring journals are quite low on the list, and some not-so-high scoring ones are nearing the top. A quick googling got me the most recent IF for the first 30 or so journals of my list. The results are plotted below (put your mouse over a dot to see the journal name).</p>
-<div class="scatterplot d3">
+<p>I’ve been playing around a bit with <a href="http://zotero.org/">Zotero</a> these last few days.
+Zotero stores the data about your library in a <code>sqlite3</code> database, called
+<code>zotero.sqlite</code>, and stored in your Zotero folder (<code>~/Zotero/</code> in my case, but
+most likely something else in yours). The internal structure of the
+database is very weird, and it took my a bit of poking around in <code>sqliteman</code> to
+figure it out. But in the end, I was able to come up with a solution to count
+the number of papers in each journal, stored in my library.</p>
 
-</div>
+<p>The <code>python</code> script is <a href="https://gist.github.com/tpoisot/5958933">available as a gist</a>. When you run it
+(assuming you’ve made a copy of the <code>zotero.sqlite</code> in the folder where the
+script is, you will end up with a <code>journals.tsv</code> file, in which the two
+columns are, respectively, the number of papers, and the journal title.</p>
+
+<p>Because despite the feature being <em>in progress</em> for a few years now there is
+still no bacth edit of journal titles (that I know of), it took me a bit of
+cleaning-up in open office to check for duplicates, especially since my
+current database is following me since the first year of my masters (so 2006).
+So, what do I read? Here is the top 15:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Journal</th>
+      <th style="text-align: left">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ecology Letters</td>
+      <td style="text-align: left">202</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ecology</td>
+      <td style="text-align: left">198</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PLoS One</td>
+      <td style="text-align: left">196</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">American Naturalist</td>
+      <td style="text-align: left">181</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PNAS</td>
+      <td style="text-align: left">156</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Oikos</td>
+      <td style="text-align: left">135</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trends Ecol Evol</td>
+      <td style="text-align: left">132</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Procs R Soc B</td>
+      <td style="text-align: left">123</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Evolution</td>
+      <td style="text-align: left">120</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Nature</td>
+      <td style="text-align: left">119</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Science</td>
+      <td style="text-align: left">108</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J Evol Biol</td>
+      <td style="text-align: left">101</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J Anim Ecol</td>
+      <td style="text-align: left">71</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J Biogeogr</td>
+      <td style="text-align: left">46</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Phil Trans B</td>
+      <td style="text-align: left">45</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So, what to make of this information? Note that by the time we reach number 12
+or so in that list, the paper count decreases extremely sharply. Also, the top
+five is not reallu surprising. I was expecting to see <em>Nature</em> and <em>Science</em>
+rank higher on the list. There is still some inertia, as well, with <em>J Evol
+Biol</em> and <em>Evolution</em> occupying high positions because I’ve read these some
+much during my PhD and Masters. So I guess that (i) I’m definitely an ecologist
+(also, <em>J Theor Biol</em> and <em>Theor Pop Biol</em> are lurking not far below), and (ii)
+despite this having a very very long tail, I mostly read things coming up in
+a few journals.</p>
+
+<p>Now, the really pressing issue… How does it relates to their <em>Impact Factor</em>?
+A quick survey of the table above shows that some high scoring journals are
+quite low on the list, and some not-so-high scoring ones are nearing the top.
+A quick googling got me the most recent IF for the first 30 or so journals of my
+list. The results are plotted below (put your mouse over a dot to see the journal name).</p>
+
+<div class="scatterplot d3"></div>
 <script type="text/javascript" src="/data/zotero-if.js"></script>
 
-<p>It doesn’t look like there is much effect of the IF on wether or not I’ll save the paper in my library. And we can also see a small group of three journals I read much more than their IF would “predict” (<em>Ecology</em>, <em>PLoS One</em>, and <em>The American Naturalist</em>). So that turned out to be a fun little lunch coding project. Don’t hesitate to look at the code, I’m sure there is plenty of things to make better.</p>
-<div class="references">
+<p>It doesn’t look like there is much effect of the IF on wether or not I’ll save
+the paper in my library. And we can also see a small group of three journals
+I read much more than their IF would “predict” (<em>Ecology</em>, <em>PLoS One</em>, and <em>The
+American Naturalist</em>). So that turned out to be a fun little lunch coding
+project. Don’t hesitate to look at the code, I’m sure there is plenty of things
+to make better.</p>
 
-</div>
 
 </div>
 

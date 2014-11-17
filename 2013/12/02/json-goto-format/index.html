@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Why JSON is my go-to data format</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,40 +45,91 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/12/02/json-goto-format/">Why JSON is my go-to data format</a></div>
 <div class='post-date'>On December  2, 2013 &middot; 
    Tim
 </div>
-<p>Since this summer, I work with models that generate massive amounts of output. This weekend batch of simulations resulted in 20+ Gig of raw data. This particular model outputs very variable data. The number of lines/columns (were I working in a tabular format) would be unpredictable, vary across simulations, and generally be a little bit too massive to work with (simply) in <code>R</code>. But I’ve been using <code>JSON</code> for a while now, and it makes working with these types of data (not the “several Gig” types, the “highly heterogeneous” type) easy.</p>
-<p>I love <code>JSON</code> because it can be validated. Running a command like <code>jsonlint file.json</code> will either return me the pretty-printed version of the file, or an error telling me where the file is not conforming to the <code>JSON</code> specification. Or in other words, when I read something in memory, I’m confident it is indeed a correctly formated file.</p>
-<p>But wait, there’s more! In <code>JSON</code>, you can define <em>schemes</em>, or a <code>JSON</code> file telling you (or a validator) what other <code>JSON</code> files should look like. Which means that it’s possible to check that a particular file is correctly formatted <em>with regard to a previously described data format</em>. I use the <code>jsonschema</code> python module to do that:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> json
-<span class="ch">from</span> jsonschema <span class="ch">import</span> validate
-<span class="co"># Read the JSON scheme file</span>
-<span class="kw">with</span> <span class="dt">open</span>(<span class="st">&#39;scheme.json&#39;</span>) <span class="ch">as</span> f:
-   sc = json.load(f)
-<span class="co"># Read the JSON output file</span>
-<span class="kw">with</span> <span class="dt">open</span>(<span class="st">&#39;output.json&#39;</span>) <span class="ch">as</span> f:
-   op = json.load(f)
-<span class="co"># Validate</span>
-<span class="kw">try</span> :
-   validate(op, sc)
-<span class="kw">except</span> :
-   <span class="dt">print</span> <span class="st">&quot;Not valid&quot;</span>
-<span class="kw">else</span> :
-   <span class="dt">print</span> <span class="st">&quot;Valid&quot;</span></code></pre>
-<p>And because a<code>JSON</code> scheme has <a href="http://json-schema.org/">field for description of each element</a>, your output is essentially self-described. Someone with no prior knowledge of how you organized your data can take your results, check that they conform to the specification, and see what each element of the output file represents.</p>
-<p>Although I haven’t bothered to write a scheme (yet), you can see how <code>JSON</code> can contain a lot of heterogeneous informations in an easy to read format <a href="https://github.com/tpoisot/manna">on the <code>manna</code> index page</a>: the output files give informations about the species, and for each time steps, the number of individuals, and each individual interaction.</p>
-<p>While it’s true this information is not extremely complicated, it’s still simpler to have it in this form, rather than as a text file. But <code>JSON</code> truly shines when <em>reading</em> the data. In the above example, if the <code>op</code> object contains a list of species, each having a body size called <code>bs</code>, then we can get the mean body size with</p>
-<pre class="sourceCode python"><code class="sourceCode python">m_bs = np.mean([sp[<span class="st">&#39;bs&#39;</span>] <span class="kw">for</span> sp in op])</code></pre>
-<p><code>R</code> can also read <code>JSON</code> well with the <code>rjson</code> package. This returns a <code>list</code> representation of the <code>JSON</code> file, so it’s easy to manipulate <code>JSON</code> objects with <code>l*ply</code> functions in <code>plyr</code>. So now, most of my models work in the same way. I write one <code>JSON</code> file for each simulation (or variations thereof) into an <code>output</code> folder. Then I read through each file with <code>python</code> and/or <code>R</code>, and I have a great time doing it!</p>
-<p>The main drawback of <code>JSON</code> (<a href="http://www.alcides-mp.com/?p=1">as pointed out here</a> are that it must be read in memory entirely before it’s used (and it gets parsed at this time too). Or in other words, it can be slow. But it’s a good thing! I found out that it forces me to (i) aim for the most concise representation possible, and (ii) split the output in chunks when needed. These chunks can be read in parallel later, and re-assembled, so I don’t try to load files of a few hundreds Mb at times.</p>
-<p>So now, go try <code>JSON</code> for yourself. In the <code>manna</code> program linked above, there are examples with (admittedly badly written) <code>R</code> files to read and manipulate <code>JSON</code> outputs. And keep in mind that when you’ll be coming back to your output files in six months, you’ll be glad to have a verbose format and a scheme describing it to understand what is going on…!</p>
-<div class="references">
+<p>Since this summer, I work with models that generate massive amounts
+of output. This weekend batch of simulations resulted in 20+ Gig of raw
+data. This particular model outputs very variable data. The number of
+lines/columns (were I working in a tabular format) would be unpredictable,
+vary across simulations, and generally be a little bit too massive to work
+with (simply) in <code>R</code>. But I’ve been using <code>JSON</code> for a while now, and it
+makes working with these types of data (not the “several Gig” types, the
+“highly heterogeneous” type) easy.</p>
 
-</div>
+<p>I love <code>JSON</code> because it can be validated. Running a command like <code>jsonlint
+file.json</code> will either return me the pretty-printed version of the file,
+or an error telling me where the file is not conforming to the <code>JSON</code>
+specification. Or in other words, when I read something in memory, I’m
+confident it is indeed a correctly formated file.</p>
+
+<p>But wait, there’s more! In <code>JSON</code>, you can define <em>schemes</em>, or a <code>JSON</code>
+file telling you (or a validator) what other <code>JSON</code> files should look
+like. Which means that it’s possible to check that a particular file is
+correctly formatted <em>with regard to a previously described data format</em>. I
+use the <code>jsonschema</code> python module to do that:</p>
+
+<pre><code class="language-python">import json
+from jsonschema import validate
+# Read the JSON scheme file
+with open('scheme.json') as f:
+   sc = json.load(f)
+# Read the JSON output file
+with open('output.json') as f:
+   op = json.load(f)
+# Validate
+try :
+   validate(op, sc)
+except :
+   print "Not valid"
+else :
+   print "Valid"
+</code></pre>
+
+<p>And because a<code>JSON</code> scheme has <a href="http://json-schema.org/">field for description of each element</a>,
+your output is essentially self-described. Someone with no prior knowledge
+of how you organized your data can take your results, check that they conform
+to the specification, and see what each element of the output file represents.</p>
+
+<p>Although I haven’t bothered to write a scheme (yet), you can see how <code>JSON</code>
+can contain a lot of heterogeneous informations in an easy to read format
+<a href="https://github.com/tpoisot/manna">on the <code>manna</code> index page</a>: the output files give informations about
+the species, and for each time steps, the number of individuals, and each
+individual interaction.</p>
+
+<p>While it’s true this information is not extremely complicated, it’s still
+simpler to have it in this form, rather than as a text file. But <code>JSON</code>
+truly shines when <em>reading</em> the data. In the above example, if the <code>op</code>
+object contains a list of species, each having a body size called <code>bs</code>,
+then we can get the mean body size with</p>
+
+<pre><code class="language-python">m_bs = np.mean([sp['bs'] for sp in op])
+</code></pre>
+
+<p><code>R</code> can also read <code>JSON</code> well with the <code>rjson</code> package. This returns a <code>list</code>
+representation of the <code>JSON</code> file, so it’s easy to manipulate <code>JSON</code> objects
+with <code>l*ply</code> functions in <code>plyr</code>. So now, most of my models work in the same
+way. I write one <code>JSON</code> file for each simulation (or variations thereof)
+into an <code>output</code> folder. Then I read through each file with <code>python</code> and/or
+<code>R</code>, and I have a great time doing it!</p>
+
+<p>The main drawback of <code>JSON</code> (<a href="http://www.alcides-mp.com/?p=1">as pointed out here</a> are that it must be
+read in memory entirely before it’s used (and it gets parsed at this time
+too). Or in other words, it can be slow. But it’s a good thing! I found out
+that it forces me to (i) aim for the most concise representation possible,
+and (ii) split the output in chunks when needed. These chunks can be read
+in parallel later, and re-assembled, so I don’t try to load files of a few
+hundreds Mb at times.</p>
+
+<p>So now, go try <code>JSON</code> for yourself. In the <code>manna</code> program linked above, there
+are examples with (admittedly badly written) <code>R</code> files to read and manipulate
+<code>JSON</code> outputs. And keep in mind that when you’ll be coming back to your
+output files in six months, you’ll be glad to have a verbose format and a
+scheme describing it to understand what is going on…!</p>
+
 
 </div>
 

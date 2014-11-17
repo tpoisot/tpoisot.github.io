@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | A d3.js alternative to stacked bar charts</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,33 +45,33 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">A d3.js alternative to stacked bar charts</a></div>
 <div class='post-date'>On February 18, 2013 &middot; 
    Tim
 </div>
 <p>Following yesterday’s post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I’ll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
+
 <p>For this particular example, I assume that the data are in a matrix, in <code>csv</code> format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is:</p>
-<div class="highlight">
-<pre><code class="language-text" data-lang="text">site , spa  , spb  , spc  , spd , spe 
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">site , spa  , spb  , spc  , spd , spe 
 a    , 1    , 0.4  , 0.2  , 1.0 , 0.2 
 b    , 0.9  , 0.7  , 0.1  , 0.4 , 0.1 
 c    , 0.2  , 0.8  , 0.05 , 0.7 , 0.05
 d    , 0.1  , 0.81 , 0.07 , 0.1 , 0.12
 e    , 0.01 , 0.82 , 0.09 , 0.6 , 0.15
-f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre>
-</div>
-<p>The end result is as follows:</p>
-<div class="stackbardemo barplot d3">
+f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
 
-</div>
+<p>The end result is as follows:</p>
+
+<div class="stackbardemo barplot d3"></div>
 <!-- stackbardemo.csv -->
 <script type="text/javascript" src="/data/stackbardemo.js"></script>
 
 <p>Generating the small axes on the left was the most tricky part, and I used a probably sub-optimal way to do it:</p>
-<div class="highlight">
-<pre><code class="language-javascript" data-lang="javascript"><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
        <span class="kd">var</span> <span class="nx">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
       <span class="nx">d</span><span class="p">.</span><span class="nx">temp</span> <span class="o">=</span> <span class="nx">color</span><span class="p">.</span><span class="nx">domain</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
@@ -92,12 +89,9 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
       <span class="p">});</span>
     <span class="p">};</span>
-  <span class="p">});</span></code></pre>
-</div>
-<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I’d be really interested in finding a way to do without the <code>forEach</code> part.</p>
-<div class="references">
+  <span class="p">});</span></code></pre></div>
 
-</div>
+<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I’d be really interested in finding a way to do without the <code>forEach</code> part.</p>
 
 </div>
 

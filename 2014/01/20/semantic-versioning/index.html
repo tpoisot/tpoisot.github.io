@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="//use.typekit.net/kvz6lyh.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -20,9 +17,9 @@ ga('send', 'pageview');
 </script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+
+
 
 <title>Timothée Poisot | Semantic versioning for scientific software</title>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -30,11 +27,11 @@ ga('send', 'pageview');
   </head>
 <body>
 
-<div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
+<div id="layout" class="wrapper">
+    <div class="sidebar">
         <div class="header">
-            <h1 class="brand-title">Timothée Poisot</h1>
-            <h2 class="brand-tagline">Computational Ecologist</h2>
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
            <nav class="nav">
    <ul class="nav-list">
    <li><a href="/">Home</a></li>
@@ -48,23 +45,69 @@ ga('send', 'pageview');
 
         </div>
     </div>
-    <div class="content pure-u-1 pure-u-md-3-4">
+    <div class="content">
        <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/20/semantic-versioning/">Semantic versioning for scientific software</a></div>
 <div class='post-date'>On January 20, 2014 &middot; 
    Tim
 </div>
-<p>I have recently discovered the concept of <a href="http://semver.org/">semantic versioning</a>, introduced by Tom Preston-Werner. In short, semantic versioning is a way to know whether two versions of a program will behave in the same way. A program conforming to this specification has a version number of <code>major</code>.<code>minor</code>.<code>patch</code>, and comparing two version numbers will tell you exactly what to expect in terms of compatibility. Versions with different <code>major</code> numbers are not supposed to be compatible. A version with a higher <code>minor</code> number will have additional, backwards compatible functions. Different levels of <code>patch</code> will correspond to issues solving and so forth.</p>
-<p>Semantic versioning is intended for programs declaring a public API, as all <code>R</code> packages do (the various functions and data formats). Any package, module, etc., declaring functions that will be used in user-written scripts are within the scope of semantic versioning. A script that you wrote using v. <code>1.2.3</code> will work when <code>1.3.1</code> or <code>1.2.4</code> are released, but <em>not</em> when <code>2.0.0</code> is. An important point is that, unless <code>major</code> is <code>1</code>, the software is considered unstable: the API can change very rapidly, and so it should not be used for production.</p>
-<p><a href="http://yihui.name/en/2013/06/r-package-versioning/">Yihui Xie</a> proposes a slightly different set of rules, specifically aimed at <code>R</code> packages. When the <code>minor</code> version increases, release the new version of your package to <code>CRAN</code> (as <code>patch</code> versions are not supposed to introduce new features anyway). People can just save time by referring to the <code>major</code>.<code>minor</code> version of the package. The way semantic versioning works, you will only submit <code>major</code>.<code>minor</code>.<code>0</code> versions to <code>CRAN</code> (because each time a number increases, all numbers to the right are set to <code>0</code>). And so any version with <code>patch</code> higher than <code>0</code> is a <em>development</em> version.</p>
-<hr />
-<p>What is the relevance of that for people not contributing to software development? I think using semantic versioning is useful if we <em>report</em> version numbers in the papers in the same way. If you distribute supplementary files with your paper, such as <code>R</code> scripts, don’t give the package name, but also the version of the package you used. This can be viewed using <code>sessionInfo()</code>. If you use package <code>foo</code>, v. <code>1.3.0</code>, and the maintainer of package <code>foo</code> uses semantic versioning, if someone tries to use your script a few years later with <code>foo</code> v. <code>2.1.0</code>, it is <em>possible</em> that things will break. If you clearly state which packages versions are used, it will be easier for users to install the correct version of the packages to run your analyses.</p>
-<p>Correct reporting of software versions is important (and I’ve been guilty of not using top-notch practices myself), but if an increasing number of people start using semantic versioning, it will <em>help</em> re-use of code. In short, we should always give the full version number when mentioning a package or software.</p>
-<hr />
-<p>As a final note, this also require the those of us producing code adopt better development practices. In <em>GitHub</em>, it is easy to tag releases, so that all different versions are available over time. And because the ultimate goal of semantic versioning is to ensure backwards compatibility, we need to be sure that new fixes or additions do not break it. This can be done by writing thorough test suites. Unless a new addition results in previously passing tests failing, it can be considered safe.</p>
-<div class="references">
+<p>I have recently discovered the concept of <a href="http://semver.org/">semantic versioning</a>,
+introduced by Tom Preston-Werner. In short, semantic versioning is a
+way to know whether two versions of a program will behave in the same
+way. A program conforming to this specification has a version number of
+<code>major</code>.<code>minor</code>.<code>patch</code>, and comparing two version numbers will tell you
+exactly what to expect in terms of compatibility. Versions with different
+<code>major</code> numbers are not supposed to be compatible. A version with a higher
+<code>minor</code> number will have additional, backwards compatible functions. Different
+levels of <code>patch</code> will correspond to issues solving and so forth.</p>
 
-</div>
+<p>Semantic versioning is intended for programs declaring a public API, as
+all <code>R</code> packages do (the various functions and data formats). Any package,
+module, etc., declaring functions that will be used in user-written scripts
+are within the scope of semantic versioning. A script that you wrote using
+v. <code>1.2.3</code> will work when <code>1.3.1</code> or <code>1.2.4</code> are released, but <em>not</em> when
+<code>2.0.0</code> is. An important point is that, unless <code>major</code> is <code>1</code>, the software
+is considered unstable: the API can change very rapidly, and so it should
+not be used for production.</p>
+
+<p><a href="http://yihui.name/en/2013/06/r-package-versioning/">Yihui Xie</a> proposes a slightly different set of rules, specifically
+aimed at <code>R</code> packages. When the <code>minor</code> version increases, release the new
+version of your package to <code>CRAN</code> (as <code>patch</code> versions are not supposed to
+introduce new features anyway). People can just save time by referring to the
+<code>major</code>.<code>minor</code> version of the package. The way semantic versioning works,
+you will only submit <code>major</code>.<code>minor</code>.<code>0</code> versions to <code>CRAN</code> (because each
+time a number increases, all numbers to the right are set to <code>0</code>). And so
+any version with <code>patch</code> higher than <code>0</code> is a <em>development</em> version.</p>
+
+<hr />
+
+<p>What is the relevance of that for people not contributing to software
+development? I think using semantic versioning is useful if we <em>report</em>
+version numbers in the papers in the same way. If you distribute supplementary
+files with your paper, such as <code>R</code> scripts, don’t give the package name,
+but also the version of the package you used. This can be viewed using
+<code>sessionInfo()</code>. If you use package <code>foo</code>, v. <code>1.3.0</code>, and the maintainer of
+package <code>foo</code> uses semantic versioning, if someone tries to use your script
+a few years later with <code>foo</code> v. <code>2.1.0</code>, it is <em>possible</em> that things will
+break. If you clearly state which packages versions are used, it will be easier
+for users to install the correct version of the packages to run your analyses.</p>
+
+<p>Correct reporting of software versions is important (and I’ve been guilty of
+not using top-notch practices myself), but if an increasing number of people
+start using semantic versioning, it will <em>help</em> re-use of code. In short,
+we should always give the full version number when mentioning a package
+or software.</p>
+
+<hr />
+
+<p>As a final note, this also require the those of us producing code adopt
+better development practices. In <em>GitHub</em>, it is easy to tag releases,
+so that all different versions are available over time. And because the
+ultimate goal of semantic versioning is to ensure backwards compatibility,
+we need to be sure that new fixes or additions do not break it. This can
+be done by writing thorough test suites. Unless a new addition results in
+previously passing tests failing, it can be considered safe.</p>
+
 
 </div>
 
