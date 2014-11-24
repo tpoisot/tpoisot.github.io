@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+extensions: ["tex2jax.js"],
+jax: ["input/TeX", "output/HTML-CSS"],
+tex2jax: {
+inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+processEscapes: true
+},
+"HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
+ga('send', 'pageview');
+</script>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+<title>Timothée Poisot | Systematic gender bias in editorial boards in ecology</title>
+<link rel="stylesheet" href="/styles/style.css" />
+
+  </head>
+<body>
+
+<div id="layout" class="wrapper">
+    <div class="sidebar">
+        <div class="header">
+            <h1 class="site-title">Timothée Poisot</h1>
+            <h2 class="site-tagline">Computational Ecologist</h2>
+           <nav class="nav">
+   <ul class="nav-list">
+   <li><a href="/">Home</a></li>
+   <li><a href="/software/">Software</a></li>
+   <li><a href="/research/">Research</a></li>
+   <li class="active"><a href="/blog/">Blog</a></li>
+   <li><a href="/papers/">Papers</a></li>
+   <li><a href="/colophon/">Colophon</a></li>
+   </ul>
+</nav>
+
+        </div>
+    </div>
+    <div class="content">
+       <div class="entry">
+<div class='post-title'><a class="readmore" href="/2014/11/24/editorial-boards-gender-bias/">Systematic gender bias in editorial boards in ecology</a></div>
+<div class='post-date'>On November 24, 2014 &middot; 
+   Tim
+</div>
+<p>There is an increasing body of evidence showing that women are at a
+disadvantage in science. They <a href="http://www.nature.com/news/bibliometrics-global-gender-disparities-in-science-1.14321">publish less</a>, and are discriminated
+against <a href="http://www.pnas.org/content/109/41/16474.full">in hiring</a> (by male and female faculty equally). They are also
+under-represented on <a href="https://peerj.com/articles/542/">editorial boards</a>, and it has been so for a long
+time. This last study, in particular, motivated me to do a few additional
+analyses.</p>
+
+<p>Journals are where the scientific debate happen. Editors act as the gatekeeper
+of this debate; especially so since they can render a decision which is not
+the one referees wanted. I have had a few papers saved by associate editors
+(two, if I remember correctly), and more sacked despite glowing reviews (about
+five). It is crucially important that editorial boards represent the population
+of publishing scientists in the field. This is what I set out to test.</p>
+
+<p>I decided to focus on twelve journals, that are well established in ecology,
+are broad audience, and are well cited. These are the journals that will be
+common (not all, but a subset of all), to most professional ecologists. Most
+are also society operated. Here is the list: <em>Methods in Ecology and Evolution</em>
+(where I am a software editor), <em>Journal of Animal Ecology</em>, <em>Functional
+Ecology</em>, <em>Journal of Ecology</em>, <em>Ecology &amp; Evolution</em>, <em>Ecology Letters</em>,
+<em>Oikos</em>, <em>Ecography</em>, <em>Journal of Applied Ecology</em>, <em>The American Naturalist</em>,
+<em>Ecology</em>, and <em>Trends in Ecology &amp; Evolution</em>.</p>
+
+<p>All of these journals list their editorial board online, so I collected the
+name of all editors, divided in three categories: <code>senior</code>, <code>special</code>, and
+<code>associate</code>. The <code>senior</code> editors are editor in chiefs, deputy editor in
+chief, and so on (they sign the rejection letter). The <code>special</code> editors are
+in charge of a particular section (<em>Forums</em>, <em>Book reviews</em>, <em>Software</em>) of
+the journal – meaning that they evaluate only a specific type of papers. The
+<code>associate</code> editors are all of the other editors (also called <em>subject</em>
+editors in some journals).</p>
+
+<p>For each editor, I then painstakingly researched the gender (some people I
+knew, some people I could guess, and for a hundred or so people I had to
+look at the photo or webpage). I ended up with a fully resolved list of
+names: 664 men, 205 women. Some of these names were overlapping, but on
+the 889 total editorial board positions in my sample, 74% are filled by
+men. I will expressed most statistics at the number of men for one woman:
+this is 3.23 for 1. Values greater than 1 means that there are less than
+one woman for every man. Values smaller than 1 never happened in my sample,
+but you would have guessed that already.</p>
+
+<p>This is bad, but we know that there is not an exact parity between men
+and women in science. This is because of many things that happen during
+the undergraduate and graduate studies, and the end result is a sex ratio
+biased towards more men than women. What does it mean? If being invited in
+an editorial board, and accepting, is a random process, then the proportion
+of women in editorial boards should be the same as the proportion of women
+in the pool of publishing ecologists. The baseline expectation is not 1:1,
+it is more likely something slightly larger than 1:1.</p>
+
+<p>So for each of these journals, I queried <em>Web of Science</em> for the last 500
+papers published (one journal is young enough to only have 492 papers, but
+this doesn’t really make a difference). I first took all unique people that
+published as first authors, and used the <a href="https://github.com/ropensci/gender"><code>gender</code> package</a> in <code>R</code>
+to identify their most likely gender. This fails on some non-occidental first
+names (full disclosure: I don’t think it matters). I ended up with a list
+of 4051 unique names: these are the <em>professional ecologists</em>, as identified
+under the criteria of “having published at least one paper as first author in
+the last 500 papers published by these journals”. Using different journals,
+some of which are general and some of which are more focused, is a way to have
+a sampling that is representative enough. And merging all these publications
+and looking at unique names is a way to have a baseline estimate of the bias
+towards men that is as unbiased as possible.</p>
+
+<p>How many men for one woman in this sample? 1.73</p>
+
+<p>The population of publishing ecologists is biased towards more men, about
+twice as much. But note that the population of <em>editors</em> is even more biased
+than that. I decided to have another look at the publication data. For each
+journal, I counted the proportion of first authors of either gender. This
+gives a journal-level measure of bias.</p>
+
+<p>At this point, I decided to be generous, and say that the baseline estimate
+of 1.73 men for 1 woman is <em>only</em> because of pre-publishing career factors
+(I suspect it’s not). So any journal that has 1.73 men for each woman in the
+editorial board is not overcompensating for the under-representation of woman,
+but is sampling in an unbiased way from the population. The way to account for
+that is to use a z-score: the <em>bias</em> for each journal (in terms of publication
+or being on the editorial board) is the <em>true</em> number of men for one woman,
+minus 1.73 (the baseline), divided by the standard error of all ratios. A
+score greater than 0 means excess men, a score lower than 0 means excess women.</p>
+
+<p>Here are the score for each journal:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Journal</th>
+      <th>Ed. board</th>
+      <th>First authors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Functional Ecology</td>
+      <td>0.07</td>
+      <td>-0.25</td>
+    </tr>
+    <tr>
+      <td>Journal of Ecology</td>
+      <td>0.36</td>
+      <td>-0.23</td>
+    </tr>
+    <tr>
+      <td>Ecology &amp; Evolution</td>
+      <td>0.57</td>
+      <td>-0.93</td>
+    </tr>
+    <tr>
+      <td>Ecography</td>
+      <td>0.67</td>
+      <td>0.99</td>
+    </tr>
+    <tr>
+      <td>Methods in Ecology &amp; Evolution</td>
+      <td>0.81</td>
+      <td>2.13</td>
+    </tr>
+    <tr>
+      <td>Journal of Applied Ecology</td>
+      <td>1.10</td>
+      <td>-0.33</td>
+    </tr>
+    <tr>
+      <td>Ecology</td>
+      <td>1.23</td>
+      <td>-0.09</td>
+    </tr>
+    <tr>
+      <td>Ecology Letters</td>
+      <td>1.31</td>
+      <td>0.82</td>
+    </tr>
+    <tr>
+      <td>Journal of Animal Ecology</td>
+      <td>1.38</td>
+      <td>0.04</td>
+    </tr>
+    <tr>
+      <td>The American Naturalist</td>
+      <td>2.13</td>
+      <td>0.53</td>
+    </tr>
+    <tr>
+      <td>Oikos</td>
+      <td>2.20</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>Trends in Ecology &amp; Evolution</td>
+      <td>3.72</td>
+      <td>2.34</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <em>least</em> biased editorial board is <em>Functional Ecology</em> (1.55 men for
+each woman). The <em>most</em> biased is <em>Trends in Ecology &amp; Evolution</em> (7.25 mean
+for each woman); <em>TREE</em> is also the most male-biased for publication: 3.41
+men for each woman in first authors. The <em>least</em> biased journal in terms
+of publications is <em>Ecology and Evolution</em> (1.06 men for each woman first
+author), although the editorial board does not reflect that. There is also
+no really meaningful correlation between the score of first authorship, and
+the score for editorial boards, meaning that the editorial board composition
+do not reflect the pool of authors publishing in each journal either.</p>
+
+<p>Note that <em>all</em> journals had a positive score for the composition of the
+editorial board: they have more men than expected knowing the proportion
+of men in the population of publishing authors. The average score for the
+composition of editorial boards is 1.30 (strong bias towards men), and the
+score for the proportion of first authors is 0.41 (moderate bias towards men).</p>
+
+<p>These are important results: even correcting for the proportion of women
+publishing papers in ecology, there is marked bias in favor or men in both
+first authorship, and representation in editorial board.</p>
+
+<p>Here is what this bias looks like – keep in mind that a score of 0 do not
+mean equal rate between men and women: it means equal rate as predicted by
+the 1.73:1 ratio.</p>
+
+<p><img src="/images/pub_bias.png" alt="Publishing bias" class="full" /></p>
+
+<p>One pressing question is to have an idea of the random expectation. This
+is quite easy to simulate: I have done so by drawing random samples of
+80 persons editorial boards, and 500 first authors, to simulate unbiased
+first-authorship. Since there is no significant correlation in the data, I
+took the decision to do independent samplings (1000 in total), and independent
+analysis too.</p>
+
+<p><img src="/images/pub_bias_hist.png" alt="Publishing bias" class="full" /></p>
+
+<p>Good news – the bias in first authorship is not unexpected given the
+demographic bias. Though there are a few outliers on the right side (these are
+<em>Trends in Ecology and Evolution</em>, and <em>Methods in Ecology and Evolution</em>,
+in which men outnumber women as first authors more than 3 to 1). That’s not
+really a good news, but it suggest that at least the women than manage to
+publish do it at a rate no lesser than their proportion would suggest. It
+is worth re-stating that the only journal that is close to gender equality
+in first authorship is <em>Ecology &amp; Evolution</em>.</p>
+
+<p>Bad news – seriously, look at editorial boards. This is as clear an evidence
+as gender bias as we will be able to get. I’m not going to inflict a measure
+of distance between the distributions on you; there is a clear bias towards
+more men in editorial boards that would be expected at random. Even when
+accounting for the smaller sample size of editorial boards. The outliers in
+this situation are <em>Trends in Ecology and Evolution</em> (which falls outside
+of both CI), and <em>Oikos</em>.</p>
+
+<p><strong>Conclusion</strong> – this post has gone on long enough. Here is a summary for
+your next coffee break: I have used data on the composition of editorial
+board in twelve major publications in ecology. I used a database of 6000
+articles to identify the gender of first authors. There are 1.73 men for each
+woman in my pool of publishing ecologists. Men and women publish a volume of
+papers that matches what you would expect knowing their relative numbers. Yet
+editorial boards show a strong, systematic bias towards more men: 3.23 for
+each woman. This is a serious problem for the representation of women at
+all steps of the publishing process. Not to point the finger, but <em>Trends
+in Ecology and Evolution</em> is a complete sausage fest. Tell me if you want
+the raw data, I am working on a draft to turn that into a proper publication.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'tpoi-hp'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

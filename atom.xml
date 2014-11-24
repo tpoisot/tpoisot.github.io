@@ -4,12 +4,240 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2014-11-21T21:26:28+13:00</updated>
+  <updated>2014-11-24T22:26:32+13:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Systematic gender bias in editorial boards in ecology</title>
+     <link href="http://timotheepoisot.fr/2014/11/24/editorial-boards-gender-bias/"/>
+    <updated>2014-11-24T00:00:00+13:00</updated>
+    <content type="html">&lt;p&gt;There is an increasing body of evidence showing that women are at a
+disadvantage in science. They &lt;a href=&quot;http://www.nature.com/news/bibliometrics-global-gender-disparities-in-science-1.14321&quot;&gt;publish less&lt;/a&gt;, and are discriminated
+against &lt;a href=&quot;http://www.pnas.org/content/109/41/16474.full&quot;&gt;in hiring&lt;/a&gt; (by male and female faculty equally). They are also
+under-represented on &lt;a href=&quot;https://peerj.com/articles/542/&quot;&gt;editorial boards&lt;/a&gt;, and it has been so for a long
+time. This last study, in particular, motivated me to do a few additional
+analyses.&lt;/p&gt;
+
+&lt;p&gt;Journals are where the scientific debate happen. Editors act as the gatekeeper
+of this debate; especially so since they can render a decision which is not
+the one referees wanted. I have had a few papers saved by associate editors
+(two, if I remember correctly), and more sacked despite glowing reviews (about
+five). It is crucially important that editorial boards represent the population
+of publishing scientists in the field. This is what I set out to test.&lt;/p&gt;
+
+&lt;p&gt;I decided to focus on twelve journals, that are well established in ecology,
+are broad audience, and are well cited. These are the journals that will be
+common (not all, but a subset of all), to most professional ecologists. Most
+are also society operated. Here is the list: &lt;em&gt;Methods in Ecology and Evolution&lt;/em&gt;
+(where I am a software editor), &lt;em&gt;Journal of Animal Ecology&lt;/em&gt;, &lt;em&gt;Functional
+Ecology&lt;/em&gt;, &lt;em&gt;Journal of Ecology&lt;/em&gt;, &lt;em&gt;Ecology &amp;amp; Evolution&lt;/em&gt;, &lt;em&gt;Ecology Letters&lt;/em&gt;,
+&lt;em&gt;Oikos&lt;/em&gt;, &lt;em&gt;Ecography&lt;/em&gt;, &lt;em&gt;Journal of Applied Ecology&lt;/em&gt;, &lt;em&gt;The American Naturalist&lt;/em&gt;,
+&lt;em&gt;Ecology&lt;/em&gt;, and &lt;em&gt;Trends in Ecology &amp;amp; Evolution&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;All of these journals list their editorial board online, so I collected the
+name of all editors, divided in three categories: &lt;code&gt;senior&lt;/code&gt;, &lt;code&gt;special&lt;/code&gt;, and
+&lt;code&gt;associate&lt;/code&gt;. The &lt;code&gt;senior&lt;/code&gt; editors are editor in chiefs, deputy editor in
+chief, and so on (they sign the rejection letter). The &lt;code&gt;special&lt;/code&gt; editors are
+in charge of a particular section (&lt;em&gt;Forums&lt;/em&gt;, &lt;em&gt;Book reviews&lt;/em&gt;, &lt;em&gt;Software&lt;/em&gt;) of
+the journal – meaning that they evaluate only a specific type of papers. The
+&lt;code&gt;associate&lt;/code&gt; editors are all of the other editors (also called &lt;em&gt;subject&lt;/em&gt;
+editors in some journals).&lt;/p&gt;
+
+&lt;p&gt;For each editor, I then painstakingly researched the gender (some people I
+knew, some people I could guess, and for a hundred or so people I had to
+look at the photo or webpage). I ended up with a fully resolved list of
+names: 664 men, 205 women. Some of these names were overlapping, but on
+the 889 total editorial board positions in my sample, 74% are filled by
+men. I will expressed most statistics at the number of men for one woman:
+this is 3.23 for 1. Values greater than 1 means that there are less than
+one woman for every man. Values smaller than 1 never happened in my sample,
+but you would have guessed that already.&lt;/p&gt;
+
+&lt;p&gt;This is bad, but we know that there is not an exact parity between men
+and women in science. This is because of many things that happen during
+the undergraduate and graduate studies, and the end result is a sex ratio
+biased towards more men than women. What does it mean? If being invited in
+an editorial board, and accepting, is a random process, then the proportion
+of women in editorial boards should be the same as the proportion of women
+in the pool of publishing ecologists. The baseline expectation is not 1:1,
+it is more likely something slightly larger than 1:1.&lt;/p&gt;
+
+&lt;p&gt;So for each of these journals, I queried &lt;em&gt;Web of Science&lt;/em&gt; for the last 500
+papers published (one journal is young enough to only have 492 papers, but
+this doesn’t really make a difference). I first took all unique people that
+published as first authors, and used the &lt;a href=&quot;https://github.com/ropensci/gender&quot;&gt;&lt;code&gt;gender&lt;/code&gt; package&lt;/a&gt; in &lt;code&gt;R&lt;/code&gt;
+to identify their most likely gender. This fails on some non-occidental first
+names (full disclosure: I don’t think it matters). I ended up with a list
+of 4051 unique names: these are the &lt;em&gt;professional ecologists&lt;/em&gt;, as identified
+under the criteria of “having published at least one paper as first author in
+the last 500 papers published by these journals”. Using different journals,
+some of which are general and some of which are more focused, is a way to have
+a sampling that is representative enough. And merging all these publications
+and looking at unique names is a way to have a baseline estimate of the bias
+towards men that is as unbiased as possible.&lt;/p&gt;
+
+&lt;p&gt;How many men for one woman in this sample? 1.73&lt;/p&gt;
+
+&lt;p&gt;The population of publishing ecologists is biased towards more men, about
+twice as much. But note that the population of &lt;em&gt;editors&lt;/em&gt; is even more biased
+than that. I decided to have another look at the publication data. For each
+journal, I counted the proportion of first authors of either gender. This
+gives a journal-level measure of bias.&lt;/p&gt;
+
+&lt;p&gt;At this point, I decided to be generous, and say that the baseline estimate
+of 1.73 men for 1 woman is &lt;em&gt;only&lt;/em&gt; because of pre-publishing career factors
+(I suspect it’s not). So any journal that has 1.73 men for each woman in the
+editorial board is not overcompensating for the under-representation of woman,
+but is sampling in an unbiased way from the population. The way to account for
+that is to use a z-score: the &lt;em&gt;bias&lt;/em&gt; for each journal (in terms of publication
+or being on the editorial board) is the &lt;em&gt;true&lt;/em&gt; number of men for one woman,
+minus 1.73 (the baseline), divided by the standard error of all ratios. A
+score greater than 0 means excess men, a score lower than 0 means excess women.&lt;/p&gt;
+
+&lt;p&gt;Here are the score for each journal:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Journal&lt;/th&gt;
+      &lt;th&gt;Ed. board&lt;/th&gt;
+      &lt;th&gt;First authors&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Functional Ecology&lt;/td&gt;
+      &lt;td&gt;0.07&lt;/td&gt;
+      &lt;td&gt;-0.25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Journal of Ecology&lt;/td&gt;
+      &lt;td&gt;0.36&lt;/td&gt;
+      &lt;td&gt;-0.23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ecology &amp;amp; Evolution&lt;/td&gt;
+      &lt;td&gt;0.57&lt;/td&gt;
+      &lt;td&gt;-0.93&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ecography&lt;/td&gt;
+      &lt;td&gt;0.67&lt;/td&gt;
+      &lt;td&gt;0.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Methods in Ecology &amp;amp; Evolution&lt;/td&gt;
+      &lt;td&gt;0.81&lt;/td&gt;
+      &lt;td&gt;2.13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Journal of Applied Ecology&lt;/td&gt;
+      &lt;td&gt;1.10&lt;/td&gt;
+      &lt;td&gt;-0.33&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ecology&lt;/td&gt;
+      &lt;td&gt;1.23&lt;/td&gt;
+      &lt;td&gt;-0.09&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ecology Letters&lt;/td&gt;
+      &lt;td&gt;1.31&lt;/td&gt;
+      &lt;td&gt;0.82&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Journal of Animal Ecology&lt;/td&gt;
+      &lt;td&gt;1.38&lt;/td&gt;
+      &lt;td&gt;0.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The American Naturalist&lt;/td&gt;
+      &lt;td&gt;2.13&lt;/td&gt;
+      &lt;td&gt;0.53&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Oikos&lt;/td&gt;
+      &lt;td&gt;2.20&lt;/td&gt;
+      &lt;td&gt;0.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Trends in Ecology &amp;amp; Evolution&lt;/td&gt;
+      &lt;td&gt;3.72&lt;/td&gt;
+      &lt;td&gt;2.34&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The &lt;em&gt;least&lt;/em&gt; biased editorial board is &lt;em&gt;Functional Ecology&lt;/em&gt; (1.55 men for
+each woman). The &lt;em&gt;most&lt;/em&gt; biased is &lt;em&gt;Trends in Ecology &amp;amp; Evolution&lt;/em&gt; (7.25 mean
+for each woman); &lt;em&gt;TREE&lt;/em&gt; is also the most male-biased for publication: 3.41
+men for each woman in first authors. The &lt;em&gt;least&lt;/em&gt; biased journal in terms
+of publications is &lt;em&gt;Ecology and Evolution&lt;/em&gt; (1.06 men for each woman first
+author), although the editorial board does not reflect that. There is also
+no really meaningful correlation between the score of first authorship, and
+the score for editorial boards, meaning that the editorial board composition
+do not reflect the pool of authors publishing in each journal either.&lt;/p&gt;
+
+&lt;p&gt;Note that &lt;em&gt;all&lt;/em&gt; journals had a positive score for the composition of the
+editorial board: they have more men than expected knowing the proportion
+of men in the population of publishing authors. The average score for the
+composition of editorial boards is 1.30 (strong bias towards men), and the
+score for the proportion of first authors is 0.41 (moderate bias towards men).&lt;/p&gt;
+
+&lt;p&gt;These are important results: even correcting for the proportion of women
+publishing papers in ecology, there is marked bias in favor or men in both
+first authorship, and representation in editorial board.&lt;/p&gt;
+
+&lt;p&gt;Here is what this bias looks like – keep in mind that a score of 0 do not
+mean equal rate between men and women: it means equal rate as predicted by
+the 1.73:1 ratio.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/pub_bias.png&quot; alt=&quot;Publishing bias&quot; class=&quot;full&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;One pressing question is to have an idea of the random expectation. This
+is quite easy to simulate: I have done so by drawing random samples of
+80 persons editorial boards, and 500 first authors, to simulate unbiased
+first-authorship. Since there is no significant correlation in the data, I
+took the decision to do independent samplings (1000 in total), and independent
+analysis too.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/pub_bias_hist.png&quot; alt=&quot;Publishing bias&quot; class=&quot;full&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Good news – the bias in first authorship is not unexpected given the
+demographic bias. Though there are a few outliers on the right side (these are
+&lt;em&gt;Trends in Ecology and Evolution&lt;/em&gt;, and &lt;em&gt;Methods in Ecology and Evolution&lt;/em&gt;,
+in which men outnumber women as first authors more than 3 to 1). That’s not
+really a good news, but it suggest that at least the women than manage to
+publish do it at a rate no lesser than their proportion would suggest. It
+is worth re-stating that the only journal that is close to gender equality
+in first authorship is &lt;em&gt;Ecology &amp;amp; Evolution&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bad news – seriously, look at editorial boards. This is as clear an evidence
+as gender bias as we will be able to get. I’m not going to inflict a measure
+of distance between the distributions on you; there is a clear bias towards
+more men in editorial boards that would be expected at random. Even when
+accounting for the smaller sample size of editorial boards. The outliers in
+this situation are &lt;em&gt;Trends in Ecology and Evolution&lt;/em&gt; (which falls outside
+of both CI), and &lt;em&gt;Oikos&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt; – this post has gone on long enough. Here is a summary for
+your next coffee break: I have used data on the composition of editorial
+board in twelve major publications in ecology. I used a database of 6000
+articles to identify the gender of first authors. There are 1.73 men for each
+woman in my pool of publishing ecologists. Men and women publish a volume of
+papers that matches what you would expect knowing their relative numbers. Yet
+editorial boards show a strong, systematic bias towards more men: 3.23 for
+each woman. This is a serious problem for the representation of women at
+all steps of the publishing process. Not to point the finger, but &lt;em&gt;Trends
+in Ecology and Evolution&lt;/em&gt; is a complete sausage fest. Tell me if you want
+the raw data, I am working on a draft to turn that into a proper publication.&lt;/p&gt;
+
+</content>
+  </entry>
   
   <entry>
      <title>So you're not a programmer. Are you sure?</title>
@@ -3131,363 +3359,6 @@ head(LS)
 &lt;h1 id=&quot;to-conclude&quot;&gt;To conclude&lt;/h1&gt;
 
 &lt;p&gt;These three use cases are (I think) good examples of what can be done with the &lt;code&gt;rmangal&lt;/code&gt; package. I’ll refine them a little bit to add in the paper. If you have nay any suggestions, that would be greatly appreciated as well!&lt;/p&gt;
-
-</content>
-  </entry>
-  
-  <entry>
-     <title>Uploading data into mangal</title>
-     <link href="http://timotheepoisot.fr/2014/01/08/mangal-add-data/"/>
-    <updated>2014-01-08T00:00:00+13:00</updated>
-    <content type="html">&lt;p&gt;In the first part, I introduced &lt;code&gt;mangal&lt;/code&gt;, the database and associated &lt;code&gt;R&lt;/code&gt; package to interact with ecological networks. In the second part, I’ll give an overview of how to upload and curate your data. In the last part, we used functions starting with &lt;code&gt;get&lt;/code&gt; and &lt;code&gt;list&lt;/code&gt;. This time, we will use the &lt;code&gt;add&lt;/code&gt; and &lt;code&gt;patch&lt;/code&gt; functions, as they allow to change resouces on the server. There are a few important informations to have before we start.&lt;/p&gt;
-
-&lt;p&gt;First, working on the server is &lt;em&gt;for real&lt;/em&gt;, so please be careful. But take the opportunity of the testing phase to try to break the database in new, innovative ways! Second, the licence under which the data are released is the &lt;em&gt;CC-0&lt;/em&gt; waiver. In short, when data are uploaded in the database, they are frelly available, for all to see and use. Almost all data sharing services use this license for data. Finally, the database is &lt;em&gt;add-only&lt;/em&gt;, which means that you can’t remove data (but I can, in case things go exceptionally wrong).&lt;/p&gt;
-
-&lt;p&gt;In this post, we’ll see (i) how to create an account on the database, (ii)
-how to create and populate a dataset, and (iii) how to modify the interactions
-after sending them. You are of coure invited to try similar things. Note
-that the database won’t accept objects with duplicated names, so if you try
-to re-upload some of the taxa in this example, it most likely won’t work.&lt;/p&gt;
-
-&lt;h1 id=&quot;setting-things-up&quot;&gt;Setting things up&lt;/h1&gt;
-
-&lt;p&gt;As always, we’ll start by getting the latest release of &lt;code&gt;rmangal&lt;/code&gt;. And we’ll also get the latest release of &lt;code&gt;taxize&lt;/code&gt;, because there is a really neat trick I want to show you (in short: automated curation).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;options(stringsAsFactors = FALSE)
-if (getOption(&quot;unzip&quot;) == &quot;&quot;) options(unzip = &quot;unzip&quot;)
-library(devtools)
-install_github(&quot;rmangal&quot;, &quot;mangal-wg&quot;)
-library(rmangal)
-install_github(&quot;taxize&quot;, &quot;ropensci&quot;)
-library(taxize)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;signing-up&quot;&gt;Signing-up&lt;/h1&gt;
-
-&lt;p&gt;Uploading and curating data require that you are logged in. The reason is simple: each object in the database has an &lt;code&gt;owner&lt;/code&gt; property, and this owner becomes you every time you modify an object. Signing up can be done directly from &lt;code&gt;R&lt;/code&gt;: &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;api &amp;lt;- mangalapi()
-me &amp;lt;- signUp(api, &quot;my_user_name&quot;, &quot;my_password&quot;)
-# This line will log you with your newly acquired identifiers!
-api &amp;lt;- mangalapi(usr = me$username, pwd = me$password)
-me
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $email
-## [1] &quot;&quot;
-## 
-## $first_name
-## [1] &quot;&quot;
-## 
-## $id
-## [1] 3
-## 
-## $last_name
-## [1] &quot;&quot;
-## 
-## $password
-## [1] &quot;my_password&quot;
-## 
-## $username
-## [1] &quot;my_user_name&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Before we start, let’s add some personal informations to your profile:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;me$first_name &amp;lt;- &quot;Fake&quot;
-me$last_name &amp;lt;- &quot;People&quot;
-me$email &amp;lt;- &quot;me@fake.people&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we just need to update this information on the server:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;me &amp;lt;- patchUser(api, me)
-me
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $email
-## [1] &quot;me@fake.people&quot;
-## 
-## $first_name
-## [1] &quot;Fake&quot;
-## 
-## $id
-## [1] 3
-## 
-## $last_name
-## [1] &quot;People&quot;
-## 
-## $password
-## [1] &quot;my_password&quot;
-## 
-## $username
-## [1] &quot;my_user_name&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next time you want to work on data, you’ll just need to start your session by&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;api &amp;lt;- mangalapi(URL, usr = &quot;my_username&quot;, pwd = &quot;my_password&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;putting-data-on-the-database&quot;&gt;Putting data on the database&lt;/h1&gt;
-
-&lt;p&gt;In the previous part, I may have mentionned that the usual way to get a network is to start at the &lt;code&gt;dataset&lt;/code&gt; level, then go all the way down to the &lt;code&gt;taxa&lt;/code&gt;. When uploading data, you need to follow the opposite direction. Let’s say that we want to send data about what (probably) happens in the &lt;em&gt;Isle Royale National Park&lt;/em&gt;: wolves eat mooses, mooses eat balsam fir.&lt;/p&gt;
-
-&lt;p&gt;As for &lt;code&gt;get&lt;/code&gt; and &lt;code&gt;list&lt;/code&gt;, the functions to modify data follow a single naming convention: either &lt;code&gt;patch&lt;/code&gt; or &lt;code&gt;add&lt;/code&gt;, and the name of the resource with its first letter capitalized.&lt;/p&gt;
-
-&lt;h2 id=&quot;creating-taxa&quot;&gt;Creating taxa&lt;/h2&gt;
-
-&lt;p&gt;The first thing we need to do is create a few &lt;code&gt;taxa&lt;/code&gt; objects. In case you don’t remember how a &lt;code&gt;taxa&lt;/code&gt; is formatted, you can call&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;whatIs(api, &quot;taxa&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;##         field                                        help    type  null
-## 1        bold             The BOLD identifier of the taxa integer  TRUE
-## 2 description             A short description of the taxa  string  TRUE
-## 3        gbif             The GBIF identifier of the taxa integer  TRUE
-## 5        itis             The ITIS identifier of the taxa integer  TRUE
-## 6        name             The scientific name of the taxa  string FALSE
-## 7        ncbi    The NCBI Taxonomy identifier of the taxa integer  TRUE
-## 9  vernacular The vernacular name of the taxa, in English  string FALSE
-##   unique values
-## 1   TRUE       
-## 2  FALSE       
-## 3   TRUE       
-## 5   TRUE       
-## 6   TRUE       
-## 7   TRUE       
-## 9  FALSE
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So we’ll want to create three taxa:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;moose &amp;lt;- list(name = &quot;Alces americanus&quot;, vernacular = &quot;American moose&quot;)
-wolf &amp;lt;- list(name = &quot;Canis lupus&quot;, vernacular = &quot;Gray wolf&quot;)
-balsam &amp;lt;- list(name = &quot;Abies balsamea&quot;, vernacular = &quot;Balsam fir&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, let’s put them in the database:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;wolf &amp;lt;- addTaxa(api, wolf)
-moose &amp;lt;- addTaxa(api, moose)
-balsam &amp;lt;- addTaxa(api, balsam)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We can check that our taxa are indeed in the database with&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;getTaxa(api, wolf$id)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $bold
-## NULL
-## 
-## $description
-## NULL
-## 
-## $gbif
-## NULL
-## 
-## $id
-## [1] &quot;20&quot;
-## 
-## $itis
-## NULL
-## 
-## $name
-## [1] &quot;Canis lupus&quot;
-## 
-## $ncbi
-## NULL
-## 
-## $owner
-## [1] &quot;my_user_name&quot;
-## 
-## $vernacular
-## [1] &quot;Gray wolf&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;creating-interactions&quot;&gt;Creating interactions&lt;/h2&gt;
-
-&lt;p&gt;We will now create interactions between these taxa. Once more, have a look at &lt;code&gt;whatIs(api, &#39;interaction&#39;)&lt;/code&gt;, and in particular pay attention to the &lt;code&gt;values&lt;/code&gt; column of the &lt;code&gt;ecotype&lt;/code&gt; field. It tells you that &lt;code&gt;ecotype&lt;/code&gt; (the type of ecological interaction betwee two organisms), can only be one of:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;strsplit(subset(whatIs(api, &quot;interaction&quot;), field == &quot;ecotype&quot;)$values, &quot;, &quot;)[[1]]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;##  [1] &quot;predation&quot;                 &quot;ectoparasitism&quot;           
-##  [3] &quot;endoparasitism&quot;            &quot;intra-cellular parasitism&quot;
-##  [5] &quot;parasitoidism&quot;             &quot;mycoheterotrophy&quot;         
-##  [7] &quot;antixenosis&quot;               &quot;teletoxy&quot;                 
-##  [9] &quot;amensalism&quot;                &quot;antibiosis&quot;               
-## [11] &quot;allelopathy&quot;               &quot;competition&quot;              
-## [13] &quot;facilitation&quot;              &quot;refuge creation&quot;          
-## [15] &quot;inquilinism&quot;               &quot;phoresis&quot;                 
-## [17] &quot;epibiosis&quot;                 &quot;pollination&quot;              
-## [19] &quot;mutualistic symbiosis&quot;     &quot;zoochory&quot;                 
-## [21] &quot;mutual protection&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that this list of terms will probably increase in the future. In any case, we have enough informations to start writing our interactions:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;w_e_m &amp;lt;- list(taxa_from = wolf, taxa_to = moose, ecotype = &quot;predation&quot;)
-m_e_b &amp;lt;- list(taxa_from = moose, taxa_to = balsam, ecotype = &quot;herbivory&quot;)
-w_e_m &amp;lt;- addInteraction(api, w_e_m)
-m_e_b &amp;lt;- addInteraction(api, m_e_b)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Congratulations! Note that within the &lt;code&gt;R&lt;/code&gt; package, it’s perfectly acceptable to pass the whole &lt;code&gt;taxa&lt;/code&gt; object (but if you want to interact with the API, you need to pass only the URI, and if you want to interact directly with the API, chances are you knew that already…).&lt;/p&gt;
-
-&lt;h2 id=&quot;wrapping-things-up&quot;&gt;Wrapping things up&lt;/h2&gt;
-
-&lt;p&gt;At this point, we’re almost done. We simply need to wrap our interactions in a &lt;code&gt;network&lt;/code&gt; object:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;isle_royale &amp;lt;- addNetwork(api, list(name = &quot;Isle Royale National Park&quot;, description = &quot;Or at least a simplified version of it&quot;, 
-    interactions = list(w_e_m, m_e_b), metaweb = TRUE))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;metaweb&lt;/code&gt; attribute comes from our &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/22994257&quot;&gt;paper on network beta-diversity&lt;/a&gt;. If you are reporting regionally observed or infered interactions, then it is &lt;code&gt;TRUE&lt;/code&gt;. if you have been sitting in the field looking at stuff, then it’s &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;And finally, even if we only have one network, we will publish it as a dataset:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;ir_dataset &amp;lt;- addDataset(api, list(name = &quot;North-American Terrestrial food webs&quot;, 
-    networks = list(isle_royale)))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And we’re done!&lt;/p&gt;
-
-&lt;h1 id=&quot;modifying-data&quot;&gt;Modifying data&lt;/h1&gt;
-
-&lt;p&gt;In this part, we will go through the different ways to alter data already in the database.&lt;/p&gt;
-
-&lt;h2 id=&quot;adding-some-attributes&quot;&gt;Adding some attributes&lt;/h2&gt;
-
-&lt;p&gt;Now, let’s add some informations to our data. First, we have told almost nothing about where our network is in space. We’ll pull it from the database, and add the &lt;code&gt;latitude&lt;/code&gt; and &lt;code&gt;longitude&lt;/code&gt; attribute:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;isle_royale &amp;lt;- getNetwork(api, isle_royale$id)
-isle_royale$latitude &amp;lt;- 48.015
-isle_royale$longitude &amp;lt;- -88.831
-isle_royale &amp;lt;- patchNetwork(api, isle_royale)
-isle_royale
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $date
-## NULL
-## 
-## $description
-## [1] &quot;Or at least a simplified version of it&quot;
-## 
-## $environment
-## list()
-## 
-## $id
-## [1] &quot;3&quot;
-## 
-## $interactions
-## [1] &quot;18&quot; &quot;19&quot;
-## 
-## $latitude
-## [1] &quot;48.015&quot;
-## 
-## $longitude
-## [1] &quot;-88.831&quot;
-## 
-## $metaweb
-## [1] TRUE
-## 
-## $name
-## [1] &quot;Isle Royale National Park&quot;
-## 
-## $owner
-## [1] &quot;my_user_name&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Because the &lt;code&gt;ir_dataset&lt;/code&gt; dataset contains a &lt;em&gt;reference&lt;/em&gt; to the object we just modified, there is no need to alter it in any way.&lt;/p&gt;
-
-&lt;p&gt;At this point, you can have a look at &lt;code&gt;http://mangal.uqar.ca/data/&lt;/code&gt;, and on the map, there should be a little dot somewhere between Ontario and Wisconsin, representing the network.&lt;/p&gt;
-
-&lt;h2 id=&quot;adding-new-relations&quot;&gt;Adding new relations&lt;/h2&gt;
-
-&lt;p&gt;Let’s say that we want to provide a short bibliography along with the data. An important paper on this system is &lt;em&gt;The Rise and Fall of Isle Royale Wolves&lt;/em&gt;, by Peterson &amp;amp; Page. We know the DOI of this article (&lt;code&gt;10.2307/1381751&lt;/code&gt;), so we’ll just add a reference to the dataset. Datasets have &lt;code&gt;papers&lt;/code&gt; and &lt;code&gt;data&lt;/code&gt; fields, that point to &lt;code&gt;reference&lt;/code&gt; objects. First, we will create a reference (again, look at &lt;code&gt;whatIs(api, &#39;reference&#39;)&lt;/code&gt; to see the possible field (and beware, there is a typo, the &lt;code&gt;jstorid&lt;/code&gt; field is called &lt;code&gt;jsonid&lt;/code&gt;, I will fix that really soon). &lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;peterson_n_page &amp;lt;- addReference(api, list(doi = &quot;10.2307/1381751&quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, we need to add the reference to the &lt;code&gt;papers&lt;/code&gt; field of the &lt;code&gt;dataset&lt;/code&gt; object:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;ir_dataset$papers &amp;lt;- list(peterson_n_page)
-ir_dataset &amp;lt;- patchDataset(api, ir_dataset)
-ir_dataset
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## $data
-## list()
-## 
-## $description
-## NULL
-## 
-## $id
-## [1] &quot;2&quot;
-## 
-## $name
-## [1] &quot;North-American Terrestrial food webs&quot;
-## 
-## $networks
-## [1] &quot;3&quot;
-## 
-## $owner
-## [1] &quot;my_user_name&quot;
-## 
-## $papers
-## [1] &quot;1&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And if you go to &lt;code&gt;http://mangal.uqar.ca/data/dataset/&amp;lt;id&amp;gt;/&lt;/code&gt; (where &lt;code&gt;&amp;lt;id&amp;gt;&lt;/code&gt; is whatever number is in the &lt;code&gt;id&lt;/code&gt; field of the dataset), you will see a list of the references.&lt;/p&gt;
-
-&lt;h2 id=&quot;using-the-power-of-open-science-for-good&quot;&gt;Using the power of open science for good&lt;/h2&gt;
-
-&lt;p&gt;When describing the taxa, we only gave the latin and vernacular names. It’s good, but if we want to really take advantage of all the great tools we have, we will need a little more. One solution is to do a bit of googling, and just copy/paste the taxonomic identifiers and patch the taxa this way. Another solution is to use &lt;code&gt;taxize&lt;/code&gt;. &lt;code&gt;taxize&lt;/code&gt; has a function to get the NCBI identifiers from the latin name, which is perfect for our case:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;for (tax in list(wolf, moose, balsam)) {
-    if (is.null(tax$ncbi)) {
-        identifier &amp;lt;- get_uid(tax$name, ask = FALSE)
-        if (!is.na(identifier)) {
-            tax$ncbi &amp;lt;- identifier[1]
-            patchTaxa(api, tax)
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## 
-## Retrieving data for taxon &#39;Canis lupus&#39;
-## 
-## 
-## Retrieving data for taxon &#39;Alces americanus&#39;
-## 
-## 
-## Retrieving data for taxon &#39;Abies balsamea&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Let’s get the whole network and see that the NCBI identifiers have been added:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;g &amp;lt;- network_as_graph(api, isle_royale$id)
-unlist(V(g)$ncbi)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## [1] 999462  90345   9612
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There is probably more and more we can do using combination of packages, I’ll try to show some possibilities in use-cases.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-now&quot;&gt;What now?&lt;/h1&gt;
-
-&lt;p&gt;As before, keep in mind that the test database will be periodically wiped
-clean, so don’t use it to do some actual data deposition (yet). But it would
-be really cool for you to try writing scripts to upload/modify your datasets,
-and tell me if anything goes wrong. Meanwhile, I’m working on preparing
-use cases (including one to automatically upload your data on &lt;em&gt;figshare&lt;/em&gt;
-and returning the DOI), which I’ll publish (hopefully) later this week,
-or early next week. As always, use the &lt;a href=&quot;https://github.com/mangal-wg/rmangal/issues?state=open&quot;&gt;GitHub page&lt;/a&gt; to report issues.&lt;/p&gt;
 
 </content>
   </entry>
