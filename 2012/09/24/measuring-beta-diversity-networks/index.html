@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Measuring the beta-diversity of species interaction networks</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/09/24/measuring-beta-diversity-networks/">Measuring the beta-diversity of species interaction networks</a></div>
 <div class='post-date'>On September 24, 2012 &middot; 
    Tim
@@ -70,50 +82,50 @@ ga('send', 'pageview');
 
 <p>If you open <code>R</code>, you can now load the package with  </p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus"><span class="kn">library</span><span class="p">(</span>betalink<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">library(betalink)</code></pre></div>
 
-<p>Past this point, I’m assuming you are familiar with our terminology, but if not, you can go <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"><strong>read the previous post</strong></a> (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a <code>list</code> of <code>matrix</code> objects. It’s obviously important that species are named, <em>i.e.</em> set the <code>colnames</code> and <code>rownames</code> properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).</p>
+<p>Past this point, I&#39;m assuming you are familiar with our terminology, but if not, you can go <a href="http://timotheepoisot.fr/2012/09/20/beta-diversity-networks/"><strong>read the previous post</strong></a> (or even better, the paper). The package will think about collection of networks, most of the time. So you absolutely need to have a <code>list</code> of <code>matrix</code> objects. It&#39;s obviously important that species are named, <em>i.e.</em> set the <code>colnames</code> and <code>rownames</code> properties. The package do not care if you feed it unipartite or bipartite networks. This means that you can have the same names in rows ans columns (like you would in a food web), or you can have two distinct sets of names (like you would in a bipartite network).</p>
 
-<p>Let’s start with a simple example: two hosts, two parasites, two realizations:</p>
+<p>Let&#39;s start with a simple example: two hosts, two parasites, two realizations:</p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus">w1 <span class="o">=</span> <span class="kt">matrix</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
-w2 <span class="o">=</span> <span class="kt">matrix</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="kp">colnames</span><span class="p">(</span>w1<span class="p">)</span> <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;p1&#39;</span><span class="p">,</span> <span class="s">&#39;p2&#39;</span><span class="p">)</span>
-<span class="kp">rownames</span><span class="p">(</span>w1<span class="p">)</span> <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;h1&#39;</span><span class="p">,</span> <span class="s">&#39;h2&#39;</span><span class="p">)</span>
-<span class="kp">colnames</span><span class="p">(</span>w2<span class="p">)</span> <span class="o">=</span> <span class="kp">colnames</span><span class="p">(</span>w1<span class="p">)</span>
-<span class="kp">rownames</span><span class="p">(</span>w2<span class="p">)</span> <span class="o">=</span> <span class="kp">rownames</span><span class="p">(</span>w1<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">w1 = matrix(c(1, 0, 0, 1), ncol=2)
+w2 = matrix(c(1, 1, 0, 1), ncol=2)
+colnames(w1) = c('p1', 'p2')
+rownames(w1) = c('h1', 'h2')
+colnames(w2) = colnames(w1)
+rownames(w2) = rownames(w1)</code></pre></div>
 
 <p>The first step is to put these networks into a list:</p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus">realizations <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>w1<span class="p">,</span> w2<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">realizations = list(w1, w2)</code></pre></div>
 
 <p>Now, we cant ask about the metaweb. The package proposes the <code>aggregate.metaweb</code> function:</p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus">metaweb <span class="o">=</span> aggregate.metaweb<span class="p">(</span>realizations<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">metaweb = aggregate.metaweb(realizations)</code></pre></div>
 
 <p>The object returned is a list with three elements, <code>meta</code>, <code>template</code>, and <code>cooc</code>. All three objects are matrices, which correspond to different informations about the metaweb. <code>meta</code> is the one you are most likely to use, as it is the adjacency matrix of the metaweb. <code>template</code> is a matrix giving the frequency at which two species interacted (<em>i.e.</em> the total number of realizations in which they interacted, over the total number of realizations in which they co-occured). Finally, <code>cooc</code> gives the number of times two species co-occured, across all realizations. Note that most of the time, the <code>aggregate.metaweb</code> function will be called internally, so except when you want to have a look at the metaweb itself, there are few reasons to call it.</p>
 
-<p>The next step is to measure the dissimilarity between your two networks. Once again, the process is mostly automated. Your need to pick a β-diversity measure, to start. We implemented the 23 listed by Koleff and colleagues in their 2003 paper. They are coded <code>B01</code> to <code>B23</code>. In all functions, the default is to use <code>B01</code>. Note that if you want to use quantitative measures, the <em>framework</em> allows it, but this is not currently implemented in the <em>package</em> — but this is really simple to do if you need.</p>
+<p>The next step is to measure the dissimilarity between your two networks. Once again, the process is mostly automated. Your need to pick a &beta;-diversity measure, to start. We implemented the 23 listed by Koleff and colleagues in their 2003 paper. They are coded <code>B01</code> to <code>B23</code>. In all functions, the default is to use <code>B01</code>. Note that if you want to use quantitative measures, the <em>framework</em> allows it, but this is not currently implemented in the <em>package</em> &mdash; but this is really simple to do if you need.</p>
 
 <p>For any set of two networks, you can just call</p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus">betalink<span class="p">(</span>w1<span class="p">,</span> w2<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">betalink(w1, w2, bf=B01)</code></pre></div>
 
 <p>However, if you have a lot more networks, then the process can be automated, and you will get a pairwise distance matrix, through</p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus">betalink.dist<span class="p">(</span>realizations<span class="p">,</span> bf<span class="o">=</span>B01<span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">betalink.dist(realizations, bf=B01)</code></pre></div>
 
-<p>If you look at the code for the <code>betalink.dist</code> function, you will see that the last argument is actually the catch-all, <code>...</code>. This means that if you want to modify the <code>betalink</code> function, which <code>betalink.dist</code> calls, you will be able to keep using <code>betalink.dist</code>. The only difference between <code>betalink.dist</code> and <code>betalink</code> is that the later returns the species β-diversity for each side of the matrix separately (<em>i.e.</em> for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network β-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.</p>
+<p>If you look at the code for the <code>betalink.dist</code> function, you will see that the last argument is actually the catch-all, <code>...</code>. This means that if you want to modify the <code>betalink</code> function, which <code>betalink.dist</code> calls, you will be able to keep using <code>betalink.dist</code>. The only difference between <code>betalink.dist</code> and <code>betalink</code> is that the later returns the species &beta;-diversity for each side of the matrix separately (<em>i.e.</em> for the upper and lower levels in bipartite networks). Other than that, you get all of the components of the network &beta;-diversity, either as a list, or as a list of distance objects. Note that if your realizations are named, then the rows and columns of these distance matrices will be named as well.</p>
 
-<p>At this point, you might want to <em>see</em> how things look, rather than just look at numbers. This option is nowhere in the paper, but I actually developed a way to plot network dissimilarity. You can use it through the <code>betalink.plot</code> function, which takes two realizations as arguments. It will plot a matrix, when interactions are color-coded: interactions which are found in both networks and do not experience turnover are in grey; interactions between species unique to realization one or two are, respectively, in green and blue; finally, interactions which are established betwen shared species, but experience turnover, are in orange. The good thing with this visualisation, an example of which is given below, is that, by looking at the relative area of each color, you can guesstimate the values of the different components of β-diversity. A large grey/orange area means that most species are shared. More orange than grey means the turnover of interactions between shared species is high. And so on. The example below uses random networks, but you see the general idea.</p>
+<p>At this point, you might want to <em>see</em> how things look, rather than just look at numbers. This option is nowhere in the paper, but I actually developed a way to plot network dissimilarity. You can use it through the <code>betalink.plot</code> function, which takes two realizations as arguments. It will plot a matrix, when interactions are color-coded: interactions which are found in both networks and do not experience turnover are in grey; interactions between species unique to realization one or two are, respectively, in green and blue; finally, interactions which are established betwen shared species, but experience turnover, are in orange. The good thing with this visualisation, an example of which is given below, is that, by looking at the relative area of each color, you can guesstimate the values of the different components of &beta;-diversity. A large grey/orange area means that most species are shared. More orange than grey means the turnover of interactions between shared species is high. And so on. The example below uses random networks, but you see the general idea.</p>
 
-<p><img src="/images/betaplot.png" alt="Figure1 - the betaplot" /></p>
+<p><img src="/images/betaplot.png" alt="Figure1 - the betaplot"></p>
 
-<p>     </p>
+<p>&nbsp;    </p>
 
-<p>The last thing you may want to do is to measure the distance of each realization to the relevant portion of the metaweb (see Appendix 1 for the many reasons to do it). To do so, just use the <code>beta.os_prime</code> function, whose argument are a list of webs, and a β-diversity measure.</p>
+<p>The last thing you may want to do is to measure the distance of each realization to the relevant portion of the metaweb (see Appendix 1 for the many reasons to do it). To do so, just use the <code>beta.os_prime</code> function, whose argument are a list of webs, and a &beta;-diversity measure.</p>
 
-<p>You’re now good to go, feel free to fork the package if you have any improvements to do, and email me in case of problems, I’ll be glad to help you!</p>
+<p>You&#39;re now good to go, feel free to fork the package if you have any improvements to do, and email me in case of problems, I&#39;ll be glad to help you!</p>
 
 </div>
 
@@ -133,9 +145,10 @@ w2 <span class="o">=</span> <span class="kt">matrix</span><span class="p">(</spa
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

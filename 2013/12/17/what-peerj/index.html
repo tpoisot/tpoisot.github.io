@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | What's hot on PeerJ?</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/12/17/what-peerj/">What's hot on PeerJ?</a></div>
 <div class='post-date'>On December 17, 2013 &middot; 
    Tim
@@ -76,31 +88,31 @@ script to get the first 158 preprints, download them, and get the abstract.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 
-<span class="n">BaseURL</span> <span class="o">=</span> <span class="s">&quot;https://peerj.com/preprints/&quot;</span>
+<span class="n">BaseURL</span> <span class="o">=</span> <span class="s">"https://peerj.com/preprints/"</span>
 <span class="n">StopAt</span> <span class="o">=</span> <span class="mi">158</span>
 <span class="n">StartAt</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">Corpus</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">Fulltext</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="n">Fulltext</span> <span class="o">=</span> <span class="s">""</span>
 
 <span class="k">for</span> <span class="n">preprint_id</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">StartAt</span><span class="p">,</span> <span class="n">StopAt</span><span class="p">):</span>
-   <span class="n">preprint_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">BaseURL</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">preprint_id</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
+   <span class="n">preprint_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">BaseURL</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">preprint_id</span><span class="p">)</span> <span class="o">+</span> <span class="s">"/"</span><span class="p">)</span>
    <span class="k">if</span> <span class="n">preprint_page</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
       <span class="n">preprint_text</span> <span class="o">=</span> <span class="n">preprint_page</span><span class="o">.</span><span class="n">text</span>
       <span class="n">preprint_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">preprint_text</span><span class="p">)</span>
-      <span class="n">abstract</span> <span class="o">=</span> <span class="n">preprint_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;meta&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;description&quot;</span><span class="p">})[</span><span class="s">&#39;content&#39;</span><span class="p">]</span>
-      <span class="n">Fulltext</span> <span class="o">+=</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">abstract</span>
+      <span class="n">abstract</span> <span class="o">=</span> <span class="n">preprint_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"meta"</span><span class="p">,</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span><span class="s">"description"</span><span class="p">})[</span><span class="s">'content'</span><span class="p">]</span>
+      <span class="n">Fulltext</span> <span class="o">+=</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">abstract</span>
       <span class="n">Corpus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abstract</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span> <span class="n">Fulltext</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span></code></pre></div>
 
 <p>There is actually a one-liner version of this code, that exsist solely to
-show that you can do horrible twisted things with python. I’m not showing
+show that you can do horrible twisted things with python. I&#39;m not showing
 it. But the point is: this code will return a list of all abstracts, pasted
 together in a single sentence. Which I copied, and used in <a href="http://www.wordle.net">wordle</a> to get
 the following graphic:</p>
 
-<p><img src="/images/w-peerj-abs.png" alt="With abstracts" /></p>
+<p><img src="/images/w-peerj-abs.png" alt="With abstracts"></p>
 
 <p>So apparently, <code>data</code> are big, followed by <code>sharks</code> and <code>whales</code> (actually
 whale sharks), but suriprisingly, there are no big ecological keywords
@@ -110,14 +122,13 @@ it was easy to get the same picture but for the <em>articles</em>, <em>i.e.</em>
 contributions that went through peer-review. According to the front page,
 Ecology and Biodiversity are still the leading disciplines there.</p>
 
-<p><img src="/images/w-peerj-pap.png" alt="With papers" /></p>
+<p><img src="/images/w-peerj-pap.png" alt="With papers"></p>
 
 <p>It seems to be the case, with <code>species</code> being the most important word, followed
 (still) by <code>data</code>. Interestingly, clinical and molecular keywords are more
 prominent in the published papers than in the preprints. But in any case,
 <em>PeerJ</em> is definitely ecology-friendly, which hopefully will mean that more
 and more people will submit there.</p>
-
 
 </div>
 
@@ -137,9 +148,10 @@ and more people will submit there.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

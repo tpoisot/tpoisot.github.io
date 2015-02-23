@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Should we tell students that communities don't exist?</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/21/teaching-ecological-communities/">Should we tell students that communities don't exist?</a></div>
 <div class='post-date'>On January 21, 2014 &middot; 
    Tim
@@ -69,27 +81,27 @@ of the <em>Population and Community Dynamics</em> class I gave last winter was
 along the lines of <em>an ecological community is the pool of all species
 occuring at the same place and at the same time (and the interactions between
 them)</em>. This is more or a less a synthesis of what you can find in the first
-pages of Peter Morin’s textbook, for example; and so far, I was relatively
+pages of Peter Morin&#39;s textbook, for example; and so far, I was relatively
 satisfied by this definition. Then a few weeks ago, I read the @lea14 paper in
 <em>Ecology</em>, which uses co-occurrence data from marine species to question the
-“classical” definition of a community. Their most important finding is that,
+&quot;classical&quot; definition of a community. Their most important finding is that,
 when clustering species in a large spatial dataset, there are groups of highly
 correlated species. The interesting thing is that these groups are not unique
 to any particular location, and are not necessarily found together. Or in
-short, “communities” are a mix between the two definitions of “whatever is
-found locally” and “the most characteristic species of an assemblage”.</p>
+short, &quot;communities&quot; are a mix between the two definitions of &quot;whatever is
+found locally&quot; and &quot;the most characteristic species of an assemblage&quot;.</p>
 
 <p>As I was writing this post, <a href="http://evol-eco.blogspot.ca/2014/01/a-multiplicity-of-communities-for.html">Caroline Tucker</a> wrote a very interesting
 piece on the <em>multiplicity of ecological communities</em>. Which you should read,
 because it covers a lot of the ground I was planning on covering (and I had to
-delete a few paragraphs). Let’s just say I am glad that the first time I get
-scooped is for a blog post and not for a paper. So just go read Caroline’s
+delete a few paragraphs). Let&#39;s just say I am glad that the first time I get
+scooped is for a blog post and not for a paper. So just go read Caroline&#39;s
 piece, but then come back, because I will try to put another twist on the
 subject. Specifically, should we adapt our message when teaching?</p>
 
-<p>The end of Caroline’s piece is that we should not try to have a
+<p>The end of Caroline&#39;s piece is that we should not try to have a
 one-size-fits-none definition of what an ecological community is. I thought
-it was the only significant weakness of Mark Vellend’s otherwise excellent
+it was the only significant weakness of Mark Vellend&#39;s otherwise excellent
 synthesis [@vel10] from a few years ago: a definition of a community which
 is as simple as the one I gave in the introduction of this post. Defining
 communities this way has one distinct advantage: it is straightforward to
@@ -104,26 +116,25 @@ landscapes.</p>
 qaudrat we work on is a perfectly isolated island, and (ii) probably not
 relevant at the regional scale either, because it does not expands nicely to
 a continuous spatial context. What should we tell then? I think it would be
-an interesting discussion, to present the “simple” definition of a community
+an interesting discussion, to present the &quot;simple&quot; definition of a community
 to students, and get them to understand when it breaks. How do you define the
 area you consider to define a community? What if the environment is always
-moving (like lagoons, intertidal zones, …)? What if you started walking,
+moving (like lagoons, intertidal zones, ...)? What if you started walking,
 from your sampling point, in the same direction; when do you leave the zone
-“defined” by your community?</p>
+&quot;defined&quot; by your community?</p>
 
 <p>Another interesting approach would be to compare this definition to classical
 large scale experimental systems. Looking at the list of the <em>greatest</em>
 ecological experiments proposed by <a href="http://dynamicecology.wordpress.com/2014/01/13/whats-the-greatest-ecology-experiment-in-history/">Jeremy Fox and in the comments</a>,
-or just showing pictures of Huffaker’s oranges, or the Adirondack lakes, on
+or just showing pictures of Huffaker&#39;s oranges, or the Adirondack lakes, on
 any microcosm setup, should lead to the realization that most of these systems
 conform to the discrete theory (counterpoint: <em>Barro Colorado Island</em>). Coming
 back to the paper by Leaper <em>et al.</em>, it is actually hardly surprising that
 marine biologists are once more pushing the ideas that discrete communities
 may make very little sense: dispersion is cheap and easy in the oceans, and for
-some functional groups, it is entirely passive [@mcm12 propose nice evidence that this mode of dispersal will “assemble” consistent communities]. In short, there is a tremendous opportunity to engage with students on the
+some functional groups, it is entirely passive [@mcm12 propose nice evidence that this mode of dispersal will &quot;assemble&quot; consistent communities]. In short, there is a tremendous opportunity to engage with students on the
 relationship between <em>what</em> we study, <em>how</em> we study it, and how it can
 <em>shape</em> the theoretical background we develop to make sense of observations.</p>
-
 
 </div>
 
@@ -143,9 +154,10 @@ relationship between <em>what</em> we study, <em>how</em> we study it, and how i
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

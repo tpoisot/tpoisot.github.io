@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | The costs of Open Science</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/07/05/costs-open-science/">The costs of Open Science</a></div>
 <div class='post-date'>On July  5, 2014 &middot; 
    Tim
@@ -70,16 +82,16 @@ of open science. I talked about the upsides many times (and I will keep on
 doing it), but it would not be really honest not to mention the potential
 disadvantages and risks of adopting new practices: publishing in new journals,
 using preprints in a field where it is not the norm, open peer-review,
-publishing raw datasets, … So, roll yourself in your favorite blanket,
+publishing raw datasets, ... So, roll yourself in your favorite blanket,
 and brace yourself for the impending wave of negativity (also a <em>Jurassic
 Park</em> quote somewhere to keep you on the edge).</p>
 
 <p>Most of the risks come from the fact that these practices are, to a certain
-extent, <em>new</em> <sup id="fnref:new"><a href="#fn:new" class="footnote">1</a></sup>, and science is historically well attached to its
-“rules and standards” [@kuh70, chap. 2]:</p>
+extent, <em>new</em> [^new], and science is historically well attached to its
+&quot;rules and standards&quot; [@kuh70, chap. 2]:</p>
 
 <blockquote>
-  <p>Because [the new scientist] there joins men who learned the bases of
+<p>Because [the new scientist] there joins men who learned the bases of
 their field from the same concrete models, his subsequent practice will
 seldom evoke overt disagreement over fundamentals. <strong>Men whose research is
 based on shared paradigms are committed to the same rules and standards
@@ -89,23 +101,23 @@ continuation of a particular research tradition.</p>
 </blockquote>
 
 <p>Keeping the same core of (currently) common practices, in this perspective,
-is a matter of self-preservation (and it is amusing to note that in Kuhn’s
+is a matter of self-preservation (and it is amusing to note that in Kuhn&#39;s
 view, at least as it is expressed in this paragraph, there is little
-chance that <em>established</em> scientists will be the source of change – my own
-observations don’t support that, but this is 45 years after this paragraph
+chance that <em>established</em> scientists will be the source of change -- my own
+observations don&#39;t support that, but this is 45 years after this paragraph
 was written). Deviation from these practices carries a two-fold risk of
-either excluding yourself from the boy’s club (I’m most likely reading too
-much into it, but I always found Kuhn’s use of <em>men</em> instead of <em>scientists</em>
-meaningful), or being viewed as opposed to the “continuation” of your field.</p>
+either excluding yourself from the boy&#39;s club (I&#39;m most likely reading too
+much into it, but I always found Kuhn&#39;s use of <em>men</em> instead of <em>scientists</em>
+meaningful), or being viewed as opposed to the &quot;continuation&quot; of your field.</p>
 
 <p>Falling exactly in line with this argument, most of the objections to open
 science that I have received, were about the need to preserve either oneself
 or the field as a whole. Preprints are bad because they will facilitate
 the spread of (and legitimate) bad or biased science. Open reviews are bad
 because people will hold grudges against you. Publishing in new journals is
-bad because – whether we like it or not – the journals you publish in are
+bad because -- whether we like it or not -- the journals you publish in are
 still used as a measure of your worth, and the name of a journal is most
-likely a “green-beard trait”.</p>
+likely a &quot;green-beard trait&quot;.</p>
 
 <p>All of these potential costs are real (although I think that the benefits,
 both collective and individuals, far outweigh them), and so it should be
@@ -118,56 +130,49 @@ happening: those of us with supposedly the most to lose are also spending
 the most time and energy experimenting, advocating, and generally having
 tons of fun trying to make ourselves at home.</p>
 
-<p>And this is a side of the discussion that is (I think) often overlooked. It’s
+<p>And this is a side of the discussion that is (I think) often overlooked. It&#39;s
 about settling into a new home, and shuffling the furniture around a bit
-to see if we can make it more to our liking. It’s not about tearing down
-the house to build a hippie commune. And it’s certainly not about shifting
+to see if we can make it more to our liking. It&#39;s not about tearing down
+the house to build a hippie commune. And it&#39;s certainly not about shifting
 the system towards practices that would allow us to be sloppy and generally
 unprofessional. Most of the calls for openness in science are emphasizing
 accountability and transparency; I really am convinced that in an entirely
 open system, it is virtually impossible to cut corners (tho in the immortal
-words of Dr. Ian Malcolm, “Life finds a way”). In short, deciding whether or
-not it’s worth bearing whatever (real of perceived) costs of open science
+words of Dr. Ian Malcolm, &quot;Life finds a way&quot;). In short, deciding whether or
+not it&#39;s worth bearing whatever (real of perceived) costs of open science
 is worth it is about deciding whether or not we trust that the system is
 currently at its global optimum, and whether or not less seasoned scientists
 also have a saying in shaping the system they will practice their science in.</p>
 
-<p>Marie Curie is quoted as saying “Nothing in life is to be feared, it is
+<p>Marie Curie is quoted as saying &quot;Nothing in life is to be feared, it is
 only to be understood; now is the time to understand more, so that we may
-fear less.”. This captures my feelings about all of the above particularly
-well. I think it’s important not to overlook the fact that some of the people
-the most able to bear the “costs” of these practices are also (sometimes)
+fear less.&quot;. This captures my feelings about all of the above particularly
+well. I think it&#39;s important not to overlook the fact that some of the people
+the most able to bear the &quot;costs&quot; of these practices are also (sometimes)
 opposed to them for fear of said costs. But without seriously considering these
-practices, that is by not seeing them as marginal anymore, it’s difficult
+practices, that is by not seeing them as marginal anymore, it&#39;s difficult
 to say whether or not these costs exist at all, and whether they will erode
 over time because we will also better understand and measure the benefits.</p>
 
 <p>I would hate that you think that I am reducing the issue to a generation-gap
-thing, which I don’t believe it is. But it’s true that those of us with less
+thing, which I don&#39;t believe it is. But it&#39;s true that those of us with less
 reputation attached to our name should be the most fearful of any new practice
 that would supposedly attract any cost, because it would hit us proportionally
 harder than it would hit someone with a number of publications in the triple
 digits. Nor am I expecting that everything will change overnight. But without
-being really engaged in some experimentation, I don’t think we will ever be
+being really engaged in some experimentation, I don&#39;t think we will ever be
 able to correctly assess the costs and the benefits.</p>
 
-<p>As a final note – I could write a text twice as long about all of the good
-things that happened to me as a consequence of being open. I’ve heard the
+<p>As a final note -- I could write a text twice as long about all of the good
+things that happened to me as a consequence of being open. I&#39;ve heard the
 argument that some of the costs may be expressed years after the fact. I really
-don’t think this is a particularity of either the new or old ways of doing
+don&#39;t think this is a particularity of either the new or old ways of doing
 things. And I understand that all of us have different experiences. But from
-what I have heard of people trying new things, the result was “mostly good”.</p>
+what I have heard of people trying new things, the result was &quot;mostly good&quot;.</p>
 
-<p>new. They are certainly variations around the way things are done currently,
+<p>[^new]: I don&#39;t really think that any of these practices are inherently
+new. They are certainly variations around the way things are done currently,
 but they appeared through mutation rather than being invasions.</p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:new">
-      <p>I don’t really think that any of these practices are inherently <a href="#fnref:new" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 
 </div>
 
@@ -187,9 +192,10 @@ but they appeared through mutation rather than being invasions.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

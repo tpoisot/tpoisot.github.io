@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,50 +32,59 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Mapping ecological concepts using twitter</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/10/18/mapping-ecological-concepts/">Mapping ecological concepts using twitter</a></div>
 <div class='post-date'>On October 18, 2013 &middot; 
    Tim
 </div>
-<p>I’ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological
+<p>I&#39;ve been setting up a Twitter account for the <a href="http://twitter.com/sfecologie/">French Ecological
 Society</a>, and while we currently use it as a tool to relay the various
-informations we want to share, it’s also a great way to engage with people. So
+informations we want to share, it&#39;s also a great way to engage with people. So
 the question that immediately came to mind is: what kind of topics are
 associated with ecology on twitter? My own twitter list is a poor indicator of
-the “general public” as far as ecology is concerned, so I had to look for
+the &quot;general public&quot; as far as ecology is concerned, so I had to look for
 another solution.</p>
 
-<p>Twitter offers a series of <em>Streaming API</em>, which allows to “listen” to the
+<p>Twitter offers a series of <em>Streaming API</em>, which allows to &quot;listen&quot; to the
 conversation, by tracking some keywords, or users, or geographic location. So
 I downloaded the excellent <a href="https://github.com/geduldig/TwitterAPI"><code>TwitterAPI</code> </a> module for <code>python</code>, and
 tracked a series of keywords. After some trial and error, I settled on
@@ -82,10 +94,10 @@ tracked a series of keywords. After some trial and error, I settled on
 positives (in engineering and software, respectively).</p>
 
 <p>The streaming API, in a nutshell, will return a new line everytime a tweet that
-matches the search parameters is posted. Not all tweets are sampled, but it’s
+matches the search parameters is posted. Not all tweets are sampled, but it&#39;s
 approximately a random sampling, so more than good enough for a side-project.
 I left the script running for a few hours at a time, which gave me a database
-of over 1000 tweets, about 600 of which were retained. I’ve removed all tweets
+of over 1000 tweets, about 600 of which were retained. I&#39;ve removed all tweets
 using a alphabet that is not latin, and there were quite a bit of these.</p>
 
 <p>Once this was done, I just read each line in <code>python</code> (the Twitter API have the
@@ -98,7 +110,7 @@ in each tweet, and let the fun begin!</p>
 <p>One of the things I know how to do is network analysis. So I settled on the
 following procedure to find connections between words. All of the unique words
 are nodes in a network, and two nodes are connected whenever they appear in the
-same tweet. That makes for a <em>lot</em> of connections, but it’s not a problem
+same tweet. That makes for a <em>lot</em> of connections, but it&#39;s not a problem
 because I will eliminate a lot of them later. At this stage, I have a network
 with 2600 nodes, and over 30000 undirected edges. Obviously (i) words appearing
 only once in the dataset have little interest, and (ii) words like <code>the</code> and
@@ -117,7 +129,7 @@ connexions were not really important. Most of the words were excluded using
 this proccess, and the network felt to a much more manageable 149 nodes and
 2509 edges.</p>
 
-<p>Part of these were still words like <code>the</code>, <code>at</code>, and so forth. I’ll eventually
+<p>Part of these were still words like <code>the</code>, <code>at</code>, and so forth. I&#39;ll eventually
 use TF-IDF to select relevant words from each tweet, but remember, this is
 a quick-and-dirty analysis. So I simply looked at mylist of nodes, and removed
 every words that were not relevant (this is rather arbitrary too, but in doubt
@@ -125,56 +137,53 @@ I decided to be inclusive). The final network had 58 nodes, and 250 edges.</p>
 
 <p>Here are the top most important ones, based on their eigenvector centrality:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Word</th>
-      <th style="text-align: center">Centrality</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">ecology</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">biodiversity</td>
-      <td style="text-align: center">0.94</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ecological</td>
-      <td style="text-align: center">0.70</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">human</td>
-      <td style="text-align: center">0.45</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">environment</td>
-      <td style="text-align: center">0.43</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">loss</td>
-      <td style="text-align: center">0.40</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">wetland</td>
-      <td style="text-align: center">0.36</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">environmental</td>
-      <td style="text-align: center">0.35</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">forest</td>
-      <td style="text-align: center">0.34</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">wildlife</td>
-      <td style="text-align: center">0.33</td>
-    </tr>
-  </tbody>
-</table>
+<table><thead>
+<tr>
+<th style="text-align: left">Word</th>
+<th style="text-align: center">Centrality</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ecology</td>
+<td style="text-align: center">1</td>
+</tr>
+<tr>
+<td style="text-align: left">biodiversity</td>
+<td style="text-align: center">0.94</td>
+</tr>
+<tr>
+<td style="text-align: left">ecological</td>
+<td style="text-align: center">0.70</td>
+</tr>
+<tr>
+<td style="text-align: left">human</td>
+<td style="text-align: center">0.45</td>
+</tr>
+<tr>
+<td style="text-align: left">environment</td>
+<td style="text-align: center">0.43</td>
+</tr>
+<tr>
+<td style="text-align: left">loss</td>
+<td style="text-align: center">0.40</td>
+</tr>
+<tr>
+<td style="text-align: left">wetland</td>
+<td style="text-align: center">0.36</td>
+</tr>
+<tr>
+<td style="text-align: left">environmental</td>
+<td style="text-align: center">0.35</td>
+</tr>
+<tr>
+<td style="text-align: left">forest</td>
+<td style="text-align: center">0.34</td>
+</tr>
+<tr>
+<td style="text-align: left">wildlife</td>
+<td style="text-align: center">0.33</td>
+</tr>
+</tbody></table>
 
 <p>If you want to see the other words, you can <a href="http://dx.doi.org/10.6084/m9.figshare.827286">get the <code>graphml</code> file from
 <em>figshare</em></a>. So here is the recipe. If you want to engage with the
@@ -184,23 +193,22 @@ that the volume of non-ecologists is orders of magnitude larger than the volume
 of ecologists, these keywords are most likely what is discussed.</p>
 
 <p>Here is finally a visualization of the network. There is a clearly
-non-significant modular structure, but I’ve nonetheless colored the nodes to
+non-significant modular structure, but I&#39;ve nonetheless colored the nodes to
 better illustrate the relationships:</p>
 
-<p><img src="/images/tw-ecol-concepts.png" alt="The network" /></p>
+<p><img src="/images/tw-ecol-concepts.png" alt="The network"></p>
 
 <p>Interestingly (the layout method groups nodes that are close to each other),
-there seems to be the “sustainability/ecosystem services” topics
-on one side (bottom-left), and the “conservation” topics on the
+there seems to be the &quot;sustainability/ecosystem services&quot; topics
+on one side (bottom-left), and the &quot;conservation&quot; topics on the
 other side (top-right).</p>
 
-<p>I’ll keep on running this model from time to time, but I think there is a good
+<p>I&#39;ll keep on running this model from time to time, but I think there is a good
 opportunity to design informed strategies for communication with the public.
 There is not much effort in collecting these data, and we (scientists) can help
 by communicating in issues in which their is a broad interest. And I may end up
 doing a best-of of the undergrads complaining on Twitter about how <em>Ecology
 101</em> is hard, that is fun too.</p>
-
 
 </div>
 
@@ -220,9 +228,10 @@ doing a best-of of the undergrads complaining on Twitter about how <em>Ecology
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

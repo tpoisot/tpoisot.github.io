@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | A quick way to parallelize</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/07/08/parallel/">A quick way to parallelize</a></div>
 <div class='post-date'>On July  8, 2013 &middot; 
    Tim
@@ -74,22 +86,19 @@ all kind of black magic (<em>a.k.a.</em> data analysis).</p>
 little command-line program will just execute whatever you feed him on
 the different CPUs. For example, if I want to run all of the files in my
 <code>output/</code> folder into a python script, I can write something like:</p>
-
-<pre><code class="language-sh">ls output/*.dat | sort | parallel ./results.py --file output/{}
-</code></pre>
-
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls output/<span class="k">*</span>.dat | sort | parallel ./results.py --file output/<span class="o">{}</span>
+</code></pre></div>
 <p>That will take the files, then output then one by one, and pass them to
 <code>parallel</code>. When I run that, all of my CPU start working on the task, so I can
 cut the treatment time in four (more than what I could achieve with code
-optimization!). It’s definitely poor man parallelization, but it works, and
-it’s faster then setting up a bunch of simulations on a cluster.</p>
+optimization!). It&#39;s definitely poor man parallelization, but it works, and
+it&#39;s faster then setting up a bunch of simulations on a cluster.</p>
 
-<p>That’s one of the (many many) nice sides of working only with GNU/Linux now.
-I’m learning a lot of nifty little tricks, and it’s starting to really
+<p>That&#39;s one of the (many many) nice sides of working only with GNU/Linux now.
+I&#39;m learning a lot of nifty little tricks, and it&#39;s starting to really
 pay off in terms of how fast I can throw command lines instructions at a
 problem until it disappears (or until I accidentally delete the files, look,
-I’m still learning…).</p>
-
+I&#39;m still learning...).</p>
 
 </div>
 
@@ -109,9 +118,10 @@ I’m still learning…).</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

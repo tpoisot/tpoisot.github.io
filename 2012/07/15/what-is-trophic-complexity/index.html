@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,48 +32,57 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | A walk on the intertidal zone</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/07/15/what-is-trophic-complexity/">A walk on the intertidal zone</a></div>
 <div class='post-date'>On July 15, 2012 &middot; 
    Tim
 </div>
-<p>I’m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:</p>
+<p>I&#39;m in the process of writing a big proposal about the complexity of species interaction networks, and how we need to account for multiple interaction types, spatial structure, and macro-ecology, to do better prediction of them. Then, yesterday, we went walking on the intertidal zone on the shore of the Saint-Lawrence. I saw this:</p>
 
-<p><img src="/images/estran.png" alt="Figure1" /></p>
+<p><img src="/images/estran.png" alt="Figure1"></p>
 
-<p>What immediately came to my mind is: we don’t know anything. It’s one thing to look at species interaction networks, and have a feeling that we can, somehow, predict, forecast, and analyse the behavior of complex systems. It’s another entirely different thing to actually see millions of individuals living on top of one another, being flushed every 6 hours, and starting all over again. I was amazed by the breadth of phylogenetic diversity concentrated in such a small space: bacterial mats on the bottom of the ponds, probably some plankton grazing them, a few larvae, crustaceans, algae, and quite a lot of birds.</p>
+<p>What immediately came to my mind is: we don&#39;t know anything. It&#39;s one thing to look at species interaction networks, and have a feeling that we can, somehow, predict, forecast, and analyse the behavior of complex systems. It&#39;s another entirely different thing to actually see millions of individuals living on top of one another, being flushed every 6 hours, and starting all over again. I was amazed by the breadth of phylogenetic diversity concentrated in such a small space: bacterial mats on the bottom of the ponds, probably some plankton grazing them, a few larvae, crustaceans, algae, and quite a lot of birds.</p>
 
-<p>And looking at the food web, or just the parasitic relationships, will make us miss the big picture. There is some hope in the fact that some recent proposal provide us with a <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2011.01732.x/abstract">more integrated view of the complexity of interactions</a>, but far too often we’re happy claiming that we adress «trophic complexity» every time we add a trop predator over a Lotka-Voltera model. Perhaps is <a href="http://www.jstor.org/discover/10.2307/3546712?uid=3739464&amp;uid=2129&amp;uid=2&amp;uid=70&amp;uid=3737720&amp;uid=4&amp;sid=56308801943">community ecology a mess</a> because ecological communities <em>are</em> messy. Perhaps we’ve focused so much on trophic species, functional groups, and whatnot, that we forgot about the Harvard law of animal behavior: «<em>an animal will behave as it damned well pleases</em>». See, this is why theoreticians are better inside. Every time we take a look at the real world, it’s a guaranteed existential crisis.</p>
+<p>And looking at the food web, or just the parasitic relationships, will make us miss the big picture. There is some hope in the fact that some recent proposal provide us with a <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2011.01732.x/abstract">more integrated view of the complexity of interactions</a>, but far too often we&#39;re happy claiming that we adress «trophic complexity» every time we add a trop predator over a Lotka-Voltera model. Perhaps is <a href="http://www.jstor.org/discover/10.2307/3546712?uid=3739464&amp;uid=2129&amp;uid=2&amp;uid=70&amp;uid=3737720&amp;uid=4&amp;sid=56308801943">community ecology a mess</a> because ecological communities <em>are</em> messy. Perhaps we&#39;ve focused so much on trophic species, functional groups, and whatnot, that we forgot about the Harvard law of animal behavior: «<em>an animal will behave as it damned well pleases</em>». See, this is why theoreticians are better inside. Every time we take a look at the real world, it&#39;s a guaranteed existential crisis.</p>
 
 </div>
 
@@ -90,9 +102,10 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

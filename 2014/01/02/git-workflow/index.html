@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Using git throughout your workflow</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/02/git-workflow/">Using git throughout your workflow</a></div>
 <div class='post-date'>On January  2, 2014 &middot; 
    Tim
@@ -75,7 +87,7 @@ the distinction clear.</p>
 <h1 id="tracking-your-code">Tracking your code</h1>
 
 <p>It would be tempting to discard this one if you are not mainly a computational
-scientist. Please don’t. Even the simplest piece of code you write, the most
+scientist. Please don&#39;t. Even the simplest piece of code you write, the most
 basic <code>R</code> function is a <em>central</em> step in your workflow if it is responsible
 for transforming raw data into something you can show around (a figure,
 or a table). In the most fundamental way, <code>git</code> is a way for you to track
@@ -87,18 +99,18 @@ with most versioning systems, is the ability to (i) give the reasons of
 a particular change, and (ii) see exactly what has been changed. See, for
 example, what happens after <em>adding</em> a few lines of code:</p>
 
-<div class="highlight"><pre><code class="language-diff" data-lang="diff"><span class="gu">@@ -50,6 +50,11 @@</span>
-  #&#39; }
-  tax_agg &lt;- function(x, rank, db = &#39;ncbi&#39;, ...) 
+<div class="highlight"><pre><code class="language-diff" data-lang="diff"><span class="gh">@@ -50,6 +50,11 @@
+</span>  #' }
+  tax_agg &lt;- function(x, rank, db = 'ncbi', ...) 
   {
  +  if(is.matrix(x))
  +  {
- +    if(is.null(colnames(x))) stop(&quot;The community data matrix must have named columns&quot;)
+ +    if(is.null(colnames(x))) stop("The community data matrix must have named columns")
  +    x &lt;- data.frame(x)
  +  }
     # bring to long format
     x$rownames &lt;- rownames(x)
-    df_m &lt;- melt(x, id = &#39;rownames&#39;)</code></pre></div>
+<span class="err">    df_m &lt;- melt(x, id = 'rownames')</span></code></pre></div>
 
 <p>If a change in your code breaks it, you can track the lines that where
 modified, and start looking here for possible bugs.</p>
@@ -115,30 +127,29 @@ advantage). You will have the same opportunity to track precisely what is
 going on with a clear summary of the changes. And because <code>git</code> handles
 several people working concurrently just fine, you can have a lot happening:</p>
 
-<p>![Figure1][fig1]
-[fig1]: /images/gitnetwork.png  “Figure 1”</p>
+<p><img src="/images/gitnetwork.png" alt="Figure1" title="Figure 1"></p>
 
 <h1 id="make-replying-to-reviewers-easy">Make replying to reviewers <em>easy</em></h1>
 
 <p><a href="http://carlboettiger.info/2013/06/10/mansucript-reviews-on-github.html">Carl Boettiger</a> and <a href="https://github.com/trvrb/flux/issues?page=1&amp;state=closed">Trevor Bedford</a> (and I, for some papers) use
 <em>Issues</em> as a way to handle reviewers comments. Issues are a paradigm taken
 straight from software development, where a problem in your code needs to
-be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil’s
+be addressed. We make a point for the relevance of this metaphor in <a href="https://github.com/PhDP/ms_scriptoria/blob/master/ms.md">Phil&#39;s
 <em>in prep</em> paper</a> on the <code>scriptoria</code> project. In short, you can
 attribute each point raised by a referee to an Issue. You can then assign
 Issues to people working on the manuscript, and track the progression of
 the replies. Because most issues tracking systems come with a <em>Milestones</em>
-ability, you can assign all issues to the <em>Milestone</em> “First revision”,
+ability, you can assign all issues to the <em>Milestone</em> &quot;First revision&quot;,
 and set a deadline at which all the issues have to be fixed.</p>
 
 <p>As <em>GitHub</em> allows you to reference <em>commits</em> (<em>i.e.</em> changes made to your
 code/paper), it is really easy to say, in the reply to each point, what you
 did to address it, and give a link to the <code>diff</code> (<em>i.e.</em> the list of all
-changes). Instead of replying things like “<em>We replaced the sentence P.4
-L.24-25 by a short statement (now P.6 L.14-21)</em>”, you can say “<em>We changed
-the text in the following way, …, see commit <code>e30b8e</code></em>”. <em>GitHub</em> will take
+changes). Instead of replying things like &quot;<em>We replaced the sentence P.4
+L.24-25 by a short statement (now P.6 L.14-21)</em>&quot;, you can say &quot;<em>We changed
+the text in the following way, ..., see commit <code>e30b8e</code></em>&quot;. <em>GitHub</em> will take
 care of putting a link in place, and the reviewer can then see exactly which
-changes were made. As a final note on this point: it’s obviously good practice
+changes were made. As a final note on this point: it&#39;s obviously good practice
 to <em>ask</em> the editor if s/he agrees with the reviews being put on <em>GitHub</em>.</p>
 
 <h1 id="give-support-to-users">Give support to users</h1>
@@ -148,7 +159,7 @@ suggest improvements, or report bug. It is also possible to contribute new
 code (through the <em>fork</em>/<em>pull</em> mechanism).</p>
 
 <p>One of the things I enjoy in the <em>Issues</em> system is that it can (when the
-people actually use it…) unclutter your mailbox. Instead of sending an email
+people actually use it...) unclutter your mailbox. Instead of sending an email
 to report a bug, people can submit an issue. You will have a clear list of
 what to do, and then again, the ability to indicate exactly how you solved it.</p>
 
@@ -173,12 +184,12 @@ system: each time you commit a change to your code, it will run a pre-specified
 series of steps to <code>build</code> it, and tell you (and other people) whether it
 was a success or not. The list of instructions to build your project can be
 whatever you want (compiling the <code>LaTeX</code> document, running the test suite,
-…). But the central point is that you will know, in real time, if your
+...). But the central point is that you will know, in real time, if your
 changes <em>still allow your code to run</em> or not. Another related service is
 <a href="https://coveralls.io/">coveralls</a> - it gives you an overview of which proportion of your code is
 covered by tests. These two services (TravisCI and coveralls) are automated,
 so you have nothing to do to make sure that you code run, and that it is
-covered by tests (except that coding well, and writing tests…). Both
+covered by tests (except that coding well, and writing tests...). Both
 services will allow you to display little badges on your project page,
 so your <em>users</em> can have some confidence in your code.</p>
 
@@ -189,19 +200,18 @@ your work. This is why I now have a <a href="http://timotheepoisot.fr/software/"
 <em>GitHub</em> to track of lot of things (and I do), what is important can often be
 buried beneath a pile of your active-but-not-yet-useful projects. And because
 the listing of your repositories is just the project name and a one-line
-description, it’s not obvious what is important. So my recommendation if
+description, it&#39;s not obvious what is important. So my recommendation if
 your want to give people a broad overview of what you have been up to,
 is to have a webpage with your projects, instead of just giving the URL to
 your <em>GitHub</em> account.</p>
 
-<hr />
+<hr>
 
-<p>And that’s the way I use <code>git</code> in my everyday workflow. There is a bit of a
+<p>And that&#39;s the way I use <code>git</code> in my everyday workflow. There is a bit of a
 learning curve, but you can learn (most of) <code>git</code> <a href="http://try.github.io/levels/1/challenges/1">in 15 minutes</a>. And
 it saves time in the long run, both because it simplifies some tedious tasks,
 and because it gives you a single formalism in which you can inscribe your
 daily activities.</p>
-
 
 </div>
 
@@ -221,9 +231,10 @@ daily activities.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

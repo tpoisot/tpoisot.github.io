@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,42 +32,51 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Teaching isoclines in the two-species competitive logistic model</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/03/18/teaching-isoclines/">Teaching isoclines in the two-species competitive logistic model</a></div>
 <div class='post-date'>On March 18, 2014 &middot; 
    Tim
 </div>
-<p>I’ve had a great discussion by email with <a href="http://www.crystalernst.com/">Crystal Ernst</a>, about the
+<p>I&#39;ve had a great discussion by email with <a href="http://www.crystalernst.com/">Crystal Ernst</a>, about the
 best way to teach isoclines and phase portraits to undergraduates. I had
 this discussion countless times over the last two years, and I struggled
 when I had to teach that myself. I ended up finding a little twist on the
@@ -80,15 +92,15 @@ classical diagrams, and so I decided that it was time to share it.</p>
 \dot N_2 = N_2 r_2 \left(1 - \frac{\alpha_{22}N_2+\alpha_{21}N_1}{K_2} \right)
 </script>
 
-<p>It’s an important model, as we can use it as a gateway to talk about
+<p>It&#39;s an important model, as we can use it as a gateway to talk about
 coexistence, local stability, and ecosystem functioning. It is also a perfect
-transition between the empirical side of ecology with Gauses’s experiments, and
+transition between the empirical side of ecology with Gauses&#39;s experiments, and
 the more theoretical side of it. I <em>love</em> this model, especially for teaching.</p>
 
 <p>There are a number of intersting things to explain to students when introducing
 this model. First, each species <script type="math/tex"> n </script> perceives its environment
-as a “box” with <script type="math/tex"> K_n </script> compartments. Left to their own devices,
-each “individual” (or units of biomass) will “fill” <script type="math/tex">\alpha_{nn}</script>
+as a &quot;box&quot; with <script type="math/tex"> K_n </script> compartments. Left to their own devices,
+each &quot;individual&quot; (or units of biomass) will &quot;fill&quot; <script type="math/tex">\alpha_{nn}</script>
 compartments, which usually equates unity for a single species model. The
 growth of the population is therefore a quest for free compartments to fill,
 and when most of the box is filled, the effective growth rate decreases. When
@@ -99,7 +111,7 @@ that would allow us to represent the environment as a box with compartments
 you can think of).</p>
 
 <p>The point with introducing a second species is that there are now
-two types of organisms to share the same “box”. And individuals from
+two types of organisms to share the same &quot;box&quot;. And individuals from
 species <script type="math/tex">p</script> are <em>perceived</em> by those of species <script type="math/tex">n</script>
 as taking up <script type="math/tex">\alpha_{np}</script> compartments. The opposite is true,
 and we can define values for the intensity of <em>intra</em> and <em>inter</em> specific
@@ -107,7 +119,7 @@ competition. The question is, then, what are the combinations of values of
 <script type="math/tex">\mathbf{\alpha}</script> that allows coexistence, competitive exclusion,
 or make the system sensitive to initial conditions?</p>
 
-<p>It’s at this point that I usually introduce the notion of <em>equilibrium</em>,
+<p>It&#39;s at this point that I usually introduce the notion of <em>equilibrium</em>,
 <em>i.e.</em> a state of the system in which the two populations <em>stop growing</em>. The
 calculus-based solution is to find values of the population densities that
 make the two derivatives null at the same time. When you are a facing
@@ -126,15 +138,15 @@ no sense. I blame the difficulty to read isoclines as the single reason for
 which adaptive dynamics is frwoned upon by many people (that, and the fact
 that any method involving third order derivatives is rapidly messy).</p>
 
-<p>So here is my solution: <strong>use vector fields</strong>. With a vector field, it’s
+<p>So here is my solution: <strong>use vector fields</strong>. With a vector field, it&#39;s
 virtually impossible to screw up the explanation, because all you have to do
 is (i) put your finger somewhere on the diagram and (ii) follow the arows
 until the equilibrium that the system would eventually reach. Want to know
 how a perturbation affects this equilibrium? Just jiggle your finger a bit,
 and go back to step (i). Did you ended up at the same point? Congratulations,
-that’s local stability.</p>
+that&#39;s local stability.</p>
 
-<p>OK, so what’s a vector field? The phase portrait of the system is defined by
+<p>OK, so what&#39;s a vector field? The phase portrait of the system is defined by
 two axes, one for the density of species <em>1</em>, the other for the density of
 species <em>2</em>. The isoclines are the lines going trough the two equilibria for
 species <em>1</em> (<script type="math/tex">N_1 = (0; N^\star_1)</script>), and trough the two equilibria for
@@ -161,7 +173,7 @@ vector describing the overall change in the system is</p>
 
 <p>Because <script type="math/tex">\vec{N_1}</script> and <script type="math/tex">\vec{N_2}</script> are orthogonal (and
 because of a couple of other assumptions, such as the space defined by the
-population densities being Euclidean), it’s easy to measure the Euclidean
+population densities being Euclidean), it&#39;s easy to measure the Euclidean
 norm of <script type="math/tex">\vec{S}</script>, which is to say the total amount of change in
 the system, as being</p>
 
@@ -182,53 +194,54 @@ and leave aside all of the maths (as straightforward as they may be).</p>
 
 <p>So now, we can produce a graph like the one below:</p>
 
-<p class="left"><img src="/images/isoclines.png" alt="Is1" /></p>
+<p><img src="/images/isoclines.png" alt="Is1">
+{: .left}</p>
 
 <p>When the color is close to red, the system is moving extremely fast. When the
 color is close to yellow, the system is slowing down. Each arrow gives the
 direction in which the system is changing, so we can see that the outcome
-of competition in this case will depend on the initial conditions. It’s
+of competition in this case will depend on the initial conditions. It&#39;s
 also easy to start from anywhere on the plan, and follow the direction of
 the arrows. You can also zoom in, to see how the system behaves when near
 the equilibrium, and investigate the effects of a small disturbance. In
-this case, it’s clear that the system will move away from the equilibrium,
+this case, it&#39;s clear that the system will move away from the equilibrium,
 which is a good way to introduce the notion of local stability (after that,
-it’s eigenvalues all the way down!).</p>
+it&#39;s eigenvalues all the way down!).</p>
 
-<p class="right"><img src="/images/isoclines_stable.png" alt="Is2" /></p>
+<p><img src="/images/isoclines_stable.png" alt="Is2">
+{: .right}</p>
 
 <p>The same visualization with a stable coexistence is also extremely clear. You
 can easily see that all of the arrows converge towards the two-species
-equilibrium, which in that case is stable. I’m not going to show the systematic
-exclusion scenario, but it’s working in the same way.</p>
+equilibrium, which in that case is stable. I&#39;m not going to show the systematic
+exclusion scenario, but it&#39;s working in the same way.</p>
 
-<p>The good thing with this method is that (i) it’s easy to explain what isoclines
+<p>The good thing with this method is that (i) it&#39;s easy to explain what isoclines
 are and how to use them to see how the system will change over time, and (ii)
-as it’s extremely visual, it does not rely on the students understanding the
+as it&#39;s extremely visual, it does not rely on the students understanding the
 maths <em>before</em> they understand their ecological meaning. I have no data to
-back this up, but I think it’s easier to understand the maths once you can
+back this up, but I think it&#39;s easier to understand the maths once you can
 see the output in a visual way.</p>
 
-<p>The code I used is available as a <a href="https://gist.github.com/tpoisot/9632093">gist</a>. It’s not optimized <em>at all</em>
+<p>The code I used is available as a <a href="https://gist.github.com/tpoisot/9632093">gist</a>. It&#39;s not optimized <em>at all</em>
 but it runs fast enough that optimization is not really an issue. You can
 modify the <code>params</code> array to fix values of <em>r</em>, <em>K</em>, and the <em>per capita</em>
 competition rates, and the code will do the rest.</p>
 
-<hr />
+<hr>
 
 <p>Here we are. This is the way I currently explain isoclines, and the outcome of
 competition in the two-species logistic growth model (and a bunch of others,
 actually). It helps <em>me</em> by making it virtually impossible to fail at the
 explanation, because I can just follow the arrows. And I think it helps <em>the
 students</em> because (i) it gives a visual explanation of the phenomenon that
-requires no mathematical understanding, and (ii) it’s an intuitive way to
+requires no mathematical understanding, and (ii) it&#39;s an intuitive way to
 start thinking about all the conclusions we can draw using this model.</p>
 
-<p>Now, if any of you have an alternative method to teach that, I’m very
+<p>Now, if any of you have an alternative method to teach that, I&#39;m very
 interested. I think that the behavior of this model can be tricky to
 explain. Yet it touches upon so many core principles in community ecology
-that it’s super important that we get it right.</p>
-
+that it&#39;s super important that we get it right.</p>
 
 </div>
 
@@ -248,9 +261,10 @@ that it’s super important that we get it right.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Using Vim as a writing environment</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/01/vim-writing-environment/">Using Vim as a writing environment</a></div>
 <div class='post-date'>On January  1, 2014 &middot; 
    Tim
@@ -70,7 +82,7 @@ in a way that will transform it into an impressively efficient writing
 environment. <code>Vim</code> is a really good code editor, there is no questioning
 that. But writing code and writing prose are entirely different exercises,
 and some tools you need to efficiently write code are only getting in the
-way when you write prose. But <code>Vim</code> can handle that, and I’m going to share
+way when you write prose. But <code>Vim</code> can handle that, and I&#39;m going to share
 my configuration with you.</p>
 
 <h2 id="the-font">The font</h2>
@@ -79,7 +91,7 @@ my configuration with you.</p>
 hours each days looking at a terminal, picking a good font for writing is
 important. What makes a font good will vary from person to person, but there
 are a few common elements. I want glyphs that are easy to differentiate (<code>0</code>
-<em>vs.</em> <code>O</code>, <code>l </code> <em>vs.</em> <code>1</code>, for example), and a font with a good negative
+<em>vs.</em> <code>O</code>, <code>l</code> <em>vs.</em> <code>1</code>, for example), and a font with a good negative
 space, so that reading long paragraphs of texts is not eye-straining. When
 spending a few hours working on a paper, it can make all the difference in
 the world to have a good, easily legible font. I use the <a href="http://www.google.com/fonts/specimen/Cousine">Cousine</a> family,
@@ -88,8 +100,8 @@ inventory of glyphs.</p>
 
 <h2 id="the-color-scheme">The color scheme</h2>
 
-<p>No surprise, I use <a href="http://ethanschoonover.com/solarized">Solarized</a> (light). It has a good contrast, and because
-of the beige background, you don’t feel like you are staring at a light
+<p>No surprise, I use <a href="light">Solarized</a>. It has a good contrast, and because
+of the beige background, you don&#39;t feel like you are staring at a light
 bulb. And the <code>solarized-vim</code> version comes with quite a very exhaustive
 syntax set, so everything (i) works and (ii) looks great out of the box.</p>
 
@@ -99,33 +111,32 @@ syntax set, so everything (i) works and (ii) looks great out of the box.</p>
 will just walk you through the most important plugins. I manage them using
 <a href="https://github.com/gmarik/vundle">vundle</a>, and the ones I <em>absolutely need</em> to do some serious writing are:</p>
 
-<div class="highlight"><pre><code class="language-vim" data-lang="vim">Bundle <span class="s1">&#39;tpope/vim-markdown&#39;</span>
-Bundle <span class="s1">&#39;mikewest/vimroom&#39;</span>
-Bundle <span class="s1">&#39;vim-pandoc/vim-pandoc&#39;</span>
-Bundle <span class="s1">&#39;altercation/vim-colors-solarized&#39;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-vim" data-lang="vim">Bundle <span class="s1">'tpope/vim-markdown'</span>
+Bundle <span class="s1">'mikewest/vimroom'</span>
+Bundle <span class="s1">'vim-pandoc/vim-pandoc'</span>
+Bundle <span class="s1">'altercation/vim-colors-solarized'</span></code></pre></div>
 
 <p>First, <code>vim-markdown</code> and <code>vim-pandoc</code> are extremely powerful extensions for
 (you guessed it), <code>markdown</code> and <code>pandoc</code>. As I used these for <em>everything</em>
 these days, having good plugins is a requirement. They introduce things like
 autocompletion of citations from a <code>bibtex</code> file, and things like <em>replacing
 LaTeX greek letters by the actual greek letter</em>, which means that when you
-are looking at a paragraph, it shows no markup, but the formatting. It’s
+are looking at a paragraph, it shows no markup, but the formatting. It&#39;s
 really, really amazing when you want to <em>read</em>.</p>
 
 <p>The most recent addition to this collection is <code>vimroom</code>. This plugins
 attempts to replicate the look and feel of <em>WriteRoom</em>, one of the many, many
-“distraction-free” writing softwares. When editing a document, <code>&lt;leader&gt;V</code>
+&quot;distraction-free&quot; writing softwares. When editing a document, <code>&lt;leader&gt;V</code>
 will center the text on the screen, with ample white-space on each sides,
-and remove every piece of clutter from the “interface”. It means that, if
-you have a large screen, you don’t need to turn your head all the way to
+and remove every piece of clutter from the &quot;interface&quot;. It means that, if
+you have a large screen, you don&#39;t need to turn your head all the way to
 the left to read what you are working on.</p>
 
-<hr />
+<hr>
 
-<p>So that’s it! It’s not much work, and it makes for a really pleasant writing
-experience in <code>Vim</code>. And it’s effortless to switch from “code” to “prose”
+<p>So that&#39;s it! It&#39;s not much work, and it makes for a really pleasant writing
+experience in <code>Vim</code>. And it&#39;s effortless to switch from &quot;code&quot; to &quot;prose&quot;
 mode, making <code>Vim</code> a very versatile and productive tool.</p>
-
 
 </div>
 
@@ -145,9 +156,10 @@ mode, making <code>Vim</code> a very versatile and productive tool.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | An additive partition of species-level specificity</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/10/15/specificity-range-measures/">An additive partition of species-level specificity</a></div>
 <div class='post-date'>On October 15, 2013 &middot; 
    Tim
@@ -72,7 +84,7 @@ review, and the one we introduce, work in the same way: for an organism,
 species, population, you have an array <strong>P</strong> of its performances across <em>R</em>
 different environments, which is (1) sorted decreasingly, and (2) ranged so
 that <strong>P</strong>[1] = 1. In this paper, we recommend to use either <em>RR</em> (which is
-a modification of Schoener’s generality), and <em>PDI</em> (which is first
+a modification of Schoener&#39;s generality), and <em>PDI</em> (which is first
 formally introduced in this paper), which measures how fast
 performance decreases when you move away from the optimal environment
 (the faster it decays, the more specialized you are).</p>
@@ -85,7 +97,7 @@ nothing more that the sum of performance lost by not being on the optimal
 resource, divided by the number of non-optimal resources. Somewhere in the end
 of the paper, we write that when the data are binary, <em>RR</em> and <em>PDI</em> are
 equivalent. For some reason that still eludes me, the demonstration did not
-make its way in the final version of the paper. So let’s start with it. First,
+make its way in the final version of the paper. So let&#39;s start with it. First,
 for an organism of which the performances are measured in <em>R</em>
 environments, of which it has a performance higher than 0 in <em>r</em>, we
 define <em>RR</em> as</p>
@@ -96,7 +108,7 @@ define <em>RR</em> as</p>
 
 <script type="math/tex; mode=display"> PDI = \frac{\sum_{i=2}(\mathbf{P}_1-\mathbf{P}_i)}{R-1} </script>
 
-<p>It’s easy to prove that if all values of <strong>P</strong> are either 0 or 1, then <em>PDI</em>
+<p>It&#39;s easy to prove that if all values of <strong>P</strong> are either 0 or 1, then <em>PDI</em>
 = <em>RR</em>. In this situation, the species in question has <em>r</em> times 1 in <strong>P</strong>,
 and <em>R-r</em> times 0 in <strong>P</strong>. In other words, for the first <em>r</em> elements of
 <strong>P</strong>, <strong>P</strong>[1]-<strong>P</strong>[i] = 0, and for the remaining (<em>R-r</em>) elements,
@@ -104,12 +116,12 @@ and <em>R-r</em> times 0 in <strong>P</strong>. In other words, for the first <e
 expression of <em>PDI</em> is the same as the expression of <em>RR</em>.</p>
 
 <p>Previously, we and others discussed the fact that specificity ought to be
-separated in its “interactions” and “impacts” components, <em>i.e.</em> (i) how many
+separated in its &quot;interactions&quot; and &quot;impacts&quot; components, <em>i.e.</em> (i) how many
 resources do I exploit, and (ii) how are my performances distributed. With <em>RR</em>
 and <em>PDI</em>, it might seem that we have the adequate tool to measure both sides
-of the specificity. There’s more to do with these measures, though. Because
-<em>RR</em> is included in <em>PDI</em> (it’s easy to show that <em>PDI</em> &amp;geq; <em>RR</em>), <em>PDI</em>
-also measures an “association” component of specificity. But then again, the
+of the specificity. There&#39;s more to do with these measures, though. Because
+<em>RR</em> is included in <em>PDI</em> (it&#39;s easy to show that <em>PDI</em> &geq; <em>RR</em>), <em>PDI</em>
+also measures an &quot;association&quot; component of specificity. But then again, the
 specificity of impact makes sense if you first consider the specificity of
 associations before. So we can start thinking of this problem as an additive
 partition of specificity:</p>
@@ -122,7 +134,7 @@ impacts are accounted for by <em>PDI</em>, so in measurable terms, the above bec
 <p><em>PDI</em> = <em>RR</em> + <em>I</em></p>
 
 <p>This additive partition makes sense, because if you go back to the
-demonstration of <em>PDI = RR</em>, it’s straightforward that whenever performances
+demonstration of <em>PDI = RR</em>, it&#39;s straightforward that whenever performances
 are different across resources, the first <em>r</em> elements of <strong>P</strong>[1]-<strong>P</strong>[i]
 will be <em>greater</em> than 0, so the numerator will be <em>greater</em> than <em>R-r</em>, so
 <em>PDI</em> will be superior or equal to <em>RR</em>. How much greater it will be is the
@@ -137,40 +149,35 @@ the couple <em>PDI</em>-<em>RR</em> is the only pair of measures that allow to d
 (though there are other approaches) in a context where you can show that one
 measure is a component of the other.  Here is a <code>R</code> function to do it using the
 <code>ESM</code> package (<a href="https://r-forge.r-project.org/R/?group_id=593">from R-Forge</a>).</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ESM</span><span class="p">)</span>
 
-<pre><code class="language-r">library(ESM)
-
-sap = function(P)
-{
-   Spe = pdi(P)
-   Ass = rr(P)
-   Imp = Spe - Ass
-   return(list(
-      specificity  = Spe,
-      associations = Ass,
-      impacts      = Imp,
-      assoc_rel    = Ass / Spe,
-      impac_rel    = Imp / Spe
-      ))
-}
-</code></pre>
-
-<p>Let’s do some simple examples, and contrast to species with the same number of
+<span class="n">sap</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">Spe</span> <span class="o">=</span> <span class="n">pdi</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+   <span class="n">Ass</span> <span class="o">=</span> <span class="n">rr</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+   <span class="n">Imp</span> <span class="o">=</span> <span class="n">Spe</span> <span class="o">-</span> <span class="n">Ass</span>
+   <span class="k">return</span><span class="p">(</span><span class="n">list</span><span class="p">(</span>
+      <span class="n">specificity</span>  <span class="o">=</span> <span class="n">Spe</span><span class="p">,</span>
+      <span class="n">associations</span> <span class="o">=</span> <span class="n">Ass</span><span class="p">,</span>
+      <span class="n">impacts</span>      <span class="o">=</span> <span class="n">Imp</span><span class="p">,</span>
+      <span class="n">assoc_rel</span>    <span class="o">=</span> <span class="n">Ass</span> <span class="o">/</span> <span class="n">Spe</span><span class="p">,</span>
+      <span class="n">impac_rel</span>    <span class="o">=</span> <span class="n">Imp</span> <span class="o">/</span> <span class="n">Spe</span>
+      <span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Let&#39;s do some simple examples, and contrast to species with the same number of
 resources, but a very high performance on resource 2, or a very low performance
 on resource 3:</p>
-
-<p>~~~ r
-&gt; unlist(sap(c(1,0.999,0)))
+<div class="highlight"><pre><code class="language- r" data-lang=" r">&gt; unlist(sap(c(1,0.999,0)))
   specificity associations      impacts    assoc_rel    impac_rel 
   0.500500000  0.500000000  0.000500000  0.999000999  0.000999001 
 &gt; unlist(sap(c(1,0.001,0)))
   specificity associations      impacts    assoc_rel    impac_rel 
   0.9995000    0.5000000    0.4995000    0.5002501    0.4997499 
-~~~</p>
-
+</code></pre></div>
 <p>In the second example, because the performance on the second resource is much
 almost zero, the <em>RR</em> and <em>I</em> components are almost as important to understand
-specificity (whereas it’s not the case in the first example, wherein you can
+specificity (whereas it&#39;s not the case in the first example, wherein you can
 assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
 
 </div>
@@ -191,9 +198,10 @@ assume that <strong>P</strong>[2] = 1 without changing the big picture.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

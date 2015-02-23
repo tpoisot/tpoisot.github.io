@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,49 +32,58 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Live-tweeting at conferences</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/11/17/live-tweets/">Live-tweeting at conferences</a></div>
 <div class='post-date'>On November 17, 2014 &middot; 
    Tim
 </div>
 <p>The main appeal of scientific meetings is that you get to see results, and what
-other people are working on, before any of it is published (and free food –
+other people are working on, before any of it is published (and free food --
 seriously, oh so much free food). Given that there is an increasing number
-of people <a href="/2014/08/17/twitter-esa-imcc/">using Twitter</a> to cover meetings, it’s no surprise that there
+of people <a href="/2014/08/17/twitter-esa-imcc/">using Twitter</a> to cover meetings, it&#39;s no surprise that there
 is an active discussion about what is off-limits, in terms of what to tweet,
 and what to keep on the down low. To have an idea of the range of different
 opinions and issues, you <em>should</em> read open science advocate extraordinaire
-<a href="http://blogs.egu.eu/palaeoblog/2014/11/13/lets-have-a-discussion-about-live-tweeting-academic-conferences/">Jon Tennant’s blog post</a> on the topic.</p>
+<a href="http://blogs.egu.eu/palaeoblog/2014/11/13/lets-have-a-discussion-about-live-tweeting-academic-conferences/">Jon Tennant&#39;s blog post</a> on the topic.</p>
 
 <p>Many folks have been calling for event-level policy. <a href="https://twitter.com/sfnpolice">SFN14</a>, for example,
 banned all live-tweeting while the sessions were proceeding. <a href="https://www.grc.org/about.aspx">Gordon Research
@@ -81,7 +93,7 @@ might be good, but they have the huge problem of effectively overruling
 individual opinions about what is tweetable or not.</p>
 
 <p>I start my talks with a slide saying that <em>everything</em> is fair game as long as
-I get credit for it (that’s the basis of the <em>CC-BY 4.0</em> license, under which
+I get credit for it (that&#39;s the basis of the <em>CC-BY 4.0</em> license, under which
 I release most of my non-code, non-data stuff, including this very blog). You
 can record the audio (Worst. Podcast. Ever.), a video, take pictures of
 the slides, and share them online as long as my name is attached to it in
@@ -93,42 +105,42 @@ when the alternative is reading the paper in warm, comforting silence.</p>
 
 <p>Slides that present results, in particular, seem to be the most problematic. I
 have a lot of trouble following the argument. Some people opposed to having
-them shared online (as is their right to do – if they don’t want you to
-share, don’t share). But the argument that is usually given is “people might
-see my results”. As opposed to the people that are sitting in the session,
+them shared online (as is their right to do -- if they don&#39;t want you to
+share, don&#39;t share). But the argument that is usually given is &quot;people might
+see my results&quot;. As opposed to the people that are sitting in the session,
 that will close their eyes, put their fingers in their ears, and go <em>na-na-na
-can’t hear you</em> until the non-results part of the talk is reached, I suppose.</p>
+can&#39;t hear you</em> until the non-results part of the talk is reached, I suppose.</p>
 
 <p>All sarcasm left aside, I understand that the fear of getting scooped is
-real in some people, and justified in some fields (I don’t think it is the
+real in some people, and justified in some fields (I don&#39;t think it is the
 case in ecology, fortunately). But the whole point of going to a conference
 is that people will see your slides. And hear what you have to say about
 them. If your fear is of being scooped, the people <em>in the room</em> that have
 access to the slide in context are much more threatening that the people
 that will only see one blurry picture and a one-sentence summary on twitter.</p>
 
-<p>Having your science shared on twitter (unless it is “holy cow you guys
-look at how bad this paper is!”) is all win for you. It’s free publicity
+<p>Having your science shared on twitter (unless it is &quot;holy cow you guys
+look at how bad this paper is!&quot;) is all win for you. It&#39;s free publicity
 about what you do (so people might go to your website and check your other
 papers, or go read the preprint, or send you emails to talk about it). And
 because twitter only allows short messages, at best, people will only have
 a photo and a single sentence. This is very, very far from enough material
 to reproduce a paper and scoop you.</p>
 
-<p>And it’s a great ego boost too! A few months ago, I was talking in a room
+<p>And it&#39;s a great ego boost too! A few months ago, I was talking in a room
 with no clock, so I laid my phone on the stand in front of me. And people
 <em>in the room</em> where saying good things about my talk. This is real-time
 feedback, and it feels <em>awesome</em>. Seeing that the fruit of your labor is
 making people in a positive way in real time never happens in science except
 in this particular context.</p>
 
-<p>To wrap things up – I am fine with conference-level policies, as long as
+<p>To wrap things up -- I am fine with conference-level policies, as long as
 they allow each individual speaker to decide how much can be shared, and
 how. This is why we have open (and closed, too) licenses, and they apply to
 all sorts of intellectual property. It would be productive for conferences
 to state the default (assumed) policy, in case speakers are not explicit. It
 would make sense that this default be opt-in: if the speaker says nothing,
-you can’t share. But saying <em>all sharing is prohibited</em> is absurd; conference
+you can&#39;t share. But saying <em>all sharing is prohibited</em> is absurd; conference
 organizers have many jobs, none of which involves deciding, for me, how I
 can or cannot share my own research.</p>
 
@@ -150,9 +162,10 @@ can or cannot share my own research.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

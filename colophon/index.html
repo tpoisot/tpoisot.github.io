@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,39 +32,48 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Colophon</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li class="active"><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/" class="active">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <h1 id="author">Author</h1>
 
-<p>This website is written by Timothée Poisot, <code>t.poisot_ at_gmail.com</code>.</p>
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <h1 id="author">Author</h1>
+
+<p>This website is written by Timothée Poisot, <code>tim_ at_poisotlab.io</code>.</p>
 
 <h1 id="intellectual-property">Intellectual property</h1>
 
@@ -75,29 +87,32 @@ non-revocable way as long as the license terms are being complied with.</p>
 <p>The following exceptions apply:</p>
 
 <ol>
-  <li>This license <em>do not</em> apply to PDF/reprints of articles and preprints,
+<li>This license <em>do not</em> apply to PDF/reprints of articles and preprints,
 and code snippets (unless otherwise specified, these are released under
 the terms of the <a href="http://www.wtfpl.net/about/">WTFPL</a>).</li>
-  <li>This license does not apply to the source code of this website, which is
+<li>This license does not apply to the source code of this website, which is
 released under the terms of the <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a> license.</li>
-  <li>This license does not apply to the <em>comments</em> on the blog posts, that
+<li>This license does not apply to the <em>comments</em> on the blog posts, that
 remain the property (and responsibility) of their contributors.</li>
 </ol>
 
 <h1 id="technologies">Technologies</h1>
 
-<p>This website is published on <em>GitHub pages</em>, and generated using <code>jekyll</code>
-and <code>pandoc</code>. The <code>css</code> files are generated using <code>sass</code>. Most likely, the
-content was written using <code>vim</code> on a laptop running Arch Linux. The fonts
-used are provided by the <em>Google Fonts</em> project. Equations are rendered using
-<code>MathJaX</code>, and <code>d3.js</code> may be used for a few graphs here and there.</p>
+<p>This website is published on <em>GitHub pages</em>, and generated using <code>jekyll</code> and
+<code>pandoc</code>. The <code>css</code> files are generated using <code>less</code>. Most likely, the content
+was written using <code>Atom</code> on a laptop running Arch Linux. The fonts used
+(<em>Roboto</em> and <em>Iconsolata</em>) are provided by the <em>Google Fonts</em> project.
+Equations are rendered using <code>MathJaX</code>, and <code>d3.js</code> may be used for a few graphs
+here and there. Other libraries used are <code>skeleton</code>, <code>fontawesome</code>, and
+<code>highlight</code>.</p>
 
 <p>No users of non-free software were hurt during the writing of this website.</p>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

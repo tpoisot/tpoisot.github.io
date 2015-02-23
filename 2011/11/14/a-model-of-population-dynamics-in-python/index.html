@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,46 +32,55 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | A model of population dynamics in Python</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2011/11/14/a-model-of-population-dynamics-in-python/">A model of population dynamics in Python</a></div>
 <div class='post-date'>On November 14, 2011 &middot; 
    tpoisot
 </div>
-<p>I’ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I’ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
+<p>I&#39;ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I&#39;ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
 
-<p>In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I’ve become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a> in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.</p>
+<p>In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I&#39;ve become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a> in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.</p>
 
-<p>To write a simulation of population dynamics (I’ll use logistic growth as an example), we first import the relevant parts of the scipy library.</p>
+<p>To write a simulation of population dynamics (I&#39;ll use logistic growth as an example), we first import the relevant parts of the scipy library.</p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="kn">as</span> <span class="nn">sp_int</span></code></pre></div>
@@ -77,10 +89,10 @@ ga('send', 'pageview');
 two parameters, <em>r</em> and <em>K</em>.</p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
-	<span class="n">dY</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+    <span class="n">dY</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">dY</span><span class="p">]</span></code></pre></div>
 
-<p>The syntax is relatively easy. Note that <code>t0</code> is not used by the function at any time, but is required by <code>odeint</code> to do its internal calculations. Note also that y is an array. These two parameters are required, and the other are optional. Next, we fix the values of <em>r</em> and <em>K</em>. The required format is a tuple, so you need to be very careful when passing the parameters: they must be in the same order than in the function declaration. Additionally, we’ll declare a starting population size.</p>
+<p>The syntax is relatively easy. Note that <code>t0</code> is not used by the function at any time, but is required by <code>odeint</code> to do its internal calculations. Note also that y is an array. These two parameters are required, and the other are optional. Next, we fix the values of <em>r</em> and <em>K</em>. The required format is a tuple, so you need to be very careful when passing the parameters: they must be in the same order than in the function declaration. Additionally, we&#39;ll declare a starting population size.</p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span></code></pre></div>
@@ -88,9 +100,9 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 <p>Now we will do the actual numerical integration. This is fairly simple.</p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">log_growth</span> <span class="o">=</span> <span class="n">sp_int</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span>
-	<span class="n">func</span><span class="o">=</span><span class="n">logistic</span><span class="p">,</span><span class="n">y0</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
-	<span class="n">t</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span><span class="n">args</span><span class="o">=</span><span class="n">params</span>
-	<span class="p">)</span></code></pre></div>
+    <span class="n">func</span><span class="o">=</span><span class="n">logistic</span><span class="p">,</span><span class="n">y0</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+    <span class="n">t</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span><span class="n">args</span><span class="o">=</span><span class="n">params</span>
+    <span class="p">)</span></code></pre></div>
 
 <p>Note that we define an array called <code>t</code>, in which the times at which integration needs to be performed are stored. The object <code>log_growth</code> will have all the information required to analyze the simulation results, with the time in the first column, and the population sizes after. This kind of object is fairly easy to plot using, e.g. <a href="http://pyx.sourceforge.net/">PyX</a>.</p>
 
@@ -114,9 +126,10 @@ two parameters, <em>r</em> and <em>K</em>.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

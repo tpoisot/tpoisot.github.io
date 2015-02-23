@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,43 +32,52 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Don't be afraid of Open Access</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/03/24/open-access-impact/">Don't be afraid of Open Access</a></div>
 <div class='post-date'>On March 24, 2014 &middot; 
    Tim, Karthik Ram
 </div>
 <blockquote>
-  <p>This post is a copy of a response <a href="http://nature.berkeley.edu/~kram/">Karthik
+<p>This post is a copy of a response <a href="http://nature.berkeley.edu/%7Ekram/">Karthik
 Ram</a> and I wrote to a
 recent paper in <em>Trends in Plant Science</em>, criticizing Open
 Access as being risky, especially to early career people. <a href="http://www.cell.com/trends/plant-science/fulltext/S1360-1385%2814%2900060-0">Stephen
@@ -90,8 +102,8 @@ an OA licences to their entire content, an increasing number of publishers
 are adopting <em>per</em> article OA options. Even though, the notion that pure-OA
 journals have a lower impact is challenged by some. James Pringle of Thomson
 ISI (i) recognizes that the relevance of journals when talking about OA is
-dubious and (ii) <a href="http://www.nature.com/nature/focus/accessdebate/19.html">“prospective authors should not fear publishing in these
-journals”</a>. In
+dubious and (ii) <a href="http://www.nature.com/nature/focus/accessdebate/19.html">&quot;prospective authors should not fear publishing in these
+journals&quot;</a>. In
 addition, there are numerous studies showing a clear <a href="http://www.istl.org/10-winter/article2.html"><em>Open Access citation
 advantage</em></a>.</p>
 
@@ -139,9 +151,10 @@ of self-aggrandizing, not to mention arbitrary, measures of impact.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

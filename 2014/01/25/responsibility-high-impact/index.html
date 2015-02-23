@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Responsibility and sensationalism in high-profile papers</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/25/responsibility-high-impact/">Responsibility and sensationalism in high-profile papers</a></div>
 <div class='post-date'>On January 25, 2014 &middot; 
    Tim
@@ -71,7 +83,7 @@ process, and the risks associated with counter-mainstream results appearing
 in high-profile journals. Most of what follows is my recollection of the
 different arguments we raised for and against self-censorship in scientific
 publishing. Which paper we discussed is not relevant for the rest of this
-post, so I’ll try to summarize the issue in extremely broad terms. There is a
+post, so I&#39;ll try to summarize the issue in extremely broad terms. There is a
 well-known relationship between concept <em>B</em> and property <em>C</em>. Changes in <em>B</em>
 are expected, under some circumstances, to result in changes in <em>C</em>. <em>B</em>
 is a complex thing with several layers to it. A set of studies showed no
@@ -80,15 +92,15 @@ the relationship between <em>B</em> and <em>C</em>.</p>
 
 <p>For different reasons, whether there is (i) a change in <em>A</em>, and (ii)
 a link between <em>B</em> and <em>C</em>, is a pretty big deal when it comes to policy
-making. “Proving” that the relationship is not general, or not important,
+making. &quot;Proving&quot; that the relationship is not general, or not important,
 or even wrong, is susceptible to have real-world consequences. In addition,
 it would be a big deal for theoretical science as well, because it will mean
 that what we thought (and still think) of an important concept in ecology,
 is wrong and need to be re-built. But it would also mean that, as far as
-policy makers are concerned, we can persist in several “business as usual”
+policy makers are concerned, we can persist in several &quot;business as usual&quot;
 practices; after all, there are now data to back them up!</p>
 
-<p>So, should we practice self-censorship? Absolutely not. The “cost” of making
+<p>So, should we practice self-censorship? Absolutely not. The &quot;cost&quot; of making
 all information public has been particularly discussed in the context of
 bio-terrorism; understanding the risks requires results to be published, but
 publishing results can increase <a href="http://www.ncbi.nlm.nih.gov/books/NBK98397/">the ease to produce bioweapons</a>. Some
@@ -97,13 +109,13 @@ which should, and which should not, is a tricky issue. Some ecological results
 have very strong relevance for policy-making (and lobbies), and there is a
 risk that some will have a political reading of some papers.</p>
 
-<p>The question is, therefore, who is responsible for “customer service”<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>
+<p>The question is, therefore, who is responsible for &quot;customer service&quot;[^1]
 once a new result appears? First thing first, the authors. I have the
 feeling that a perverse effect of the publish-or-perish mentality is a
 quest for sensationalism (which seems to be confirmed by this <a href="http://nsaunders.wordpress.com/2013/07/16/interestingly-the-sentence-adverbs-of-pubmed-central/">analysis of
 adverbs used in PMC papers</a>, where more abstracts emphasize interest,
 surprise, and novelty). And when we (scientists) read a paper making bold
-claims, we are able to rationalize them because it’s not the first paper we
+claims, we are able to rationalize them because it&#39;s not the first paper we
 are reading. We are able to weigh one result against dozens of others. But
 my very personal and humble opinion is that, when the result we report is
 likely to make a splash, we have to consider whether the way we express it
@@ -122,8 +134,8 @@ to amaze/annoy me is that, when a vastly mediatised paper ends up being
 retracted, there is almost never any indication of that in the media (our
 short attention span be damned). Which means that unless you specifically
 follow people discussing the issue, do you know that bacteria are still
-unable to use arsenic in their DNA? I get that saying “Nope, turned out
-we were pretty much right about how life works” is unlikely to make the
+unable to use arsenic in their DNA? I get that saying &quot;Nope, turned out
+we were pretty much right about how life works&quot; is unlikely to make the
 headlines (unless you want to, you know, <em>inform</em>). As this post <a href="http://scienceblogs.com/notrocketscience/2009/07/04/does-science-journalism-falter-or-flourish-under-embargo/">really
 clearly states</a>, the ability to react <em>right now</em> on a big story is
 important for the career of journalists. It lead to (in my mind) absurd
@@ -139,13 +151,7 @@ explicit generalized Lotka-Volterra model (somehow). But everything even
 remotely close to <a href="http://en.wikipedia.org/wiki/Post-normal_science">post-normal science</a> should be written carefully,
 contextualized carefully, and reported on carefully.</p>
 
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p>I forgot who came up with the “customer service of scientific results” idea, but I find it brilliant… <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<p>[^1]: I forgot who came up with the &quot;customer service of scientific results&quot; idea, but I find it brilliant...</p>
 
 </div>
 
@@ -165,9 +171,10 @@ contextualized carefully, and reported on carefully.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,42 +32,51 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Trophic complementarity and the BEF relationship in food webs</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/05/22/food-web-structure-ecosystem-functioning/">Trophic complementarity and the BEF relationship in food webs</a></div>
 <div class='post-date'>On May 22, 2013 &middot; 
    Tim
 </div>
-<p>I’m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet
+<p>I&#39;m really glad to announce that we (here meaning Dom Gravel, Nicolas Mouquet
 and I), have a new paper in <em>Ecology Letters</em>, about the biodiversity-ecosystem
 functioning (BEF) relationship in food webs. In this paper, we show that
 <em>trophic complementarity</em> is a very good predictor of productivity in complex
@@ -91,7 +103,7 @@ simple terms, you can be different either because you have different
 resources (that is the competitve BEF), or because different predators eat
 you.</p>
 
-<p>In the paper, we try to measure this (which we call trophic complementarity) at differents level of complexity. The simple model, which was first used by <a href="http://www.nature.com/nature/journal/v456/n7219/full/nature07248.html">Chesson &amp; Kuang</a>, works extremely well with previous solutions for the competitive BEF published by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2004.12685.x/full">Michel Loreau</a>. We’ve been <em>so</em> very lucky that two important results from two different bodies of litterature were in agreement…</p>
+<p>In the paper, we try to measure this (which we call trophic complementarity) at differents level of complexity. The simple model, which was first used by <a href="http://www.nature.com/nature/journal/v456/n7219/full/nature07248.html">Chesson &amp; Kuang</a>, works extremely well with previous solutions for the competitive BEF published by <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2004.12685.x/full">Michel Loreau</a>. We&#39;ve been <em>so</em> very lucky that two important results from two different bodies of litterature were in agreement...</p>
 
 <p>The interesting part is also that in more complex systems, trophic complementarity is easy to approximate with measures of nestedness. This is (I think) an important results for empirical studies. It offers the possibility to have a rough expectation of how productive a system can be based on the knowledge of presence/absence interactions. There are good opportunities to explore in re-analysing the results of empirical BEF studies in which trophic interactions were not accounted for.</p>
 
@@ -115,9 +127,10 @@ you.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

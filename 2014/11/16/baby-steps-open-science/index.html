@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,51 +32,60 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | We all took baby steps towards open science</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/11/16/baby-steps-open-science/">We all took baby steps towards open science</a></div>
 <div class='post-date'>On November 16, 2014 &middot; 
    Tim
 </div>
 <p>The always excellent and insightful Christie Bahlai has a great blog post
 about <em><a href="https://practicaldatamanagement.wordpress.com/2014/10/23/baby-steps-for-the-open-curious/">Baby steps for the open curious</a></em>. <em>Open curious</em>, a term
-that was coined during a meeting of <a href="http://innge.net/wiki/index.php/Open_Science">INNGE’s Open Science group</a> refers
+that was coined during a meeting of <a href="http://innge.net/wiki/index.php/Open_Science">INNGE&#39;s Open Science group</a> refers
 to people that <em>would like</em> to start adopting more open practices, but are
 not sure how to do it, or are still concerned by some of the perceived risks.</p>
 
-<p><img src="/images/babysteps.jpg" alt="Baby steps!" />Our son is learning
+<p><img src="/images/babysteps.jpg" alt="Baby steps!">Our son is learning
 to stand up and walk, so the metaphor of baby steps is one I can relate
-to. There are three things to baby steps. You can’t be too ambitious,
-you can’t (probably) do it on your own, and it’s scary (for both the baby
+to. There are three things to baby steps. You can&#39;t be too ambitious,
+you can&#39;t (probably) do it on your own, and it&#39;s scary (for both the baby
 and the parents, as far as actual baby steps are concerned). You need to
 build up, slowly, and have someone guide you through the whole process.
 This is a perfect metaphor for open science.</p>
@@ -90,20 +102,20 @@ students better. There is much emphasis on how to bring people that know
 very little to being able to do things independently. This, too, applies to
 open science as a whole.</p>
 
-<p>Being an open scientist is <em>complicated</em>, because we don’t even have a clear
+<p>Being an open scientist is <em>complicated</em>, because we don&#39;t even have a clear
 and consensual definition of what it means. I publish in non open access
 journals, for example. But these non-OA papers are available as preprints. It
 is open, but is it open enough? This is one of the problems that we will have
-to overcome if we want to help people do more open science; we can’t just
-say <em>release ALL your things</em>. It’s vague, it’s frightening, and I don’t know
+to overcome if we want to help people do more open science; we can&#39;t just
+say <em>release ALL your things</em>. It&#39;s vague, it&#39;s frightening, and I don&#39;t know
 a single person that woke up one morning, and released <em>ALL</em> its things. It
 has been, I guess, a long, gradual, and iterative process for most of us.</p>
 
-<p>When someone asks “How do I do open science?”, it’s rude to say “See all the
-things I do? Do them too.”. Everyone has a different workflow. Saying “To
-do open science, do things this way” is counterproductive. The constructive
-reply would be “Show me what you do, and I will try to give you tips about
-how to make things more open”.</p>
+<p>When someone asks &quot;How do I do open science?&quot;, it&#39;s rude to say &quot;See all the
+things I do? Do them too.&quot;. Everyone has a different workflow. Saying &quot;To
+do open science, do things this way&quot; is counterproductive. The constructive
+reply would be &quot;Show me what you do, and I will try to give you tips about
+how to make things more open&quot;.</p>
 
 <p>This approach has a lot of benefits over presenting The One True Open Science
 Workflow. First, it slices the problem (How to make my research open?) into
@@ -111,9 +123,9 @@ a lot of very small tasks, most of which will require very little time to
 implement. Second, people will be able to <em>decide</em> which to do, if any, and
 when they do it. I suspect that most people will be tempted to follow the
 advice of <em><a href="http://choosealicense.com/">pick an open source license</a></em>, instead of <em><a href="http://software-carpentry.org/v5/novice/sql/index.html">ditch Excel
-and use a database</a></em>. We won’t reach the point where 100% of research
+and use a database</a></em>. We won&#39;t reach the point where 100% of research
 is open (unless funding agency enforce it, and there is a non-0 probability
-that this will happen); that’s too bad.</p>
+that this will happen); that&#39;s too bad.</p>
 
 <p>If people are <em>open curious</em>, and I suspect most people are, they <em>want</em>
 to learn about open science. It would be awfully counterproductive to turn
@@ -121,7 +133,6 @@ them off by requiring that they start again from scratch. Working with them
 at identifying areas where small changes can have a big impact is key. I
 think we need more mentoring, and more of an open-door policy for open
 curious people, if we want more research to be open over time.</p>
-
 
 </div>
 
@@ -141,9 +152,10 @@ curious people, if we want more research to be open over time.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

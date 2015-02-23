@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | R, priority effects, and the meta-package</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/10/12/r-priority-responsibility/">R, priority effects, and the meta-package</a></div>
 <div class='post-date'>On October 12, 2013 &middot; 
    Tim
@@ -86,31 +98,31 @@ apply them.</p>
 
 <p>This is especially true of large-scale packages, that aim to become your single
 interface with the metrics and analyzes in a domain. Ecologists are familiar
-with <code>bipartite</code>, <code>vegan</code>, <code>picante</code>, <code>ape</code>, for example. These “mega-packages”
+with <code>bipartite</code>, <code>vegan</code>, <code>picante</code>, <code>ape</code>, for example. These &quot;mega-packages&quot;
 implement a lot of measures, and for this reason, some will look through the
 manual to see what kind of analyzes they can do. I most likely still do it
-myself, especially so for side-projects where I’m not entirely familiar with
+myself, especially so for side-projects where I&#39;m not entirely familiar with
 the methodological literature yet. So based on my experience, this is
-particularly problematic for newcomers to a field, because when you don’t know,
+particularly problematic for newcomers to a field, because when you don&#39;t know,
 you assume that the default values were chosen as defaults by
 someone knowing what he was doing. Then I remember the <a href="http://www.python.org/dev/peps/pep-0020/"><em>Zen of
-Python</em></a>: <em>“In the face of ambiguity, refuse the temptation
-to guess.”</em></p>
+Python</em></a>: <em>&quot;In the face of ambiguity, refuse the temptation
+to guess.&quot;</em></p>
 
 <p>And as we all have different sensibilities, it shows in the way we think about
 code, and in the way we write it. The default options of a function, for
 example, can be a matter of choice, and especially so when this function
-becomes as broad as “measure diversity”. This partiality is not an issue when
+becomes as broad as &quot;measure diversity&quot;. This partiality is not an issue when
 developing tools that you will use for your own research. But when developing
 tools intended for a broad audience, then this code becomes a service, and it
 is our duty as service providers that the defaults reflect our own biases the
 least, and the current consensus the most.</p>
 
 <p>This is why extremely big packages <em>can</em> be a problem under some circumstances:
-they break Doug McIlroy’s <em>Unix philosophy</em>:</p>
+they break Doug McIlroy&#39;s <em>Unix philosophy</em>:</p>
 
 <blockquote>
-  <p>This is the Unix philosophy: <em>Write programs that do one thing</em> and do it
+<p>This is the Unix philosophy: <em>Write programs that do one thing</em> and do it
 well. <em>Write programs to work together</em>. Write programs to handle text
 streams, because that is a universal interface.</p>
 </blockquote>
@@ -118,7 +130,7 @@ streams, because that is a universal interface.</p>
 <p>When we, as users, rely on a big package to do our work, we assume that every
 component of this package is (i) well implemented, (ii) conform to the original
 paper, and (iii) up-to-date. Given the frequency of commits in the biggest
-ecological packages, I’m sure this is the case, but it’s worth keeping in mind.
+ecological packages, I&#39;m sure this is the case, but it&#39;s worth keeping in mind.
 My personal preference goes to using a lot of packages doing a small number of
 things. For my two papers relying on heavily on the development of comparison
 of new methods, I started by writing the R package (well I started at the
@@ -138,14 +150,14 @@ require you to do a lot of small steps by hand have a great advantage, you know
 what is happening in real time (then again, I like C and doing every thing by
 hand, so perhaps I just enjoy hurting myself).</p>
 
-<p>In any case, the “default” behavior of programs is something that should be
+<p>In any case, the &quot;default&quot; behavior of programs is something that should be
 held under intense scrutiny by the community, and improved code review will
 definitely help. This is also where big packages can somehow escape the system:
 even if they are reviewed formally (as opposed to being reviewed informally,
 which they are in real time as people use them), this will not happen for
 each release, and some new releases may introduce things that can be argued
 against. In short, my point is: R packages (or packages in other languages, but
-you get the idea) tend to rapidly represent the “canon” of the analyzes
+you get the idea) tend to rapidly represent the &quot;canon&quot; of the analyzes
 to perform, and for this reason, we should always keep a critical eye on them.
 Also, keep on writing open-source code, that will enrich the code base
 available to the community.</p>
@@ -168,7 +180,6 @@ a strict one paper / one package relationship, which I think would
 considerably clarify the type of analyzes included in a package, in
 addition to matching these analyzes to the primary literature.</p>
 
-
 </div>
 
 <div id="disqus_thread"></div>
@@ -187,9 +198,10 @@ addition to matching these analyzes to the primary literature.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

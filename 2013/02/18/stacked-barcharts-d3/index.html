@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,42 +32,51 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | A d3.js alternative to stacked bar charts</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">A d3.js alternative to stacked bar charts</a></div>
 <div class='post-date'>On February 18, 2013 &middot; 
    Tim
 </div>
-<p>Following yesterday’s post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I’ll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
+<p>Following yesterday&#39;s post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I&#39;ll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
 
 <p>For this particular example, I assume that the data are in a matrix, in <code>csv</code> format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is:</p>
 
@@ -78,8 +90,10 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
 
 <p>The end result is as follows:</p>
 
-<div class="stackbardemo barplot d3"></div>
+<div class='stackbardemo barplot d3'></div>
+
 <!-- stackbardemo.csv -->
+
 <script type="text/javascript" src="/data/stackbardemo.js"></script>
 
 <p>Generating the small axes on the left was the most tricky part, and I used a probably sub-optimal way to do it:</p>
@@ -93,18 +107,18 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
           <span class="p">.</span><span class="nx">domain</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
         <span class="kd">var</span> <span class="nx">temp_yAxis</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">svg</span><span class="p">.</span><span class="nx">axis</span><span class="p">()</span>
           <span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">temp_y</span><span class="p">)</span>
-          <span class="p">.</span><span class="nx">orient</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">orient</span><span class="p">(</span><span class="s2">"left"</span><span class="p">)</span>
           <span class="p">.</span><span class="nx">ticks</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-          <span class="p">.</span><span class="nx">tickFormat</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;.1s&quot;</span><span class="p">));</span>
-        <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
-          <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;y axis&quot;</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">tickFormat</span><span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">".1s"</span><span class="p">));</span>
+        <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"g"</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"class"</span><span class="p">,</span> <span class="s2">"y axis"</span><span class="p">)</span>
           <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">temp_yAxis</span><span class="p">);</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
       <span class="p">});</span>
     <span class="p">};</span>
   <span class="p">});</span></code></pre></div>
 
-<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I’d be really interested in finding a way to do without the <code>forEach</code> part.</p>
+<p>So if any one here is more knowledgeable in <code>javascript</code> than I am, I&#39;d be really interested in finding a way to do without the <code>forEach</code> part.</p>
 
 </div>
 
@@ -124,9 +138,10 @@ f    , 0.01 , 0.75 , 0.23 , 0.3 , 0.25</code></pre></div>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

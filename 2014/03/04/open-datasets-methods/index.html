@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Of the value of datasets and methods in open science</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/03/04/open-datasets-methods/">Of the value of datasets and methods in open science</a></div>
 <div class='post-date'>On March  4, 2014 &middot; 
    Tim
@@ -69,56 +81,56 @@ week, I was discussing the need to do advocacy about open data; specifically,
 the need to do it fast, because one day, a big journal will release a new
 policy, and we are going to see the closest thing to mass hysteria that the
 academic world can do. If I was so good at predicting species interactions,
-I’d be a much happier ecologist.</p>
+I&#39;d be a much happier ecologist.</p>
 
 <p><em>PLoS</em> journals <a href="http://blogs.plos.org/everyone/2014/02/24/plos-new-data-policy-public-access-data/">announced a new data release policy</a>, which is now
 effective. People <a href="http://rxnm.wordpress.com/2014/02/25/fan-fiction/">freaked out</a>. Some effectively stated that data sharing encourages scientific <a href="http://smallpondscience.com/2014/03/03/i-own-my-data-until-i-dont/">freeloading</a>, and I only link to the later because there is an interesting point made in the comments:</p>
 
 <blockquote>
-  <p>I suspect that you’re fully aware that the sharing of R programming has
+<p>I suspect that you’re fully aware that the sharing of R programming has
 some fundamental differences with the sharing of original scientific data. The
 existence of R itself is a medium for community sharing. It’s like the NEON
 or LTER but for data analysis, designed as a public resource. I didn’t design
 my experiments for their data to be a public resource, except for the findings.</p>
 </blockquote>
 
-<p>See, that’s where I lost it. I’m a methods developer. Some of my papers
+<p>See, that&#39;s where I lost it. I&#39;m a methods developer. Some of my papers
 I like the most are built on the idea of finding the best way to measure
 something, or comparing and understanding different measures, and wrapping
 things up in a <code>R</code> package or <code>python</code> script, which are made public, and
 that I spend an insane amount of time troubleshooting through email because
 I care about enabling people to use what I do. Yet in two sentences, my work
 is robbed of all its meaning because, well, of course it ought to be public,
-it’s public service and people developing methods only do so to serve people
+it&#39;s public service and people developing methods only do so to serve people
 generating data.</p>
 
 <p><strong>I agree with that</strong>. The most enjoyable thing for me is to face an empirical
 problem that reveals a gap in our methodology, and then filling a notepad
 with sketches and equations until I come up with a new way of measuring old
-things. And I’m an ecologist. My interest is in understanding ecological
+things. And I&#39;m an ecologist. My interest is in understanding ecological
 systems, and I choose to do so with a heavy component of methodological
-development. I’m glad when people show interest in what I’ve done, which
+development. I&#39;m glad when people show interest in what I&#39;ve done, which
 is why I spend time replying to emails on technical questions, writing code
 for people, and trying to understand why things behave the way they do.</p>
 
-<p>Here’s what I don’t agree with: the sense of entitlement. The above excerpt
+<p>Here&#39;s what I don&#39;t agree with: the sense of entitlement. The above excerpt
 (and most of the post it comes from) is, I think, the opinion of a minority,
-but it should be vocally opposed nonetheless. I don’t believe I am entitled
-to other peoples’ data. I don’t know anyone who does. Yet some people feel
+but it should be vocally opposed nonetheless. I don&#39;t believe I am entitled
+to other peoples&#39; data. I don&#39;t know anyone who does. Yet some people feel
 that they are entitled to new methods, because there are apparently on one
 side nerds with glasses and computers (I plead guilty), and on the other
-side “real” ecologists with muddy boots and field trips. And saying that
+side &quot;real&quot; ecologists with muddy boots and field trips. And saying that
 methods are supposed to be given away for free, while data should be released
 whenever you damn well please send a very clear message about which side is
-the best one, about which side is privileged. So I don’t take lightly to my
+the best one, about which side is privileged. So I don&#39;t take lightly to my
 work being belittled as community service, because I would never say that
 all empiricists are good for is taking data for me to develop new methods with.</p>
 
-<p>Not only is that attitude counterproductive, it’s re-inforcing the
+<p>Not only is that attitude counterproductive, it&#39;s re-inforcing the
 divide between theory and empiricism in biology at large, and ecology
-in particular. I think it’s high time that we recognize that datasets,
+in particular. I think it&#39;s high time that we recognize that datasets,
 methods, ideas, and what have you, are all ingredients in a research
-paper. Initiatives like <em>ImpactStory</em> are helping in that direction. I’m
+paper. Initiatives like <em>ImpactStory</em> are helping in that direction. I&#39;m
 convinced that dialogue between everyone, and meaningful collaborations
 between theoretical and empirical scientists are the way to go, and will
 produce better science. Ultimately, it will also help each of these aspects
@@ -128,8 +140,7 @@ panel on open ecology</a>.</p>
 <p>So in short: <strong>research would gain to be open</strong>. I want to believe that no one
 is out there to <em>steal</em> the work of others. Re-use is probably the highest form
 of recognition you can get, because it means that what you have <em>done</em> (not
-what you have written about it) allowed other people to build something new. And we’re all doing different things, but also complementary things. As ecologists, we <a href="http://onlinelibrary.wiley.com/doi/10.1034/j.1600-0706.2000.910101.x/abstract">ought to know that it should be beneficial for productivity</a>…</p>
-
+what you have written about it) allowed other people to build something new. And we&#39;re all doing different things, but also complementary things. As ecologists, we <a href="http://onlinelibrary.wiley.com/doi/10.1034/j.1600-0706.2000.910101.x/abstract">ought to know that it should be beneficial for productivity</a>...</p>
 
 </div>
 
@@ -149,9 +160,10 @@ what you have written about it) allowed other people to build something new. And
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

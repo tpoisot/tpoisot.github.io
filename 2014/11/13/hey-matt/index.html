@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,44 +32,53 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Hey Matt</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/11/13/hey-matt/">Hey Matt</a></div>
 <div class='post-date'>On November 13, 2014 &middot; 
    Tim
 </div>
 <p>Hey <a href="http://rosetta.jpl.nasa.gov/matt-taylor">Matt</a>,</p>
 
-<p>Hi. I’m Tim. I do some science. Some is good. Today, I managed to screw up
+<p>Hi. I&#39;m Tim. I do some science. Some is good. Today, I managed to screw up
 one calculation, but I compensated by writing a paragraph for a paper that
 I think makes a nice compelling argument for some thing that may interest a
 few of my colleagues. This does not amount to much, since you contributed to
@@ -76,24 +88,24 @@ come up way ahead today; and so do many, many other scientists over the world.</
 <p>Want to know why? How is that possible? Simple. We managed not to alienate
 and objectify our female colleagues today.</p>
 
-<p>I know, that’s crazy, right? Want to know how? We woke up this morning, and
+<p>I know, that&#39;s crazy, right? Want to know how? We woke up this morning, and
 thought, <em>Hey, perhaps I should <a href="http://www.businessinsider.com.au/rosetta-scientist-matt-taylor-wore-sexist-shirt-for-philae-launch-2014-11">dress like an asshole today</a></em>. Then
 we realized that it would be ridiculous, and that no one in their right mind
 would do so.</p>
 
-<p>See, there are these people called <em>women</em>. Look on your shirt – they’re
+<p>See, there are these people called <em>women</em>. Look on your shirt -- they&#39;re
 like that, but dressed. They do science, too. In fact they do most things as
 well as most of us. And they deserve every bit of our admiration, because boy
-are we giving them a hard time. We might not even realize it; that’s the way
+are we giving them a hard time. We might not even realize it; that&#39;s the way
 being a white middle-class 30-something-or-so male works. The academic life
 is though with them. You know how though academia is for all of us? Well
-that’s one of the point where women are not like us: for them, it’s worse.</p>
+that&#39;s one of the point where women are not like us: for them, it&#39;s worse.</p>
 
-<p>So anyway, that shirt. It sends a message. <em>Hi, I’m Matt Taylor, and I
+<p>So anyway, that shirt. It sends a message. <em>Hi, I&#39;m Matt Taylor, and I
 like my women naked</em>. This is the message you chose for your day under the
 limelight. Or did you got women and potted plants confused? Distasteful shirts
 the world over have plants patterns, and these are usually naked in that
-clothes on a plant makes no sense. It’s OK to objectify potted plants. If you
+clothes on a plant makes no sense. It&#39;s OK to objectify potted plants. If you
 have some sort of impairment that results in you mixing up shapes, I apologize.</p>
 
 <p>Seriously, that shirt. It costed, what, 25 bucks? Do you realize that a 25$
@@ -106,27 +118,26 @@ suggest the Taylor: a measure of how much your douchebaggery prevents people
 from appreciating your scientific achievements.</p>
 
 <p>But I ought to thank you. Yeah! Because your shirt allowed to reveal something
-important and positive about scientists. We don’t tolerate this shit. A lot
+important and positive about scientists. We don&#39;t tolerate this shit. A lot
 of us, a majority perhaps, are working everyday to make science a welcoming
 place, where everyone is allowed to be different, and no one is allowed to
 discriminate or objectify. This involves a lot of positive things. Hiring
 more women, more minorities. Being sensitive to cultural differences, and the
 fact that the system is inherently harder on some. Giving equal opportunity
 to all. Judging people by what they bring to the field, not by whether or not
-you’d “hit that”. Not being an all-around terrible person. Easy things. But
-as you’ve discovered, there is a dark side too. If you screw up, and if you
-unmake all of the work that we do day by day, you’ll take shit. We’ll make
+you&#39;d &quot;hit that&quot;. Not being an all-around terrible person. Easy things. But
+as you&#39;ve discovered, there is a dark side too. If you screw up, and if you
+unmake all of the work that we do day by day, you&#39;ll take shit. We&#39;ll make
 sure that people hear that we disagree with that.</p>
 
-<p>That shirt. It’s so bad that instead of saying <em>how cool is it that we
-landed a spacecraft on a comet</em>, we’re saying to our female colleagues <em>I’m
+<p>That shirt. It&#39;s so bad that instead of saying <em>how cool is it that we
+landed a spacecraft on a comet</em>, we&#39;re saying to our female colleagues <em>I&#39;m
 sorry you have to deal with sexist assholes like Matt Taylor all the time,
-how can I help</em>. You’re supposed to make science <em>sexy</em>, not <em>sexist</em>. You
-though that would not be rocket science – that’s apparently way harder.</p>
+how can I help</em>. You&#39;re supposed to make science <em>sexy</em>, not <em>sexist</em>. You
+though that would not be rocket science -- that&#39;s apparently way harder.</p>
 
-<p>Cheers, <br />
+<p>Cheers,<br>
 Tim</p>
-
 
 </div>
 
@@ -146,9 +157,10 @@ Tim</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

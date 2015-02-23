@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Preprints, and the issue of (misplaced) trust</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/06/28/preprints-trust/">Preprints, and the issue of (misplaced) trust</a></div>
 <div class='post-date'>On June 28, 2014 &middot; 
    Tim
@@ -70,22 +82,23 @@ and accepted clearly belong here, but the discussion revolved around preprints
 quite fast. I suggested to include them, and I got generally negative feedback:</p>
 
 <blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/tpoi">@tpoi</a> <a href="https://twitter.com/ProfLikeSubst">@ProfLikeSubst</a> <a href="https://twitter.com/GenomeDaddy">@GenomeDaddy</a> if you have an acceptance letter from an editor, sure put it on there. otherwise, no. <a href="https://twitter.com/hashtag/inmyworld?src=hash">#inmyworld</a></p>&mdash; Hope Jahren (@HopeJahren) <a href="https://twitter.com/HopeJahren/statuses/482608451319644163">June 27, 2014</a></blockquote>
-<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>Most of the discussion that followed was about the fact that, unless something
-is published in a peer-reviewed journal, it’s moot and should not be accounted
+is published in a peer-reviewed journal, it&#39;s moot and should not be accounted
 for. There are two assumptions behind that, and both of them are wrong. First,
 that you should not trust anything unless it is peer-reviewed. Second, that
 the peer-review process is the only thing standing between us and bad science.</p>
 
-<p>As I suggested later in the discussion, people that don’t trust the results
+<p>As I suggested later in the discussion, people that don&#39;t trust the results
 in a preprint should leave the room during talks based on unpublished
 results. These have not been peer-reviewed, either. I half-suspect that
 the fact that (in biological sciences) conferences are a more established
 medium for the presentation of new scientific results than preprints
 (despite being arguably worse for that), people are more willing to trust
 12 minutes of un-reviewed talk than 12 pages of an un-reviewed paper by
-the same person. Let’s file that under “inertia”, and let’s get back to the
+the same person. Let&#39;s file that under &quot;inertia&quot;, and let&#39;s get back to the
 issue of conditionning whether or not we trust a paper on its position in
 the editorial pipeline.</p>
 
@@ -95,7 +108,7 @@ raised the argument that the more <em>reputable</em> the journal (read: high
 impact factor), the more confident we can be in the paper. That is not true
 [@bre13]. It is a well established fact that high-impact journals tend to have
 a higher retraction rate than low-impact journals. The very places where some
-expect to see the most outsanding review process are involved in a “scandal”
+expect to see the most outsanding review process are involved in a &quot;scandal&quot;
 every month or so, these days (arsenic DNA, stem cells, and the track record
 goes back all the way to the memory of water). But even without considering
 the <em>prestige</em> of a journal, there is this thing with absolute statements
@@ -106,42 +119,43 @@ peer-reviewed paper <em>may be</em> trusted, you still have to find out for your
 
 <p>And if the way to know if something, anything, is a good piece of scientific
 litterature is to read it, then what is the difference between reading
-a pre-print and a reviewed paper? As I said a few times, it’s not that I
-don’t trust the peer-review process, it’s that I trust my own critical sense
-more. I’m not going to blindly trust a paper because it has been stamped as
-good by a journal and two to five people I don’t know, and I’m not going to
+a pre-print and a reviewed paper? As I said a few times, it&#39;s not that I
+don&#39;t trust the peer-review process, it&#39;s that I trust my own critical sense
+more. I&#39;m not going to blindly trust a paper because it has been stamped as
+good by a journal and two to five people I don&#39;t know, and I&#39;m not going to
 distrust a paper because it has not been through the same process. Neglecting
 the results of my colleagues, or blindly trusting them because I expect others
 to do the critical thinking for me, are I think equally irresponsible. But
 Karthik said it best:</p>
 
 <blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/tpoi">@tpoi</a> I&#39;ll consider it word of god as soon as two busy reviewers have given it a cursory glance and a 3rd has been a total jerk about it.</p>&mdash; Karthik Ram (@_inundata) <a href="https://twitter.com/_inundata/statuses/482629845348651008">June 27, 2014</a></blockquote>
-<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>Of course <em>most</em> of the idea is that peer-review is a filter between us and
-bad science. I don’t know how many papers I have reviewed in the last 4 years,
+bad science. I don&#39;t know how many papers I have reviewed in the last 4 years,
 I would be tempted to say about 25+ (not counting the one I reviewed multiple
 times). There are two of these I found terrible. Of these two terrible papers,
-<em>one</em> was “wrong”, not even in the sense that they got the bases wrong, but
-it was just severely incomplete. And so you don’t start thinking that I’m
-a really nice referee that is always happy about everythinAnd so you don’t
-start thinking that I’m a really nice referee that is always happy about
-everything: I’m not; there are (I think) two instances where I recommended
+<em>one</em> was &quot;wrong&quot;, not even in the sense that they got the bases wrong, but
+it was just severely incomplete. And so you don&#39;t start thinking that I&#39;m
+a really nice referee that is always happy about everythinAnd so you don&#39;t
+start thinking that I&#39;m a really nice referee that is always happy about
+everything: I&#39;m not; there are (I think) two instances where I recommended
 something good and the paper ended up being rejected. But even though, my own
 experience places the probability of a paper being terrible at approximately
-0.04. I’m happy to take that chance if it means that I’ll be reading the
+0.04. I&#39;m happy to take that chance if it means that I&#39;ll be reading the
 cool stuff a year or so before it makes it through the review process.</p>
 
 <p>But more broadly, there is a very disturbing thing behind the idea that
-peer-review is such an essential filter: authors can’t be trusted, and only
+peer-review is such an essential filter: authors can&#39;t be trusted, and only
 referees are to thank for such great science being published (and also for
 making us spend another round in review to jump through many many hoops
 to satisfy their own personal biases as they yield a ridiculous amount of
-power). In addition, people using preprints are in the “whackadoodles” in the
+power). In addition, people using preprints are in the &quot;whackadoodles&quot; in the
 eyes of some, as opposed to people that took the time to formulate a strong
-case for preprints, and got it published in a <em>reputable</em> journal [@des13] –
+case for preprints, and got it published in a <em>reputable</em> journal [@des13] --
 which, for the record, do not mean you should blindly trust us. But express
-your disagreement with an argumentation, not with a “That’s the way it is”
+your disagreement with an argumentation, not with a &quot;That&#39;s the way it is&quot;
 or a cheap insult.</p>
 
 </div>
@@ -162,9 +176,10 @@ or a cheap insult.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

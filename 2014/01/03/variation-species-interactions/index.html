@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Understanding the variation of species interactions</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/01/03/variation-species-interactions/">Understanding the variation of species interactions</a></div>
 <div class='post-date'>On January  3, 2014 &middot; 
    Tim
@@ -82,10 +94,10 @@ at the level of the species (such as we made using body size in food webs)
 will give you an idea of what <em>can</em> happen (regionally), but the observed
 interactions (locally) will likely be different. The important point is that,
 assuming we want to predict ecosystem properties from network structure,
-it’s not really wise to <em>assume</em> that interactions happen, because whether
+it&#39;s not really wise to <em>assume</em> that interactions happen, because whether
 they will happen or not depends, again, on local conditions.</p>
 
-<p>So whereas the “current” view of interaction networks is <em>a matrix of 0s
+<p>So whereas the &quot;current&quot; view of interaction networks is <em>a matrix of 0s
 and 1s telling whether two species interact</em>, it would make sense that we
 think about these networks in terms of probability that the interaction
 will happen. The interesting thing is that once everything is put together,
@@ -108,7 +120,7 @@ you want to read more, here is the abstract, and the <a href="http://biorxiv.org
 is available online:</p>
 
 <blockquote>
-  <p>Community ecology is tasked with the considerable challenge of predicting the
+<p>Community ecology is tasked with the considerable challenge of predicting the
 structure, and properties, of emerging ecosystems. It requires the ability to
 understand how and why species interact, as this will allow the development
 of mechanism-based predictive models, and as such to better characterize
@@ -123,7 +135,6 @@ population-based processes, we show that this new approach will improve our
 predictive ability and mechanistic understanding of how species interact
 over biogeographical scales.</p>
 </blockquote>
-
 
 </div>
 
@@ -143,9 +154,10 @@ over biogeographical scales.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

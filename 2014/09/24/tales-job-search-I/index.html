@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Tales from the job search I - The French Connection</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/09/24/tales-job-search-I/">Tales from the job search I - The French Connection</a></div>
 <div class='post-date'>On September 24, 2014 &middot; 
    Tim
@@ -74,7 +86,7 @@ year and a half spent looking for, and ultimately getting, an academic
 position. I will try to publish one every two weeks. It is mostly intended
 as an excuse to look back at what happened, and hopefully hear about your
 experiences too. Simon Goring explained the <a href="http://downwithtime.wordpress.com/2014/04/08/the-job-hunt-in-france/">application  process</a>
-and his <a href="http://downwithtime.wordpress.com/2014/04/08/the-job-search-in-france-part-ii/">overall feeling</a> in a way that matches what I’m about to
+and his <a href="http://downwithtime.wordpress.com/2014/04/08/the-job-search-in-france-part-ii/">overall feeling</a> in a way that matches what I&#39;m about to
 say, and you should read his perspective too; you will  see that we had the
 same feeling about the interview, in particular.</em></p>
 
@@ -82,7 +94,7 @@ same feeling about the interview, in particular.</em></p>
 time to enjoy doing research, without thinking about much else (besides
 finishing my PhD projects). After a year and a half, I decided that it was
 time to look for a position somewhere. For family and historical reasons,
-I first decided to try the French CRNS (it’s short for National Center for
+I first decided to try the French CRNS (it&#39;s short for National Center for
 Scientific Research). CNRS positions have great upsides (lifetime position,
 no teaching, no administrative work unless you absolutely want to), and
 great downsides (low pay, almost no recognition, funding concentrated on a
@@ -96,7 +108,7 @@ possibly unique. There is a yearly call for applications, with a fixed
 number of positions for each of the 52-or-so thematic sections. Lucky me,
 I had a general enough background to apply to 29 (Ecology and evolution),
 30 (Ecosystems), and 51 (Multi-disciplinary, mathematics and informatics
-for life sciences and physics). Some of these positions are “coloured”
+for life sciences and physics). Some of these positions are &quot;coloured&quot;
 (<em>A candidate with knowledge of information theory to work on connectomes
 in a human health group</em>), but the others (that would be between one and
 four for each section) are open.</p>
@@ -104,14 +116,14 @@ four for each section) are open.</p>
 <h2 id="the-application">The application</h2>
 
 <p>To apply, you need a research program. This is approximately all of the
-information you are given (<em>Describe your research program</em>), and so you won’t
+information you are given (<em>Describe your research program</em>), and so you won&#39;t
 make it without insider knowledge. I sent a couple emails to newly hired CNRS
 researchers, and received four entirely different documents. I decided to do
 it my way, and wrote a 10-pages, 100-references, 5-years research program
 with short terms projects and long terms objectives. I later got feedback
 on it from jury or jury-related people: <em>It showed great maturity</em>; <em>It did
 not seem really mature</em>; <em>It was a bit fuzzy</em>; <em>It was too specific</em>. I have
-a feeling that the candidates are not the only ones not to have guidelines…</p>
+a feeling that the candidates are not the only ones not to have guidelines...</p>
 
 <p>The next thing you need is a summary of your research, with an indication of
 what was your role in each contribution (paper), and what was the impact of
@@ -122,9 +134,9 @@ guidance, I put the publications in chronological order, and wrote a 300 to
 500 words blurb addressing my role and the impact it had on the field. Did I
 got informal feedback on it after the decisions? Yes! <em>You have published on
 very different topics, it shows you can adapt to new situations</em>; <em>You have
-published on very different topics, it shows you don’t know what you are
+published on very different topics, it shows you don&#39;t know what you are
 doing</em>. More? Yes!! <em>You have published in high-impact journals, it means
-you’re good</em>; <em>You have published in high-impact journals more than young
+you&#39;re good</em>; <em>You have published in high-impact journals more than young
 candidates usually do, it means somebody probably wrote the papers for you</em>.</p>
 
 <p>With these two documents written, I submitted them to the three different
@@ -143,9 +155,9 @@ abroad to return; this is why.</p>
 <p>As <a href="http://downwithtime.wordpress.com/2014/04/08/the-job-search-in-france-part-ii/">Simon said</a>, the interview is best summarized as
 <em>anticlimactic</em>. Depending on the sections, you talk for 12 to 15 minutes,
 and have 10 to 15 minutes of questions. My interview in the Ecology &amp;
-evolution section went “OK enough, I guess”. I didn’t made it into the
+evolution section went &quot;OK enough, I guess&quot;. I didn&#39;t made it into the
 short-list. The interview with the Multi-disciplinary section went really
-well. I made it into the short-list (ranked 6, 4 positions), didn’t got the
+well. I made it into the short-list (ranked 6, 4 positions), didn&#39;t got the
 position in the end. The big difference between the two was how receptive
 the jury was to the methodological side of things. To the surprise of
 absolutely no one, my proposal was strongly leaning towards data analysis,
@@ -158,7 +170,7 @@ block on the methodological side of things.</p>
 <p>As an aside, this has been a recurring problem for me. Network-related things
 seems off-putting to a lot of people, and I have read more than once in reviews
 that the very precise and well-defined terminology of network analysis was
-“jargon”. I know that the onus is on me to translate the vocabulary and do
+&quot;jargon&quot;. I know that the onus is on me to translate the vocabulary and do
 a lot of pedagogy, but I suspect that there is a - small - core of people
 that want nothing to do with networks.</p>
 
@@ -166,7 +178,7 @@ that want nothing to do with networks.</p>
 
 <p>I received the decisions around June. Even though I am fairly critical of how
 hard it is to navigate the whole process, and how inconsistent the feedback
-I received was, I am quite happy about the experience. It’s hard not to think
+I received was, I am quite happy about the experience. It&#39;s hard not to think
 that there is a lot of place left to personal feelings of jury members instead
 of having well-defined items for evaluation; this is understandable if you
 are going to interact with these people on a daily basis, but if you are only
@@ -190,7 +202,6 @@ few months of self-introspection later, I started writing up a teaching and
 research statement for future job searches. And so began the second chapter
 of my tales, <em>The Crossing of the Desert</em>.</p>
 
-
 </div>
 
 <div id="disqus_thread"></div>
@@ -209,9 +220,10 @@ of my tales, <em>The Crossing of the Desert</em>.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

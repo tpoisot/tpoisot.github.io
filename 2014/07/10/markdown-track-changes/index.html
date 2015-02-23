@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Tracking changes in markdown</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/07/10/markdown-track-changes/">Tracking changes in markdown</a></div>
 <div class='post-date'>On July 10, 2014 &middot; 
    Tim
@@ -68,7 +80,7 @@ ga('send', 'pageview');
 it is a concise yet powerful markup language, that <code>pandoc</code> can export to
 almost anything you like (and Word). Some journals, though, require that you
 upload a document with all changes highlighted in addition to the revised
-manuscript. As a reviewer, I find this helpful, but as an author, I’m always
+manuscript. As a reviewer, I find this helpful, but as an author, I&#39;m always
 trying to find a way <em>not</em> to do it because it is not really straightforward.</p>
 
 <p>Well, as it turns out, this is not true. I decided that it was time to stop
@@ -76,66 +88,60 @@ being lazy, and I found a very simple way to get a good-looking marked copy
 with all changes.</p>
 
 <p>Here is my originally submitted manuscript, in a file called <code>orig.md</code>:</p>
+<div class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="gh"># My cool project</span>
 
-<pre><code class="language-markdown"># My cool project
-
-This is a really cool paper written in `markdown`. It has equations like
-$(1-x)^\rho$ and, also some references to *really* cool papers [@fra92].
+This is a really cool paper written in <span class="sb">`markdown`</span>. It has equations like
+$(1-x)^<span class="se">\r</span>ho$ and, also some references to <span class="ge">*really*</span> cool papers <span class="p">[</span><span class="nv">@fra92</span><span class="p">]</span>.
 
 I hope it will be accepted!
-</code></pre>
-
+</code></pre></div>
 <p>I can compile that using <code>pandoc</code>, and get the PDF file that I send for
 review. The referees, being referees, required some changes, so I made the
 revisions in a file called <code>revised.md</code>.</p>
+<div class="highlight"><pre><code class="language-markdown" data-lang="markdown"><span class="gh"># My cool revised project</span>
 
-<pre><code class="language-markdown"># My cool revised project
+This is a really cool paper written in <span class="sb">`markdown`</span>. It has equations like
+$(1-x)^<span class="se">\a</span>lpha$ because $<span class="se">\r</span>ho$ was not a good parameter name. Also there are
+some references to <span class="ge">*really*</span> cool papers <span class="p">[</span><span class="nv">@fra92; and references therein</span><span class="p">]</span>.
 
-This is a really cool paper written in `markdown`. It has equations like
-$(1-x)^\alpha$ because $\rho$ was not a good parameter name. Also there are
-some references to *really* cool papers [@fra92; and references therein].
+I hope it will be accepted <span class="ge">*now*</span>!
 
-I hope it will be accepted *now*!
-
-# References
-</code></pre>
-
+<span class="gh"># References</span>
+</code></pre></div>
 <p>Producing the marked-up copy is relatively easy. The first step is to convert
 both documents to <code>latex</code>, then use <code>latexdiff</code>. This is best done with a
 simple <code>makefile</code>, which I reproduce here:</p>
+<div class="highlight"><pre><code class="language-makefile" data-lang="makefile"><span class="nv">OPTS</span><span class="o">=</span> --bibliography<span class="o">=</span>/home/tp/.pandoc/default.json --csl<span class="o">=</span>/home/tp/vrac/styles/ecology.csl --template<span class="o">=</span>template.tex
 
-<pre><code class="language-makefile">OPTS= --bibliography=/home/tp/.pandoc/default.json --csl=/home/tp/vrac/styles/ecology.csl --template=template.tex
+<span class="nl">all</span><span class="o">:</span> <span class="nf">orig.pdf revised.pdf diff.pdf</span>
 
-all: orig.pdf revised.pdf diff.pdf
+<span class="nl">orig.pdf</span><span class="o">:</span> <span class="nf">orig.md</span>
+	pandoc <span class="nv">$&lt;</span> -o <span class="nv">$@</span> <span class="nv">$(OPTS)</span>
 
-orig.pdf: orig.md
-	pandoc $&lt; -o $@ $(OPTS)
+<span class="nl">revised.pdf</span><span class="o">:</span> <span class="nf">revised.md</span>
+	pandoc <span class="nv">$&lt;</span> -o <span class="nv">$@</span> <span class="nv">$(OPTS)</span>
 
-revised.pdf: revised.md
-	pandoc $&lt; -o $@ $(OPTS)
-
-diff.pdf: orig.md revised.md
-	pandoc orig.md -o orig.tex $(OPTS)
-	pandoc revised.md -o revised.tex $(OPTS)
+<span class="nl">diff.pdf</span><span class="o">:</span> <span class="nf">orig.md revised.md</span>
+	pandoc orig.md -o orig.tex <span class="nv">$(OPTS)</span>
+	pandoc revised.md -o revised.tex <span class="nv">$(OPTS)</span>
 	latexdiff orig.tex revised.tex &gt; diff.tex
 	pdflatex diff
-	rm {revised,orig,diff}.tex
-</code></pre>
-
+	rm <span class="o">{</span>revised,orig,diff<span class="o">}</span>.tex
+</code></pre></div>
 <p>The <code>OPTS</code> variable can be changed to whatever you like (and the whole file
-should be made nicer, but hey…), and once this is done, you just need to do
+should be made nicer, but hey...), and once this is done, you just need to do
 <code>make diff.pdf</code> in the directory where your two files (<code>orig.md</code> and <code>revised.md</code>)
 are. The resulting PDF file will look like this:</p>
 
-<p><img src="/images/md-diff.png" alt="" /></p>
+<p><img src="/images/md-diff.png" alt=""></p>
 
-<p>This is what I <em>really</em> like with <code>markdown</code> and <code>pandoc</code> – you can have a
+<p>This is what I <em>really</em> like with <code>markdown</code> and <code>pandoc</code> -- you can have a
 whole <code>make</code>-based production workflow. Which means that automating tasks
 is easy, and once you spend 10 minutes figuring out a solution once, it
 will take you <em>seconds</em> to apply it every time the situation arises. If we
 compiled all of the dirty little hacks like this one in a single <code>makefile</code>
 specifically to make editing with <code>markdown</code> easier, we could have a really
-good do-it-yourself manuscript preparation system. Just sayin’…!</p>
+good do-it-yourself manuscript preparation system. Just sayin&#39;...!</p>
 
 </div>
 
@@ -155,9 +161,10 @@ good do-it-yourself manuscript preparation system. Just sayin’…!</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

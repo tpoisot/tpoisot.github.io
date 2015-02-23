@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,54 +32,66 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Home</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li class="active"><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/" class="active">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <p>I’m Tim Poisot. I do (mostly theoretical) <a href="/research/">research</a> on ecological
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <p>I&#39;m Tim Poisot. I do (mostly theoretical) <a href="/research/">research</a> on ecological
 networks and community ecology, <a href="/papers/">write papers</a>, and <a href="/blog/">blog</a>. I
-also release <a href="http://github.com/tpoisot/">free open-source software</a> and <a href="http://figshare.com/authors/Timothée_Poisot/99063">datasets</a>.</p>
+also release <a href="http://github.com/tpoisot/">free open-source software</a> and <a href="http://figshare.com/authors/Timoth%C3%A9e_Poisot/99063">datasets</a>.</p>
 
-<p>I’m currently a post-doctoral fellow at the <a href="http://stoufferlab.org/">Stouffer
-lab</a>, at the University of Canterbury, New Zealand.</p>
+<p>I am an assistant professor in numerical/quantitative/computational ecology (I
+do theory-based research, is what I&#39;m saying!) at the Université de Montréal.
+You can check out the <a href="http://poisotlab.io/">group website</a>.</p>
 
-<p>From late 2011 to early 2014, I was a post-doctoral fellow in <a href="http://chaire-eec.uqar.ca/">the group
-of Dominique Gravel</a> at the Université du Québec à Rimouski. I’m
-involved in the <a href="http://qcbs.ca">Québec Centre for Biodiversity Sciences</a>, the <a href="http://www.sfecologie.org">French
-Ecological Society</a>, and the <a href="http://innge.net/">International Network of Next-Generation
+<p>From May to December 2014, I was a post-doctoral fellow at the <a href="http://stoufferlab.org/">Stouffer
+lab</a>, at the University of Canterbury, New Zealand.
+From late 2011 to early 2014, I was a post-doctoral fellow in <a href="http://chaire-eec.uqar.ca/">the group of
+Dominique Gravel</a> at the Université du Québec à Rimouski. I&#39;m involved in
+the <a href="http://qcbs.ca">Québec Centre for Biodiversity Sciences</a>, the <a href="http://www.sfecologie.org">French Ecological
+Society</a>, and the <a href="http://innge.net/">International Network of Next-Generation
 Ecologists</a>.</p>
 
 
+        </div>
+      </div>
 
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

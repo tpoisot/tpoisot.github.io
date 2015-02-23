@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Measuring ecological specificity</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2012/01/19/measuring-ecological-specificity/">Measuring ecological specificity</a></div>
 <div class='post-date'>On January 19, 2012 &middot; 
    Tim
@@ -70,11 +82,11 @@ ga('send', 'pageview');
 
 <p>So we went back to basics, and thought about what specificity is.  In <a href="http://www.ncbi.nlm.nih.gov/pubmed/21699641">a previous paper</a>, we defined it as «displaying differential adaptation to a subset of suitable environments. Whereas specialisation refers to the process or tendency of change, specificity is the state of adaptation to environments at any given time or place». Ideally, a good measure of specificity would match this definition, as for example the <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.0030-1299.2008.16644.x/full">NODF</a> measure does for nestedness. This is with this definition in mind that we conceived the <em>Paired Differences Index</em>; the reasoning behind it is really simple, it measures how fast performance decreases when an organism is moved away from its optimal resource.</p>
 
-<p>What we’ve done, is that we examined how different measures of specificity
+<p>What we&#39;ve done, is that we examined how different measures of specificity
 behave with regard to two important informations: (i) the thoroughness of
 sampling, and (ii) the distribution of links between species that exploit,
 and resources that are exploited (which is related to the structure of
-the interaction network). In a nutshell, we found that <em>d’</em> and <em>PDI</em>
+the interaction network). In a nutshell, we found that <em>d&#39;</em> and <em>PDI</em>
 were highly robust, but only the later is highly informative. So, problem
 solved? Not really. <em>PDI</em> is super good at situating species along a
 continuum of specificity, with the interesting property of returning a
@@ -83,26 +95,26 @@ decrease linearly. But as shown in the figure 1 (reproduced below), it
 tends to saturate with really high degree of specialization. Other measures,
 such as <em>CoV</em>, are less affected by this.</p>
 
-<p><img src="/images/pdi_fig1.png" alt="Figure1" /></p>
+<p><img src="/images/pdi_fig1.png" alt="Figure1"></p>
 
 <p>We conclude by providing the following recommendations:</p>
 
 <blockquote>
-  <p>In conclusion, based on our evaluations, we encourage researchers to make use of RR to estimate the specificity of associations (i.e. Schoener’s generality) and PDI to estimate the specificity of impacts (i.e. the skewness of the link strength distribution), with the possibility to use other measures to detect fine-scale variation in specificity among highly specialized species. Previous literature has established that quantitative information on link strength is not necessary for some problems, and in these cases, PDI and RR are equivalent.</p>
+<p>In conclusion, based on our evaluations, we encourage researchers to make use of RR to estimate the specificity of associations (i.e. Schoener’s generality) and PDI to estimate the specificity of impacts (i.e. the skewness of the link strength distribution), with the possibility to use other measures to detect fine-scale variation in specificity among highly specialized species. Previous literature has established that quantitative information on link strength is not necessary for some problems, and in these cases, PDI and RR are equivalent.</p>
 </blockquote>
 
 <p>The measures described in this paper can be done using the <code>ESM</code> package mentioned above. Given an object <code>web</code> with focal species as rows, you can calculate the specificity using <em>PDI</em> and <em>RR</em> with the following commands:</p>
 
-<div class="highlight"><pre><code class="language-splus" data-lang="splus"><span class="kn">library</span><span class="p">(</span>ESM<span class="p">)</span>
+<div class="highlight"><pre><code class="language-splus" data-lang="splus">library(ESM)
 
-spe_pdi <span class="o">=</span> getspe<span class="p">(</span>web<span class="p">,</span>pdi<span class="p">)</span>
-spe_rr <span class="o">=</span> getspe<span class="p">(</span>web<span class="p">,</span>rr<span class="p">)</span>
+spe_pdi = getspe(web,pdi)
+spe_rr = getspe(web,rr)
 
-plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p">)</span></code></pre></div>
+plot(spe_pdi,spe_rr)</code></pre></div>
 
-<p>The code is also being ported to Python and MatLab, but more on that later…</p>
+<p>The code is also being ported to Python and MatLab, but more on that later...</p>
 
-<p>For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it’s basically a mess of nested for statements). The network generation routine is based on the same logic that something published by <a href="http://schamberlain.github.com/2011/01/ecological-networks-from-abundance/">Scott Chamberlain</a>, if you have any interest in doing such things.</p>
+<p>For the record, the code for this paper was developed entirely in R. The simulation of incomplete sampling took forever (a couple of days), because I was too lazy to write a parallel version of it (that, and it&#39;s basically a mess of nested for statements). The network generation routine is based on the same logic that something published by <a href="http://schamberlain.github.com/2011/01/ecological-networks-from-abundance/">Scott Chamberlain</a>, if you have any interest in doing such things.</p>
 
 </div>
 
@@ -122,9 +134,10 @@ plot<span class="p">(</span>spe_pdi<span class="p">,</span>spe_rr<span class="p"
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

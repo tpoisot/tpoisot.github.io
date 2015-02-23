@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Ecologists needs to focus more on patterns</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/03/05/ecology-needs-more-patterns/">Ecologists needs to focus more on patterns</a></div>
 <div class='post-date'>On March  5, 2014 &middot; 
    Tim
@@ -82,7 +94,8 @@ if not processes giving rise to patterns? Their study is therefore, if not
 entirely excusable, understandable as an interesting intellectual passtime
 for those unlucky enough not to have access to big databases.</p>
 
-<p class="left"><img src="/images/satyr.jpg" alt="Satire" /></p>
+<p><img src="/images/satyr.jpg" alt="Satire">
+{: .left }</p>
 
 <p>But I digress. There is an issue we should collectively adress, and it relates
 to the search for meta-patterns. For example, several species distribution
@@ -105,7 +118,7 @@ by allowing us to gloss over the tedious mathematical details. For example,
 the search for patterns of species distributions patterns now becomes the much
 more ecologier search for significant patterns of significant species patterns
 patterns. And of course, as it is timely to dismiss the use of <em>p</em>-values as
-an old tradition slowly going away, “significant” is always assumed because
+an old tradition slowly going away, &quot;significant&quot; is always assumed because
 we are obviously above doing unsignificant research. No longer will one feel
 excluded because the precise nuance of each term is sometimes difficult to
 grasp. To some extent, we are about to prove Lawton wrong. Community ecology
@@ -115,7 +128,7 @@ tumble and fall because we used a meaningless variety of highly specific terms.<
 
 <p>But conceptual unification of the field through the elimination of superfluous
 words (words such as, for instance, superfluous) serves a very limited purpose
-if it won’t allow to create bridges with other fields. Evolutionary ecology,
+if it won&#39;t allow to create bridges with other fields. Evolutionary ecology,
 because it studies the rise of patterns through evolution, can be re-branded
 as the study of the emergence of complex patterns. It is admitted that all
 patterns are complex, as if they were not, being smart people with diplomas,
@@ -130,7 +143,7 @@ holds a small amount of meaning; this drives the division of ecology in
 obscure sub-fields unable to communicate. By refocusing our research efforts
 on patterns, and patterns of patterns, we will be able to re-unify our field.</p>
 
-<hr />
+<hr>
 
 <p><strong>A final (and serious) note</strong></p>
 
@@ -139,15 +152,15 @@ of an eminently Rococo <em>Satyr</em> (get it?), this is meant to be a satirical
 piece. In case you wonder, yes, it felt good to write it, I got rid of so much
 frustration. Now for the serious part. I have a feeling that the p-word is
 used to mean a <em>lot</em> of things. I played a game at a meeting the other day:
-some of the speakers clocked in at over 1.5 ppm, which is to say “patterns
-per minute”. It would have been the most dangerous drinking game. Removing
+some of the speakers clocked in at over 1.5 ppm, which is to say &quot;patterns
+per minute&quot;. It would have been the most dangerous drinking game. Removing
 stop-words, <em>i.e.</em> extremely frequent words regardless of the topic discussed,
-I’m sure <em>pattern</em> was <strong>the</strong> most frequently used term.</p>
+I&#39;m sure <em>pattern</em> was <strong>the</strong> most frequently used term.</p>
 
 <p>From my own observations, <em>pattern</em> is used to mean either <em>distribution</em>
 (in the statistical sense), <em>relationship</em> (often statistical, sometimes
-mechanistic), and other times either to describe something that we can’t
-quite qualify. In some cases, <em>patterns</em> is superfluous (also, I don’t think
+mechanistic), and other times either to describe something that we can&#39;t
+quite qualify. In some cases, <em>patterns</em> is superfluous (also, I don&#39;t think
 we should get rid of superfluous), and can be removed entirely without loss
 of meaning - I would argue that <em>species distribution pattern</em> is a perfect
 example of the later. Actually, there is at least one valid sentence in
@@ -180,9 +193,10 @@ out what I meant as an exercise.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

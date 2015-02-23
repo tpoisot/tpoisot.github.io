@@ -1,0 +1,199 @@
+// custom styles, using less
+// Timothée Poisot
+// February 2015 or something
+
+
+// Google fonts
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+* {
+  font-family: "Roboto";
+}
+
+strong {
+  font-weight: 500;
+}
+
+// Navigation
+@hlcolor: rgb(220, 220, 220);
+@vspace: 3em;
+
+.navbar {
+  border-top: 1px solid @hlcolor;
+  border-bottom: 1px solid @hlcolor;
+  ul, li {
+    display: inline-block;
+    list-style: none;
+  }
+  ul {
+    margin: 1em 0em;
+  }
+  li {
+    margin: 0em 0em;
+    margin-right: 2em;
+    a {
+      font-weight: 400;
+      text-transform: lowercase;
+      font-variant: small-caps;
+      color: darken(@hlcolor, 30%);
+      text-decoration: none;
+      &:hover {
+        color: darken(@hlcolor, 90%);
+      }
+      &.active {
+        color: darken(@hlcolor, 60%);
+      }
+    }
+  }
+}
+
+// FIXME This is copy/pasted from skeleton site
+.has-docked-nav .navbar {
+  position: fixed;
+  top: 0;
+  left: 0; }
+.has-docked-nav .navbar-spacer {
+  display: block; }
+/* Re-overiding the width 100% declaration to match size of % based container */
+.navbar > .container {
+  width: 100%; }
+.has-docked-nav .navbar > .container {
+  width: 80%; }
+  .navbar,
+   .navbar-spacer {
+     display: block;
+     width: 100%;
+     background: #fff;
+     z-index: 99;}
+   .navbar-spacer {
+     display: none; }
+
+
+
+// Header
+.head {
+  margin: @vspace auto;
+  text-align: right;
+  h1 {
+    font-weight: 300;
+    font-size: 1.5em;
+    margin-bottom: 0em;
+    color: darken(@hlcolor, 70%);
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 1.5em;
+    color: darken(@hlcolor, 90%);
+  }
+}
+
+// Content
+.content {
+  margin-top: @vspace;
+  h1 {
+    margin-top: 1.2em;
+    font-size: 2em;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 1.8em;
+    color: darken(@hlcolor, 15%);
+  }
+}
+
+// Blog post content
+
+.post-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.6em;
+  margin-top: 1em;
+  a {
+    color: darken(@hlcolor, 60%);
+    text-decoration: none;
+    &:hover {
+      color: darken(@hlcolor, 80%);
+    }
+  }
+}
+
+.post-date {
+  color: darken(@hlcolor, 40%);
+  font-weight: 300;
+  margin: 1em 0em;
+}
+
+.inlist {
+  margin-bottom: 2em;
+}
+
+// Pagination
+
+.pagination-centered {
+  ul, li {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    padding-right: 8px;
+    line-height: 14px;
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
+// Code
+code, pre {
+  font-family: "Inconsolata";
+}
+
+@lighten: 20%;
+
+@orange: #ff7f0e;
+@light-orange: lighten(@orange, @lighten);
+
+@green: #2ca02c;
+@light-green: lighten(@green, @lighten);
+
+@blue: #1f77b4;
+@light-blue: lighten(@blue, @lighten);
+
+@purple: #9467bd;
+@light-purple: lighten(@purple, @lighten);
+
+@cyan: #17becf;
+@light-cyan: lighten(@cyan, @lighten);
+
+@red: #d62728;
+@light-red: lighten(@red, @lighten);
+
+
+// Code blocks
+pre code{
+  span {
+    font-family: "Inconsolata" !important;
+  }
+  border: 1px solid @hlcolor;
+  background: none;
+  margin: 1em 0em;
+  .sb {
+    color: @purple;
+  }
+  .gh {
+    color: @blue;
+  }
+  .ge {
+    color: @orange;
+  }
+  .nv {
+    color: @light-orange;
+  }
+  .nl {
+    color: @green;
+  }
+  .nf {
+    color: @light-blue;
+  }
+}

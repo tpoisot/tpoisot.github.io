@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,67 +32,76 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | A quick way to get good figures for your web pages</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/01/10/free-workflow-figures/">A quick way to get good figures for your web pages</a></div>
 <div class='post-date'>On January 10, 2013 &middot; 
    Tim
 </div>
-<p>I’m a huge fan of the <code>pgfplots</code> package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: <code>notes</code>, <code>MS</code>, and <code>code</code>. The results of what happens in <code>code</code> (usually a huge mess of R, C and Python) go directly into <code>MS</code> as tab-delimited files, and the <code>.tex</code> document has all the commands needed to transform this in figures. I’ve notably used this workflow for the <code>beamer</code> slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons. </p>
+<p>I&#39;m a huge fan of the <code>pgfplots</code> package for LaTeX, as it offers the possibility to include the source code of the figures directly within the document. It changed the way I organize my paper writing, as I now tipically have three sub-folders: <code>notes</code>, <code>MS</code>, and <code>code</code>. The results of what happens in <code>code</code> (usually a huge mess of R, C and Python) go directly into <code>MS</code> as tab-delimited files, and the <code>.tex</code> document has all the commands needed to transform this in figures. I&#39;ve notably used this workflow for the <code>beamer</code> slides of my lectures in population biology, and it was really easy to re-use and re-contextualized material across lessons. </p>
 
-<p>I’m <em>really</em> happy with this setup, and <code>pgfplots</code> is a wonderful tool. It does look really <em>LaTeX-y</em> (<code>s/LaTeX-/ugl/</code>) by default, but you can get good results with minor tweakings. Given that I am familiar around this system, I was thinking about how I can use it to produce good graphics to put in blog posts, when needed. As it turned out, it’s remarkably easy, and it requires almost no user input.</p>
+<p>I&#39;m <em>really</em> happy with this setup, and <code>pgfplots</code> is a wonderful tool. It does look really <em>LaTeX-y</em> (<code>s/LaTeX-/ugl/</code>) by default, but you can get good results with minor tweakings. Given that I am familiar around this system, I was thinking about how I can use it to produce good graphics to put in blog posts, when needed. As it turned out, it&#39;s remarkably easy, and it requires almost no user input.</p>
 
-<p>Doing so requires almost nothing, except an install of <a href="http://www.imagemagick.org/script/index.php"><code>imagemagick</code></a> should it not ship with your operating system. Of course you need LaTeX, and (relatively) up-to-date versions of the <code>tikz</code> and <code>pgfplots</code> packages installed. By the end of this walkthrough, you’ll be able to generate figures like the one just below, with almost no effort.</p>
+<p>Doing so requires almost nothing, except an install of <a href="http://www.imagemagick.org/script/index.php"><code>imagemagick</code></a> should it not ship with your operating system. Of course you need LaTeX, and (relatively) up-to-date versions of the <code>tikz</code> and <code>pgfplots</code> packages installed. By the end of this walkthrough, you&#39;ll be able to generate figures like the one just below, with almost no effort.</p>
 
-<p><img src="/images/ex-pgf-blog.png" alt="Figure1" /></p>
+<p><img src="/images/ex-pgf-blog.png" alt="Figure1"></p>
 
 <h1 id="getting-the-figures-from-latex">Getting the figures from LaTeX</h1>
 
 <p>To start, we need a <code>.tex</code> document, who will act as a template for all the figures we want to produce. A minimal preamble will be more than enough:</p>
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>minimal<span class="nb">}</span>
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="p">{</span>minimal<span class="p">}</span>
 
-<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="p">{</span>fontenc<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="p">{</span>inputenc<span class="p">}</span>
 
-<span class="k">\usepackage</span><span class="na">[default,scale=0.95]</span><span class="nb">{</span>opensans<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>mathastext<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[default,scale=0.95]</span><span class="p">{</span>opensans<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>mathastext<span class="p">}</span>
 
-<span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span>
-<span class="k">\usepgfplotslibrary</span><span class="nb">{</span>external<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>pgfplots<span class="p">}</span>
+<span class="k">\usepgfplotslibrary</span><span class="p">{</span>external<span class="p">}</span>
 <span class="k">\tikzexternalize</span> 
 
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></code></pre></div>
+<span class="nt">\begin{document}</span>
+<span class="nt">\end{document}</span></code></pre></div>
 
 <p>The important line is <code>\tikzexternalize</code>. This command tells the <code>tikz</code> library to generate a separate file for each figure, compile it in a PDF, then include this PDF file in the document. The consequence of it is that, in your working folder, you know have a list of files:</p>
 
@@ -101,42 +113,42 @@ ga('send', 'pageview');
 
 <p>Once you are happy with your figure, and have re-activated the <code>\tikzexternalize</code> command, the last step is to convert these PDF files in a format that you can put in a webpage, like PDF. This is where <code>imagemagick</code>, and specifically the <code>convert</code> utility, comes into play. I have this simple bash script in my working directory, to automate the process. You can read <a href="http://robfelty.com/2008/03/11/convert-pdf-to-png-with-imagemagick">here</a> about the options used.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for</span> file in *figure*.pdf<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
-<span class="nb">echo</span> <span class="nv">$file</span><span class="p">;</span><span class="se">\</span>
-convert -density 600x600 -resize 1204x986 -quality <span class="m">90</span> <span class="nv">$file</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span><span class="p">|</span>cut -f1 -d<span class="s1">&#39;.&#39;</span><span class="sb">`</span>.png<span class="p">;</span><span class="se">\</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>file <span class="k">in</span> <span class="k">*</span>figure<span class="k">*</span>.pdf; <span class="k">do</span> <span class="se">\</span>
+<span class="nb">echo</span> <span class="nv">$file</span>;<span class="se">\</span>
+convert -density 600x600 -resize 1204x986 -quality 90 <span class="nv">$file</span> <span class="sb">`</span><span class="nb">echo</span> <span class="nv">$file</span>|cut -f1 -d<span class="s1">'.'</span><span class="sb">`</span>.png;<span class="se">\</span>
 <span class="k">done</span></code></pre></div>
 
-<p>The <code>-resize 1204x986</code> flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it’s better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:</p>
+<p>The <code>-resize 1204x986</code> flag esnure that the output is approximately of the size I want, to have a good resolution. Now, if you want to use these images in a website, it&#39;s better to ensure that the images will not overflow your layout, so just specificy a maximal width in your CSS file. For example, mine looks like:</p>
 
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.pbody</span> <span class="nt">img</span><span class="p">{</span>
-	<span class="k">background-color</span><span class="o">:</span> <span class="k">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="p">);</span>
-	<span class="k">border</span><span class="o">:</span> <span class="m">9px</span> <span class="k">solid</span> <span class="k">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="p">);</span>
-	<span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="p">);</span>
-	<span class="k">padding</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
-	<span class="k">max-width</span><span class="o">:</span> <span class="m">742px</span><span class="p">;</span>
-	<span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-	<span class="k">margin</span><span class="o">:</span> <span class="m">0px</span> <span class="k">auto</span><span class="p">;</span>
-	<span class="k">margin-bottom</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">);</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">9px</span> <span class="nb">solid</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">);</span>
+    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">742px</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0px</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
 <span class="p">}</span></code></pre></div>
 
-<h1 id="ok-lets-do-it">OK, let’s do it!</h1>
+<h1 id="ok,-let&#39;s-do-it!">OK, let&#39;s do it!</h1>
 
 <p>In your LaTeX file, between the <code>\begin{document}</code> and <code>\end{document}</code> commands, just put the code for your figure (see the <a href="http://pgfplots.sourceforge.net/"><code>pgfplots</code></a> website for details on the syntax, the <em>Gallery</em> page has a lot of examples).</p>
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-	<span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[xlabel=Time (weeks),ylabel=Individuals,
-			width=12cm,height=6cm
-			]
-		<span class="k">\addplot</span> coordinates <span class="nb">{</span>(1,8) (2,9) (4,7) (5,13)
-		(6,12) (8,18) (9,17) (10,22) (11,41) (12,32)
-		(13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="nb">}</span>;
-		<span class="k">\node</span><span class="na">[coordinate,pin={below:{Control}}]</span> at (axis cs:16,21.5) <span class="nb">{}</span>;
-		<span class="k">\addplot</span> coordinates <span class="nb">{</span>(1,4) (2,3) (4,5) (5,7)
-		(6,9) (7,8) (8,12) (9,23) (10,38) (11,34)
-		(12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="nb">}</span>;
-		<span class="k">\node</span><span class="na">[coordinate,pin={above:{Treatment}}]</span> at (axis cs:21,24.4) <span class="nb">{}</span>;
-	<span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="nt">\begin{tikzpicture}</span>
+    <span class="nt">\begin{axis}</span>[xlabel=Time (weeks),ylabel=Individuals,
+            width=12cm,height=6cm
+            ]
+        <span class="k">\addplot</span> coordinates <span class="p">{</span>(1,8) (2,9) (4,7) (5,13)
+        (6,12) (8,18) (9,17) (10,22) (11,41) (12,32)
+        (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="p">}</span>;
+        <span class="k">\node</span><span class="na">[coordinate,pin={below:{Control}}]</span> at (axis cs:16,21.5) <span class="p">{}</span>;
+        <span class="k">\addplot</span> coordinates <span class="p">{</span>(1,4) (2,3) (4,5) (5,7)
+        (6,9) (7,8) (8,12) (9,23) (10,38) (11,34)
+        (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="p">}</span>;
+        <span class="k">\node</span><span class="na">[coordinate,pin={above:{Treatment}}]</span> at (axis cs:21,24.4) <span class="p">{}</span>;
+    <span class="nt">\end{axis}</span>
+<span class="nt">\end{tikzpicture}</span></code></pre></div>
 
 <p>In a terminal, make executable, and run the <code>convert.sh</code> script:</p>
 
@@ -146,49 +158,49 @@ pgf-figure0.pdf</code></pre></div>
 
 <p>You will now have a PNG file, which looks like this:</p>
 
-<p><img src="/images/ex-pgf-default.png" alt="Figure2" /></p>
+<p><img src="/images/ex-pgf-default.png" alt="Figure2"></p>
 
-<p>It’s cool, but I strongly encourage you to play around with the various opitons. Defining two colors in the preamble of your LaTeX file,</p>
+<p>It&#39;s cool, but I strongly encourage you to play around with the various opitons. Defining two colors in the preamble of your LaTeX file,</p>
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\definecolor</span><span class="nb">{</span>GR<span class="nb">}{</span>RGB<span class="nb">}{</span>60,170,70<span class="nb">}</span>
-<span class="k">\definecolor</span><span class="nb">{</span>C1<span class="nb">}{</span>RGB<span class="nb">}{</span>170,70,60<span class="nb">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\definecolor</span><span class="p">{</span>GR<span class="p">}{</span>RGB<span class="p">}{</span>60,170,70<span class="p">}</span>
+<span class="k">\definecolor</span><span class="p">{</span>C1<span class="p">}{</span>RGB<span class="p">}{</span>170,70,60<span class="p">}</span></code></pre></div>
 
 <p>, and using them (along with other options) to make your figure less LaTeX-y, can make a substantial difference. For example, the first figure in this entry was produced with the following code:</p>
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-	<span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[xlabel=Time (weeks),ylabel=Individuals,
-			width=12cm,height=6cm, ymin = 0, ymax = 50,
-			xmin = -0.05, xmax=26.05,
-			ymajorgrids, ytick=<span class="nb">{</span>10,20,30,40<span class="nb">}</span>,
-			axis y line*=left, axis x line*=bottom,
-			tick align=outside,
-			axis background/.style=<span class="nb">{</span>shade,top color=GR!5!white,bottom color=white<span class="nb">}</span>,
-			y axis line style=<span class="nb">{</span>white, line width = 0.0001pt<span class="nb">}</span>,
-			x axis line style=<span class="nb">{</span>black!60!white<span class="nb">}</span>
-			]
-		<span class="k">\addplot</span><span class="na">[color=GR,mark=none,ultra thick]</span> coordinates <span class="nb">{</span>(1,8) (2,9) (4,7) (5,13)
-		(6,12) (8,18) (9,17) (10,22) (11,41)
-		(12,32) (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="nb">}</span>;
-		<span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={GR,thick,densely dotted}]</span>
-			below:<span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>GR<span class="nb">}</span>Control<span class="nb">}}</span>]
-			at (axis cs:16,21.5) <span class="nb">{}</span>;
-		<span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={black,thick,densely dotted}]</span>
-			45:<span class="nb">{</span><span class="k">\textbf</span><span class="nb">{</span>bloom<span class="nb">}}}</span>]
-			at (axis cs:11,41) <span class="nb">{}</span>;
-		<span class="k">\addplot</span><span class="na">[color=C1,mark=none,ultra thick]</span> coordinates <span class="nb">{</span>(1,4) (2,3) (4,5) (5,7) (6,9)
-		(7,8) (8,12) (9,23) (10,38)
-		(11,34) (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="nb">}</span>;
-		<span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={C1,thick,densely dotted}]</span>
-			above:<span class="nb">{</span><span class="k">\color</span><span class="nb">{</span>C1<span class="nb">}</span>Treatment<span class="nb">}}</span>]
-			at (axis cs:21,24.4) <span class="nb">{}</span>;
-	<span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="nt">\begin{tikzpicture}</span>
+    <span class="nt">\begin{axis}</span>[xlabel=Time (weeks),ylabel=Individuals,
+            width=12cm,height=6cm, ymin = 0, ymax = 50,
+            xmin = -0.05, xmax=26.05,
+            ymajorgrids, ytick=<span class="p">{</span>10,20,30,40<span class="p">}</span>,
+            axis y line*=left, axis x line*=bottom,
+            tick align=outside,
+            axis background/.style=<span class="p">{</span>shade,top color=GR!5!white,bottom color=white<span class="p">}</span>,
+            y axis line style=<span class="p">{</span>white, line width = 0.0001pt<span class="p">}</span>,
+            x axis line style=<span class="p">{</span>black!60!white<span class="p">}</span>
+            ]
+        <span class="k">\addplot</span><span class="na">[color=GR,mark=none,ultra thick]</span> coordinates <span class="p">{</span>(1,8) (2,9) (4,7) (5,13)
+        (6,12) (8,18) (9,17) (10,22) (11,41)
+        (12,32) (13,24) (14,21) (16,21.5) (21,19.4) (25,21.02)<span class="p">}</span>;
+        <span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={GR,thick,densely dotted}]</span>
+            below:<span class="p">{</span><span class="k">\color</span><span class="p">{</span>GR<span class="p">}</span>Control<span class="p">}}</span>]
+            at (axis cs:16,21.5) <span class="p">{}</span>;
+        <span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={black,thick,densely dotted}]</span>
+            45:<span class="p">{</span><span class="k">\textbf</span><span class="p">{</span>bloom<span class="p">}}}</span>]
+            at (axis cs:11,41) <span class="p">{}</span>;
+        <span class="k">\addplot</span><span class="na">[color=C1,mark=none,ultra thick]</span> coordinates <span class="p">{</span>(1,4) (2,3) (4,5) (5,7) (6,9)
+        (7,8) (8,12) (9,23) (10,38)
+        (11,34) (12,35) (13,33.2) (14,27) (16,25) (21,24.4) (25,24.9)<span class="p">}</span>;
+        <span class="k">\node</span><span class="na">[coordinate,pin={[pin edge={C1,thick,densely dotted}]</span>
+            above:<span class="p">{</span><span class="k">\color</span><span class="p">{</span>C1<span class="p">}</span>Treatment<span class="p">}}</span>]
+            at (axis cs:21,24.4) <span class="p">{}</span>;
+    <span class="nt">\end{axis}</span>
+<span class="nt">\end{tikzpicture}</span></code></pre></div>
 
 <h1 id="in-conclusion">In conclusion</h1>
 
-<p>It’s remarkably easy, with this setup, to produce really good quality graphics to put on web pages, I originally wanted to learm something like <code>D3</code>, but realized I have no time to invest in this at the moment. Plus, the advantage of using a LaTeX-based system is that (in addition to the geek cred) you will be able to easily re-use material from different sources. For example, I can now easily tweak a figure I made for a paper, and put it online, just by changing the <code>axis</code> parameters. And given that everything is command-line based, you can really automate the whole process (just write a shell script taking care of LaTeX compilation, <code>imagemagick</code> conversion, and copying the figure at the appropriate place in your website folder).</p>
+<p>It&#39;s remarkably easy, with this setup, to produce really good quality graphics to put on web pages, I originally wanted to learm something like <code>D3</code>, but realized I have no time to invest in this at the moment. Plus, the advantage of using a LaTeX-based system is that (in addition to the geek cred) you will be able to easily re-use material from different sources. For example, I can now easily tweak a figure I made for a paper, and put it online, just by changing the <code>axis</code> parameters. And given that everything is command-line based, you can really automate the whole process (just write a shell script taking care of LaTeX compilation, <code>imagemagick</code> conversion, and copying the figure at the appropriate place in your website folder).</p>
 
-<p>The inconveninent is that this system is not dynamics, <em>i.e.</em> if you want to re-draw a figure because the data changed, you have to do it by hand, where <code>D3</code> will automatically take care of it. But for now, I’m happy enough with this system.</p>
+<p>The inconveninent is that this system is not dynamics, <em>i.e.</em> if you want to re-draw a figure because the data changed, you have to do it by hand, where <code>D3</code> will automatically take care of it. But for now, I&#39;m happy enough with this system.</p>
 
 </div>
 
@@ -208,9 +220,10 @@ pgf-figure0.pdf</code></pre></div>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

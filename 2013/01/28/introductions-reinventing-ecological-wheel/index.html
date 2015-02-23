@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Article introductions and the reinvention of the ecological wheel</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/01/28/introductions-reinventing-ecological-wheel/">Article introductions and the reinvention of the ecological wheel</a></div>
 <div class='post-date'>On January 28, 2013 &middot; 
    Tim
@@ -67,22 +79,22 @@ ga('send', 'pageview');
 <p>Caroline Tucker and Marc Cadotte recently had a great blog post discussing the <a href="http://evol-eco.blogspot.ca/2013/01/reinventing-ecological-wheel-why-do-we.html">reinvention of the ecological wheel</a>, with special mention of the biodiversity-ecosystem-functioning (BEF) literature. I read this blog post with <em>a lot</em> of interest, for reasons that I will mention in a later post. The basic issue was that:</p>
 
 <blockquote>
-  <p>Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence.</p>
+<p>Some of the findings in the BEF literature could be criticized as simply being rediscoveries of classical theory and experimental evidence already in existence.</p>
 </blockquote>
 
-<p>I’ll keep my opinion about whether I agree or not with this, and whether or not I think some rediscoveries are useful, for later. Caroline &amp; Marc propose two reasons for which ecologists are so prompt at reinventing the wheel, despite ecology being a young field. Either <em>the foundation of ecological knowledge is to blame</em>, because it is incomplete, or <em>we forgot too quickly the classic literature</em>. At first I thought it was two perfectly valid reasons, and both can act. But this afternoon, I was reading a paper about BEF, and came across a sentence saying, roughly, <em>“the role of biodiversity in ecosystem functioning is still controversial”</em>.</p>
+<p>I&#39;ll keep my opinion about whether I agree or not with this, and whether or not I think some rediscoveries are useful, for later. Caroline &amp; Marc propose two reasons for which ecologists are so prompt at reinventing the wheel, despite ecology being a young field. Either <em>the foundation of ecological knowledge is to blame</em>, because it is incomplete, or <em>we forgot too quickly the classic literature</em>. At first I thought it was two perfectly valid reasons, and both can act. But this afternoon, I was reading a paper about BEF, and came across a sentence saying, roughly, <em>&quot;the role of biodiversity in ecosystem functioning is still controversial&quot;</em>.</p>
 
-<p>The paper in question was published in 2002. It’s ten years ago, but it’s still at a time when there was no shortage of broad papers <a href="http://www.ncbi.nlm.nih.gov/pubmed/11679658">outlining the mechanisms involved in the BEF</a>, and the expected patterns. And it’s not that the authors of this particular paper are to blame. Looking at a lot of introductions from this period, I found very similar sentences, sometimes the first of the abstract, often in high-impact journals. Meaning that the idea that <em>the role of biodiversity in ecosystem functioning is still controversial</em> can possibly be your first impression of the BEF literature.</p>
+<p>The paper in question was published in 2002. It&#39;s ten years ago, but it&#39;s still at a time when there was no shortage of broad papers <a href="http://www.ncbi.nlm.nih.gov/pubmed/11679658">outlining the mechanisms involved in the BEF</a>, and the expected patterns. And it&#39;s not that the authors of this particular paper are to blame. Looking at a lot of introductions from this period, I found very similar sentences, sometimes the first of the abstract, often in high-impact journals. Meaning that the idea that <em>the role of biodiversity in ecosystem functioning is still controversial</em> can possibly be your first impression of the BEF literature.</p>
 
-<p>Part of the problem is that we need to sell our papers, often to the referees insistence. We need to create a problem, which our paper will address. Saying that <em>the BEF theory is already well developed, but let’s fill in some gaps</em> will be less appealing that saying <em>everything you know is wrong</em>. It’s not a bad thing at all, because as an author, it forces you to be clear about what is new in your work. But it can give a sense of controversy, whereas in fact we’re making good progress in gaining finer knowledge about things we already intuitively knew, or showing that the overlap is strong between two disconnected disciplines. And it is <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2004.00698.x/full">perhaps nowhere as true as in BEF studies</a>.</p>
+<p>Part of the problem is that we need to sell our papers, often to the referees insistence. We need to create a problem, which our paper will address. Saying that <em>the BEF theory is already well developed, but let&#39;s fill in some gaps</em> will be less appealing that saying <em>everything you know is wrong</em>. It&#39;s not a bad thing at all, because as an author, it forces you to be clear about what is new in your work. But it can give a sense of controversy, whereas in fact we&#39;re making good progress in gaining finer knowledge about things we already intuitively knew, or showing that the overlap is strong between two disconnected disciplines. And it is <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2004.00698.x/full">perhaps nowhere as true as in BEF studies</a>.</p>
 
-<p>So this is a third cause of re-inventions of the ecological wheel: <em>we need to sell our papers</em>, and put a lot of emphasis on novelty, for fear of being rejected if we don’t. I’ve had some recent experiences with a paper being declined without review, and sent out for review, in journals of equal impact and reputation. The only difference being the <em>aggressiveness</em> of the cover letter. As much as I’d like not to be cynical on this point, I think your ability to cast a light of novelty on your work will make a great difference. And that is, of course, regardless of whether your work is really novel or not.</p>
+<p>So this is a third cause of re-inventions of the ecological wheel: <em>we need to sell our papers</em>, and put a lot of emphasis on novelty, for fear of being rejected if we don&#39;t. I&#39;ve had some recent experiences with a paper being declined without review, and sent out for review, in journals of equal impact and reputation. The only difference being the <em>aggressiveness</em> of the cover letter. As much as I&#39;d like not to be cynical on this point, I think your ability to cast a light of novelty on your work will make a great difference. And that is, of course, regardless of whether your work is really novel or not.</p>
 
-<p>Even worse, the rhythm of publication is increasing. The paper I mentioned earlier was published in 2002. Perhaps it’s just the imperfect ways our brains works, but I have trouble realizing that it was <em>a long time ago</em> (I was still in high school at this time). Incidentally, this is why I love when journals change their layouts - I keep track of what is <em>old</em> this way. More seriously, given the increase in the number of papers, and the time needed to go from the idea to the publication (around one year in my limited experience), then what <em>was</em> controversial when you started can be less so when you submit.</p>
+<p>Even worse, the rhythm of publication is increasing. The paper I mentioned earlier was published in 2002. Perhaps it&#39;s just the imperfect ways our brains works, but I have trouble realizing that it was <em>a long time ago</em> (I was still in high school at this time). Incidentally, this is why I love when journals change their layouts - I keep track of what is <em>old</em> this way. More seriously, given the increase in the number of papers, and the time needed to go from the idea to the publication (around one year in my limited experience), then what <em>was</em> controversial when you started can be less so when you submit.</p>
 
-<p>And it definitely won’t be controversial or new ten years down the road. Which is a problem. Introductions are written so as to give the paper a timeliness, and a relevance <em>in the current state of the field</em>. The results are supposed to last. The discussion is somewhere in between. This is what I’m getting at: how long does it takes for the average introduction to be obsolete? If the paper is well done, it should happen <em>by the end of the discussion</em>. So in one hand, we need to show how novel our stuff is, and in the other, we should make it not novel by the end of the paper.</p>
+<p>And it definitely won&#39;t be controversial or new ten years down the road. Which is a problem. Introductions are written so as to give the paper a timeliness, and a relevance <em>in the current state of the field</em>. The results are supposed to last. The discussion is somewhere in between. This is what I&#39;m getting at: how long does it takes for the average introduction to be obsolete? If the paper is well done, it should happen <em>by the end of the discussion</em>. So in one hand, we need to show how novel our stuff is, and in the other, we should make it not novel by the end of the paper.</p>
 
-<p>Should we stop writing entire paragraphs to prove novelty? Should we stop reading the introductions entirely? And if we do so, will it help with the impression that we are re-inventing the wheel? I admit I have no ideas, but I’d like to see what you think about these points!</p>
+<p>Should we stop writing entire paragraphs to prove novelty? Should we stop reading the introductions entirely? And if we do so, will it help with the impression that we are re-inventing the wheel? I admit I have no ideas, but I&#39;d like to see what you think about these points!</p>
 
 </div>
 
@@ -102,9 +114,10 @@ ga('send', 'pageview');
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

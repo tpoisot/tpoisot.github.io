@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,45 +32,54 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Complexity and connectance of ecological networks</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2013/08/19/connectance-complexity/">Complexity and connectance of ecological networks</a></div>
 <div class='post-date'>On August 19, 2013 &middot; 
    Tim
 </div>
 <p>So my <a href="http://timotheepoisot.fr/2013/06/19/notes-on-network-complexity/">blog post on ecological complexity in networks</a> turned into
-a manuscript, now online as a preprint at <a href="https://peerj.com/preprints/50/"><em>PeerJ</em></a>. We’ll send it up for
+a manuscript, now online as a preprint at <a href="https://peerj.com/preprints/50/"><em>PeerJ</em></a>. We&#39;ll send it up for
 review (at <em>PeerJ</em> also) in a while, but feel free to read it and give us
-feedback using the <a href="https://github.com/tpoisot/ms_connectance_complexity/issues">github issues tracker</a>. We’d like that very much,
+feedback using the <a href="https://github.com/tpoisot/ms_connectance_complexity/issues">github issues tracker</a>. We&#39;d like that very much,
 actually. And as the github repository is public, feel free to
 fork/edit/push modifications if you have something to contribute to
 the paper.</p>
@@ -79,9 +91,9 @@ importantly, (ii), because a given connectance implies a given number of
 interactions, connectance imposes structural constraints on networks
 properties. Or in other words, all important moments of the degree distribution
 vary with connectance. And it works quite well with Erdos-Renyi graphs, and
-with the famous “niche” model of food webs.</p>
+with the famous &quot;niche&quot; model of food webs.</p>
 
-<p>It’s kinda cool, because connectance is <em>simple</em> to measure, and even people
+<p>It&#39;s kinda cool, because connectance is <em>simple</em> to measure, and even people
 that no background in network analysis will get what it means. It also means
 that from a purely statistical point of view, any effect of the degree
 distribution must be controlled for an effect of connectance. </p>
@@ -89,8 +101,7 @@ distribution must be controlled for an effect of connectance. </p>
 <p><em>P.S.</em>: This is a good example of <a href="http://timotheepoisot.fr/2013/08/05/codelust/">Codelust</a> in practice. The
 original script were written over a particularly greasy and disappointing club
 sandwich eaten alone in my office, so at least something productive came out of
-this particularly bleak view of the academic daily life…</p>
-
+this particularly bleak view of the academic daily life...</p>
 
 </div>
 
@@ -110,9 +121,10 @@ this particularly bleak view of the academic daily life…</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | How I quit academia and vowed to never come back (for a month)</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/10/14/how-i-quit-academia/">How I quit academia and vowed to never come back (for a month)</a></div>
 <div class='post-date'>On October 14, 2014 &middot; 
    Tim
@@ -69,7 +81,7 @@ Carpentry</a>. It is a really rich and transformative experience, and besides
 the software side of things, full of useful elements for teaching in any
 context. As we are currently discussing how motivation affects learning, our
 weekly assignment is to write the story of our biggest de-motivation, how
-it affected us, and what happened (and should have happened) next. Here’s
+it affected us, and what happened (and should have happened) next. Here&#39;s
 mine. Very few people know it, even fewer know the name of all parties
 involved.</p>
 
@@ -88,9 +100,9 @@ of what was wrong, I called the head of the program, and asked him. I head
 him shuffle through a few papers, and then he told me</p>
 
 <blockquote>
-  <p>Well, let’s not fool yourself. With your academic record, the best you
-could hope for is to end up as a technician in some lab. You’ll never be a
-researcher, and we don’t have time to waste nurturing your delusions. Goodbye.</p>
+<p>Well, let&#39;s not fool yourself. With your academic record, the best you
+could hope for is to end up as a technician in some lab. You&#39;ll never be a
+researcher, and we don&#39;t have time to waste nurturing your delusions. Goodbye.</p>
 </blockquote>
 
 <p>He hang up. This is an almost verbatim transcription, because trust me, the
@@ -107,33 +119,33 @@ would work at a university.</p>
 <h1 id="what-should-have-been-done">What should have been done</h1>
 
 <p>Nothing? Nothing. He was (he still is) a full professor in a big lab, with
-a good reputation, and <em>prestige</em>. I was (I’m not anymore) an undergraduate
-student. These things just happen, and (from the few observations I’ve had),
+a good reputation, and <em>prestige</em>. I was (I&#39;m not anymore) an undergraduate
+student. These things just happen, and (from the few observations I&#39;ve had),
 even when they happen, things turn out well for the people with the most
 established reputation. This is the logic by which a PhD advisor can tell
 his student</p>
 
 <blockquote>
-  <p>I don’t care about your financial issues, you should work harder to be as
+<p>I don&#39;t care about your financial issues, you should work harder to be as
 productive as I tell you to be.</p>
 </blockquote>
 
 <p>When the student talks the situation out with another professor, he hears</p>
 
 <blockquote>
-  <p>Well, try to see things from his perspective, he cares about the reputation
-of his group; are you sure you really can’t work harder?</p>
+<p>Well, try to see things from his perspective, he cares about the reputation
+of his group; are you sure you really can&#39;t work harder?</p>
 </blockquote>
 
-<p>This is the logic by which an advisor can take his foreign PhD student’s
+<p>This is the logic by which an advisor can take his foreign PhD student&#39;s
 results, give them to its postdoc to publish without acknowledging the
-student contribution, then “forgot” to write the letter so that the student
+student contribution, then &quot;forgot&quot; to write the letter so that the student
 can renew his visa, and has to go back to its home country without being able
 to either stand his case or even defend his thesis. Which was summarized by
 the advisor in question as</p>
 
 <blockquote>
-  <p>an unfortunate series of mishaps and misunderstandings</p>
+<p>an unfortunate series of mishaps and misunderstandings</p>
 </blockquote>
 
 <p>The advisor is still working, the student defended and quit research.</p>
@@ -156,13 +168,13 @@ things will probably keep on happening forever.</p>
 people have understood so well that they are in a position of consequence-free
 power, that they can behave however they please. These situations happen
 when people with power, reputation, or prestige, see people without any of
-these attributes as expendables, and don’t feel particularly pressured to
+these attributes as expendables, and don&#39;t feel particularly pressured to
 care for their needs, aspirations, or well-being. Whenever a system allows
 (and rewards, or at least fails to punish, which is equally bad) people
 to us <em>people</em> as tools for their own motives, then these situations will
 arise. There is nothing motivational, no pedagogic objective behind them. They
-are the ugly manifestation of a system in which you won’t face any punishment
-for being exploitative, demeaning, or disrespectful, as long as you’re on top.</p>
+are the ugly manifestation of a system in which you won&#39;t face any punishment
+for being exploitative, demeaning, or disrespectful, as long as you&#39;re on top.</p>
 
 <h1 id="what-has-been-done-in-practice">What has been done in practice</h1>
 
@@ -171,16 +183,16 @@ which MSc program I would be in next year. I told her none, and explained why.</
 
 <p>Then she emailed me back. And like that, I saw the worse, and the best of
 the academic world. I saw the type of person I wanted to be, and the type of
-person I want everyone to avoid. She told me <em>Here’s my office number. Call
+person I want everyone to avoid. She told me <em>Here&#39;s my office number. Call
 me. Now.</em>. I did.</p>
 
-<p>We had a long conversation. And it’s funny, in a very sad way, that I
+<p>We had a long conversation. And it&#39;s funny, in a very sad way, that I
 barely remember any details of this conversation. I remember a feeling of
 being overwhelmed with so many strong and conflicting emotions, but none of
 the details. But I remember the message. She told me that she had no idea
-whether I would end up doing research, but she’s observed me enough to know
+whether I would end up doing research, but she&#39;s observed me enough to know
 that I have the drive and the curiosity to at least try. She told me that
-she didn’t believe there was anyone that did not deserve a chance to try,
+she didn&#39;t believe there was anyone that did not deserve a chance to try,
 but even if there were, that would not be me. She told me she forwarded my
 academic transcript to another masters program, that I have invested time
 and energy in my training, that she and her colleagues did too, and that I
@@ -188,13 +200,12 @@ owed it to myself, and to them, to give it a shot. She told me that I had
 to day to get my ass into the admission office, and sign my enrollment form
 before she dragged me there herself.</p>
 
-<p>She gave me a chance. I took it. That was seven years ago, and I’ve done
-some research since. Some of it might even be good, and (it’s the part I
-like the most about this story), guess who cited some of it? I’m sure he
-doesn’t remember the story. I don’t care. I do remember it. I’ll make my
-best not to forget it. I’ll make my best to be the one who gives chances
-and believes in people, because that’s why I’m still here.</p>
-
+<p>She gave me a chance. I took it. That was seven years ago, and I&#39;ve done
+some research since. Some of it might even be good, and (it&#39;s the part I
+like the most about this story), guess who cited some of it? I&#39;m sure he
+doesn&#39;t remember the story. I don&#39;t care. I do remember it. I&#39;ll make my
+best not to forget it. I&#39;ll make my best to be the one who gives chances
+and believes in people, because that&#39;s why I&#39;m still here.</p>
 
 </div>
 
@@ -214,9 +225,10 @@ and believes in people, because that’s why I’m still here.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,42 +32,51 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | How to write a paper</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/09/25/writing-paper/">How to write a paper</a></div>
 <div class='post-date'>On September 25, 2014 &middot; 
    Tim
 </div>
-<p>I must make a confession. Through no one’s fault bu my own, I made it through
+<p>I must make a confession. Through no one&#39;s fault bu my own, I made it through
 my PhD without a writing method. Not that I knew how to write, and did not
 have a routine. I had no method. When it was time to write a paper, I opened a
 text editor and started writing a paper. It now sounds head-bashingly stupid;
@@ -77,9 +89,9 @@ people probably do need different ways to tackle a paper. But it works for
 me, and it is easy to do.</p>
 
 <p>Whenever I have a chance, I tell a variation of the following to students:
-“You don’t start a paper by opening a text editor, you don’t start a
-presentation by making the title slide, and you don’t start a program by
-opening a code editor”. These are the <em>last</em> steps. What comes before,
+&quot;You don&#39;t start a paper by opening a text editor, you don&#39;t start a
+presentation by making the title slide, and you don&#39;t start a program by
+opening a code editor&quot;. These are the <em>last</em> steps. What comes before,
 is the thinking and the planning. Writing the paper is the <em>boring</em> part,
 because (in my opinion), it is the <em>obvious</em> part. When I follow my usual
 writing method, I have no surprises when writing the paper. So here it goes,
@@ -93,20 +105,20 @@ the big advice? Oh boy. Start with an outline is probably the most often given
 advice when writing a paper, and for a reason; unless you are writing a very
 narrative piece, it works. But I really do mean <em>start</em> with an outline,
 that is, before or as long as you are doing the things that will go in the
-paper. I’ve had a few brainstorming session when we thought about what the
+paper. I&#39;ve had a few brainstorming session when we thought about what the
 figures would look like, what type of data we would get, and how different
 mechanisms would give different results. In 90% of the cases, the final
 figures where different, but at least we had an idea of where we were headed.</p>
 
 <p>So the first outline is not necessarily a list of bullet points. It is a
 loose mix of drawings, keywords, references, and the relationships between
-them. It’s more of a roadmap than an outline, but it serves (for me) one really
+them. It&#39;s more of a roadmap than an outline, but it serves (for me) one really
 important purpose: how different results (represented by figures) fall into
-the global narrative of the paper. Because, you see, I like it when papers…</p>
+the global narrative of the paper. Because, you see, I like it when papers...</p>
 
-<h1 id="tell-a-story">… tell a story</h1>
+<h1 id="...-tell-a-story">... tell a story</h1>
 
-<p>And by a story, I don’t mean the particular story of how I came from the
+<p>And by a story, I don&#39;t mean the particular story of how I came from the
 idea to the first figures to subsequent fine-scale analysis to the grand
 conclusion. This is only marginally interesting to me, and it is certainly
 not interesting to people reading the paper. And so most of the times, the
@@ -116,7 +128,7 @@ emerged later in the analysis where re-pitched into being the main focus of
 the paper, and so we ended up telling a different story.</p>
 
 <p>What I mean is that a paper needs to have a plot: expose the initial situation
-(<em>We have this theory about A, and it’s working well at predicting this and
+(<em>We have this theory about A, and it&#39;s working well at predicting this and
 this, and here are the core mechanisms</em>), then introduce a perturbation
 (<em>But you see, there is dataset D, and it contradicts the predictions
 made under the relevant theory</em>). This is what I write first, and this is
@@ -125,11 +137,11 @@ B and C interact in this weird way under particular circumustances, so you
 need to account that.</em>). This is the plot (also the first paragraph of the
 discussion). What I do next is flesh out the story, that is all the little
 steps that go from the initial question to the conclusion. And for that,
-I usually…</p>
+I usually...</p>
 
-<h1 id="go-top-down">… go top-down</h1>
+<h1 id="...-go-top-down">... go top-down</h1>
 
-<p>Let’s get back to the outline. At this point, the context is defined, the
+<p>Let&#39;s get back to the outline. At this point, the context is defined, the
 question in known, and because I have usually preliminary results, I can write
 the conclusion. What I do next is writing the outline, in a top-down way. I
 start with the big sub-divisions of the paper (introduction, model/methods,
@@ -146,7 +158,7 @@ paragraph into three sub-points, especially if it is a key paragraph.</p>
 
 <p>I think that this method has important advantages. First, because I write the
 actualy outline late (I start with a conceptual idea of the paper, then go
-through producing the results, then start writing the outline), it’s easy to
+through producing the results, then start writing the outline), it&#39;s easy to
 base it on whatever material I already have.  Second, because paragraphs tend
 to be of approximately equal size, I can see whether one or more parts are
 bloated, and move things around (also good to estimate word count). Third,
@@ -160,41 +172,41 @@ final step:</p>
 <h1 id="writing">Writing</h1>
 
 <p>Once I have the outline, that I have made sure that the story flows and
-there are no gaps in the story, and that the paragraphs are balanced, it’s
+there are no gaps in the story, and that the paragraphs are balanced, it&#39;s
 time to start writing.</p>
 
 <p>This is as good a place as any to mention that all of the above takes place
-in a notebook (currently a hardcover plain white Moleskine, though I’m a
+in a notebook (currently a hardcover plain white Moleskine, though I&#39;m a
 bit disappointed by the shoddy quality of the paper, especially since they
 are so expensive). Notebooks are good, because you can carry them anywhere,
-they don’t run out of power, and they boot faster than a laptop. See? This
+they don&#39;t run out of power, and they boot faster than a laptop. See? This
 paragraph cuts the flow. I would have removed it from the outline.</p>
 
-<p>Anyways. When it’s time to start writing – on a computer, I can start
-wherever I want. If I’m in the mood to review some conceptual papers, I
+<p>Anyways. When it&#39;s time to start writing -- on a computer, I can start
+wherever I want. If I&#39;m in the mood to review some conceptual papers, I
 can write parts of the introduction. Or the results. I just need to look
 at the summary of the paragraph to know what to talk about. Then I look at
 the paragraph before and after, to know how my paragraph shoul begin and
-end. Everything in the paragraph needs to help the “story” move forward.</p>
+end. Everything in the paragraph needs to help the &quot;story&quot; move forward.</p>
 
 <p>The other advantage (and it has became a selling point over the last few
 months, where I have mostly been able to work on very short chunks), is that
-I don’t have to think too much about what to write. The job is already broken
-down. So I don’t say <em>I have to write that paper</em>. I say, <em>I have to write 300
+I don&#39;t have to think too much about what to write. The job is already broken
+down. So I don&#39;t say <em>I have to write that paper</em>. I say, <em>I have to write 300
 words about how this statistical bias affects the computational efficiency
 of null models</em>. This is much less daunting. Writing 300 words is nothing,
 especially when you already know the big story.</p>
 
 <h1 id="parting-words">Parting words</h1>
 
-<p>So here is my method – if you want to make your life easier when writing a
+<p>So here is my method -- if you want to make your life easier when writing a
 paper, try to delay the actual writing until the last moment (advisors of
 the world, sorry!). If all of the planning and all of the thinking ahead
 has been done, then the actual writing is a matter of connecting the dots.</p>
 
 <p>I have also noticed that it made me writer shorter, thighter papers. Probably
 because it is easier (for me) to spend one or two additional paragraphs
-rambling about things, which I can’t do if I stick to my outline (this method
+rambling about things, which I can&#39;t do if I stick to my outline (this method
 is <em>entirely</em> about me trying to cope with my terrible habits). If found
 that it worked surprisingly well for grant applications, too! The sections
 are already given, and (in one recent case) there are size limits for each
@@ -202,10 +214,10 @@ sub-header: I spent a lot of time working on which paragraphs to write whithin
 each to meet the space constraints, and it made writing considerably easier
 than under my previous strategy (write 15000 words and cut).</p>
 
-<p>I’m not pretending that this method will work for you – or that I follow
+<p>I&#39;m not pretending that this method will work for you -- or that I follow
 it strictly at all times. But overall, it made me more productive in my
 writing. If the outline is good, and the story is thight, there are much
-less chances than a massive re-writing would be needed. And although I don’t
+less chances than a massive re-writing would be needed. And although I don&#39;t
 have any other evidences than anecdotal ones, I suspect that it makes things
 easier to read and follow for the readers.</p>
 
@@ -227,9 +239,10 @@ easier to read and follow for the readers.</p>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>

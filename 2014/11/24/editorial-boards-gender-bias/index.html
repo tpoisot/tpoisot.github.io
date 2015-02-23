@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -18,6 +18,9 @@ processEscapes: true
 });
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link href="/lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
@@ -29,37 +32,46 @@ ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
 ga('send', 'pageview');
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
+<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
-
+<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
+<script type="text/javascript" src="/lib/less.min.js" charset="utf-8"></script>
 
 <title>Timothée Poisot | Systematic gender bias in editorial boards in ecology</title>
-<link rel="stylesheet" href="/styles/style.css" />
 
   </head>
-<body>
+  <body>
 
-<div id="layout" class="wrapper">
-    <div class="sidebar">
-        <div class="header">
-            <h1 class="site-title">Timothée Poisot</h1>
-            <h2 class="site-tagline">Computational Ecologist</h2>
-           <nav class="nav">
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+
+      <div class="head">
+        <h1>Timothée Poisot</h1>
+        <h2>Computational Ecologist</h2>
+      </div>
+
+      <nav class="navbar">
+  <div class="container">
    <ul class="nav-list">
-   <li><a href="/">Home</a></li>
-   <li><a href="/software/">Software</a></li>
-   <li><a href="/research/">Research</a></li>
-   <li class="active"><a href="/blog/">Blog</a></li>
-   <li><a href="/papers/">Papers</a></li>
-   <li><a href="/colophon/">Colophon</a></li>
+     <li><a href="/">Home</a></li>
+     <li><a href="/software/">Software</a></li>
+     <li><a href="/research/">Research</a></li>
+     <li><a href="/blog/" class="active">Blog</a></li>
+     <li><a href="/papers/">Papers</a></li>
+     <li><a href="/colophon/">Colophon</a></li>
    </ul>
+ </div>
 </nav>
 
-        </div>
-    </div>
-    <div class="content">
-       <div class="entry">
+
+      <!-- columns should be the immediate child of a .row -->
+      <div class="row">
+        <div class="twelve column content">
+          <div class="entry">
 <div class='post-title'><a class="readmore" href="/2014/11/24/editorial-boards-gender-bias/">Systematic gender bias in editorial boards in ecology</a></div>
 <div class='post-date'>On November 24, 2014 &middot; 
    Tim
@@ -92,7 +104,7 @@ name of all editors, divided in three categories: <code>senior</code>, <code>spe
 <code>associate</code>. The <code>senior</code> editors are editor in chiefs, deputy editor in
 chief, and so on (they sign the rejection letter). The <code>special</code> editors are
 in charge of a particular section (<em>Forums</em>, <em>Book reviews</em>, <em>Software</em>) of
-the journal – meaning that they evaluate only a specific type of papers. The
+the journal -- meaning that they evaluate only a specific type of papers. The
 <code>associate</code> editors are all of the other editors (also called <em>subject</em>
 editors in some journals).</p>
 
@@ -117,13 +129,13 @@ it is more likely something slightly larger than 1:1.</p>
 
 <p>So for each of these journals, I queried <em>Web of Science</em> for the last 500
 papers published (one journal is young enough to only have 492 papers, but
-this doesn’t really make a difference). I first took all unique people that
+this doesn&#39;t really make a difference). I first took all unique people that
 published as first authors, and used the <a href="https://github.com/ropensci/gender"><code>gender</code> package</a> in <code>R</code>
 to identify their most likely gender. This fails on some non-occidental first
-names (full disclosure: I don’t think it matters). I ended up with a list
+names (full disclosure: I don&#39;t think it matters). I ended up with a list
 of 4051 unique names: these are the <em>professional ecologists</em>, as identified
-under the criteria of “having published at least one paper as first author in
-the last 500 papers published by these journals”. Using different journals,
+under the criteria of &quot;having published at least one paper as first author in
+the last 500 papers published by these journals&quot;. Using different journals,
 some of which are general and some of which are more focused, is a way to have
 a sampling that is representative enough. And merging all these publications
 and looking at unique names is a way to have a baseline estimate of the bias
@@ -139,7 +151,7 @@ gives a journal-level measure of bias.</p>
 
 <p>At this point, I decided to be generous, and say that the baseline estimate
 of 1.73 men for 1 woman is <em>only</em> because of pre-publishing career factors
-(I suspect it’s not). So any journal that has 1.73 men for each woman in the
+(I suspect it&#39;s not). So any journal that has 1.73 men for each woman in the
 editorial board is not overcompensating for the under-representation of woman,
 but is sampling in an unbiased way from the population. The way to account for
 that is to use a z-score: the <em>bias</em> for each journal (in terms of publication
@@ -149,77 +161,74 @@ score greater than 0 means excess men, a score lower than 0 means excess women.<
 
 <p>Here are the score for each journal:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Journal</th>
-      <th>Ed. board</th>
-      <th>First authors</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Functional Ecology</td>
-      <td>0.07</td>
-      <td>-0.25</td>
-    </tr>
-    <tr>
-      <td>Journal of Ecology</td>
-      <td>0.36</td>
-      <td>-0.23</td>
-    </tr>
-    <tr>
-      <td>Ecology &amp; Evolution</td>
-      <td>0.57</td>
-      <td>-0.93</td>
-    </tr>
-    <tr>
-      <td>Ecography</td>
-      <td>0.67</td>
-      <td>0.99</td>
-    </tr>
-    <tr>
-      <td>Methods in Ecology &amp; Evolution</td>
-      <td>0.81</td>
-      <td>2.13</td>
-    </tr>
-    <tr>
-      <td>Journal of Applied Ecology</td>
-      <td>1.10</td>
-      <td>-0.33</td>
-    </tr>
-    <tr>
-      <td>Ecology</td>
-      <td>1.23</td>
-      <td>-0.09</td>
-    </tr>
-    <tr>
-      <td>Ecology Letters</td>
-      <td>1.31</td>
-      <td>0.82</td>
-    </tr>
-    <tr>
-      <td>Journal of Animal Ecology</td>
-      <td>1.38</td>
-      <td>0.04</td>
-    </tr>
-    <tr>
-      <td>The American Naturalist</td>
-      <td>2.13</td>
-      <td>0.53</td>
-    </tr>
-    <tr>
-      <td>Oikos</td>
-      <td>2.20</td>
-      <td>0.02</td>
-    </tr>
-    <tr>
-      <td>Trends in Ecology &amp; Evolution</td>
-      <td>3.72</td>
-      <td>2.34</td>
-    </tr>
-  </tbody>
-</table>
+<table><thead>
+<tr>
+<th style="text-align: left">Journal</th>
+<th style="text-align: left">Ed. board</th>
+<th style="text-align: left">First authors</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Functional Ecology</td>
+<td style="text-align: left">0.07</td>
+<td style="text-align: left">-0.25</td>
+</tr>
+<tr>
+<td style="text-align: left">Journal of Ecology</td>
+<td style="text-align: left">0.36</td>
+<td style="text-align: left">-0.23</td>
+</tr>
+<tr>
+<td style="text-align: left">Ecology &amp; Evolution</td>
+<td style="text-align: left">0.57</td>
+<td style="text-align: left">-0.93</td>
+</tr>
+<tr>
+<td style="text-align: left">Ecography</td>
+<td style="text-align: left">0.67</td>
+<td style="text-align: left">0.99</td>
+</tr>
+<tr>
+<td style="text-align: left">Methods in Ecology &amp; Evolution</td>
+<td style="text-align: left">0.81</td>
+<td style="text-align: left">2.13</td>
+</tr>
+<tr>
+<td style="text-align: left">Journal of Applied Ecology</td>
+<td style="text-align: left">1.10</td>
+<td style="text-align: left">-0.33</td>
+</tr>
+<tr>
+<td style="text-align: left">Ecology</td>
+<td style="text-align: left">1.23</td>
+<td style="text-align: left">-0.09</td>
+</tr>
+<tr>
+<td style="text-align: left">Ecology Letters</td>
+<td style="text-align: left">1.31</td>
+<td style="text-align: left">0.82</td>
+</tr>
+<tr>
+<td style="text-align: left">Journal of Animal Ecology</td>
+<td style="text-align: left">1.38</td>
+<td style="text-align: left">0.04</td>
+</tr>
+<tr>
+<td style="text-align: left">The American Naturalist</td>
+<td style="text-align: left">2.13</td>
+<td style="text-align: left">0.53</td>
+</tr>
+<tr>
+<td style="text-align: left">Oikos</td>
+<td style="text-align: left">2.20</td>
+<td style="text-align: left">0.02</td>
+</tr>
+<tr>
+<td style="text-align: left">Trends in Ecology &amp; Evolution</td>
+<td style="text-align: left">3.72</td>
+<td style="text-align: left">2.34</td>
+</tr>
+</tbody></table>
 
 <p>The <em>least</em> biased editorial board is <em>Functional Ecology</em> (1.55 men for
 each woman). The <em>most</em> biased is <em>Trends in Ecology &amp; Evolution</em> (7.25 mean
@@ -241,11 +250,11 @@ score for the proportion of first authors is 0.41 (moderate bias towards men).</
 publishing papers in ecology, there is marked bias in favor or men in both
 first authorship, and representation in editorial board.</p>
 
-<p>Here is what this bias looks like – keep in mind that a score of 0 do not
+<p>Here is what this bias looks like -- keep in mind that a score of 0 do not
 mean equal rate between men and women: it means equal rate as predicted by
 the 1.73:1 ratio.</p>
 
-<p><img src="/images/pub_bias.png" alt="Publishing bias" class="full" /></p>
+<p><img src="/images/pub_bias.png" alt="Publishing bias">{:.full}</p>
 
 <p>One pressing question is to have an idea of the random expectation. This
 is quite easy to simulate: I have done so by drawing random samples of
@@ -254,26 +263,26 @@ first-authorship. Since there is no significant correlation in the data, I
 took the decision to do independent samplings (1000 in total), and independent
 analysis too.</p>
 
-<p><img src="/images/pub_bias_hist.png" alt="Publishing bias" class="full" /></p>
+<p><img src="/images/pub_bias_hist.png" alt="Publishing bias">{:.full}</p>
 
-<p>Good news – the bias in first authorship is not unexpected given the
+<p>Good news -- the bias in first authorship is not unexpected given the
 demographic bias. Though there are a few outliers on the right side (these are
 <em>Trends in Ecology and Evolution</em>, and <em>Methods in Ecology and Evolution</em>,
-in which men outnumber women as first authors more than 3 to 1). That’s not
+in which men outnumber women as first authors more than 3 to 1). That&#39;s not
 really a good news, but it suggest that at least the women than manage to
 publish do it at a rate no lesser than their proportion would suggest. It
 is worth re-stating that the only journal that is close to gender equality
 in first authorship is <em>Ecology &amp; Evolution</em>.</p>
 
-<p>Bad news – seriously, look at editorial boards. This is as clear an evidence
-as gender bias as we will be able to get. I’m not going to inflict a measure
+<p>Bad news -- seriously, look at editorial boards. This is as clear an evidence
+as gender bias as we will be able to get. I&#39;m not going to inflict a measure
 of distance between the distributions on you; there is a clear bias towards
 more men in editorial boards that would be expected at random. Even when
 accounting for the smaller sample size of editorial boards. The outliers in
 this situation are <em>Trends in Ecology and Evolution</em> (which falls outside
 of both CI), and <em>Oikos</em>.</p>
 
-<p><strong>Conclusion</strong> – this post has gone on long enough. Here is a summary for
+<p><strong>Conclusion</strong> -- this post has gone on long enough. Here is a summary for
 your next coffee break: I have used data on the composition of editorial
 board in twelve major publications in ecology. I used a database of 6000
 articles to identify the gender of first authors. There are 1.73 men for each
@@ -284,7 +293,6 @@ each woman. This is a serious problem for the representation of women at
 all steps of the publishing process. Not to point the finger, but <em>Trends
 in Ecology and Evolution</em> is a complete sausage fest. Tell me if you want
 the raw data, I am working on a draft to turn that into a proper publication.</p>
-
 
 </div>
 
@@ -304,9 +312,10 @@ the raw data, I am working on a draft to turn that into a proper publication.</p
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </div>
+      </div>
+
     </div>
-</div>
 
-
-</body>
+  </body>
 </html>
