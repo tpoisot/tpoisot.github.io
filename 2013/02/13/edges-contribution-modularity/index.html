@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | Estimating edges contribution to network properties</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Estimating edges contribution to network properties</a></div>
-<div class='post-date'>On February 13, 2013 &middot; 
-   Tim
-</div>
+<div class='post-title'>February 13, 2013<a class="readmore" href="/2013/02/13/edges-contribution-modularity/">Estimating edges contribution to network properties</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>I had so much fun writing the previous post about how it is possible to measure <a href="2013/02/12/species-contribution-modularity/">nodes contribution to network properties</a> that I wanted to see what happens when you remove edges. Also, I spent two hours this afternoon playing with <a href="http://d3js.org/"><code>D3.js</code></a>, and I wanted to put what I&#39;ve learnt in practice.</p>
 
 <p>What I want to do is remove each <em>edge</em>, and see how it affects modularity. This is, once again, really easy to do in <code>networkx</code>. We&#39;ll just write a function similar to <code>removeNode</code>, and add the possibility to keep the nodes with no links, or to remove them. By default, I&#39;ll consider that any node with no remaining edge is removed.</p>

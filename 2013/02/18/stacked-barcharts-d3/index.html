@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | A d3.js alternative to stacked bar charts</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">A d3.js alternative to stacked bar charts</a></div>
-<div class='post-date'>On February 18, 2013 &middot; 
-   Tim
-</div>
+<div class='post-title'>February 18, 2013<a class="readmore" href="/2013/02/18/stacked-barcharts-d3/">A d3.js alternative to stacked bar charts</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>Following yesterday&#39;s post on <a href="http://timotheepoisot.fr/2013/02/17/stacked-barcharts/">an alternative to barcharts</a>, I decided to write an implementation of this graph in <code>D3.js</code>. The more I play around with it, the more I like it. As it turned out, it was fairly easy, so I&#39;ll <a href="https://gist.github.com/anonymous/4982438">share the code as a gist</a>.</p>
 
 <p>For this particular example, I assume that the data are in a matrix, in <code>csv</code> format, with sites as the first row, and species abundances in columns. I also assume that the abudances were normalized between 0 and 1. The file I used to generate the example below is:</p>

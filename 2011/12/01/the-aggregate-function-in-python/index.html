@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | The aggregate function in Python</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2011/12/01/the-aggregate-function-in-python/">The aggregate function in Python</a></div>
-<div class='post-date'>On December  1, 2011 &middot; 
-   Tim
-</div>
+<div class='post-title'>December  1, 2011<a class="readmore" href="/2011/12/01/the-aggregate-function-in-python/">The aggregate function in Python</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>One thing I love the most about R is the <a href="http://stat.ethz.ch/R-manual/R-devel/library/stats/html/aggregate.html">aggregate</a> function, which (in a nutshell) summarizes a data frame according to one or more columns, and perform some operations on the aggregated values. If, for example, you have a data frame with a treatment and a response, and want to calculate the mean and standard deviation of the response by level of treatment, then aggregate is usually the way to go.</p>
 
 <p>I wanted to do a quick <a href="http://pyx.sourceforge.net/examples/graphstyles/errorbar.html">plot with errorbars using PyX</a>, and I though that having a python version of aggregate would be really nice. Here is the complete code to do so</p>

@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | The friends of my friends (are on twitter)</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2012/12/15/face-of-twitter/">The friends of my friends (are on twitter)</a></div>
-<div class='post-date'>On December 15, 2012 &middot; 
-   Tim
-</div>
+<div class='post-title'>December 15, 2012<a class="readmore" href="/2012/12/15/face-of-twitter/">The friends of my friends (are on twitter)</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>Twitter is cool for science, because it can <a href="http://timotheepoisot.fr/2011/11/19/get-your-lab-on-twitter/">help you spread your ideas</a>. And when you work with networks, Twitter is cool because it means a huge amount of data. With virtually no sampling effort. What has been said on the dynamics of, <em>e.g.</em>, the Arab Spring, using social networks, was amazing, and I started developping a curiosity about what can be said about them with an ecological eye.</p>
 
 <p>I&#39;m running pilots for a cool side project involving this kind of things, so I spent some time playing around with various metrics. One I liked a lot come from a paper by <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2148393&amp;tool=pmcentrez&amp;rendertype=abstract">Olesen and colleagues</a> about the modularity of mutualistics interactions. In a few words, you can measure, for each species, its contribution to its own module (<em>z</em>), and to other modules (<em>c</em>). The relative values of <em>c</em> and <em>z</em>  allows then to classify a node as &quot;peripherals&quot; (just hanging around), &quot;connectors&quot; (not really involved locally, but really involved in other groups), &quot;module hubs&quot; (highly involved locally, but not really involved globally), and &quot;network hubs&quot; (connected both within their group, and globally). Doing so requires to have cutoffs, the rationale for which is still not clear to me (but I&#39;ll go read the original paper). Nonetheless, high values of <em>c</em> indicate that a node is strongly connected outside its community, and high values of <em>z</em> indicates that it his highly connected within its community.</p>

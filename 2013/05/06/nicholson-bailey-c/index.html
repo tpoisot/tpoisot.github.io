@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | A C version of the Nicholson-Bailey model</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2013/05/06/nicholson-bailey-c/">A C version of the Nicholson-Bailey model</a></div>
-<div class='post-date'>On May  6, 2013 &middot; 
-   Tim
-</div>
+<div class='post-title'>May  6, 2013<a class="readmore" href="/2013/05/06/nicholson-bailey-c/">A C version of the Nicholson-Bailey model</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>The Nicholson-Bailey model is a <a href="http://en.wikipedia.org/wiki/Nicholson%E2%80%93Bailey_model">well known</a> model of host and parasitoid population dynamics.  It assumes that parasitoids will search a fraction of their habitat for hosts, and then kill them. Yes, it&#39;s brutal like that. There are a few fun things with this model. It&#39;s light in parameters (the single-patch version requires only three parameters), it&#39;s in discrete time (so it&#39;s easy to program), and it&#39;s classical put on a lattice (so it&#39;s a good way to program these kind of things).</p>
 
 <p>I wanted to test a few things, so I had to re-implement this model in space. My <a href="https://gist.github.com/tpoisot/5528745">first version</a> uses python, but it&#39;s remarkably slow. So I decided to write the <a href="">model in C</a>. Either the model is really easy to program, or I&#39;m getting good (I vote for the other solution, because I&#39;m sure my code is full of horrible things), but it was relatively easy to do. <a href="https://gist.github.com/tpoisot/5528759">Go get it</a> and play around. The <code>GSL</code> is required. To get it to run, you&#39;ll need to:</p>

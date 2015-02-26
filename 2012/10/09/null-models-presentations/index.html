@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | Presenting the results of networks null models</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2012/10/09/null-models-presentations/">Presenting the results of networks null models</a></div>
-<div class='post-date'>On October  9, 2012 &middot; 
-   Tim
-</div>
+<div class='post-title'>October  9, 2012<a class="readmore" href="/2012/10/09/null-models-presentations/">Presenting the results of networks null models</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>I&#39;m in the process of preparing a paper for submission, and I have been looking for a way to intuitively display the results of an analysis in which we compare deviation from expected nestedness and modularity of bipartite networks. In a recent paper, <a href="http://www.ncbi.nlm.nih.gov/pubmed/21709225">Cesar Flores and colleagues</a> show rank-nestedness and rank-modularity curves, which is an interesting idea. But a point I really wanted to make is that a single network can deviate on both properties, and in both directions (which is to say, you can be more nested and less modular than expected, or less modular and equally nested, etc.).</p>
 
 <p>All in all, there are only nine possible states for a network, if you test nestedness and modularity. It&#39;s a simple combination of the network being possibly less, equally, or more nested/modular, so 3 times 3 states. The visualization I settled with is halfway between a table and a figure:</p>

@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | Estimating node contribution to network properties</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2013/02/12/species-contribution-modularity/">Estimating node contribution to network properties</a></div>
-<div class='post-date'>On February 12, 2013 &middot; 
-   Tim
-</div>
+<div class='post-title'>February 12, 2013<a class="readmore" href="/2013/02/12/species-contribution-modularity/">Estimating node contribution to network properties</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>I&#39;m currently exploring a large network dataset for a project, and one of the things I want to do is estimate the contribution of each node to emerging networks properties. For example, if your network has an important modularity, which nodes are the most responsible for it? I&#39;ll just detail how it possible to get this information quickly using <code>networkx</code>.</p>
 
 <div class="alert alert-info">

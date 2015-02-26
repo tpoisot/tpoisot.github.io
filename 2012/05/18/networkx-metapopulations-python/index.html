@@ -44,7 +44,7 @@ ga('send', 'pageview');
 <title>Timothée Poisot | Using networkx to simulate metapopulations in Python</title>
 
   </head>
-  <body>
+  <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
     <div class="container">
@@ -63,6 +63,7 @@ ga('send', 'pageview');
      <li><a href="/blog/" class="active">Blog</a></li>
      <li><a href="/papers/">Papers</a></li>
      <li><a href="/colophon/">Colophon</a></li>
+     <!-- <li><a href="#pagetop" class="gototop">Top</a></li> -->
    </ul>
  </div>
 </nav>
@@ -72,10 +73,8 @@ ga('send', 'pageview');
       <div class="row">
         <div class="twelve column content">
           <div class="entry">
-<div class='post-title'><a class="readmore" href="/2012/05/18/networkx-metapopulations-python/">Using networkx to simulate metapopulations in Python</a></div>
-<div class='post-date'>On May 18, 2012 &middot; 
-   Tim
-</div>
+<div class='post-title'>May 18, 2012<a class="readmore" href="/2012/05/18/networkx-metapopulations-python/">Using networkx to simulate metapopulations in Python</a></div>
+<div class='post-meta'>Written by Tim</div>
 <p>Python progressively replaced R for most of my daily simulations needs, because it&#39;s relatively fast, easy to write, and a pleasure to read. There are a lot of great packages for scientists, and since I started working on food webs seriously, I&#39;ve been using <code>networkx</code> more and more. We&#39;ve been having discussions in the lab about spatial graphs, surrounding a recent paper by <a href="http://www.ncbi.nlm.nih.gov/pubmed/22155351">Gilarranz and Bascompte</a> and some of our own projects, and I thought that it will be fun to use <code>networkx</code> to run a super simple metapopulation simulation. So without further ado, the recipe! Try to follow through the code, or get the final version as a <a href="https://gist.github.com/2725839">gist</a>.</p>
 
 <h1 id="setting-things-up">Setting things up</h1>
