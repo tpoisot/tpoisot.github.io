@@ -4,12 +4,84 @@
   <title>Tim Poisot :: Updates</title>
   <link href="http://timotheepoisot.fr/atom.xml" rel="self"/>
   <link href="http://timotheepoisot.fr/"/>
-  <updated>2015-02-26T12:33:13-05:00</updated>
+  <updated>2015-03-23T16:09:59-04:00</updated>
   <id>Tim Poisot</id>
   <author>
     <name>Tim Poisot</name>
     <email></email>
   </author>
+  
+  <entry>
+     <title>Reproducibility - do you have what it takes?</title>
+     <link href="http://timotheepoisot.fr/2015/03/23/reproducibility/"/>
+    <updated>2015-03-23T00:00:00-04:00</updated>
+    <content type="html">&lt;p&gt;Reproducibility is supposed to be a cornerstone of modern science, in that
+everything we do (writing methods, almost releasing data, the whole peer-review
+system) is supposed to ensure that, given only your paper, some hypothetical
+person can reproduce your results without having to look for additional
+information. It&amp;#39;s the way I&amp;#39;ve first been told about scientific literature. It&amp;#39;s
+also a blatant lie, and it&amp;#39;s only getting worse.&lt;/p&gt;
+
+&lt;p&gt;First, and although I&amp;#39;m yet to try it for myself (this would be a fun project
+for a summer student), good luck publishing a replication in a journal where
+people will be able to read it. Go grab yourself some &lt;a href=&quot;http://en.wikipedia.org/wiki/Huffaker&amp;#x27;s_mite_experiment&quot;&gt;mites and oranges&lt;/a&gt;,
+get a grant to reproduce Huffaker&amp;#39;s work, and then submit your result in any
+mainstream ecological journal. If it works, wonderful, the system works. But I
+am ready to bet money on the fact that you won&amp;#39;t get past an editor. You would
+have better luck writing a paper detailing the whole process and explaining how
+this shows that the system is broken; wait, make that a &lt;a href=&quot;http://www.nature.com/nature/focus/reproducibility/&quot;&gt;special issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s kind of sad, but this &lt;a href=&quot;http://academia.stackexchange.com/a/11214&quot;&gt;reply&lt;/a&gt; on the Academia StackExchange is, I sometimes
+feel, close to the consensus:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In publishing there is a phenomena called &amp;quot;me too&amp;quot; publications (see for
+example Day &amp;amp; Gastel: How to write and Publish A Scientific Paper) where one
+takes existing methods and apply them to a new area, data set, whatever context
+is applicable. Although not wrong, these types of studies usually do not
+contribute much new knowledge except resulting in the understanding that the
+method(s) work in (yet) another circumstance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And if taking the &lt;em&gt;exact same method&lt;/em&gt; to apply it to &lt;em&gt;different&lt;/em&gt; data is already
+below what a publishing system driven by novelty is ready to compromise with,
+then imagine how taking the &lt;em&gt;exact same method&lt;/em&gt; to &lt;em&gt;the same&lt;/em&gt; data (or system,
+as the case may be) would fare.&lt;/p&gt;
+
+&lt;p&gt;Second, it&amp;#39;s getting worse (in my very little corner of science). I&amp;#39;m a
+computational scientist. Instead of spending 3 months in the field/lab, I spend
+3 months writing and debugging and running code. And good luck reproducing what
+I do. Not because my code is poorly written (it is), or is not available under
+permissive licenses (it is). But because a lot of what I do requires computing
+power which is probably in the 99% percentile of what people &lt;em&gt;can actually
+access&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;One of the grad students doing research in my group started her project in
+mid-January. She already logged over 2.6 core-years of use. What it means is, to
+reproduce her results &lt;em&gt;so far&lt;/em&gt; on a single-core machine, you would need two and
+a half years of uninterrupted calculations. For a single project last year, I
+used 11.5 core-years and a few terabytes withing 3 months. On a desktop machine,
+to have finished now, on March 2015, you would have needed to start when G.W.
+Bush was still the U.S. president. You would have needed to start &lt;em&gt;before
+facebook existed&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;And it&amp;#39;s good that we can do things that are computationally intensive like
+that, but it&amp;#39;s a big issue for reproducibility. Because doing this eats through
+a sizeable chunk of my computing budget. And if I barely have enough to
+&lt;em&gt;produce&lt;/em&gt; my research, I sure won&amp;#39;t dedicate some of this to &lt;em&gt;re&lt;/em&gt;-producing any.
+And if someone wants to check what I&amp;#39;ve done, unless they have access to
+high-performance computing resources, and are ready to use this resource for
+something else than producing research of their own, they can&amp;#39;t.&lt;/p&gt;
+
+&lt;p&gt;In a system where code is almost never reviewed, and where it can be unfeasible
+to reproduce the studies, do you realize how &lt;em&gt;easy&lt;/em&gt; it is for me to (i) make
+mistakes or (ii) make things up? The only things we have to make reasonably sure
+that neither happens are good &lt;a href=&quot;http://timotheepoisot.fr/2014/11/21/not-a-programmer/&quot;&gt;work habits&lt;/a&gt; and work ethics. So yes,
+everything is, &lt;em&gt;in theory&lt;/em&gt;, reproducible. But in practice, the only thing you
+can rely on when looking at a piece of research, especially of the intensively
+computational kind, is blind faith in the work of your fellow scientists.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
      <title>Plotting spatially explicit networks (in the oceans)</title>
@@ -2171,13 +2243,13 @@ classical diagrams, and so I decided that it was time to share it.&lt;/p&gt;
 
 &lt;p&gt;Isoclines are usually first introduced when discussing the logistic model with competition between two species, or&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;p&gt;$$
 \dot N_1 = N_1 r_1 \left(1 - \frac{\alpha_{11}N_1+\alpha_{12}N_2}{K_1} \right)
-&lt;/script&gt;
+$$&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;p&gt;$$
 \dot N_2 = N_2 r_2 \left(1 - \frac{\alpha_{22}N_2+\alpha_{21}N_1}{K_2} \right)
-&lt;/script&gt;
+$$&lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s an important model, as we can use it as a gateway to talk about
 coexistence, local stability, and ecosystem functioning. It is also a perfect
@@ -2185,13 +2257,13 @@ transition between the empirical side of ecology with Gauses&amp;#39;s experimen
 the more theoretical side of it. I &lt;em&gt;love&lt;/em&gt; this model, especially for teaching.&lt;/p&gt;
 
 &lt;p&gt;There are a number of intersting things to explain to students when introducing
-this model. First, each species &lt;script type=&quot;math/tex&quot;&gt; n &lt;/script&gt; perceives its environment
-as a &amp;quot;box&amp;quot; with &lt;script type=&quot;math/tex&quot;&gt; K_n &lt;/script&gt; compartments. Left to their own devices,
-each &amp;quot;individual&amp;quot; (or units of biomass) will &amp;quot;fill&amp;quot; &lt;script type=&quot;math/tex&quot;&gt;\alpha_{nn}&lt;/script&gt;
+this model. First, each species $n$ perceives its environment
+as a &amp;quot;box&amp;quot; with $K_n$ compartments. Left to their own devices,
+each &amp;quot;individual&amp;quot; (or units of biomass) will &amp;quot;fill&amp;quot; $\alpha_{nn}$
 compartments, which usually equates unity for a single species model. The
 growth of the population is therefore a quest for free compartments to fill,
 and when most of the box is filled, the effective growth rate decreases. When
-all compartments are filled (&lt;script type=&quot;math/tex&quot;&gt;N_n = K_n&lt;/script&gt;), then the growth rate is
+all compartments are filled ($N_n = K_n$), then the growth rate is
 0, and the population is at equilibrium. Cue a discussion on the mechanisms
 that would allow us to represent the environment as a box with compartments
 (space requirements, having enough to eat, foraging area, and whatever else
@@ -2199,11 +2271,11 @@ you can think of).&lt;/p&gt;
 
 &lt;p&gt;The point with introducing a second species is that there are now
 two types of organisms to share the same &amp;quot;box&amp;quot;. And individuals from
-species &lt;script type=&quot;math/tex&quot;&gt;p&lt;/script&gt; are &lt;em&gt;perceived&lt;/em&gt; by those of species &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;
-as taking up &lt;script type=&quot;math/tex&quot;&gt;\alpha_{np}&lt;/script&gt; compartments. The opposite is true,
+species $p$ are &lt;em&gt;perceived&lt;/em&gt; by those of species $n$
+as taking up $\alpha_{np}$ compartments. The opposite is true,
 and we can define values for the intensity of &lt;em&gt;intra&lt;/em&gt; and &lt;em&gt;inter&lt;/em&gt; specific
 competition. The question is, then, what are the combinations of values of
-&lt;script type=&quot;math/tex&quot;&gt;\mathbf{\alpha}&lt;/script&gt; that allows coexistence, competitive exclusion,
+$\mathbf{\alpha}$ that allows coexistence, competitive exclusion,
 or make the system sensitive to initial conditions?&lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s at this point that I usually introduce the notion of &lt;em&gt;equilibrium&lt;/em&gt;,
@@ -2236,8 +2308,8 @@ that&amp;#39;s local stability.&lt;/p&gt;
 &lt;p&gt;OK, so what&amp;#39;s a vector field? The phase portrait of the system is defined by
 two axes, one for the density of species &lt;em&gt;1&lt;/em&gt;, the other for the density of
 species &lt;em&gt;2&lt;/em&gt;. The isoclines are the lines going trough the two equilibria for
-species &lt;em&gt;1&lt;/em&gt; (&lt;script type=&quot;math/tex&quot;&gt;N_1 = (0; N^\star_1)&lt;/script&gt;), and trough the two equilibria for
-species &lt;em&gt;2&lt;/em&gt; (&lt;script type=&quot;math/tex&quot;&gt;N_2 = (0; N^\star_2)&lt;/script&gt;). When you are &lt;em&gt;above&lt;/em&gt; (axis-wise)
+species &lt;em&gt;1&lt;/em&gt; ($N_1 = (0; N^\star_1)$), and trough the two equilibria for
+species &lt;em&gt;2&lt;/em&gt; ($N_2 = (0; N^\star_2)$). When you are &lt;em&gt;above&lt;/em&gt; (axis-wise)
 your isocline, you converge back to it, and where you are &lt;em&gt;below&lt;/em&gt; your
 isocline, well, the same thing happens but in the other direction. At the
 intersection of the two isoclines is the &lt;em&gt;two-species equilibrium&lt;/em&gt;, whose
@@ -2248,30 +2320,30 @@ in (possibly) different directions at the same time. So there can be some funky
 behavior happening, and species can cross their isoclines (this happens in the
 predator-prey Lotka-Volterra model, among many others). So what matters is the
 &lt;em&gt;combined&lt;/em&gt; changed in the system, which we can model through the addition of
-two vectors in the &lt;script type=&quot;math/tex&quot;&gt;N_1,N_2&lt;/script&gt; plane. The first vector (which describes
-the amount of change in the &lt;em&gt;vertical&lt;/em&gt; direction is &lt;script type=&quot;math/tex&quot;&gt;\vec{N_2}&lt;/script&gt;. The
-norm of this vector is simply &lt;script type=&quot;math/tex&quot;&gt;\frac{d}{dt}N_2&lt;/script&gt;. The second vector, in
-the &lt;em&gt;horizontal&lt;/em&gt; direction, is similarly &lt;script type=&quot;math/tex&quot;&gt;\vec{N_1}&lt;/script&gt;. The resulting
+two vectors in the $N_1,N_2$ plane. The first vector (which describes
+the amount of change in the &lt;em&gt;vertical&lt;/em&gt; direction is $\vec{N_2}$. The
+norm of this vector is simply $\frac{d}{dt}N_2$. The second vector, in
+the &lt;em&gt;horizontal&lt;/em&gt; direction, is similarly $\vec{N_1}$. The resulting
 vector describing the overall change in the system is&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;p&gt;$$
 \vec{S} = \vec{N_1} + \vec{N_2}
-&lt;/script&gt;
+$$&lt;/p&gt;
 
-&lt;p&gt;Because &lt;script type=&quot;math/tex&quot;&gt;\vec{N_1}&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\vec{N_2}&lt;/script&gt; are orthogonal (and
+&lt;p&gt;Because $\vec{N_1}$ and $\vec{N_2}$ are orthogonal (and
 because of a couple of other assumptions, such as the space defined by the
 population densities being Euclidean), it&amp;#39;s easy to measure the Euclidean
-norm of &lt;script type=&quot;math/tex&quot;&gt;\vec{S}&lt;/script&gt;, which is to say the total amount of change in
+norm of $\vec{S}$, which is to say the total amount of change in
 the system, as being&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;p&gt;$$
 \lVert \vec{S} \rVert = \sqrt{\lVert \vec{N_1} \rVert ^2 + \lVert \vec{N_2} \rVert ^2 }
-&lt;/script&gt;
+$$&lt;/p&gt;
 
-&lt;p&gt;At any given coordinate &lt;script type=&quot;math/tex&quot;&gt;(N_1, N_2)&lt;/script&gt;, the system will move towards
-&lt;script type=&quot;math/tex&quot;&gt;(N_1 + \dot{N_1}, N_2 + \dot{N_2})&lt;/script&gt;. With both infos in hand, we
-can do two things. First, we can plot the instantaneous rate of change of the
-system (the absolute value of the norm of &lt;script type=&quot;math/tex&quot;&gt;\vec{S}&lt;/script&gt;) over space,
+&lt;p&gt;At any given coordinate $(N_1, N_2)$, the system will move towards
+$(N_1 + \dot{N_1}, N_2 + \dot{N_2})$. With both infos in hand, we
+can do two things. First, we can plot the instantaneous #ate of change of the
+system (the absolute value of the norm of $\vec{S}$) over space,
 to see in which combinations of populations densities are trigerring rapid
 changes. Second, we can plot the direction of change using arrows &lt;em&gt;over&lt;/em&gt;
 the previous graph, to see in which direction the system is moving. The
@@ -2981,104 +3053,6 @@ code. These are really impressive tools to work with, and they kind of force
 good practices upon you -- which is a good thing.&lt;/p&gt;
 
 &lt;p&gt;[^1]: As usual, posting and patching requires that you have a username and password. There will be a way to register through the &lt;code&gt;python&lt;/code&gt; package in the future.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-     <title>These aren't the networks you're looking for</title>
-     <link href="http://timotheepoisot.fr/2014/01/14/filtering-in-mangal/"/>
-    <updated>2014-01-14T00:00:00-05:00</updated>
-    <content type="html">&lt;p&gt;The development of the &lt;code&gt;rmangal&lt;/code&gt; package is making good progress. I just
-finised implementing a way to filter results, which will be extremely useful
-when the number of taxa and networks will start growing. Before we get into
-how filtering is done, I&amp;#39;d like to take the opportunity to bore everyone
-with technical details. &lt;code&gt;mangal&lt;/code&gt; (the API) relies on &lt;code&gt;tastypie&lt;/code&gt;, which is a
-&lt;code&gt;django&lt;/code&gt; plugin to use the data models as API resources (bored yet?). The
-&lt;code&gt;tastypie&lt;/code&gt; developers had the good taste to allow &lt;code&gt;django&lt;/code&gt;&amp;#39;s ORM filter as
-URL parameters to filter results. Or in short, there is a filtering solution
-working out of the box.&lt;/p&gt;
-
-&lt;p&gt;The filtering is realtively easy to do, as it follows the common pattern:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;?field__relation=target
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;For example, to look for taxa whose name starts with &lt;em&gt;Lamellodiscus&lt;/em&gt;, we
-just need to append:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;?name__startswith=Lamellodiscus
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;the-basics-of-filtering&quot;&gt;The basics of filtering&lt;/h1&gt;
-
-&lt;p&gt;So how does it works in the &lt;code&gt;R&lt;/code&gt; package? There is a &lt;code&gt;mangalSearch&lt;/code&gt; function,
-which takes as arguments the &lt;code&gt;api&lt;/code&gt;, the type of resource to look for (the
-list of resources can be now be viewed with &lt;code&gt;api$resources&lt;/code&gt;), and a list of
-filters. The filters are themselves &lt;code&gt;list&lt;/code&gt; objects, with three properties:
-&lt;code&gt;field&lt;/code&gt;, &lt;code&gt;relation&lt;/code&gt; (I give an overview of these below), and &lt;code&gt;target&lt;/code&gt;. Let
-me illustrate:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rmangal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;## Loading required package: rjson
-## Loading required package: httr
-## Loading required package: igraph
-## Loading required package: stringr
-## Loading required package: cheddar
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mangalapi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:8000/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Amphiprion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mangalSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;taxa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;startswith&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Amphiprion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;laply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Amphiprion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;## [1] &quot;Amphiprion clarkii&quot;      &quot;Amphiprion perideraion&quot; 
-## [3] &quot;Amphiprion ocellaris&quot;    &quot;Amphiprion sandaracinos&quot;
-## [5] &quot;Amphiprion melanopus&quot;    &quot;Amphiprion polymnus&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;It may look like a convoluted way to do a simple thing, &lt;em&gt;but&lt;/em&gt; the interest
-is that you can combine filters to have more precise requests. Let&amp;#39;s say we
-are really interested in a small portion of the pacific ocean, and want to
-know if there are any networks inside. We will define two different filters:
-one for latitude, and one for longitude.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;filter_lat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;latitude&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;range&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.756&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-    &lt;span class=&quot;m&quot;&gt;1.813&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;filter_lon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;longitude&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;range&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;124.76&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-    &lt;span class=&quot;m&quot;&gt;124.808&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Networks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mangalSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;network&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter_lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter_lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;laply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Networks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;## [1] &quot;Batu Kapal&quot;  &quot;Jalan Masuk&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;types-of-relations&quot;&gt;Types of relations&lt;/h1&gt;
-
-&lt;p&gt;There are ten different values for the &lt;code&gt;relation&lt;/code&gt; type. &lt;code&gt;starswith&lt;/code&gt; and
-&lt;code&gt;endswith&lt;/code&gt; will match the beginnign and end of the value. &lt;code&gt;exact&lt;/code&gt; will match
-the entirety of the field. &lt;code&gt;contains&lt;/code&gt; will look for &lt;code&gt;target&lt;/code&gt; somewhere in
-the field. &lt;code&gt;in&lt;/code&gt; will return objects that have &lt;code&gt;target&lt;/code&gt; in the values of a
-multi-valued field (example of use: with the identifier of an interactio,
-find the network it belongs to). &lt;code&gt;range&lt;/code&gt; will return all objects that have
-values in the &lt;code&gt;target&lt;/code&gt; range. And finally, &lt;code&gt;gte&lt;/code&gt;, &lt;code&gt;gt&lt;/code&gt;, &lt;code&gt;lte&lt;/code&gt; and &lt;code&gt;lt&lt;/code&gt;,
-handle superior/inferior (or equal) relationships.&lt;/p&gt;
-
-&lt;h1 id=&quot;more-advanced-usage&quot;&gt;More advanced usage&lt;/h1&gt;
-
-&lt;p&gt;If you look at the code of &lt;code&gt;mangalSearch&lt;/code&gt;, you&amp;#39;ll see that it passes
-an addition argument (&lt;code&gt;filtering&lt;/code&gt;) to &lt;code&gt;mangalList&lt;/code&gt;. This allows you
-to handle more complicated filtering schemes. In the filtering pattern
-&lt;code&gt;field__relation=target&lt;/code&gt;, &lt;code&gt;field&lt;/code&gt; can actually be a &lt;em&gt;path&lt;/em&gt; across multiple
-objects. Let&amp;#39;s illustrate with an example.&lt;/p&gt;
-
-&lt;p&gt;We want to retrieve all interactions involving &lt;code&gt;taxa&lt;/code&gt; whose name starts with
-&lt;code&gt;Amphiprion&lt;/code&gt;. The &lt;em&gt;path&lt;/em&gt; from &lt;code&gt;interaction&lt;/code&gt; to &lt;code&gt;taxa&lt;/code&gt; goes through the field &lt;code&gt;taxa_to&lt;/code&gt;/&lt;code&gt;taxa_from&lt;/code&gt; in interaction. So what we want to do is:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;?taxa_from__name__startswith=Amphiprion
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We can add that as the &lt;code&gt;filtering&lt;/code&gt; argument of &lt;code&gt;mangalList&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;Interactions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rmangal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mangalList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;interaction&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filtering&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;taxa_from__name__startswith=Amphiprion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;laply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Interactions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;##  [1] &quot;93&quot;  &quot;92&quot;  &quot;87&quot;  &quot;86&quot;  &quot;85&quot;  &quot;82&quot;  &quot;81&quot;  &quot;76&quot;  &quot;75&quot;  &quot;69&quot;  &quot;68&quot; 
-## [12] &quot;67&quot;  &quot;59&quot;  &quot;58&quot;  &quot;53&quot;  &quot;52&quot;  &quot;51&quot;  &quot;50&quot;  &quot;45&quot;  &quot;44&quot;  &quot;23&quot;  &quot;24&quot; 
-## [23] &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot;  &quot;34&quot;  &quot;35&quot; 
-## [34] &quot;36&quot;  &quot;37&quot;  &quot;38&quot;  &quot;39&quot;  &quot;41&quot;  &quot;42&quot;  &quot;43&quot;  &quot;44&quot;  &quot;45&quot;  &quot;46&quot;  &quot;47&quot; 
-## [45] &quot;48&quot;  &quot;49&quot;  &quot;50&quot;  &quot;51&quot;  &quot;52&quot;  &quot;53&quot;  &quot;54&quot;  &quot;56&quot;  &quot;58&quot;  &quot;59&quot;  &quot;60&quot; 
-## [56] &quot;61&quot;  &quot;62&quot;  &quot;64&quot;  &quot;65&quot;  &quot;66&quot;  &quot;67&quot;  &quot;68&quot;  &quot;69&quot;  &quot;71&quot;  &quot;72&quot;  &quot;73&quot; 
-## [67] &quot;75&quot;  &quot;76&quot;  &quot;77&quot;  &quot;78&quot;  &quot;79&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot;  &quot;85&quot;  &quot;86&quot; 
-## [78] &quot;87&quot;  &quot;88&quot;  &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;95&quot;  &quot;96&quot;  &quot;97&quot;  &quot;98&quot; 
-## [89] &quot;99&quot;  &quot;100&quot; &quot;101&quot; &quot;102&quot; &quot;103&quot; &quot;104&quot; &quot;105&quot; &quot;106&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Because &lt;code&gt;mangalList&lt;/code&gt; is not exported, you have to use the &lt;code&gt;:::&lt;/code&gt; operator
-to explicitely call it. Note that these functions may not work (quite yet)
-with the public database, because we will update the API later this week.&lt;/p&gt;
 </content>
   </entry>
   

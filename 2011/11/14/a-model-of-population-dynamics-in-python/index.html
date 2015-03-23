@@ -75,37 +75,63 @@ ga('send', 'pageview');
           <div class="entry">
 <div class='post-title'>November 14, 2011<a class="readmore" href="/2011/11/14/a-model-of-population-dynamics-in-python/">A model of population dynamics in Python</a></div>
 <div class='post-meta'>Written by tpoisot</div>
-<p>I&#39;ve been using <a href="http://python.org/">Python</a> more and more to do various things. When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not more difficult to write, and a whole lot faster. I&#39;ve started exploring tools to use Python for ecological simulations, and specifically the <a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the <a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot of numerical integrators, and most notably <a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is awesome for many many reasons, including but not limited to its ability to switch between stiff and non-stiff problem at each step).</p>
+<p>I&#39;ve been using <a href="http://python.org/">Python</a> more and more to do various things.
+When compared to <a href="http://cran.cict.fr/">R</a> (which I use a lot), Python is not
+more difficult to write, and a whole lot faster. I&#39;ve started exploring tools to
+use Python for ecological simulations, and specifically the
+<a href="http://www.scipy.org/">scipy</a> library. In R, my usual tool is the
+<a href="http://simecol.r-forge.r-project.org/">simecol</a> package, which implements a lot
+of numerical integrators, and most notably
+<a href="http://www.oecd-nea.org/tools/abstract/detail/uscd1227"><code>LSODA</code></a> (which is
+awesome for many many reasons, including but not limited to its ability to
+switch between stiff and non-stiff problem at each step).</p>
 
-<p>In simecol, modeling a population dynamics requires to write a function taking as an input a vector of population sizes, some parameters, and the time. The purpose of the package is to provide a wrapper around such functions. After using this package more or less non stop for 3 years, I&#39;ve become accustomed to this way of writing things, and I was afraid that I may have to change my habits. I was really happy to discover that <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a> in scipy, was both an implementation of the LSODA, and worked in the exact same way that simecol did.</p>
+<p>In simecol, modeling a population dynamics requires to write a function taking
+as an input a vector of population sizes, some parameters, and the time. The
+purpose of the package is to provide a wrapper around such functions. After
+using this package more or less non stop for 3 years, I&#39;ve become accustomed to
+this way of writing things, and I was afraid that I may have to change my
+habits. I was really happy to discover that
+<a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">scipy.integrate.odeint</a>
+in scipy, was both an implementation of the LSODA, and worked in the exact same
+way that simecol did.</p>
 
 <p>To write a simulation of population dynamics (I&#39;ll use logistic growth as an example), we first import the relevant parts of the scipy library.</p>
-
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
-<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="kn">as</span> <span class="nn">sp_int</span></code></pre></div>
-
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="kn">as</span> <span class="nn">sp_int</span>
+</code></pre></div>
 <p>Next, we write the function modeling the population growth, as a function of
 two parameters, <em>r</em> and <em>K</em>.</p>
-
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
     <span class="n">dY</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dY</span><span class="p">]</span></code></pre></div>
-
-<p>The syntax is relatively easy. Note that <code>t0</code> is not used by the function at any time, but is required by <code>odeint</code> to do its internal calculations. Note also that y is an array. These two parameters are required, and the other are optional. Next, we fix the values of <em>r</em> and <em>K</em>. The required format is a tuple, so you need to be very careful when passing the parameters: they must be in the same order than in the function declaration. Additionally, we&#39;ll declare a starting population size.</p>
-
+    <span class="k">return</span> <span class="p">[</span><span class="n">dY</span><span class="p">]</span>
+</code></pre></div>
+<p>The syntax is relatively easy. Note that <code>t0</code> is not used by the function at any
+time, but is required by <code>odeint</code> to do its internal calculations. Note also
+that y is an array. These two parameters are required, and the other are
+optional. Next, we fix the values of <em>r</em> and <em>K</em>. The required format is a
+tuple, so you need to be very careful when passing the parameters: they must be
+in the same order than in the function declaration. Additionally, we&#39;ll declare
+a starting population size.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span></code></pre></div>
-
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">]</span>
+</code></pre></div>
 <p>Now we will do the actual numerical integration. This is fairly simple.</p>
-
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">log_growth</span> <span class="o">=</span> <span class="n">sp_int</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span>
     <span class="n">func</span><span class="o">=</span><span class="n">logistic</span><span class="p">,</span><span class="n">y0</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
     <span class="n">t</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">),</span><span class="n">args</span><span class="o">=</span><span class="n">params</span>
-    <span class="p">)</span></code></pre></div>
+    <span class="p">)</span>
+</code></pre></div>
+<p>Note that we define an array called <code>t</code>, in which the times at which integration
+needs to be performed are stored. The object <code>log_growth</code> will have all the
+information required to analyze the simulation results, with the time in the
+first column, and the population sizes after. This kind of object is fairly easy
+to plot using, e.g. <a href="http://pyx.sourceforge.net/">PyX</a>.</p>
 
-<p>Note that we define an array called <code>t</code>, in which the times at which integration needs to be performed are stored. The object <code>log_growth</code> will have all the information required to analyze the simulation results, with the time in the first column, and the population sizes after. This kind of object is fairly easy to plot using, e.g. <a href="http://pyx.sourceforge.net/">PyX</a>.</p>
-
-<p>Although this was a simple example, it illustrates how easy it can be to program a simple simulation using python. I must admit that I was nicely surprised to see the rapidity of the process, and the gain in execution time when compared to R is definitely not something to neglect.</p>
+<p>Although this was a simple example, it illustrates how easy it can be to program
+a simple simulation using python. I must admit that I was nicely surprised to
+see the rapidity of the process, and the gain in execution time when compared to
+R is definitely not something to neglect.</p>
 
 </div>
 

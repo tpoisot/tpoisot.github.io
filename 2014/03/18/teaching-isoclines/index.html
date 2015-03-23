@@ -83,13 +83,13 @@ classical diagrams, and so I decided that it was time to share it.</p>
 
 <p>Isoclines are usually first introduced when discussing the logistic model with competition between two species, or</p>
 
-<script type="math/tex; mode=display">
+<p>$$
 \dot N_1 = N_1 r_1 \left(1 - \frac{\alpha_{11}N_1+\alpha_{12}N_2}{K_1} \right)
-</script>
+$$</p>
 
-<script type="math/tex; mode=display">
+<p>$$
 \dot N_2 = N_2 r_2 \left(1 - \frac{\alpha_{22}N_2+\alpha_{21}N_1}{K_2} \right)
-</script>
+$$</p>
 
 <p>It&#39;s an important model, as we can use it as a gateway to talk about
 coexistence, local stability, and ecosystem functioning. It is also a perfect
@@ -97,13 +97,13 @@ transition between the empirical side of ecology with Gauses&#39;s experiments, 
 the more theoretical side of it. I <em>love</em> this model, especially for teaching.</p>
 
 <p>There are a number of intersting things to explain to students when introducing
-this model. First, each species <script type="math/tex"> n </script> perceives its environment
-as a &quot;box&quot; with <script type="math/tex"> K_n </script> compartments. Left to their own devices,
-each &quot;individual&quot; (or units of biomass) will &quot;fill&quot; <script type="math/tex">\alpha_{nn}</script>
+this model. First, each species $n$ perceives its environment
+as a &quot;box&quot; with $K_n$ compartments. Left to their own devices,
+each &quot;individual&quot; (or units of biomass) will &quot;fill&quot; $\alpha_{nn}$
 compartments, which usually equates unity for a single species model. The
 growth of the population is therefore a quest for free compartments to fill,
 and when most of the box is filled, the effective growth rate decreases. When
-all compartments are filled (<script type="math/tex">N_n = K_n</script>), then the growth rate is
+all compartments are filled ($N_n = K_n$), then the growth rate is
 0, and the population is at equilibrium. Cue a discussion on the mechanisms
 that would allow us to represent the environment as a box with compartments
 (space requirements, having enough to eat, foraging area, and whatever else
@@ -111,11 +111,11 @@ you can think of).</p>
 
 <p>The point with introducing a second species is that there are now
 two types of organisms to share the same &quot;box&quot;. And individuals from
-species <script type="math/tex">p</script> are <em>perceived</em> by those of species <script type="math/tex">n</script>
-as taking up <script type="math/tex">\alpha_{np}</script> compartments. The opposite is true,
+species $p$ are <em>perceived</em> by those of species $n$
+as taking up $\alpha_{np}$ compartments. The opposite is true,
 and we can define values for the intensity of <em>intra</em> and <em>inter</em> specific
 competition. The question is, then, what are the combinations of values of
-<script type="math/tex">\mathbf{\alpha}</script> that allows coexistence, competitive exclusion,
+$\mathbf{\alpha}$ that allows coexistence, competitive exclusion,
 or make the system sensitive to initial conditions?</p>
 
 <p>It&#39;s at this point that I usually introduce the notion of <em>equilibrium</em>,
@@ -148,8 +148,8 @@ that&#39;s local stability.</p>
 <p>OK, so what&#39;s a vector field? The phase portrait of the system is defined by
 two axes, one for the density of species <em>1</em>, the other for the density of
 species <em>2</em>. The isoclines are the lines going trough the two equilibria for
-species <em>1</em> (<script type="math/tex">N_1 = (0; N^\star_1)</script>), and trough the two equilibria for
-species <em>2</em> (<script type="math/tex">N_2 = (0; N^\star_2)</script>). When you are <em>above</em> (axis-wise)
+species <em>1</em> ($N_1 = (0; N^\star_1)$), and trough the two equilibria for
+species <em>2</em> ($N_2 = (0; N^\star_2)$). When you are <em>above</em> (axis-wise)
 your isocline, you converge back to it, and where you are <em>below</em> your
 isocline, well, the same thing happens but in the other direction. At the
 intersection of the two isoclines is the <em>two-species equilibrium</em>, whose
@@ -160,30 +160,30 @@ in (possibly) different directions at the same time. So there can be some funky
 behavior happening, and species can cross their isoclines (this happens in the
 predator-prey Lotka-Volterra model, among many others). So what matters is the
 <em>combined</em> changed in the system, which we can model through the addition of
-two vectors in the <script type="math/tex">N_1,N_2</script> plane. The first vector (which describes
-the amount of change in the <em>vertical</em> direction is <script type="math/tex">\vec{N_2}</script>. The
-norm of this vector is simply <script type="math/tex">\frac{d}{dt}N_2</script>. The second vector, in
-the <em>horizontal</em> direction, is similarly <script type="math/tex">\vec{N_1}</script>. The resulting
+two vectors in the $N_1,N_2$ plane. The first vector (which describes
+the amount of change in the <em>vertical</em> direction is $\vec{N_2}$. The
+norm of this vector is simply $\frac{d}{dt}N_2$. The second vector, in
+the <em>horizontal</em> direction, is similarly $\vec{N_1}$. The resulting
 vector describing the overall change in the system is</p>
 
-<script type="math/tex; mode=display">
+<p>$$
 \vec{S} = \vec{N_1} + \vec{N_2}
-</script>
+$$</p>
 
-<p>Because <script type="math/tex">\vec{N_1}</script> and <script type="math/tex">\vec{N_2}</script> are orthogonal (and
+<p>Because $\vec{N_1}$ and $\vec{N_2}$ are orthogonal (and
 because of a couple of other assumptions, such as the space defined by the
 population densities being Euclidean), it&#39;s easy to measure the Euclidean
-norm of <script type="math/tex">\vec{S}</script>, which is to say the total amount of change in
+norm of $\vec{S}$, which is to say the total amount of change in
 the system, as being</p>
 
-<script type="math/tex; mode=display">
+<p>$$
 \lVert \vec{S} \rVert = \sqrt{\lVert \vec{N_1} \rVert ^2 + \lVert \vec{N_2} \rVert ^2 }
-</script>
+$$</p>
 
-<p>At any given coordinate <script type="math/tex">(N_1, N_2)</script>, the system will move towards
-<script type="math/tex">(N_1 + \dot{N_1}, N_2 + \dot{N_2})</script>. With both infos in hand, we
-can do two things. First, we can plot the instantaneous rate of change of the
-system (the absolute value of the norm of <script type="math/tex">\vec{S}</script>) over space,
+<p>At any given coordinate $(N_1, N_2)$, the system will move towards
+$(N_1 + \dot{N_1}, N_2 + \dot{N_2})$. With both infos in hand, we
+can do two things. First, we can plot the instantaneous #ate of change of the
+system (the absolute value of the norm of $\vec{S}$) over space,
 to see in which combinations of populations densities are trigerring rapid
 changes. Second, we can plot the direction of change using arrows <em>over</em>
 the previous graph, to see in which direction the system is moving. The
