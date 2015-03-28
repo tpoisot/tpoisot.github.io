@@ -39,8 +39,8 @@ strong {
 @vspace: 3em;
 
 .navbar {
-  // border-top: 1px solid @hlcolor;
-  // border-bottom: 1px solid @hlcolor;
+  //border-top: 1px solid @hlcolor;
+  border-bottom: 1px solid @hlcolor;
   ul, li {
     display: inline-block;
     list-style: none;
@@ -50,7 +50,7 @@ strong {
   }
   li {
     margin: 0em 0em;
-    margin-right: 2em;
+    margin-right: 1em;
     a {
       .sans;
       font-weight: 400;
@@ -79,7 +79,7 @@ strong {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(253, 253, 253, 0.95) !important;
+    background: rgba(253, 253, 253, 0.99) !important;
   }
   .navbar-spacer {
     display: block;
@@ -106,6 +106,21 @@ strong {
   display: none;
 }
 
+// Visibility of text vs. icons
+
+.text {
+  display: none;
+  .sans;
+}
+
+@media (min-width: 1000px){
+  .icon {
+    display: none;
+  }
+  .text {
+    display: inline;
+  }
+}
 
 // Header
 .head {
@@ -239,6 +254,7 @@ code, pre {
 
 // Code blocks
 pre > code{
+  font-size: 90%;
   span {.mono;}
   background: none !important;
   white-space: pre-wrap;
