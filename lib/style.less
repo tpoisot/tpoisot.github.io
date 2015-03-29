@@ -2,40 +2,17 @@
 // Timothée Poisot
 // February 2015 or something
 
+// Typefaces
+@import "typefaces.less";
 
-// Google fonts
-@import url(http://fonts.googleapis.com/css?family=PT+Mono|PT+Sans:400,400italic,700,700italic|PT+Sans+Narrow:400,700|PT+Serif:400,400italic,700,700italic);
-
-.sans {
-  font-family: "PT Sans" !important;
-}
-
-.serif {
-  font-family: "PT Serif" !important;
-}
-
-.condensed {
-  font-family: "PT Sans Narrow" !important;
-}
-
-.mono {
-  font-family: "PT Mono" !important;
-}
-
-* {
-  .serif;
-}
+// Colors
+@import "colors.less";
 
 .container {
   max-width: 810px;
 }
 
-strong {
-  font-weight: 600;
-}
-
 // Navigation
-@hlcolor: rgb(215, 215, 217);
 @vspace: 3em;
 
 .navbar {
@@ -114,7 +91,7 @@ strong {
 }
 
 @media (min-width: 1000px){
-  .icon {
+  .hicon {
     display: none;
   }
   .text {
@@ -226,76 +203,8 @@ h1, h2, h3{
   }
 }
 
-// Code
-code, pre {
-  .mono;
-}
-
-@lighten: 20%;
-
-@orange: #ff7f0e;
-@light-orange: lighten(@orange, @lighten);
-
-@green: #2ca02c;
-@light-green: lighten(@green, @lighten);
-
-@blue: #1f77b4;
-@light-blue: lighten(@blue, @lighten);
-
-@purple: #9467bd;
-@light-purple: lighten(@purple, @lighten);
-
-@cyan: #17becf;
-@light-cyan: lighten(@cyan, @lighten);
-
-@red: #d62728;
-@light-red: lighten(@red, @lighten);
-
-
-// Code blocks
-pre > code{
-  font-size: 90%;
-  span {.mono;}
-  background: none !important;
-  white-space: pre-wrap;
-  border: none;
-  margin: 0em 0em;
-  padding: 0em 0em;
-  color: rgb(76, 76, 76);
-  .c1 {
-    color: darken(@hlcolor, 10%);
-  }
-  .k {
-    color: @purple;
-  }
-  .sb {
-    color: @purple;
-  }
-  .gh {
-    color: @blue;
-  }
-  .ge {
-    color: @orange;
-  }
-  .nv {
-    color: @light-orange;
-  }
-  .nl {
-    color: @green;
-  }
-  .nb {
-    color: @light-red;
-  }
-  .nf {
-    color: @light-blue;
-  }
-  .mi, .m {
-    color: @light-green;
-  }
-  .s2{
-    color: @red;
-  }
-}
+// Code highlighting
+@import "highlight.less";
 
 // Blockquote
 
