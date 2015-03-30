@@ -1,0 +1,52 @@
+// Code
+code, pre {
+  .mono;
+  font-size: 100%;
+}
+
+// Code blocks
+pre > code{
+  font-size: 90%;
+  span {.mono;}
+}
+
+// Content
+.content {
+  p, li, ul {
+    .serif;
+    color: @text;
+  }
+}
+
+// Header
+.head {
+  text-align: right;
+  // Author name
+  h1 {
+    .condensed;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: @light;
+  }
+  // Tagline
+  h2 {
+    .sans;
+    font-size: 1.5em;
+    color: @dark;
+  }
+}
+
+// Post title
+.post-title {
+  .condensed;
+  color: @base;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+.post-meta {
+  .condensed;
+  color: @base;
+  font-weight: 300;
+}

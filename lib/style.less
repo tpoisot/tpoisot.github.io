@@ -8,6 +8,13 @@
 // Colors
 @import "colors.less";
 
+// Typography
+@import "fonts.less";
+
+// Code highlighting
+@import "highlight.less";
+
+
 .container {
   max-width: 810px;
 }
@@ -33,13 +40,13 @@
       font-weight: 400;
       text-transform: lowercase;
       font-variant: small-caps;
-      color: darken(@hlcolor, 30%);
+      color: @light;
       text-decoration: none;
       &:hover {
-        color: darken(@hlcolor, 90%);
+        color: @base;
       }
       &.active {
-        color: darken(@hlcolor, 60%);
+        color: @dark;
       }
     }
   }
@@ -102,32 +109,27 @@
 // Header
 .head {
   margin: @vspace auto;
-  text-align: right;
   h1 {
-    .condensed;
-    font-size: 1.5em;
     margin-bottom: 0em;
-    font-weight: 700;
-    color: darken(@hlcolor, 2%);
-  }
-  h2 {
-    .sans;
-    font-size: 1.5em;
-    color: darken(@hlcolor, 30%);
   }
 }
 
 // Content
 .content {
   margin-top: @vspace;
+  p, li, ul {
+    a {
+      border-bottom: 1px solid @light;
+    }
+  }
   a {
     text-decoration: none;
-    color: #1eaedb;
-    &:hover {
-      color: darken(#1eaedb, 20%);
-    }
+    color: @lcolor;
     &:visited {
-      color: darken(#1eaedb, 25%);
+      color: @lcolor_visited;
+    }
+    &:hover {
+      color: @lcolor_hover;
     }
   }
   p {
@@ -144,40 +146,28 @@
   }
   h2 {
     font-size: 1.3em;
-    color: darken(@hlcolor, 25%);
+    color: @dark;
   }
 }
-
 
 h1, h2, h3{
   .sans;
 }
 
-
 // Blog post content
-
 .post-title {
-  .condensed;
-  color: darken(@hlcolor, 20%);
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 1.3em;
   margin-top: 1em;
   a {
     padding-left: 1em;
     .sans;
-    color: darken(@hlcolor, 60%);
-    text-decoration: none;
+    color: @dark !important;
     &:hover {
-      color: darken(@hlcolor, 80%);
+      color: @base !important;
     }
   }
 }
 
 .post-meta {
-  .condensed;
-  color: darken(@hlcolor, 40%);
-  font-weight: 300;
   margin: 1em 0em;
 }
 
@@ -203,11 +193,7 @@ h1, h2, h3{
   }
 }
 
-// Code highlighting
-@import "highlight.less";
-
 // Blockquote
-
 blockquote {
   color: rgb(100, 100, 100);
 }

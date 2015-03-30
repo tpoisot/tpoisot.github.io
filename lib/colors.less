@@ -1,21 +1,36 @@
-@hlcolor: rgb(215, 215, 217);
+// Color definitions
+@accent: 13%;
 
-@lighten: 20%;
+@text: rgb(33, 33, 33);
+
+// Main highlight color
+@hlcolor: purple;
+@base: rgb(139, 138, 137);
+@dark: darken(@base, 1.5*@accent);
+@light: lighten(@base, 1.5*@accent);
+
+
+// Links
+@lcolor: rgb(10, 120, 100);
+@lcolor_hover: darken(@lcolor, @accent);
+@lcolor_visited: lighten(@lcolor, @accent);
+
+// Color for code highlighting
 
 @orange: #ff7f0e;
-@light-orange: lighten(@orange, @lighten);
+@light-orange: lighten(@orange, @accent);
 
 @green: #2ca02c;
-@light-green: lighten(@green, @lighten);
+@light-green: lighten(@green, @accent);
 
 @blue: #1f77b4;
-@light-blue: lighten(@blue, @lighten);
+@light-blue: lighten(@blue, @accent);
 
 @purple: #9467bd;
-@light-purple: lighten(@purple, @lighten);
+@light-purple: lighten(@purple, @accent);
 
 @cyan: #17becf;
-@light-cyan: lighten(@cyan, @lighten);
+@light-cyan: lighten(@cyan, @accent);
 
 @red: #d62728;
-@light-red: lighten(@red, @lighten);
+@light-red: lighten(@red, @accent);
