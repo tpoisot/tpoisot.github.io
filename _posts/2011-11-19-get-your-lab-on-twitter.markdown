@@ -2,9 +2,6 @@
 author: Tim
 layout: post
 title: Get your lab on twitter!
-summary: blog
-type: essay
-chapo: Scientists and institutions should care (a lot) about social networks.
 tags:
 - scientific communication
 - social networks

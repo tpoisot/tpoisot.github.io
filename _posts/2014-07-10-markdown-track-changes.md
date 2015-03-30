@@ -33,7 +33,7 @@ I can compile that using `pandoc`, and get the PDF file that I send for
 review. The referees, being referees, required some changes, so I made the
 revisions in a file called `revised.md`.
 
-~~~ markdown
+``` markdown
 # My cool revised project
 
 This is a really cool paper written in `markdown`. It has equations like
@@ -43,13 +43,13 @@ some references to *really* cool papers [@fra92; and references therein].
 I hope it will be accepted *now*!
 
 # References
-~~~
+```
 
 Producing the marked-up copy is relatively easy. The first step is to convert
 both documents to `latex`, then use `latexdiff`. This is best done with a
 simple `makefile`, which I reproduce here:
 
-~~~ makefile
+``` makefile
 OPTS= --bibliography=/home/tp/.pandoc/default.json --csl=/home/tp/vrac/styles/ecology.csl --template=template.tex
 
 all: orig.pdf revised.pdf diff.pdf
@@ -66,7 +66,7 @@ diff.pdf: orig.md revised.md
 	latexdiff orig.tex revised.tex > diff.tex
 	pdflatex diff
 	rm {revised,orig,diff}.tex
-~~~
+```
 
 The `OPTS` variable can be changed to whatever you like (and the whole file
 should be made nicer, but hey...), and once this is done, you just need to do

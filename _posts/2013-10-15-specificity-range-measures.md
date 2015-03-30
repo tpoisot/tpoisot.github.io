@@ -84,7 +84,7 @@ the couple *PDI*-*RR* is the only pair of measures that allow to do that
 measure is a component of the other.  Here is a `R` function to do it using the
 `ESM` package ([from R-Forge](https://r-forge.r-project.org/R/?group_id=593)).
 
-~~~ r
+``` r
 library(ESM)
 
 sap = function(P)
@@ -100,20 +100,21 @@ sap = function(P)
       impac_rel    = Imp / Spe
       ))
 }
-~~~
+```
 
 Let's do some simple examples, and contrast to species with the same number of
 resources, but a very high performance on resource 2, or a very low performance
 on resource 3:
 
-~~~ r
+
+```
 > unlist(sap(c(1,0.999,0)))
   specificity associations      impacts    assoc_rel    impac_rel
   0.500500000  0.500000000  0.000500000  0.999000999  0.000999001
 > unlist(sap(c(1,0.001,0)))
   specificity associations      impacts    assoc_rel    impac_rel
   0.9995000    0.5000000    0.4995000    0.5002501    0.4997499
-~~~
+```
 
 In the second example, because the performance on the second resource is much
 almost zero, the *RR* and *I* components are almost as important to understand

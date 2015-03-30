@@ -22,7 +22,7 @@ pre > code{
   }
   h1 {
     font-size: 1.3em;
-    font-weight: 700;
+    font-weight: 400;
     color: @dark;
     .condensed;
   }
@@ -30,6 +30,7 @@ pre > code{
     font-size: 1.2em;
     color: @base;
     .condensed;
+    font-weight: 400;
   }
 }
 
@@ -39,14 +40,15 @@ pre > code{
   // Author name
   h1 {
     .condensed;
-    font-size: 1.2em;
-    font-weight: 700;
+    font-size: 1.1em;
+    font-weight: 400;
     color: @light;
   }
   // Tagline
   h2 {
     .sans;
     font-size: 1.1em;
+    font-weight: 400;
     color: @dark;
   }
 }
@@ -56,12 +58,22 @@ pre > code{
   .condensed;
   color: @base;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
+  a {
+    font-weight: 400;
+  }
   font-size: 1.1em;
 }
 
 .post-meta {
   .condensed;
   color: @base;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+// blockquote
+blockquote {
+  p {
+    color: @dark !important;
+  }
 }
