@@ -9,7 +9,7 @@ subtitle: Computational Ecologist
 author: Timothée Poisot
 production_url: http://timotheepoisot.fr
 
-highlighter: pygments
+highlighter: rouge
 
 kramdown:
   hard_wrap: false
