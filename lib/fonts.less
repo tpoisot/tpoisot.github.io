@@ -1,12 +1,16 @@
+body {
+  font-size: 18px;
+}
+
 // Code
 code, pre {
   .mono;
-  font-size: 100%;
+  font-size: 1em;
 }
 
 // Code blocks
 pre > code{
-  font-size: 90%;
+  font-size: 0.9em;
   span {.mono;}
 }
 
@@ -16,6 +20,17 @@ pre > code{
     .serif;
     color: @text;
   }
+  h1 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: @dark;
+    .condensed;
+  }
+  h2 {
+    font-size: 1.2em;
+    color: @base;
+    .condensed;
+  }
 }
 
 // Header
@@ -24,14 +39,14 @@ pre > code{
   // Author name
   h1 {
     .condensed;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 700;
     color: @light;
   }
   // Tagline
   h2 {
     .sans;
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: @dark;
   }
 }
@@ -42,7 +57,7 @@ pre > code{
   color: @base;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 .post-meta {

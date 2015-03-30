@@ -33,13 +33,15 @@ ga('send', 'pageview');
 <link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
 <link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
 
 <link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js"></script>
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="/lib/flowtype.js" charset="utf-8"></script>
 
   </head>
   <body><a id="pagetop"></a>
@@ -252,4 +254,11 @@ pgf-figure0.pdf</code></pre></div>
     </div>
 
   </body>
+  <script type="text/javascript">
+    $('body').flowtype({
+      minFont : 13,
+      maxFont : 18,
+      fontRatio : 30
+    });
+  </script>
 </html>
