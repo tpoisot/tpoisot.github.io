@@ -9,12 +9,6 @@ subtitle: Computational Ecologist
 author: Timothée Poisot
 production_url: http://timotheepoisot.fr
 
-highlighter: rouge
-
 kramdown:
   hard_wrap: false
   input: GFM
-  use_coderay: true
-  coderay:
-    coderay_line_numbers: true
-    coderay_css: class
