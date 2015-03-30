@@ -7,7 +7,7 @@
 }
 
 // Navigation
-@vspace: 2em;
+@vspace: 3em;
 
 .navbar {
   //border-top: 1px solid @hlcolor;
@@ -17,11 +17,12 @@
     list-style: none;
   }
   ul {
-    margin: 1em 0em;
+    margin: 0.5em 0em;
   }
   li {
     margin: 0em 0em;
-    margin-right: 1em;
+    padding: 0em 0.3em;
+    margin-right: 0.6em;
     a {
       .sans;
       font-weight: 400;
@@ -43,6 +44,7 @@
   background: none;
   transition: background 0.5s;
   transition-timing-function: ease;
+  background: rgba(253, 253, 253, 0.9);
 }
 
 .has-docked-nav {
@@ -58,6 +60,16 @@
 }
 
 /* Re-overiding the width 100% declaration to match size of % based container */
+
+.gototop  {
+  display: none;
+  transition: display 1s;
+  transition-timing-function: ease;
+}
+
+.has-docked-nav .gototop {
+  display: inline;
+}
 
 .navbar > .container {
   width: 100%;
@@ -95,7 +107,7 @@
 
 // Header
 .head {
-  margin: @vspace auto;
+  padding-bottom: @vspace auto;
   h1 {
     margin-bottom: 0em;
   }
@@ -104,6 +116,7 @@
 // Content
 .content {
   margin-top: @vspace;
+  padding: 0em 0.3em;
   p, li, ul {
     a {
       border-bottom: 1px solid lighten(@light, 25%);
@@ -177,11 +190,6 @@ h1, h2, h3{
   }
 }
 
-// Blockquote
-blockquote {
-  color: rgb(100, 100, 100);
-}
-
 // margin
 
 .margin {
@@ -212,3 +220,13 @@ blockquote {
 
 // Code highlighting
 @import "highlight.less";
+
+.fmatter{
+  margin: 0;
+  padding: 0;
+  padding-top: @vspace;
+  width: 100%;
+  background: url(/img/bg_5.png) no-repeat center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}

@@ -6,14 +6,19 @@
   <body><a id="pagetop"></a>
 
     <!-- .container is main centered wrapper -->
-    <div class="container">
+    <div class="fmatter">
+      <div class="container">
 
-      <div class="head">
-        <h1>{{ site.title }}</h1>
-        <h2>{{ site.subtitle }}</h2>
+        <div class="head">
+          <h1>{{ site.title }}</h1>
+          <h2>{{ site.subtitle }}</h2>
+        </div>
+
+        {% include menu.html %}
       </div>
+    </div>
 
-      {% include menu.html %}
+    <div class="container">
 
       <!-- columns should be the immediate child of a .row -->
       <div class="row">
