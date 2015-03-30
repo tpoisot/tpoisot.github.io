@@ -1,230 +1,31 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Timothée Poisot | Blog</title>
+---
+layout: page
+title: Blog
+---
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-extensions: ["tex2jax.js"],
-jax: ["input/TeX", "output/HTML-CSS"],
-tex2jax: {
-inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-processEscapes: true
-},
-"HTML-CSS": { availableFonts: ["TeX"] }
-});
-</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- This loops through the paginated posts -->
 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-11830706-1', 'timotheepoisot.fr');
-ga('send', 'pageview');
-</script>
-
-<link rel="stylesheet" href="/lib/skeleton/css/normalize.css">
-<link rel="stylesheet" href="/lib/skeleton/css/skeleton.css">
-
-<script src="//code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/lib/site.js" charset="utf-8"></script>
-
-<link rel="stylesheet/less" type="text/css" href="/lib/style.less" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js"></script>
-
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-<script type="text/javascript" src="/lib/flowtype.js" charset="utf-8"></script>
-
-  </head>
-  <body><a id="pagetop"></a>
-
-    <!-- .container is main centered wrapper -->
-    <div class="container">
-
-      <div class="head">
-        <h1>Timothée Poisot</h1>
-        <h2>Computational Ecologist</h2>
-      </div>
-
-      <nav class="navbar">
-  <div class="container">
-    <ul class="nav-list">
-      <li>
-        <a href="/" title="Home">
-          <span class="hicon"><i class="fa fa-fw fa-home"></i>
-          </span><span class="text">Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="/software/" title="Software">
-          <span class="hicon"><i class="fa fa-fw fa-terminal"></i>
-          </span><span class="text">Software</span>
-        </a>
-      </li>
-      <li>
-        <a href="/research/" title="Research">
-          <span class="hicon"><i class="fa fa-fw fa-flask"></i>
-          </span><span class="text">Research</span>
-        </a>
-      </li>
-      <li>
-        <a href="/blog/" class="active" title="Blog">
-          <span class="hicon"><i class="fa fa-fw fa-bullhorn"></i>
-          </span><span class="text">Blog</span>
-        </a>
-      </li>
-      <li>
-        <a href="/papers/" title="Papers">
-          <span class="hicon"><i class="fa fa-fw fa-file-text-o"></i>
-          </span><span class="text">Papers</span>
-        </a>
-      </li>
-      <li>
-        <a href="/colophon/" title="Colophon">
-          <span class="hicon"><i class="fa fa-fw fa-info"></i>
-          </span><span class="text">Colophon</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-
-      <!-- columns should be the immediate child of a .row -->
-      <div class="row">
-        <div class="twelve column content">
-          <!-- This loops through the paginated posts -->
-
-
+{% for post in paginator.posts %}
       <div class="inlist">
-      <div class='post-title'>2015/03/23<a class="readmore" href="/2015/03/23/reproducibility/">Reproducibility - do you have what it takes?</a></div>
-         <p class="byline">In which I discuss the issue of reproducibility of studies relying on high-throughput computing</p>
+      <div class='post-title'>{{ post.date | date: "%Y/%m/%d" }}<a class="readmore" href="{{ post.url }}">{{ post.title }}</a></div>
+         {% if post.byline %}<p class="byline">{{ post.byline }}</p>{% endif %}
       </div>
-
-      <div class="inlist">
-      <div class='post-title'>2015/02/26<a class="readmore" href="/2015/02/26/network-map-ocean/">Plotting spatially explicit networks (in the oceans)</a></div>
-         <p class="byline">In which I come up with a so-dumb-it-might-work solution to a visualization problem.</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2015/02/23<a class="readmore" href="/2015/02/23/mangal/">(Re)-Announcing mangal</a></div>
-         <p class="byline">Notes on the brand new version of mangal, a cool database on species interactions</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/11/24<a class="readmore" href="/2014/11/24/editorial-boards-gender-bias/">Systematic gender bias in editorial boards in ecology</a></div>
-         <p class="byline">Women are under-represented in the editorial boards of ecological journals, even more than their proportion in the population of publishing scientists suggests</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/11/21<a class="readmore" href="/2014/11/21/not-a-programmer/">So you're not a programmer. Are you sure?</a></div>
-         <p class="byline">Most of us write code at some point, after all. We ought to make sure it is properly tested.</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/11/17<a class="readmore" href="/2014/11/17/live-tweets/">Live-tweeting at conferences</a></div>
-         <p class="byline">Conference policies about what to share are useful, but they should leave the final decision to speakers</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/11/16<a class="readmore" href="/2014/11/16/baby-steps-open-science/">We all took baby steps towards open science</a></div>
-         <p class="byline">Some thoughts about baby steps towards open science</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/11/13<a class="readmore" href="/2014/11/13/hey-matt/">Hey Matt</a></div>
-         <p class="byline">Hi. Have you thought about not being a sexist pig?</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/11/11<a class="readmore" href="/2014/11/11/tales-job-search-II/">Tales from the job search II - The Crossing of the Desert</a></div>
-         <p class="byline">Part two of a four posts series in which I summarize my year and a half spent looking for, and ultimately getting, an academic position</p>
-      </div>
-
-      <div class="inlist">
-      <div class='post-title'>2014/10/14<a class="readmore" href="/2014/10/14/how-i-quit-academia/">How I quit academia and vowed to never come back (for a month)</a></div>
-         <p class="byline">For the Software Carpentry instructor training, we have to write a story about our biggest demotivation. Here's mine.</p>
-      </div>
-
+{% endfor %}
 
 <div class="pagination-centered">
   <ul class="pagination">
-     
+     {% if paginator.page == 1 %}
      <li class="current">1</li>
-     
+     {% else %}
+     <li><a href="/blog/">1</a></li>
+     {% endif %}
 
-    
-    
-    <li><a href="/blog/page2">2</a></li>
-    
-    
-    
-    <li><a href="/blog/page3">3</a></li>
-    
-    
-    
-    <li><a href="/blog/page4">4</a></li>
-    
-    
-    
-    <li><a href="/blog/page5">5</a></li>
-    
-    
-    
-    <li><a href="/blog/page6">6</a></li>
-    
-    
-    
-    <li><a href="/blog/page7">7</a></li>
-    
-    
-    
-    <li><a href="/blog/page8">8</a></li>
-    
-    
-    
-    <li><a href="/blog/page9">9</a></li>
-    
-    
-    
-    <li><a href="/blog/page10">10</a></li>
-    
-    
-    
-    <li><a href="/blog/page11">11</a></li>
-    
-    
-    
-    <li><a href="/blog/page12">12</a></li>
-    
-    
-    
-    <li><a href="/blog/page13">13</a></li>
-    
-    
+    {% for count in (2..paginator.total_pages) %}
+    {% if count == paginator.page %}
+    <li class="current">{{ count }}</li>
+    {% else %}
+    <li><a href="/blog/page{{ count }}">{{ count }}</a></li>
+    {% endif %}
+    {% endfor %}
   </ul>
 </div>
-
-
-        </div>
-      </div>
-
-    </div>
-
-  </body>
-  <script type="text/javascript">
-    $('body').flowtype({
-      minFont : 13,
-      maxFont : 18,
-      fontRatio : 30
-    });
-  </script>
-</html>
