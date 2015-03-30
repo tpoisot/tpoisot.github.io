@@ -3,7 +3,6 @@ author: Tim
 layout: post
 title: Models in Evolutionary Ecology, 2nd edition
 type: note
-excerpt: Videos from the Models in Evolutionary Ecology meeting, in Montpellier.
 tags:
 - conferences
 ---
@@ -22,4 +21,3 @@ we opened registration to doctoral students and post-docs outside from france,
 and we are happy to have hosted talk by foreign researchers.
 
 Feel free to see and share the videos!
-
