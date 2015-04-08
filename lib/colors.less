@@ -19,20 +19,22 @@
 
 @inline_code_color: rgb(140, 130, 150);
 
-@orange: #ff7f0e;
-@light-orange: lighten(@orange, @accent);
+@desaturate: 9%;
+@lighten: 9%;
 
-@green: #2ca02c;
-@light-green: lighten(@green, @accent);
+@L: 56%;
 
-@blue: #1f77b4;
-@light-blue: lighten(@blue, @accent);
+// Base colors
+@orange: hsl(25, 70%, @L);
+@green: hsv(100, 70%, @L);
+@blue: hsv(198, 70%, @L);
+@purple: hsv(270,40%, @L);
+@cyan: hsv(180, 70%, @L);
+@red: hsv(353, 70%, @L);
 
-@purple: #9467bd;
-@light-purple: lighten(@purple, @accent);
-
-@cyan: #17becf;
-@light-cyan: lighten(@cyan, @accent);
-
-@red: #d62728;
-@light-red: lighten(@red, @accent);
+@light-purple: lighten(desaturate(@purple, @desaturate), @lighten);
+@light-blue: lighten(desaturate(@blue, @desaturate), @lighten);
+@light-green: lighten(desaturate(@green, @desaturate), @lighten);
+@light-orange: lighten(desaturate(@orange, @desaturate), @lighten);
+@light-cyan: lighten(desaturate(@cyan, @desaturate), @lighten);
+@light-red: lighten(desaturate(@red, @desaturate), @lighten);

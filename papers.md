@@ -4,6 +4,12 @@ title: Papers
 banner: manuscript
 ---
 
+P.S. Jørgensen, F. Barraquand, V. Bonhomme, T.J. Curran, E. Cieraad, T.
+Ezard, L. Gherardi, R.A. Hayes, **T. Poisot**, R. Salguero-Gómez, L. DeSoto,
+B. Swartz, J.M. Talbot, B. Wee, N. Zimmerman (2015) Connecting people and
+ideas from around the world: global innovation platforms for next-generation
+ecology and beyond. *Ecosphere*. [preprint](http://biorxiv.org/content/early/2014/12/14/012666). <i class="fa fa-unlock-alt"></i>
+
 **T. Poisot**, S. Kéfi, S. Morand, M. Stanko, P. Marquet & M.E. Hochberg (accepted) A continuum of specialists and generalists in empirical communities. *PLOS One*. [preprint](http://dx.doi.org/10.1101/009985). <i class="fa fa-unlock-alt"></i>
 
 **T. Poisot**, C. Nunn & S. Morand (2014) Ongoing worldwide homogenization of human pathogens. *bioRxiV*. [preprint](http://dx.doi.org/10.1101/009977). <i class="fa fa-unlock-alt"></i>
