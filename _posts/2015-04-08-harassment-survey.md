@@ -189,8 +189,14 @@ societies to create positions for *diversity officers* or similar.
 I was surprised by three things.
 
 1. The extent of harassment itself. 1 out of 3 people is not an epi-phenomenon. We need to do a better job of making sure ecological meetings are safe places.
-2. There is a really strong support for ecological societies to implement policies. This is actionable *now*.
-3. Folks are not opposed to strong punitive measures, such as the harasser being removed from the event, and/or banned from the society altogether.
+2. There is a really strong support for ecological societies to implement policies. This is actionable *now*. More importantly, previous experience with harassment did not made a difference in the agreement with the various solutions. This is a good thing, as it means that a vast majority of people want to make sure that conferences are fun and inclusive events.
+3. Folks are not opposed to strong punitive measures, such as the harasser being removed from the event, and/or banned from the society altogether. A few people thought this opened the possibility to have witch hunts. This would most likely not be the case if (i) there are clear and very explicit guidelines, and (ii) there are people in place to talk to in case these guidelines are not being followed.
+
+So here it goes. If you are interested in the issue, we are going to start
+writing the paper any time soon. So now is the  right time to [drop me an email]
+and say that would like to contribute.
+
+[drop me an email]: http://timotheepoisot.fr/colophon
 
 And as a conclusion, I'm just going to leave this tweet out there, without
 further comments:
