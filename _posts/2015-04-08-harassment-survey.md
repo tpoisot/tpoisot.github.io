@@ -74,9 +74,9 @@ those that are more likely to *experience* harassment are also more likely to
 *witness* it. But look at the absolute values: the rate of having experienced
 harassment is similar for all folks, and at approx. 0.25 (which kind of
 questions my linear regression, doesn't it?). People seem to be overall nice to
-tenure-track faculty and undergrads. This may be because most of the responding
-undergrads were from the USA, and probably attended ESA meetings under the SEEDS
-program, and SEEDS mentors are doing a superb job.
+tenure-track faculty and undergrads. ████ ███ ██ ███████ ████ ██ ███ ██████████
+██████████ ████ ████ ███ ███, ███ ████████ ████████ ███ ████████ █████ ███ █████
+███████, ███ █████ ███████ ███ █████ █ ██████ ███.
 
 How about age?
 
