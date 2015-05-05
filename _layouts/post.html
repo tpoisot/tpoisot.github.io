@@ -6,6 +6,9 @@ layout: page
 <div class='post-title'><a class="readmore" href="{{ page.url }}">{{ page.title }}</a></div>
 <div class='post-meta'>Written by {% for au in page.author %}{{ au }}{% if forloop.index == forloop.length %}{% else %}, {% endif %}{% endfor %}</div>
 {{ content }}
+
+{% include references.html %}
+
 </div>
 
 <div id="disqus_thread"></div>
