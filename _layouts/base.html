@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    {% include head.html %}
-  </head>
-  <body><a id="pagetop"></a>
+<head>
+  {% include head.html %}
+</head>
+<body>
 
-    <!-- .container is main centered wrapper -->
-    <div class="fmatter">
-      <div class="container">
+  <!-- .container is main centered wrapper -->
 
-        <div class="head">
-          <h1>{{ site.title }}</h1>
-          <h2>{{ site.subtitle }}</h2>
-        </div>
+  <div class="container">
 
-        {% include menu.html %}
+    <div class="sidebar">
+
+      <h1>{{ site.title }}</h1>
+      <h2>{{ site.subtitle }}</h2>
+      {% include menu.html %}
+
+      {% if page.author %}
+      <div class="postinfo">
+        {% include postinfo.html %}
       </div>
+      {% endif %}
     </div>
 
-    <div class="container">
-
-      <!-- columns should be the immediate child of a .row -->
-      <div class="row">
-        <div class="twelve column content">
-          {{ content }}
-        </div>
-      </div>
-
+    <div class="content"><a id="pagetop"></a>
+      {{ content }}
     </div>
 
-    <script type="text/javascript">
-      $('body').flowtype({
-        minFont : 13,
-        maxFont : 16
-      });
-    </script>
+  </div>
 
-  </body>
+
+  <script type="text/javascript">
+  $('body').flowtype({
+    minFont : 13,
+    maxFont : 16
+  });
+  </script>
+
+</body>
 
 </html>

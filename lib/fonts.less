@@ -1,5 +1,15 @@
 body {
-  font-size: 17px;
+  font-size: 16px;
+}
+
+// General p and ul options
+p, li, ul, a, h1, h2, h3, h4, h5, h6 {
+  -webkit-text-stroke: 1px rgba(0,0,0,0.1);
+  .sans;
+}
+
+strong {
+  font-weight: 700;
 }
 
 // Code
@@ -17,7 +27,6 @@ pre > code{
 // Content
 .content {
   p, li, ul {
-    .serif;
     color: @text;
     line-height: 180%;
   }
@@ -25,57 +34,10 @@ pre > code{
     font-size: 1.3em;
     font-weight: 400;
     color: @dark;
-    .condensed;
   }
   h2 {
     font-size: 1.2em;
     color: @base;
-    .condensed;
     font-weight: 400;
-  }
-}
-
-// Header
-.head {
-  text-align: right;
-  // Author name
-  h1 {
-    .condensed;
-    font-size: 1.1em;
-    font-weight: 400;
-    color: @dark;
-  }
-  // Tagline
-  h2 {
-    .sans;
-    font-size: 1.1em;
-    font-weight: 700;
-    color: @text;
-  }
-}
-
-// Post title
-.post-title {
-  .condensed;
-  color: @base;
-  text-transform: uppercase;
-  font-weight: 300;
-  a {
-    font-weight: 400;
-  }
-  font-size: 1.1em;
-}
-
-.post-meta {
-  .condensed;
-  color: @base;
-  font-weight: 300;
-  font-size: 0.9em;
-}
-
-// blockquote
-blockquote {
-  p {
-    color: @dark !important;
   }
 }

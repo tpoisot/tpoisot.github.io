@@ -3,7 +3,7 @@ layout: page
 ---
 
 <div class="entry">
-<div class='post-title'>{{ page.date | date: "%Y/%m/%d" }}<a class="readmore" href="{{ page.url }}">{{ page.title }}</a></div>
+<div class='post-title'><a class="readmore" href="{{ page.url }}">{{ page.title }}</a></div>
 <div class='post-meta'>Written by {% for au in page.author %}{{ au }}{% if forloop.index == forloop.length %}{% else %}, {% endif %}{% endfor %}</div>
 {{ content }}
 </div>
