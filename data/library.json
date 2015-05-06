@@ -127,6 +127,77 @@
     "type": "article-journal"
   },
   {
+    "DOI": "10.7717/peerj.542",
+    "accessed": {
+      "date-parts": [
+        [
+          2014,
+          11,
+          12
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Cho",
+        "given": "Alyssa H."
+      },
+      {
+        "family": "Johnson",
+        "given": "Shelly A."
+      },
+      {
+        "family": "Schuman",
+        "given": "Carrie E."
+      },
+      {
+        "family": "Adler",
+        "given": "Jennifer M."
+      },
+      {
+        "family": "Gonzalez",
+        "given": "Oscar"
+      },
+      {
+        "family": "Graves",
+        "given": "Sarah J."
+      },
+      {
+        "family": "Huebner",
+        "given": "Jana R."
+      },
+      {
+        "family": "Marchant",
+        "given": "D. Blaine"
+      },
+      {
+        "family": "Rifai",
+        "given": "Sami W."
+      },
+      {
+        "family": "Skinner",
+        "given": "Irina"
+      },
+      {
+        "family": "Bruna",
+        "given": "Emilio M."
+      }
+    ],
+    "container-title": "PeerJ",
+    "id": "cho14",
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
+    "page": "e542",
+    "title": "Women are underrepresented on the editorial boards of journals in environmental biology and natural resource management",
+    "type": "article-journal",
+    "volume": "2"
+  },
+  {
     "DOI": "10.1111/ele.12117",
     "accessed": {
       "date-parts": [
@@ -296,6 +367,55 @@
     "type": "article-journal"
   },
   {
+    "DOI": "10.1038/504211a",
+    "accessed": {
+      "date-parts": [
+        [
+          2014,
+          11,
+          23
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Larivière",
+        "given": "Vincent"
+      },
+      {
+        "family": "Ni",
+        "given": "Chaoqun"
+      },
+      {
+        "family": "Gingras",
+        "given": "Yves"
+      },
+      {
+        "family": "Cronin",
+        "given": "Blaise"
+      },
+      {
+        "family": "Sugimoto",
+        "given": "Cassidy R."
+      }
+    ],
+    "container-title": "Nature",
+    "id": "lari13",
+    "issue": "7479",
+    "issued": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
+    "page": "211-213",
+    "title": "Bibliometrics: Global gender disparities in science",
+    "title-short": "Bibliometrics",
+    "type": "article-journal",
+    "volume": "504"
+  },
+  {
     "DOI": "10.1098/rsfs.2012.0006",
     "author": [
       {
@@ -317,6 +437,41 @@
     "title": "Towards the marriage of theory and data",
     "type": "article-journal",
     "volume": "2"
+  },
+  {
+    "DOI": "10.1073/pnas.1211286109",
+    "author": [
+      {
+        "family": "Moss-Racusin",
+        "given": "C A"
+      },
+      {
+        "literal": "J. F. Dovidio"
+      },
+      {
+        "literal": "V. L. Brescoll"
+      },
+      {
+        "literal": "M. J. Graham"
+      },
+      {
+        "literal": "J. Handelsman"
+      }
+    ],
+    "container-title": "Proc. Natl. Acad. Sci.",
+    "id": "moss12",
+    "issue": "41",
+    "issued": {
+      "date-parts": [
+        [
+          2012
+        ]
+      ]
+    },
+    "page": "16474-16479",
+    "title": "Science faculty’s subtle gender biases favor male students",
+    "type": "article-journal",
+    "volume": "109"
   },
   {
     "DOI": "10.1038/nj7461-243a",

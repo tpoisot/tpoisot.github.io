@@ -6,12 +6,11 @@ layout: post
 byline: Women are under-represented in the editorial boards of ecological journals, even more than their proportion in the population of publishing scientists suggests
 ---
 
-There is an increasing body of evidence showing that women are at a
-disadvantage in science. They [publish less][lariv], and are discriminated
-against [in hiring][hir] (by male and female faculty equally). They are also
-under-represented on [editorial boards][eb], and it has been so for a long
-time. This last study, in particular, motivated me to do a few additional
-analyses.
+There is an increasing body of evidence showing that women are at a disadvantage
+in science. They publish less @lari13, and are discriminated against in hiring
+@moss12 (by male and female faculty equally). They are also under-represented on
+editorial boards @cho14, and it has been so for a long time. This last study, in
+particular, motivated me to do a few additional analyses.
 
 Journals are where the scientific debate happen. Editors act as the gatekeeper
 of this debate; especially so since they can render a decision which is not
@@ -170,7 +169,4 @@ all steps of the publishing process. Not to point the finger, but *Trends
 in Ecology and Evolution* is a complete sausage fest. Tell me if you want
 the raw data, I am working on a draft to turn that into a proper publication.
 
-[lariv]: http://www.nature.com/news/bibliometrics-global-gender-disparities-in-science-1.14321
-[hir]: http://www.pnas.org/content/109/41/16474.full
-[eb]: https://peerj.com/articles/542/
 [gender]: https://github.com/ropensci/gender
