@@ -25,9 +25,9 @@ biased towards on microbial interactions, especially involving bacteria and
 phages. I'm partial to parasites, especially the ones you find in fishes or
 rodents. But I really don't care if I have to work on something else.
 
-   <span class="left">
+<span class="left">
 ![](/images/laptop.jpg)
-   </span>
+</span>
 
 My point of view is: find the most suitable (which to say, the less
 unsuitable) dataset for the question you have in mind at the moment, and
@@ -47,7 +47,7 @@ interests team up, and both sides gain improved knowledge. Theoretical
 (a catch-all term for numerical, computational, conceptual) science cannot
 exist in a vacuum for a long time, which makes it necessary to work closely
 with people knowing their system very well. In the preface to a special
-issue of *Interface Focus* on theoretical ecology, @lev12a gives a really
+issue of *Interface Focus* on theoretical ecology, Simon Levin @levi12 gives a really
 convincing historical argument for more interactions between theory and data,
 and at the same time has this impeccable criticism of purely mathematical
 approaches to ecological questions:
@@ -97,7 +97,7 @@ empirical system in all of its details, so as to be able to predict a lot
 about little. The second way (which is close to what I do) is to use models
 that are general enough to capture a broad range of phenomenons, and explain
 (in the text) where they do and don't apply to ecological systems. Both sides
-of the discussion have been covered by @eva13 (and surprisingly they call
+of the discussion have been covered well @evan13a (and surprisingly they call
 for more focused, small-scale models, because the high-order ones make so
 many assumptions that they end up being irrelevant).
 
@@ -106,7 +106,7 @@ I read them, review papers for some, but don't intend to publish there any
 time soon), is that they tend to favor papers in which a lot of emphasis is
 put on mathematical prowess, and very little on making the paper relatable
 to a broad audience. Not that this is a bad thing *per se*, but perhaps it
-explains the citation gap between empirical and theoretical works [@faw12a]:
+explains the citation gap between empirical and theoretical works @fawc12a:
 this indicates a tendency to discard papers with equations as being primarily
 mathematics, even though they address biological questions -- I wonder if
 the citation gap is as strong in ecology, which has a rich tradition of
@@ -120,7 +120,7 @@ An interesting point to keep in mind is that (most) theoretical papers
 require empirical science as an input. So most of the efforts needed to
 close the loop would be to make sure that more theoretical science goes into
 empirical one. Which takes (I think) three different ingredients. First,
-at the system scale, increasing quantitative skills [@bar13b] so that no
+at the system scale, increasing quantitative skills @barr13a so that no
 one is *afraid* of equations anymore. Second, putting an end to the idea
 that results not obtained through empirical approaches are untrue (they are
 most likely quantitatively wrong but qualitatively insightful). And finally,

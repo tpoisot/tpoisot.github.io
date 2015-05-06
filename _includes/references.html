@@ -58,7 +58,7 @@ if (matches) {
       if (ref['DOI']) {
         var GOTO = "http://dx.doi.org/"+ref['DOI'];
       } else {
-        var GOTO = x.substr(1);
+        var GOTO = "#";
       }
 
       var new_html = $('.entry').html().replace(x, '<a href="' + GOTO + '" title="' + infos[x]['ref'] + '">' + infos[x]['inline'] + '</a>');

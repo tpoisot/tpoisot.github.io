@@ -90,6 +90,30 @@ a {
   }
 }
 
+// Bibliography
+i{
+  &.bibitem {
+    line-height: 12px;
+    font-size: 12px !important;
+  }
+}
+
+// HR
+hr {
+  background-color: @light;
+  border: 0px solid white;
+  width: 10%;
+  height: 1px;
+  margin: 3em auto;
+}
+
+// Blockquote
+blockquote {
+  p {
+    color: @base !important;
+  }
+}
+
 // Page layout (responsive)
 @media (min-width: 1000px){
   @import "screen.less";

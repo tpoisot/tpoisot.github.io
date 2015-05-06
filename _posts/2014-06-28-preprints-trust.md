@@ -37,7 +37,7 @@ Assuming that published papers can be trusted is making the hypothesis
 that peer-review is good at catching bad papers. Additionally, some people
 raised the argument that the more *reputable* the journal (read: high
 impact factor), the more confident we can be in the paper. That is not true
-[@bre13]. It is a well established fact that high-impact journals tend to have
+@brem13. It is a well established fact that high-impact journals tend to have
 a higher retraction rate than low-impact journals. The very places where some
 expect to see the most outsanding review process are involved in a "scandal"
 every month or so, these days (arsenic DNA, stem cells, and the track record
