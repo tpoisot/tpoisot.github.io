@@ -474,6 +474,44 @@
     "volume": "109"
   },
   {
+    "DOI": "10.1016/j.ecoinf.2014.08.005",
+    "accessed": {
+      "date-parts": [
+        [
+          2014,
+          9,
+          15
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Poelen",
+        "given": "Jorrit H."
+      },
+      {
+        "family": "Simons",
+        "given": "James D."
+      },
+      {
+        "family": "Mungall",
+        "given": "Chris J."
+      }
+    ],
+    "container-title": "Ecological Informatics",
+    "id": "poel14",
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
+    "title": "Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets",
+    "title-short": "Global Biotic Interactions",
+    "type": "article-journal"
+  },
+  {
     "DOI": "10.1038/nj7461-243a",
     "accessed": {
       "date-parts": [
