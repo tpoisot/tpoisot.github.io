@@ -14,7 +14,7 @@ B. Swartz, J.M. Talbot, B. Wee & N. Zimmerman (2015) Connecting people and
 ideas from around the world: global innovation platforms for next-generation
 ecology and beyond. *Ecosphere*. [preprint](http://biorxiv.org/content/early/2014/12/14/012666). <i class="fa fa-unlock-alt"></i>
 
-**T. Poisot**, S. Kéfi, S. Morand, M. Stanko, P. Marquet & M.E. Hochberg (accepted) A continuum of specialists and generalists in empirical communities. *PLOS One*. [preprint](http://dx.doi.org/10.1101/009985). <i class="fa fa-unlock-alt"></i>
+**T. Poisot**, S. Kéfi, S. Morand, M. Stanko, P. Marquet & M.E. Hochberg (2015) A continuum of specialists and generalists in empirical communities. *PLOS One*. [preprint](http://dx.doi.org/10.1101/009985), [full text](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0114674). <i class="fa fa-unlock-alt"></i>
 
 **T. Poisot**, C. Nunn & S. Morand (2014) Ongoing worldwide homogenization of human pathogens. *bioRxiV*. [preprint](http://dx.doi.org/10.1101/009977). <i class="fa fa-unlock-alt"></i>
 
