@@ -1,0 +1,47 @@
+{
+    "name": "Research contracts",
+    "items": [
+        {
+            "title": "Aquatic and terrestrial connectivity in the Laurentians region",
+            "client": "MRC des Laurentides",
+            "date": "2020",
+            "role": "co-PI",
+            "amount": 30000
+        },
+        {
+            "title": "High-throughput identification of camera trap images",
+            "client": "Québec Ministry of Forests, Fauna, and Parks",
+            "date": "2018",
+            "role": "PI",
+            "amount": 16000
+        },
+        {
+            "title": "Integrated biodiversity database",
+            "client": "Québec Ministry of Forests, Fauna, and Parks",
+            "date": "2019-2020",
+            "role": "co-PI",
+            "amount": 130000
+        },
+        {
+            "title": "Canada 150 Scientific Bioblitz",
+            "client": "Canadian Wildlife Federation",
+            "role": "PI",
+            "date": "2017",
+            "amount": 15000
+        },
+        {
+            "title": "Canada 150 Scientific Bioblitz",
+            "client": "Université de Montréal",
+            "role": "PI",
+            "date": "2017",
+            "amount": 3400
+        },
+        {
+            "title": "Interactive Dashboard for Bioblitz Data",
+            "client": "Québec Centre for Biodiversity Science",
+            "role": "PI",
+            "date": "2017",
+            "amount": 1300
+        }
+    ]
+}

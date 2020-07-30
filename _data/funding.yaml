@@ -1,0 +1,41 @@
+---
+events:
+  - id: DATARESCUE
+  - id: reseaulab
+    what: Working group (stakeholder-engaged research)
+    where: Québec Centre for Biodiversity Sciences
+    when: 2016--2017
+  - id: sympcsee
+    what: Full-day symposium (ecological networks for management)
+    where: Canadian Society of Ecology \& Evolution
+    when: 2015
+  - id: traincsee
+    what: Training session (scientific software engineering basics)
+    where: Canadian Society of Ecology \& Evolution
+    when: 2015
+  - id: bessfe
+    what: Sponsored symposium (predicting ecological networks)
+    where: Functional Ecology, British Ecological Society
+    when: 2014
+  - id: ciee
+    what: Working group (macro-ecology of food webs)
+    where: Canadian Institute of Ecology and Evolution
+    when: 2014--2015
+awards:
+  - id: mozilla
+    what: Open Leader
+    where: Mozilla Science Foundation
+    when: 2017
+  - id: qcbs
+    what: Excellency award
+    where: Québec Centre for Biodiversity Sciences
+    when: 2012, 2013
+  - id: sfe
+    what: Young researcher award
+    where: Société Française d'Écologie
+    when: 2011
+  - id: bmerite
+    what: Academic Achievements Scholarship
+    where: French Ministry of Higher Education
+    when: 2007
+...

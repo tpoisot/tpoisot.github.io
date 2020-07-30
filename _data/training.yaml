@@ -1,0 +1,128 @@
+---
+training:
+  undergraduates:
+    - id: afrappier
+      who: Alexandrine Frappier
+      what: research assistant
+      topic: artificial neural networks for camera traps images analysis
+      when: 2018
+    - id: evinet
+      who: Émilie Vinet
+      what: research assistant
+      topic: historical trends in land-use in the Laurentians
+      when: 2018
+    - id: gbonenfant
+      who: Grégoire Bonenfant
+      what: research assistant
+      topic: functional consequences of food web variability
+      when: 2017
+    - id: zbelisle
+      who: Zachary Belisle
+      what: BSc honors
+      topic: NHST framework for ecological network analysis
+      when: 2017
+    - id: cbenjamin
+      who: Christophe Benjamin
+      what: research assistant
+      topic: data-mining for automated phylogenetic reconstruction
+      when: 2017
+    - id: dlecourstessier
+      who: Daphnée Lecours-Tessier
+      what: research assistant
+      topic: landscape/limnoscape connectivity planning
+      when: 2016
+    - id: dcaron
+      who: Dominique Caron
+      what: research assistant
+      topic: historical trends in Québec biodiversity data
+      when: 2016
+    - id: cguéveneuxjulien
+      who: Cynthia Guéveneux-Julien
+      what: BSc honors
+      topic: selection of indicator species for landscape management
+      when: 2016
+  graduates:
+    - id: svissault
+      who: Steve Vissault
+      what: PhD
+      topic: ontologies for species interactions data management
+      when: 2018--
+    - id: zbelisle
+      who: Zachary Belisle
+      what: MSc
+      topic: plant/insect beta-diversity over forest disturbance gradients
+      when: 2018--
+    - id: dlecourstessier
+      who: Daphnée Lecours-Tessier
+      what: MSc
+      topic: landscape/limnoscape connectivity evaluation
+      when: 2017--
+    - id: edelmas
+      who: Eva Delmas
+      what: PhD
+      topic: biodiversity, ecosystem functions, and food web structure
+      when: 2015--
+    - id: mbesson
+      who: Mathilde Besson
+      what: PhD
+      topic: responses to temperature and local adaptation in food webs
+      when: 2016--
+  codirections:
+    - id: ghigino
+      who: Gracielle Higino
+      what: PhD
+      topic: ecological networks assembly over gradients
+      when: 2018--
+    - id: sprefontaine
+      who: Stéphanie Préfontaine
+      what: MSc
+      topic: metabolic theory in bacterial adaptation
+      when: 2017--
+    - id: pdesjardinsproulx
+      who: Philippe Desjardins-Proulx
+      what: PhD
+      topic: artificial intelligence in ecology
+      when: 2013--2018
+  rpro:
+    - id: svissault
+      who: Steve Vissault
+      topic: database development for species interaction networks
+      when: 2017--2018
+    - id: ebeaulieu
+      who: Éric Beaulieu
+      topic: development of a metadata archival system for GRIL
+      when: 2017--
+  pdf:
+    - id: amacdonald
+      who: Andrew MacDonald
+      topic: deep learning for camera traps images analysis
+      when: 2018--
+    - id: mstock
+      who: Michiel Stock
+      topic: deep learning for ecological network prediction
+      when: 2017--2018
+  past:
+    - id: amuller
+      who: Amélie Muller
+      what: MSc
+      topic: conservation of plant-insect interaction networks
+      when: 2015
+    - id: rmckinnon
+      who: Renaud McKinnon
+      with: Dominique Gravel, Steven Kembell
+      what: MSc
+      when: 2013--2015
+      topic: interaction complementarity on root bacteria
+    - id: mlounnas
+      who: Manon Lounnas
+      with: Michael Hochberg
+      what: MSc
+      when: 2011
+      topic: structure of soil bacteria--phage systems
+    - id: glepennetier
+      who: Gildas Lepennetier
+      with: Michael Hochberg
+      what: MSc
+      when: 2010
+      topic: response of bacteria--phage systems to resource pulses
+...

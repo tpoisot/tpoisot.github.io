@@ -1,0 +1,51 @@
+---
+teaching:
+  - id: bio6036
+    when: starting 2019
+    where: Université de Montréal
+    what: Ecological network analysis
+    topic: Analysis of species interaction networks, simulations of networks dynamics
+  - id: bio6032
+    when: since 2018
+    where: Université de Montréal
+    what: Modeling and Computational Biology (graduate workshop)
+    topic: Moving from mathematical models to implementations, reproducible science
+    attendance: 5
+  - id: bio1001
+    when: since 2017
+    where: Université de Montréal
+    what: Research Methodology in Biology
+    topic: 1 credit introductory class, data manipulation, writing, ethics
+    attendance: 150
+  - id: bio3033
+    when: since 2017
+    where: Université de Montréal
+    what: Quantitative and Computational Methods for Biology
+    topic: Data management and QA/QC, machine learning, principles of data science
+    attendance: 15
+  - id: bio4000
+    when: 2015-2017
+    where: Université de Montréal
+    what: Scientific Communication
+    topic: Writing methodology, oral presentations, grant writing
+    attendance: 20
+  - id: summerschool
+    when: since 2016
+    where: Université de Montréal
+    what: Summer School in Computational Ecology
+    topic: Open data, ecological synthesis, relational databases management
+    attendance: 15
+  - id: uqarsummerschool
+    when: 2013, 2014
+    where: Université du Québec à Rimouski
+    what: Summer School in Ecological Modelling
+    role: co-instructor
+    topic: Overview of modeling techniques for ecological research
+    attendance: 15
+  - id: uqarpopbio
+    when: 2013
+    where: Université du Québec à Rimouski
+    what: Population Ecology
+    topic: Introduction to population biology
+    attendance: 50
+...

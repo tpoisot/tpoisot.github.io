@@ -1,0 +1,108 @@
+---
+societies:
+  - id: calculq
+    when: since 2017
+    what: Head scientist
+    where: ComputeQuébec at the Université de Montréal
+  - id: gril
+    when: since 2017
+    what: Member of the "Data Archival and Sharing Group"
+    where: Groupe de Recherche Interuniversitaire en Limnologie
+  - id: dataone
+    when: since 2016
+    what: Member of the "Community Education and Outreach working group"
+    where: DataONE
+  - id: asapbio
+    when: 2016--2017
+    what: Member of the "Central Preprint Repository Task Force"
+    where: ASAPbio
+  - id: sgpum
+    when: 2015--2017
+    what: Delegate
+    where: Syndicat Général des Professeurs de l'Université de Montréal
+  - id: innge
+    when: 2014--2016
+    what: Member of the steering comitee
+    where: International Network for Next-Generation Ecology
+  - id: sfe
+    when: 2013--2016
+    what: Administrator
+    where: Société Française d'Écologie
+  - id: qcbs
+    when: 2012--2014
+    what: Member of the steering comitee
+    where: Québec Centre for Biodiversity Sciences
+  - id: isem
+    when: 2010
+    what: Member of the direction comitee
+    where: Institut des Sciences de l'Évolution de Montpellier
+representation:
+  - id: easopenscichair
+    when: 2016--2017
+    what: Chair
+    where: Open Science Section, Ecological Society of America
+  - id: easopenscivc
+    when: 2015--2016
+    what: Vice-chair
+    where: Open Science Section, Ecological Society of America
+  - id: qcbsstudent
+    when: 2012--2013
+    what: Student representative
+    where: Québec Centre for Biodiversity Sciences
+  - id: sibaghe
+    when: 2009--2011
+    what: Student representative
+    where: SIBGAHE Graduate School
+  - id: isem
+    when: 2009--2011
+    what: Student representative
+    where: Institut des Sciences de l'Évolution de Montpellier
+departmental:
+  - id: search2
+    when: 2018
+    what: Search committee (Aquatic community ecology position)
+    where: U de M, Dept. of Biological Sciences
+  - id: search1
+    when: 2017
+    what: Search committee (Phyto-technology position)
+    where: U de M, Dept. of Biological Sciences
+  - id: health
+    when: 2017--
+    what: From data to action in health (micro-program) committee
+    where: U de M (multi-faculty)
+  - id: station
+    when: 2017--
+    what: Laurentians Biological Station science committee
+    where: U de M, Dept. of Biological Sciences
+  - id: diversite
+    when: 2017--
+    what: Diversity & Inclusiveness committee
+    where: U de M, Dept. of Biological Sciences
+  - id: fesp
+    when: 2017--
+    what: Financial support awards committee
+    where: U de M, Faculty of Graduate and Post-doctoral studies
+  - id: chargepro
+    when: 2016--2017
+    what: Workload committee
+    where: U de M, Dept. of Biological Sciences
+  - id: newfaculty
+    when: 2015--2016
+    what: New faculty committee
+    where: U de M, Dept. of Biological Sciences
+  - id: communication
+    when: 2015--
+    what: Communications committee
+    where: U de M, Dept. of Biological Sciences
+  - id: frqnt
+    when: 2015--
+    what: Doctoral fellowships jury (ecology/evolution)
+    where: FRQNT
+committees:
+    - beaumont
+    - lelievre
+    - harvey-lavoie
+    - badescu
+    - hermione
+    - boisclair_todo
+...

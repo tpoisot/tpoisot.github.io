@@ -1,0 +1,84 @@
+{
+    "name": "Grants and fellowships",
+    "items": [
+        {
+            "title": "VirusNet - designing a global viral surveillance institute",
+            "role": "participant",
+            "funder": "National Science Foundation",
+            "program": "Biology Integration Institute",
+            "date": "2020-2022",
+            "amount": 223000
+        },
+        {
+            "title": "Develop a rapid assessment pipeline to project global preparedness needs for the next SARS-like coronavirus pandemic",
+            "funder": "IVADO",
+            "date": "2020",
+            "amount": 45000
+        },
+        {
+            "title": "Finding general laws for ecology",
+            "funder": "Courtois foundation",
+            "date": "2019-2026",
+            "amount": 1000000
+        },
+        {
+            "title": "BIOS2 - Computational Biodiversity Sciences",
+            "role": "co-PI",
+            "funder": "NSERC",
+            "program": "CREATE",
+            "date": "2018-2024",
+            "amount": 1900000
+        },
+        {
+            "title": "Living Data - archival of historical ecological datasets",
+            "role": "co-PI",
+            "funder": "NSERC",
+            "program": "CREATE",
+            "date": "2020-2026",
+            "amount": 1200000
+        },
+        {
+            "title": "Computational Ecology Laboratory",
+            "funder": "Canadian Foundation for Innovation",
+            "program": "John Evans Fund",
+            "amount": 130000,
+            "date": "2016-2022"
+        },
+        {
+            "title": "Structural variability of ecological networks",
+            "funder": "NSERC",
+            "program": "Discovery",
+            "date": "2015-2021",
+            "amount": 130000
+        },
+        {
+            "title": "Statistical tools for spatial network analysis",
+            "funder": "FRQNT",
+            "program": "New Researcher",
+            "amount": 53000,
+            "date": "2015-2017"
+        },
+        {
+            "title": "Computational Ecology Laboratory",
+            "funder": "Université de Montréal",
+            "program": "Start-up fund",
+            "date": "2015",
+            "amount": 25000
+        },
+        {
+            "title": "Spatial variation of ecological networks",
+            "funder": "FRQNT",
+            "program": "PBEEE post-doctoral fellowship",
+            "date": "2012-2013",
+            "amount": 60000
+        },
+        {
+            "title": "Coevolution in antagonistic networks",
+            "funder": "CNRS",
+            "program": "Doctor/Engineer doctoral fellowship",
+            "date": "2008-2011",
+            "amount": 36000,
+            "devise": "EUR"
+        }
+    ]
+}
