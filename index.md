@@ -5,22 +5,15 @@ title: CV
 
 # Funding
 
-## Grants
+{% for category in site.data.funding %}
+{{ category }}
+{% assign cat = category[1] %}
+<h2>{{ category.name }}</h2>
 
 <ul>
-{% for entry in site.data.funding.grants %}
-   <li>
+{% for entry in cat.items %}
     {{ entry.title }}
-   </li>
 {% endfor %}
 </ul>
 
-## Research contracts
-
-<ul>
-{% for entry in site.data.funding.contracts %}
-   <li>
-    {{ entry.title }}
-   </li>
 {% endfor %}
-</ul>
