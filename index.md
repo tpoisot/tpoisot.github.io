@@ -31,6 +31,18 @@ title: CV
 
 # Publications
 
+<ul>
+{% for publication in site.data.publications %}
+    <li>
+    {% for author in publication.author %}
+        {{author.given}} {{author.family}}
+    {% endfor %}
+    {{ publication.title }}
+    {{ publication.DOI }}
+    </li>
+{% endfor %}
+</ul>
+
 # Presentations
 
 {% for category in site.data.talks %}
