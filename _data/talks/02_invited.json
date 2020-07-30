@@ -1,0 +1,25 @@
+{
+    "name": "Invited presentations and panels",
+    "items": [
+        {
+            "title": "Supercomputing our way to more accurate connectivity estimates",
+            "venue": "North American Congress for Conservation Biology",
+            "date": 2020
+        },
+        {
+            "title": "Computational biodiversity Sciences",
+            "venue": "ACFAS, Montréal",
+            "date": 2017
+        },
+        {
+            "title": "Computational ecology: challenges and opportunity",
+            "venue": "HPCS, Montréal",
+            "date": 2016
+        },
+        {
+            "title": "There is no big data in ecology",
+            "venue": "ESA, Ft. Lauderdale",
+            "date": 2015
+        }
+    ]
+}

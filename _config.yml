@@ -7,7 +7,7 @@ paginate_path: "blog/page:num"
 title: Timothée Poisot
 subtitle: Computational Ecologist
 author: Timothée Poisot
-production_url: http://timotheepoisot.fr
+production_url: http://tpoisot.github.io/
 
 markdown: kramdown
 

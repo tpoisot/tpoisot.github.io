@@ -1,0 +1,70 @@
+{
+    "name": "Invited seminars",
+    "items": [
+        {
+            "title": "Don't believe the hype: ecology is not ready for big data",
+            "venue": "Institut National de la Recherche Scientifique",
+            "date": 2018
+        },
+        {
+            "title": "Biogeography of food webs at the planetary scale",
+            "venue": "Université du Québec à Trois-Rivières",
+            "date": 2017
+        },
+        {
+            "title": "Biogeography of food webs at the planetary scale",
+            "venue": "Memorial University",
+            "date": 2017
+        },
+        {
+            "title": "Spatial and temporal variation of species interactions",
+            "venue": "Université du Québec à Montréal",
+            "date": 2016
+        },
+        {
+            "title": "Spatial and temporal variation of species interactions",
+            "venue": "Institut de Recherche en Biologie Végétale",
+            "date": 2016
+        },
+        {
+            "title": "Spatial and temporal variation of species interactions",
+            "venue": "Université de Montréal",
+            "date": 2016
+        },
+        {
+            "title": "Evolutionary dynamics of species interactions",
+            "venue": "Lincoln University",
+            "date": 2015
+        },
+        {
+            "title": "Evolutionary dynamics of species interactions",
+            "venue": "University of Canterbury / BlueFern supercomputing center",
+            "date": 2015
+        },
+        {
+            "title": "Coevolution in antagonistic networks",
+            "venue": "Université Pierre & Marie Curie",
+            "date": 2014
+        },
+        {
+            "title": "Macro-evolution of species interactions",
+            "venue": "EAWAG, ETH Zurich",
+            "date": 2013
+        },
+        {
+            "title": "The evolution of ecological specialization",
+            "venue": "Université du Québec à Rimouski",
+            "date": 2012
+        },
+        {
+            "title": "Inducible defenses against bacteriophage",
+            "venue": "University of Oxford",
+            "date": 2010
+        },
+        {
+            "title": "The evolution of ecological specialization",
+            "venue": "University of Edinburgh",
+            "date": 2010
+        }
+    ]
+}
