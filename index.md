@@ -10,9 +10,9 @@ title: CV
 <ul>
 {% for entry in site.data.metadata.positions %}
     <li>
-    {{ entry.rank }}
-    {{ entry.date }}
-    {{ entry.where }}
+    <date>{{ entry.date }}</date>
+    <role>{{ entry.rank }}</role><br />
+    <place>{{ entry.where }}</place>
     </li>
 {% endfor %}
 </ul>
@@ -22,9 +22,9 @@ title: CV
 <ul>
 {% for entry in site.data.metadata.education %}
     <li>
-    {{ entry.diploma }}
-    {{ entry.date }}
-    {{ entry.university }}
+    <date>{{ entry.date }}</date>
+    <thing>{{ entry.diploma }}</thing><br />
+    <place>{{ entry.university }}</place>
     </li>
 {% endfor %}
 </ul>
@@ -51,9 +51,9 @@ title: CV
 <ul>
 {% for entry in cat.items %}
     <li>
-    {{ entry.title }}
-    {{ entry.date }}
-    {{ entry.venue }}
+    <date>{{ entry.date }}</date>
+    <thing>{{ entry.title }}</thing><br />
+    <place>{{ entry.venue }}</place>
     </li>
 {% endfor%}
 </ul>
@@ -68,14 +68,27 @@ title: CV
 <ul>
 {% for entry in cat.items %}
     <li>
-        {{ entry.title }}
-        {{ entry.date }}
+        <date>{{ entry.date }}</date>
+        <thing>{{ entry.title }}</thing><br />
         {{ entry.funder }}
         {{ entry.program }}
-        {{ entry.amount }}
-        {{ entry.role }}
+        <br />
+        <amount>{{ entry.amount }} CAD</amount>{% if entry.role %} (as {{ entry.role }}){% endif %}
     </li>
 {% endfor %}
 </ul>
 
 {% endfor %}
+
+# Service
+
+## Editorial responsibilities
+
+<ul class="listing editorial">
+{% for entry in site.data.service.editorial %}
+    <li class="entry">
+    <role>{{ entry.role }}</role>, <journal>{{ entry.journal }}</journal>
+    <date>{{ entry.date }}</date>
+    </li>
+{% endfor %}
+</ul>
