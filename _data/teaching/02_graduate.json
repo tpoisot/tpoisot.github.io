@@ -1,5 +1,3 @@
----
-teaching:
   - id: bio6036
     when: starting 2019
     where: Université de Montréal
@@ -11,24 +9,6 @@ teaching:
     what: Modeling and Computational Biology (graduate workshop)
     topic: Moving from mathematical models to implementations, reproducible science
     attendance: 5
-  - id: bio1001
-    when: since 2017
-    where: Université de Montréal
-    what: Research Methodology in Biology
-    topic: 1 credit introductory class, data manipulation, writing, ethics
-    attendance: 150
-  - id: bio3033
-    when: since 2017
-    where: Université de Montréal
-    what: Quantitative and Computational Methods for Biology
-    topic: Data management and QA/QC, machine learning, principles of data science
-    attendance: 15
-  - id: bio4000
-    when: 2015-2017
-    where: Université de Montréal
-    what: Scientific Communication
-    topic: Writing methodology, oral presentations, grant writing
-    attendance: 20
   - id: summerschool
     when: since 2016
     where: Université de Montréal
@@ -48,4 +28,4 @@ teaching:
     what: Population Ecology
     topic: Introduction to population biology
     attendance: 50
-...
+.

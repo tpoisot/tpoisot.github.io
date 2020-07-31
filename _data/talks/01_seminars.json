@@ -2,6 +2,31 @@
     "name": "Invited seminars",
     "items": [
         {
+            "title": "Machine learning for ecology: opportunities and ethical challenges",
+            "venue": "Université de Sherbrooke",
+            "date": 2019
+        },
+        {
+            "title": "Opening Open Science - technical and social barriers",
+            "venue": "Université Laval - Takuvik",
+            "date": 2019
+        },
+        {
+            "title": "Machine learning for ecology: opportunities and ethical challenges",
+            "venue": "Université Laval - Québec Océan",
+            "date": 2019
+        },
+        {
+            "title": "Ecological networks: why, how, when, and where do they vary?",
+            "venue": "Institut Armand Frappier - INRS",
+            "date": 2019
+        },
+        {
+            "title": "Ecological networks: why, how, when, and where do they vary?",
+            "venue": "University of British Columbia",
+            "date": 2018
+        },
+        {
             "title": "Don't believe the hype: ecology is not ready for big data",
             "venue": "Institut National de la Recherche Scientifique",
             "date": 2018

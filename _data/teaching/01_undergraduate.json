@@ -1,0 +1,37 @@
+{
+    "name": "Undergraduate / Honors classes",
+    "items": [
+        {
+            "code": "bio3043",
+            "date": "2019-",
+            "institution": "Université de Montréal",
+            "title": "Ecological networks",
+            "description": "Introduction to the analysis of ecological networks",
+            "attendance": 12
+        },
+        {
+            "code": "bio1001",
+            "date": 2017,
+            "institution": "Université de Montréal",
+            "title": "Research Methodology in Biology",
+            "description": "1 credit introductory class, data manipulation, writing, ethics",
+            "attendance": 150
+        },
+        {
+            "code": "bio3033",
+            "date": "2017-",
+            "institution": "Université de Montréal",
+            "title": "Quantitative and Computational Methods for Biology",
+            "description": "Data management and QA/QC, machine learning, principles of data science",
+            "attendance": 15
+        },
+        {
+            "code": "bio4000",
+            "date": "2015-2017",
+            "institution": "Université de Montréal",
+            "title": "Scientific Communication",
+            "description": "Writing methodology, oral presentations, grant writing",
+            "attendance": 20
+        }
+    ]
+}

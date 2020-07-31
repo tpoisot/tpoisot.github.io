@@ -29,6 +29,26 @@ title: CV
 {% endfor %}
 </ul>
 
+# Teaching
+
+{% for category in site.data.teaching %}
+{% assign cat = category[1] %}
+<h2>{{ cat.name }}</h2>
+
+<ul>
+{% for entry in cat.items %}
+    <li>
+        <date>{{ entry.date }}</date>
+        <thing>{{ entry.title }}</thing><br />
+        <place>{{ entry.institution }} ({{ entry.code }})</place><br />
+        <description>{{ entry.description }} - about {{ entry.attendance }} students</description>
+        <br />
+    </li>
+{% endfor %}
+</ul>
+
+{% endfor %}
+
 # Publications
 
 <ul>
@@ -42,22 +62,6 @@ title: CV
     </li>
 {% endfor %}
 </ul>
-
-# Presentations
-
-{% for category in site.data.talks %}
-{% assign cat = category[1] %}
-<h2>{{ cat.name }}</h2>
-<ul>
-{% for entry in cat.items %}
-    <li>
-    <date>{{ entry.date }}</date>
-    <thing>{{ entry.title }}</thing><br />
-    <place>{{ entry.venue }}</place>
-    </li>
-{% endfor%}
-</ul>
-{% endfor %}
 
 # Funding
 
@@ -92,3 +96,19 @@ title: CV
     </li>
 {% endfor %}
 </ul>
+# Presentations
+
+{% for category in site.data.talks %}
+{% assign cat = category[1] %}
+<h2>{{ cat.name }}</h2>
+<ul>
+{% for entry in cat.items %}
+    <li>
+    <date>{{ entry.date }}</date>
+    <thing>{{ entry.title }}</thing><br />
+    <place>{{ entry.venue }}</place>
+    </li>
+{% endfor%}
+</ul>
+{% endfor %}
+
