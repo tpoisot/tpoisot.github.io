@@ -1,31 +1,46 @@
-  - id: bio6036
-    when: starting 2019
-    where: Université de Montréal
-    what: Ecological network analysis
-    topic: Analysis of species interaction networks, simulations of networks dynamics
-  - id: bio6032
-    when: since 2018
-    where: Université de Montréal
-    what: Modeling and Computational Biology (graduate workshop)
-    topic: Moving from mathematical models to implementations, reproducible science
-    attendance: 5
-  - id: summerschool
-    when: since 2016
-    where: Université de Montréal
-    what: Summer School in Computational Ecology
-    topic: Open data, ecological synthesis, relational databases management
-    attendance: 15
-  - id: uqarsummerschool
-    when: 2013, 2014
-    where: Université du Québec à Rimouski
-    what: Summer School in Ecological Modelling
-    role: co-instructor
-    topic: Overview of modeling techniques for ecological research
-    attendance: 15
-  - id: uqarpopbio
-    when: 2013
-    where: Université du Québec à Rimouski
-    what: Population Ecology
-    topic: Introduction to population biology
-    attendance: 50
-.
+{
+    "name": "Graduate classes and seminars",
+    "items": [
+        {
+            "code": "bio6036",
+            "date": "2019-",
+            "institution": "Université de Montréal",
+            "title": "Ecological network analysis",
+            "description": "Analysis of species interaction networks, simulations of networks dynamics",
+            "attendance": 6
+        },
+        {
+            "code": "bio6032",
+            "date": "2018-",
+            "institution": "Université de Montréal",
+            "title": "Modeling and Computational Biology",
+            "description": "Moving from mathematical models to implementations, reproducible science",
+            "attendance": 5
+        },
+        {
+            "code": "bio6065",
+            "date": "2016-",
+            "institution": "Université de Montréal",
+            "title": "Data-driven ecological synthesis",
+            "description": "Open data, ecological synthesis, relational databases management",
+            "attendance": 25
+        },
+        {
+            "code": "elective class",
+            "date": "2013-2014",
+            "institution": "Université du Québec à Rimouski",
+            "title": "Summer School in Ecological Modelling",
+            "description": "Overview of modeling techniques for ecological research",
+            "attendance": 15
+        },
+        {
+            "code": "bio25094",
+            "date": "2013",
+            "institution": "Université du Québec à Rimouski",
+            "title": "Population Biology",
+            "description": "Introduction to population biology",
+            "attendance": 50
+        }
+    ]
+} 
+
