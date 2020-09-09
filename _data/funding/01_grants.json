@@ -2,6 +2,14 @@
     "name": "Grants",
     "items": [
         {
+            "title": "Observation and forecasting system for biodiversity changes",
+            "role": "co-PI",
+            "funder": "NSERC",
+            "program": "Alliance",
+            "date": "2021-2026",
+            "amount": 2000000
+        },
+        {
             "title": "VirusNet - designing a global viral surveillance institute",
             "role": "participant",
             "funder": "National Science Foundation",
