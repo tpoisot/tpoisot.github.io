@@ -61,20 +61,6 @@ title: CV
 
 {% endfor %}
 
-# Publications
-
-<ul>
-{% for publication in site.data.publications %}
-    <li>
-    {% for author in publication.author %}
-        {{author.given}} {{author.family}}
-    {% endfor %}
-    {{ publication.title }}
-    {{ publication.DOI }}
-    </li>
-{% endfor %}
-</ul>
-
 # Funding
 
 {% for category in site.data.funding %}
@@ -108,11 +94,29 @@ title: CV
     </li>
 {% endfor %}
 </ul>
-# Presentations
+
+# Academic production
+
+## Publications
+
+<ul>
+{% for publication in site.data.publications %}
+    <li>
+    {% for author in publication.author %}
+        {{author.given}} {{author.family}}
+    {% endfor %}
+    {{ publication.title }}
+    {{ publication.DOI }}
+    </li>
+{% endfor %}
+</ul>
+
+
+## Presentations
 
 {% for category in site.data.talks %}
 {% assign cat = category[1] %}
-<h2>{{ cat.name }}</h2>
+<h3>{{ cat.name }}</h3>
 <ul>
 {% for entry in cat.items %}
     <li>
