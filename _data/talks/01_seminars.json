@@ -2,6 +2,21 @@
     "name": "Invited seminars",
     "items": [
         {
+            "title": "Revisiting the link-species scaling law in food webs",
+            "venue": "University of Canterbury",
+            "date": 2020
+        },
+        {
+            "title": "Revisiting the link-species scaling law in food webs",
+            "venue": "McGill University",
+            "date": 2019
+        },
+        {
+            "title": "High-performance landscape connectivity simulations",
+            "venue": "McGill University",
+            "date": 2019
+        },
+        {
             "title": "Machine learning for ecology: opportunities and ethical challenges",
             "venue": "Université de Sherbrooke",
             "date": 2019
