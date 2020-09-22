@@ -41,6 +41,18 @@ title: CV
 {% endfor %}
 </ul>
 
+## Additional training
+
+<ul>
+{% for entry in site.data.metadata.education %}
+    <li>
+    <date>{{ entry.date }}</date>
+    <thing>{{ entry.diploma }}</thing><br />
+    <place>{{ entry.university }}</place>
+    </li>
+{% endfor %}
+</ul>
+
 # Teaching
 
 {% for category in site.data.teaching %}

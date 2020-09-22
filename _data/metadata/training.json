@@ -1,0 +1,17 @@
+[
+    {
+        "date": "2017",
+        "diploma": "Mozilla Open Leader",
+        "university": "Mozilla Science Lab"
+    },
+    {
+        "date": "2016",
+        "diploma": "Certified instructor",
+        "university": "Data Carpentry"
+    },
+    {
+        "date": "2015",
+        "diploma": "Certified instructor",
+        "university": "Software Carpentry"
+    }
+]
