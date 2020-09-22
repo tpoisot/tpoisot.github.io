@@ -17,6 +17,18 @@ title: CV
 {% endfor %}
 </ul>
 
+## Affiliations
+
+<ul>
+{% for entry in site.data.metadata.memberships %}
+    <li>
+    <date>{{ entry.date }}</date>
+    <thing>{{ entry.rank }}</thing><br />
+    <place>{{ entry.center }}</place>
+    </li>
+{% endfor %}
+</ul>
+
 ## Education
 
 <ul>
