@@ -1,0 +1,61 @@
+{
+    "name": "Undegraduate students",
+    "items": [
+          {
+             "id": "afrappier",
+             "name": "Alexandrine Frappier",
+             "rank": "research assistant",
+             "thing": "artificial neural networks for camera traps images analysis",
+             "date": 2018
+          },
+          {
+             "id": "evinet",
+             "name": "Émilie Vinet",
+             "rank": "research assistant",
+             "thing": "historical trends in land-use in the Laurentians",
+             "date": 2018
+          },
+          {
+             "id": "gbonenfant",
+             "name": "Grégoire Bonenfant",
+             "rank": "research assistant",
+             "thing": "functional consequences of food web variability",
+             "date": 2017
+          },
+          {
+             "id": "zbelisle",
+             "name": "Zachary Belisle",
+             "rank": "BSc honors",
+             "thing": "NHST framework for ecological network analysis",
+             "date": 2017
+          },
+          {
+             "id": "cbenjamin",
+             "name": "Christophe Benjamin",
+             "rank": "research assistant",
+             "thing": "data-mining for automated phylogenetic reconstruction",
+             "date": 2017
+          },
+          {
+             "id": "dlecourstessier",
+             "name": "Daphnée Lecours-Tessier",
+             "rank": "research assistant",
+             "thing": "landscape/limnoscape connectivity planning",
+             "date": 2016
+          },
+          {
+             "id": "dcaron",
+             "name": "Dominique Caron",
+             "rank": "research assistant",
+             "thing": "historical trends in Québec biodiversity data",
+             "date": 2016
+          },
+          {
+             "id": "cguéveneuxjulien",
+             "name": "Cynthia Guéveneux-Julien",
+             "rank": "BSc honors",
+             "thing": "selection of indicator species for landscape management",
+             "date": 2016
+          }
+       ]
+    }

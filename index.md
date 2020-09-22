@@ -44,7 +44,7 @@ title: CV
 ## Additional training
 
 <ul>
-{% for entry in site.data.metadata.education %}
+{% for entry in site.data.metadata.training %}
     <li>
     <date>{{ entry.date }}</date>
     <thing>{{ entry.diploma }}</thing><br />
@@ -52,6 +52,26 @@ title: CV
     </li>
 {% endfor %}
 </ul>
+
+# Training and supervision
+
+{% for category in site.data.training %}
+{% assign cat = category[1] %}
+<h2>{{ cat.name }}</h2>
+
+<ul>
+{% for entry in cat.items %}
+    <li>
+        <date>{{ entry.date }}</date>
+        <name>{{ entry.name }}</name><br />
+        <place>{{ entry.rank }}</place><br />
+        <description>{{ entry.thing }}</description>
+        <br />
+    </li>
+{% endfor %}
+</ul>
+
+{% endfor %}
 
 # Teaching
 

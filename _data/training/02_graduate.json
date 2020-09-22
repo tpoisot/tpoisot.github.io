@@ -1,0 +1,92 @@
+{
+    "name": "Graduate students",
+    "items": [
+        {
+            "id": "svissault",
+            "name": "Steve Vissault",
+            "rank": "PhD",
+            "thing": "ontologies for species interactions data management",
+            "date": "2018--"
+         },
+         {
+            "id": "zbelisle",
+            "name": "Zachary Belisle",
+            "rank": "MSc",
+            "thing": "plant/insect beta-diversity over forest disturbance gradients",
+            "date": "2018--"
+         },
+         {
+            "id": "dlecourstessier",
+            "name": "Daphnée Lecours-Tessier",
+            "rank": "MSc",
+            "thing": "landscape/limnoscape connectivity evaluation",
+            "date": "2017--"
+         },
+         {
+            "id": "edelmas",
+            "name": "Eva Delmas",
+            "rank": "PhD",
+            "thing": "biodiversity, ecosystem functions, and food web structure",
+            "date": "2015--"
+         },
+         {
+            "id": "mbesson",
+            "name": "Mathilde Besson",
+            "rank": "PhD",
+            "thing": "responses to temperature and local adaptation in food webs",
+            "date": "2016--"
+         },
+         {
+            "id": "amuller",
+            "name": "Amélie Muller",
+            "rank": "MSc",
+            "thing": "conservation of plant-insect interaction networks",
+            "date": 2015
+         },
+         {
+            "id": "rmckinnon",
+            "name": "Renaud McKinnon",
+            "with": "Dominique Gravel, Steven Kembell",
+            "rank": "MSc",
+            "date": "2013--2015",
+            "thing": "interaction complementarity on root bacteria"
+         },
+         {
+            "id": "mlounnas",
+            "name": "Manon Lounnas",
+            "with": "Michael Hochberg",
+            "rank": "MSc",
+            "date": 2011,
+            "thing": "structure of soil bacteria--phage systems"
+         },
+         {
+            "id": "glepennetier",
+            "name": "Gildas Lepennetier",
+            "with": "Michael Hochberg",
+            "rank": "MSc",
+            "date": 2010,
+            "thing": "response of bacteria--phage systems to resource pulses"
+         },
+         {
+            "id": "ghigino",
+            "name": "Gracielle Higino",
+            "rank": "PhD",
+            "thing": "ecological networks assembly over gradients",
+            "date": "2018--"
+         },
+         {
+            "id": "sprefontaine",
+            "name": "Stéphanie Préfontaine",
+            "rank": "MSc",
+            "thing": "metabolic theory in bacterial adaptation",
+            "date": "2017--"
+         },
+         {
+            "id": "pdesjardinsproulx",
+            "name": "Philippe Desjardins-Proulx",
+            "rank": "PhD",
+            "thing": "artificial intelligence in ecology",
+            "date": "2013--2018"
+         }
+    ]
+}

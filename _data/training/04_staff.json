@@ -1,0 +1,17 @@
+{
+    "name": "Staff researchers",
+    "items": [
+        {
+            "id": "svissault",
+            "name": "Steve Vissault",
+            "thing": "database development for species interaction networks",
+            "date": "2017--2018"
+         },
+         {
+            "id": "ebeaulieu",
+            "name": "Éric Beaulieu",
+            "thing": "development of a metadata archival system for GRIL",
+            "date": "2017--"
+         }
+    ]
+}

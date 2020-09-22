@@ -1,0 +1,17 @@
+{
+    "name": "Post-doctoral scientists",
+    "items": [
+        {
+            "id": "amacdonald",
+            "name": "Andrew MacDonald",
+            "thing": "deep learning for camera traps images analysis",
+            "date": "2018--"
+         },
+         {
+            "id": "mstock",
+            "name": "Michiel Stock",
+            "thing": "deep learning for ecological network prediction",
+            "date": "2017--2018"
+         }
+    ]
+}
