@@ -1,5 +1,7 @@
 ---
 societies:
+  - id: CNCCODATA
+    when: since 2020
   - id: calculq
     when: since 2017
     what: Head scientist
