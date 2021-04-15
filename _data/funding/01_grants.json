@@ -2,6 +2,30 @@
     "name": "Grants",
     "items": [
         {
+            "title": "Reconciling machine learning, empirical data, and ecological knowledge Infections",
+            "role": "PI",
+            "funder": "NSERC",
+            "program": "Discovery accelerator supplement",
+            "date": "2021-2023",
+            "amount": 120000
+        },
+        {
+            "title": "Reconciling machine learning, empirical data, and ecological knowledge Infections",
+            "role": "PI",
+            "funder": "NSERC",
+            "program": "Discovery",
+            "date": "2021-2025",
+            "amount": 165000
+        },
+        {
+            "title": "One Health Modelling Network for Emerging Infections (OMNI)",
+            "role": "participant",
+            "funder": "NSERC",
+            "program": "EIDM",
+            "date": "2021-2023",
+            "amount": 2500000
+        },
+        {
             "title": "Observation and forecasting system for biodiversity changes",
             "role": "co-PI",
             "funder": "NSERC",
