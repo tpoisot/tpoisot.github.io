@@ -44,12 +44,14 @@
         {
             "title": "Develop a rapid assessment pipeline to project global preparedness needs for the next SARS-like coronavirus pandemic",
             "funder": "IVADO",
+            "role": "PI",
             "date": "2020",
             "amount": 45000
         },
         {
             "title": "Finding general laws for ecology",
             "funder": "Courtois foundation",
+            "role": "PI",
             "date": "2019-2026",
             "amount": 1000000
         },
@@ -73,6 +75,7 @@
             "title": "Computational Ecology Laboratory",
             "funder": "Canadian Foundation for Innovation",
             "program": "John Evans Fund",
+            "role": "PI",
             "amount": 130000,
             "date": "2016-2022"
         },
@@ -80,6 +83,7 @@
             "title": "Structural variability of ecological networks",
             "funder": "NSERC",
             "program": "Discovery",
+            "role": "PI",
             "date": "2015-2021",
             "amount": 130000
         },
@@ -87,6 +91,7 @@
             "title": "Statistical tools for spatial network analysis",
             "funder": "FRQNT",
             "program": "New Researcher",
+            "role": "PI",
             "amount": 53000,
             "date": "2015-2017"
         },
@@ -94,6 +99,7 @@
             "title": "Computational Ecology Laboratory",
             "funder": "Université de Montréal",
             "program": "Start-up fund",
+            "role": "PI",
             "date": "2015",
             "amount": 25000
         }
