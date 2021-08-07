@@ -2,6 +2,14 @@
     "name": "Grants",
     "items": [
         {
+            "title": "Coupling biodiversity and ecosystem models for efficient biodiversity monitoring",
+            "role": "PI",
+            "funder": "Wellcome",
+            "program": "Discretionary award",
+            "date": "2021-2023",
+            "amount": 481000
+        },
+        {
             "title": "Reconciling machine learning, empirical data, and ecological knowledge Infections",
             "role": "PI",
             "funder": "NSERC",
