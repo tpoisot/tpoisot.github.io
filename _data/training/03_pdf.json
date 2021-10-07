@@ -2,10 +2,28 @@
     "name": "Post-doctoral scientists",
     "items": [
         {
+            "id": "alicedoucetbeaupre",
+            "name": "Alice Doucet-Beaupré",
+            "thing": "unsupervised learning for the inference of biotic interactions",
+            "date": "2022-2024"
+        },
+        {
+            "id": "karinorman",
+            "name": "Kari Norman",
+            "thing": "large-scale ecosystem modeling for biodiversity monitoring",
+            "date": "2022-2024"
+        },
+        {
+            "id": "phdp",
+            "name": "Philippe Desjardins-Proulx",
+            "thing": "probabilistic lambda calculus for ecological rules inference",
+            "date": "2019--2022"
+        },
+        {
             "id": "amacdonald",
             "name": "Andrew MacDonald",
             "thing": "deep learning for camera traps images analysis",
-            "date": "2018--"
+            "date": "2018--2020"
          },
          {
             "id": "mstock",
