@@ -2,6 +2,14 @@
     "name": "Grants",
     "items": [
         {
+            "title": "Development of Essential Biodiversity Variables and Ecosystem Functioning Indicator for species interactions",
+            "role": "PI",
+            "funder": "Québec Centre for Biodiversity Science",
+            "program": "Knowledge to Action projects",
+            "date": "2021-2022",
+            "amount": 20000
+        },
+        {
             "title": "Coupling biodiversity and ecosystem models for efficient biodiversity monitoring",
             "role": "PI",
             "funder": "Wellcome",
