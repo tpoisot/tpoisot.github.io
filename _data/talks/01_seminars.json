@@ -2,9 +2,19 @@
     "name": "Invited seminars",
     "items": [
         {
-            "title": "Revisiting the link-species scaling law in food webs",
-            "venue": "University of Canterbury",
-            "date": 2020
+            "title": "The theory of national data infrastructure and the reality of scale (keynote)",
+            "venue": "Digital Research Alliance of Canada",
+            "date": 2022
+        },
+        {
+            "title": "Introduction to Open Leadership for distributed machine learning projects",
+            "venue": "IVADO",
+            "date": 2022
+        },
+        {
+            "title": "Machine learning: what is its role in pandemic prediction and prevention?",
+            "venue": "Université de Montréal",
+            "date": 2022
         },
         {
             "title": "Revisiting the link-species scaling law in food webs",

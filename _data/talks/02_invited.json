@@ -2,6 +2,16 @@
     "name": "Invited presentations and panels",
     "items": [
         {
+            "title": "Infering missing interaction data through transfer learning of graph embeddings",
+            "venue": "ESA/CSEE joint meeting",
+            "date": 2022
+        },
+        {
+            "title": "Infering missing interaction data through transfer learning of graph embeddings",
+            "venue": "Ecological Society of Japan annual meeting",
+            "date": 2022
+        },
+        {
             "title": "Supercomputing our way to more accurate connectivity estimates",
             "venue": "North American Congress for Conservation Biology",
             "date": 2020
