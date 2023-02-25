@@ -1,0 +1,12 @@
+<span class="daterange">
+{{ if isset . "to" }}
+From
+{{ else }}
+Since
+{{ end }}
+<span class="datestart date">{{ time.Format "Jan. 2006" .from }}</span>
+{{ if isset . "to" }}
+to
+<span class="datestop date">{{ time.Format "Jan. 2006" .to }}</span>
+{{ end }}
+</span>

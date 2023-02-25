@@ -1,0 +1,50 @@
+[
+    {
+        "at": "Ecography",
+        "what": "Guest Editor-in-Chief",
+        "from": "2022-05-01",
+        "to": "2023-06-01",
+        "context": "Special issue on the macroecology of diseases"
+    },
+    {
+        "at": "Ecology Letters",
+        "what": "Subject editor",
+        "from": "2019-05-01"
+    },
+    {
+        "at": "PLOS Biology",
+        "what": "Guest academic editor",
+        "from": "2017-06-01",
+        "to": "2017-06-01",
+        "context": "Handling of submissions on ecological networks"
+    },
+    {
+        "at": "[Re]Science",
+        "what": "Subject editor",
+        "from": "2016-02-01"
+    },
+    {
+        "at": "Functional Ecology",
+        "what": "Guest Editor-in-Chief",
+        "from": "2016-01-01",
+        "to": "2016-06-01",
+        "context": "Virtual issue on ecological networks"
+    },
+    {
+        "at": "PLOS Computational Biology",
+        "what": "Sofware editor",
+        "from": "2015-03-01",
+        "to": "2020-09-01"
+    },
+    {
+        "at": "Methods in Ecology & Evolution",
+        "what": "Sofware editor",
+        "from": "2015-02-01"
+    },
+    {
+        "at": "Biodiversity Data Journal",
+        "what": "Subject editor",
+        "from": "2014-06-01",
+        "to": "2016-07-01"
+    }
+]

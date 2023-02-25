@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+<section id="header">
+    <div class="information">
+        <span class="name">Timothée Poisot, <em>Ph.D.</em></span><br />
+        <span class="what">Computational Ecologist</span><br />
+        <span class="contact">firstname.lastname@umontreal.ca</span>
+    </div>
+    <img src="/tpoisot.jpeg" alt="Timothée Poisot" class="headshot" />
+</section>
+
+<section id="metadata">
+
+    <h2>General information</h2>
+
+    <h3>Appointments</h3>
+
+    {{ range sort $.Site.Data.me.positions "from" "desc" }}
+    {{ partial "me/positions.html" . }}
+    {{ end }}
+
+
+    <h3>Education</h3>
+
+    {{ range sort $.Site.Data.me.education "from" "desc" }}
+    {{ partial "me/education.html" . }}
+    {{ end }}
+
+</section>
+
+<section id="service">
+    <h2>Academic citizenship</h2>
+
+    <h3>Professional memberships</h3>
+    
+    {{ range sort $.Site.Data.service.memberships "from" "desc" }}
+    {{ partial "service/memberships.html" . }}
+    {{ end }}
+
+    <h3>Editorial duties</h3>
+    
+    {{ range sort $.Site.Data.service.editorial "from" "desc" }}
+    {{ partial "service/memberships.html" . }}
+    {{ end }}
+</section>
+
+<section id="outputs">
+    <h2>Publications</h2>
+
+    {{ $publications := .Site.Data.publications }}
+    
+    {{ $idyear := newScratch }}
+    {{ range $publication := $publications }}
+    {{ $year := index $publication.issued "date-parts" 0 0 | int }}
+    {{ $month := index $publication.issued "date-parts" 0 1 | int }}
+    {{ $day := index $publication.issued "date-parts" 0 1 | int }}
+    {{ $fyear := printf "%04d" (sub $year 3000)}}
+    {{ $fmonth := printf "%02d" (sub $month 12) }}
+    {{ $fday := printf "%02d" (sub $day 31) }}
+    {{ $date := print $fyear "-" $fmonth "-" $fday "-" $publication.id | string}}
+    {{ $idyear.SetInMap "date" $date $publication.id }}
+    {{ end }}
+    
+    {{ $.Scratch.Set "index" (len $publications) }}
+    {{ range $DateSort, $id := ($idyear.Get "date") }}
+    {{ range $pub := $publications }}
+    {{ if eq $pub.id $id }}
+    {{ $year := index $pub.issued "date-parts" 0 0 | string }}
+    <div>
+    <b>{{ $.Scratch.Get "index" }}. </b> {{ $pub.title }}
+    </div>
+    {{ $.Scratch.Set "index" (sub ($.Scratch.Get "index") 1) }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    
+
+</section>
+
+{{ end }}

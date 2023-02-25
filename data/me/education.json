@@ -1,0 +1,37 @@
+[
+    {
+        "from": "2008-09-01",
+        "to": "2011-11-09",
+        "diploma": "Ph.D.",
+        "in": "Microbiology & Parasitology",
+        "at": "Université Montpellier 2"
+    },
+    {
+        "from": "2007-09-01",
+        "to": "2008-06-30",
+        "diploma": "M.Sc.",
+        "at": "Université Montpellier 2",
+        "in": "Ecology & Epidemiology of Parasitism"
+    },
+    {
+        "from": "2006-09-01",
+        "to": "2007-06-30",
+        "diploma": "Maîtrise",
+        "in": "Immunology of Infectious Diseases",
+        "at": "Université de Versailles-Saint-Quentin-en-Yvelines"
+    },
+    {
+        "from": "2005-09-01",
+        "to": "2006-06-30",
+        "diploma": "B.Sc.",
+        "at": "Université d'Evry-Val-d'Essonnes",
+        "in": "Physiology & Cellular Biology"
+    },
+    {
+        "from": "2003-09-01",
+        "to": "2005-06-30",
+        "diploma": "Certificate",
+        "at": "Université d'Evry-Val-d'Essonnes",
+        "in": "Physiology and Cellular Biology"
+    }
+]

@@ -1,0 +1,4 @@
+<!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
+{{ $sass := resources.Get "sass/main.scss" }}
+{{ $style := $sass | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">

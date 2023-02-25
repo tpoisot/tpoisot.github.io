@@ -1,0 +1,29 @@
+[
+    {
+        "from": "2020-06-01",
+        "what": "Associate Professor of Quantitative and Computational Ecology",
+        "at": "Université de Montréal",
+        "context": "Département de Sciences Biologiques"
+    },
+    {
+        "from": "2015-01-05",
+        "to": "2020-06-01",
+        "what": "Assistant Professor of Quantitative and Computational Ecology",
+        "at": "Université de Montréal",
+        "context": "Département de Sciences Biologiques"
+    },
+    {
+        "from": "2014-03-01",
+        "to": "2014-12-31",
+        "what": "Post-doctoral fellow, computational evolutionary macroecology",
+        "at": "University of Canterbury",
+        "context": "School of Biological Sciences"
+    },
+    {
+        "from": "2011-11-01",
+        "to": "2014-02-28",
+        "what": "Post-doctoral fellow, computational biogeography",
+        "at": "Université du Québec à Rimouski",
+        "context": "Département de Biologie, Chimie, et Géographie"
+    }
+]
