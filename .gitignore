@@ -2,3 +2,4 @@ _site/
 _drafts/
 *.css.map
 .jekyll-cache/
+.hugo_build.lock
