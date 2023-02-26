@@ -1,10 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap");
-* {
-  font-family: "Libre Caslon Text";
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+#content {
+  font-family: "Gentium Plus";
+  font-size: 1.15rem;
   color: #101010; }
+  #content h1,
+  #content h2,
+  #content h3,
+  #content h4 {
+    font-family: "Libre Franklin"; }
+  #content h2 {
+    color: #404040;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-weight: 500; }
+  #content h3 {
+    color: #505050;
+    font-weight: 400; }
 
 html {
-  background-color: #f3f5f4;
+  background-color: #f6f6f6;
   margin: 0 0;
   padding: 0 0; }
 
@@ -14,18 +29,8 @@ body {
   margin: 0px auto;
   padding: 3rem; }
 
-h2 {
-  color: #404040;
-  font-variant: small-caps; }
-
-h3 {
-  color: #606060; }
-
 .entry {
   padding-bottom: 2rem; }
-
-.place {
-  font-weight: 400; }
 
 .thing {
   font-weight: 700; }
