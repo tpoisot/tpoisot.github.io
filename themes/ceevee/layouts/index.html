@@ -66,8 +66,8 @@
     {{ range $pub := $publications }}
     {{ if eq $pub.id $id }}
     {{ $year := index $pub.issued "date-parts" 0 0 | string }}
-    <div>
-    <b>{{ $.Scratch.Get "index" }}. </b> {{ $pub.title }}
+    <div class="publication">
+    <b>{{ $.Scratch.Get "index" }}. </b> {{ partial "article.html" $pub }}
     </div>
     {{ $.Scratch.Set "index" (sub ($.Scratch.Get "index") 1) }}
     {{ end }}

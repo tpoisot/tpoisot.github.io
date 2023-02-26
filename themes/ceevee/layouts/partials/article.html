@@ -1,0 +1,6 @@
+<span class="authors">{{ range .author }}<span class="author">{{ .given }}&nbsp;{{ .family }}</span>{{ end }}</span>
+<span class="date">({{ (index (index (index .issued "date-parts") 0) 0) }})</span>
+<q class="title">{{ .title }}</q>;
+<span class="in"><a href="{{ .URL }}" title="Link to the full text" target="_blank">{{ (index . "container-title") }}</a></span>.
+
+
