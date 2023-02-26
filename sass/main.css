@@ -57,3 +57,16 @@ body {
     border-radius: 8rem;
     filter: grayscale(1);
     filter: drop-shadow(0 0 0.2rem black); }
+
+.publication .author + .author::before {
+  content: ", "; }
+
+.publication .in {
+  font-style: italic; }
+
+.publication a {
+  color: #0C6291;
+  text-decoration: underline;
+  text-decoration-color: #cecece; }
+  .publication a:hover {
+    text-decoration-color: #0C6291; }
