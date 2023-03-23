@@ -2,6 +2,14 @@
     "name": "Grants",
     "items": [
         {
+            "title": "(TBA)",
+            "role": "co-PI",
+            "funder": "FRQ",
+            "program": "PRISME",
+            "date": "2023-2025",
+            "amount": 20000
+        },
+        {
             "title": "Development of Essential Biodiversity Variables and Ecosystem Functioning Indicator for species interactions",
             "role": "PI",
             "funder": "Québec Centre for Biodiversity Science",
